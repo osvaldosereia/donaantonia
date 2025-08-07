@@ -105,9 +105,13 @@
 </head>
 <body class="bg-gray-100 p-4">
     <div class="container mx-auto max-w-4xl bg-white rounded-xl shadow-lg p-6 md:p-8">
-        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8 rounded-lg p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md">
-            Nosso Catálogo de Produtos
-        </h1>
+        <!-- Cabeçalho com espaço para a logo -->
+        <div class="text-center mb-8">
+            <img src="https://placehold.co/200x80/cccccc/333333?text=SUA+LOGO" alt="Logo da Empresa" class="mx-auto mb-4 rounded-lg shadow-md">
+            <h1 class="text-4xl font-extrabold text-gray-800 rounded-lg p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md">
+                Catálogo de Produtos
+            </h1>
+        </div>
 
         <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Os cartões de produto serão gerados dinamicamente aqui pelo JavaScript -->
@@ -130,7 +134,8 @@
                 <button id="next-image-btn" class="carousel-button next">&#10095;</button>
             </div>
 
-            <p id="detail-product-description" class="text-gray-700 text-lg mb-4 leading-relaxed"></p>
+            <!-- Descrição como lista ou texto -->
+            <div id="detail-product-description-container" class="text-gray-700 text-lg mb-4 leading-relaxed"></div>
             
             <!-- Botão para gerar descrição detalhada com Gemini API -->
             <button id="generate-description-btn" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200 ease-in-out shadow-md flex items-center justify-center mb-6 w-full">
@@ -138,14 +143,16 @@
                 <span id="loading-spinner" class="loading-spinner hidden"></span>
             </button>
 
-            <div class="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-4 rounded-lg mb-6 shadow-sm">
-                <span class="text-2xl font-extrabold text-blue-700 mb-2 sm:mb-0">Valor: <span id="detail-product-price"></span></span>
-                <button class="bg-green-600 text-white py-3 px-8 rounded-lg text-xl font-semibold hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-lg">
-                    ENCOMENDAR
-                </button>
+            <!-- Seção de Preços (dinâmica para produtos com múltiplas opções) -->
+            <div id="detail-product-price-container" class="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-4 rounded-lg mb-6 shadow-sm">
+                <!-- Conteúdo de preço será inserido aqui pelo JavaScript -->
             </div>
 
-            <!-- Seção de "Produtos Relacionados" ou "Mais Detalhes" (exemplo) -->
+            <a id="whatsapp-order-btn" href="#" target="_blank" class="block w-full text-center bg-green-600 text-white py-3 px-8 rounded-lg text-xl font-semibold hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-lg">
+                ENCOMENDAR
+            </a>
+
+            <!-- Seção de "Mais Detalhes" (mantida do exemplo anterior) -->
             <div class="mt-8 pt-6 border-t border-gray-200">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mais Detalhes</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-2">
@@ -164,46 +171,100 @@
             {
                 id: 'smartphone-ultra',
                 name: 'Smartphone Ultra',
-                description: 'Um smartphone de última geração com câmera de alta resolução e bateria de longa duração. Perfeito para o dia a dia e para quem busca performance. Possui tela AMOLED, processador octa-core e 128GB de armazenamento.',
+                description: [
+                    'Tela AMOLED de 6.7 polegadas',
+                    'Câmera principal de 108MP',
+                    'Bateria de 5000mAh com carregamento rápido',
+                    'Processador Octa-core de última geração',
+                    '128GB de armazenamento interno'
+                ],
                 price: 'R$ 2.999,00',
                 images: [
                     'https://placehold.co/600x400/007bff/ffffff?text=Smartphone+Ultra+1',
                     'https://placehold.co/600x400/007bff/ffffff?text=Smartphone+Ultra+2',
                     'https://placehold.co/600x400/007bff/ffffff?text=Smartphone+Ultra+3'
-                ]
+                ],
+                whatsappMessage: 'QUERO ENCOMENDAR O Smartphone Ultra por R$ 2.999,00'
             },
             {
                 id: 'fone-ouvido-premium',
                 name: 'Fone de Ouvido Premium',
-                description: 'Experimente um som imersivo com cancelamento de ruído ativo. Ideal para música, chamadas e viagens. Conforto garantido com almofadas macias e design ergonômico. Conectividade Bluetooth 5.2.',
+                description: [
+                    'Cancelamento de ruído ativo avançado',
+                    'Qualidade de som Hi-Res Audio',
+                    'Conforto ergonômico para uso prolongado',
+                    'Até 30 horas de bateria',
+                    'Conectividade Bluetooth 5.2'
+                ],
                 price: 'R$ 799,00',
                 images: [
                     'https://placehold.co/600x400/28a745/ffffff?text=Fone+Ouvido+1',
                     'https://placehold.co/600x400/28a745/ffffff?text=Fone+Ouvido+2',
                     'https://placehold.co/600x400/28a745/ffffff?text=Fone+Ouvido+3'
-                ]
+                ],
+                whatsappMessage: 'QUERO ENCOMENDAR O Fone de Ouvido Premium por R$ 799,00'
             },
             {
                 id: 'smartwatch-esportivo',
                 name: 'Smartwatch Esportivo',
-                description: 'Monitore sua saúde e atividades físicas com este smartwatch resistente à água. Compatível com Android e iOS. Funções como monitor de batimentos cardíacos, contador de passos e GPS integrado.',
+                description: [
+                    'Monitoramento de batimentos cardíacos 24/7',
+                    'GPS integrado para rastreamento de atividades',
+                    'Resistência à água (5 ATM)',
+                    'Compatível com Android e iOS',
+                    'Múltiplos modos esportivos'
+                ],
                 price: 'R$ 1.250,00',
                 images: [
                     'https://placehold.co/600x400/dc3545/ffffff?text=Smartwatch+1',
                     'https://placehold.co/600x400/dc3545/ffffff?text=Smartwatch+2',
                     'https://placehold.co/600x400/dc3545/ffffff?text=Smartwatch+3'
-                ]
+                ],
+                whatsappMessage: 'QUERO ENCOMENDAR O Smartwatch Esportivo por R$ 1.250,00'
             },
             {
                 id: 'laptop-ultrabook',
                 name: 'Laptop Ultrabook',
-                description: 'Leve e potente, ideal para trabalho e estudo. Processador rápido e tela de alta definição. Design elegante e bateria de longa duração, perfeito para mobilidade.',
+                description: [
+                    'Design ultrafino e leve',
+                    'Processador Intel Core i7 de 12ª Geração',
+                    '16GB de RAM e 512GB SSD',
+                    'Tela Full HD de 14 polegadas',
+                    'Bateria de longa duração (até 10 horas)'
+                ],
                 price: 'R$ 4.500,00',
                 images: [
                     'https://placehold.co/600x400/ffc107/ffffff?text=Laptop+1',
                     'https://placehold.co/600x400/ffc107/ffffff?text=Laptop+2',
                     'https://placehold.co/600x400/ffc107/ffffff?text=Laptop+3'
-                ]
+                ],
+                whatsappMessage: 'QUERO ENCOMENDAR O Laptop Ultrabook por R$ 4.500,00'
+            },
+            {
+                id: 'cesta-grande-koblenz',
+                name: 'Cesta Grande Koblenz',
+                description: [
+                    'Arroz Koblenz - 5kg',
+                    'Arroz Camil - 5kg',
+                    'Feijão Carioca - 1kg',
+                    'Açúcar Refinado - 1kg',
+                    'Óleo de Soja - 900ml',
+                    'Café Torrado e Moído - 250g',
+                    'Sal Refinado - 1kg',
+                    'Macarrão Espaguete - 500g',
+                    'Molho de Tomate - 340g'
+                ],
+                price: 'R$ 390,00', // Preço principal para o card
+                priceOptions: [ // Opções de preço para arroz
+                    { label: 'Arroz Koblenz (5kg)', value: 'R$ 39,90' },
+                    { label: 'Arroz Camil (5kg)', value: 'R$ 42,50' }
+                ],
+                images: [
+                    'https://placehold.co/600x400/800080/ffffff?text=Cesta+Koblenz+1',
+                    'https://placehold.co/600x400/800080/ffffff?text=Cesta+Koblenz+2',
+                    'https://placehold.co/600x400/800080/ffffff?text=Cesta+Koblenz+3'
+                ],
+                whatsappMessage: 'QUERO ENCOMENDAR A CESTA GRANDE KOBLENS DE 390'
             }
         ];
 
@@ -212,13 +273,14 @@
         const productDetailModal = document.getElementById('product-detail-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
         const detailProductTitle = document.getElementById('detail-product-title');
-        const detailProductDescription = document.getElementById('detail-product-description');
-        const detailProductPrice = document.getElementById('detail-product-price');
+        const detailProductDescriptionContainer = document.getElementById('detail-product-description-container'); // Container para a descrição
+        const detailProductPriceContainer = document.getElementById('detail-product-price-container'); // Container para os preços
         const carouselImagesDiv = document.getElementById('carousel-images');
         const prevImageBtn = document.getElementById('prev-image-btn');
         const nextImageBtn = document.getElementById('next-image-btn');
         const generateDescriptionBtn = document.getElementById('generate-description-btn');
         const loadingSpinner = document.getElementById('loading-spinner');
+        const whatsappOrderBtn = document.getElementById('whatsapp-order-btn'); // Botão WhatsApp
 
         let currentProductImages = []; // Armazena as imagens do produto atualmente exibido
         let currentImageIndex = 0; // Índice da imagem atual no carrossel
@@ -236,9 +298,8 @@
                     <img src="${product.images[0]}" alt="${product.name} - Imagem Principal" class="w-full h-48 object-cover rounded-t-xl">
                     <div class="p-5">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h2>
-                        <p class="text-gray-600 text-sm leading-relaxed truncate">${product.description}</p>
                         <button class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out shadow-md">
-                            Ver Detalhes
+                            VER PRODUTOS
                         </button>
                     </div>
                 `;
@@ -258,13 +319,51 @@
             
             // Preenche os detalhes do produto no modal
             detailProductTitle.textContent = product.name;
-            detailProductDescription.textContent = product.description;
-            detailProductPrice.textContent = product.price;
+            
+            // Renderiza a descrição como lista ou texto
+            detailProductDescriptionContainer.innerHTML = ''; // Limpa o container
+            if (Array.isArray(product.description)) {
+                const ul = document.createElement('ul');
+                ul.classList.add('list-disc', 'list-inside', 'text-gray-700', 'space-y-1');
+                product.description.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    ul.appendChild(li);
+                });
+                detailProductDescriptionContainer.appendChild(ul);
+            } else {
+                const p = document.createElement('p');
+                p.classList.add('text-gray-700', 'text-lg', 'mb-4', 'leading-relaxed');
+                p.textContent = product.description;
+                detailProductDescriptionContainer.appendChild(p);
+            }
+
+            // Renderiza as opções de preço
+            detailProductPriceContainer.innerHTML = ''; // Limpa o container
+            if (product.priceOptions && product.priceOptions.length > 0) {
+                const priceHtml = product.priceOptions.map(option => `
+                    <span class="text-xl font-medium text-gray-800">${option.label}: <span class="font-extrabold text-blue-700">${option.value}</span></span>
+                `).join('<br>'); // Adiciona quebra de linha entre as opções
+                detailProductPriceContainer.innerHTML = `
+                    <div class="flex flex-col items-start w-full">
+                        ${priceHtml}
+                    </div>
+                `;
+            } else {
+                detailProductPriceContainer.innerHTML = `
+                    <span class="text-2xl font-extrabold text-blue-700">Valor: <span id="detail-product-price">${product.price}</span></span>
+                `;
+            }
 
             // Configura o carrossel
             currentProductImages = product.images;
             currentImageIndex = 0;
             updateCarousel();
+
+            // Configura o botão do WhatsApp
+            const whatsappNumber = '65984491018';
+            const encodedMessage = encodeURIComponent(product.whatsappMessage);
+            whatsappOrderBtn.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
             // Exibe o modal
             productDetailModal.classList.remove('hidden');
@@ -321,7 +420,7 @@
 
             const prompt = `Gere uma descrição de produto detalhada e atraente para o seguinte produto:
             Nome: ${currentProduct.name}
-            Descrição atual: ${currentProduct.description}
+            Descrição atual: ${Array.isArray(currentProduct.description) ? currentProduct.description.join(', ') : currentProduct.description}
             Preço: ${currentProduct.price}
             
             Foque em benefícios, características únicas e como ele pode melhorar a vida do usuário. O texto deve ser persuasivo e com cerca de 100-150 palavras.`;
@@ -357,16 +456,17 @@
                         result.candidates[0].content && result.candidates[0].content.parts &&
                         result.candidates[0].content.parts.length > 0) {
                         const newDescription = result.candidates[0].content.parts[0].text;
-                        detailProductDescription.textContent = newDescription; // Atualiza a descrição no modal
+                        // Atualiza a descrição no modal como um parágrafo simples se for gerada
+                        detailProductDescriptionContainer.innerHTML = `<p class="text-gray-700 text-lg mb-4 leading-relaxed">${newDescription}</p>`;
                         break; // Sai do loop se a chamada for bem-sucedida
                     } else {
-                        detailProductDescription.textContent = 'Erro ao gerar descrição. Tente novamente.';
+                        detailProductDescriptionContainer.innerHTML = '<p class="text-red-500">Erro ao gerar descrição. Tente novamente.</p>';
                         console.error('Estrutura de resposta inesperada:', result);
                         break;
                     }
                 } catch (error) {
                     console.error('Erro ao chamar a API Gemini:', error);
-                    detailProductDescription.textContent = 'Erro de conexão. Tente novamente.';
+                    detailProductDescriptionContainer.innerHTML = '<p class="text-red-500">Erro de conexão. Tente novamente.</p>';
                     break;
                 }
             }
