@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Produtos</title>
-    <!-- Inclui o Tailwind CSS para estilização fácil e responsiva -->
+    <title>Meu Catálogo de Links do Google Docs</title>
+    <!-- Inclui o Tailwind CSS para estilização responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Define a fonte Inter para todo o corpo do documento */
@@ -12,472 +12,783 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; /* Cor de fundo suave */
         }
-        /* Estilo para o modal de detalhes do produto */
-        .product-detail-modal {
-            position: fixed;
-            top: 0;
+        /* Estilos para o botão de rolagem para o topo */
+        #backToTopBtn {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Posição fixa na tela */
+            bottom: 20px; /* 20px do fundo */
+            right: 20px; /* 20px da direita */
+            z-index: 99; /* Acima de outros elementos */
+            border: none; /* Sem borda */
+            outline: none; /* Sem contorno ao focar */
+            background-color: #4f46e5; /* Cor de fundo do botão */
+            color: white; /* Cor do texto */
+            cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+            padding: 15px; /* Preenchimento interno */
+            border-radius: 50%; /* Borda arredondada para formar um círculo */
+            font-size: 18px; /* Tamanho da fonte */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+            transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+        }
+        #backToTopBtn:hover {
+            background-color: #4338ca; /* Cor de fundo mais escura ao passar o mouse */
+        }
+        /* Estilo para o modal de confirmação */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Posição fixa na tela */
+            z-index: 100; /* Acima de tudo */
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000; /* Garante que o modal fique acima de outros elementos */
-            overflow-y: auto; /* Permite rolagem se o conteúdo for muito grande */
+            top: 0;
+            width: 100%; /* Largura total */
+            height: 100%; /* Altura total */
+            overflow: auto; /* Habilita rolagem se necessário */
+            background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
         }
         .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
-        /* Estilo para o carrossel */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px; /* Largura máxima para o carrossel */
-            margin: 0 auto 1.5rem auto;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out; /* Transição suave para as imagens */
-        }
-        .carousel-images img {
-            width: 100%;
-            height: 300px; /* Altura fixa para as imagens do carrossel */
-            object-fit: cover;
-            flex-shrink: 0; /* Impede que as imagens encolham */
-            border-radius: 0.75rem;
-        }
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 0.75rem 1rem;
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
             cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 9999px; /* Botões redondos */
-            transition: background-color 0.3s ease;
-            user-select: none; /* Impede seleção de texto */
-        }
-        .carousel-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .carousel-button.prev {
-            left: 1rem;
-        }
-        .carousel-button.next {
-            right: 1rem;
-        }
-        /* Estilo para o indicador de carregamento */
-        .loading-spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #3b82f6; /* Cor do spinner */
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 0.5rem;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4">
-    <div class="container mx-auto max-w-4xl bg-white rounded-xl shadow-lg p-6 md:p-8">
-        <!-- Cabeçalho com espaço para a logo -->
-        <div class="text-center mb-8">
-            <img src="https://placehold.co/200x80/cccccc/333333?text=SUA+LOGO" alt="Logo da Empresa" class="mx-auto mb-4 rounded-lg shadow-md">
-            <h1 class="text-4xl font-extrabold text-gray-800 rounded-lg p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md">
-                Catálogo de Produtos
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <header class="bg-indigo-700 text-white p-4 shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-bold mb-2 md:mb-0 rounded-md">
+                <span class="p-2 bg-indigo-800 rounded-md shadow-lg">Meu Catálogo de Links</span>
             </h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li>
+                        <a href="#encontrar-links" id="tabEncontrarLinks" class="text-lg rounded-md p-2 bg-indigo-600 transition-colors duration-300">Encontrar Links</a>
+                    </li>
+                    <li>
+                        <a href="#indicar-links" id="tabIndicarLinks" class="text-lg rounded-md p-2 hover:bg-indigo-600 transition-colors duration-300">Indicar Links</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Os cartões de produto serão gerados dinamicamente aqui pelo JavaScript -->
-        </div>
-    </div>
+    <main class="container mx-auto p-4 flex-grow">
+        <!-- Seção de Visualização Pública (Encontrar Links) -->
+        <section id="public-view-section" class="bg-white p-6 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Encontrar Links</h2>
 
-    <!-- Modal de Detalhes do Produto (inicialmente escondido) -->
-    <div id="product-detail-modal" class="product-detail-modal hidden">
-        <div class="modal-content w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold">&times;</button>
-
-            <h2 id="detail-product-title" class="text-3xl font-bold text-gray-900 mb-4 text-center"></h2>
-
-            <!-- Carrossel de Imagens -->
-            <div class="carousel-container">
-                <div id="carousel-images" class="carousel-images">
-                    <!-- Imagens do carrossel serão inseridas aqui pelo JavaScript -->
-                </div>
-                <button id="prev-image-btn" class="carousel-button prev">&#10094;</button>
-                <button id="next-image-btn" class="carousel-button next">&#10095;</button>
+            <div class="mb-6">
+                <label for="publicSelectCategory" class="block text-gray-700 text-sm font-bold mb-2">Escolha uma Categoria:</label>
+                <select id="publicSelectCategory" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="">Selecione uma Categoria</option>
+                </select>
             </div>
 
-            <!-- Descrição como lista ou texto -->
-            <div id="detail-product-description-container" class="text-gray-700 text-lg mb-4 leading-relaxed"></div>
-            
-            <!-- Botão para gerar descrição detalhada com Gemini API -->
-            <button id="generate-description-btn" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200 ease-in-out shadow-md flex items-center justify-center mb-6 w-full">
-                ✨ Gerar Descrição Detalhada
-                <span id="loading-spinner" class="loading-spinner hidden"></span>
+            <div class="mb-6">
+                <label for="publicSelectSubcategory" class="block text-gray-700 text-sm font-bold mb-2">Escolha uma Subcategoria:</label>
+                <select id="publicSelectSubcategory" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="">Selecione uma Subcategoria</option>
+                </select>
+            </div>
+
+            <button id="searchArticlesBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 mb-6">
+                Buscar Artigos
             </button>
 
-            <!-- Seção de Preços (dinâmica para produtos com múltiplas opções) -->
-            <div id="detail-product-price-container" class="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-4 rounded-lg mb-6 shadow-sm">
-                <!-- Conteúdo de preço será inserido aqui pelo JavaScript -->
+            <div id="publicLinksDisplay" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Links filtrados serão exibidos aqui -->
+                <p id="publicNoLinksMessage" class="text-gray-500 text-center col-span-full">Carregando dados...</p>
+                <p id="publicLoadingMessage" class="text-gray-500 text-center col-span-full hidden"></p>
+            </div>
+        </section>
+
+        <!-- Seção de Administração (Indicar Links) -->
+        <section id="admin-section" class="bg-white p-6 rounded-lg shadow-xl mb-8 hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Indicar Links (Painel de Administração)</h2>
+
+            <!-- Adicionar Categoria -->
+            <div class="mb-6 border-b pb-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Gerenciar Categorias</h3>
+                <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <input type="text" id="newCategoryName" placeholder="Nome da nova categoria" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button id="addCategoryBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Adicionar Categoria
+                    </button>
+                </div>
+                <div id="categoryListAdmin" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Categorias administráveis serão listadas aqui -->
+                </div>
             </div>
 
-            <a id="whatsapp-order-btn" href="#" target="_blank" class="block w-full text-center bg-green-600 text-white py-3 px-8 rounded-lg text-xl font-semibold hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-lg">
-                ENCOMENDAR
-            </a>
+            <!-- Adicionar Subcategoria -->
+            <div class="mb-6 border-b pb-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Gerenciar Subcategorias</h3>
+                <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <select id="selectCategoryForSub" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">Selecione uma Categoria</option>
+                    </select>
+                    <input type="text" id="newSubcategoryName" placeholder="Nome da nova subcategoria" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button id="addSubcategoryBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Adicionar Subcategoria
+                    </button>
+                </div>
+                <div id="subcategoryListAdmin" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Subcategorias administráveis serão listadas aqui -->
+                </div>
+            </div>
 
-            <!-- Seção de "Mais Detalhes" (mantida do exemplo anterior) -->
-            <div class="mt-8 pt-6 border-t border-gray-200">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mais Detalhes</h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Material de alta qualidade e durabilidade.</li>
-                    <li>Garantia de 1 ano contra defeitos de fabricação.</li>
-                    <li>Entrega rápida para todo o Brasil.</li>
-                    <li>Suporte ao cliente 24/7.</li>
-                </ul>
+            <!-- Adicionar Link -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Adicionar Novo Link</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="selectCategoryForLink" class="block text-gray-700 text-sm font-bold mb-2">Categoria:</label>
+                        <select id="selectCategoryForLink" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Selecione uma Categoria</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="selectSubcategoryForLink" class="block text-gray-700 text-sm font-bold mb-2">Subcategoria:</label>
+                        <select id="selectSubcategoryForLink" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Selecione uma Subcategoria</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="linkTitle" class="block text-gray-700 text-sm font-bold mb-2">Título do Documento:</label>
+                        <input type="text" id="linkTitle" placeholder="Ex: Relatório Mensal" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label for="linkUrl" class="block text-gray-700 text-sm font-bold mb-2">URL do Google Doc:</label>
+                        <input type="url" id="linkUrl" placeholder="Ex: https://docs.google.com/document/d/..." class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                </div>
+                <button id="addLinkBtn" class="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Adicionar Link
+                </button>
+            </div>
+            <div id="messageBoxAdmin" class="mt-4 p-3 text-sm text-center rounded-lg hidden"></div>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-700 text-white p-4 text-center mt-8 shadow-inner">
+        <p>&copy; 2025 Meu Catálogo de Links. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão de rolagem para o topo -->
+    <button id="backToTopBtn" title="Voltar ao Topo">
+        &#9650; <!-- Seta para cima -->
+    </button>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modalMessage" class="mb-4 text-lg"></p>
+            <div class="flex justify-center space-x-4">
+                <button id="confirmYesBtn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">Sim</button>
+                <button id="confirmNoBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Não</button>
             </div>
         </div>
     </div>
 
-    <script>
-        // Array de objetos de produtos com suas informações e imagens
-        const products = [
-            {
-                id: 'smartphone-ultra',
-                name: 'Smartphone Ultra',
-                description: [
-                    'Tela AMOLED de 6.7 polegadas',
-                    'Câmera principal de 108MP',
-                    'Bateria de 5000mAh com carregamento rápido',
-                    'Processador Octa-core de última geração',
-                    '128GB de armazenamento interno'
-                ],
-                price: 'R$ 2.999,00',
-                images: [
-                    'https://placehold.co/600x400/007bff/ffffff?text=Smartphone+Ultra+1',
-                    'https://placehold.co/600x400/007bff/ffffff?text=Smartphone+Ultra+2',
-                    'https://placehold.co/600x400/007bff/ffffff?text=Smartphone+Ultra+3'
-                ],
-                whatsappMessage: 'QUERO ENCOMENDAR O Smartphone Ultra por R$ 2.999,00'
-            },
-            {
-                id: 'fone-ouvido-premium',
-                name: 'Fone de Ouvido Premium',
-                description: [
-                    'Cancelamento de ruído ativo avançado',
-                    'Qualidade de som Hi-Res Audio',
-                    'Conforto ergonômico para uso prolongado',
-                    'Até 30 horas de bateria',
-                    'Conectividade Bluetooth 5.2'
-                ],
-                price: 'R$ 799,00',
-                images: [
-                    'https://placehold.co/600x400/28a745/ffffff?text=Fone+Ouvido+1',
-                    'https://placehold.co/600x400/28a745/ffffff?text=Fone+Ouvido+2',
-                    'https://placehold.co/600x400/28a745/ffffff?text=Fone+Ouvido+3'
-                ],
-                whatsappMessage: 'QUERO ENCOMENDAR O Fone de Ouvido Premium por R$ 799,00'
-            },
-            {
-                id: 'smartwatch-esportivo',
-                name: 'Smartwatch Esportivo',
-                description: [
-                    'Monitoramento de batimentos cardíacos 24/7',
-                    'GPS integrado para rastreamento de atividades',
-                    'Resistência à água (5 ATM)',
-                    'Compatível com Android e iOS',
-                    'Múltiplos modos esportivos'
-                ],
-                price: 'R$ 1.250,00',
-                images: [
-                    'https://placehold.co/600x400/dc3545/ffffff?text=Smartwatch+1',
-                    'https://placehold.co/600x400/dc3545/ffffff?text=Smartwatch+2',
-                    'https://placehold.co/600x400/dc3545/ffffff?text=Smartwatch+3'
-                ],
-                whatsappMessage: 'QUERO ENCOMENDAR O Smartwatch Esportivo por R$ 1.250,00'
-            },
-            {
-                id: 'laptop-ultrabook',
-                name: 'Laptop Ultrabook',
-                description: [
-                    'Design ultrafino e leve',
-                    'Processador Intel Core i7 de 12ª Geração',
-                    '16GB de RAM e 512GB SSD',
-                    'Tela Full HD de 14 polegadas',
-                    'Bateria de longa duração (até 10 horas)'
-                ],
-                price: 'R$ 4.500,00',
-                images: [
-                    'https://placehold.co/600x400/ffc107/ffffff?text=Laptop+1',
-                    'https://placehold.co/600x400/ffc107/ffffff?text=Laptop+2',
-                    'https://placehold.co/600x400/ffc107/ffffff?text=Laptop+3'
-                ],
-                whatsappMessage: 'QUERO ENCOMENDAR O Laptop Ultrabook por R$ 4.500,00'
-            },
-            {
-                id: 'cesta-grande-koblenz',
-                name: 'Cesta Grande Koblenz',
-                description: [
-                    'Arroz Koblenz - 5kg',
-                    'Arroz Camil - 5kg',
-                    'Feijão Carioca - 1kg',
-                    'Açúcar Refinado - 1kg',
-                    'Óleo de Soja - 900ml',
-                    'Café Torrado e Moído - 250g',
-                    'Sal Refinado - 1kg',
-                    'Macarrão Espaguete - 500g',
-                    'Molho de Tomate - 340g'
-                ],
-                price: 'R$ 390,00', // Preço principal para o card
-                priceOptions: [ // Opções de preço para arroz
-                    { label: 'Arroz Koblenz (5kg)', value: 'R$ 39,90' },
-                    { label: 'Arroz Camil (5kg)', value: 'R$ 42,50' }
-                ],
-                images: [
-                    'https://placehold.co/600x400/800080/ffffff?text=Cesta+Koblenz+1',
-                    'https://placehold.co/600x400/800080/ffffff?text=Cesta+Koblenz+2',
-                    'https://placehold.co/600x400/800080/ffffff?text=Cesta+Koblenz+3'
-                ],
-                whatsappMessage: 'QUERO ENCOMENDAR A CESTA GRANDE KOBLENS DE 390'
-            }
-        ];
+    <script type="module">
+        // Importa as funções necessárias do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, collection, query, orderBy, onSnapshot, addDoc, setDoc, deleteDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Referências aos elementos HTML
-        const productListDiv = document.getElementById('product-list');
-        const productDetailModal = document.getElementById('product-detail-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const detailProductTitle = document.getElementById('detail-product-title');
-        const detailProductDescriptionContainer = document.getElementById('detail-product-description-container'); // Container para a descrição
-        const detailProductPriceContainer = document.getElementById('detail-product-price-container'); // Container para os preços
-        const carouselImagesDiv = document.getElementById('carousel-images');
-        const prevImageBtn = document.getElementById('prev-image-btn');
-        const nextImageBtn = document.getElementById('next-image-btn');
-        const generateDescriptionBtn = document.getElementById('generate-description-btn');
-        const loadingSpinner = document.getElementById('loading-spinner');
-        const whatsappOrderBtn = document.getElementById('whatsapp-order-btn'); // Botão WhatsApp
+        // Variáveis globais fornecidas pelo ambiente Canvas
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
 
-        let currentProductImages = []; // Armazena as imagens do produto atualmente exibido
-        let currentImageIndex = 0; // Índice da imagem atual no carrossel
-        let currentProduct = null; // Armazena o produto atualmente exibido no modal
+        // Inicializa o Firebase
+        let app;
+        let db;
+        let auth;
+        let currentUser = null; // Usado para operações de Firestore
+        let currentUserId = null;
+        let isAuthReady = false; // Flag para indicar se a autenticação foi inicializada
 
-        // Função para renderizar os cartões de produto
-        function renderProductCards() {
-            productListDiv.innerHTML = ''; // Limpa a lista existente
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('product-card', 'bg-white', 'rounded-xl', 'shadow-md', 'overflow-hidden', 'transform', 'transition', 'duration-300', 'hover:scale-105', 'hover:shadow-xl', 'cursor-pointer');
-                productCard.dataset.productId = product.id; // Armazena o ID do produto para fácil acesso
+        // Referências aos elementos do DOM
+        const tabEncontrarLinks = document.getElementById('tabEncontrarLinks');
+        const tabIndicarLinks = document.getElementById('tabIndicarLinks');
+        const publicViewSection = document.getElementById('public-view-section');
+        const adminSection = document.getElementById('admin-section');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        const messageBoxAdmin = document.getElementById('messageBoxAdmin');
 
-                productCard.innerHTML = `
-                    <img src="${product.images[0]}" alt="${product.name} - Imagem Principal" class="w-full h-48 object-cover rounded-t-xl">
-                    <div class="p-5">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h2>
-                        <button class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out shadow-md">
-                            VER PRODUTOS
-                        </button>
-                    </div>
-                `;
-                productListDiv.appendChild(productCard);
+        // Elementos do painel de administração
+        const newCategoryNameInput = document.getElementById('newCategoryName');
+        const addCategoryBtn = document.getElementById('addCategoryBtn');
+        const categoryListAdmin = document.getElementById('categoryListAdmin');
 
-                // Adiciona o evento de clique ao cartão inteiro
-                productCard.addEventListener('click', () => openProductDetail(product.id));
-            });
+        const selectCategoryForSub = document.getElementById('selectCategoryForSub');
+        const newSubcategoryNameInput = document.getElementById('newSubcategoryName');
+        const addSubcategoryBtn = document.getElementById('addSubcategoryBtn');
+        const subcategoryListAdmin = document.getElementById('subcategoryListAdmin');
+
+        const selectCategoryForLink = document.getElementById('selectCategoryForLink');
+        const selectSubcategoryForLink = document.getElementById('selectSubcategoryForLink');
+        const linkTitleInput = document.getElementById('linkTitle');
+        const linkUrlInput = document.getElementById('linkUrl');
+        const addLinkBtn = document.getElementById('addLinkBtn');
+
+        // Elementos da visualização pública
+        const publicSelectCategory = document.getElementById('publicSelectCategory');
+        const publicSelectSubcategory = document.getElementById('publicSelectSubcategory');
+        const searchArticlesBtn = document.getElementById('searchArticlesBtn');
+        const publicLinksDisplay = document.getElementById('publicLinksDisplay');
+        const publicNoLinksMessage = document.getElementById('publicNoLinksMessage');
+        const publicLoadingMessage = document.getElementById('publicLoadingMessage');
+
+        // Modal de confirmação
+        const confirmationModal = document.getElementById('confirmationModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const confirmYesBtn = document.getElementById('confirmYesBtn');
+        const confirmNoBtn = document.getElementById('confirmNoBtn');
+        const closeModalBtn = document.querySelector('.close-button');
+
+        let confirmActionCallback = null; // Callback para a ação a ser confirmada
+
+        // Função para exibir o modal de confirmação
+        function showConfirmationModal(message, callback) {
+            modalMessage.textContent = message;
+            confirmActionCallback = callback;
+            confirmationModal.style.display = 'flex'; // Usa flex para centralizar
         }
 
-        // Função para abrir o modal de detalhes do produto
-        function openProductDetail(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return; // Se o produto não for encontrado, sai da função
-
-            currentProduct = product; // Define o produto atual
-            
-            // Preenche os detalhes do produto no modal
-            detailProductTitle.textContent = product.name;
-            
-            // Renderiza a descrição como lista ou texto
-            detailProductDescriptionContainer.innerHTML = ''; // Limpa o container
-            if (Array.isArray(product.description)) {
-                const ul = document.createElement('ul');
-                ul.classList.add('list-disc', 'list-inside', 'text-gray-700', 'space-y-1');
-                product.description.forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = item;
-                    ul.appendChild(li);
-                });
-                detailProductDescriptionContainer.appendChild(ul);
-            } else {
-                const p = document.createElement('p');
-                p.classList.add('text-gray-700', 'text-lg', 'mb-4', 'leading-relaxed');
-                p.textContent = product.description;
-                detailProductDescriptionContainer.appendChild(p);
+        // Event listeners para o modal
+        confirmYesBtn.addEventListener('click', () => {
+            if (confirmActionCallback) {
+                confirmActionCallback(true);
             }
+            confirmationModal.style.display = 'none';
+        });
 
-            // Renderiza as opções de preço
-            detailProductPriceContainer.innerHTML = ''; // Limpa o container
-            if (product.priceOptions && product.priceOptions.length > 0) {
-                const priceHtml = product.priceOptions.map(option => `
-                    <span class="text-xl font-medium text-gray-800">${option.label}: <span class="font-extrabold text-blue-700">${option.value}</span></span>
-                `).join('<br>'); // Adiciona quebra de linha entre as opções
-                detailProductPriceContainer.innerHTML = `
-                    <div class="flex flex-col items-start w-full">
-                        ${priceHtml}
-                    </div>
-                `;
-            } else {
-                detailProductPriceContainer.innerHTML = `
-                    <span class="text-2xl font-extrabold text-blue-700">Valor: <span id="detail-product-price">${product.price}</span></span>
-                `;
+        confirmNoBtn.addEventListener('click', () => {
+            if (confirmActionCallback) {
+                confirmActionCallback(false);
             }
+            confirmationModal.style.display = 'none';
+        });
 
-            // Configura o carrossel
-            currentProductImages = product.images;
-            currentImageIndex = 0;
-            updateCarousel();
-
-            // Configura o botão do WhatsApp
-            const whatsappNumber = '65984491018';
-            const encodedMessage = encodeURIComponent(product.whatsappMessage);
-            whatsappOrderBtn.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-            // Exibe o modal
-            productDetailModal.classList.remove('hidden');
-        }
-
-        // Função para fechar o modal
         closeModalBtn.addEventListener('click', () => {
-            productDetailModal.classList.add('hidden');
+            confirmationModal.style.display = 'none';
         });
 
-        // Fecha o modal ao clicar fora dele
-        productDetailModal.addEventListener('click', (event) => {
-            if (event.target === productDetailModal) {
-                productDetailModal.classList.add('hidden');
+        window.addEventListener('click', (event) => {
+            if (event.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
             }
         });
 
-        // Função para atualizar as imagens do carrossel
-        function updateCarousel() {
-            carouselImagesDiv.innerHTML = ''; // Limpa as imagens existentes
-            currentProductImages.forEach((imageSrc, index) => {
-                const img = document.createElement('img');
-                img.src = imageSrc;
-                img.alt = `Imagem ${index + 1} do produto`;
-                // Esconde as imagens que não são a atual
-                img.classList.add('w-full', 'h-full', 'object-cover', 'rounded-xl');
-                if (index !== currentImageIndex) {
-                    img.style.display = 'none';
-                }
-                carouselImagesDiv.appendChild(img);
-            });
-            // Ajusta a posição do carrossel para mostrar a imagem atual
-            carouselImagesDiv.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+        // Estrutura para armazenar os dados do Firestore
+        let allCategories = []; // Array de objetos de categoria com suas subcategorias e links
+
+        // Função para exibir mensagens ao usuário (no painel de administração)
+        function showMessage(message, type = 'info') {
+            messageBoxAdmin.textContent = message;
+            messageBoxAdmin.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700', 'bg-blue-100', 'text-blue-700');
+            if (type === 'success') {
+                messageBoxAdmin.classList.add('bg-green-100', 'text-green-700');
+            } else if (type === 'error') {
+                messageBoxAdmin.classList.add('bg-red-100', 'text-red-700');
+            } else {
+                messageBoxAdmin.classList.add('bg-blue-100', 'text-blue-700');
+            }
+            setTimeout(() => {
+                messageBoxAdmin.classList.add('hidden');
+            }, 3000);
         }
 
-        // Navegação do carrossel
-        prevImageBtn.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex - 1 + currentProductImages.length) % currentProductImages.length;
-            updateCarousel();
-        });
+        // --- Funções de Interação com Firestore ---
 
-        nextImageBtn.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex + 1) % currentProductImages.length;
-            updateCarousel();
-        });
-
-        // Função para chamar a API Gemini e gerar a descrição
-        generateDescriptionBtn.addEventListener('click', async () => {
-            if (!currentProduct) return;
-
-            // Mostra o spinner de carregamento
-            loadingSpinner.classList.remove('hidden');
-            generateDescriptionBtn.disabled = true; // Desabilita o botão para evitar cliques múltiplos
-
-            const prompt = `Gere uma descrição de produto detalhada e atraente para o seguinte produto:
-            Nome: ${currentProduct.name}
-            Descrição atual: ${Array.isArray(currentProduct.description) ? currentProduct.description.join(', ') : currentProduct.description}
-            Preço: ${currentProduct.price}
-            
-            Foque em benefícios, características únicas e como ele pode melhorar a vida do usuário. O texto deve ser persuasivo e com cerca de 100-150 palavras.`;
-
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // Deixe como está, a chave será fornecida pelo ambiente
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-            let retries = 0;
-            const maxRetries = 5;
-            const baseDelay = 1000; // 1 segundo
-
-            while (retries < maxRetries) {
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (response.status === 429) { // Too Many Requests
-                        const delay = baseDelay * Math.pow(2, retries) + Math.random() * 1000; // Atraso exponencial com jitter
-                        console.warn(`Too many requests. Retrying in ${delay / 1000} seconds...`);
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        retries++;
-                        continue;
-                    }
-
-                    const result = await response.json();
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const newDescription = result.candidates[0].content.parts[0].text;
-                        // Atualiza a descrição no modal como um parágrafo simples se for gerada
-                        detailProductDescriptionContainer.innerHTML = `<p class="text-gray-700 text-lg mb-4 leading-relaxed">${newDescription}</p>`;
-                        break; // Sai do loop se a chamada for bem-sucedida
-                    } else {
-                        detailProductDescriptionContainer.innerHTML = '<p class="text-red-500">Erro ao gerar descrição. Tente novamente.</p>';
-                        console.error('Estrutura de resposta inesperada:', result);
-                        break;
-                    }
-                } catch (error) {
-                    console.error('Erro ao chamar a API Gemini:', error);
-                    detailProductDescriptionContainer.innerHTML = '<p class="text-red-500">Erro de conexão. Tente novamente.</p>';
-                    break;
-                }
+        // Adicionar Categoria
+        async function addCategory() {
+            const name = newCategoryNameInput.value.trim();
+            if (!name) {
+                showMessage('Por favor, insira um nome para a categoria.', 'error');
+                return;
             }
 
-            // Esconde o spinner de carregamento e reabilita o botão
-            loadingSpinner.classList.add('hidden');
-            generateDescriptionBtn.disabled = false;
+            try {
+                await addDoc(collection(db, `artifacts/${appId}/public/data/categories`), {
+                    name: name,
+                    createdAt: new Date(),
+                    userId: currentUserId // Associa a categoria ao usuário Firebase anônimo
+                });
+                showMessage('Categoria adicionada com sucesso!', 'success');
+                newCategoryNameInput.value = '';
+                // Força a atualização dos dados após a adição
+                listenForCategories();
+            } catch (e) {
+                console.error("Erro ao adicionar categoria: ", e);
+                showMessage('Erro ao adicionar categoria.', 'error');
+            }
+        }
+
+        // Deletar Categoria
+        async function deleteCategory(categoryId) {
+            showConfirmationModal('Tem certeza que deseja excluir esta categoria e todo o seu conteúdo (subcategorias e links)?', async (confirmed) => {
+                if (confirmed) {
+                    try {
+                        // Para deletar uma categoria, precisamos deletar suas subcoleções (subcategorias e links)
+                        // Firestore não deleta subcoleções automaticamente.
+                        // Primeiro, pegamos todas as subcategorias
+                        const subcategoriesQuery = query(collection(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories`));
+                        const subcategoriesSnapshot = await getDocs(subcategoriesQuery);
+
+                        for (const subDoc of subcategoriesSnapshot.docs) {
+                            const subcategoryId = subDoc.id;
+                            // Para cada subcategoria, pegamos todos os links
+                            const linksQuery = query(collection(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories/${subcategoryId}/links`));
+                            const linksSnapshot = await getDocs(linksQuery);
+                            for (const linkDoc of linksSnapshot.docs) {
+                                await deleteDoc(doc(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories/${subcategoryId}/links`, linkDoc.id));
+                            }
+                            // Deleta a subcategoria
+                            await deleteDoc(doc(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories`, subcategoryId));
+                        }
+                        // Finalmente, deleta a categoria
+                        await deleteDoc(doc(db, `artifacts/${appId}/public/data/categories`, categoryId));
+                        showMessage('Categoria e conteúdo deletados com sucesso!', 'success');
+                        // Força a atualização dos dados após a exclusão
+                        listenForCategories();
+                    } catch (e) {
+                        console.error("Erro ao deletar categoria: ", e);
+                        showMessage('Erro ao deletar categoria.', 'error');
+                    }
+                }
+            });
+        }
+
+        // Adicionar Subcategoria
+        async function addSubcategory() {
+            const categoryId = selectCategoryForSub.value;
+            const name = newSubcategoryNameInput.value.trim();
+            if (!categoryId || !name) {
+                showMessage('Por favor, selecione uma categoria e insira um nome para a subcategoria.', 'error');
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories`), {
+                    name: name,
+                    createdAt: new Date(),
+                    userId: currentUserId
+                });
+                showMessage('Subcategoria adicionada com sucesso!', 'success');
+                newSubcategoryNameInput.value = '';
+                // Força a atualização dos dados após a adição
+                listenForCategories();
+            } catch (e) {
+                console.error("Erro ao adicionar subcategoria: ", e);
+                showMessage('Erro ao adicionar subcategoria.', 'error');
+            }
+        }
+
+        // Deletar Subcategoria
+        async function deleteSubcategory(categoryId, subcategoryId) {
+            showConfirmationModal('Tem certeza que deseja excluir esta subcategoria e todos os seus links?', async (confirmed) => {
+                if (confirmed) {
+                    try {
+                        // Primeiro, pegamos todos os links da subcategoria
+                        const linksQuery = query(collection(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories/${subcategoryId}/links`));
+                        const linksSnapshot = await getDocs(linksQuery);
+                        for (const linkDoc of linksSnapshot.docs) {
+                            await deleteDoc(doc(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories/${subcategoryId}/links`, linkDoc.id));
+                        }
+                        // Depois, deleta a subcategoria
+                        await deleteDoc(doc(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories`, subcategoryId));
+                        showMessage('Subcategoria e links deletados com sucesso!', 'success');
+                        // Força a atualização dos dados após a exclusão
+                        listenForCategories();
+                    } catch (e) {
+                        console.error("Erro ao deletar subcategoria: ", e);
+                        showMessage('Erro ao deletar subcategoria.', 'error');
+                    }
+                }
+            });
+        }
+
+        // Adicionar Link
+        async function addLink() {
+            const categoryId = selectCategoryForLink.value;
+            const subcategoryId = selectSubcategoryForLink.value;
+            const title = linkTitleInput.value.trim();
+            const url = linkUrlInput.value.trim();
+
+            if (!categoryId || !subcategoryId || !title || !url) {
+                showMessage('Por favor, selecione uma categoria e subcategoria, e preencha o título e a URL.', 'error');
+                return;
+            }
+
+            if (!url.startsWith('https://docs.google.com/document/')) {
+                showMessage('Por favor, insira uma URL válida do Google Docs.', 'error');
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories/${subcategoryId}/links`), {
+                    title: title,
+                    url: url,
+                    createdAt: new Date(),
+                    userId: currentUserId
+                });
+                showMessage('Link adicionado com sucesso!', 'success');
+                linkTitleInput.value = '';
+                linkUrlInput.value = '';
+                // Força a atualização dos dados após a adição
+                listenForCategories();
+            } catch (e) {
+                console.error("Erro ao adicionar link: ", e);
+                showMessage('Erro ao adicionar link.', 'error');
+            }
+        }
+
+        // Deletar Link
+        async function deleteLink(categoryId, subcategoryId, linkId) {
+            showConfirmationModal('Tem certeza que deseja excluir este link?', async (confirmed) => {
+                if (confirmed) {
+                    try {
+                        await deleteDoc(doc(db, `artifacts/${appId}/public/data/categories/${categoryId}/subcategories/${subcategoryId}/links`, linkId));
+                        showMessage('Link deletado com sucesso!', 'success');
+                        // Força a atualização dos dados após a exclusão
+                        listenForCategories();
+                    } catch (e) {
+                        console.error("Erro ao deletar link: ", e);
+                        showMessage('Erro ao deletar link.', 'error');
+                    }
+                }
+            });
+        }
+
+        // --- Funções de Renderização da UI ---
+
+        // Renderiza o painel de administração
+        function renderAdminPanel() {
+            categoryListAdmin.innerHTML = '';
+            subcategoryListAdmin.innerHTML = '';
+            selectCategoryForSub.innerHTML = '<option value="">Selecione uma Categoria</option>';
+            selectCategoryForLink.innerHTML = '<option value="">Selecione uma Categoria</option>';
+            selectSubcategoryForLink.innerHTML = '<option value="">Selecione uma Subcategoria</option>';
+
+            allCategories.forEach(category => {
+                // Renderizar categorias para administração
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'bg-indigo-50 p-3 rounded-lg shadow-sm flex justify-between items-center';
+                categoryCard.innerHTML = `
+                    <span class="font-medium">${category.name}</span>
+                    <button class="text-red-500 hover:text-red-700 delete-category-btn" data-id="${category.id}">Excluir</button>
+                `;
+                categoryCard.querySelector('.delete-category-btn').addEventListener('click', () => deleteCategory(category.id));
+                categoryListAdmin.appendChild(categoryCard);
+
+                // Popular dropdowns de seleção de categoria
+                const optionForSub = document.createElement('option');
+                optionForSub.value = category.id;
+                optionForSub.textContent = category.name;
+                selectCategoryForSub.appendChild(optionForSub);
+
+                const optionForLink = document.createElement('option');
+                optionForLink.value = category.id;
+                optionForLink.textContent = category.name;
+                selectCategoryForLink.appendChild(optionForLink);
+
+                // Renderizar subcategorias para administração
+                category.subcategories.forEach(sub => {
+                    const subcategoryCard = document.createElement('div');
+                    subcategoryCard.className = 'bg-blue-50 p-3 rounded-lg shadow-sm flex justify-between items-center';
+                    subcategoryCard.innerHTML = `
+                        <span class="font-medium">${category.name} > ${sub.name}</span>
+                        <button class="text-red-500 hover:text-red-700 delete-subcategory-btn" data-category-id="${category.id}" data-id="${sub.id}">Excluir</button>
+                    `;
+                    subcategoryCard.querySelector('.delete-subcategory-btn').addEventListener('click', () => deleteSubcategory(category.id, sub.id));
+                    subcategoryListAdmin.appendChild(subcategoryCard);
+                });
+            });
+        }
+
+        // Renderiza a visualização pública
+        function renderPublicView() {
+            publicLinksDisplay.innerHTML = '';
+            publicLoadingMessage.classList.add('hidden'); // Esconde a mensagem de carregamento inicialmente
+
+            if (allCategories.length === 0) {
+                publicNoLinksMessage.textContent = 'Nenhum conteúdo adicionado ainda. Se você é o administrador, adicione categorias, subcategorias e links no painel de administração.';
+                publicNoLinksMessage.classList.remove('hidden');
+            } else {
+                publicNoLinksMessage.classList.add('hidden'); // Esconde se houver conteúdo
+            }
+
+            // Popula o dropdown de categorias públicas
+            publicSelectCategory.innerHTML = '<option value="">Selecione uma Categoria</option>';
+            allCategories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                publicSelectCategory.appendChild(option);
+            });
+
+            // Limpa o dropdown de subcategorias públicas
+            publicSelectSubcategory.innerHTML = '<option value="">Selecione uma Subcategoria</option>';
+        }
+
+        // Função para alternar entre as abas e atualizar seus estilos
+        function showTab(tabId) {
+            // Remove o estilo ativo de ambas as abas
+            tabEncontrarLinks.classList.remove('bg-indigo-600');
+            tabEncontrarLinks.classList.add('hover:bg-indigo-600');
+            tabIndicarLinks.classList.remove('bg-indigo-600');
+            tabIndicarLinks.classList.add('hover:bg-indigo-600');
+
+            // Esconde ambas as seções de conteúdo
+            publicViewSection.classList.add('hidden');
+            adminSection.classList.add('hidden');
+
+            // Mostra a seção de conteúdo selecionada e adiciona o estilo ativo à aba
+            if (tabId === 'encontrar-links') {
+                publicViewSection.classList.remove('hidden');
+                tabEncontrarLinks.classList.add('bg-indigo-600');
+                tabEncontrarLinks.classList.remove('hover:bg-indigo-600');
+            } else if (tabId === 'indicar-links') {
+                adminSection.classList.remove('hidden');
+                tabIndicarLinks.classList.add('bg-indigo-600');
+                tabIndicarLinks.classList.remove('hover:bg-indigo-600');
+            }
+        }
+
+        // Atualiza os dropdowns de subcategorias ao selecionar uma categoria (para admin e público)
+        selectCategoryForLink.addEventListener('change', () => {
+            const selectedCategoryId = selectCategoryForLink.value;
+            selectSubcategoryForLink.innerHTML = '<option value="">Selecione uma Subcategoria</option>';
+            if (selectedCategoryId) {
+                const category = allCategories.find(cat => cat.id === selectedCategoryId);
+                if (category) {
+                    category.subcategories.forEach(sub => {
+                        const option = document.createElement('option');
+                        option.value = sub.id;
+                        option.textContent = sub.name;
+                        selectSubcategoryForLink.appendChild(option);
+                    });
+                }
+            }
         });
 
-        // Renderiza os cartões de produto quando a página carrega
-        window.onload = renderProductCards;
+        // Event listener para seleção de categoria na visão pública
+        publicSelectCategory.addEventListener('change', () => {
+            const selectedCategoryId = publicSelectCategory.value;
+            publicSelectSubcategory.innerHTML = '<option value="">Selecione uma Subcategoria</option>';
+            if (selectedCategoryId) {
+                const category = allCategories.find(cat => cat.id === selectedCategoryId);
+                if (category) {
+                    category.subcategories.forEach(sub => {
+                        const option = document.createElement('option');
+                        option.value = sub.id;
+                        option.textContent = sub.name;
+                        publicSelectSubcategory.appendChild(option);
+                    });
+                }
+            }
+            // Limpa os links exibidos quando a categoria muda
+            publicLinksDisplay.innerHTML = '';
+            publicNoLinksMessage.textContent = 'Selecione uma subcategoria para buscar artigos.';
+            publicNoLinksMessage.classList.remove('hidden');
+        });
+
+        // Event listener para o botão "Buscar Artigos" na visão pública
+        searchArticlesBtn.addEventListener('click', () => {
+            const selectedCategoryId = publicSelectCategory.value;
+            const selectedSubcategoryId = publicSelectSubcategory.value;
+
+            publicLinksDisplay.innerHTML = ''; // Limpa resultados anteriores
+            publicNoLinksMessage.classList.add('hidden');
+            publicLoadingMessage.classList.remove('hidden'); // Mostra mensagem de carregamento
+
+            if (!selectedCategoryId || !selectedSubcategoryId) {
+                publicLoadingMessage.classList.add('hidden');
+                publicNoLinksMessage.textContent = 'Por favor, selecione uma categoria e uma subcategoria.';
+                publicNoLinksMessage.classList.remove('hidden');
+                return;
+            }
+
+            const category = allCategories.find(cat => cat.id === selectedCategoryId);
+            if (category) {
+                const subcategory = category.subcategories.find(sub => sub.id === selectedSubcategoryId);
+                if (subcategory && subcategory.links.length > 0) {
+                    subcategory.links.forEach(link => {
+                        const linkCard = document.createElement('div');
+                        linkCard.className = 'bg-gray-50 p-4 rounded-lg shadow-sm flex flex-col justify-between transform hover:scale-105 transition-transform duration-300';
+                        linkCard.innerHTML = `
+                            <div>
+                                <h5 class="font-bold text-md text-gray-900 mb-1 truncate">${link.title}</h5>
+                                <p class="text-gray-600 text-xs mb-2 truncate">${link.url}</p>
+                            </div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <a href="${link.url}" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm transition-colors duration-300">
+                                    Abrir Doc
+                                </a>
+                                <!-- Botão de exclusão visível apenas na aba "Indicar Links" -->
+                                ${adminSection.classList.contains('hidden') ? '' : `<button class="delete-link-btn text-red-500 hover:text-red-700 transition-colors duration-300 text-sm" data-category-id="${category.id}" data-subcategory-id="${subcategory.id}" data-link-id="${link.id}">
+                                    Excluir
+                                </button>`}
+                            </div>
+                        `;
+                        // Adiciona o listener apenas se o botão de exclusão estiver presente
+                        if (!adminSection.classList.contains('hidden')) {
+                            linkCard.querySelector('.delete-link-btn').addEventListener('click', (event) => {
+                                const catId = event.target.dataset.categoryId;
+                                const subId = event.target.dataset.subcategoryId;
+                                const linkId = event.target.dataset.linkId;
+                                deleteLink(catId, subId, linkId);
+                            });
+                        }
+                        publicLinksDisplay.appendChild(linkCard);
+                    });
+                    publicLoadingMessage.classList.add('hidden');
+                } else {
+                    publicLoadingMessage.classList.add('hidden');
+                    publicNoLinksMessage.textContent = 'Nenhum artigo encontrado para esta subcategoria.';
+                    publicNoLinksMessage.classList.remove('hidden');
+                }
+            } else {
+                publicLoadingMessage.classList.add('hidden');
+                publicNoLinksMessage.textContent = 'Nenhum artigo encontrado para a seleção.';
+                publicNoLinksMessage.classList.remove('hidden');
+            }
+        });
+
+        // --- Configuração e Observadores do Firebase ---
+
+        // Função para configurar o Firebase e observar as mudanças de autenticação
+        async function setupFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length > 0) {
+                    app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+
+                    // Faz login anonimamente para permitir leitura pública e escrita (conforme regras do Firestore)
+                    const userCredential = await signInAnonymously(auth);
+                    currentUser = userCredential.user;
+                    currentUserId = currentUser.uid; // Pega o UID do usuário anônimo
+
+                    isAuthReady = true;
+                    // Uma vez que a autenticação está pronta, comece a ouvir os dados
+                    listenForCategories();
+                } else {
+                    // Caso não haja configuração do Firebase, exibe mensagem de erro
+                    publicLoadingMessage.textContent = 'Configuração do Firebase ausente. Não é possível carregar dados.';
+                    publicNoLinksMessage.classList.remove('hidden');
+                    publicLoadingMessage.classList.add('hidden');
+                    isAuthReady = true; // Marca como pronto mesmo sem Firebase para evitar loop de carregamento
+                }
+            } catch (error) {
+                console.error("Erro ao inicializar Firebase ou autenticar:", error);
+                publicLoadingMessage.textContent = 'Erro ao carregar dados. Verifique o console para detalhes.';
+                publicNoLinksMessage.classList.remove('hidden');
+                publicLoadingMessage.classList.add('hidden');
+            }
+        }
+
+        // Observador de dados do Firestore
+        function listenForCategories() {
+            if (!db || !isAuthReady) return; // Garante que o Firebase está pronto
+
+            const categoriesRef = collection(db, `artifacts/${appId}/public/data/categories`);
+            const q = query(categoriesRef, orderBy('createdAt')); // Ordena por data de criação
+
+            onSnapshot(q, async (categorySnapshot) => {
+                const fetchedCategories = [];
+                // Para cada categoria, buscamos suas subcategorias e links
+                for (const categoryDoc of categorySnapshot.docs) {
+                    const categoryData = { id: categoryDoc.id, ...categoryDoc.data(), subcategories: [] };
+                    
+                    const subcategoriesRef = collection(db, `artifacts/${appId}/public/data/categories/${categoryDoc.id}/subcategories`);
+                    const subQ = query(subcategoriesRef, orderBy('createdAt'));
+                    const subcategorySnapshot = await getDocs(subQ); // Usar getDocs para buscar todas de uma vez
+
+                    const fetchedSubcategories = [];
+                    for (const subDoc of subcategorySnapshot.docs) {
+                        const subcategoryData = { id: subDoc.id, ...subDoc.data(), links: [] };
+
+                        const linksRef = collection(db, `artifacts/${appId}/public/data/categories/${categoryDoc.id}/subcategories/${subDoc.id}/links`);
+                        const linkQ = query(linksRef, orderBy('createdAt'));
+                        const linkSnapshot = await getDocs(linkQ); // Usar getDocs para buscar todas de uma vez
+
+                        linkSnapshot.forEach(linkDoc => {
+                            subcategoryData.links.push({ id: linkDoc.id, ...linkDoc.data() });
+                        });
+                        fetchedSubcategories.push(subcategoryData);
+                    }
+                    categoryData.subcategories = fetchedSubcategories;
+                    fetchedCategories.push(categoryData);
+                }
+                allCategories = fetchedCategories; // Atualiza o array global de categorias
+                renderAdminPanel(); // Renderiza o painel de administração com os dados mais recentes
+                renderPublicView(); // Renderiza a visualização pública
+            }, (error) => {
+                console.error("Erro ao ouvir categorias: ", error);
+                publicLoadingMessage.textContent = 'Erro ao carregar dados em tempo real.';
+                publicNoLinksMessage.classList.remove('hidden');
+                publicLoadingMessage.classList.add('hidden');
+            });
+        }
+
+        // --- Event Listeners ---
+        addCategoryBtn.addEventListener('click', addCategory);
+        addSubcategoryBtn.addEventListener('click', addSubcategory);
+        addLinkBtn.addEventListener('click', addLink);
+        
+        // Event listeners para as novas abas de navegação
+        tabEncontrarLinks.addEventListener('click', (e) => {
+            e.preventDefault();
+            showTab('encontrar-links');
+        });
+
+        tabIndicarLinks.addEventListener('click', (e) => {
+            e.preventDefault();
+            showTab('indicar-links');
+        });
+
+        // Event Listener para o botão de rolagem para o topo
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        backToTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+        });
+
+        // Inicializa o Firebase e começa a ouvir os dados
+        setupFirebase();
+        // Exibe a aba "Encontrar Links" por padrão ao carregar
+        showTab('encontrar-links');
     </script>
 </body>
 </html>
