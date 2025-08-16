@@ -3,589 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Prompts para Imagens</title>
+    <title>Central de Apostilas - Direito</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8; /* Fundo neutro claro */
         }
-        .container-box {
-            background-color: #ffffff;
-            border-radius: 1rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
-            padding: 2rem;
-            margin-bottom: 2rem;
+        /* Estilo para a barra de rolagem no conteúdo */
+        .content-scroll::-webkit-scrollbar {
+            width: 4px;
         }
-        .option-label {
-            display: flex;
-            flex-direction: column; /* Para empilhar texto e descrição */
-            align-items: flex-start; /* Alinhar texto à esquerda */
-            space-x-2: 0; /* Remover space-x-2 se for column */
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 0.375rem; /* rounded-md */
-            transition-property: background-color;
-            transition-duration: 200ms;
-            transition-timing-function: ease-in-out;
+        .content-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
         }
-        .option-label:hover {
-            background-color: #eff6ff; /* blue-50 */
+        .content-scroll::-webkit-scrollbar-track {
+            background-color: #f1f5f9;
         }
-        .option-description {
-            font-size: 0.875rem; /* text-sm */
-            color: #6b7280; /* gray-500 */
-            margin-top: 0.25rem; /* Espaço entre o texto da opção e a descrição */
-        }
-        .chart-container {
-            position: relative;
+        /* Estilos para o conteúdo da apostila (Ajustes de fonte) */
+        .prose h1 { font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; color: #1f2937;}
+        .prose h2 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; color: #1f2937;}
+        .prose h3 { font-size: 1.125rem; margin-top: 1.25rem; margin-bottom: 0.5rem; font-weight: 700; color: #1f2937;}
+        .prose h4 { font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600; color: #1f2937;}
+        .prose p, .prose ul, .prose li { font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; color: #374151;}
+        .prose strong { font-weight: 600; color: #111827; }
+        .prose ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
+        .prose li { margin-bottom: 0.25rem; }
+        .prose table {
             width: 100%;
-            max-width: 600px; /* Limite para gráficos em telas grandes */
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px; /* Altura base */
-            max-height: 400px; /* Altura máxima */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-collapse: collapse;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            font-size: 0.875rem; /* Fonte menor para tabelas */
         }
-        /* Ajustes responsivos para a altura do gráfico */
-        @media (min-width: 640px) { /* sm */
-            .chart-container {
-                height: 350px;
-            }
+        .prose th, .prose td {
+            border: 1px solid #e5e7eb;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
         }
-        @media (min-width: 768px) { /* md */
-            .chart-container {
-                height: 400px;
-            }
+        .prose th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+            color: #1f2937;
         }
+        .prose tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
     </style>
 </head>
-<body class="flex flex-col items-center min-h-screen p-4 sm:p-6 md:p-8">
-    <!-- Chosen Palette: Neutros quentes (fundo), branco (componentes), cinzas escuros (texto), azul sutil (destaque/botões) -->
-    <!-- Application Structure Plan: O SPA é estruturado em um fluxo de 9 páginas sequenciais para guiar o usuário na construção do prompt. A primeira página coleta a descrição inicial e a referência. As páginas 2 a 9 apresentam categorias de opções (Tema, Estilo, Composição, Personagens, Cores, Ambiente, Qualidade, Elementos a Evitar) para seleção do usuário. A última página (10) exibe o prompt gerado. Essa estrutura foi escolhida para facilitar a usabilidade, dividindo o processo de criação em etapas lógicas e gerenciáveis, evitando sobrecarga de informação e garantindo que todos os detalhes importantes sejam considerados. A navegação é linear (próximo/anterior) para guiar o usuário de forma intuitiva. -->
-    <!-- Visualization & Content Choices:
-    - Descrição Inicial (Página 1): Coleta da visão inicial do usuário -> Campo de texto livre e opção de upload (simulada) -> Justificativa: Capturar a essência da ideia antes de refinar. -> HTML/JS.
-    - Seleção de Opções (Páginas 2-9): Opções pré-definidas para cada categoria -> Radio buttons (seleção única) para a maioria, Checkboxes (múltipla escolha) para a última categoria (Elementos a Evitar) -> Justificativa: Guiar o usuário com opções comuns e relevantes, facilitando a escolha e garantindo a estrutura do prompt. -> HTML/JS dinâmico.
-    - Prompt Gerado (Página 10): Resultado final do prompt -> Campo de texto somente leitura e botão de copiar e reiniciar -> Justificativa: Apresentar o output final de forma clara e funcional, e permitir um novo ciclo de criação. -> HTML/JS.
-    - Ícones/Elementos Visuais: Reforçar a didática e o apelo visual -> Unicode characters/icons e classes Tailwind -> Justificativa: Manter a leveza do app e a conformidade com as regras (sem SVG/raster). -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<body class="bg-gray-200 flex items-center justify-center min-h-screen p-4">
 
-    <div class="w-full max-w-4xl container-box">
-        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">✨ Gerador de Prompts para Imagens ✨</h1>
+    <!-- Container principal que simula a tela de um smartphone -->
+    <div class="w-full max-w-sm h-[800px] max-h-[90vh] bg-gray-50 rounded-3xl shadow-2xl overflow-hidden flex flex-col border-4 border-gray-300">
 
-        <!-- Página 1: Descrição Inicial -->
-        <div id="page1" class="page">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Passo 1: Descreva sua Visão Inicial</h2>
-            <p class="text-gray-600 mb-4">Por favor, descreva a imagem que você tem em mente. Seja o mais detalhado(a) possível. Pense em:</p>
-            <ul class="list-disc list-inside text-gray-600 mb-6 ml-4">
-                <li>O que você quer ver? (Assunto principal, objetos, personagens, elementos em destaque)</li>
-                <li>Onde se passa? (Ambiente, cenário, localização)</li>
-                <li>O que está acontecendo? (Ação, interação, movimento, narrativa)</li>
-                <li>Qual a atmosfera ou emoção? (Sentimento geral, humor, tom)</li>
-            </ul>
-            <textarea id="initialDescription" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4 h-32 resize-y" placeholder="Ex: Um dragão majestoso voando sobre uma cidade medieval em chamas, com um céu tempestuoso e dramático."></textarea>
+        <!-- Barra Superior (Cabeçalho) -->
+        <header class="bg-white/80 backdrop-blur-sm p-4 shadow-sm z-10 border-b border-gray-200">
+            <h1 class="text-xl font-bold text-gray-800 text-center">Central de Apostilas</h1>
+        </header>
+
+        <!-- Área de Conteúdo Principal -->
+        <main id="main-content" class="flex-1 overflow-y-auto p-6 bg-gray-50 content-scroll">
             
-            <p class="text-gray-600 mb-2">Opção Adicional: Carregar uma Imagem de Referência (Funcionalidade simulada)</p>
-            <input type="file" id="imageUpload" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6">
+            <!-- Conteúdo da Aba 'Início' (visível por padrão) -->
+            <div id="inicio" class="page-content">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Bem-vindo(a)!</h2>
+                <p class="text-gray-600 mb-6">Seu portal de estudos de Direito. Acesse materiais, resumos e apostilas completas.</p>
+                
+                <div class="bg-white p-4 rounded-lg mb-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Adicionados Recentemente</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Apostila de Direito Constitucional I</li>
+                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Resumo - Teoria Geral do Processo</li>
+                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Mapa Mental de Direito Penal</li>
+                    </ul>
+                </div>
 
-            <div class="flex justify-end">
-                <button onclick="nextPage()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">Próximo</button>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Populares</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Controle de Constitucionalidade</li>
+                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Princípios do Direito Administrativo</li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <!-- Páginas 2-9: Seleção de Opções (Conteúdo dinâmico JS) -->
-        <div id="selectionPages" class="hidden">
-            <h2 id="selectionTitle" class="text-2xl font-semibold text-gray-700 mb-4"></h2>
-            <div id="optionsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                <!-- Opções serão carregadas aqui pelo JS -->
+            <!-- Conteúdo da Aba 'Matérias' -->
+            <div id="materias" class="page-content hidden">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Matérias</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <div data-target="materia-penal" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
+                        <h3 class="font-bold text-gray-800">Direito Penal</h3>
+                        <p class="text-sm text-gray-500">Teoria do crime, penas, crimes em espécie.</p>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-between">
-                <button onclick="prevPage()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">Anterior</button>
-                <button onclick="nextPage()" id="nextButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">Próximo</button>
+            
+            <!-- Sub-página para Direito Penal -->
+            <div id="materia-penal" class="page-content hidden">
+                <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="materias">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
+                    Voltar para Matérias
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Direito Penal</h2>
+                <div class="grid grid-cols-1 gap-4">
+                     <div data-target="penal-parte-especial" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
+                        <h3 class="font-bold text-gray-800">Parte Especial</h3>
+                        <p class="text-sm text-gray-500">Crimes contra a dignidade sexual e outros.</p>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Página 10: Prompt Gerado -->
-        <div id="finalPage" class="page hidden">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Seu Prompt Gerado:</h2>
-            <textarea id="generatedPrompt" class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none h-48 resize-y mb-4" readonly></textarea>
-            <div class="flex justify-between">
-                <button onclick="prevPage()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">Anterior</button>
-                <button onclick="copyPrompt()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">Copiar Prompt</button>
-                <button onclick="restartApp()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out">Reiniciar</button>
+            <!-- Sub-página para Parte Especial -->
+            <div id="penal-parte-especial" class="page-content hidden">
+                 <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="materia-penal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
+                    Voltar para Direito Penal
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Parte Especial</h2>
+                <div class="grid grid-cols-1 gap-4">
+                     <div data-target="artigos-213-243" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
+                        <h3 class="font-bold text-gray-800">Art. 213 a 243</h3>
+                        <p class="text-sm text-gray-500">Crimes contra a Dignidade Sexual.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <!-- Sub-página para a lista de Artigos -->
+            <div id="artigos-213-243" class="page-content hidden">
+                <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="penal-parte-especial">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
+                   Voltar para Parte Especial
+               </button>
+               <h2 class="text-2xl font-semibold text-gray-900 mb-6">Artigos</h2>
+               <div class="grid grid-cols-1 gap-4">
+                    <div data-target="conteudo-artigo-213" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
+                       <h3 class="font-bold text-gray-800">Art. 213</h3>
+                       <p class="text-sm text-gray-500">Crime de Estupro.</p>
+                   </div>
+               </div>
+           </div>
+
+            <!-- Página de conteúdo para o Art. 213 -->
+            <div id="conteudo-artigo-213" class="page-content hidden">
+                <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="artigos-213-243">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
+                    Voltar para Artigos
+                </button>
+                <article class="prose max-w-none">
+                    <h1 class="text-blue-700">APOSTILA DE DIREITO PENAL – PARTE ESPECIAL</h1>
+                    <p class="text-xs text-gray-500">Edição 2025 | Autor: Perplexidade AI</p>
+                    
+                    <h2>Crimes contra a Dignidade Sexual</h2>
+                    <h3>Estupro – Art. 213 do Código Penal</h3>
+                    
+                    <hr>
+
+                    <h4>Contexto e Bem Jurídico</h4>
+                    <p>O artigo 213 do Código Penal tutela a <strong>liberdade sexual</strong> e a <strong>dignidade da pessoa humana</strong>. O estupro é considerado crime hediondo, revelando a gravíssima ofensa à integridade física e psíquica da vítima. O tipo penal visa proteger o direito de autodeterminação sexual, evitando qualquer prática sexual sob coerção, violência ou ameaça.</p>
+
+                    <h4>Elementos do Tipo</h4>
+                    <p><strong>Objetivos:</strong></p>
+                    <ul>
+                        <li><strong>Verbo núcleo:</strong> constranger (forçar, mediante violência física ou grave ameaça)</li>
+                        <li><strong>Meio:</strong> violência ou grave ameaça</li>
+                        <li><strong>Ação:</strong> conjunção carnal ou outro ato libidinoso</li>
+                    </ul>
+                    <p><strong>Subjetivos:</strong></p>
+                    <ul>
+                        <li><strong>Dolo:</strong> vontade livre e consciente de constranger para obter conjunção carnal ou ato libidinoso.</li>
+                        <li>Não admite forma culposa.</li>
+                    </ul>
+
+                    <h4>Sujeitos</h4>
+                    <ul>
+                        <li><strong>Ativo:</strong> crime comum, pode ser qualquer pessoa, homem ou mulher.</li>
+                        <li><strong>Passivo:</strong> qualquer pessoa maior de 14 anos.</li>
+                    </ul>
+
+                    <h4>Consumação e Tentativa</h4>
+                    <p>A <strong>consumação</strong> ocorre com o início da conjunção carnal ou ato libidinoso. A <strong>tentativa</strong> é admitida.</p>
+
+                    <h4>Formas Qualificadas</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="bg-blue-100 text-blue-800">Situação</th>
+                                <th class="bg-blue-100 text-blue-800">Pena</th>
+                                <th class="bg-blue-100 text-blue-800">Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Caput – Estupro simples</td>
+                                <td>6 a 10 anos de reclusão</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>§1º – Lesão corporal grave ou vítima 14–18 anos</td>
+                                <td>8 a 12 anos de reclusão</td>
+                                <td>Menor de 18 e maior de 14</td>
+                            </tr>
+                            <tr>
+                                <td>§2º – Resultado morte</td>
+                                <td>12 a 30 anos de reclusão</td>
+                                <td>Forma mais grave</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Aspectos Processuais</h4>
+                    <ul>
+                        <li><strong>Ação penal:</strong> Pública incondicionada.</li>
+                        <li><strong>Competência:</strong> Vara Criminal.</li>
+                        <li><strong>Prova:</strong> A palavra da vítima tem especial valor probatório.</li>
+                    </ul>
+
+                    <h4>Panorama Jurisprudencial Atual (Agosto 2025)</h4>
+                    <p><strong>STF/STJ:</strong> A palavra da vítima é fundamental. Admite-se coautoria e participação. Há debates sobre o estupro "virtual", mas não é um entendimento consolidado.</p>
+
+                    <h4>Quadro Comparativo – Estupro x Tipos Próximos</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="bg-green-100 text-green-800">Tipo penal</th>
+                                <th class="bg-green-100 text-green-800">Conduta central</th>
+                                <th class="bg-green-100 text-green-800">Pena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Art. 213 – Estupro</strong></td>
+                                <td>Violência ou ameaça para conjunção carnal ou ato libidinoso</td>
+                                <td>6–10 anos (simples)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Art. 217-A – Estupro de vulnerável</strong></td>
+                                <td>Conjunção carnal/ato libidinoso com &lt;14 anos</td>
+                                <td>8–15 anos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Art. 61 (LCP)</strong></td>
+                                <td>Importunação ofensiva ao pudor</td>
+                                <td>Detenção, &lt;1 ano</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </div>
+
+
+            <!-- Conteúdo da Aba 'Busca' -->
+            <div id="busca" class="page-content hidden">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Busca</h2>
+                <div class="relative">
+                    <input type="text" placeholder="Pesquisar apostila..." class="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Barra de Navegação Inferior -->
+        <nav class="bg-white/80 backdrop-blur-sm mt-auto p-2 border-t border-gray-200">
+            <div class="flex justify-around">
+                <button data-tab="inicio" class="nav-tab text-blue-600 flex flex-col items-center justify-center w-1/3 p-2 rounded-lg transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span class="text-xs font-medium mt-1">Início</span>
+                </button>
+                <button data-tab="materias" class="nav-tab text-gray-500 hover:text-blue-600 flex flex-col items-center justify-center w-1/3 p-2 rounded-lg transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                    <span class="text-xs font-medium mt-1">Matérias</span>
+                </button>
+                <button data-tab="busca" class="nav-tab text-gray-500 hover:text-blue-600 flex flex-col items-center justify-center w-1/3 p-2 rounded-lg transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span class="text-xs font-medium mt-1">Busca</span>
+                </button>
+            </div>
+        </nav>
     </div>
 
     <script>
-        const appState = {
-            currentPage: 1,
-            selections: {
-                initialDescription: '',
-                theme: '', // Seleção única
-                style: '', // Seleção única
-                composition: '', // Seleção única
-                characters: '', // Seleção única
-                colors: '', // Seleção única
-                environment: '', // Seleção única
-                quality: '', // Seleção única
-                avoid: [] // Seleção múltipla
-            },
-            options: {
-                theme: {
-                    title: 'Passo 2: Escolha o Tema Principal',
-                    options: [
-                        { text: 'Retrato realista de uma pessoa', description: 'Cria uma imagem focada em uma pessoa com alto nível de detalhe e fidelidade à realidade.' },
-                        { text: 'Cena de ação cinematográfica', description: 'Gera uma imagem dinâmica e dramática, com foco em movimento e impacto visual.' },
-                        { text: 'Paisagem natural (montanha, floresta, praia)', description: 'Cria um cenário natural amplo e detalhado, como montanhas imponentes, florestas densas ou praias paradisíacas.' },
-                        { text: 'Animal em destaque (real ou fictício)', description: 'Foca em um animal específico, seja ele real (ex: leão, águia) ou imaginário (ex: grifo, unicórnio).' },
-                        { text: 'Objeto isolado (produto, invenção)', description: 'Destaca um único objeto, como um produto, uma ferramenta ou uma invenção, com foco em seus detalhes e texturas.' },
-                        { text: 'Personagem de fantasia', description: 'Cria um personagem de mundos imaginários, como elfos, orcs, magos ou guerreiros medievais.' },
-                        { text: 'Ambiente urbano futurista', description: 'Gera uma cena em uma cidade do futuro, com arquitetura avançada, veículos voadores e iluminação neon.' },
-                        { text: 'Momento histórico reimaginado', description: 'Recria um evento ou figura histórica, mas com uma nova perspectiva ou elementos imaginários.' },
-                        { text: 'Design conceitual de tecnologia', description: 'Apresenta ideias visuais para novas tecnologias, gadgets ou interfaces futuristas.' },
-                        { text: 'Cena cotidiana comum', description: 'Retrata uma situação do dia a dia, como pessoas em um café, andando na rua ou em casa, com um toque artístico.' },
-                        { text: 'Ilustração de capa de livro', description: 'Cria uma imagem adequada para a capa de um livro, com elementos que sugiram a história ou o gênero.' },
-                        { text: 'Personagem híbrido (humano + animal)', description: 'Combina características humanas e animais em um único personagem, como um minotauro ou uma sereia.' },
-                        { text: 'Conceito abstrato (emoções, ideias)', description: 'Visualiza ideias ou emoções abstratas, como amor, medo, esperança ou caos, através de formas, cores e composições.' },
-                        { text: 'Cena de desenho animado', description: 'Gera uma imagem com a estética de um desenho animado, com traços, cores e expressões características.' },
-                        { text: 'Capa de revista estilizada', description: 'Cria uma imagem que se assemelhe a uma capa de revista, com design gráfico e tipografia estilizados.' },
-                        { text: 'Pôster de filme fictício', description: 'Desenha um pôster para um filme imaginário, com elementos que transmitam seu gênero e enredo.' },
-                        { text: 'Personagem interagindo com objeto gigante', description: 'Mostra um personagem em escala reduzida interagindo com um objeto de tamanho desproporcional.' },
-                        { text: 'Personagem em miniatura num cenário comum', description: 'Coloca um personagem muito pequeno em um ambiente cotidiano, criando uma perspectiva única.' },
-                        { text: 'Lugar famoso reimaginado', description: 'Recria um ponto turístico ou local conhecido, mas com elementos fantásticos, futuristas ou de outra época.' },
-                        { text: 'Composição artística para redes sociais', description: 'Cria uma imagem otimizada para plataformas como Instagram, com foco em estética, cores e impacto visual.' },
-                        { text: 'Cena pós-apocalíptica', description: 'Retrata um cenário de mundo após um desastre, com ruínas, natureza retomando espaços e atmosfera sombria.' },
-                        { text: 'Personagem em batalha épica', description: 'Gera uma cena de confronto grandiosa, com múltiplos personagens, efeitos especiais e dinamismo.' },
-                        { text: 'Obra arquitetônica futurista', description: 'Desenha um edifício ou estrutura com design inovador e elementos de ficção científica.' },
-                        { text: 'Natureza morta artística', description: 'Composição de objetos inanimados (frutas, flores, utensílios) com foco em luz, sombra e textura, em estilo artístico.' },
-                        { text: 'Escultura hiper-realista', description: 'Cria uma escultura com detalhes tão precisos que se assemelha a uma fotografia.' },
-                        { text: 'Retrato surreal', description: 'Gera um retrato com elementos oníricos, ilógicos ou fantásticos, explorando o subconsciente.' },
-                        { text: 'Cena subaquática', description: 'Retrata um ambiente debaixo d\'água, com vida marinha, ruínas submersas ou paisagens aquáticas.' },
-                        { text: 'Festa ou evento cultural', description: 'Cria uma imagem que represente uma celebração, festival ou evento cultural, com pessoas, cores e atmosfera festiva.' },
-                        { text: 'Carro ou veículo conceitual', description: 'Desenha um veículo com design inovador e futurista, que ainda não existe.' },
-                        { text: 'Elementos da natureza em fusão (fogo + água, etc.)', description: 'Combina elementos naturais opostos ou complementares em uma única imagem, criando um efeito visual impactante.' }
-                    ],
-                    type: 'radio'
-                },
-                style: {
-                    title: 'Passo 3: Defina o Estilo Visual',
-                    options: [
-                        { text: 'Realismo fotográfico', description: 'A imagem deve parecer uma fotografia real, com alta fidelidade à realidade.' },
-                        { text: 'Ultra-realista em 3D', description: 'Cria uma imagem tridimensional com um nível de detalhe e iluminação que a torna indistinguível da realidade.' },
-                        { text: 'Pixar / Disney style', description: 'Adota o estilo de animação 3D característico dos filmes da Pixar ou Disney, com personagens expressivos e cores vibrantes.' },
-                        { text: 'HQ / Comic Book', description: 'A imagem deve ter a estética de uma história em quadrinhos, com contornos marcados, cores chapadas e onomatopeias visuais.' },
-                        { text: 'Anime / Manga', description: 'Cria a imagem no estilo de animação japonesa (anime) ou quadrinhos japoneses (manga), com características visuais específicas.' },
-                        { text: 'Minimalista flat design', description: 'Utiliza formas simples, cores sólidas e ausência de sombras ou texturas complexas, focando na simplicidade e clareza.' },
-                        { text: 'Arte digital futurista', description: 'Gera uma imagem com elementos de ficção científica, tecnologia avançada e uma estética moderna e limpa.' },
-                        { text: 'Pintura a óleo clássica', description: 'A imagem deve se assemelhar a uma pintura a óleo tradicional, com pinceladas visíveis e riqueza de texturas.' },
-                        { text: 'Aquarela delicada', description: 'Adota o estilo da aquarela, com cores suaves, transparências e um toque artístico delicado.' },
-                        { text: 'Cyberpunk neon', description: 'Cria uma estética urbana futurista com predominância de luzes neon, tecnologia avançada e uma atmosfera sombria e distópica.' },
-                        { text: 'Steampunk vitoriano', description: 'Combina elementos da era vitoriana com tecnologia a vapor e engrenagens, criando um visual retrofuturista.' },
-                        { text: 'Pixel art retrô', description: 'A imagem é composta por pixels visíveis, remetendo aos gráficos de videogames e computadores antigos.' },
-                        { text: 'Ilustração editorial vintage', description: 'Adota o estilo de ilustrações antigas de revistas e livros, com cores desbotadas e um toque nostálgico.' },
-                        { text: 'Arte surrealista', description: 'Explora o subconsciente com elementos oníricos, ilógicos e fantásticos, criando uma realidade distorcida.' },
-                        { text: 'Low poly 3D', description: 'A imagem 3D é composta por polígonos de baixa resolução, criando um visual estilizado e geométrico.' },
-                        { text: 'Estilo de pôster retrô anos 80', description: 'Adota a estética visual dos pôsteres de filmes e publicidade dos anos 80, com cores vibrantes, tipografia marcante e elementos gráficos da época.' },
-                        { text: 'Sketch a lápis preto e branco', description: 'A imagem deve parecer um rascunho feito a lápis, com traços e sombreamento em preto e branco.' },
-                        { text: 'Colagem artística', description: 'Cria uma composição a partir da sobreposição de diferentes elementos visuais, como recortes de fotos e texturas.' },
-                        { text: 'Arte conceitual de videogame', description: 'Desenha um visual que poderia ser usado para o desenvolvimento de um jogo, com foco em atmosfera, personagens e cenários.' },
-                        { text: 'Papel recortado / paper cut', description: 'A imagem simula um trabalho feito com camadas de papel recortado, criando profundidade e um visual artesanal.' },
-                        { text: 'Estilo renascentista', description: 'Adota as características da arte renascentista, com realismo, proporção e foco na figura humana.' },
-                        { text: 'Arte pop art anos 60', description: 'Cria uma imagem com a estética da Pop Art dos anos 60, com cores fortes, referências à cultura de massa e técnicas de quadrinhos.' },
-                        { text: 'Arte tribal', description: 'Inspira-se em padrões, símbolos e estilos artísticos de culturas tribais, com foco em formas orgânicas e elementos naturais.' },
-                        { text: 'Grafite urbano', description: 'Simula a arte de rua, com letras estilizadas, cores vibrantes e um toque rebelde e expressivo.' },
-                        { text: 'Estilo glitch digital', description: 'A imagem apresenta falhas visuais intencionais, como distorções, ruídos e cores deslocadas, remetendo a erros de transmissão digital.' },
-                        { text: 'Modelagem 3D fotorrealista', description: 'Cria objetos e cenários tridimensionais com um nível de realismo que os torna quase indistinguíveis de fotografias.' },
-                        { text: 'Arte infantil lúdica', description: 'Adota um estilo visual divertido, colorido e simplificado, ideal para ilustrações infantis.' },
-                        { text: 'Estética vaporwave', description: 'Cria um visual nostálgico e surreal, com cores pastel, elementos de tecnologia antiga e referências à cultura dos anos 80 e 90.' },
-                        { text: 'Escultura digital', description: 'Simula uma escultura criada em ambiente digital, com texturas, volumes e formas complexas.' },
-                        { text: 'Arte monocromática minimalista', description: 'Utiliza uma única cor ou tons da mesma cor, com foco em formas simples e composição limpa.' }
-                    ],
-                    type: 'radio'
-                },
-                composition: {
-                    title: 'Passo 4: Escolha a Composição e Enquadramento',
-                    options: [
-                        { text: 'Close-up do rosto', description: 'Foca no rosto do personagem, destacando expressões e detalhes.' },
-                        { text: 'Plano médio (cintura para cima)', description: 'Mostra o personagem da cintura para cima, ideal para interações e gestos.' },
-                        { text: 'Plano geral (todo o corpo e cenário)', description: 'Apresenta o personagem inteiro e grande parte do cenário, contextualizando a cena.' },
-                        { text: 'Vista aérea (drone)', description: 'A imagem é capturada de cima, como se fosse um drone, oferecendo uma perspectiva ampla do ambiente.' },
-                        { text: 'Perspectiva em primeira pessoa', description: 'O ponto de vista é do próprio personagem, como se o espectador estivesse vivenciando a cena.' },
-                        { text: 'Contra-plongée (de baixo para cima)', description: 'A câmera está posicionada abaixo do assunto, olhando para cima, o que pode dar uma sensação de poder ou grandiosidade.' },
-                        { text: 'Plongée (de cima para baixo)', description: 'A câmera está posicionada acima do assunto, olhando para baixo, o que pode transmitir vulnerabilidade ou insignificância.' },
-                        { text: 'Vista lateral perfil', description: 'Mostra o assunto de lado, destacando seu contorno e silhueta.' },
-                        { text: 'Grande angular dramática', description: 'Utiliza uma lente grande angular para criar uma perspectiva ampla e distorcida, adicionando drama à cena.' },
-                        { text: 'Simetria centralizada', description: 'A composição é equilibrada com elementos dispostos simetricamente em torno de um ponto central.' },
-                        { text: 'Desfoque de movimento', description: 'Cria a sensação de movimento rápido através do desfoque de elementos em movimento.' },
-                        { text: 'Perspectiva forçada', description: 'Brinca com a percepção de profundidade para fazer objetos parecerem maiores ou menores do que realmente são.' },
-                        { text: 'Fundo desfocado (bokeh)', description: 'O fundo da imagem é suavemente desfocado, destacando o assunto principal.' },
-                        { text: 'Panorama 360°', description: 'Cria uma imagem que abrange todo o campo de visão, como uma foto panorâmica imersiva.' },
-                        { text: 'Cena em recorte vertical', description: 'A imagem é cortada para se adequar a um formato vertical, ideal para stories ou reels.' },
-                        { text: 'Composição em camadas (primeiro plano / fundo)', description: 'Organiza elementos em diferentes planos de profundidade para criar uma sensação de imersão e complexidade.' },
-                        { text: 'Sobreposição de elementos', description: 'Coloca elementos uns sobre os outros para criar um efeito visual interessante ou para sugerir camadas de significado.' },
-                        { text: 'Foco seletivo em um detalhe', description: 'Apenas um pequeno detalhe da imagem está em foco nítido, enquanto o restante está desfocado.' },
-                        { text: 'Foto estilo selfie', description: 'A imagem é enquadrada como uma selfie, com a perspectiva de quem a tirou.' },
-                        { text: 'Composição isométrica', description: 'Cria uma perspectiva 3D sem distorção, onde as linhas paralelas permanecem paralelas, comum em jogos e ilustrações técnicas.' },
-                        { text: 'Câmera escondida (ângulo incomum)', description: 'A imagem é capturada de um ponto de vista inesperado ou discreto, criando mistério ou curiosidade.' },
-                        { text: 'Olhar sobre o ombro do personagem', description: 'A câmera está posicionada atrás de um personagem, olhando por cima de seu ombro para o que ele está vendo.' },
-                        { text: 'Enquadramento natural (ramas, portas)', description: 'Utiliza elementos naturais ou arquitetônicos (galhos, portas, janelas) para emoldurar a cena principal.' },
-                        { text: 'Corte dramático de metade do rosto', description: 'O rosto do personagem é cortado pela metade, criando um efeito dramático e misterioso.' },
-                        { text: 'Perspectiva distorcida', description: 'A imagem apresenta distorções de perspectiva intencionais para criar um efeito artístico ou surreal.' },
-                        { text: 'Espelhamento simétrico', description: 'A composição é refletida, criando uma imagem espelhada que pode ser visualmente impactante.' },
-                        { text: 'Recorte diagonal', description: 'A imagem é cortada ou enquadrada em uma linha diagonal, adicionando dinamismo e tensão à composição.' },
-                        { text: 'Múltiplos planos de profundidade', description: 'Utiliza elementos em primeiro plano, médio plano e fundo para criar uma sensação de profundidade e imersão na cena.' },
-                        { text: 'Silhueta contra a luz', description: 'O assunto principal é visto como uma silhueta escura contra uma fonte de luz brilhante, criando um efeito dramático.' },
-                        { text: 'Perspectiva de baixo nível (quase ao chão)', description: 'A câmera está muito próxima ao chão, olhando para cima, o que pode dar uma sensação de grandiosidade ao ambiente ou vulnerabilidade ao assunto.' }
-                    ],
-                    type: 'radio'
-                },
-                characters: {
-                    title: 'Passo 5: Defina Personagens e Elementos',
-                    options: [
-                        { text: 'Homem adulto', description: 'Inclui um personagem masculino adulto na imagem.' },
-                        { text: 'Mulher adulta', description: 'Inclui um personagem feminino adulto na imagem.' },
-                        { text: 'Criança', description: 'Adiciona um personagem infantil à cena.' },
-                        { text: 'Idoso(a)', description: 'Apresenta um personagem idoso na imagem.' },
-                        { text: 'Robô humanoide', description: 'Inclui um robô com características humanas.' },
-                        { text: 'Criatura mitológica', description: 'Adiciona um ser de lendas e mitos (ex: dragão, grifo, sereia).' },
-                        { text: 'Animal realista', description: 'Apresenta um animal comum com representação fiel à realidade.' },
-                        { text: 'Mascote fofo', description: 'Inclui um personagem animal ou criatura com características adoráveis e amigáveis.' },
-                        { text: 'Soldado futurista', description: 'Mostra um soldado com equipamento e vestimenta de um futuro distante.' },
-                        { text: 'Mago ou feiticeiro', description: 'Inclui um personagem com habilidades mágicas, vestes tradicionais e elementos místicos.' },
-                        { text: 'Cientista', description: 'Apresenta um personagem em um ambiente de laboratório ou pesquisa, com equipamentos científicos.' },
-                        { text: 'Atleta', description: 'Mostra um personagem praticando um esporte ou em pose atlética.' },
-                        { text: 'Explorador(a)', description: 'Inclui um personagem em uma aventura, com equipamentos de exploração e em um ambiente desconhecido.' },
-                        { text: 'Alienígena', description: 'Apresenta um ser de outro planeta, com características não-humanas.' },
-                        { text: 'Herói ou vilão', description: 'Cria um personagem com características visuais que remetem a um papel heroico ou vilanesco.' },
-                        { text: 'Figura histórica', description: 'Recria a imagem de uma personalidade histórica conhecida.' },
-                        { text: 'Personagem famoso reimaginado', description: 'Pega um personagem conhecido da cultura pop e o insere em um novo contexto ou estilo.' },
-                        { text: 'Grupo de pessoas interagindo', description: 'Mostra várias pessoas em conjunto, comunicando-se ou realizando uma atividade em grupo.' },
-                        { text: 'Dupla dinâmica (2 personagens)', description: 'Foca em dois personagens principais que interagem ou se complementam.' },
-                        { text: 'Multidão em movimento', description: 'Apresenta um grande número de pessoas em deslocamento, criando uma sensação de escala e dinamismo.' },
-                        { text: 'Androide realista', description: 'Cria um robô com aparência humana muito convincente.' },
-                        { text: 'Criatura subaquática', description: 'Inclui um ser que habita ambientes aquáticos, real ou fantástico.' },
-                        { text: 'Personagem com traje cultural tradicional', description: 'Mostra um personagem vestindo roupas típicas de uma cultura específica.' },
-                        { text: 'Personagem com armadura medieval', description: 'Apresenta um personagem usando uma armadura completa, remetendo à era medieval.' },
-                        { text: 'Personagem mutante', description: 'Inclui um personagem com características físicas alteradas ou superpoderes.' },
-                        { text: 'Criança com superpoderes', description: 'Mostra uma criança manifestando habilidades especiais.' },
-                        { text: 'Animal antropomorfizado', description: 'Apresenta um animal com características humanas, como fala, vestimenta ou comportamento.' },
-                        { text: 'Criatura feita de elementos naturais (madeira, pedra, água)', description: 'Cria um ser composto por elementos da natureza, como um golem de pedra ou um elemental de água.' },
-                        { text: 'Personagem em traje futurista', description: 'Mostra um personagem vestindo roupas e acessórios de um futuro tecnológico.' },
-                        { text: 'Figura mítica adaptada ao mundo moderno', description: 'Pega uma figura da mitologia (ex: Zeus, Medusa) e a insere em um cenário ou contexto contemporâneo.' }
-                    ],
-                    type: 'radio'
-                },
-                colors: {
-                    title: 'Passo 6: Escolha Cores e Iluminação',
-                    options: [
-                        { text: 'Tons pastel suaves', description: 'Utiliza cores claras e dessaturadas, transmitindo leveza e tranquilidade.' },
-                        { text: 'Paleta vibrante e saturada', description: 'Emprega cores intensas e cheias de vida, criando um visual energético e chamativo.' },
-                        { text: 'Preto e branco puro', description: 'A imagem é renderizada apenas em tons de preto, branco e cinza, com alto contraste.' },
-                        { text: 'Monocromático azul', description: 'Predominância de tons de azul, criando uma atmosfera calma, fria ou melancólica.' },
-                        { text: 'Monocromático vermelho', description: 'Predominância de tons de vermelho, transmitindo paixão, energia, perigo ou drama.' },
-                        { text: 'Paleta retrô anos 70', description: 'Adota as cores e o estilo visual característicos da década de 1970, com tons terrosos e vibrantes.' },
-                        { text: 'Tons neon brilhantes', description: 'Utiliza cores fluorescentes e luminosas, comum em estéticas futuristas ou cyberpunk.' },
-                        { text: 'Cores frias (azul, verde)', description: 'Predominância de tons de azul e verde, que transmitem calma, serenidade ou frieza.' },
-                        { text: 'Cores quentes (laranja, vermelho)', description: 'Predominância de tons de laranja e vermelho, que transmitem energia, calor, paixão ou urgência.' },
-                        { text: 'Contraste alto (luz e sombra)', description: 'Grande diferença entre as áreas claras e escuras, criando um visual dramático e impactante.' },
-                        { text: 'Iluminação suave difusa', description: 'A luz é espalhada e sem sombras duras, criando um ambiente tranquilo e etéreo.' },
-                        { text: 'Luz dramática estilo cinema noir', description: 'Utiliza iluminação de alto contraste, com sombras profundas e luzes pontuais, comum em filmes policiais clássicos.' },
-                        { text: 'Luz de pôr do sol dourada', description: 'A iluminação simula a luz quente e dourada do fim de tarde, transmitindo aconchego ou melancolia.' },
-                        { text: 'Luz de amanhecer suave', description: 'A iluminação simula a luz delicada e clara do início da manhã, transmitindo esperança ou renovação.' },
-                        { text: 'Iluminação noturna com reflexos', description: 'Cria uma cena noturna com luzes artificiais e reflexos em superfícies molhadas ou brilhantes.' },
-                        { text: 'Iluminação interna aconchegante', description: 'Simula a luz quente e convidativa de um ambiente interno, como uma lareira ou abajures.' },
-                        { text: 'Contra-luz dramático', description: 'A fonte de luz está atrás do assunto, criando uma silhueta e um efeito visual poderoso.' },
-                        { text: 'Reflexos de vidro ou água', description: 'Adiciona reflexos em superfícies como janelas, espelhos ou água, criando um efeito visual interessante.' },
-                        { text: 'Sombras projetadas detalhadas', description: 'As sombras dos objetos são nítidas e complexas, adicionando profundidade e realismo à cena.' },
-                        { text: 'Luz colorida artificial', description: 'Utiliza fontes de luz com cores específicas (ex: luzes de palco, LEDs coloridos) para criar uma atmosfera única.' },
-                        { text: 'Efeito de luz de palco teatral', description: 'A iluminação simula a luz concentrada e dramática de um palco de teatro.' },
-                        { text: 'Luz subaquática', description: 'Cria uma iluminação que simula a luz filtrada pela água, com raios de luz e tons azulados/esverdeados.' },
-                        { text: 'Iluminação de neon cyberpunk', description: 'Combina luzes neon com uma atmosfera urbana e tecnológica, comum no estilo cyberpunk.' },
-                        { text: 'Paleta em degradê suave', description: 'Utiliza transições suaves entre cores, criando um efeito degradê harmonioso.' },
-                        { text: 'Efeito crepúsculo lilás', description: 'A iluminação simula o céu no crepúsculo, com tons de lilás, rosa e azul.' },
-                        { text: 'Iluminação de tempestade dramática', description: 'A luz é escura e carregada, com raios e relâmpagos, transmitindo tensão e poder.' },
-                        { text: 'Luz natural em dia nublado', description: 'A iluminação é suave e uniforme, sem sombras duras, característica de um dia com céu encoberto.' },
-                        { text: 'Iluminação intensa de estúdio', description: 'A luz é controlada e direcionada, como em um estúdio fotográfico, destacando o assunto com precisão.' },
-                        { text: 'Luz cintilante de velas', description: 'Simula a luz tremeluzente e quente de velas, criando uma atmosfera íntima e acolhedora.' },
-                        { text: 'Iluminação volumétrica cinematográfica', description: 'Cria raios de luz visíveis no ar (como fumaça ou neblina), comum em cenas de filmes para adicionar profundidade e atmosfera.' }
-                    ],
-                    type: 'radio'
-                },
-                environment: {
-                    title: 'Passo 7: Defina o Ambiente e Contexto',
-                    options: [
-                        { text: 'Floresta densa', description: 'Cria um cenário de floresta fechada, com árvores altas e vegetação exuberante.' },
-                        { text: 'Praia tropical', description: 'Gera uma imagem de praia com areia branca, palmeiras e águas cristalinas.' },
-                        { text: 'Deserto vasto', description: 'Retrata uma paisagem árida e extensa, com dunas de areia e pouca vegetação.' },
-                        { text: 'Montanha nevada', description: 'Cria um cenário de montanhas cobertas de neve, transmitindo frieza e grandiosidade.' },
-                        { text: 'Caverna misteriosa', description: 'Gera um ambiente subterrâneo escuro e intrigante, com formações rochosas e talvez fontes de luz ocultas.' },
-                        { text: 'Cidade futurista', description: 'Retrata uma metrópole avançada, com arranha-céus, veículos voadores e tecnologia integrada.' },
-                        { text: 'Vila medieval', description: 'Cria um cenário de vilarejo da Idade Média, com casas de pedra, ruas de terra e atmosfera rústica.' },
-                        { text: 'Estação espacial', description: 'Gera um ambiente em órbita, com naves, módulos espaciais e a Terra ao fundo.' },
-                        { text: 'Palácio luxuoso', description: 'Retrata um interior suntuoso, com decorações ricas, grandes salões e móveis elaborados.' },
-                        { text: 'Tribunal', description: 'Cria um cenário de sala de justiça, com bancadas, juízes e advogados, transmitindo seriedade.' },
-                        { text: 'Biblioteca antiga', description: 'Gera um ambiente repleto de livros antigos, estantes de madeira e uma atmosfera de conhecimento e história.' },
-                        { text: 'Laboratório de alta tecnologia', description: 'Retrata um espaço de pesquisa com equipamentos avançados, luzes brilhantes e um toque científico.' },
-                        { text: 'Ruínas históricas', description: 'Cria um cenário de antigas construções em ruínas, com vegetação crescendo e uma atmosfera de mistério e passagem do tempo.' },
-                        { text: 'Submundo cyberpunk', description: 'Retrata as camadas mais baixas e escuras de uma cidade cyberpunk, com vielas, mercados ilegais e luzes neon.' },
-                        { text: 'Jardim japonês', description: 'Gera um cenário de jardim tradicional japonês, com pedras, água, bonsais e atmosfera zen.' },
-                        { text: 'Mercado popular', description: 'Retrata um mercado movimentado, com barracas, pessoas e uma atmosfera vibrante e colorida.' },
-                        { text: 'Navio pirata', description: 'Cria um cenário de embarcação pirata, com velas, mastros e um toque de aventura.' },
-                        { text: 'Planeta alienígena', description: 'Gera uma paisagem de um mundo extraterrestre, com flora e fauna exóticas e características únicas.' },
-                        { text: 'Pátio escolar', description: 'Retrata um ambiente de escola, com alunos, quadras e uma atmosfera jovem e dinâmica.' },
-                        { text: 'Café aconchegante', description: 'Cria um ambiente de cafeteria com luzes quentes, móveis confortáveis e uma atmosfera convidativa.' },
-                        { text: 'Sala de trono real', description: 'Retrata um salão grandioso com um trono, símbolos de poder e uma atmosfera de realeza.' },
-                        { text: 'Museu moderno', description: 'Gera um interior de museu com arquitetura contemporânea, obras de arte e um ambiente cultural.' },
-                        { text: 'Praça pública iluminada', description: 'Cria uma cena de praça à noite, com luzes, bancos e pessoas, transmitindo vida urbana.' },
-                        { text: 'Pista de corrida futurista', description: 'Retrata uma pista de corrida com design avançado, veículos de alta tecnologia e velocidade.' },
-                        { text: 'Estação de trem antiga', description: 'Gera um cenário de estação de trem do passado, com locomotivas a vapor, plataformas e uma atmosfera nostálgica.' },
-                        { text: 'Cemitério gótico', description: 'Cria um ambiente de cemitério com arquitetura gótica, lápides antigas e uma atmosfera sombria e misteriosa.' },
-                        { text: 'Sala de concertos', description: 'Retrata um palco e uma plateia em uma sala de concertos, com iluminação e atmosfera de espetáculo.' },
-                        { text: 'Ilha deserta', description: 'Gera uma imagem de ilha isolada, com areia, palmeiras e mar, transmitindo solidão ou aventura.' },
-                        { text: 'Hospital futurista', description: 'Cria um ambiente hospitalar com tecnologia avançada, equipamentos médicos inovadores e um toque de ficção científica.' },
-                        { text: 'Praça central de cidade europeia antiga', description: 'Retrata uma praça tradicional de uma cidade europeia, com arquitetura histórica, fontes e pessoas.' }
-                    ],
-                    type: 'radio'
-                },
-                quality: {
-                    title: 'Passo 8: Escolha a Qualidade e Resolução',
-                    options: [
-                        { text: '512x512 (rápida e leve)', description: 'Ideal para testes rápidos ou ícones, com menor detalhe.' },
-                        { text: '1024x1024 (padrão alta qualidade)', description: 'Boa qualidade para a maioria das aplicações digitais, com bom equilíbrio entre detalhe e velocidade.' },
-                        { text: '1080x1080 (Instagram)', description: 'Resolução quadrada otimizada para posts no feed do Instagram.' },
-                        { text: '1080x1920 (stories/reels)', description: 'Resolução vertical ideal para stories e reels do Instagram, TikTok, etc.' },
-                        { text: '1440x2560 (wallpaper mobile)', description: 'Alta resolução para papéis de parede de smartphones, com bom detalhe.' },
-                        { text: '1920x1080 (HD)', description: 'Resolução Full HD, ideal para vídeos, apresentações e telas de computador.' },
-                        { text: '2K (2048x2048)', description: 'Resolução superior ao HD, com mais detalhes e nitidez.' },
-                        { text: '4K (3840x2160)', description: 'Resolução Ultra HD, com altíssimo nível de detalhe, ideal para telas grandes e impressões de alta qualidade.' },
-                        { text: 'Alta definição fotográfica', description: 'A imagem deve ter a nitidez e o detalhamento de uma fotografia profissional.' },
-                        { text: 'Ultra HD com textura realista', description: 'Máximo nível de detalhe e realismo nas texturas, com resolução Ultra HD.' },
-                        { text: 'Estilo pintura detalhada', description: 'A imagem deve simular uma pintura com riqueza de detalhes e pinceladas visíveis.' },
-                        { text: 'Resolução para impressão A3', description: 'Otimizada para impressão em tamanho A3, garantindo boa qualidade em formato físico.' },
-                        { text: 'Resolução para capa de livro', description: 'Resolução e proporções adequadas para a capa de um livro, com foco no impacto visual.' },
-                        { text: 'Formato panorâmico widescreen', description: 'Proporção de tela ampla, ideal para paisagens e cenas cinematográficas.' },
-                        { text: 'Formato retrato para pôster', description: 'Proporção vertical, ideal para pôsteres e artes que se destacam na vertical.' },
-                        { text: 'Alta definição de textura', description: 'Foco extremo na riqueza e realismo das texturas dos objetos e superfícies.' },
-                        { text: 'Qualidade cinematográfica', description: 'A imagem deve ter a estética, iluminação e composição de uma cena de filme profissional.' },
-                        { text: 'Sem ruído visual', description: 'A imagem deve ser limpa e sem granulação ou artefatos digitais indesejados.' },
-                        { text: 'Máximo detalhamento possível', description: 'Prioriza a inclusão de todos os pequenos detalhes, resultando em uma imagem rica e complexa.' },
-                        { text: 'Leve e simplificado', description: 'A imagem deve ter um estilo mais limpo e menos detalhes, focando na clareza e rapidez de geração.' }
-                    ],
-                    type: 'radio'
-                },
-                avoid: {
-                    title: 'Passo 9: Elementos a Evitar (Opcional)',
-                    options: [
-                        { text: 'Fundo poluído', description: 'Evita que o fundo da imagem contenha elementos desnecessários ou que distraiam.' },
-                        { text: 'Pessoas indesejadas', description: 'Garante que não apareçam figuras humanas que não fazem parte do foco principal.' },
-                        { text: 'Texto na imagem', description: 'Impede a inclusão de qualquer tipo de texto ou legenda na imagem gerada.' },
-                        { text: 'Logotipos', description: 'Evita a presença de logotipos ou marcas comerciais.' },
-                        { text: 'Marcas d’água', description: 'Garante que a imagem não tenha marcas d\'água sobrepostas.' },
-                        { text: 'Cores muito vibrantes', description: 'Limita o uso de cores excessivamente intensas e saturadas.' },
-                        { text: 'Cores muito escuras', description: 'Evita que a imagem seja predominantemente escura ou com pouca iluminação.' },
-                        { text: 'Objetos modernos em cena histórica', description: 'Previne anacronismos, como celulares em cenas medievais.' },
-                        { text: 'Itens futuristas em cena antiga', description: 'Evita a mistura de elementos tecnológicos com cenários do passado.' },
-                        { text: 'Excesso de sombras', description: 'Reduz a quantidade de sombras profundas ou muito marcadas.' },
-                        { text: 'Personagens deformados', description: 'Garante que as figuras humanas ou criaturas tenham proporções e características normais.' },
-                        { text: 'Olhos estranhos', description: 'Evita olhos com aparências não naturais ou assustadoras.' },
-                        { text: 'Mãos com número errado de dedos', description: 'Garante que as mãos dos personagens sejam representadas corretamente.' },
-                        { text: 'Fundo desfocado demais', description: 'Controla o nível de desfoque do fundo para que ele não se torne irreconhecível.' },
-                        { text: 'Elementos duplicados', description: 'Previne a repetição indesejada de objetos ou partes da imagem.' },
-                        { text: 'Proporções irreais', description: 'Garante que os elementos da imagem mantenham proporções lógicas e realistas.' },
-                        { text: 'Desfoque exagerado', description: 'Evita que a imagem tenha um nível de desfoque que prejudique a clareza.' },
-                        { text: 'Excesso de luz estourada', description: 'Controla para que as áreas claras não fiquem superexpostas e percam detalhes.' },
-                        { text: 'Elementos sem relação com o tema', description: 'Garante que todos os elementos visuais sejam coerentes com o assunto principal.' },
-                        { text: 'Estética muito genérica', description: 'Busca um estilo mais único e menos comum ou previsível.' },
-                        { text: 'Personagens com expressões incoerentes', description: 'Assegura que as expressões faciais dos personagens sejam consistentes com a emoção da cena.' },
-                        { text: 'Detalhes borrados', description: 'Garante nitidez nos detalhes, evitando áreas embaçadas.' },
-                        { text: 'Cenário muito vazio', description: 'Adiciona elementos ao cenário para que ele não pareça desolado ou sem vida.' },
-                        { text: 'Repetição de padrões artificiais', description: 'Evita que a imagem contenha padrões repetitivos que pareçam gerados por computador.' },
-                        { text: 'Mistura incoerente de estilos artísticos', description: 'Garante que a imagem mantenha um estilo artístico consistente, sem elementos que não combinem.' },
-                        { text: 'Proporções corporais erradas', description: 'Assegura que os corpos dos personagens tenham proporções anatômicas corretas.' },
-                        { text: 'Mistura de culturas sem contexto', description: 'Evita a combinação de elementos culturais que não tenham uma justificativa narrativa.' },
-                        { text: 'Itens de outra época sem sentido', description: 'Previne a inclusão de objetos que não pertencem ao período histórico retratado.' },
-                        { text: 'Distância excessiva do foco principal', description: 'Garante que o assunto principal esteja em um enquadramento adequado, sem estar muito distante.' },
-                        { text: 'Excesso de filtros visuais', description: 'Evita a aplicação de muitos filtros que possam distorcer ou artificializar a imagem.' }
-                    ],
-                    type: 'checkbox'
+        const navTabs = document.querySelectorAll('.nav-tab');
+        const pages = document.querySelectorAll('.page-content');
+        const navCards = document.querySelectorAll('.nav-card');
+        const backButtons = document.querySelectorAll('.back-button');
+
+        function showPage(pageId) {
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
                 }
-            },
-            currentCategoryIndex: 0,
-            categoryKeys: ['theme', 'style', 'composition', 'characters', 'colors', 'environment', 'quality', 'avoid']
-        };
-
-        function showPage(pageNumber) {
-            document.getElementById('page1').classList.add('hidden');
-            document.getElementById('selectionPages').classList.add('hidden');
-            document.getElementById('finalPage').classList.add('hidden');
-
-            if (pageNumber === 1) {
-                document.getElementById('page1').classList.remove('hidden');
-            } else if (pageNumber >= 2 && pageNumber <= 9) {
-                document.getElementById('selectionPages').classList.remove('hidden');
-                loadSelectionPage(pageNumber);
-            } else if (pageNumber === 10) { // Final page to display prompt
-                document.getElementById('finalPage').classList.remove('hidden');
-                generatePrompt();
-            }
+            });
+             // Garante que o scroll volte ao topo ao mudar de página
+            document.getElementById('main-content').scrollTop = 0;
         }
 
-        function loadSelectionPage(pageNumber) {
-            const currentKey = appState.categoryKeys[pageNumber - 2]; // -2 because page 2 is index 0
-            const category = appState.options[currentKey];
-
-            document.getElementById('selectionTitle').innerText = category.title;
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = ''; // Limpa opções anteriores
-
-            category.options.forEach(option => {
-                const inputId = `${currentKey}-${option.text.replace(/[^a-zA-Z0-9]/g, '')}`; // ID simples para o input
-                const isChecked = (category.type === 'checkbox' && appState.selections[currentKey].includes(option.text)) ||
-                                  (category.type === 'radio' && appState.selections[currentKey] === option.text);
-
-                const label = document.createElement('label');
-                label.className = 'option-label flex items-center space-x-2 text-gray-700'; // Removido hover:bg-blue-50 p-2 rounded-md transition-colors duration-200 para usar a classe option-label
+        // Navegação principal (abas inferiores)
+        navTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetPage = tab.dataset.tab;
                 
-                const input = document.createElement('input');
-                input.type = category.type;
-                input.name = currentKey; // Nome para agrupar radios
-                input.value = option.text;
-                input.id = inputId;
-                input.checked = isChecked;
-                input.className = 'form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500';
+                // Atualiza a cor dos botões
+                navTabs.forEach(t => {
+                    t.classList.remove('text-blue-600');
+                    t.classList.add('text-gray-500', 'hover:text-blue-600');
+                });
+                tab.classList.add('text-blue-600');
+                tab.classList.remove('text-gray-500', 'hover:text-blue-600');
 
-                input.onchange = (event) => {
-                    if (category.type === 'checkbox') {
-                        if (event.target.checked) {
-                            if (!appState.selections[currentKey].includes(option.text)) {
-                                appState.selections[currentKey].push(option.text);
-                            }
-                        } else {
-                            appState.selections[currentKey] = appState.selections[currentKey].filter(item => item !== option.text);
-                        }
-                    } else if (category.type === 'radio') {
-                        appState.selections[currentKey] = option.text;
-                    }
-                };
-
-                const textSpan = document.createElement('span');
-                textSpan.textContent = option.text;
-
-                const descriptionDiv = document.createElement('div');
-                descriptionDiv.className = 'option-description';
-                descriptionDiv.textContent = option.description;
-
-                label.appendChild(input);
-                label.appendChild(textSpan);
-                label.appendChild(descriptionDiv); // Adiciona a descrição
-                optionsContainer.appendChild(label);
+                // Mostra a página correta
+                showPage(targetPage);
             });
+        });
 
-            // Altera o texto do botão "Próximo" para "Gerar Prompt" na última página de seleção
-            const nextButton = document.getElementById('nextButton');
-            if (pageNumber === 9) { // Última página de seleção é a 9 (avoid)
-                nextButton.innerText = 'Gerar Prompt';
-            } else {
-                nextButton.innerText = 'Próximo';
-            }
-        }
-
-        function nextPage() {
-            if (appState.currentPage === 1) {
-                appState.selections.initialDescription = document.getElementById('initialDescription').value;
-            } else if (appState.currentPage >= 2 && appState.currentPage <= 9) {
-                // As seleções já são atualizadas via onchange nos inputs
-                // Para botões de rádio, garantir que algo foi selecionado antes de avançar
-                const currentKey = appState.categoryKeys[appState.currentPage - 2];
-                const category = appState.options[currentKey];
-                if (category.type === 'radio' && !appState.selections[currentKey]) {
-                    alert('Por favor, selecione uma opção para continuar.');
-                    return; // Impede o avanço se nada foi selecionado em rádio
-                }
-            }
-
-            if (appState.currentPage < 10) {
-                appState.currentPage++;
-                showPage(appState.currentPage);
-            }
-        }
-
-        function prevPage() {
-            if (appState.currentPage > 1) {
-                appState.currentPage--;
-                showPage(appState.currentPage);
-            }
-        }
-
-        function generatePrompt() {
-            let prompt = appState.selections.initialDescription.trim();
-
-            if (appState.selections.theme) { // Agora é string para radio
-                prompt += `\nTema: ${appState.selections.theme}.`;
-            }
-            if (appState.selections.style) { // Agora é string para radio
-                prompt += `\nEstilo visual: ${appState.selections.style}.`;
-            }
-            if (appState.selections.composition) { // Agora é string para radio
-                prompt += `\nComposição e enquadramento: ${appState.selections.composition}.`;
-            }
-            if (appState.selections.characters) { // Agora é string para radio
-                prompt += `\nPersonagens e elementos: ${appState.selections.characters}.`;
-            }
-            if (appState.selections.colors) { // Agora é string para radio
-                prompt += `\nCores e iluminação: ${appState.selections.colors}.`;
-            }
-            if (appState.selections.environment) { // Agora é string para radio
-                prompt += `\nAmbiente e contexto: ${appState.selections.environment}.`;
-            }
-            if (appState.selections.quality) {
-                prompt += `\nQualidade e resolução: ${appState.selections.quality}.`;
-            }
-            if (appState.selections.avoid.length > 0) {
-                prompt += `\nEvitar: ${appState.selections.avoid.join(', ')}.`;
-            }
-
-            document.getElementById('generatedPrompt').value = prompt;
-        }
-
-        function copyPrompt() {
-            const promptTextarea = document.getElementById('generatedPrompt');
-            promptTextarea.select();
-            document.execCommand('copy');
-            alert('Prompt copiado para a área de transferência!');
-        }
-
-        function restartApp() {
-            appState.currentPage = 1;
-            appState.selections = {
-                initialDescription: '',
-                theme: '',
-                style: '',
-                composition: '',
-                characters: '',
-                colors: '',
-                environment: '',
-                quality: '',
-                avoid: []
-            };
-            document.getElementById('initialDescription').value = '';
-            document.getElementById('generatedPrompt').value = '';
-            // Limpar seleções nas páginas de seleção ao reiniciar
-            appState.categoryKeys.forEach(key => {
-                const category = appState.options[key];
-                if (category.type === 'checkbox') {
-                    appState.selections[key] = [];
-                } else if (category.type === 'radio') {
-                    appState.selections[key] = '';
-                }
+        // Navegação interna (cards de matéria/tema)
+        navCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const targetPage = card.dataset.target;
+                showPage(targetPage);
             });
-            showPage(1);
-        }
+        });
 
-        // Inicializa a primeira página ao carregar
-        document.addEventListener('DOMContentLoaded', () => {
-            showPage(appState.currentPage);
+        // Botões de "Voltar"
+        backButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetPage = button.dataset.target;
+                showPage(targetPage);
+            });
         });
     </script>
+
 </body>
 </html>
