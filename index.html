@@ -1,344 +1,413 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central de Apostilas - Direito</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Estilo para a barra de rolagem no conteúdo */
-        .content-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .content-scroll::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 20px;
-        }
-        .content-scroll::-webkit-scrollbar-track {
-            background-color: #f1f5f9;
-        }
-        /* Estilos para o conteúdo da apostila (Ajustes de fonte) */
-        .prose h1 { font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; color: #1f2937;}
-        .prose h2 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; color: #1f2937;}
-        .prose h3 { font-size: 1.125rem; margin-top: 1.25rem; margin-bottom: 0.5rem; font-weight: 700; color: #1f2937;}
-        .prose h4 { font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600; color: #1f2937;}
-        .prose p, .prose ul, .prose li { font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; color: #374151;}
-        .prose strong { font-weight: 600; color: #111827; }
-        .prose ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
-        .prose li { margin-bottom: 0.25rem; }
-        .prose table {
-            width: 100%;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            border-collapse: collapse;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            border-radius: 0.5rem;
-            overflow: hidden;
-            font-size: 0.875rem; /* Fonte menor para tabelas */
-        }
-        .prose th, .prose td {
-            border: 1px solid #e5e7eb;
-            padding: 0.5rem 0.75rem;
-            text-align: left;
-        }
-        .prose th {
-            background-color: #f3f4f6;
-            font-weight: 600;
-            color: #1f2937;
-        }
-        .prose tr:nth-child(even) {
-            background-color: #f9fafb;
-        }
+import React, { useMemo, useState } from "react";
 
-    </style>
-</head>
-<body class="bg-gray-200 flex items-center justify-center min-h-screen p-4">
+/*
+  App Gerador de Prompts para Imagens de Carrossel
+  — Etapas: (1) nº de cards • (2) layout + paleta • (3) textos • (4) prompts com copiar
+  — Requisitos atendidos:
+    ✓ 6–12 cards
+    ✓ 3 tipos de layout por card
+    ✓ 3 paletas (cada uma com 4 variações harmônicas); variação aleatória por card
+    ✓ Garante texto exatamente como digitado (instruções explícitas no prompt)
+    ✓ Botão "Copiar" por card
+  — Stack: React + Tailwind (shadcn/ui opcional).
+*/
 
-    <!-- Container principal que simula a tela de um smartphone -->
-    <div class="w-full max-w-sm h-[800px] max-h-[90vh] bg-gray-50 rounded-3xl shadow-2xl overflow-hidden flex flex-col border-4 border-gray-300">
+// Paletas com 4 variações cada (cores apenas como referência textual para o prompt)
+const PALETTES = [
+  {
+    id: "classica-escura",
+    name: "Clássica Escura",
+    variations: [
+      { bg: "bordô profundo", primary: "laranja queimado", secondary: "bege claro", accent: "vermelho escuro" },
+      { bg: "marrom café", primary: "vermelho vibrante", secondary: "marfim", accent: "âmbar" },
+      { bg: "grafite", primary: "coral", secondary: "areia clara", accent: "cobre" },
+      { bg: "azul petróleo", primary: "laranja vivo", secondary: "off-white", accent: "dourado fosco" },
+    ],
+  },
+  {
+    id: "pastel-moderno",
+    name: "Pastel Moderno",
+    variations: [
+      { bg: "creme", primary: "salmon pastel", secondary: "cinza azulado claro", accent: "pêssego" },
+      { bg: "lavanda pálido", primary: "azul bebê", secondary: "cinza quente", accent: "menta" },
+      { bg: "pêssego suave", primary: "magenta pastel", secondary: "marfim", accent: "lilás" },
+      { bg: "menta suave", primary: "turquesa", secondary: "cinza perolado", accent: "amarelo manteiga" },
+    ],
+  },
+  {
+    id: "alto-contraste",
+    name: "Alto Contraste",
+    variations: [
+      { bg: "preto profundo", primary: "branco", secondary: "cinza claro", accent: "amarelo vívido" },
+      { bg: "antracito", primary: "ciano elétrico", secondary: "branco sujo", accent: "magenta vivo" },
+      { bg: "marinho", primary: "branco puro", secondary: "cinza gelo", accent: "laranja neon" },
+      { bg: "ameixa escura", primary: "marfim", secondary: "cinza frio", accent: "verde-lima" },
+    ],
+  },
+];
 
-        <!-- Barra Superior (Cabeçalho) -->
-        <header class="bg-white/80 backdrop-blur-sm p-4 shadow-sm z-10 border-b border-gray-200">
-            <h1 class="text-xl font-bold text-gray-800 text-center">Central de Apostilas</h1>
-        </header>
+const LAYOUTS = [
+  {
+    id: "imagem-fundo",
+    name: "1) Imagem grande (fundo)",
+    description:
+      "Imagem de fundo ocupando 100%, título e subtítulo sobrepostos com contraste e legibilidade (blur/overlay se necessário).",
+  },
+  {
+    id: "imagem-centro",
+    name: "2) Imagem no centro",
+    description:
+      "Imagem central destacada; título na parte superior; subtítulo + texto na parte inferior, com margens generosas.",
+  },
+  {
+    id: "sem-imagem",
+    name: "3) Sem imagem",
+    description: "Sem foto; composição tipográfica centralizada, foco em título e texto, ritmo e respiro editorial.",
+  },
+];
 
-        <!-- Área de Conteúdo Principal -->
-        <main id="main-content" class="flex-1 overflow-y-auto p-6 bg-gray-50 content-scroll">
-            
-            <!-- Conteúdo da Aba 'Início' (visível por padrão) -->
-            <div id="inicio" class="page-content">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Bem-vindo(a)!</h2>
-                <p class="text-gray-600 mb-6">Seu portal de estudos de Direito. Acesse materiais, resumos e apostilas completas.</p>
-                
-                <div class="bg-white p-4 rounded-lg mb-6 border border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Adicionados Recentemente</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Apostila de Direito Constitucional I</li>
-                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Resumo - Teoria Geral do Processo</li>
-                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Mapa Mental de Direito Penal</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-4 rounded-lg border border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Populares</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Controle de Constitucionalidade</li>
-                        <li class="text-blue-600 hover:text-blue-500 cursor-pointer">Princípios do Direito Administrativo</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Conteúdo da Aba 'Matérias' -->
-            <div id="materias" class="page-content hidden">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Matérias</h2>
-                <div class="grid grid-cols-1 gap-4">
-                    <div data-target="materia-penal" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
-                        <h3 class="font-bold text-gray-800">Direito Penal</h3>
-                        <p class="text-sm text-gray-500">Teoria do crime, penas, crimes em espécie.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Sub-página para Direito Penal -->
-            <div id="materia-penal" class="page-content hidden">
-                <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="materias">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
-                    Voltar para Matérias
-                </button>
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Direito Penal</h2>
-                <div class="grid grid-cols-1 gap-4">
-                     <div data-target="penal-parte-especial" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
-                        <h3 class="font-bold text-gray-800">Parte Especial</h3>
-                        <p class="text-sm text-gray-500">Crimes contra a dignidade sexual e outros.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sub-página para Parte Especial -->
-            <div id="penal-parte-especial" class="page-content hidden">
-                 <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="materia-penal">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
-                    Voltar para Direito Penal
-                </button>
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Parte Especial</h2>
-                <div class="grid grid-cols-1 gap-4">
-                     <div data-target="artigos-213-243" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
-                        <h3 class="font-bold text-gray-800">Art. 213 a 243</h3>
-                        <p class="text-sm text-gray-500">Crimes contra a Dignidade Sexual.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sub-página para a lista de Artigos -->
-            <div id="artigos-213-243" class="page-content hidden">
-                <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="penal-parte-especial">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
-                   Voltar para Parte Especial
-               </button>
-               <h2 class="text-2xl font-semibold text-gray-900 mb-6">Artigos</h2>
-               <div class="grid grid-cols-1 gap-4">
-                    <div data-target="conteudo-artigo-213" class="nav-card bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">
-                       <h3 class="font-bold text-gray-800">Art. 213</h3>
-                       <p class="text-sm text-gray-500">Crime de Estupro.</p>
-                   </div>
-               </div>
-           </div>
-
-            <!-- Página de conteúdo para o Art. 213 -->
-            <div id="conteudo-artigo-213" class="page-content hidden">
-                <button class="back-button mb-6 text-blue-600 hover:text-blue-500 flex items-center" data-target="artigos-213-243">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="m15 18-6-6 6-6"/></svg>
-                    Voltar para Artigos
-                </button>
-                <article class="prose max-w-none">
-                    <h1 class="text-blue-700">APOSTILA DE DIREITO PENAL – PARTE ESPECIAL</h1>
-                    <p class="text-xs text-gray-500">Edição 2025 | Autor: Perplexidade AI</p>
-                    
-                    <h2>Crimes contra a Dignidade Sexual</h2>
-                    <h3>Estupro – Art. 213 do Código Penal</h3>
-                    
-                    <hr>
-
-                    <h4>Contexto e Bem Jurídico</h4>
-                    <p>O artigo 213 do Código Penal tutela a <strong>liberdade sexual</strong> e a <strong>dignidade da pessoa humana</strong>. O estupro é considerado crime hediondo, revelando a gravíssima ofensa à integridade física e psíquica da vítima. O tipo penal visa proteger o direito de autodeterminação sexual, evitando qualquer prática sexual sob coerção, violência ou ameaça.</p>
-
-                    <h4>Elementos do Tipo</h4>
-                    <p><strong>Objetivos:</strong></p>
-                    <ul>
-                        <li><strong>Verbo núcleo:</strong> constranger (forçar, mediante violência física ou grave ameaça)</li>
-                        <li><strong>Meio:</strong> violência ou grave ameaça</li>
-                        <li><strong>Ação:</strong> conjunção carnal ou outro ato libidinoso</li>
-                    </ul>
-                    <p><strong>Subjetivos:</strong></p>
-                    <ul>
-                        <li><strong>Dolo:</strong> vontade livre e consciente de constranger para obter conjunção carnal ou ato libidinoso.</li>
-                        <li>Não admite forma culposa.</li>
-                    </ul>
-
-                    <h4>Sujeitos</h4>
-                    <ul>
-                        <li><strong>Ativo:</strong> crime comum, pode ser qualquer pessoa, homem ou mulher.</li>
-                        <li><strong>Passivo:</strong> qualquer pessoa maior de 14 anos.</li>
-                    </ul>
-
-                    <h4>Consumação e Tentativa</h4>
-                    <p>A <strong>consumação</strong> ocorre com o início da conjunção carnal ou ato libidinoso. A <strong>tentativa</strong> é admitida.</p>
-
-                    <h4>Formas Qualificadas</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="bg-blue-100 text-blue-800">Situação</th>
-                                <th class="bg-blue-100 text-blue-800">Pena</th>
-                                <th class="bg-blue-100 text-blue-800">Observação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Caput – Estupro simples</td>
-                                <td>6 a 10 anos de reclusão</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>§1º – Lesão corporal grave ou vítima 14–18 anos</td>
-                                <td>8 a 12 anos de reclusão</td>
-                                <td>Menor de 18 e maior de 14</td>
-                            </tr>
-                            <tr>
-                                <td>§2º – Resultado morte</td>
-                                <td>12 a 30 anos de reclusão</td>
-                                <td>Forma mais grave</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h4>Aspectos Processuais</h4>
-                    <ul>
-                        <li><strong>Ação penal:</strong> Pública incondicionada.</li>
-                        <li><strong>Competência:</strong> Vara Criminal.</li>
-                        <li><strong>Prova:</strong> A palavra da vítima tem especial valor probatório.</li>
-                    </ul>
-
-                    <h4>Panorama Jurisprudencial Atual (Agosto 2025)</h4>
-                    <p><strong>STF/STJ:</strong> A palavra da vítima é fundamental. Admite-se coautoria e participação. Há debates sobre o estupro "virtual", mas não é um entendimento consolidado.</p>
-
-                    <h4>Quadro Comparativo – Estupro x Tipos Próximos</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="bg-green-100 text-green-800">Tipo penal</th>
-                                <th class="bg-green-100 text-green-800">Conduta central</th>
-                                <th class="bg-green-100 text-green-800">Pena</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Art. 213 – Estupro</strong></td>
-                                <td>Violência ou ameaça para conjunção carnal ou ato libidinoso</td>
-                                <td>6–10 anos (simples)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Art. 217-A – Estupro de vulnerável</strong></td>
-                                <td>Conjunção carnal/ato libidinoso com &lt;14 anos</td>
-                                <td>8–15 anos</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Art. 61 (LCP)</strong></td>
-                                <td>Importunação ofensiva ao pudor</td>
-                                <td>Detenção, &lt;1 ano</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </article>
-            </div>
-
-
-            <!-- Conteúdo da Aba 'Busca' -->
-            <div id="busca" class="page-content hidden">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6">Busca</h2>
-                <div class="relative">
-                    <input type="text" placeholder="Pesquisar apostila..." class="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- Barra de Navegação Inferior -->
-        <nav class="bg-white/80 backdrop-blur-sm mt-auto p-2 border-t border-gray-200">
-            <div class="flex justify-around">
-                <button data-tab="inicio" class="nav-tab text-blue-600 flex flex-col items-center justify-center w-1/3 p-2 rounded-lg transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    <span class="text-xs font-medium mt-1">Início</span>
-                </button>
-                <button data-tab="materias" class="nav-tab text-gray-500 hover:text-blue-600 flex flex-col items-center justify-center w-1/3 p-2 rounded-lg transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
-                    <span class="text-xs font-medium mt-1">Matérias</span>
-                </button>
-                <button data-tab="busca" class="nav-tab text-gray-500 hover:text-blue-600 flex flex-col items-center justify-center w-1/3 p-2 rounded-lg transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <span class="text-xs font-medium mt-1">Busca</span>
-                </button>
-            </div>
-        </nav>
+function Stepper({ step, setStep }: { step: number; setStep: (n: number) => void }) {
+  const steps = [
+    { id: 1, label: "Nº de cards" },
+    { id: 2, label: "Layout & Paleta" },
+    { id: 3, label: "Textos" },
+    { id: 4, label: "Prompts" },
+  ];
+  return (
+    <div className="flex items-center justify-center gap-2 mb-6 select-none">
+      {steps.map((s, i) => (
+        <React.Fragment key={s.id}>
+          <button
+            onClick={() => setStep(s.id)}
+            className={`px-3 py-2 rounded-xl text-sm font-semibold shadow-sm transition ${
+              step === s.id ? "bg-black text-white" : "bg-zinc-100 hover:bg-zinc-200"
+            }`}
+          >
+            {s.id}. {s.label}
+          </button>
+          {i < steps.length - 1 && <div className="w-6 h-[2px] bg-zinc-200" />}
+        </React.Fragment>
+      ))}
     </div>
+  );
+}
 
-    <script>
-        const navTabs = document.querySelectorAll('.nav-tab');
-        const pages = document.querySelectorAll('.page-content');
-        const navCards = document.querySelectorAll('.nav-card');
-        const backButtons = document.querySelectorAll('.back-button');
+export default function PromptCarouselGenerator() {
+  const [step, setStep] = useState(1);
+  const [cardCount, setCardCount] = useState(6);
+  const [paletteId, setPaletteId] = useState(PALETTES[0].id);
+  const [layouts, setLayouts] = useState<string[]>(() => Array.from({ length: 12 }, () => LAYOUTS[0].id));
+  const [texts, setTexts] = useState(
+    () => Array.from({ length: 12 }, () => ({ title: "", subtitle: "", body: "" }))
+  );
 
-        function showPage(pageId) {
-            pages.forEach(page => {
-                if (page.id === pageId) {
-                    page.classList.remove('hidden');
-                } else {
-                    page.classList.add('hidden');
-                }
-            });
-             // Garante que o scroll volte ao topo ao mudar de página
-            document.getElementById('main-content').scrollTop = 0;
-        }
+  // Limitar visualizações/edição ao total escolhido
+  const cards = useMemo(() => Array.from({ length: cardCount }, (_, i) => i), [cardCount]);
+  const palette = useMemo(() => PALETTES.find((p) => p.id === paletteId)!, [paletteId]);
 
-        // Navegação principal (abas inferiores)
-        navTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetPage = tab.dataset.tab;
-                
-                // Atualiza a cor dos botões
-                navTabs.forEach(t => {
-                    t.classList.remove('text-blue-600');
-                    t.classList.add('text-gray-500', 'hover:text-blue-600');
-                });
-                tab.classList.add('text-blue-600');
-                tab.classList.remove('text-gray-500', 'hover:text-blue-600');
+  function setLayoutForAll(id: string) {
+    const next = [...layouts];
+    for (let i = 0; i < cardCount; i++) next[i] = id;
+    setLayouts(next);
+  }
 
-                // Mostra a página correta
-                showPage(targetPage);
-            });
-        });
+  function randomVariationIndex(i: number) {
+    // Determinístico por índice para estabilidade da UI: pseudo-aleatório baseado no índice
+    // (evita mudar a cada render). Ainda assim "parece" aleatório ao usuário.
+    const seed = (i + 1) * 9301 + 49297;
+    return seed % palette.variations.length;
+  }
 
-        // Navegação interna (cards de matéria/tema)
-        navCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const targetPage = card.dataset.target;
-                showPage(targetPage);
-            });
-        });
+  function copy(text: string) {
+    navigator.clipboard.writeText(text);
+  }
 
-        // Botões de "Voltar"
-        backButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetPage = button.dataset.target;
-                showPage(targetPage);
-            });
-        });
-    </script>
+  function renderLayoutRadio(i: number) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {LAYOUTS.map((l) => (
+          <label key={l.id} className={`border rounded-2xl p-4 cursor-pointer transition ${
+            layouts[i] === l.id ? "border-black shadow" : "border-zinc-200 hover:border-zinc-300"
+          }`}>
+            <div className="flex items-start gap-2">
+              <input
+                type="radio"
+                name={`layout-${i}`}
+                checked={layouts[i] === l.id}
+                onChange={() => {
+                  const next = [...layouts];
+                  next[i] = l.id;
+                  setLayouts(next);
+                }}
+                className="mt-1"
+              />
+              <div>
+                <div className="font-semibold">{l.name}</div>
+                <div className="text-sm text-zinc-600">{l.description}</div>
+              </div>
+            </div>
+          </label>
+        ))}
+      </div>
+    );
+  }
 
-</body>
-</html>
+  function renderTexts(i: number) {
+    const t = texts[i];
+    function update(part: "title" | "subtitle" | "body", value: string) {
+      const next = [...texts];
+      next[i] = { ...next[i], [part]: value };
+      setTexts(next);
+    }
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="col-span-1 md:col-span-1">
+          <label className="text-sm font-semibold">Título</label>
+          <textarea
+            value={t.title}
+            onChange={(e) => update("title", e.target.value)}
+            placeholder="Digite o título exatamente como quer na arte"
+            className="mt-1 w-full h-24 rounded-xl border border-zinc-300 p-3 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+        <div className="col-span-1 md:col-span-1">
+          <label className="text-sm font-semibold">Subtítulo</label>
+          <textarea
+            value={t.subtitle}
+            onChange={(e) => update("subtitle", e.target.value)}
+            placeholder="Digite o subtítulo exatamente como quer na arte"
+            className="mt-1 w-full h-24 rounded-xl border border-zinc-300 p-3 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+        <div className="col-span-1 md:col-span-1">
+          <label className="text-sm font-semibold">Texto do card</label>
+          <textarea
+            value={t.body}
+            onChange={(e) => update("body", e.target.value)}
+            placeholder="Texto/legenda do card (opcional conforme layout)"
+            className="mt-1 w-full h-24 rounded-xl border border-zinc-300 p-3 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  function makePrompt(i: number) {
+    const v = palette.variations[randomVariationIndex(i)];
+    const layoutId = layouts[i];
+    const t = texts[i];
+
+    const commonHeader = `Gere uma imagem de carrossel do Instagram, proporção 4:5 (1080x1350px).\n` +
+      `Use paleta "${palette.name}" (variação específica deste card): fundo ${v.bg}, cor primária ${v.primary}, ` +
+      `cor secundária ${v.secondary}, cor de destaque ${v.accent}.\n` +
+      `Mantenha estilo gráfico limpo, editorial, com hierarquia tipográfica e respiro.\n` +
+      `GARANTA que os textos sejam renderizados EXATAMENTE como fornecidos (acentos, caixa, pontuação e quebras).\n` +
+      `NÃO corrija, NÃO traduza, NÃO reescreva. Não adicionar aspas ao redor do texto do usuário.`;
+
+    const exactTexts = `\n\nTEXTOS A IMPRIMIR (SEM ALTERAÇÕES):\n` +
+      `TÍTULO:\n${t.title || ""}\n\nSUBTÍTULO:\n${t.subtitle || ""}\n\nTEXTO DO CARD:\n${t.body || ""}`;
+
+    let layoutBlock = "";
+    if (layoutId === "imagem-fundo") {
+      layoutBlock = `\n\nLAYOUT: IMAGEM GRANDE (FUND0)\n` +
+        `- Imagem de fundo ocupando 100% da área.\n` +
+        `- Aplique overlay sutil (ou blur local) para legibilidade do título/subtítulo.\n` +
+        `- Título em CAIXA ALTA na área superior ou central, com alto contraste.\n` +
+        `- Subtítulo/legenda em corpo menor, posicionado abaixo do título.\n` +
+        `- Elementos de rodapé discretos (ex.: número do card, logotipo).`;
+    } else if (layoutId === "imagem-centro") {
+      layoutBlock = `\n\nLAYOUT: IMAGEM NO CENTRO\n` +
+        `- Imagem central com bordas suaves, sombra leve ou moldura mínima.\n` +
+        `- Título na parte SUPERIOR do card.\n` +
+        `- Subtítulo e texto na PARTE INFERIOR, com bom espaçamento e leitura confortável.`;
+    } else {
+      layoutBlock = `\n\nLAYOUT: SEM IMAGEM\n` +
+        `- Nenhuma fotografia/ilustração.\n` +
+        `- Composição tipográfica centralizada.\n` +
+        `- Foque em ritmo visual e contraste entre título, subtítulo e texto.`;
+    }
+
+    const typographicRules = `\n\nREGRAS TIPOGRÁFICAS\n` +
+      `- Título: fonte moderna, condensada e em CAIXA ALTA (quando escrito assim pelo usuário), peso forte.\n` +
+      `- Subtítulo: menor, cor secundária, alta legibilidade.\n` +
+      `- Texto: corpo regular e espaçamento confortável.\n` +
+      `- Alinhamento e hierarquia devem obedecer ao layout escolhido.`;
+
+    const finishingRules = `\n\nACABAMENTO\n` +
+      `- Design minimalista, sem poluição; consistência com o restante do carrossel.\n` +
+      `- Não inserir marcas d'água ou conteúdos além do fornecido.\n` +
+      `- Exportar em alta resolução (1080x1350).`;
+
+    return commonHeader + layoutBlock + typographicRules + finishingRules + exactTexts;
+  }
+
+  const prompts = useMemo(() => cards.map((i) => makePrompt(i)), [cards, layouts, texts, palette]);
+
+  return (
+    <div className="min-h-screen w-full bg-white text-zinc-900 p-6 md:p-10">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight">App Gerador de Prompts para Carrossel</h1>
+        <p className="mt-2 text-zinc-600">Quatro etapas simples. No final, copie os prompts por card. Sem rodeios.</p>
+
+        <Stepper step={step} setStep={setStep} />
+
+        {/* ETAPA 1 – Nº de cards */}
+        {step === 1 && (
+          <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 space-y-4">
+            <div className="flex items-center gap-3">
+              <label className="font-semibold">Quantos cards?</label>
+              <select
+                value={cardCount}
+                onChange={(e) => setCardCount(parseInt(e.target.value))}
+                className="border border-zinc-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+              >
+                {Array.from({ length: 7 }, (_, i) => 6 + i).map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex justify-between">
+              <button onClick={() => setStep(2)} className="px-4 py-2 rounded-xl bg-black text-white font-semibold">
+                Próximo: Layout & Paleta
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ETAPA 2 – Layouts por card + Paleta global */}
+        {step === 2 && (
+          <div className="space-y-6">
+            <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6">
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <div>
+                  <div className="font-semibold">Paleta do carrossel</div>
+                  <div className="text-sm text-zinc-600">A variação será sorteada automaticamente em cada card.</div>
+                </div>
+                <select
+                  value={paletteId}
+                  onChange={(e) => setPaletteId(e.target.value)}
+                  className="border border-zinc-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                >
+                  {PALETTES.map((p) => (
+                    <option key={p.id} value={p.id}>
+                      {p.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                {PALETTES.find((p) => p.id === paletteId)!.variations.map((v, idx) => (
+                  <div key={idx} className="border border-zinc-200 rounded-2xl p-4">
+                    <div className="text-sm font-semibold">Variação {idx + 1}</div>
+                    <div className="text-xs text-zinc-600 leading-6">
+                      Fundo: {v.bg}<br />Primária: {v.primary}<br />Secundária: {v.secondary}<br />Destaque: {v.accent}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 space-y-6">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="font-semibold">Layout por card</div>
+                  <div className="text-sm text-zinc-600">Escolha um layout para cada card. Se preferir, aplique um único layout a todos.</div>
+                </div>
+                <div className="flex gap-2">
+                  {LAYOUTS.map((l) => (
+                    <button key={l.id} onClick={() => setLayoutForAll(l.id)} className="px-3 py-2 rounded-xl border border-zinc-300 hover:bg-zinc-100">
+                      Aplicar "{l.name}" a todos
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {cards.map((i) => (
+                  <div key={i} className="border border-zinc-200 rounded-2xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-semibold">Card {i + 1}</div>
+                      <div className="text-xs text-zinc-500">Variação de paleta aplicada: #{randomVariationIndex(i) + 1}</div>
+                    </div>
+                    {renderLayoutRadio(i)}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-between">
+                <button onClick={() => setStep(1)} className="px-4 py-2 rounded-xl border border-zinc-300">Voltar</button>
+                <button onClick={() => setStep(3)} className="px-4 py-2 rounded-xl bg-black text-white font-semibold">Próximo: Textos</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ETAPA 3 – Textos */}
+        {step === 3 && (
+          <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 space-y-6">
+            <div>
+              <div className="font-semibold">Escreva os textos de cada card</div>
+              <div className="text-sm text-zinc-600">O que você digitar será impresso na arte exatamente da mesma forma. Se quiser quebras de linha, digite-as aqui.</div>
+            </div>
+            <div className="space-y-6">
+              {cards.map((i) => (
+                <div key={i} className="border border-zinc-200 rounded-2xl p-4 space-y-4">
+                  <div className="font-semibold">Card {i + 1}</div>
+                  {renderTexts(i)}
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-between">
+              <button onClick={() => setStep(2)} className="px-4 py-2 rounded-xl border border-zinc-300">Voltar</button>
+              <button onClick={() => setStep(4)} className="px-4 py-2 rounded-xl bg-black text-white font-semibold">Gerar Prompts</button>
+            </div>
+          </div>
+        )}
+
+        {/* ETAPA 4 – Prompts com copiar */}
+        {step === 4 && (
+          <div className="space-y-6">
+            <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6">
+              <div className="font-semibold">Prompts prontos</div>
+              <div className="text-sm text-zinc-600">Cada bloco é um prompt para um card. Clique em "Copiar" para colar onde preferir.</div>
+            </div>
+
+            {cards.map((i) => (
+              <div key={i} className="border border-zinc-200 rounded-2xl overflow-hidden">
+                <div className="flex items-center justify-between bg-zinc-50 px-4 py-3">
+                  <div className="font-semibold">Card {i + 1} — Layout: {LAYOUTS.find((l) => l.id === layouts[i])!.name}</div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-zinc-500">Paleta: {palette.name} · Variação #{randomVariationIndex(i) + 1}</span>
+                    <button
+                      onClick={() => copy(prompts[i])}
+                      className="px-3 py-1.5 rounded-lg bg-black text-white text-sm font-semibold"
+                    >
+                      Copiar
+                    </button>
+                  </div>
+                </div>
+                <textarea
+                  readOnly
+                  value={prompts[i]}
+                  className="w-full h-64 p-4 font-mono text-sm border-0 focus:outline-none"
+                />
+              </div>
+            ))}
+
+            <div className="flex justify-between">
+              <button onClick={() => setStep(3)} className="px-4 py-2 rounded-xl border border-zinc-300">Voltar</button>
+              <button onClick={() => setStep(1)} className="px-4 py-2 rounded-xl bg-zinc-900 text-white font-semibold">Recomeçar</button>
+            </div>
+          </div>
+        )}
+
+        {/* Rodapé */}
+        <div className="mt-10 text-xs text-zinc-500">
+          Dica: Se você quer travar exatamente o case (maiúsculas/minúsculas), digite aqui do jeito que deseja. O prompt já força a impressão fiel.
+        </div>
+      </div>
+    </div>
+  );
+}
