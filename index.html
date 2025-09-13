@@ -1,136 +1,60 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vade-mécum do Estudante — Beta</title>
-  <style>
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-    body { margin: 24px; background:#fafafa; color:#111; }
-    h1 { margin:0 0 16px; }
-    .hint { color:#555; font-size:14px; margin:6px 0 18px; }
-    input[type="search"]{ width:100%; max-width:560px; padding:12px 14px; font-size:16px; border:1px solid #ccc; border-radius:12px; }
-    .grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:14px; }
-    .card{ background:#fff; border:1px solid #e7e7e7; border-radius:14px; padding:14px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
-    .tag{ display:inline-block; font-size:12px; color:#444; background:#f0f0f0; padding:2px 8px; border-radius:999px; margin-left:8px; }
-    .links a{ margin-right:10px; font-size:14px; text-decoration:none; color:#0a58ca; }
-    .links a:hover{ text-decoration:underline; }
-    .sec{ margin-top:28px; }
-    .sec h2{ margin:8px 0 8px; }
-    footer{ margin-top:36px; color:#666; font-size:13px; }
-    .copy { cursor:pointer; border:0; background:#efefef; border-radius:10px; padding:2px 8px; font-size:12px; }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Vade-mécum — busca por artigo ou palavras</title>
+<style>
+  :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+  body { margin: 20px; background:#fafafa; color:#111; }
+  h1{ margin:0 0 8px }
+  .muted{ color:#666; font-size:13px }
+  .row{ display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 14px }
+  select,input,button{ padding:12px 14px; font-size:16px; border:1px solid #ccc; border-radius:12px; }
+  select,input{ background:#fff }
+  button{ cursor:pointer; background:#111; color:#fff; border-color:#111 }
+  .card{ background:#fff; border:1px solid #e7e7e7; border-radius:14px; padding:14px; margin-top:12px; box-shadow:0 1px 2px rgba(0,0,0,.04) }
+  .links a{ color:#0a58ca; text-decoration:none; margin-right:12px; font-size:14px }
+  .links a:hover{ text-decoration:underline }
+  pre{ background:#f7f7f7; padding:10px; border-radius:10px; overflow:auto; white-space:pre-wrap }
+  mark{ background: #fff1a8; }
+</style>
 </head>
 <body>
-  <h1>Vade-mécum do Estudante — Beta</h1>
-  <div class="hint">Filtro rápido: digite “civil”, “cpp”, “maria da penha”, “linDB”, etc.</div>
-  <input id="q" type="search" placeholder="Filtrar por nome, sigla ou ano…" />
+<h1>Vade-mécum (beta)</h1>
+<p class="muted">1) escolha o código/lei • 2) digite <b>artigo</b> (ex.: 121-A) <b>ou</b> <b>palavras-chave</b> (ex.: matar mulher) • 3) clique em buscar</p>
 
-  <div id="container"></div>
+<div class="row">
+  <select id="selCodigo" aria-label="Selecione o código">
+    <option value="cc">Código Civil (Lei 10.406/2002)</option>
+    <option value="cpc">CPC (Lei 13.105/2015)</option>
+    <option value="cp">Código Penal (DL 2.848/1940)</option>
+    <option value="cpp">CPP (DL 3.689/1941)</option>
+    <option value="cdc">CDC (Lei 8.078/1990)</option>
+    <option value="ctb">CTB (Lei 9.503/1997)</option>
+  </select>
+  <input id="inp" placeholder="ex.: 121-A  ou  matar mulher" aria-label="Artigo ou palavras-chave" />
+  <button id="btn">Buscar</button>
+</div>
 
-  <footer>
-    Fontes oficiais: <a href="https://www.lexml.gov.br" target="_blank" rel="noopener">LexML</a> (URN-LEX) e
-    <a href="https://normas.leg.br" target="_blank" rel="noopener">normas.leg.br</a>.
-    Serviços de dados do Senado (para evoluir com busca por tipo/número/ano): 
-    <a href="https://legis.senado.leg.br/dadosabertos/api-docs/swagger-ui/index.html" target="_blank" rel="noopener">Swagger</a>.
-  </footer>
+<div id="msg" class="muted"></div>
+<div id="result"></div>
 
 <script>
-const SECOES = [
-  {
-    titulo: "Códigos (base do curso)",
-    itens: [
-      {nome:"Constituição Federal (1988)", sigla:"CF/88", urn:"urn:lex:br:federal:constituicao:1988-10-05;1988"},
-      {nome:"Código Civil (2002)", sigla:"CC", urn:"urn:lex:br:federal:lei:2002-01-10;10406"},
-      {nome:"Código de Processo Civil (2015)", sigla:"CPC", urn:"urn:lex:br:federal:lei:2015-03-16;13105"},
-      {nome:"Código Penal (1940)", sigla:"CP", urn:"urn:lex:br:federal:decreto.lei:1940-12-07;2848"},
-      {nome:"Código de Processo Penal (1941)", sigla:"CPP", urn:"urn:lex:br:federal:decreto.lei:1941-10-03;3689"},
-      {nome:"Código de Defesa do Consumidor (1990)", sigla:"CDC", urn:"urn:lex:br:federal:lei:1990-09-11;8078"},
-      {nome:"Código de Trânsito Brasileiro (1997)", sigla:"CTB", urn:"urn:lex:br:federal:lei:1997-09-23;9503"},
-      {nome:"Consolidação das Leis do Trabalho (1943)", sigla:"CLT", urn:"urn:lex:br:federal:decreto.lei:1943-05-01;5452"},
-    ]
-  },
-  {
-    titulo: "Principais leis (muito cobradas)",
-    itens: [
-      {nome:"Lei Maria da Penha (2006)", sigla:"LMP", urn:"urn:lex:br:federal:lei:2006-08-07;11340"},
-      {nome:"ECA — Estatuto da Criança e do Adolescente (1990)", sigla:"ECA", urn:"urn:lex:br:federal:lei:1990-07-13;8069"},
-      {nome:"LEP — Lei de Execução Penal (1984)", sigla:"LEP", urn:"urn:lex:br:federal:lei:1984-07-11;7210"},
-      {nome:"Lei dos Juizados Especiais (1995)", sigla:"Lei 9.099", urn:"urn:lex:br:federal:lei:1995-09-26;9099"},
-      {nome:"Lei de Drogas (2006)", sigla:"Lei 11.343", urn:"urn:lex:br:federal:lei:2006-08-23;11343"},
-      {nome:"LINDB — Lei de Introdução às Normas do Direito Brasileiro (1942)", sigla:"LINDB", urn:"urn:lex:br:federal:decreto.lei:1942-09-04;4657"},
-      {nome:"Lei do Mandado de Segurança (2009)", sigla:"LMS", urn:"urn:lex:br:federal:lei:2009-08-07;12016"},
-      {nome:"Lei de Improbidade (1992) c/ alterações da 14.230/2021", sigla:"LIA", urn:"urn:lex:br:federal:lei:1992-06-02;8429"},
-      {nome:"Nova Lei de Licitações (2021)", sigla:"Lei 14.133", urn:"urn:lex:br:federal:lei:2021-04-01;14133"},
-      {nome:"Lei de Falências e Recuperação (2005)", sigla:"Lei 11.101", urn:"urn:lex:br:federal:lei:2005-02-09;11101"}
-    ]
-  },
-  {
-    titulo: "Outras leis (para ir adicionando)",
-    itens: [
-      // deixe este bloco para crescer com o tempo
-    ]
-  }
-];
+/** 1) COLOQUE AQUI SUA URL DE PROXY (Cloudflare Worker do passo 1) **/
+const PROXY_BASE = "https://SEU_WORKER.workers.dev/?url=";
 
-function linkLexML(urn){ return "https://www.lexml.gov.br/urn/"+encodeURIComponent(urn); }
-function linkNormas(urn){ return "https://normas.leg.br/?urn="+encodeURIComponent(urn); }
+/** 2) Fontes oficiais (Planato – páginas compiladas) + URN LexML para abrir no visualizador normas.leg.br **/
+const CODES = {
+  cc:  { nome:"Código Civil", urn:"urn:lex:br:federal:lei:2002-01-10;10406",
+         fonte:"https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" }, //   
+- **Visualizador**: cada item também abre no **normas.leg.br** via **URN LexML** (bom pra leitura e contexto). :contentReference[oaicite:8]{index=8}  
+- **Evolução futura (busca por API)**: quando quiser pesquisar por **tipo/número/ano** direto por serviço oficial (sem lista fixa), use os **Dados Abertos do Senado** (conjuntos “Detalhamento de Norma” e “Pesquisa de Normas Jurídicas”). :contentReference[oaicite:9]{index=9}
 
-function render(lista){
-  const container = document.getElementById('container');
-  container.innerHTML = '';
-  lista.forEach(sec=>{
-    const secEl = document.createElement('section');
-    secEl.className = 'sec';
-    secEl.innerHTML = `<h2>${sec.titulo}</h2>`;
-    const grid = document.createElement('div');
-    grid.className = 'grid';
-    sec.itens.forEach(item=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <strong>${item.nome}</strong>
-          <span class="tag">${item.sigla}</span>
-        </div>
-        <div style="margin:6px 0 10px;font-size:13px;color:#555">URN: <code>${item.urn}</code>
-          <button class="copy" data-urn="${item.urn}">copiar</button>
-        </div>
-        <div class="links">
-          <a href="${linkLexML(item.urn)}" target="_blank" rel="noopener">Abrir no LexML</a>
-          <a href="${linkNormas(item.urn)}" target="_blank" rel="noopener">Abrir no normas.leg.br (texto)</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-    secEl.appendChild(grid);
-    container.appendChild(secEl);
-  });
-  // copiar URN
-  container.querySelectorAll('.copy').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      navigator.clipboard.writeText(e.target.dataset.urn).then(()=>{
-        e.target.textContent = 'copiado!';
-        setTimeout(()=> e.target.textContent = 'copiar', 1200);
-      });
-    });
-  });
-}
+---
 
-function filtrar(q){
-  q = q.trim().toLowerCase();
-  const novo = SECOES.map(sec => ({
-    ...sec,
-    itens: sec.itens.filter(i =>
-      (i.nome + ' ' + i.sigla + ' ' + i.urn).toLowerCase().includes(q)
-    )
-  }));
-  render(novo);
-}
-
-render(SECOES);
-
-document.getElementById('q').addEventListener('input', (e)=> filtrar(e.target.value));
-</script>
-</body>
-</html>
+## Dicas
+- Se algum código tiver formatação estranha, a heurística de “quebrar por Art.” pode precisar de pequenos ajustes (é normal).  
+- Palavras-chave: o filtro ignora acentos (ex.: “mulher”, “matar”, “violencia”).  
+- Quer que eu inclua **mais leis** na lista (Maria da Penha, ECA, LEP, etc.) e um botão **“abrir por número do artigo direto no normas.leg.br”**? Posso mandar a versão 2 já com isso.
+::contentReference[oaicite:10]{index=10}
