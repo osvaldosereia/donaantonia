@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Demo — Normas (LexML + Senado)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    body { margin: 24px; }
+    form, .card { max-width: 860px; }
+    label { display:block; margin:8px 0 4px; font-weight:600; }
+    input, select, button { padding:10px; font-size:16px; }
+    button { cursor:pointer; }
+    .row { display:flex; gap:8px; flex-wrap:wrap; }
+    .row > * { flex: 1 1 180px; }
+    .muted { color:#666; font-size:14px }
+    .cards { margin-top:16px; display:grid; gap:12px; grid-template-columns: 1fr; }
+    .card { border:1px solid #ddd; border-radius:12px; padding:16px; }
+    .tag { font-size:12px; border:1px solid #bbb; border-radius:999px; padding:2px 8px; margin-left:8px; }
+    pre { background:#fafafa; border:1px solid #eee; padding:8px; overflow:auto; }
+    .articles { margin-top:8px; padding-left:18px; }
+  </style>
+</head>
+<body>
+  <h1>Normas — busca por tipo / número / ano</h1>
+  <p class="muted">
+    Fonte: <strong>LexML SRU</strong> (metadados/URN) e, se possível, texto oficial para segmentar artigos.
+  </p>
+
+  <form id="f">
+    <div class="row">
+      <div>
+        <label>Poder</label>
+        <select id="poder">
+          <option value="federal" selected>federal</option>
+          <option value="estadual">estadual</option>
+          <option value="municipal">municipal</option>
+        </select>
+      </div>
+      <div>
+        <label>Tipo</label>
+        <input id="tipo" placeholder="lei, lcp, decreto, mp..." value="lei" />
+      </div>
+      <div>
+        <label>Número</label>
+        <input id="numero" placeholder="ex.: 10406" required />
+      </div>
+      <div>
+        <label>Ano</label>
+        <input id="ano" placeholder="ex.: 2002" required />
+      </div>
+    </div>
+    <div class="row" style="align-items:center; margin-top:8px;">
+      <div style="flex:2">
+        <label class="muted">
+          Proxy (opcional p/ CORS) — cole a URL do seu worker que aceita <code>?url=</code>
+        </label>
+        <input id="proxy" placeholder="https://seu-worker.exemplo.workers.dev/?url=" />
+      </div>
+      <div style="flex:0">
+        <button>Buscar</button>
+      </div>
+    </div>
+  </form>
+
+  <div id="out" class="cards"></div>
+
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+
+    const lexmlQueryUrl = ({ poder, tipo, numero, ano, max = 5 }) => {
+      // CQL: buscamos pela URN: "poder tipo ano numero"
+      // Ex.: federal lei 2002 10406
+      const cql = `urn+="${poder} ${tipo.toLowerCase()} ${ano} ${numero}"`;
+      const u = new URL("https://www.lexml.gov.br/busca/SRU");
+      u.searchParams.set("operation", "searchRetrieve");
+      u.searchParams.set("maximumRecords", String(max));
+      u.searchParams.set("query", cql);
+      return u.toString();
+    };
+
+    async function fetchText(url, proxyBase) {
+      const finalUrl = proxyBase ? proxyBase + encodeURIComponent(url) : url;
+      const r = await fetch(finalUrl);
+      if (!r.ok) throw new Error(`HTTP ${r.status} — ${url}`);
+      return r.text();
+    }
+
+    function parseSRU(xmlText) {
+      const doc = new DOMParser().parseFromString(xmlText, "application/xml");
+      const recs = Array.from(doc.getElementsByTagNameNS("*", "record"));
+      return recs.map((rec) => {
+        // tentar capturar campos comuns do SRU do LexML
+        const t = (selArr) => {
+          for (const sel of selArr) {
+            const el = rec.querySelector(sel);
+            if (el && el.textContent) return el.textContent.trim();
+          }
+          return "";
+        };
+        const title = t(["dc\\:title", "title"]);
+        const date  = t(["dc\\:date", "date"]);
+        // URN costuma aparecer em <identifier> ou <urn>
+        let urn = "";
+        const idNodes = rec.querySelectorAll("identifier, dc\\:identifier, urn");
+        for (const n of idNodes) {
+          const v = (n.textContent || "").trim();
+          if (v.startsWith("urn:lex:") || v.includes(":lex:")) { urn = v; break; }
+        }
+        // tentar achar um link http(s) útil na ficha
+        let link = "";
+        const linkGuess = rec.querySelector("link, identifier[scheme='http'], a[href]");
+        if (linkGuess) link = (linkGuess.getAttribute?.("href") || linkGuess.textContent || "").trim();
+        return { title, date, urn, link };
+      });
+    }
+
+    function splitArticlesFromHtml(html) {
+      // Estratégia simples: pega o texto visível e quebra por linhas que começam com "Art."
+      const tmp = document.createElement("div");
+      tmp.innerHTML = html;
+      const text = tmp.innerText.replace(/\u00A0/g, " ").replace(/\r/g, "");
+      const lines = text.split("\n").map(s => s.trim()).filter(Boolean);
+      const arts = [];
+      let current = null;
+      const artRe = /^Art\.?\s*\d+[A-Za-z\-]*\s*[-–:]?/i;
+      for (const line of lines) {
+        if (artRe.test(line)) {
+          if (current) arts.push(current);
+          current = { artigo: line.match(/^Art\.?\s*\d+[A-Za-z\-]*/i)[0], texto: line };
+        } else if (current) {
+          current.texto += "\n" + line;
+        }
+      }
+      if (current) arts.push(current);
+      return arts;
+    }
+
+    function cardFor(rec, articles=[]) {
+      return `
+        <div class="card">
+          <div><strong>${rec.title || "Sem título"}</strong>
+            ${rec.urn ? `<span class="tag">URN</span>` : ""}
+            ${rec.date ? `<span class="tag">${rec.date}</span>` : ""}
+          </div>
+          ${rec.urn ? `<div class="muted">URN: ${rec.urn}</div>` : ""}
+          ${rec.link ? `<div class="muted">Link oficial: <a href="${rec.link}" target="_blank" rel="noopener">abrir</a></div>` : ""}
+          ${articles.length ? `<details open><summary><b>Artigos (${articles.length})</b></summary>
+              <ol class="articles">${articles.map(a=>`<li><pre>${a.texto.replace(/[<>&]/g, s => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[s]))}</pre></li>`).join("")}</ol>
+            </details>` : `<div class="muted">Sem extração de artigos (CORS ou sem HTML estruturado).</div>`}
+        </div>
+      `;
+    }
+
+    $("#f").addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      const poder  = $("#poder").value.trim();
+      const tipo   = $("#tipo").value.trim();
+      const numero = $("#numero").value.trim();
+      const ano    = $("#ano").value.trim();
+      const proxy  = $("#proxy").value.trim();
+
+      $("#out").innerHTML = `<div class="card">Buscando no LexML…</div>`;
+      try {
+        const url = lexmlQueryUrl({ poder, tipo, numero, ano, max: 5 });
+        const xml = await fetchText(url, proxy);
+        const recs = parseSRU(xml).filter(r => r.urn);
+        if (!recs.length) { $("#out").innerHTML = `<div class="card">Nada encontrado. Ajuste os termos.</div>`; return; }
+
+        // Para o primeiro resultado, tentamos puxar o HTML para extrair artigos
+        const first = recs[0];
+        let arts = [];
+        try {
+          // se houver link oficial, tentamos baixar
+          if (first.link) {
+            const html = await fetchText(first.link, proxy);
+            arts = splitArticlesFromHtml(html).slice(0, 50); // limita para demo
+          }
+        } catch (e) {
+          // Provável CORS — segue sem artigos
+        }
+
+        $("#out").innerHTML = cardFor(first, arts) +
+          (recs.slice(1).map(r => cardFor(r)).join(""));
+
+      } catch (e) {
+        $("#out").innerHTML = `<div class="card">Erro: ${e.message}. <div class="muted">Se for CORS, preencha o campo “Proxy”.</div></div>`;
+      }
+    });
+  </script>
+</body>
+</html>
