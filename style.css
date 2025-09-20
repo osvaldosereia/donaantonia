@@ -11,9 +11,21 @@ body {
   color: #222;
   font-size: 14px;
   line-height: 1.4;
+  display: flex;
+  justify-content: center;
 }
 
-/* ===== Containers ===== */
+/* ===== Container principal ===== */
+main {
+  width: 100%;
+  max-width: 960px;   /* 🔹 limite para desktop */
+  background: #e9ecef;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Containers auxiliares ===== */
 .container {
   display: flex;
   flex-direction: column;
@@ -24,6 +36,7 @@ body {
   text-align: center;
 }
 
+/* ===== Header ===== */
 header {
   display: flex;
   align-items: center;
@@ -95,7 +108,7 @@ button {
 
 .secondary-btn {
   margin-top: 16px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 20px;
   border: none;
   background: #c66b2c;
@@ -116,10 +129,12 @@ footer {
   position: sticky;
   bottom: 0;
   border-top: 1px solid #ddd;
+  gap: 10px;
 }
 
 footer button {
-  padding: 8px 14px;
+  flex: 1;
+  padding: 10px;
   border-radius: 18px;
   border: none;
   background: #f1f1f1;
@@ -163,6 +178,7 @@ footer button:hover {
   display: flex;
   gap: 8px;
   margin-top: 6px;
+  flex-wrap: wrap;
 }
 
 .card-actions button {
@@ -191,6 +207,7 @@ footer button:hover {
   display: flex;
   gap: 8px;
   margin-top: 12px;
+  flex-wrap: wrap;
 }
 
 .chips button {
@@ -243,4 +260,19 @@ footer button:hover {
   padding: 8px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  footer button {
+    width: 100%;
+  }
 }
