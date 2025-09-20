@@ -30,7 +30,7 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 121', 'Texto completo do artigo 121...')">⬇️</button>
+        <button onclick="openModal('Art. 121', 'Matar alguém: Pena - reclusão, de seis a vinte anos. Texto completo...')">⬇️</button>
         <!-- FAB aberto -->
         <div class="fab-menu" style="display:flex;">
           <button onclick="toggleSaveMenu(this)">Salvar</button>
@@ -54,7 +54,7 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 155', 'Texto completo do artigo 155...')">⬇️</button>
+        <button onclick="openModal('Art. 155', 'Subtrair, para si ou para outrem, coisa alheia móvel: Pena - reclusão de um a quatro anos e multa. Texto completo...')">⬇️</button>
         <div class="fab-menu">
           <button onclick="toggleSaveMenu(this)">Salvar</button>
           <button>Estudar</button>
@@ -73,7 +73,7 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 927', 'Texto completo do artigo 927...')">⬇️</button>
+        <button onclick="openModal('Art. 927', 'Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Texto completo...')">⬇️</button>
         <div class="fab-menu">
           <button onclick="toggleSaveMenu(this)">Salvar</button>
           <button>Estudar</button>
@@ -89,7 +89,7 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 1228', 'Texto completo do artigo 1228...')">⬇️</button>
+        <button onclick="openModal('Art. 1228', 'O proprietário tem a faculdade de usar, gozar e dispor da coisa, e o direito de reavê-la do poder de quem a possua injustamente. Texto completo...')">⬇️</button>
         <div class="fab-menu">
           <button onclick="toggleSaveMenu(this)">Salvar</button>
           <button>Estudar</button>
@@ -99,6 +99,17 @@
     </div>
   </div>
 
+</div>
+
+<!-- ===== Modal de Leitura ===== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-full">
+    <header>
+      <h3 id="modalTitle">Artigo</h3>
+      <button onclick="closeModal()">✖</button>
+    </header>
+    <p id="modalText">Texto do artigo aqui...</p>
+  </div>
 </div>
 
 <!-- ===== Bottombar ===== -->
@@ -135,8 +146,21 @@
   }
 
   function openModal(title, text) {
-    alert(title + "\\n\\n" + text);
+    document.getElementById("modalTitle").textContent = title;
+    document.getElementById("modalText").textContent = text;
+    document.getElementById("modalOverlay").classList.add("open");
   }
+
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("open");
+  }
+
+  // fecha ao clicar fora do modal
+  document.getElementById("modalOverlay").addEventListener("click", function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
 </script>
 
 </body>
