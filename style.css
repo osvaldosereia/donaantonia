@@ -18,8 +18,8 @@ body {
 /* ===== Container principal ===== */
 main {
   width: 100%;
-  max-width: 960px;   /* 🔹 limite no desktop */
-  margin: 0 auto;     /* 🔹 centraliza no desktop */
+  max-width: 720px;   /* 🔹 limite no desktop (não fica esticado) */
+  margin: 0 auto;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -81,7 +81,6 @@ header button {
 .search-box {
   display: flex;
   width: 100%;
-  max-width: 400px;
   margin: 12px 0;
 }
 
@@ -166,10 +165,10 @@ footer button:hover {
   align-items: center;
 }
 
-/* ===== Área de Conteúdo ===== */
+/* ===== Conteúdo ===== */
 .content {
-  display: grid;
-  grid-template-columns: 2fr 1fr; /* desktop: resultados + selecionados */
+  display: flex;
+  flex-direction: column; /* 🔹 sempre empilhado */
   gap: 20px;
 }
 
@@ -269,34 +268,4 @@ footer button:hover {
   padding: 8px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
-}
-
-/* ===== Responsividade ===== */
-@media (max-width: 768px) {
-  body {
-    font-size: 13px;
-  }
-
-  .content {
-    grid-template-columns: 1fr; /* 🔹 empilha no mobile */
-  }
-
-  header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .search-box {
-    max-width: 100%;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  footer button {
-    width: 100%;
-  }
 }
