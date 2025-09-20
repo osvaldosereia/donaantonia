@@ -1,60 +1,86 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Vade-mécum — busca por artigo ou palavras</title>
-<style>
-  :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-  body { margin: 20px; background:#fafafa; color:#111; }
-  h1{ margin:0 0 8px }
-  .muted{ color:#666; font-size:13px }
-  .row{ display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 14px }
-  select,input,button{ padding:12px 14px; font-size:16px; border:1px solid #ccc; border-radius:12px; }
-  select,input{ background:#fff }
-  button{ cursor:pointer; background:#111; color:#fff; border-color:#111 }
-  .card{ background:#fff; border:1px solid #e7e7e7; border-radius:14px; padding:14px; margin-top:12px; box-shadow:0 1px 2px rgba(0,0,0,.04) }
-  .links a{ color:#0a58ca; text-decoration:none; margin-right:12px; font-size:14px }
-  .links a:hover{ text-decoration:underline }
-  pre{ background:#f7f7f7; padding:10px; border-radius:10px; overflow:auto; white-space:pre-wrap }
-  mark{ background: #fff1a8; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vade Mecum Digital</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Vade-mécum (beta)</h1>
-<p class="muted">1) escolha o código/lei • 2) digite <b>artigo</b> (ex.: 121-A) <b>ou</b> <b>palavras-chave</b> (ex.: matar mulher) • 3) clique em buscar</p>
 
-<div class="row">
-  <select id="selCodigo" aria-label="Selecione o código">
-    <option value="cc">Código Civil (Lei 10.406/2002)</option>
-    <option value="cpc">CPC (Lei 13.105/2015)</option>
-    <option value="cp">Código Penal (DL 2.848/1940)</option>
-    <option value="cpp">CPP (DL 3.689/1941)</option>
-    <option value="cdc">CDC (Lei 8.078/1990)</option>
-    <option value="ctb">CTB (Lei 9.503/1997)</option>
-  </select>
-  <input id="inp" placeholder="ex.: 121-A  ou  matar mulher" aria-label="Artigo ou palavras-chave" />
-  <button id="btn">Buscar</button>
-</div>
+  <!-- ===== Topbar ===== -->
+  <div class="topbar">
+    <div class="search">
+      <input type="text" placeholder="Buscar artigo ou tema...">
+    </div>
+    <div class="logo">💚</div>
+  </div>
 
-<div id="msg" class="muted"></div>
-<div id="result"></div>
+  <!-- ===== Seletor de Pastas ===== -->
+  <div class="folder-selector" id="folderSelector">
+    <div class="folder-item">
+      Pasta Penal
+      <div>
+        <button>Excluir</button>
+      </div>
+    </div>
+    <div class="folder-item">
+      Pasta Civil
+      <div>
+        <button>Excluir</button>
+      </div>
+    </div>
+  </div>
 
-<script>
-/** 1) COLOQUE AQUI SUA URL DE PROXY (Cloudflare Worker do passo 1) **/
-const PROXY_BASE = "https://SEU_WORKER.workers.dev/?url=";
+  <!-- ===== Resultados ===== -->
+  <div class="results">
+    <div class="result-card">
+      <h3>Art. 121 — Código Penal</h3>
+      <p>Matar alguém: Pena - reclusão, de seis a vinte anos.</p>
+    </div>
+    <div class="result-card">
+      <h3>Art. 927 — Código Civil</h3>
+      <p>Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo.</p>
+    </div>
+  </div>
 
-/** 2) Fontes oficiais (Planato – páginas compiladas) + URN LexML para abrir no visualizador normas.leg.br **/
-const CODES = {
-  cc:  { nome:"Código Civil", urn:"urn:lex:br:federal:lei:2002-01-10;10406",
-         fonte:"https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" }, //   
-- **Visualizador**: cada item também abre no **normas.leg.br** via **URN LexML** (bom pra leitura e contexto). :contentReference[oaicite:8]{index=8}  
-- **Evolução futura (busca por API)**: quando quiser pesquisar por **tipo/número/ano** direto por serviço oficial (sem lista fixa), use os **Dados Abertos do Senado** (conjuntos “Detalhamento de Norma” e “Pesquisa de Normas Jurídicas”). :contentReference[oaicite:9]{index=9}
+  <!-- ===== Modal de Categorias ===== -->
+  <div class="modal" id="modalCategorias">
+    <h3>Categorias</h3>
+    <ul>
+      <li><b>Códigos</b></li>
+      <li>→ Código Penal</li>
+      <li>→ Código Civil</li>
+      <li>→ CPC</li>
+      <li>→ CPP</li>
+      <li><b>Leis Especiais</b></li>
+      <li>→ Lei Maria da Penha</li>
+      <li>→ Lei de Drogas</li>
+    </ul>
+  </div>
 
----
+  <!-- ===== Bottom Bar ===== -->
+  <div class="bottombar">
+    <button onclick="toggleFolder()">📂</button>
+    <button onclick="toggleCategorias()">📑</button>
+    <button>⭐</button>
+    <button>⚙️</button>
+  </div>
 
-## Dicas
-- Se algum código tiver formatação estranha, a heurística de “quebrar por Art.” pode precisar de pequenos ajustes (é normal).  
-- Palavras-chave: o filtro ignora acentos (ex.: “mulher”, “matar”, “violencia”).  
-- Quer que eu inclua **mais leis** na lista (Maria da Penha, ECA, LEP, etc.) e um botão **“abrir por número do artigo direto no normas.leg.br”**? Posso mandar a versão 2 já com isso.
-::contentReference[oaicite:10]{index=10}
+  <script>
+    const folderSelector = document.getElementById("folderSelector");
+    const modalCategorias = document.getElementById("modalCategorias");
+
+    function toggleFolder() {
+      folderSelector.classList.toggle("open");
+      modalCategorias.classList.remove("open");
+    }
+
+    function toggleCategorias() {
+      modalCategorias.classList.toggle("open");
+      folderSelector.classList.remove("open");
+    }
+  </script>
+
+</body>
+</html>
