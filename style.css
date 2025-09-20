@@ -22,9 +22,7 @@
    Base
 ========================= */
 *{ box-sizing:border-box; }
-html,body{
-  height:100%;
-}
+html,body{ height:100%; }
 body{
   margin:0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
@@ -36,8 +34,8 @@ body{
 
 main{
   width:100%;
-  max-width: 720px;          /* mesma largura do mockup no desktop */
-  padding: 20px 16px 88px;    /* espaço extra pro footer fixo */
+  max-width: 720px;            /* largura do mockup no desktop */
+  padding: 20px 16px 88px;     /* espaço extra pro footer fixo */
 }
 
 /* =========================
@@ -47,7 +45,7 @@ header{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: transparent;    /* sem caixa branca atrás */
+  background: transparent;
   padding-top: 8px;
   margin-bottom: 8px;
   display:flex;
@@ -55,7 +53,6 @@ header{
   gap: 12px;
 }
 
-/* mini logo à esquerda */
 header .mini-logo{
   width: 40px;
   height: 40px;
@@ -63,7 +60,6 @@ header .mini-logo{
   object-fit: cover;
 }
 
-/* campo de busca em pílula grande */
 header .search-wrap{
   flex:1;
   background: var(--card);
@@ -79,7 +75,7 @@ header .search-wrap input{
   border:0;
   outline:0;
   background: transparent;
-  font-size: 18px;            /* grande como no mockup */
+  font-size: 18px;
   padding: 8px 6px;
 }
 
@@ -107,7 +103,6 @@ header .search-wrap button{
   margin: 18px 0;
 }
 
-/* títulos das seções */
 .box h2{
   font-size: 22px;            /* “Resultados globais”, “Selecionados” */
   line-height: 1.1;
@@ -119,7 +114,7 @@ header .search-wrap button{
   align-items:center;
 }
 
-/* botão "Limpar tudo" (pílula leve à direita) */
+/* botão "Limpar tudo" à direita do título */
 #limpar-tudo{
   border: 1px solid var(--chip-border);
   background: var(--chip);
@@ -137,24 +132,20 @@ header .search-wrap button{
   padding: 14px 6px;
   border-bottom: 1px solid var(--line);
 }
-
 .card:last-child{ border-bottom:0; }
 
-/* texto do artigo nas listas (grande) */
 .card .artigo{
   font-size: 18px;
   line-height: 1.45;
   margin-bottom: 12px;
 }
 
-/* linha de ações (Estudar / Consultar / Selecionar) */
 .card-actions{
   display:flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-/* pílulas claras com borda sutil */
 .btn-pill{
   background: var(--primary);
   border: 1px solid var(--primary-border);
@@ -165,21 +156,9 @@ header .search-wrap button{
   font-weight: 600;
   cursor:pointer;
 }
-
 .btn-pill:active{ transform: translateY(1px); }
 
-/* tag SELECIONADO (verde) alinhada à direita na lista dos selecionados */
-.badge-selected{
-  background: var(--selected);
-  color: #fff;
-  border-radius: var(--radius-pill);
-  font-size: 12px;
-  padding: 6px 12px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-/* linha divisória (aquela cinza clara do mockup) */
+/* divisória */
 .hr{
   height: 1px;
   background: var(--line);
@@ -211,7 +190,7 @@ header .search-wrap button{
 .chip.active{
   background: var(--chip-active);
   border-color: transparent;
-  color: #0b4643; /* contraste agradável sobre o turquesa */
+  color: #0b4643;
   font-weight: 700;
 }
 
@@ -225,12 +204,10 @@ header .search-wrap button{
   gap: 12px;
 }
 
-#selecionados .info{
-  min-width: 0; /* habilita ellipsis em títulos longos */
-}
+#selecionados .info{ min-width: 0; }
 
 #selecionados .titulo{
-  color:#3044c5;                   /* azul do mockup em “Código Penal” */
+  color:#3044c5;                 /* azul do mockup */
   font-weight: 700;
   margin-bottom: 6px;
   font-size: 18px;
@@ -241,7 +218,17 @@ header .search-wrap button{
   font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;         /* “...“ no fim */
+  text-overflow: ellipsis;
+}
+
+.badge-selected{
+  background: var(--selected);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  padding: 6px 12px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* botão “Salvar lista” dentro do box */
@@ -263,20 +250,20 @@ footer{
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 12px;                 /* flutuando como no mockup */
+  bottom: 12px;
   display:flex;
   justify-content: center;
   gap: 14px;
-  pointer-events: none;         /* para não capturar cliques fora */
+  pointer-events: none;
 }
 
 footer .footer-inner{
   width: 100%;
-  max-width: 720px;             /* alinha ao main */
+  max-width: 720px;
   display:flex;
   gap: 14px;
   padding: 0 16px;
-  pointer-events: all;          /* recuperar clique nos botões */
+  pointer-events: all;
 }
 
 footer .btn-footer{
@@ -291,29 +278,38 @@ footer .btn-footer{
   box-shadow: var(--shadow);
   cursor:pointer;
 }
-
 footer .btn-footer:active{ transform: translateY(1px); }
 
 /* =========================
-   Utilidades
+   Modal genérico
 ========================= */
-.hidden{ display:none !important; }
-
-/* toasts simples (se usar) */
-.toast{
+.modal{
   position: fixed;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #111827;
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 14px;
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow);
-  z-index: 100;
-  font-size: 13px;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 60;
 }
+.modal.hidden{ display:none; }
+
+.modal-content{
+  width: 90%;
+  max-width: 420px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.modal-content h3{ font-size:18px; margin-bottom:12px; }
+.modal-content ul{ list-style:none; }
+.modal-content li{
+  padding:10px 6px;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+}
+.modal-content li:last-child{ border-bottom:0; }
 
 /* =========================
    Responsividade fina
