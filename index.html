@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
 
   <!-- ===== Topbar ===== -->
   <div class="topbar">
@@ -29,12 +30,19 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 121', 'Matar alguém: Pena - reclusão, de seis a vinte anos. Texto completo...')">⬇️</button>
-        <!-- FAB aberto por padrão -->
+        <button onclick="openModal('Art. 121', 'Texto completo do artigo 121...')">⬇️</button>
+        <!-- FAB aberto -->
         <div class="fab-menu" style="display:flex;">
-          <button onclick="alert('Salvar em pasta')">Salvar</button>
-          <button onclick="alert('Estudar artigo')">Estudar</button>
-          <button onclick="alert('Consultar detalhes')">Consultar</button>
+          <button onclick="toggleSaveMenu(this)">Salvar</button>
+          <button>Estudar</button>
+          <button>Consultar</button>
+
+          <!-- Submenu Salvar já aberto -->
+          <div class="save-menu" style="display:flex;">
+            <button>+ Criar nova pasta</button>
+            <button>📂 Penal</button>
+            <button>📂 Direito Constitucional</button>
+          </div>
         </div>
       </div>
     </div>
@@ -46,11 +54,11 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 155', 'Subtrair, para si ou para outrem, coisa alheia móvel: Pena - reclusão de um a quatro anos e multa. Texto completo...')">⬇️</button>
+        <button onclick="openModal('Art. 155', 'Texto completo do artigo 155...')">⬇️</button>
         <div class="fab-menu">
-          <button onclick="alert('Salvar em pasta')">Salvar</button>
-          <button onclick="alert('Estudar artigo')">Estudar</button>
-          <button onclick="alert('Consultar detalhes')">Consultar</button>
+          <button onclick="toggleSaveMenu(this)">Salvar</button>
+          <button>Estudar</button>
+          <button>Consultar</button>
         </div>
       </div>
     </div>
@@ -65,11 +73,11 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 927', 'Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Texto completo...')">⬇️</button>
+        <button onclick="openModal('Art. 927', 'Texto completo do artigo 927...')">⬇️</button>
         <div class="fab-menu">
-          <button onclick="alert('Salvar em pasta')">Salvar</button>
-          <button onclick="alert('Estudar artigo')">Estudar</button>
-          <button onclick="alert('Consultar detalhes')">Consultar</button>
+          <button onclick="toggleSaveMenu(this)">Salvar</button>
+          <button>Estudar</button>
+          <button>Consultar</button>
         </div>
       </div>
     </div>
@@ -81,38 +89,55 @@
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 1.228', 'O proprietário tem a faculdade de usar, gozar e dispor da coisa, e o direito de reavê-la do poder de quem a possua injustamente. Texto completo...')">⬇️</button>
+        <button onclick="openModal('Art. 1228', 'Texto completo do artigo 1228...')">⬇️</button>
         <div class="fab-menu">
-          <button onclick="alert('Salvar em pasta')">Salvar</button>
-          <button onclick="alert('Estudar artigo')">Estudar</button>
-          <button onclick="alert('Consultar detalhes')">Consultar</button>
+          <button onclick="toggleSaveMenu(this)">Salvar</button>
+          <button>Estudar</button>
+          <button>Consultar</button>
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- ===== Modal de Artigo ===== -->
-  <div class="modal" id="modalArtigo">
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
-  </div>
+</div>
 
-  <script>
-    function toggleFabMenu(btn) {
-      const menu = btn.parentElement.querySelector(".fab-menu");
-      document.querySelectorAll(".fab-menu").forEach(m => {
-        if (m !== menu) m.style.display = "none";
-      });
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
+<!-- ===== Bottombar ===== -->
+<div class="bottombar">
+  <button class="active">📂</button>
+  <button>📑</button>
+  <button>⭐</button>
+  <button>⚙️</button>
+</div>
 
-    function openModal(title, text) {
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalText").textContent = text;
-      document.getElementById("modalArtigo").classList.add("open");
+<script>
+  function toggleFabMenu(btn) {
+    const menu = btn.parentElement.querySelector(".fab-menu");
+    document.querySelectorAll(".fab-menu").forEach(m => {
+      if (m !== menu) m.style.display = "none";
+    });
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  }
+
+  function toggleSaveMenu(btn) {
+    const saveMenu = btn.parentElement.querySelector(".save-menu");
+    if (saveMenu) {
+      saveMenu.style.display = saveMenu.style.display === "flex" ? "none" : "flex";
+    } else {
+      const newMenu = document.createElement("div");
+      newMenu.className = "save-menu";
+      newMenu.innerHTML = `
+        <button>+ Criar nova pasta</button>
+        <button>📂 Penal</button>
+        <button>📂 Direito Constitucional</button>
+      `;
+      btn.parentElement.appendChild(newMenu);
     }
-  </script>
+  }
+
+  function openModal(title, text) {
+    alert(title + "\\n\\n" + text);
+  }
+</script>
 
 </body>
 </html>
