@@ -10,75 +10,68 @@
 
   <!-- ===== Topbar ===== -->
   <div class="topbar">
+    <div class="logo">💚</div>
     <div class="search">
       <input type="text" placeholder="Buscar artigo ou tema...">
-    </div>
-    <div class="logo">💚</div>
-  </div>
-
-  <!-- ===== Seletor de Pastas ===== -->
-  <div class="folder-selector" id="folderSelector">
-    <div class="folder-item">
-      Pasta Penal
-      <div>
-        <button>Excluir</button>
-      </div>
-    </div>
-    <div class="folder-item">
-      Pasta Civil
-      <div>
-        <button>Excluir</button>
-      </div>
     </div>
   </div>
 
   <!-- ===== Resultados ===== -->
   <div class="results">
+    <h2>📂 Código Penal</h2>
     <div class="result-card">
-      <h3>Art. 121 — Código Penal</h3>
-      <p>Matar alguém: Pena - reclusão, de seis a vinte anos.</p>
+      <div class="result-content">
+        <h3>Art. 121</h3>
+        <p>Matar alguém: Pena - reclusão, de seis a vinte anos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec.</p>
+      </div>
+      <div class="result-actions">
+        <button onclick="toggleFabMenu(this)">➕</button>
+        <button onclick="openModal('Art. 121', 'Matar alguém: ...')">⬇️</button>
+        <div class="fab-menu">
+          <button onclick="alert('Salvar em pasta')">Salvar</button>
+          <button onclick="alert('Estudar artigo')">Estudar</button>
+          <button onclick="alert('Consultar detalhes')">Consultar</button>
+        </div>
+      </div>
     </div>
+
+    <h2>📂 Código Civil</h2>
     <div class="result-card">
-      <h3>Art. 927 — Código Civil</h3>
-      <p>Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo.</p>
+      <div class="result-content">
+        <h3>Art. 927</h3>
+        <p>Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="result-actions">
+        <button onclick="toggleFabMenu(this)">➕</button>
+        <button onclick="openModal('Art. 927', 'Aquele que...')">⬇️</button>
+        <div class="fab-menu">
+          <button onclick="alert('Salvar em pasta')">Salvar</button>
+          <button onclick="alert('Estudar artigo')">Estudar</button>
+          <button onclick="alert('Consultar detalhes')">Consultar</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ===== Modal de Categorias ===== -->
-  <div class="modal" id="modalCategorias">
-    <h3>Categorias</h3>
-    <ul>
-      <li><b>Códigos</b></li>
-      <li>→ Código Penal</li>
-      <li>→ Código Civil</li>
-      <li>→ CPC</li>
-      <li>→ CPP</li>
-      <li><b>Leis Especiais</b></li>
-      <li>→ Lei Maria da Penha</li>
-      <li>→ Lei de Drogas</li>
-    </ul>
-  </div>
-
-  <!-- ===== Bottom Bar ===== -->
-  <div class="bottombar">
-    <button onclick="toggleFolder()">📂</button>
-    <button onclick="toggleCategorias()">📑</button>
-    <button>⭐</button>
-    <button>⚙️</button>
+  <!-- ===== Modal de Artigo ===== -->
+  <div class="modal" id="modalArtigo">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
   </div>
 
   <script>
-    const folderSelector = document.getElementById("folderSelector");
-    const modalCategorias = document.getElementById("modalCategorias");
-
-    function toggleFolder() {
-      folderSelector.classList.toggle("open");
-      modalCategorias.classList.remove("open");
+    function toggleFabMenu(btn) {
+      const menu = btn.parentElement.querySelector(".fab-menu");
+      document.querySelectorAll(".fab-menu").forEach(m => {
+        if (m !== menu) m.style.display = "none";
+      });
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
 
-    function toggleCategorias() {
-      modalCategorias.classList.toggle("open");
-      folderSelector.classList.remove("open");
+    function openModal(title, text) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalText").textContent = text;
+      document.getElementById("modalArtigo").classList.add("open");
     }
   </script>
 
