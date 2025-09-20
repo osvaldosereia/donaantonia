@@ -18,15 +18,35 @@
 
   <!-- ===== Resultados ===== -->
   <div class="results">
+
+    <!-- Categoria 1 -->
     <h2>📂 Código Penal</h2>
+
     <div class="result-card">
       <div class="result-content">
         <h3>Art. 121</h3>
-        <p>Matar alguém: Pena - reclusão, de seis a vinte anos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec.</p>
+        <p>Matar alguém: Pena - reclusão, de seis a vinte anos. Texto resumido que só mostra até 3 linhas...</p>
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 121', 'Matar alguém: ...')">⬇️</button>
+        <button onclick="openModal('Art. 121', 'Matar alguém: Pena - reclusão, de seis a vinte anos. Texto completo...')">⬇️</button>
+        <!-- FAB aberto por padrão -->
+        <div class="fab-menu" style="display:flex;">
+          <button onclick="alert('Salvar em pasta')">Salvar</button>
+          <button onclick="alert('Estudar artigo')">Estudar</button>
+          <button onclick="alert('Consultar detalhes')">Consultar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-content">
+        <h3>Art. 155</h3>
+        <p>Subtrair, para si ou para outrem, coisa alheia móvel: Pena - reclusão de um a quatro anos...</p>
+      </div>
+      <div class="result-actions">
+        <button onclick="toggleFabMenu(this)">➕</button>
+        <button onclick="openModal('Art. 155', 'Subtrair, para si ou para outrem, coisa alheia móvel: Pena - reclusão de um a quatro anos e multa. Texto completo...')">⬇️</button>
         <div class="fab-menu">
           <button onclick="alert('Salvar em pasta')">Salvar</button>
           <button onclick="alert('Estudar artigo')">Estudar</button>
@@ -35,15 +55,17 @@
       </div>
     </div>
 
+    <!-- Categoria 2 -->
     <h2>📂 Código Civil</h2>
+
     <div class="result-card">
       <div class="result-content">
         <h3>Art. 927</h3>
-        <p>Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Texto resumido até 3 linhas...</p>
       </div>
       <div class="result-actions">
         <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 927', 'Aquele que...')">⬇️</button>
+        <button onclick="openModal('Art. 927', 'Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Texto completo...')">⬇️</button>
         <div class="fab-menu">
           <button onclick="alert('Salvar em pasta')">Salvar</button>
           <button onclick="alert('Estudar artigo')">Estudar</button>
@@ -51,6 +73,23 @@
         </div>
       </div>
     </div>
+
+    <div class="result-card">
+      <div class="result-content">
+        <h3>Art. 1.228</h3>
+        <p>O proprietário tem a faculdade de usar, gozar e dispor da coisa, e o direito de reavê-la do poder de quem a possua...</p>
+      </div>
+      <div class="result-actions">
+        <button onclick="toggleFabMenu(this)">➕</button>
+        <button onclick="openModal('Art. 1.228', 'O proprietário tem a faculdade de usar, gozar e dispor da coisa, e o direito de reavê-la do poder de quem a possua injustamente. Texto completo...')">⬇️</button>
+        <div class="fab-menu">
+          <button onclick="alert('Salvar em pasta')">Salvar</button>
+          <button onclick="alert('Estudar artigo')">Estudar</button>
+          <button onclick="alert('Consultar detalhes')">Consultar</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ===== Modal de Artigo ===== -->
