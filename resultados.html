@@ -9,148 +9,163 @@
 <body>
   <main>
 
-    <!-- HEADER: mini logo + campo de busca em pílula com ícone -->
+    <!-- TOP BAR (não fixa) -->
     <header>
       <img src="icons/logo-mini.png" alt="direito.love" class="mini-logo">
 
-      <div class="search-wrap" role="search">
+      <div class="search-wrap" role="search" aria-label="Buscar no Vade Mecum">
         <input id="campoBusca" type="search" placeholder="Pesquisar artigo, lei, súmula ou termo…" />
         <button id="btnBuscar" aria-label="Buscar">🔍</button>
       </div>
     </header>
 
-    <!-- BOX 1: Resultados globais (organizados por arquivo) -->
+    <!-- BOX 1: RESULTADOS (por arquivo) -->
     <section class="box" id="box-resultados">
-      <h2>Resultados globais</h2>
+      <div class="title-row">
+        <h2>Resultados globais</h2>
+
+        <!-- Setas navegam entre os resultados do arquivo ativo -->
+        <div class="nav-arrows">
+          <button class="icon-btn" id="navResPrev" title="Anterior">⬆</button>
+          <button class="icon-btn" id="navResNext" title="Próximo">⬇</button>
+        </div>
+      </div>
 
       <!-- Lista de resultados (cards) -->
-      <div id="resultados">
-        <!-- Os cards são inseridos via JS.
-             Estrutura esperada:
-             <div class="card">
-               <div class="artigo">Art 145 - texto…</div>
-               <div class="card-actions">
-                 <button class="btn-pill">ESTUDAR</button>
-                 <button class="btn-pill">CONSULTAR</button>
-                 <button class="btn-pill">SELECIONAR</button>
-               </div>
-             </div>
-        -->
-      </div>
+      <div id="resultados"></div>
 
       <div class="hr"></div>
 
-      <!-- Chips dos arquivos (trocam a lista exibida) -->
-      <div class="chips" id="chipsArquivos" aria-label="Filtrar por arquivo">
-        <!-- Preenchido via JS; exemplo:
-             <button class="chip active" data-arquivo="civil">CIVIL</button>
-             <button class="chip" data-arquivo="penal">PENAL</button>
-             <button class="chip" data-arquivo="processo-penal">PROCESSO PENAL</button>
-        -->
+      <!-- Chips somente dos ARQUIVOS COM RESULTADO -->
+      <div class="chips" id="chipsArquivos" aria-label="Arquivos com resultados">
+        <!-- Ex.: <button class="chip active" data-arquivo="civil">CIVIL</button> -->
       </div>
     </section>
 
-    <!-- BOX 2: Selecionados -->
+    <!-- BOX 2: SELECIONADOS (uma linha por item) -->
     <section class="box" id="box-selecionados">
-      <h2>
-        Selecionados
-        <button id="limpar-tudo">LIMPAR TUDO</button>
-      </h2>
+      <div class="title-row">
+        <h2>Selecionados</h2>
+
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button id="limpar-tudo" title="Remover todos">LIMPAR TUDO</button>
+          <!-- Setas navegam pelos itens selecionados -->
+          <div class="nav-arrows">
+            <button class="icon-btn" id="navSelPrev" title="Anterior">⬆</button>
+            <button class="icon-btn" id="navSelNext" title="Próximo">⬇</button>
+          </div>
+        </div>
+      </div>
 
       <div id="selecionados">
-        <!-- Exemplo de item renderizado via JS:
-            <div class="card">
-              <div class="info">
-                <div class="titulo">Código Penal</div>
-                <div class="resumo">Art. 186 - texto…</div>
-              </div>
-              <span class="badge-selected">SELECIONADO</span>
+        <!-- Estrutura de item:
+          <div class="card">
+            <div class="info">
+              <div class="titulo">Código Penal</div>
+              <div class="resumo">Art. 186 - …</div>
             </div>
+            <span class="badge-selected">SELECIONADO</span>
+          </div>
         -->
       </div>
 
+      <!-- Salvar lista: abre modal para NOVA lista; se já houver uma ativa, o app.js salva sem abrir -->
       <button id="salvar-lista">SALVAR LISTA</button>
     </section>
 
-    <!-- MODAL: Listas salvas -->
+    <!-- MODAL: LISTAS SALVAS (abrir/selecionar/overwrite) -->
     <div id="modalListas" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalListasTitulo">
       <div class="modal-content">
         <h3 id="modalListasTitulo">Listas salvas</h3>
         <ul id="listasSalvas"></ul>
-        <div style="display:flex; gap:10px; margin-top:12px;">
+        <div class="modal-actions">
           <button class="btn-pill" onclick="fecharModalListas()">Fechar</button>
           <button class="btn-pill" onclick="excluirTodasListas()" style="color:#a33;">Excluir todas</button>
         </div>
       </div>
     </div>
 
-    <!-- RODAPÉ FIXO: dois botões grandes -->
-    <footer>
-      <div class="footer-inner">
-        <button class="btn-footer" id="btnAbrirListas">ABRIR LISTAS</button>
-        <button class="btn-footer" id="btnNovaPesquisa">NOVA PESQUISA</button>
+    <!-- MODAL: NOVA LISTA (solicita nome) -->
+    <div id="modalNovaLista" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalNovaListaTitulo">
+      <div class="modal-content">
+        <h3 id="modalNovaListaTitulo">Nome da nova lista</h3>
+        <input id="nomeNovaLista" class="input-pill" type="text" placeholder="Ex.: Tutelas CPC — prova" />
+        <div class="modal-actions">
+          <button class="btn-pill" id="btnCancelarNovaLista">Cancelar</button>
+          <button class="btn-pill" id="btnConfirmarNovaLista">Salvar</button>
+        </div>
       </div>
+    </div>
+
+    <!-- RODAPÉ (não fixo) -->
+    <footer>
+      <button class="btn-footer" id="btnAbrirListas">ABRIR LISTAS</button>
+      <button class="btn-footer" id="btnNovaLista">NOVA LISTA</button>
     </footer>
   </main>
 
   <script src="app.js"></script>
   <script>
-    // Ligações mínimas para a página funcionar assim que carregar
+    /* Ligações mínimas na carga */
     document.addEventListener('DOMContentLoaded', () => {
-      // Preenche o campo com o termo vindo da URL e renderiza resultados
+      // Preenche busca com termo da URL (se houver)
       if (typeof getParametroBusca === 'function') {
-        const termo = getParametroBusca();
-        const campo = document.getElementById('campoBusca');
-        if (campo) campo.value = termo;
+        const t = getParametroBusca();
+        const i = document.getElementById('campoBusca');
+        if (i) i.value = t;
       }
 
-      // Botão de buscar
+      // Buscar (clique/Enter)
       const btnBuscar = document.getElementById('btnBuscar');
-      if (btnBuscar) btnBuscar.addEventListener('click', () => {
-        if (typeof novaBusca === 'function') novaBusca();
-      });
-
-      // Enter no campo de busca
       const campoBusca = document.getElementById('campoBusca');
-      if (campoBusca) campoBusca.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && typeof novaBusca === 'function') novaBusca();
-      });
+      if (btnBuscar) btnBuscar.addEventListener('click', () => typeof novaBusca === 'function' && novaBusca());
+      if (campoBusca) campoBusca.addEventListener('keydown', e => (e.key === 'Enter') && typeof novaBusca === 'function' && novaBusca());
 
-      // Abrir listas (rodapé)
-      const btnAbrirListas = document.getElementById('btnAbrirListas');
-      if (btnAbrirListas) btnAbrirListas.addEventListener('click', () => {
-        if (typeof abrirModalListas === 'function') abrirModalListas();
-      });
-
-      // Nova pesquisa (rodapé)
-      const btnNovaPesquisa = document.getElementById('btnNovaPesquisa');
-      if (btnNovaPesquisa) btnNovaPesquisa.addEventListener('click', () => {
-        if (typeof novaPesquisa === 'function') novaPesquisa();
-      });
-
-      // Limpar tudo nos selecionados
-      const btnLimpar = document.getElementById('limpar-tudo');
-      if (btnLimpar) btnLimpar.addEventListener('click', () => {
-        if (typeof limparSelecionados === 'function') limparSelecionados();
-      });
-
-      // Salvar lista
-      const btnSalvar = document.getElementById('salvar-lista');
-      if (btnSalvar) btnSalvar.addEventListener('click', () => {
-        if (typeof salvarLista === 'function') salvarLista();
-      });
-
-      // Render inicial (se o app.js já estiver carregado)
+      // Render inicial
       if (typeof renderizarResultados === 'function') {
         const termo = (typeof getParametroBusca === 'function') ? getParametroBusca() : '';
-        renderizarResultados(termo);   // popula #resultados
+        renderizarResultados(termo);
       }
-      if (typeof renderizarSelecionados === 'function') {
-        renderizarSelecionados();      // popula #selecionados
-      }
-      if (typeof renderizarChipsArquivos === 'function') {
-        renderizarChipsArquivos();     // popula #chipsArquivos (opcional, se você criar no JS)
-      }
+      if (typeof renderizarSelecionados === 'function') renderizarSelecionados();
+
+      // Footer
+      const btnAbrirListas = document.getElementById('btnAbrirListas');
+      if (btnAbrirListas) btnAbrirListas.addEventListener('click', () => typeof abrirModalListas === 'function' && abrirModalListas());
+
+      const btnNovaLista = document.getElementById('btnNovaLista');
+      if (btnNovaLista) btnNovaLista.addEventListener('click', () => {
+        // “Nova lista”: limpa pesquisa+selecionados e pede nome
+        if (typeof iniciarNovaLista === 'function') iniciarNovaLista();
+      });
+
+      // Selecionados: Limpar
+      const btnLimpar = document.getElementById('limpar-tudo');
+      if (btnLimpar) btnLimpar.addEventListener('click', () => typeof limparSelecionados === 'function' && limparSelecionados());
+
+      // Salvar lista (abre modal se não existir lista ativa)
+      const btnSalvar = document.getElementById('salvar-lista');
+      if (btnSalvar) btnSalvar.addEventListener('click', () => typeof salvarListaFlow === 'function' && salvarListaFlow());
+
+      // Modal “Nova Lista”
+      const btnCancelarNovaLista = document.getElementById('btnCancelarNovaLista');
+      const btnConfirmarNovaLista = document.getElementById('btnConfirmarNovaLista');
+      if (btnCancelarNovaLista) btnCancelarNovaLista.addEventListener('click', () => {
+        document.getElementById('modalNovaLista')?.classList.add('hidden');
+      });
+      if (btnConfirmarNovaLista) btnConfirmarNovaLista.addEventListener('click', () => {
+        if (typeof confirmarCriacaoNovaLista === 'function') confirmarCriacaoNovaLista();
+      });
+
+      // Setas de navegação (resultados e selecionados)
+      const navResPrev = document.getElementById('navResPrev');
+      const navResNext = document.getElementById('navResNext');
+      const navSelPrev = document.getElementById('navSelPrev');
+      const navSelNext = document.getElementById('navSelNext');
+
+      if (navResPrev) navResPrev.addEventListener('click', () => typeof navegarResultados === 'function' && navegarResultados(-1));
+      if (navResNext) navResNext.addEventListener('click', () => typeof navegarResultados === 'function' && navegarResultados(1));
+      if (navSelPrev) navSelPrev.addEventListener('click', () => typeof navegarSelecionados === 'function' && navegarSelecionados(-1));
+      if (navSelNext) navSelNext.addEventListener('click', () => typeof navegarSelecionados === 'function' && navegarSelecionados(1));
     });
   </script>
 </body>
