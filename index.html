@@ -2,166 +2,31 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vade Mecum Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>direito.love — Vade Mecum Digital</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
+  <div class="container">
+    <div class="logo">
+      <img src="icons/logo.png" alt="direito.love">
+    </div>
+    <div class="search-box">
+      <input type="text" id="globalSearch" placeholder="Digite artigo, lei ou termo...">
+      <button onclick="iniciarBusca()">🔍</button>
+    </div>
+    <button class="secondary-btn" onclick="abrirModalListas()">📂 Abrir lista salva</button>
+  </div>
 
-  <!-- ===== Topbar ===== -->
-  <div class="topbar">
-    <div class="logo">💚</div>
-    <div class="search">
-      <input type="text" placeholder="Buscar artigo ou tema...">
+  <!-- Modal listas -->
+  <div id="modalListas" class="modal hidden">
+    <div class="modal-content">
+      <h3>Listas salvas</h3>
+      <ul id="listasSalvas"></ul>
+      <button onclick="fecharModalListas()">Fechar</button>
     </div>
   </div>
 
-  <!-- ===== Resultados ===== -->
-  <div class="results">
-
-    <!-- Categoria 1 -->
-    <h2>📂 Código Penal</h2>
-
-    <div class="result-card">
-      <div class="result-content">
-        <h3>Art. 121</h3>
-        <p>Matar alguém: Pena - reclusão, de seis a vinte anos. Texto resumido que só mostra até 3 linhas...</p>
-      </div>
-      <div class="result-actions">
-        <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 121', 'Matar alguém: Pena - reclusão, de seis a vinte anos. Texto completo...')">⬇️</button>
-        <!-- FAB aberto -->
-        <div class="fab-menu" style="display:flex;">
-          <button onclick="toggleSaveMenu(this)">Salvar</button>
-          <button>Estudar</button>
-          <button>Consultar</button>
-
-          <!-- Submenu Salvar já aberto -->
-          <div class="save-menu" style="display:flex;">
-            <button>+ Criar nova pasta</button>
-            <button>📂 Penal</button>
-            <button>📂 Direito Constitucional</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="result-card">
-      <div class="result-content">
-        <h3>Art. 155</h3>
-        <p>Subtrair, para si ou para outrem, coisa alheia móvel: Pena - reclusão de um a quatro anos...</p>
-      </div>
-      <div class="result-actions">
-        <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 155', 'Subtrair, para si ou para outrem, coisa alheia móvel: Pena - reclusão de um a quatro anos e multa. Texto completo...')">⬇️</button>
-        <div class="fab-menu">
-          <button onclick="toggleSaveMenu(this)">Salvar</button>
-          <button>Estudar</button>
-          <button>Consultar</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Categoria 2 -->
-    <h2>📂 Código Civil</h2>
-
-    <div class="result-card">
-      <div class="result-content">
-        <h3>Art. 927</h3>
-        <p>Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Texto resumido até 3 linhas...</p>
-      </div>
-      <div class="result-actions">
-        <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 927', 'Aquele que, por ato ilícito, causar dano a outrem, fica obrigado a repará-lo. Texto completo...')">⬇️</button>
-        <div class="fab-menu">
-          <button onclick="toggleSaveMenu(this)">Salvar</button>
-          <button>Estudar</button>
-          <button>Consultar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="result-card">
-      <div class="result-content">
-        <h3>Art. 1.228</h3>
-        <p>O proprietário tem a faculdade de usar, gozar e dispor da coisa, e o direito de reavê-la do poder de quem a possua...</p>
-      </div>
-      <div class="result-actions">
-        <button onclick="toggleFabMenu(this)">➕</button>
-        <button onclick="openModal('Art. 1228', 'O proprietário tem a faculdade de usar, gozar e dispor da coisa, e o direito de reavê-la do poder de quem a possua injustamente. Texto completo...')">⬇️</button>
-        <div class="fab-menu">
-          <button onclick="toggleSaveMenu(this)">Salvar</button>
-          <button>Estudar</button>
-          <button>Consultar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ===== Modal de Leitura ===== -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-full">
-    <header>
-      <h3 id="modalTitle">Artigo</h3>
-      <button onclick="closeModal()">✖</button>
-    </header>
-    <p id="modalText">Texto do artigo aqui...</p>
-  </div>
-</div>
-
-<!-- ===== Bottombar ===== -->
-<div class="bottombar">
-  <button class="active">📂</button>
-  <button>📑</button>
-  <button>⭐</button>
-  <button>⚙️</button>
-</div>
-
-<script>
-  function toggleFabMenu(btn) {
-    const menu = btn.parentElement.querySelector(".fab-menu");
-    document.querySelectorAll(".fab-menu").forEach(m => {
-      if (m !== menu) m.style.display = "none";
-    });
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-  }
-
-  function toggleSaveMenu(btn) {
-    const saveMenu = btn.parentElement.querySelector(".save-menu");
-    if (saveMenu) {
-      saveMenu.style.display = saveMenu.style.display === "flex" ? "none" : "flex";
-    } else {
-      const newMenu = document.createElement("div");
-      newMenu.className = "save-menu";
-      newMenu.innerHTML = `
-        <button>+ Criar nova pasta</button>
-        <button>📂 Penal</button>
-        <button>📂 Direito Constitucional</button>
-      `;
-      btn.parentElement.appendChild(newMenu);
-    }
-  }
-
-  function openModal(title, text) {
-    document.getElementById("modalTitle").textContent = title;
-    document.getElementById("modalText").textContent = text;
-    document.getElementById("modalOverlay").classList.add("open");
-  }
-
-  function closeModal() {
-    document.getElementById("modalOverlay").classList.remove("open");
-  }
-
-  // fecha ao clicar fora do modal
-  document.getElementById("modalOverlay").addEventListener("click", function(e) {
-    if (e.target === this) {
-      closeModal();
-    }
-  });
-</script>
-
+  <script src="app.js"></script>
 </body>
 </html>
