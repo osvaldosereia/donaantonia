@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resultados — direito.love</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header fixo -->
+  <header>
+    <img src="icons/logo-mini.png" alt="logo" class="mini-logo">
+    <input type="text" id="campoBusca" value="" />
+    <button onclick="novaBusca()">🔍</button>
+  </header>
+
+  <!-- Box de resultados -->
+  <section class="box">
+    <h2>Resultados globais</h2>
+    <div id="resultados"></div>
+    <div class="chips">
+      <button>Penal</button>
+      <button>Civil</button>
+      <button>Processo Penal</button>
+    </div>
+  </section>
+
+  <!-- Box de selecionados -->
+  <section class="box">
+    <div class="header-flex">
+      <h2>Selecionados</h2>
+      <button onclick="limparSelecionados()">🧹 Limpar tudo</button>
+    </div>
+    <div id="selecionados"></div>
+    <button onclick="salvarLista()">💾 Salvar lista</button>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <button onclick="abrirModalListas()">📂 Abrir listas</button>
+    <button onclick="novaPesquisa()">🔄 Nova pesquisa</button>
+  </footer>
+
+  <!-- Modal listas -->
+  <div id="modalListas" class="modal hidden">
+    <div class="modal-content">
+      <h3>Listas salvas</h3>
+      <ul id="listasSalvas"></ul>
+      <button onclick="fecharModalListas()">Fechar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
