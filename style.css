@@ -18,11 +18,13 @@ body {
 /* ===== Container principal ===== */
 main {
   width: 100%;
-  max-width: 960px;   /* 🔹 limite para desktop */
-  background: #e9ecef;
-  min-height: 100vh;
+  max-width: 960px;   /* 🔹 limite no desktop */
+  margin: 0 auto;     /* 🔹 centraliza no desktop */
+  padding: 16px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  min-height: 100vh;
 }
 
 /* ===== Containers auxiliares ===== */
@@ -47,11 +49,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
+  gap: 12px;
 }
 
 header input {
   flex: 1;
-  margin: 0 8px;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -121,6 +123,7 @@ button {
   background: #a9551e;
 }
 
+/* ===== Rodapé ===== */
 footer {
   display: flex;
   justify-content: space-around;
@@ -148,7 +151,6 @@ footer button:hover {
 /* ===== Box ===== */
 .box {
   background: #fff;
-  margin: 16px;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -162,6 +164,13 @@ footer button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* ===== Área de Conteúdo ===== */
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* desktop: resultados + selecionados */
+  gap: 20px;
 }
 
 /* ===== Resultados ===== */
@@ -268,8 +277,23 @@ footer button:hover {
     font-size: 13px;
   }
 
+  .content {
+    grid-template-columns: 1fr; /* 🔹 empilha no mobile */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+
   footer {
     flex-direction: column;
+    gap: 10px;
   }
 
   footer button {
