@@ -846,33 +846,135 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     actions.append(toggle);
   }
 
-  /* HUBs e ações (omitidos aqui para foco no buscador; seus botões especiais permanecem como no original) */
-  // ... (mantive seu bloco dos hubs e YouTube/jornais aqui no original – se quiser, reaplico idêntico)
+  /* ===== Botões especiais (idênticos às suas regras) ===== */
 
-  /* Check (pilha) */
-  const chk = document.createElement("button");
-  chk.className = "chk";
-  chk.setAttribute("aria-label", "Selecionar bloco");
-  chk.innerHTML = `
+/* — Gemini (AI mode / udm=50) — */
+const geminiBtn = document.createElement("button");
+geminiBtn.className = "round-btn";
+geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
+geminiBtn.innerHTML = '<img src="icons/ai-gemini.png" alt="Gemini">';
+geminiBtn.addEventListener("click", () => {
+  const raw = (item.title + " " + item.text).replace(/\s+/g, " ").trim();
+  const maxLen = 1800;
+  const body  = raw.length > maxLen ? raw.slice(0, maxLen) : raw;
+  const q = encodeURIComponent(body);
+  window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
+});
+actions.append(geminiBtn);
+
+/* — YouTube (somente para arquivos em data/videos/, com o mapa de canais e fix de iOS) — */
+if (item.fileUrl?.includes("data/videos/")) {
+  const CHANNEL_NAMES = {
+    "supremo.txt":             "tv supremo",
+    "instante_juridico.txt":   "instante juridico",
+    "me_julga.txt":            "me julga",
+    "seus_direitos.txt":       "seus direitos",
+    "direito_desenhado.txt":   "direito desenhado",
+    "diego_pureza.txt":        "prof diego pureza",
+    "estrategia_carreiras_juridicas.txt": "estrategia carreiras juridicas",
+    "ana_carolina_aidar.txt":  "ana carolina aidar",
+    "cebrian.txt":             "cebrian",
+    "fonte_juridica_oficial.txt": "fonte juridica oficial",
+    "paulo_henrique_helene.txt": "paulo henrique helene",
+    "profnidal.txt":           "professor nidal",
+    "monicarieger.txt":        "monica rieger",
+    "rodrigo_castello.txt":    "rodrigo castello",
+    "prof_alan_gestao.txt":    "prof alan gestao",
+    "simplificando_direito_penal.txt": "simplificando direito penal",
+    "geofre_saraiva.txt":      "geofre saraiva",
+    "ricardo_torques.txt":     "ricardo torques",
+    "prof_eduardo_tanaka.txt": "prof eduardo tanaka",
+    "trilhante.txt":           "trilhante",
+    "qconcurso.txt":           "qconcurso",
+    "paulo_rodrigues_direito_para_a_vida.txt": "paulo rodrigues direito para a vida"
+  };
+
+  const fileName = item.fileUrl.split("/").pop().toLowerCase();
+  const canalNome = CHANNEL_NAMES[fileName];
+
+  if (canalNome) {
+    const title = (item.title || "").trim();
+    const rawQuery = `${canalNome} ${title}`;
+
+    // iOS fix: usar m.youtube.com e NUNCA trocar %20 por '+'
+    const q = encodeURIComponent(rawQuery);
+    const urlFinal = `https://m.youtube.com/results?search_query=${q}`;
+
+    const ytBtn = document.createElement("button");
+    ytBtn.className = "round-btn";
+    ytBtn.setAttribute("aria-label", "Ver no YouTube");
+    ytBtn.innerHTML = '<img src="icons/youtube.png" alt="YouTube">';
+    ytBtn.addEventListener("click", () => {
+      openExternal(urlFinal);
+    });
+    actions.append(ytBtn);
+  }
+}
+
+/* — Fontes “Artigos e Notícias” (Jusbrasil, ConJur, Migalhas) — */
+if (item.fileUrl?.includes("data/artigos_e_noticias/")) {
+  const fontes = {
+    "jusbrasil.txt": {
+      base: "https://www.jusbrasil.com.br/artigos-noticias/busca?q=",
+      icon: "jusbrasil.png"
+    },
+    "conjur.txt": {
+      base: "https://www.conjur.com.br/pesquisa/?q=",
+      icon: "conjur.png"
+    },
+    "migalhas.txt": {
+      base: "https://www.migalhas.com.br/busca?q=",
+      icon: "migalhas.png"
+    }
+  };
+
+  const fileName = item.fileUrl.split("/").pop().toLowerCase();
+  const fonte = fontes[fileName];
+
+  if (fonte?.base) {
+    const query = encodeURIComponent((item.title || "").trim());
+    const urlFinal = `${fonte.base}${query}`;
+    const btn = document.createElement("button");
+    btn.className = "round-btn";
+    btn.setAttribute("aria-label", "Ver fonte original");
+    btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
+    btn.addEventListener("click", () => {
+      window.open(urlFinal, "_blank", "noopener");
+    });
+    actions.append(btn);
+  }
+}
+
+/* Check (pilha) */
+const chk = document.createElement("button");
+chk.className = "chk";
+chk.setAttribute("aria-label", "Selecionar bloco");
+chk.innerHTML = `
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
     <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
   </svg>
 `;
-  const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
+const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
+sync();
+chk.addEventListener("click", () => {
+  if (state.selected.has(item.id)) {
+    state.selected.delete(item.id);
+    toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
+    if (ctx.context === "selected") card.remove();
+  } else {
+    if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
+    state.selected.set(item.id, { ...item });
+    toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
+  }
   sync();
-  chk.addEventListener("click", () => {
-    if (state.selected.has(item.id)) {
-      state.selected.delete(item.id);
-      toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
-      if (ctx.context === "selected") card.remove();
-    } else {
-      if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
-      state.selected.set(item.id, { ...item });
-      toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
-    }
-    sync();
-    updateBottom();
-  });
+  updateBottom();
+});
+
+// não mostrar o "Selecionar" dentro do modal (reader)
+if (ctx.context !== "reader") {
+  actions.append(chk);
+}
+
 
   actions.append(chk);
   left.append(body, actions);
