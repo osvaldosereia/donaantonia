@@ -847,7 +847,7 @@ function truncatedHTML(fullText, tokens) {
   return highlight(out, tokens);
 }
 
-function
+
 //#region [BLK10] RENDER • Cards
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
