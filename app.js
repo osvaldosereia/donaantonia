@@ -609,6 +609,14 @@ async function doSearch() {
     if (codeInfo) {
       tokens = tokens.filter((tk) => !codeInfo.keyWords.has(tk));
     }
+     // ⚠️ FIX: não tratar "artigo"/"art"/"art." como palavra obrigatória
+if (queryMode === "art") {
+  tokens = tokens.filter(t => !/^art(?:\.|igo)?$/i.test(t));
+}
+// (opcional) idem para súmula
+if (queryMode === "sumula") {
+  tokens = tokens.filter(t => !/^s[uú]mula$/i.test(t));
+}
 
     // salva tokens globais para highlight on-demand (abrir card)
     window.searchTokens = (Array.isArray(tokens) && tokens.length ? tokens : buildTokens(els.q?.value));
