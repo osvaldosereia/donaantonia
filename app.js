@@ -882,8 +882,8 @@ body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
   });
 
  // === YouTube (puxar nome do canal pelo .txt e emendar o título do card)
+// === YouTube (puxar nome do canal pelo .txt e emendar o título do card) — FIX iOS
 if (item.fileUrl?.includes("data/videos/")) {
-  // mapa: arquivo -> nome do canal (como você quer ver na busca)
   const CHANNEL_NAMES = {
     "supremo.txt":             "tv supremo",
     "instante_juridico.txt":   "instante juridico",
@@ -891,24 +891,22 @@ if (item.fileUrl?.includes("data/videos/")) {
     "seus_direitos.txt":       "seus direitos",
     "direito_desenhado.txt":   "direito desenhado",
     "diego_pureza.txt":        "prof diego pureza",
-    "estrategia_carreiras_juridicas.txt":        "estrategia carreiras juridicas",
-     "ana_carolina_aidar.txt":        "ana carolina aidar",
-     "cebrian.txt":        "cebrian",
-     "fonte_juridica_oficial.txt":        "fonte juridica oficial",
-     "paulo_henrique_helene.txt":        "paulo henrique helene",
-     "profnidal.txt":        "professor nidal",
-     "monicarieger.txt":        "monica rieger",
-     "rodrigo_castello.txt":        "rodrigo castello",
-      "prof_alan_gestao.txt":        "prof alan gestao",
-     "simplificando_direito_penal.txt":        "simplificando direito penal",
-     "geofre_saraiva.txt":        "geofre saraiva",
-      "ricardo_torques.txt":        "ricardo torques",
-      "prof_eduardo_tanaka.txt":        "prof eduardo tanaka",
-      "trilhante.txt":        "trilhante",
-     "qconcurso.txt":        "qconcurso",
-        "paulo_rodrigues_direito_para_a_vida.txt":        "paulo rodrigues direito para a vida"
-
-
+    "estrategia_carreiras_juridicas.txt": "estrategia carreiras juridicas",
+    "ana_carolina_aidar.txt":  "ana carolina aidar",
+    "cebrian.txt":             "cebrian",
+    "fonte_juridica_oficial.txt": "fonte juridica oficial",
+    "paulo_henrique_helene.txt": "paulo henrique helene",
+    "profnidal.txt":           "professor nidal",
+    "monicarieger.txt":        "monica rieger",
+    "rodrigo_castello.txt":    "rodrigo castello",
+    "prof_alan_gestao.txt":    "prof alan gestao",
+    "simplificando_direito_penal.txt": "simplificando direito penal",
+    "geofre_saraiva.txt":      "geofre saraiva",
+    "ricardo_torques.txt":     "ricardo torques",
+    "prof_eduardo_tanaka.txt": "prof eduardo tanaka",
+    "trilhante.txt":           "trilhante",
+    "qconcurso.txt":           "qconcurso",
+    "paulo_rodrigues_direito_para_a_vida.txt": "paulo rodrigues direito para a vida"
   };
 
   const fileName = item.fileUrl.split("/").pop().toLowerCase();
@@ -916,12 +914,11 @@ if (item.fileUrl?.includes("data/videos/")) {
 
   if (canalNome) {
     const title = (item.title || "").trim();
-
-    // monta exatamente no formato do seu modelo:
-    // https://www.youtube.com/results?search_query=prof+diego+pureza+como+organizar...
     const rawQuery = `${canalNome} ${title}`;
-    const q = encodeURIComponent(rawQuery).replace(/%20/g, "+");
-    const urlFinal = `https://www.youtube.com/results?search_query=${q}`;
+
+    // iOS fix: NADA de trocar %20 por "+", e usar m.youtube.com
+    const q = encodeURIComponent(rawQuery);
+    const urlFinal = `https://m.youtube.com/results?search_query=${q}`;
 
     const ytBtn = document.createElement("button");
     ytBtn.className = "round-btn";
