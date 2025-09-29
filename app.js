@@ -1301,49 +1301,6 @@ els.readerBody.focus();
     hideModal(els.readerModal);
   }
 
-  // Carrega o restante em lotes, com respiros para não travar a UI
-  function loadRestIncremental(restItems, hlTokens) {
-    const batches = chunkArray(restItems, READER_CHUNK_SIZE);
-    let rendered = 0;
-
-    function step() {
-      if (!batches.length) return;
-      const pack = batches.shift();
-
-      // Render lote
-      const frag = document.createDocumentFragment();
-      for (const it of pack) {
-        const card = renderCard(it, [], { context: "reader" });
-        card.id = it.htmlId;
-        frag.appendChild(card);
-      }
-      els.readerBody.appendChild(frag);
-
-      // Highlight só do lote recém inserido (mais leve)
-      idle(() => applyHighlights(els.readerBody, hlTokens));
-
-      rendered += pack.length;
-
-      // Atualiza barra se existir
-      const btn = els.readerBody.querySelector(".reader-loadbar .btn");
-      if (btn) {
-        const remain = restItems.length - rendered;
-        if (remain > 0) {
-          btn.textContent = `Carregar restante (${remain})`;
-        } else {
-          btn.closest(".reader-loadbar")?.remove();
-        }
-      }
-
-      // Próximo lote
-      if (batches.length) idle(step);
-    }
-
-    step();
-  }
-}
-
-
 /* ---------- MODAIS ---------- */
 function showModal(el) { if (el) { el.hidden = false; document.body.style.overflow = "hidden"; } }
 function hideModal(el) { if (el) { el.hidden = true; document.body.style.overflow = ""; } }
