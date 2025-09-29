@@ -642,6 +642,30 @@ function addRespirationsForDisplay(s) {
   }
   return out.join("\n");
 }
+/* ---------- prioridade de pastas na busca ---------- */
+// Ordem pedida: estatutos, sumulas, enunciados, teses, leis, temas_repetitivos,
+//               codigos, julgados, videos, artigos_e_noticias
+const SEARCH_ORDER = [
+  "data/estatutos/",
+  "data/sumulas/",
+  "data/enunciados/",
+  "data/teses/",
+  "data/leis/",
+  "data/temas_repetitivos/",
+  "data/codigos/",
+  "data/julgados/",
+  "data/videos/",
+  "data/artigos_e_noticias/"
+];
+
+// Retorna o índice de prioridade com base no caminho da URL (quanto menor, mais cedo busca)
+function pathPriority(url) {
+  const u = String(url || "").toLowerCase();
+  for (let i = 0; i < SEARCH_ORDER.length; i++) {
+    if (u.includes(SEARCH_ORDER[i])) return i;
+  }
+  return SEARCH_ORDER.length; // não mapeados vão pro fim
+}
 
 /* ---------- busca ---------- */
 els.form?.addEventListener("submit", (e) => { e.preventDefault(); doSearch(); });
@@ -744,6 +768,14 @@ async function doSearch() {
         toast(`Não achei o arquivo para “${codeInfo.label}”. Confira o rótulo do catálogo.`);
       }
     }
+// Ordena os arquivos pela prioridade de pastas + tie-break por label/url
+allOptions.sort((a, b) => {
+  const pa = pathPriority(a.url);
+  const pb = pathPriority(b.url);
+  if (pa !== pb) return pa - pb;
+  if (a.label !== b.label) return a.label.localeCompare(b.label);
+  return a.url.localeCompare(b.url);
+});
 
     // estrutura "lazy": guardamos só o primeiro match e um loader para o resto
     const lazyGroups = []; // [{ label, url, items:[first], partial:true }]
