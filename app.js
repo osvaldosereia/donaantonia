@@ -1145,7 +1145,7 @@ function ensureBaseHub() {
       const rawBody = `${PREFIX}\n\n` + parts.join("\n\n");
       // compacta espaços e limita tamanho para URL
       const raw = rawBody.replace(/\s+/g, " ").trim();
-      const maxLen = 1800;
+      const maxLen = 4800;
       return encodeURIComponent(raw.length > maxLen ? raw.slice(0, maxLen) : raw);
     };
 
