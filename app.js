@@ -32,246 +32,189 @@ const els = {
   viewBtn: $("#viewBtn"),
 
   /* leitor */
-  readerModal: $("#readerModal"),
-  readerBody: $("#readerBody"),
+  reader: $("#reader"),
   readerTitle: $("#readerTitle"),
-  selCount: $("#selCount"),
+  readerClose: $("#readerClose"),
+  readerBody: $("#readerBody"),
+  readerTop: $("#readerTop"),
+  readerSrc: $("#readerSource"),
+  readerOpenSrc: $("#readerOpenSrc"),
 
-  /* selecionados */
-  selectedModal: $("#selectedModal"),
-  selectedStack: $("#selectedStack"),
+  /* histórico modal */
+  histBtn: $("#historyBtn"),
+  histList: $("#historyList"),
+  histClear: $("#historyClear"),
 
-  /* toasts */
-  toasts: $("#toasts"),
-};
-// ===== HIGHLIGHT HELPERS =====
-const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-// Gera tokens a partir do termo digitado (remove curtos e duplicados)
-function buildTokens(q) {
-  return (q || "")
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .split(/[^\p{L}\p{N}_]+/u)
-    .filter(t => t && t.length >= 2)
-    .filter((t, i, a) => a.indexOf(t) === i);
-}
-
-// Aplica highlight em NÓS DE TEXTO (acento-insensível; não mexe em tags/links)
-function applyHighlights(rootEl, tokens) {
-  if (!rootEl || !tokens?.length) return;
-
-  // transforma cada token em um padrão que aceita acentos: letra -> letra + \p{M}*
-  const toDiacriticRx = (t) =>
-    String(t)
-      .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-      .replace(/\p{L}/gu, (ch) => ch + "\\p{M}*");
-
-  const parts = tokens.filter(Boolean).map(toDiacriticRx);
-  if (!parts.length) return;
-
-  // usa \b para borda de palavra; flags g i u
-  const re = new RegExp(`\\b(${parts.join("|")})\\b`, "giu");
-
-  const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
-    acceptNode(node) {
-      const txt = node.nodeValue;
-      if (!txt || !txt.trim()) return NodeFilter.FILTER_REJECT;
-      if (node.parentElement && node.parentElement.closest(".hl")) {
-        return NodeFilter.FILTER_REJECT; // evita remarcar
-      }
-      return re.test(txt.normalize("NFD")) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-    }
-  });
-
-  const textNodes = [];
-  while (walker.nextNode()) textNodes.push(walker.currentNode);
-
-  textNodes.forEach(node => {
-    const nfd = node.nodeValue.normalize("NFD");
-    const pieces = nfd.split(re);
-    const frag = document.createDocumentFragment();
-
-    for (let i = 0; i < pieces.length; i++) {
-      const chunk = pieces[i];
-      if (!chunk) continue;
-      const out = chunk.normalize("NFC"); // volta cada pedaço pra NFC
-
-      if (i % 2 === 1) {
-        const mark = document.createElement("mark");
-        mark.className = "hl";
-        mark.textContent = out;
-        frag.appendChild(mark);
-      } else {
-        frag.appendChild(document.createTextNode(out));
-      }
-    }
-    node.parentNode.replaceChild(frag, node);
-  });
-}
-
-/* ---------- estado ---------- */
-const MAX_SEL = 3;
-const CARD_CHAR_LIMIT = 250;
-const PREV_MAX = 60;
-
-const state = {
-  selected: new Map(),     // id -> item
-  cacheTxt: new Map(),     // url -> string
-  cacheParsed: new Map(),  // url -> items[]
-  urlToLabel: new Map(),
-  // Removidos: promptTpl, promptQTpl, pendingObs, studyIncluded, questionsIncluded
+  /* contador superior de resultados */
+  count: $("#resultsCount")
 };
 
-
-/* ---------- util ---------- */
-function toast(msg) {
-  const el = document.createElement("div");
-  el.className = "toast";
-  el.textContent = msg;
-  els.toasts.appendChild(el);
-  setTimeout(() => el.remove(), 2400);
-}
-function updateBottom() {
-  const n = state.selected.size;
-  // visor como contador estático (n/MAX_SEL)
-  if (els.viewBtn) {
-    els.viewBtn.textContent = `${n}/${MAX_SEL}`;
-    els.viewBtn.setAttribute("aria-label", `Selecionados: ${n} de ${MAX_SEL}`);
-    els.viewBtn.style.pointerEvents = "none"; // não abre modal
+// toasts simples
+let toastTimer = null;
+function toast(msg, t = 2800) {
+  let el = document.querySelector(".toast");
+  if (!el) {
+    el = document.createElement("div");
+    el.className = "toast";
+    document.body.appendChild(el);
   }
-  if (els.selCount) els.selCount.textContent = `${n}/${MAX_SEL}`;
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), t);
 }
+
+// normalização leve (acentos, espaços, minúsculas)
 function norm(s) {
-  return (s || "")
-    .normalize("NFD")
+  return String(s || "")
+    .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/ç/g, "c")
+    .replace(/\s+/g, " ")
+    .trim()
     .toLowerCase();
 }
-function escHTML(s) {
-  return (s || "").replace(/[&<>"']/g, (m) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-  }[m]));
-}
-function openExternal(url) {
-  try {
-    const a = document.createElement("a");
-    a.href = url;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    // precisa estar no DOM em alguns webviews móveis
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  } catch (_) {
-    // fallback: abre na mesma aba
-    location.href = url;
-  }
-}
 
-
-/* ============================================================
-   BUSCA — abreviações & regras
-   ============================================================ */
-
-/* Remove pontos de milhar entre dígitos (1.000 → 1000) */
+// remove pontos de milhar (1.000 → 1000)
 function stripThousandDots(s) {
-  return String(s).replace(/(?<=\d)\.(?=\d)/g, "");
+  return String(s || "").replace(/(?<=\d)\.(?=\d{3}\b)/g, "");
 }
 
-/* ---------- CÓDIGOS: abreviações/sinônimos → rótulo do <select> ---------- */
-const CODE_ABBREVS = new Map(Object.entries({
-  // CF/88
-  "cf": "Constituição Federal de 1988",
-  "cf88": "Constituição Federal de 1988",
-  "cf/88": "Constituição Federal de 1988",
-  "crfb": "Constituição Federal de 1988",
-  "cr/88": "Constituição Federal de 1988",
-  "constituicao federal": "Constituição Federal de 1988",
-  "constituicao de 1988": "Constituição Federal de 1988",
+// gera tokens de highlight (palavras 3+ e números)
+function buildTokens(q) {
+  if (!q) return [];
+  return norm(q)
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((t) => (/\d/.test(t) ? /^\d{1,4}$/.test(t) : /^\p{L}{3,}$/u.test(t)))
+    .slice(0, 10);
+}
 
-  // Código Civil
-  "cc": "Código Civil",
-  "codigo civil": "Código Civil",
-  "cod civil": "Código Civil",
+/* ========== cache & fetch ========== */
+const state = {
+  cacheTxt: new Map(), // url -> conteudo .txt
+  cacheItems: new Map(), // url -> [{title,text,...}]
+  history: JSON.parse(localStorage.getItem("dl_history") || "[]")
+};
 
-  // CPC
-  "cpc": "Código de Processo Civil",
-  "codigo de processo civil": "Código de Processo Civil",
-  "cod proc civil": "Código de Processo Civil",
-  "proc civil": "Código de Processo Civil",
+function saveToHistory(q) {
+  const arr = state.history.filter((x) => x !== q);
+  arr.unshift(q);
+  state.history = arr.slice(0, 30);
+  localStorage.setItem("dl_history", JSON.stringify(state.history));
+}
+function renderHistory() {
+  if (!els.histList) return;
+  els.histList.innerHTML = "";
+  state.history.forEach((q) => {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = q;
+    b.addEventListener("click", () => {
+      els.q.value = q;
+      doSearch();
+    });
+    li.appendChild(b);
+    els.histList.appendChild(li);
+  });
+}
 
-  // CP
-  "cp": "Código Penal",
-  "codigo penal": "Código Penal",
-  "cod penal": "Código Penal",
+/* fetch txt com cache */
+async function fetchTxt(url, signal) {
+  if (state.cacheTxt.has(url)) return state.cacheTxt.get(url);
+  const r = await fetch(url, { signal });
+  if (!r.ok) throw new Error(`fetch-fail ${r.status} ${url}`);
+  const t = sanitize(await r.text());
+  state.cacheTxt.set(url, t);
+  return t;
+}
+function splitBlocks(txt) {
+  return sanitize(txt)
+    .split(/^\s*-{5,}\s*$/m)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+function parseBlock(block, idx, fileUrl, sourceLabel) {
+  const lines = block.split("\n");
+  const firstIdx = lines.findIndex((l) => l.trim().length > 0);
+  const first = firstIdx >= 0 ? lines[firstIdx].trim() : `Bloco ${idx + 1}`;
+  const bodyLines = lines.slice(firstIdx + 1);
 
-  // CPP
-  "cpp": "Código de Processo Penal",
-  "codigo de processo penal": "Código de Processo Penal",
-  "cod proc penal": "Código de Processo Penal",
-  "proc penal": "Código de Processo Penal",
+  // Captura o link (se existir) e remove do corpo
+  let videoLink = null;
+  const filteredBody = bodyLines.filter((line) => {
+    const trimmed = line.trim();
+    if (/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)/.test(trimmed)) {
+      videoLink = trimmed;
+      return false;
+    }
+    return true;
+  });
 
-  // CDC
-  "cdc": "Código de Defesa do Consumidor (CDC)",
-  "codigo de defesa do consumidor": "Código de Defesa do Consumidor (CDC)",
-  "defesa do consumidor": "Código de Defesa do Consumidor (CDC)",
+  const body = filteredBody.join("\n").trim();
 
-  // Código Eleitoral
-  "ce": "Código Eleitoral",
-  "codigo eleitoral": "Código Eleitoral",
-  "cod eleitoral": "Código Eleitoral",
+  // bag indexável
+  const bag = (first + "\n" + body)
+    .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N} ]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
-  // CLT
-  "clt": "CLT",
-  "consolidacao das leis do trabalho": "CLT",
+  return {
+    id: `${fileUrl}#${idx}`,
+    sourceLabel,
+    fileUrl,
+    title: first,
+    text: body,
+    _bag: bag,
+    videoLink
+  };
+}
 
-  // CTN
-  "ctn": "Código Tributário Nacional (CTN)",
-  "codigo tributario nacional": "Código Tributário Nacional (CTN)",
+function sanitize(t) {
+  return (t || "").replace(/\u00A0/g, " ").replace(/\r\n?/g, "\n");
+}
 
-  // CTB
-  "ctb": "Código de Trânsito Brasileiro (CTB)",
-  "codigo de transito brasileiro": "Código de Trânsito Brasileiro (CTB)",
+// cria itens parseados de um .txt (com cache)
+async function itemsFromURL(url, label, signal) {
+  const k = `${url}::${label}`;
+  if (state.cacheItems.has(k)) return state.cacheItems.get(k);
+  const txt = await fetchTxt(url, signal);
+  const blocks = splitBlocks(txt);
+  const items = blocks.map((b, i) => parseBlock(b, i, url, label));
+  state.cacheItems.set(k, items);
+  return items;
+}
 
-  // Código Florestal
-  "codigo florestal": "Código Florestal",
-  "cod florestal": "Código Florestal",
+/* ---------- busca/rules ---------- */
 
-  // Militares
-  "cpm": "Código Penal Militar",
-  "codigo penal militar": "Código Penal Militar",
-  "cppm": "Código de Processo Penal Militar",
-  "codigo de processo penal militar": "Código de Processo Penal Militar",
+/* detecta intenção “art” ou “súmula” na query */
+function detectQueryMode(q) {
+  if (/^(?:\s*)(art(?:\.|igo)?)(?:\s+|$)/i.test(q)) return "art";
+  if (/^(?:\s*)(s[uú]mula)(?:\s+|$)/i.test(q)) return "sumula";
+  return null;
+}
 
-  // ECA / OAB
-  "eca": "ECA",
-  "estatuto da crianca e do adolescente": "ECA",
-  "estatuto da oab": "Estatuto da OAB",
-  "oab": "Estatuto da OAB",
-
-  // Leis (principais)
-  "lei maria da penha": "Lei Maria da Penha",
-  "lmp": "Lei Maria da Penha",
-  "lei da improbidade administrativa": "Lei da Improbidade Administrativa",
-  "lia": "Lei da Improbidade Administrativa",
-  "lei de execucao penal": "Lei de Execução Penal",
-  "lep": "Lei de Execução Penal",
-  "lei de drogas": "Lei de Drogas",
-  "mandado de seguranca": "Mandado de Segurança",
-  "lei do mandado de seguranca": "Mandado de Segurança",
-}));
-
-
-/* Detecta se a query contém uma dica de código (abreviação/sinônimo) */
-function detectCodeFromQuery(rawQuery) {
-  const q = ` ${norm(rawQuery)} `; // acolchoado para evitar falsos positivos
-  for (const [abbr, label] of CODE_ABBREVS.entries()) {
-    const needle = ` ${abbr} `;
-    if (q.includes(needle) || q.trim() === abbr) {
-      const keyWords = new Set(abbr.split(/\s+/).filter(Boolean));
-      return { label, keyWords };
+/* Dica de código jurídico a partir de palavras-chave (filtra <select>) */
+function detectCodeFromQuery(q) {
+  const hint = [
+    { label: "Código Penal", keys: ["cp", "codigo penal", "código penal"] },
+    { label: "Código Civil", keys: ["cc", "codigo civil", "código civil"] },
+    { label: "CPC", keys: ["cpc", "codigo de processo civil", "código de processo civil"] },
+    { label: "CPP", keys: ["cpp", "codigo de processo penal", "código de processo penal"] },
+    { label: "CLT", keys: ["clt"] },
+  ];
+  for (const h of hint) {
+    const hit = h.keys.some((k) => q.includes(k));
+    if (hit) {
+      const keyWords = new Set(
+        h.keys
+          .flatMap((s) => s.split(/\s+/))
+          .map((w) => norm(w))
+          .filter(Boolean)
+      );
+      return { label: h.label, keyWords };
     }
   }
   return null;
@@ -300,7 +243,8 @@ function splitTokens(tokens) {
    Trata pontos de milhar: "1.000" ≡ "1000" */
 function hasExactNumber(bag, n) {
   const bagNum = stripThousandDots(bag);
-  const rx = new RegExp(`(?:^|\\D)${n}(?:\\D|$)`, "g");
+  const rx = new RegExp(
+    `(?:^|\\D)${n}(?:\\D|$)`, "g");
   return rx.test(bagNum);
 }
 
@@ -317,31 +261,18 @@ function numberRespectsWindows(text, n, queryMode /* "art"|"sumula"|null */) {
   const nearOK = nearRx.test(stripThousandDots(raw));
   if (!nearOK) return false;
 
-  // (b) se query começa com o marcador → precisa estar nos 15 primeiros chars da linha
-  if (!queryMode) return true;
-
-  const lines = raw.split(/\r?\n/);
-  const wantStart = queryMode === "art" ? KW_ART_RX : KW_SUM_RX;
-
-  for (const line of lines) {
-    if (!wantStart.test(line)) continue;
-    const clean = stripThousandDots(norm(line));
-    const after = clean.replace(queryMode === "art" ? KW_ART_RX : KW_SUM_RX, "").trimStart();
-    const idx = after.indexOf(n);
-    if (idx !== -1 && idx <= 15) return true;
+  // (b) se começou com Art/Súmula: início de linha com ≤15 chars até o número
+  if (queryMode === "art" && KW_ART_RX.test(stripThousandDots(raw))) {
+    const head = stripThousandDots(raw).slice(0, 60); // curto
+    const idx = head.search(/\d/);
+    if (idx >= 0 && idx <= 15) return true;
   }
-  return false;
-}
-
-function extractLegalRefsToSet(text) {
-  const rx = /\b(art\.?|artigo|s[uú]mula)\b[^0-9a-zA-Z]{0,12}(\d{1,4}[a-zA-Z\-]?)/giu;
-  const out = new Set();
-  let m;
-  while ((m = rx.exec(text)) !== null) {
-    const puro = (m[2] || "").toLowerCase().match(/^\d{1,4}/)?.[0];
-    if (puro) out.add(puro);
+  if (queryMode === "sumula" && KW_SUM_RX.test(stripThousandDots(raw))) {
+    const head = stripThousandDots(raw).slice(0, 60);
+    const idx = head.search(/\d/);
+    if (idx >= 0 && idx <= 15) return true;
   }
-  return out;
+  return true;
 }
 
 function getBagWords(bag) {
@@ -368,181 +299,20 @@ function withinOneSubstitutionStrict(a, b) {
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i] && ++diff > 1) return false;
   }
-  return diff === 1;
+  return true;
 }
+
+// checa se bag contém todas as palavras (com plural e 1 erro leve)
 function bagHasTokenWord(bag, token) {
   const words = getBagWords(bag);
   const vars = pluralVariants(token);
-  const rx = new RegExp(`\\b(${vars.map(escapeRx).join("|")})\\b`, "i");
-  if (rx.test(bag)) return true;
   for (const w of words) {
     for (const v of vars) {
-      if (withinOneSubstitutionStrict(v, w)) return true;
+      if (w === v) return true;
+      if (withinOneSubstitutionStrict(w, v)) return true;
     }
   }
   return false;
-}
-
-/* ---------- catálogo (select) ---------- */
-function toRawGitHub(url){
-  if(!url) return url;
-  const m = url.match(/^https?:\/\/github\.com\/([^\/]+)\/([^\/]+)\/blob\/([^]+)$/);
-  if(m) return `https://raw.githubusercontent.com/${m[1]}/${m[2]}/${m[3]}`;
-  return url;
-}
-(() => {
-  els.codeSelect?.querySelectorAll("option").forEach((opt) => {
-    let url = (opt.value || "").trim();
-    const label = (opt.textContent || "").trim();
-    if (!url) return;
-    url = encodeURI(toRawGitHub(url));
-    opt.value = url;
-    state.urlToLabel.set(label, url);
-  });
-})();
-
-/* ---------- fetch/parse ---------- */
-// ===== Split incremental: varre linha a linha e emite blocos quando encontra "-----" =====
-function forEachBlockIncremental(txt, cb) {
-  const RX_SPLIT = /^\s*-{5,}\s*$/m;
-  const lines = String(txt).replace(/\r\n?/g, "\n").split("\n");
-  let buf = [];
-  let idx = 0;
-  for (const ln of lines) {
-    if (RX_SPLIT.test(ln)) {
-      const block = buf.join("\n").trim();
-      if (block) cb(block, idx++);
-      buf = [];
-    } else {
-      buf.push(ln);
-    }
-  }
-  const tail = buf.join("\n").trim();
-  if (tail) cb(tail, idx++);
-}
-
-// ===== Primeiro match de um arquivo (para carregar preview rápido) =====
-async function firstMatchInFile(url, label, predicate) {
-  if (state.cacheParsed.has(url)) {
-    const items = state.cacheParsed.get(url);
-    for (const it of items) if (predicate(it)) return it || null;
-    return null;
-  }
-  const txt = await fetchText(url);
-  let found = null;
-  forEachBlockIncremental(txt, (block, idx) => {
-    if (found) return;
-    const it = parseBlock(block, idx, url, label);
-    if (predicate(it)) found = it;
-  });
-  return found;
-}
-
-function sanitize(s) {
-  return String(s)
-    .replace(/\uFEFF/g, "")
-    .replace(/\u00A0/g, " ")
-    .replace(/\r\n?/g, "\n")
-    .replace(/[ \t]+\n/g, "\n");
-}
-async function fetchText(url) {
-  if (state.cacheTxt.has(url)) return state.cacheTxt.get(url);
-  let r;
-  try {
-    r = await fetch(url, { cache: "force-cache" });
-    if (!r.ok) throw new Error("cache-miss");
-  } catch {
-    r = await fetch(url, { cache: "default" });
-  }
-  if (!r.ok) throw new Error(`fetch-fail ${r.status} ${url}`);
-  const t = sanitize(await r.text());
-  state.cacheTxt.set(url, t);
-  return t;
-}
-function splitBlocks(txt) {
-  return sanitize(txt)
-    .split(/^\s*-{5,}\s*$/m)
-    .map((s) => s.trim())
-    .filter(Boolean);
-}
-function parseBlock(block, idx, fileUrl, sourceLabel) {
-  const lines = block.split("\n");
-  const firstIdx = lines.findIndex((l) => l.trim().length > 0);
-  const first = firstIdx >= 0 ? lines[firstIdx].trim() : `Bloco ${idx + 1}`;
-  const bodyLines = lines.slice(firstIdx + 1);
-
-  // Captura o link (se existir) e remove do corpo
-  let videoLink = null;
-  const filteredBody = bodyLines.filter((line) => {
-    const trimmed = line.trim();
-if (/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)/.test(trimmed)) {
-      videoLink = trimmed;
-      return false;
-    }
-    return true;
-  });
-
-  const body = filteredBody.join("\n").trim();
-  const full = [first, body].filter(Boolean).join("\n");
-  const _bag = norm(stripThousandDots(full));
-
-  return {
-    id: `${fileUrl}::art-${idx}`,
-    htmlId: `art-${idx}`,
-    source: sourceLabel,
-    title: first,
-    body,
-    text: full,         // texto sem o link
-    _bag,
-    fileUrl,
-    videoUrl: videoLink || null
-  };
-}
-
-async function parseFile(url, sourceLabel) {
-  if (state.cacheParsed.has(url)) return state.cacheParsed.get(url);
-  const txt = await fetchText(url);
-  const blocks = splitBlocks(txt);
-  const items = blocks.map((b, i) => parseBlock(b, i, url, sourceLabel));
-  state.cacheParsed.set(url, items);
-  return items;
-}
-
-/* ---------- "Respiros" (só no leitor) ---------- */
-function addRespirationsForDisplay(s) {
-  if (!s) return "";
-  const RX_INCISO  = /^(?:[IVXLCDM]{1,8})(?:\s*(?:\)|\.|[-–—]))(?:\s+|$)/;
-  const RX_PARAGR  = /^(?:§+\s*\d+\s*[ºo]?|Par[aá]grafo\s+(?:[Uu]nico|\d+)\s*[ºo]?)(?:\s*[:.\-–—])?(?:\s+|$)/i;
-  const RX_ALINEA  = /^[a-z](?:\s*(?:\)|\.|[-–—]))(?:\s+|$)/;
-  const RX_TITULO  = /^(?:T[ÍI]TULO|CAP[ÍI]TULO|SEÇÃO|SUBSEÇÃO|LIVRO)\b/i;
-
-  const lines = String(s).replace(/\r\n?/g, "\n").split("\n");
-  const out = [];
-  for (let i = 0; i < lines.length; i++) {
-    const ln = lines[i].trim();
-    const isMarker =
-      RX_PARAGR.test(ln) ||
-      RX_INCISO.test(ln) ||
-      RX_ALINEA.test(ln) ||
-      RX_TITULO.test(ln);
-
-    if (isMarker && out.length && out[out.length - 1] !== "") out.push("");
-    if (ln === "" && out.length && out[out.length - 1] === "") continue;
-
-    out.push(ln);
-  }
-  return out.join("\n");
-}
-
-/* ---------- busca ---------- */
-els.form?.addEventListener("submit", (e) => { e.preventDefault(); doSearch(); });
-els.q?.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); doSearch(); } });
-
-function detectQueryMode(normQuery) {
-  const trimmed = normQuery.trim();
-  if (/^(art\.?\b|artigo\b)/i.test(trimmed)) return "art";
-  if (/^s[uú]mula\b/i.test(trimmed)) return "sumula";
-  return null;
 }
 
 /* Palavras: TODAS; Números: exatos; Proximidade: ≤12; Se começa com Art/Súmula: ≤15 no início da linha */
@@ -561,7 +331,7 @@ function matchesNumbers(item, numTokens, queryHasLegalKeyword, queryMode) {
 
 let __searchAbort;
 
-
+/* ========== BUSCA PRINCIPAL ========== */
 async function doSearch() {
   // cancel previous search if any
   if (__searchAbort) { try { __searchAbort.abort(); } catch(_){} }
@@ -571,20 +341,16 @@ async function doSearch() {
   if (!termRaw) return;
 
   saveToHistory(termRaw); // histórico
-
-  // trata 1.000 → 1000 na query
-  const term = stripThousandDots(termRaw);
+  renderHistory();
 
   els.stack.innerHTML = "";
-  els.stack.setAttribute("aria-busy", "true");
-  const skel = document.createElement("section");
-  skel.className = "block";
-  const t = document.createElement("div");
-  t.className = "block-title";
-  t.textContent = `Busca: ‘${termRaw}’ (…)`;
-  skel.appendChild(t);
-  for (let i = 0; i < 2; i++) {
-    const s = document.createElement("div"); s.className = "skel block"; skel.appendChild(s);
+  els.count.textContent = "…";
+  const skel = document.createElement("div");
+  skel.className = "skeleton";
+  for (let i = 0; i < 5; i++) {
+    const s = document.createElement("div");
+    s.className = "skel";
+    skel.appendChild(s);
   }
   els.stack.append(skel);
   els.spinner?.classList.add("show");
@@ -605,25 +371,25 @@ async function doSearch() {
       return;
     }
 
-        // se houve codeInfo, remove do conjunto de palavras os termos que só serviram p/ identificar o código
+    // se houve codeInfo, remove do conjunto de palavras os termos que só serviram p/ identificar o código
     if (codeInfo) {
       tokens = tokens.filter((tk) => !codeInfo.keyWords.has(tk));
     }
-     // ⚠️ FIX: não tratar "artigo"/"art"/"art." como palavra obrigatória
-if (queryMode === "art") {
-  tokens = tokens.filter(t => !/^art(?:\.|igo)?$/i.test(t));
-}
-// (opcional) idem para súmula
-if (queryMode === "sumula") {
-  tokens = tokens.filter(t => !/^s[uú]mula$/i.test(t));
-}
+
+    // FIX: não tratar 'art', 'art.' ou 'artigo' como palavra obrigatória no modo ART
+    if (queryMode === "art") {
+      tokens = tokens.filter(t => !/^art(?:\.|igo)?$/i.test(t));
+    }
+    // FIX opcional: idem para 'súmula' no modo SUMULA
+    if (queryMode === "sumula") {
+      tokens = tokens.filter(t => !/^s[uú]mula$/i.test(t));
+    }
 
     // salva tokens globais para highlight on-demand (abrir card)
     window.searchTokens = (Array.isArray(tokens) && tokens.length ? tokens : buildTokens(els.q?.value));
 
     const queryHasLegalKeyword = KW_RX.test(normQuery);
     const { wordTokens, numTokens } = splitTokens(tokens);
-
 
     // monta a lista de arquivos; se codeInfo → filtra pelo rótulo do <select>
     let allOptions = Array.from(els.codeSelect?.querySelectorAll("option") || [])
@@ -662,83 +428,155 @@ if (queryMode === "sumula") {
 
     // fim da busca inicial (só previews)
     skel.remove();
-    toast(`${lazyGroups.length} fonte(s) com resultado.`);
 
+    // carrega o resto dos matches por arquivo (em paralelo controlado)
+    await loadAllMatches(lazyGroups, (loadedGroups) => {
+      window.renderLazyResults(termRaw, loadedGroups, tokens);
+    }, { wordTokens, numTokens, queryHasLegalKeyword, queryMode, signal });
+
+    // render final
+    window.renderLazyResults(termRaw, lazyGroups, tokens, true);
+  } catch (err) {
+    console.error(err);
+    toast("Erro na busca. Tente novamente.");
   } finally {
-    els.stack.setAttribute("aria-busy", "false");
     els.spinner?.classList.remove("show");
-
-    // só foca no input se for busca manual, não por "reset"
-    if (!window._skipFocus) {
-      els.q?.select();
-    }
-    window._skipFocus = false; // reseta para próximas buscas
   }
 }
 
-/* ---------- cards ---------- */
+/* busca “apenas primeiro match” em um arquivo (preview) */
+async function firstMatchInFile(url, label, predicate) {
+  const items = await itemsFromURL(url, label, __searchAbort.signal);
+  for (const it of items) {
+    if (predicate(it)) return it;
+  }
+  return null;
+}
+
+/* carrega todos os matches de cada grupo (com limite de concorrência) */
+async function loadAllMatches(lazyGroups, onPartial, ctx) {
+  const CONC = 3;
+  const queue = [...lazyGroups];
+  const next = async () => {
+    const g = queue.shift();
+    if (!g) return;
+    const items = await itemsFromURL(g.url, g.label, __searchAbort.signal);
+    const filtered = items.filter((it) => {
+      const bag = it._bag || norm(stripThousandDots(it.text));
+      const okWords = hasAllWordTokens(bag, ctx.wordTokens);
+      const okNums  = matchesNumbers(it, ctx.numTokens, ctx.queryHasLegalKeyword, ctx.queryMode);
+      return okWords && okNums;
+    });
+    g.items = filtered;
+    g.partial = false;
+    onPartial(lazyGroups);
+    await new Promise((r) => setTimeout(r, 80));
+    return next();
+  };
+  const workers = Array.from({ length: CONC }, next);
+  await Promise.all(workers);
+}
+
+/* ---------- render ---------- */
+
+const CARD_CHAR_LIMIT = 420;
+
+function truncatedHTML(text, tokens) {
+  const full = String(text || "");
+  if (full.length <= CARD_CHAR_LIMIT) {
+    return highlight(full, tokens);
+  }
+  const head = full.slice(0, CARD_CHAR_LIMIT);
+  return highlight(head + "…", tokens);
+}
+function openExternal(url) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.target = "_blank";
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+// highlight leve (pré-render)
 function highlight(text, tokens) {
-  if (!tokens?.length) return escHTML(text || "");
-  const srcEsc = escHTML(text || "");
-  const srcNFD = srcEsc.normalize("NFD");
-  const toDiacriticRx = (t) =>
-    t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-     .replace(/\p{L}/gu, (ch) => ch + "\\p{M}*");
-  const parts = tokens.filter(Boolean).map(toDiacriticRx);
-  if (!parts.length) return srcEsc;
-  const rx = new RegExp(`\\b(${parts.join("|")})\\b`, "giu");
-  // AQUI: adiciona a classe .hl
-  const markedNFD = srcNFD.replace(rx, `<mark class="hl">$1</mark>`);
-  return markedNFD.normalize("NFC");
-}
-
-
-function truncatedHTML(fullText, tokens) {
-  const base = fullText || "";
-  let out = base.slice(0, CARD_CHAR_LIMIT);
-  const cut = out.lastIndexOf(" ");
-  if (base.length > CARD_CHAR_LIMIT && cut > CARD_CHAR_LIMIT * 0.7) {
-    out = out.slice(0, cut) + "…";
-  } else if (base.length > CARD_CHAR_LIMIT) {
-    out = out.trim() + "…";
+  if (!tokens?.length) return escapeHTML(text);
+  let html = escapeHTML(text);
+  for (const t of tokens) {
+    const rx = new RegExp(`(${escapeRx(t)})`, "gi");
+    html = html.replace(rx, '<mark>$1</mark>');
   }
-  return highlight(out, tokens);
+  return html;
+}
+function escapeHTML(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
-function renderCard(item, tokens = [], ctx = { context: "results" }) {
+// Aplica highlight em NÓS DE TEXTO (acento-insensível; não mexe em tags/links)
+function applyHighlights(rootEl, tokens) {
+  if (!rootEl || !tokens?.length) return;
+
+  // transforma cada token em um padrão que aceita acentos: letra -> letra + \p{M}*
+  const toDiacriticRx = (t) =>
+    String(t)
+      .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      .replace(/\p{L}/gu, (m) => `${m}\\p{M}*`);
+
+  const patterns = tokens.map(toDiacriticRx);
+  const rx = new RegExp(`(${patterns.join("|")})`, "giu");
+
+  // Walk nos nós de texto
+  const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, null);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) textNodes.push(n);
+
+  for (const node of textNodes) {
+    const parent = node.parentNode;
+    if (!parent) continue;
+    const frag = document.createDocumentFragment();
+    let lastIdx = 0;
+    const str = node.nodeValue || "";
+    for (const m of str.matchAll(rx)) {
+      const i = m.index || 0;
+      if (i > lastIdx) frag.appendChild(document.createTextNode(str.slice(lastIdx, i)));
+      const mark = document.createElement("mark");
+      mark.textContent = str.slice(i, i + m[0].length);
+      frag.appendChild(mark);
+      lastIdx = i + m[0].length;
+    }
+    if (lastIdx < str.length) frag.appendChild(document.createTextNode(str.slice(lastIdx)));
+    parent.replaceChild(frag, node);
+  }
+}
+
+function renderItem(item, tokens) {
   const card = document.createElement("article");
   card.className = "card";
-  card.dataset.id = item.id;
-  if (item.source) card.setAttribute("data-source", item.source);
 
-  const left = document.createElement("div");
+  const head = document.createElement("header");
+  head.className = "card-head";
 
-  // chip do código (não no modal leitor)
-  if (item.source && ctx.context !== "reader") {
-    const pill = document.createElement("a");
-    pill.href = "#";
-    pill.className = "pill";
-    pill.textContent = `📘 ${item.source} (abrir)`;
-    pill.addEventListener("click", (e) => {
-      e.preventDefault();
-      openReader(item);
-    });
-    left.append(pill);
-  }
+  const h3 = document.createElement("h3");
+  h3.textContent = item.title || "(sem título)";
+  head.appendChild(h3);
+
+  const src = document.createElement("span");
+  src.className = "src";
+  src.textContent = item.sourceLabel || "";
+  head.appendChild(src);
 
   const body = document.createElement("div");
-  body.className = "body";
-  if (ctx.context === "reader") {
-body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
-  } else {
-    body.classList.add("is-collapsed");
-// agora já renderiza com highlight, usando truncatedHTML()
-const tokensForHL = (window.searchTokens && window.searchTokens.length)
-  ? window.searchTokens
-  : (Array.isArray(tokens) ? tokens : []);
-body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
+  body.className = "card-body is-collapsed";
+  body.innerHTML = truncatedHTML(item.text || "", tokens);
 
-  }
+  card.appendChild(head);
+  card.appendChild(body);
+
   body.style.cursor = "pointer";
   body.addEventListener("click", () => openReader(item));
 
@@ -757,132 +595,42 @@ body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
       toggle.textContent = expanded ? "▼" : "▲";
       // when collapsed, show fast plain snippet; when expanded, full with highlight
       if (expanded) {
-  body.classList.add("is-collapsed");
-  const tokensForHL = (window.searchTokens && window.searchTokens.length)
-    ? window.searchTokens
-    : (Array.isArray(tokens) ? tokens : []);
-  body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
-} else {
-  body.classList.remove("is-collapsed");
-  body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
-         applyHighlights(body, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
-
-}
-
+        body.classList.add("is-collapsed");
+        const tokensForHL = (window.searchTokens && window.searchTokens.length)
+          ? window.searchTokens
+          : (Array.isArray(tokens) ? tokens : []);
+        body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
+      } else {
+        body.classList.remove("is-collapsed");
+        body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
+        applyHighlights(body, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
+      }
     });
-
-    actions.append(toggle);
+    head.appendChild(toggle);
   }
 
-  /* ===== IA: função de query (reuso) ===== */
-  const makeQuery = () => {
-    const raw = (item.title + " " + item.text).replace(/\s+/g, " ").trim();
-    const maxLen = 4000; // segurança p/ URL
-    return encodeURIComponent(raw.length > maxLen ? raw.slice(0, maxLen) : raw);
-  };
+  /* ===== BOTÕES DE AÇÃO (AI & extras) ===== */
 
-  /* ===== HUB DENTRO DO CARD (com prefixo fixo e bugfix) ===== */
-  const hubWrap = document.createElement("div");
-  hubWrap.className = "hub-wrap";
-
-  const hubMenu = document.createElement("div");
-  hubMenu.className = "hub-menu";
-
-  // Prefixos por pasta (edite livremente os textos à direita)
-  const INTRO_BY_DIR = {
-    "data/codigos/":    "💡 ESTUDO (Códigos): Explique o tema com base no texto legal, citando fundamentos doutrinários, exemplos práticos e súmulas/julgados de apoio. Depois, aponte armadilhas de prova e como o artigo costuma ser cobrado na prática forense. Responda sempre em português do Brasil.",
-    "data/sumulas/":    "💡 ESTUDO (Súmulas): Apresente o contexto fático-jurídico da súmula, indicando seu alcance prático. Relacione exceções conhecidas, dispositivos aplicáveis e exemplos de uso em concursos e casos reais. Responda sempre em português do Brasil.",
-    "data/enunciados/": "💡 ESTUDO (Enunciados): Analise o enunciado relacionando-o aos dispositivos legais correspondentes e à interpretação dominante. Explique utilidade prática, aplicações típicas e como costuma ser exigido em provas ou petições. Responda sempre em português do Brasil.",
-    "data/julgados/":   "💡 ESTUDO (Julgados): Resuma o julgado, explicando fundamentos centrais e precedentes determinantes da decisão. Comente efeitos práticos, divergências relevantes e a importância do caso para a jurisprudência atual. Responda sempre em português do Brasil.",
-    "data/leis/":       "💡 ESTUDO (Leis): Destaque conceitos-chave da norma e a interpretação majoritária, com exemplos de aplicação. Aponte erros comuns, confusões frequentes e pontos sensíveis para concursos e prática jurídica. Responda sempre em português do Brasil.",
-    "data/estatutos/":  "💡 ESTUDO (Estatutos): Explique o artigo abaixo dentro do contexto do estatuto a que pertence, destacando seu conteúdo, objetivo e relação com os demais dispositivos. Depois, aponte hipóteses práticas de aplicação, temas polêmicos e pegadinhas de prova. Responda sempre em português do Brasil.",
-    "data/teses/":      "💡 ESTUDO (Teses): Explique a tese jurídica, seu conteúdo e lastro jurisprudencial, situando o contexto de aplicação. Comente divergências entre tribunais, controvérsias e impactos na prática forense. Responda sempre em português do Brasil.",
-    "data/CF88/":       "💡 ESTUDO (CF/88): Relacione os princípios constitucionais e dispositivos da CF/88 diretamente aplicáveis ao tema. Apresente jurisprudência dominante e exemplos práticos que conectem teoria, lei e realidade. Responda sempre em português do Brasil.",
-    "data/noticias/":   "💡 ESTUDO (Remuso): Escreva um resumo claro, com linguagem jurídica acessível. Destaque o entendimento do STJ, o impacto prático da decisão e a base legal aplicada.",
-    "data/videos/":     "💡 ESTUDO (Explique e indique o vìdeo do be): Explique o tema, citando fundamentos doutrinários, exemplos práticos e súmulas/julgados de apoio. No final me de o link do vídeo em questão. Responda sempre em português do Brasil.  "
-  };
-
-  // (Opcional) complemento pedagógico geral
-  const GLOBAL_PREFIX = "Seja Didático, organizado e de fácil entendimento. Entregue respostas com mais de 400 palavras. Tema:";
-
-  // Resolve o prefixo por pasta a partir do fileUrl do item
-  function getIntroForPath(fileUrl = "") {
-    for (const dir in INTRO_BY_DIR) {
-      if (fileUrl.includes(dir)) return INTRO_BY_DIR[dir];
-    }
-    return "💡 ESTUDO (Geral): explique de forma completa, prática e atualizada.";
+  // Helper: monta a query baseada no título do card
+  function makeCardQuery() {
+    const t = (item.title || "").trim();
+    return encodeURIComponent(t);
   }
 
-  // Monta a query do card
-  const makeCardQuery = () => {
-    const raw = (item.title + " " + item.text).replace(/\s+/g, " ").trim();
-    const intro = getIntroForPath(item.fileUrl || "");
-    const body  = `${intro}\n\n${raw}`;
-    const maxLen = 1800; // segurança p/ não estourar URL
-    return encodeURIComponent(body.length > maxLen ? body.slice(0, maxLen) : body);
-  };
-
-  // === Perplexity
-  const hubBtn1 = document.createElement("button");
-  hubBtn1.className = "round-btn";
-  hubBtn1.setAttribute("aria-label", "perplexity");
-  hubBtn1.innerHTML = '<img src="icons/ai-perplexity.png" alt="">';
-  hubBtn1.addEventListener("click", () => {
+  // === ChatGPT
+  const hubBtn = document.createElement("button");
+  hubBtn.className = "round-btn";
+  hubBtn.setAttribute("aria-label", "chatgpt");
+  hubBtn.innerHTML = '<img src="icons/ai-chatgpt.png" alt="">';
+  hubBtn.addEventListener("click", () => {
     const q = makeCardQuery();
-    window.open(`https://www.perplexity.ai/search?q=${q}`, "_blank", "noopener");
+    window.open(`https://chat.openai.com/?q=${q}`, "_blank", "noopener");
   });
 
-  // === Copilot
-  const hubBtn2 = document.createElement("button");
-  hubBtn2.className = "round-btn";
-  hubBtn2.setAttribute("aria-label", "copilot");
-  hubBtn2.innerHTML = '<img src="icons/ai-copilot.png" alt="">';
-  hubBtn2.addEventListener("click", () => {
-    const q = makeCardQuery();
-    const encoded = encodeURIComponent(q);
-    window.open(`https://copilot.microsoft.com/?q=${encoded}`, "_blank", "noopener");
-  });
-
-  // === Google (AI mode / udm=50)
-  const hubBtn3 = document.createElement("button");
-  hubBtn3.className = "round-btn";
-  hubBtn3.setAttribute("aria-label", "google-ai");
-  hubBtn3.innerHTML = '<img src="icons/ai-gemini.png" alt="">';
-  hubBtn3.addEventListener("click", () => {
-    const q = makeCardQuery();
-    window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
-  });
-
-  hubMenu.append(hubBtn1, hubBtn2, hubBtn3);
-
-  // Botão principal do hub (abre/fecha o menu)
-  const hubMain = document.createElement("button");
-  hubMain.className = "round-btn hub-main";
-  hubMain.setAttribute("aria-label", "Abrir atalhos");
-  hubMain.innerHTML = '<img src="icons/ai-hub.png" alt="">';
-  hubMain.addEventListener("click", (e) => {
-    e.stopPropagation();
-    hubMenu.classList.toggle("open");
-  });
-
-  // Fecha qualquer menu aberto ao clicar fora (instala uma única vez)
-  if (!window.__hubCloserInstalled) {
-    document.addEventListener("click", (ev) => {
-      document.querySelectorAll(".hub-wrap .hub-menu.open").forEach((menuEl) => {
-        if (!menuEl.parentElement.contains(ev.target)) {
-          menuEl.classList.remove("open");
-        }
-      });
-    });
-    window.__hubCloserInstalled = true;
-  }
-
-  hubWrap.append(hubMenu, hubMain);
-
-  // Botão único do Gemini (sem hub)
+  // === Gemini
   const geminiBtn = document.createElement("button");
   geminiBtn.className = "round-btn";
-  geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
+  geminiBtn.setAttribute("aria-label", "gemini");
   geminiBtn.innerHTML = '<img src="icons/ai-gemini.png" alt="Gemini">';
   geminiBtn.addEventListener("click", () => {
     const q = makeCardQuery();
@@ -890,8 +638,8 @@ body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
   });
 
  // === YouTube (puxar nome do canal pelo .txt e emendar o título do card)
-// === YouTube (puxar nome do canal pelo .txt e emendar o título do card) — FIX iOS
 if (item.fileUrl?.includes("data/videos/")) {
+  // mapa: arquivo -> nome do canal (como você quer ver na busca)
   const CHANNEL_NAMES = {
     "supremo.txt":             "tv supremo",
     "instante_juridico.txt":   "instante juridico",
@@ -899,22 +647,24 @@ if (item.fileUrl?.includes("data/videos/")) {
     "seus_direitos.txt":       "seus direitos",
     "direito_desenhado.txt":   "direito desenhado",
     "diego_pureza.txt":        "prof diego pureza",
-    "estrategia_carreiras_juridicas.txt": "estrategia carreiras juridicas",
-    "ana_carolina_aidar.txt":  "ana carolina aidar",
-    "cebrian.txt":             "cebrian",
-    "fonte_juridica_oficial.txt": "fonte juridica oficial",
-    "paulo_henrique_helene.txt": "paulo henrique helene",
-    "profnidal.txt":           "professor nidal",
-    "monicarieger.txt":        "monica rieger",
-    "rodrigo_castello.txt":    "rodrigo castello",
-    "prof_alan_gestao.txt":    "prof alan gestao",
-    "simplificando_direito_penal.txt": "simplificando direito penal",
-    "geofre_saraiva.txt":      "geofre saraiva",
-    "ricardo_torques.txt":     "ricardo torques",
-    "prof_eduardo_tanaka.txt": "prof eduardo tanaka",
-    "trilhante.txt":           "trilhante",
-    "qconcurso.txt":           "qconcurso",
-    "paulo_rodrigues_direito_para_a_vida.txt": "paulo rodrigues direito para a vida"
+    "estrategia_carreiras_juridicas.txt":        "estrategia carreiras juridicas",
+     "ana_carolina_aidar.txt":        "ana carolina aidar",
+     "cebrian.txt":        "cebrian",
+     "fonte_juridica_oficial.txt":        "fonte juridica oficial",
+     "paulo_henrique_helene.txt":        "paulo henrique helene",
+     "profnidal.txt":        "professor nidal",
+     "monicarieger.txt":        "monica rieger",
+     "rodrigo_castello.txt":        "rodrigo castello",
+      "prof_alan_gestao.txt":        "prof alan gestao",
+     "simplificando_direito_penal.txt":        "simplificando direito penal",
+     "geofre_saraiva.txt":        "geofre saraiva",
+      "ricardo_torques.txt":        "ricardo torques",
+      "prof_eduardo_tanaka.txt":        "prof eduardo tanaka",
+      "trilhante.txt":        "trilhante",
+     "qconcurso.txt":        "qconcurso",
+        "paulo_rodrigues_direito_para_a_vida.txt":        "paulo rodrigues direito para a vida"
+
+
   };
 
   const fileName = item.fileUrl.split("/").pop().toLowerCase();
@@ -922,9 +672,10 @@ if (item.fileUrl?.includes("data/videos/")) {
 
   if (canalNome) {
     const title = (item.title || "").trim();
-    const rawQuery = `${canalNome} ${title}`;
 
-    // iOS fix: NADA de trocar %20 por "+", e usar m.youtube.com
+    // monta exatamente no formato do seu modelo:
+    // https://m.youtube.com/results?search_query=prof%20diego%20pureza%20como%20organizar...
+    const rawQuery = `${canalNome} ${title}`;
     const q = encodeURIComponent(rawQuery);
     const urlFinal = `https://m.youtube.com/results?search_query=${q}`;
 
@@ -941,725 +692,148 @@ if (item.fileUrl?.includes("data/videos/")) {
 
  // === Link extra (para "artigos" e "notícias")
   if (item.fileUrl?.includes("data/artigos_e_noticias/")) {
-    const fontes = {
-      "jusbrasil.txt": {
-        base: "https://www.jusbrasil.com.br/artigos-noticias/busca?q=",
-        icon: "jusbrasil.png"
-      },
-      "conjur.txt": {
-        base: "https://www.conjur.com.br/pesquisa/?q=",
-        icon: "conjur.png"
-      },
-      "migalhas.txt": {
-        base: "https://www.migalhas.com.br/busca?q=",
-        icon: "migalhas.png"
-      }
+    const fileName = (item.fileUrl.split("/").pop() || "").toLowerCase();
+    const MAP_EXTRA = {
+      "jusbrasil.txt":   { icon: "icons/jusbrasil.png", base: "https://www.jusbrasil.com.br/busca?q=" },
+      "conjur.txt":      { icon: "icons/conjur.png",    base: "https://www.conjur.com.br/?s=" },
+      "ambito.txt":      { icon: "icons/ambito.png",    base: "https://www.google.com/search?q=site:ambito-juridico.com.br+" },
+      "mig.txt":         { icon: "icons/migalhas.png",  base: "https://www.migalhas.com.br/busca?q=" },
+      // genéricos (você pode substituir as imagens depois)
+      "default.txt":     { icon: "icons/news.png",      base: "https://www.google.com/search?q=" }
     };
-
-    const fileName = item.fileUrl.split("/").pop().toLowerCase();
-    const fonte = fontes[fileName];
-
-    if (fonte?.base) {
-      const query = encodeURIComponent(item.title.trim());
-      const urlFinal = `${fonte.base}${query}`;
-      const btn = document.createElement("button");
-      btn.className = "round-btn";
-      btn.setAttribute("aria-label", "Ver fonte original");
-      btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
-      btn.addEventListener("click", () => {
-        window.open(urlFinal, "_blank", "noopener");
-      });
-      actions.append(btn);
-    }
+    const meta = MAP_EXTRA[fileName] || MAP_EXTRA["default.txt"];
+    const q = encodeURIComponent((item.title || "").trim());
+    const url = `${meta.base}${q}`;
+    const b = document.createElement("button");
+    b.className = "round-btn";
+    b.innerHTML = `<img src="${meta.icon}" alt="">`;
+    b.addEventListener("click", () => openExternal(url));
+    actions.append(b);
   }
 
-
-  /* ===== Check (pilha) — permanece nos cards ===== */
-  const chk = document.createElement("button");
-  chk.className = "chk";
-  chk.setAttribute("aria-label", "Selecionar bloco");
-  chk.innerHTML = `
-  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-    <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-  </svg>
-`;
-  const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
-  sync();
-  chk.addEventListener("click", () => {
-    if (state.selected.has(item.id)) {
-      state.selected.delete(item.id);
-      toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
-      if (ctx.context === "selected") card.remove();
-    } else {
-      if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
-      state.selected.set(item.id, { ...item });
-      toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
-    }
-    sync();
-    updateBottom();
+  // === Copilot
+  const hubBtn2 = document.createElement("button");
+  hubBtn2.className = "round-btn";
+  hubBtn2.setAttribute("aria-label", "copilot");
+  hubBtn2.innerHTML = '<img src="icons/ai-copilot.png" alt="">';
+  hubBtn2.addEventListener("click", () => {
+    const q = makeCardQuery();
+    const encoded = encodeURIComponent(q);
+    window.open(`https://copilot.microsoft.com/?q=${encoded}`, "_blank", "noopener");
   });
 
-  /* ===== Montagem das ações (cards) ===== */
-  actions.append(geminiBtn, chk);
+  // === Google (AI mode / udm=50)
+  const hubBtn3 = document.createElement("button");
+  hubBtn3.className = "round-btn";
+  hubBtn3.setAttribute("aria-label", "google ai");
+  hubBtn3.innerHTML = '<img src="icons/ai-google.png" alt="">';
+  hubBtn3.addEventListener("click", () => {
+    const q = makeCardQuery();
+    window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
+  });
 
-  left.append(body, actions);
-  card.append(left);
+  // actions
+  const hub = document.createElement("div");
+  hub.className = "hub";
+  hub.appendChild(hubBtn);
+  hub.appendChild(geminiBtn);
+  hub.appendChild(hubBtn2);
+  hub.appendChild(hubBtn3);
+  actions.appendChild(hub);
+
+  card.appendChild(actions);
   return card;
 }
 
-/* === Publica helpers no window (fora de funções) === */
-Object.assign(window, {
-  els,
-  parseFile,
-  norm,
-  stripThousandDots,
-  hasAllWordTokens,
-  matchesNumbers,
-  KW_RX,
-  detectQueryMode,
-  renderCard,
-  toast,
+/* ---------- reader ---------- */
+function openReader(item) {
+  els.readerTitle.textContent = item.title || "";
+  els.readerBody.innerHTML = highlight(item.text || "", window.searchTokens || []);
+  applyHighlights(els.readerBody, window.searchTokens || []);
+  els.readerSrc.textContent = item.sourceLabel || "";
+  els.readerOpenSrc.onclick = () => openExternal(item.fileUrl);
+  els.reader.classList.add("open");
+  document.body.classList.add("no-scroll");
+}
+els.readerClose?.addEventListener("click", () => {
+  els.reader.classList.remove("open");
+  document.body.classList.remove("no-scroll");
 });
 
-/* ---------- Leitor (modal) ---------- */
-async function openReader(item, tokens = []) {
-  if (els.readerTitle) els.readerTitle.textContent = item.source;
-  if (els.selCount) els.selCount.textContent = `${state.selected.size}/${MAX_SEL}`;
-  if (els.readerBody) els.readerBody.innerHTML = "";
-  showModal(els.readerModal);
-
-  // skeleton
-  for (let i = 0; i < 3; i++) {
-    const s = document.createElement("div");
-    s.className = "skel block";
-    s.style.margin = "10px 0";
-    els.readerBody.appendChild(s);
-  }
-
-  try {
-    const items = await parseFile(item.fileUrl, item.source);
-    els.readerBody.innerHTML = "";
-
-    items.forEach((a) => {
-      const card = renderCard(a, tokens, { context: "reader" });
-      card.id = a.htmlId;
-      els.readerBody.appendChild(card);
-    });
-         // aplica grifo no DOM inteiro do leitor
-    applyHighlights(els.readerBody, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
-
-
-    const anchor = els.readerBody.querySelector(`#${CSS.escape(item.htmlId)}`);
-    if (anchor) {
-      anchor.scrollIntoView({ block: "center", behavior: "instant" });
-      anchor.classList.add("highlight");
-      setTimeout(() => anchor.classList.remove("highlight"), 1800);
-    }
-    els.readerBody.focus();
-  } catch (e) {
-    toast("Erro ao abrir o arquivo. Veja o console.");
-    console.warn(e);
-    hideModal(els.readerModal);
-  }
-}
-
-/* ---------- MODAIS ---------- */
-function showModal(el) { if (el) { el.hidden = false; document.body.style.overflow = "hidden"; } }
-function hideModal(el) { if (el) { el.hidden = true; document.body.style.overflow = ""; } }
-
-document.addEventListener("click", (e) => {
-  if (e.target.matches("[data-close-modal]")) hideModal(els.readerModal);
-  if (e.target.matches("[data-close-sel]")) hideModal(els.selectedModal);
-
-  if (els.readerModal && e.target === els.readerModal.querySelector(".modal-backdrop")) hideModal(els.readerModal);
-  if (els.selectedModal && e.target === els.selectedModal.querySelector(".modal-backdrop")) hideModal(els.selectedModal);
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    if (els.readerModal && !els.readerModal.hidden) hideModal(els.readerModal);
-    if (els.selectedModal && !els.selectedModal.hidden) hideModal(els.selectedModal);
-  }
-});
-
-/* ---------- VER SELECIONADOS (removido o clique do visor) ---------- */
-/* Não há mais click no visor; o modal de selecionados pode continuar existente se aberto por outro caminho */
-
-/* ---------- HUB da BASE + Lixeira + Visor ---------- */
-
-// cria/garante o botão de lixeira depois do visor
-/* ---------- HUB da BASE + Lixeira + Visor (ordem central) ---------- */
-
-// cria/garante o botão de lixeira
-function ensureClearSelectedBtn() {
-  const parent = els.viewBtn?.parentElement;
-  if (!parent) return;
-  if (!document.getElementById("clearSelectedBtn")) {
-    const clearBtn = document.createElement("button");
-    clearBtn.id = "clearSelectedBtn";
-    clearBtn.className = "btn icon-only";
-    clearBtn.innerHTML = "🗑️";
-    clearBtn.setAttribute("aria-label", "Limpar seleção");
-    clearBtn.addEventListener("click", () => {
-      state.selected.clear();
-      updateBottom();
-      toast("Seleção limpa.");
-      document.querySelectorAll(".card .chk[data-checked='true']")
-        .forEach((b) => b.removeAttribute("data-checked"));
-    });
-    parent.appendChild(clearBtn);
-  }
-}
-
-// cria/garante o espaçador (reserva área para o menu abrir à esquerda do HUB)
-function ensureBaseSpacer() {
-  const parent = els.viewBtn?.parentElement;
-  if (!parent) return;
-  if (!document.getElementById("baseHubSpacer")) {
-    const spacer = document.createElement("div");
-    spacer.id = "baseHubSpacer";
-    spacer.style.flex = "0 0 160px"; // valor padrão; será ajustado no reorder
-    spacer.style.height = "1px";     // mínimo, só reserva largura
-    parent.appendChild(spacer);
-  }
-}
-
-// cria/garante o HUB da base antes do visor (mantido)
-function ensureBaseHub() {
-  const parent = els.viewBtn?.parentElement;
-  if (!parent) return;
-  if (!document.getElementById("baseHubWrap")) {
-    const hubWrap = document.createElement("div");
-    hubWrap.id = "baseHubWrap";
-    hubWrap.className = "hub-wrap";
-
-    const hubMenu = document.createElement("div");
-    hubMenu.className = "hub-menu";
-
-    // prefixo fixo que será incluído antes do conteúdo selecionado
-    const PREFIX = "Ensine o tema abaixo para um estudante de Direito exigente: explique com didática de alto nível, incluindo conceito jurídico, exemplos práticos, visão doutrinária, jurisprudência majoritária, prática jurídica, aplicação em provas e erros comuns.  ";
-
-    const makeAggregateQuery = () => {
-      if (!state.selected.size) { toast("Selecione blocos para usar no HUB."); return null; }
-      const parts = [];
-      let i = 1;
-      for (const it of state.selected.values()) {
-        parts.push(`### ${i}. ${it.title} — [${it.source}]`, it.text);
-        if (i++ >= MAX_SEL) break;
-      }
-      // aplica o prefixo + conteúdo agregado
-      const rawBody = `${PREFIX}\n\n` + parts.join("\n\n");
-      // compacta espaços e limita tamanho para URL
-      const raw = rawBody.replace(/\s+/g, " ").trim();
-      const maxLen = 4800;
-      return encodeURIComponent(raw.length > maxLen ? raw.slice(0, maxLen) : raw);
-    };
-
-    const hubBtn1 = document.createElement("button");
-    hubBtn1.className = "round-btn";
-    hubBtn1.setAttribute("aria-label", "perplexity");
-    hubBtn1.innerHTML = '<img src="icons/ai-perplexity.png" alt="">';
-    hubBtn1.addEventListener("click", () => {
-      const q = makeAggregateQuery(); if (!q) return;
-      window.open(`https://www.perplexity.ai/search?q=${q}`, "_blank", "noopener");
-    });
-
-    const hubBtn2 = document.createElement("button");
-    hubBtn2.className = "round-btn";
-    hubBtn2.setAttribute("aria-label", "copilot");
-    hubBtn2.innerHTML = '<img src="icons/ai-copilot.png" alt="">';
-    hubBtn2.addEventListener("click", () => {
-      const q = makeAggregateQuery(); if (!q) return;
-      window.open(`https://www.bing.com/copilotsearch?q=${q}`, "_blank", "noopener");
-    });
-
-    const hubBtn3 = document.createElement("button");
-    hubBtn3.className = "round-btn";
-    hubBtn3.setAttribute("aria-label", "google-ai");
-    hubBtn3.innerHTML = '<img src="icons/ai-gemini.png" alt="">';
-    hubBtn3.addEventListener("click", () => {
-      const q = makeAggregateQuery(); if (!q) return;
-      window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
-    });
-
-    hubMenu.append(hubBtn1, hubBtn2, hubBtn3);
-
-    const hubMain = document.createElement("button");
-    hubMain.className = "round-btn hub-main";
-    hubMain.setAttribute("aria-label", "Abrir atalhos");
-    hubMain.innerHTML = '<img src="icons/ai-hub.png" alt="">';
-    hubMain.addEventListener("click", (e) => {
-      e.stopPropagation();
-      hubMenu.classList.toggle("open");
-    });
-
-    document.addEventListener("click", (ev) => {
-      if (!hubWrap.contains(ev.target)) hubMenu.classList.remove("open");
-    });
-
-    hubWrap.append(hubMenu, hubMain);
-    parent.appendChild(hubWrap);
-  }
-}
-
-// reordena mantendo o grupo centralizado e PERMITINDO quebra no mobile
-function reorderBaseControlsAndCenter() {
-  const parent = els.viewBtn?.parentElement;
-  if (!parent || !els.viewBtn) return;
-
-  const clearBtn = document.getElementById("clearSelectedBtn");
-  const hubWrap  = document.getElementById("baseHubWrap");
-  const spacer   = document.getElementById("baseHubSpacer");
-
-  // --- layout do contêiner ---
-  parent.style.display = "flex";
-  parent.style.alignItems = "center";
-  parent.style.justifyContent = "center";
-  parent.style.gap = (window.innerWidth <= 420 ? "6px" : "8px");
-
-  // permita quebra apenas no mobile (desktop segue sem quebrar)
-  parent.style.flexWrap = (window.innerWidth <= 480 ? "wrap" : "nowrap");
-
-  // NÃO limite largura do .bar-inner (deixa o CSS mandar)
-  parent.style.width = "";
-  parent.style.maxWidth = "";
-  parent.style.margin = "";
-
-  // --- ajuste do espaçador (largura reservada pro HUB) ---
-  if (spacer) {
-    let basis = 140;                    // desktop confortável
-    if (window.innerWidth <= 480) basis = 56;  // <= mobile: bem menor
-    if (window.innerWidth <= 360) basis = 48;  // muito estreito
-    spacer.style.flex = `0 0 ${basis}px`;
-    spacer.style.height = "1px";
-  }
-
-  // não deixa os itens esticarem/encolherem
-  [clearBtn, els.viewBtn, hubWrap, spacer].forEach(el => {
-    if (el) { el.style.flexShrink = "0"; el.style.flexGrow = "0"; }
-  });
-
-  // ordem: lixeira | contador | espaçador | hub
-  if (clearBtn) parent.appendChild(clearBtn);
-  parent.appendChild(els.viewBtn);
-  if (spacer) parent.appendChild(spacer);
-  if (hubWrap) parent.appendChild(hubWrap);
-}
-
-/* ---------- init ---------- */
-updateBottom();
-
-// Remover quaisquer restos de botões antigos, se existirem no DOM
-document.getElementById("studyBtn")?.remove();
-document.getElementById("questionsBtn")?.remove();
-
-// Só configura o hub/lixeira/reflow se existir a barra-base (#viewBtn)
-if (els.viewBtn && els.viewBtn.parentElement) {
-  ensureBaseHub();
-  ensureClearSelectedBtn();
-  ensureBaseSpacer();
-  reorderBaseControlsAndCenter();
-  window.addEventListener("resize", reorderBaseControlsAndCenter);
-}
-
-
-document.getElementById("resetBtn")?.addEventListener("click", () => {
-  window._skipFocus = true; // evita foco no input
-  collapseAllGroupsAndScrollTop();
-});
-
-// Executa a busca automaticamente se vier com ?q=...
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-  if (q) {
-    const input = document.getElementById("searchInput");
-    if (input) input.value = q;
-    doSearch(); // já executa a busca
-  }
-});
-
-/* ---------- Reset: fecha grupos e sobe ---------- */
-function collapseAllGroupsAndScrollTop() {
-  document.querySelectorAll(".group-head[aria-expanded='true']").forEach((btn) => {
-    btn.setAttribute("aria-expanded", "false");
-    const groupBody = btn.nextElementSibling;
-    if (groupBody?.classList.contains("group-body")) {
-      groupBody.hidden = true;
-    }
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-/* === Histórico de buscas === */
-const MAX_HISTORY = 20;
-const HISTORY_KEY = "searchHistory";
-
-/* Salva a busca no localStorage */
-function saveToHistory(query) {
-  const trimmed = query.trim();
-  if (!trimmed) return;
-  let history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-  // remove duplicata e adiciona no topo
-  history = history.filter(q => q !== trimmed);
-  history.unshift(trimmed);
-  if (history.length > MAX_HISTORY) history.length = MAX_HISTORY;
-  localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-}
-
-/* Carrega as buscas no dropdown */
-function loadHistoryDropdown() {
-  const menu = document.getElementById("historyDropdown");
-  if (!menu) return;
-  const history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-  menu.innerHTML = "";
-
-  if (history.length === 0) {
-    const li = document.createElement("li");
-    li.textContent = "Nenhuma busca recente.";
-    li.style.color = "#888";
-    li.style.fontStyle = "italic";
-    li.style.cursor = "default";
-    menu.appendChild(li);
-    return;
-  }
-
-  history.forEach((q) => {
-    const li = document.createElement("li");
-    li.textContent = q;
-    li.addEventListener("click", () => {
-      els.q.value = q;
-      menu.classList.remove("open");
-      doSearch(); // refaz busca
-    });
-    menu.appendChild(li);
-  });
-}
-
-/* Toggle do botão */
-document.getElementById("historyBtn")?.addEventListener("click", (e) => {
-  e.stopPropagation();
-  const menu = document.getElementById("historyDropdown");
-  if (!menu) return;
-  loadHistoryDropdown();
-  menu.classList.toggle("open");
-});
-
-/* Fecha se clicar fora */
-document.addEventListener("click", (e) => {
-  const menu = document.getElementById("historyDropdown");
-  if (!menu) return;
-  if (!document.getElementById("historyBtn")?.contains(e.target)) {
-    menu.classList.remove("open");
-  }
-});
-
-/* ==========================
-   direito.love — ui_buckets_patch.js
-   Adiciona categorias na UI e sobrescreve renderLazyResults/renderBlock
-   (Inclua ESTE arquivo após o app.js original)
-   ========================== */
-
-(function(){
-  if (typeof window === "undefined") return;
-
-  // ===== Categorização só de UI (1 nível) =====
-  const UI_BUCKETS = {
-      "Códigos": [
-      "data/codigos/"
-         ],
-     "Leis": [
-      "data/leis/"       
-         ],
-     "Estatutos": [
-      "data/estatutos/"
-    ],
-    "Súmulas": [
-      "data/sumulas/"
-         ],
-    "Enunciados": [
-      "data/enunciados/"
-        ],
-    "Temas Repetitivos e Teses": [
-      "data/temas_repetitivos/", "data/teses/"
-      ],
-    "Julgados": [
-      "data/julgados/"
-       ],
-    "Vídeos": [
-      "data/videos/"
-    ],
-    "Artigos e Notícias": [
-      "data/artigos_e_noticias/"
-    ]
-  };
-  window.UI_BUCKETS = UI_BUCKETS;
-
-  // ÚNICA função de resolução de bucket (nível único)
-  function resolveBucket(url = "") {
-    const u = String(url).toLowerCase();
-    for (const [main, paths] of Object.entries(UI_BUCKETS)) {
-      if (paths.some(p => u.includes(p))) return { main };
-    }
-    return { main: "Outros" };
-  }
-  window.resolveBucket = resolveBucket;
-
-
- // injeta um tema azul-escuro e reaproveita o layout de "group"
-function ensureBucketStyles() {
-  if (document.getElementById("bucket-darkblue-styles")) return;
-  const css = `
-  /* Cabeçalho do bucket principal */
-  .bucket.group > .group-head{
-    background:#0d2847;color:#fff;border-color:#0b2140;
-  }
-  .bucket.group > .group-head:hover{background:#0b2140;color:#fff}
-  .bucket .bucket-caret{filter:brightness(2)}
-
-  /* --- Regras ROBUSTAS de colapso (fechado por padrão) --- */
-  /* Qualquer group: se o head está aria-expanded="false", o body some */
-  .group > .group-head[aria-expanded="false"] + .group-body{
-    display:none !important;
-  }
-  /* Subcategoria do bucket: idem para o subhead */
-  .bucket .bucket-subhead[aria-expanded="false"] + .subcat-body{
-    display:none !important;
-  }
-
-  /* Subcategoria (visual) */
-  .bucket .subcat{margin:8px 0}
-  .bucket .bucket-subhead{
-    background:#173a6a;color:#fff;border:1px solid #102a4a;
-    border-radius:10px;padding:10px 14px;width:100%;
-    display:flex;align-items:center;justify-content:space-between;
-    cursor:pointer;
-  }
-  .bucket .bucket-subhead:hover{background:#133764}
-  .bucket .subcat-title{font-weight:600}
-  .bucket .subcat-body{padding:6px 10px 10px}
-`;
-
-  const style = document.createElement("style");
-  style.id = "bucket-darkblue-styles";
-  style.textContent = css;
-  document.head.appendChild(style);
-}
-
-function renderBucket(mainTitle, nodes /* Array<HTMLElement> */) {
-  ensureBucketStyles();
-
-  const bucket = document.createElement("section");
-  bucket.className = "bucket group";
-
-  const head = document.createElement("button");
-  head.className = "group-head";
-  head.setAttribute("aria-expanded", "false");
-  head.innerHTML = `
-    <span class="group-title">${mainTitle}</span>
-    <span class="bucket-caret" aria-hidden="true">▾</span>
-  `;
-
-  const body = document.createElement("div");
-  body.className = "group-body bucket-body";
-  body.hidden = true;
-
-  nodes.forEach(n => body.appendChild(n));
-
-  head.addEventListener("click", () => {
-    const open = head.getAttribute("aria-expanded") === "true";
-    head.setAttribute("aria-expanded", open ? "false" : "true");
-    body.hidden = open;
-  });
-
-  bucket.appendChild(head);
-  bucket.appendChild(body);
-  return bucket;
-}
-window.renderBucket = renderBucket;
-
-
-
-
-  // ===== Usa helpers do app.js original via window =====
-  const { els, parseFile, norm, stripThousandDots, hasAllWordTokens, matchesNumbers, KW_RX, detectQueryMode, renderCard } = window;
-
-  // ---- LAZY group section (preview 1 card; carrega o resto ao abrir)
-  function renderLazyGroupSection(entry, tokens, term) {
-    const { label, url, items, partial } = entry;
-
-    const sec = document.createElement("section");
-    sec.className = "group";
-
-    const head = document.createElement("button");
-    head.className = "group-head";
-    head.setAttribute("aria-expanded", "false");
-    head.innerHTML = `
-      <span class="group-title">${label}</span>
-      <span class="group-caret" aria-hidden="true">▾</span>
-    `;
-    sec.appendChild(head);
-
-    const body = document.createElement("div");
-    body.className = "group-body";
-    body.hidden = true;
-    body.appendChild(renderCard(items[0], tokens));
-    sec.appendChild(body);
-
-    const foot = document.createElement("div");
-    foot.className = "group-foot";
-    foot.hidden = true;
-    const info = document.createElement("small");
-    info.textContent = partial ? "Prévia: 1 resultado" : `Exibindo ${items.length}`;
-    foot.appendChild(info);
-    sec.appendChild(foot);
-
-    let loadedAll = !partial;
-    head.addEventListener("click", async () => {
-      const open = head.getAttribute("aria-expanded") === "true";
-      head.setAttribute("aria-expanded", open ? "false" : "true");
-      body.hidden = open;
-      foot.hidden = open;
-
-      if (!open && !loadedAll) {
-        const sk = document.createElement("div");
-        sk.className = "skel block";
-        sk.style.margin = "10px 12px";
-        body.appendChild(sk);
-
-        try {
-          const fullItems = await parseFile(url, label);
-          const words = tokens.filter(t => !/^\d{1,4}$/.test(t));
-          const nums  = tokens.filter(t =>  /^\d{1,4}$/.test(t));
-          const matches = [];
-          for (const it of fullItems) {
-            const bag = it._bag || norm(stripThousandDots(it.text));
-            const okWords = hasAllWordTokens(bag, words);
-            const okNums  = matchesNumbers(it, nums, KW_RX.test(norm(term)), detectQueryMode(norm(term)));
-            if (okWords && okNums) matches.push(it);
-          }
-          loadedAll = true;
-          body.innerHTML = "";
-          matches.forEach((it) => body.appendChild(renderCard(it, tokens)));
-
-          info.textContent = `Exibindo ${matches.length}`;
-          const count = document.createElement("span");
-          count.className = "group-count";
-          count.textContent = matches.length;
-          head.insertBefore(count, head.querySelector(".group-caret"));
-        } catch (e) {
-          console.warn(e);
-          if (window.toast) toast("Falha ao carregar o grupo.");
-        }
-      }
-    });
-
-    return sec;
-  }
-  window.renderLazyGroupSection = renderLazyGroupSection;
-
-  // ===== Override: renderLazyResults com buckets =====
-  window.renderLazyResults = function renderLazyResults(term, groups, tokens) {
+/* ---------- results render (lazy) ---------- */
+window.renderLazyResults = function (q, groups, tokens, isFinal = false) {
   els.stack.innerHTML = "";
 
-  const block = document.createElement("section");
-  block.className = "block";
+  let total = 0;
+  for (const g of groups) total += (g.items?.length || 0);
+  els.count.textContent = String(total);
 
-  const title = document.createElement("div");
-  title.className = "block-title";
-  title.textContent = `Busca: ‘${term}’`;
-  block.appendChild(title);
-
-  const byMain = new Map(); // main => [nodes]
-
-  [...groups].sort((a,b)=> a.label.localeCompare(b.label)).forEach((entry) => {
-    const { main } = resolveBucket(entry.url);
-    const node = renderLazyGroupSection(entry, tokens, term);
-    if (!byMain.has(main)) byMain.set(main, []);
-    byMain.get(main).push(node);
-  });
-
-  for (const [main, nodes] of byMain.entries()) {
-    block.appendChild(renderBucket(main, nodes));
-  }
-
-  els.stack.append(block);
-};
-
-
-
-  // ===== Override: renderBlock com buckets (fluxos não-lazy) =====
-  window.renderBlock = function renderBlock(term, items, tokens) {
-  const block = document.createElement("section");
-  block.className = "block";
-
-  const title = document.createElement("div");
-  title.className = "block-title";
-  title.textContent = `Busca: ‘${term}’ (${items.length} resultados)`;
-  block.appendChild(title);
-
-  if (!items.length) {
-    const empty = document.createElement("div");
-    empty.className = "block-empty";
-    empty.textContent = `Nada por aqui com ‘${term}’. Tente outra palavra.`;
-    block.appendChild(empty);
-    els.stack.append(block);
-    return;
-  }
-
-  // agrupa por arquivo (label+url)
-  const groupsMap = new Map(); // key -> {label,url,items[]}
-  for (const it of items) {
-    const key = `${it.source}::${it.fileUrl}`;
-    if (!groupsMap.has(key)) groupsMap.set(key, { label: it.source || "Outros", url: it.fileUrl, items: [] });
-    groupsMap.get(key).items.push(it);
-  }
-
-  // monta sections (accordions de arquivo)
-  const sections = [];
-  for (const g of groupsMap.values()) {
+  groups.forEach((g) => {
     const sec = document.createElement("section");
     sec.className = "group";
+    const h4 = document.createElement("h4");
+    h4.textContent = g.label;
+    sec.appendChild(h4);
 
-    const head = document.createElement("button");
-    head.className = "group-head";
-    head.setAttribute("aria-expanded","false");
-    head.innerHTML = `
-      <span class="group-title">${g.label}</span>
-      <span class="group-count">${g.items.length}</span>
-      <span class="group-caret" aria-hidden="true">▾</span>
-    `;
-    sec.appendChild(head);
+    const list = document.createElement("div");
+    list.className = "cards";
 
-    const body = document.createElement("div");
-    body.className = "group-body";
-    body.hidden = true;
-    g.items.forEach((it)=> body.appendChild(renderCard(it, tokens)));
-    sec.appendChild(body);
-
-    head.addEventListener("click", ()=>{
-      const open = head.getAttribute("aria-expanded")==="true";
-      head.setAttribute("aria-expanded", open ? "false" : "true");
-      body.hidden = open;
+    (g.items || []).forEach((it) => {
+      list.appendChild(renderItem(it, tokens));
     });
 
-    // guarda com seu bucket
-    const { main } = resolveBucket(g.url);
-    sections.push({ main, node: sec });
-  }
+    sec.appendChild(list);
 
-  // agrupa por bucket principal
-  const byMain = new Map();
-  sections.forEach(({main, node}) => {
-    if (!byMain.has(main)) byMain.set(main, []);
-    byMain.get(main).push(node);
+    if (g.partial) {
+      const small = document.createElement("small");
+      small.className = "loading-more";
+      small.textContent = "carregando mais…";
+      sec.appendChild(small);
+    }
+
+    els.stack.appendChild(sec);
   });
 
-  for (const [main, nodes] of byMain.entries()) {
-    block.appendChild(renderBucket(main, nodes));
+  if (isFinal && total === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "Nada encontrado. Tente variar os termos.";
+    els.stack.appendChild(empty);
   }
-
-  els.stack.append(block);
 };
 
+/* ---------- UI: histórico ---------- */
+els.histBtn?.addEventListener("click", () => {
+  const modal = document.querySelector("#historyModal");
+  if (!modal) return;
+  renderHistory();
+  modal.classList.add("open");
+});
+els.histClear?.addEventListener("click", () => {
+  state.history = [];
+  localStorage.setItem("dl_history", "[]");
+  renderHistory();
+  toast("Histórico limpo.");
+});
+document.querySelectorAll(".modal .close").forEach((b) => {
+  b.addEventListener("click", (e) => e.target.closest(".modal")?.classList.remove("open"));
+});
 
-})();
+/* ---------- eventos ---------- */
+els.form?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  doSearch();
+});
+els.brand?.addEventListener("click", () => {
+  els.q.value = "";
+  els.stack.innerHTML = "";
+  els.count.textContent = "0";
+});
+window.addEventListener("DOMContentLoaded", () => {
+  const url = new URL(location.href);
+  const q = url.searchParams.get("q");
+  if (q) {
+    els.q.value = decodeURIComponent(q);
+    doSearch();
+  }
+});
