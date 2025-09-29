@@ -1120,9 +1120,19 @@ Object.assign(window, {
   toast,
 });
 /* ---------- Modal incremental: config + helpers ---------- */
-const READER_NEIGHBORHOOD = 3;   // quantos blocos ao redor da âncora renderizar primeiro
-const READER_CHUNK_SIZE   = 20;  // tamanho dos lotes incrementais
+// Pré-carga inicial ao abrir o modal
+const READER_PRELOAD_PREV = 20;  // carregar imediatamente 20 anteriores
+const READER_PRELOAD_NEXT = 20;  // e 20 posteriores
+
+// Lote por clique nos botões “Carregar anteriores/próximos”
+const READER_BATCH_SIZE   = 100; // cada clique carrega +100
+
+// Lotes pequenos para pintar listas (ex.: ranking em grupos)
+const LIST_BATCH_SIZE     = 10;  // usado nas listas (não confundir com o de 100)
+
 const READER_IDLE_MS      = 16;  // respiro entre lotes (aprox. 1 frame)
+
+
 
 function chunkArray(arr, size) {
   const out = [];
@@ -1166,14 +1176,15 @@ async function openReader(item, tokens = []) {
     const anchorIdx = items.findIndex(it => it.id === item.id || it.htmlId === item.htmlId);
     const idx = anchorIdx >= 0 ? anchorIdx : 0;
 
-    // 1) Render “relâmpago”: âncora + vizinhos
-    const start = Math.max(0, idx - READER_NEIGHBORHOOD);
-    const end   = Math.min(items.length, idx + READER_NEIGHBORHOOD + 1);
-    for (let i = start; i < end; i++) {
-      const card = renderCard(items[i], tokens, { context: "reader" });
-      card.id = items[i].htmlId;
-      els.readerBody.appendChild(card);
-    }
+    // 1) Render “relâmpago”: âncora + 20 anteriores e 20 posteriores
+const start = Math.max(0, idx - READER_PRELOAD_PREV);
+const end   = Math.min(items.length, idx + READER_PRELOAD_NEXT + 1);
+for (let i = start; i < end; i++) {
+  const card = renderCard(items[i], tokens, { context: "reader" });
+  card.id = items[i].htmlId;
+  els.readerBody.appendChild(card);
+}
+
 
     // Grifa após primeira pintura
     const phrases = Array.isArray(window.__phrases) ? window.__phrases : [];
@@ -1219,7 +1230,7 @@ const mkBar = (pos /* 'top' | 'bottom' */, label, onClick) => {
 
 
 // loaders (anteriores = prepend; próximos = append)
-const BATCH = READER_CHUNK_SIZE; // reaproveita constante
+const BATCH = READER_BATCH_SIZE; // 100 por clique
 const loadPrevIncremental = (btn) => {
   // carrega do fim para o começo para manter ordem ascendente ao dar prepend
   const chunk = restTop.splice(Math.max(0, restTop.length - BATCH), BATCH);
@@ -1266,24 +1277,9 @@ let topUI, bottomUI;
 if (restTop.length)   topUI    = mkBar("top",    `Carregar anteriores (${restTop.length})`,   loadPrevIncremental);
 if (restBottom.length) bottomUI = mkBar("bottom", `Carregar próximos (${restBottom.length})`, loadNextIncremental);
 
-// Autoload leve: carrega o primeiro lote de “próximos” para dar sensação de continuidade
-if (restBottom.length && bottomUI?.btn) idle(() => loadNextIncremental(bottomUI.btn));
-// Autoload ao rolar (IntersectionObserver): carrega sozinho ao encostar no topo/rodapé
-if ('IntersectionObserver' in window) {
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      if (e.target.dataset.dir === 'top' && topUI?.btn && !topUI.btn.disabled) {
-        topUI.btn.click();
-      } else if (e.target.dataset.dir === 'bottom' && bottomUI?.btn && !bottomUI.btn.disabled) {
-        bottomUI.btn.click();
-      }
-    }
-  }, { root: els.readerBody, threshold: 0.2 });
+// Sem autoload: só carrega ao clicar (previsível e leve)
+// (se quiser reativar no futuro, use IntersectionObserver aqui)
 
-  if (topUI?.bar)    { topUI.bar.dataset.dir = 'top';    io.observe(topUI.bar); }
-  if (bottomUI?.bar) { bottomUI.bar.dataset.dir = 'bottom'; io.observe(bottomUI.bar); }
-}
 
 // 3) Scroll suave até a âncora
 const anchor = els.readerBody.querySelector(`#${CSS.escape(item.htmlId)}`);
@@ -1300,6 +1296,7 @@ els.readerBody.focus();
     console.warn(e);
     hideModal(els.readerModal);
   }
+}
 
 /* ---------- MODAIS ---------- */
 function showModal(el) { if (el) { el.hidden = false; document.body.style.overflow = "hidden"; } }
@@ -1763,7 +1760,7 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
         body.innerHTML = "";
 
         const ranked = candidates.slice(0, TOP_N);
-        const batches = chunkArray(ranked, READER_CHUNK_SIZE / 2); // lotes menores na lista
+        const batches = chunkArray(ranked, LIST_BATCH_SIZE); // lotes menores e estáveis
         const renderBatch = () => {
           const lot = batches.shift();
           if (!lot) return;
