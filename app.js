@@ -1180,42 +1180,96 @@ async function openReader(item, tokens = []) {
     const searchTokens = (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens;
     idle(() => applyHighlights(els.readerBody, searchTokens.concat(phrases)));
 
-    // 2) Botão “Carregar restante” (opcional + incremental)
-    const restTop    = items.slice(0, start);
-    const restBottom = items.slice(end);
-    const restAll    = [...restBottom, ...restTop]; // prioridade: depois da âncora
+    // 2) Navegação incremental (anteriores e próximos)
+const restTop    = items.slice(0, start);      // anteriores à âncora
+const restBottom = items.slice(end);           // depois da âncora
 
-    if (restAll.length > 0) {
-      const bar = document.createElement("div");
-      bar.className = "reader-loadbar";
-      bar.style.cssText = "display:flex;gap:10px;align-items:center;justify-content:center;margin:12px 0;";
+// container central para os cards do leitor
+const list = document.createElement("div");
+list.id = "readerList";
+els.readerBody.appendChild(list);
 
-      const btn = document.createElement("button");
-      btn.className = "btn";
-      btn.textContent = `Carregar restante (${restAll.length})`;
-      btn.addEventListener("click", () => {
-        btn.disabled = true;
-        loadRestIncremental(restAll, searchTokens.concat(phrases));
-      });
+// move os 3+3 vizinhos (já renderizados) para dentro do container
+const tmpNodes = Array.from(els.readerBody.querySelectorAll(".card"));
+tmpNodes.forEach(n => list.appendChild(n));
 
-      const small = document.createElement("small");
-      small.textContent = "Conteúdo grande — carregamento em lotes.";
+// barras de carregamento (topo e rodapé)
+const mkBar = (pos /* 'top' | 'bottom' */, label, onClick) => {
+  const bar = document.createElement("div");
+  bar.className = "reader-loadbar";
+  bar.style.cssText = "display:flex;gap:10px;align-items:center;justify-content:center;margin:12px 0;";
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.textContent = label;
+  btn.addEventListener("click", () => { btn.disabled = true; onClick(btn); });
+  const small = document.createElement("small");
+  small.textContent = "Conteúdo grande — carregamento em lotes.";
+  bar.append(btn, small);
+  if (pos === "top") els.readerBody.insertBefore(bar, list);
+  else els.readerBody.appendChild(bar);
+  return { bar, btn };
+};
 
-      bar.append(btn, small);
-      els.readerBody.appendChild(bar);
+// loaders (anteriores = prepend; próximos = append)
+const BATCH = READER_CHUNK_SIZE; // reaproveita constante
+const loadPrevIncremental = (btn) => {
+  // carrega do fim para o começo para manter ordem ascendente ao dar prepend
+  const chunk = restTop.splice(Math.max(0, restTop.length - BATCH), BATCH);
+  if (!chunk.length) { btn.closest(".reader-loadbar")?.remove(); return; }
+  const frag = document.createDocumentFragment();
+  chunk.forEach(it => {
+    const card = renderCard(it, [], { context: "reader" });
+    card.id = it.htmlId;
+    frag.appendChild(card);
+  });
+  // prepend
+  list.insertBefore(frag, list.firstChild);
+  idle(() => applyHighlights(els.readerBody, (window.searchTokens || []).concat(window.__phrases || [])));
+  if (restTop.length) {
+    btn.textContent = `Carregar anteriores (${restTop.length})`;
+    btn.disabled = false;
+  } else {
+    btn.closest(".reader-loadbar")?.remove();
+  }
+};
 
-      // Autoload gradual (sem o clique), preserva fluidez
-      idle(() => loadRestIncremental(restAll, searchTokens.concat(phrases)));
-    }
+const loadNextIncremental = (btn) => {
+  const chunk = restBottom.splice(0, BATCH);
+  if (!chunk.length) { btn.closest(".reader-loadbar")?.remove(); return; }
+  const frag = document.createDocumentFragment();
+  chunk.forEach(it => {
+    const card = renderCard(it, [], { context: "reader" });
+    card.id = it.htmlId;
+    frag.appendChild(card);
+  });
+  // append
+  list.appendChild(frag);
+  idle(() => applyHighlights(els.readerBody, (window.searchTokens || []).concat(window.__phrases || [])));
+  if (restBottom.length) {
+    btn.textContent = `Carregar próximos (${restBottom.length})`;
+    btn.disabled = false;
+  } else {
+    btn.closest(".reader-loadbar")?.remove();
+  }
+};
 
-    // 3) Scroll suave até a âncora (se ela não estiver no topo)
-    const anchor = els.readerBody.querySelector(`#${CSS.escape(item.htmlId)}`);
-    if (anchor) {
-      anchor.scrollIntoView({ block: "center", behavior: "instant" });
-      anchor.classList.add("highlight");
-      setTimeout(() => anchor.classList.remove("highlight"), 1800);
-    }
-    els.readerBody.focus();
+// cria as barras (só se houver o que carregar)
+let topUI, bottomUI;
+if (restTop.length)   topUI    = mkBar("top",    `Carregar anteriores (${restTop.length})`,   loadPrevIncremental);
+if (restBottom.length) bottomUI = mkBar("bottom", `Carregar próximos (${restBottom.length})`, loadNextIncremental);
+
+// Autoload leve: carrega o primeiro lote de “próximos” para dar sensação de continuidade
+if (restBottom.length && bottomUI?.btn) idle(() => loadNextIncremental(bottomUI.btn));
+
+// 3) Scroll suave até a âncora
+const anchor = els.readerBody.querySelector(`#${CSS.escape(item.htmlId)}`);
+if (anchor) {
+  anchor.scrollIntoView({ block: "center", behavior: "instant" });
+  anchor.classList.add("highlight");
+  setTimeout(() => anchor.classList.remove("highlight"), 1800);
+}
+els.readerBody.focus();
+
 
   } catch (e) {
     toast("Erro ao abrir o arquivo. Veja o console.");
