@@ -57,58 +57,127 @@ function buildTokens(q) {
     .filter((t, i, a) => a.indexOf(t) === i);
 }
 
-// Aplica highlight em NÓS DE TEXTO (acento-insensível; não mexe em tags/links)
+// NOVA VERSÃO — applyHighlights: suporta "frases exatas" e termos; evita links/botões; acento-insensível
 function applyHighlights(rootEl, tokens) {
-  if (!rootEl || !tokens?.length) return;
+  if (!rootEl || !tokens || tokens.length === 0) return;
 
-  // transforma cada token em um padrão que aceita acentos: letra -> letra + \p{M}*
-  const toDiacriticRx = (t) =>
-    String(t)
-      .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-      .replace(/\p{L}/gu, (ch) => ch + "\\p{M}*");
+  // Backward-compat: tokens pode ser ["termo", ...] ou [{type:"phrase"|"term", value:"..."}, ...]
+  const normToken = (t) => {
+    if (!t) return null;
+    if (typeof t === "string") return { type: t.trim().includes(" ") ? "phrase" : "term", value: t.trim() };
+    if (typeof t.value === "string") return { type: (t.type === "phrase" ? "phrase" : "term"), value: t.value.trim() };
+    return null;
+  };
 
-  const parts = tokens.filter(Boolean).map(toDiacriticRx);
-  if (!parts.length) return;
+  const list = tokens.map(normToken).filter(Boolean);
+  if (list.length === 0) return;
 
-  // usa \b para borda de palavra; flags g i u
-  const re = new RegExp(`\\b(${parts.join("|")})\\b`, "giu");
+  // Constrói regex acento-insensível por caractere (NFD + \p{M}*)
+  const esc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const toDia = (s) => esc(s).replace(/\p{L}/gu, (ch) => ch + "\\p{M}*");
+
+  const phrases = list.filter(t => t.type === "phrase" && t.value.length > 1).map(t => toDia(t.value));
+  const terms   = list.filter(t => t.type !== "phrase").map(t => toDia(t.value)).filter(Boolean);
+
+  // Regex: frases primeiro (prioridade), depois termos por borda de palavra
+  const rxPhrase = phrases.length ? new RegExp("(" + phrases.join("|") + ")", "giu") : null;
+  const rxTerm   = terms.length   ? new RegExp("\\b(" + terms.join("|") + ")\\b", "giu") : null;
+
+  // Evitar remarcar e pular elementos interativos
+  const isSkippableParent = (el) => {
+    if (!el) return false;
+    if (el.closest("mark.hl, a, button, input, textarea, code, pre")) return true;
+    if (el.closest("[contenteditable=true], [role=button], [role=link]")) return true;
+    return false;
+  };
 
   const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
       const txt = node.nodeValue;
       if (!txt || !txt.trim()) return NodeFilter.FILTER_REJECT;
-      if (node.parentElement && node.parentElement.closest(".hl")) {
-        return NodeFilter.FILTER_REJECT; // evita remarcar
-      }
-      return re.test(txt.normalize("NFD")) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      if (isSkippableParent(node.parentElement)) return NodeFilter.FILTER_REJECT;
+      const nfd = txt.normalize("NFD");
+      if (rxPhrase && rxPhrase.test(nfd)) return NodeFilter.FILTER_ACCEPT;
+      if (rxTerm   && rxTerm.test(nfd))   return NodeFilter.FILTER_ACCEPT;
+      return NodeFilter.FILTER_REJECT;
     }
   });
 
-  const textNodes = [];
-  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
 
-  textNodes.forEach(node => {
+  nodes.forEach(node => {
     const nfd = node.nodeValue.normalize("NFD");
-    const pieces = nfd.split(re);
-    const frag = document.createDocumentFragment();
+    let frag = document.createDocumentFragment();
 
-    for (let i = 0; i < pieces.length; i++) {
-      const chunk = pieces[i];
-      if (!chunk) continue;
-      const out = chunk.normalize("NFC"); // volta cada pedaço pra NFC
-
-      if (i % 2 === 1) {
-        const mark = document.createElement("mark");
-        mark.className = "hl";
-        mark.textContent = out;
-        frag.appendChild(mark);
-      } else {
-        frag.appendChild(document.createTextNode(out));
+    // 1) marca frases exatas
+    const process = (sourceText, rx, className) => {
+      if (!rx) return { parent: null, leftover: sourceText };
+      const parts = sourceText.split(rx);
+      const df = document.createDocumentFragment();
+      for (let i = 0; i < parts.length; i++) {
+        const piece = parts[i];
+        if (!piece) continue;
+        const out = piece.normalize("NFC");
+        if (i % 2 === 1) {
+          const mark = document.createElement("mark");
+          mark.className = "hl " + className; // "hl hl-phrase" ou "hl hl-term"
+          mark.textContent = out;
+          df.appendChild(mark);
+        } else {
+          df.appendChild(document.createTextNode(out));
+        }
       }
+      return { parent: df, leftover: null };
+    };
+
+    // Aplica frases
+    let tmp = nfd;
+    if (rxPhrase) {
+      const res = process(tmp, rxPhrase, "hl-phrase");
+      if (res.parent) {
+        frag = res.parent;
+      } else {
+        frag.appendChild(document.createTextNode(tmp.normalize("NFC")));
+      }
+    } else {
+      frag.appendChild(document.createTextNode(tmp.normalize("NFC")));
     }
+
+    // 2) passa termos nos nós de texto remanescentes
+    if (rxTerm) {
+      const secondPassNodes = Array.from(frag.childNodes);
+      const newFrag = document.createDocumentFragment();
+
+      secondPassNodes.forEach(n => {
+        if (n.nodeType === Node.TEXT_NODE) {
+          const n2 = n.nodeValue.normalize("NFD");
+          const parts = n2.split(rxTerm);
+          for (let i = 0; i < parts.length; i++) {
+            const piece = parts[i];
+            if (!piece) continue;
+            const out = piece.normalize("NFC");
+            if (i % 2 === 1) {
+              const mark = document.createElement("mark");
+              mark.className = "hl hl-term";
+              mark.textContent = out;
+              newFrag.appendChild(mark);
+            } else {
+              newFrag.appendChild(document.createTextNode(out));
+            }
+          }
+        } else {
+          newFrag.appendChild(n);
+        }
+      });
+
+      frag = newFrag;
+    }
+
     node.parentNode.replaceChild(frag, node);
   });
 }
+
 
 /* ---------- estado ---------- */
 const MAX_SEL = 3;
