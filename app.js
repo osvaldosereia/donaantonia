@@ -780,28 +780,30 @@ allOptions.sort((a, b) => {
     // estrutura "lazy": guardamos só o primeiro match e um loader para o resto
     const lazyGroups = []; // [{ label, url, items:[first], partial:true }]
 
-    for (const { url, label } of allOptions) {
-      try {
-        const predicate = (it) => {
-          const bag = it._bag || norm(stripThousandDots(it.text));
-          const okWords = hasAllWordTokens(bag, wordTokens);
-          const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
-          return okWords && okNums;
-        };
+   for (const { url, label } of allOptions) {
+  try {
+    const predicate = (it) => {
+      const bag = it._bag || norm(stripThousandDots(it.text));
+      const okWords = hasAllWordTokens(bag, wordTokens);
+      const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
+      return okWords && okNums;
+    };
 
-        const first = await firstMatchInFile(url, label, predicate);
-        if (first) {
-          lazyGroups.push({ label, url, items: [first], partial: true });
-          window.
-//#region [BLK11] RENDER • Buckets & Results
-renderLazyResults(termRaw, lazyGroups, tokens);
-        }
-        if (signal.aborted) return;
-      } catch (e) {
-        toast(`⚠️ Não carreguei: ${label}`);
-        console.warn("Falha ao buscar:", e);
-      }
+    const first = await firstMatchInFile(url, label, predicate);
+    if (first) {
+      lazyGroups.push({ label, url, items: [first], partial: true });
+
+      //#region [BLK11] RENDER • Buckets & Results
+      window.renderLazyResults(termRaw, lazyGroups, tokens);
+      //#endregion
     }
+    if (signal.aborted) return;
+  } catch (e) {
+    toast(`⚠️ Não carreguei: ${label}`);
+    console.warn("Falha ao buscar:", e);
+  }
+}
+
 
     // fim da busca inicial (só previews)
     skel.remove();
@@ -847,7 +849,7 @@ function truncatedHTML(fullText, tokens) {
 
 function
 //#region [BLK10] RENDER • Cards
-renderCard(item, tokens = [], ctx = { context: "results" }) {
+function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
   card.className = "card";
   card.dataset.id = item.id;
@@ -910,141 +912,120 @@ renderCard(item, tokens = [], ctx = { context: "results" }) {
     actions.append(toggle);
   }
 
-  /* ===== Botões especiais (idênticos às suas regras) ===== */
+  /* ===== Botões especiais ===== */
 
-/* — Gemini (AI mode / udm=50) — */
-const geminiBtn = document.createElement("button");
-geminiBtn.className = "round-btn";
-geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
-geminiBtn.innerHTML = '<img src="icons/ai-gemini.png" alt="Gemini">';
-geminiBtn.addEventListener("click", () => {
-  const raw = (item.title + " " + item.text).replace(/\s+/g, " ").trim();
-  const maxLen = 1800;
-  const body  = raw.length > maxLen ? raw.slice(0, maxLen) : raw;
-  const q = encodeURIComponent(body);
-  window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
-});
-actions.append(geminiBtn);
+  // — Gemini (AI mode / udm=50)
+  const geminiBtn = document.createElement("button");
+  geminiBtn.className = "round-btn";
+  geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
+  geminiBtn.innerHTML = '<img src="icons/ai-gemini.png" alt="Gemini">';
+  geminiBtn.addEventListener("click", () => {
+    const raw = (item.title + " " + item.text).replace(/\s+/g, " ").trim();
+    const maxLen = 1800;
+    const body  = raw.length > maxLen ? raw.slice(0, maxLen) : raw;
+    const q = encodeURIComponent(body);
+    window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
+  });
+  actions.append(geminiBtn);
 
-/* — YouTube (somente para arquivos em data/videos/, com o mapa de canais e fix de iOS) — */
-if (item.fileUrl?.includes("data/videos/")) {
-  const CHANNEL_NAMES = {
-    "supremo.txt":             "tv supremo",
-    "instante_juridico.txt":   "instante juridico",
-    "me_julga.txt":            "me julga",
-    "seus_direitos.txt":       "seus direitos",
-    "direito_desenhado.txt":   "direito desenhado",
-    "diego_pureza.txt":        "prof diego pureza",
-    "estrategia_carreiras_juridicas.txt": "estrategia carreiras juridicas",
-    "ana_carolina_aidar.txt":  "ana carolina aidar",
-    "cebrian.txt":             "cebrian",
-    "fonte_juridica_oficial.txt": "fonte juridica oficial",
-    "paulo_henrique_helene.txt": "paulo henrique helene",
-    "profnidal.txt":           "professor nidal",
-    "monicarieger.txt":        "monica rieger",
-    "rodrigo_castello.txt":    "rodrigo castello",
-    "prof_alan_gestao.txt":    "prof alan gestao",
-    "simplificando_direito_penal.txt": "simplificando direito penal",
-    "geofre_saraiva.txt":      "geofre saraiva",
-    "ricardo_torques.txt":     "ricardo torques",
-    "prof_eduardo_tanaka.txt": "prof eduardo tanaka",
-    "trilhante.txt":           "trilhante",
-    "qconcurso.txt":           "qconcurso",
-    "paulo_rodrigues_direito_para_a_vida.txt": "paulo rodrigues direito para a vida"
-  };
-
-  const fileName = item.fileUrl.split("/").pop().toLowerCase();
-  const canalNome = CHANNEL_NAMES[fileName];
-
-  if (canalNome) {
-    const title = (item.title || "").trim();
-    const rawQuery = `${canalNome} ${title}`;
-
-    // iOS fix: usar m.youtube.com e NUNCA trocar %20 por '+'
-    const q = encodeURIComponent(rawQuery);
-    const urlFinal = `https://m.youtube.com/results?search_query=${q}`;
-
-    const ytBtn = document.createElement("button");
-    ytBtn.className = "round-btn";
-    ytBtn.setAttribute("aria-label", "Ver no YouTube");
-    ytBtn.innerHTML = '<img src="icons/youtube.png" alt="YouTube">';
-    ytBtn.addEventListener("click", () => {
-      openExternal(urlFinal);
-    });
-    actions.append(ytBtn);
-  }
-}
-
-/* — Fontes “Artigos e Notícias” (Jusbrasil, ConJur, Migalhas) — */
-if (item.fileUrl?.includes("data/artigos_e_noticias/")) {
-  const fontes = {
-    "jusbrasil.txt": {
-      base: "https://www.jusbrasil.com.br/artigos-noticias/busca?q=",
-      icon: "jusbrasil.png"
-    },
-    "conjur.txt": {
-      base: "https://www.conjur.com.br/pesquisa/?q=",
-      icon: "conjur.png"
-    },
-    "migalhas.txt": {
-      base: "https://www.migalhas.com.br/busca?q=",
-      icon: "migalhas.png"
+  // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
+  if (item.fileUrl?.includes("data/videos/")) {
+    const CHANNEL_NAMES = {
+      "supremo.txt": "tv supremo",
+      "instante_juridico.txt": "instante juridico",
+      "me_julga.txt": "me julga",
+      "seus_direitos.txt": "seus direitos",
+      "direito_desenhado.txt": "direito desenhado",
+      "diego_pureza.txt": "prof diego pureza",
+      "estrategia_carreiras_juridicas.txt": "estrategia carreiras juridicas",
+      "ana_carolina_aidar.txt": "ana carolina aidar",
+      "cebrian.txt": "cebrian",
+      "fonte_juridica_oficial.txt": "fonte juridica oficial",
+      "paulo_henrique_helene.txt": "paulo henrique helene",
+      "profnidal.txt": "professor nidal",
+      "monicarieger.txt": "monica rieger",
+      "rodrigo_castello.txt": "rodrigo castello",
+      "prof_alan_gestao.txt": "prof alan gestao",
+      "simplificando_direito_penal.txt": "simplificando direito penal",
+      "geofre_saraiva.txt": "geofre saraiva",
+      "ricardo_torques.txt": "ricardo torques",
+      "prof_eduardo_tanaka.txt": "prof eduardo tanaka",
+      "trilhante.txt": "trilhante",
+      "qconcurso.txt": "qconcurso",
+      "paulo_rodrigues_direito_para_a_vida.txt": "paulo rodrigues direito para a vida"
+    };
+    const fileName = item.fileUrl.split("/").pop().toLowerCase();
+    const canalNome = CHANNEL_NAMES[fileName];
+    if (canalNome) {
+      const title = (item.title || "").trim();
+      const rawQuery = `${canalNome} ${title}`;
+      const q = encodeURIComponent(rawQuery); // iOS: m.youtube.com e sem +
+      const urlFinal = `https://m.youtube.com/results?search_query=${q}`;
+      const ytBtn = document.createElement("button");
+      ytBtn.className = "round-btn";
+      ytBtn.setAttribute("aria-label", "Ver no YouTube");
+      ytBtn.innerHTML = '<img src="icons/youtube.png" alt="YouTube">';
+      ytBtn.addEventListener("click", () => openExternal(urlFinal));
+      actions.append(ytBtn);
     }
-  };
-
-  const fileName = item.fileUrl.split("/").pop().toLowerCase();
-  const fonte = fontes[fileName];
-
-  if (fonte?.base) {
-    const query = encodeURIComponent((item.title || "").trim());
-    const urlFinal = `${fonte.base}${query}`;
-    const btn = document.createElement("button");
-    btn.className = "round-btn";
-    btn.setAttribute("aria-label", "Ver fonte original");
-    btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
-    btn.addEventListener("click", () => {
-      window.open(urlFinal, "_blank", "noopener");
-    });
-    actions.append(btn);
   }
-}
 
-/* Check (pilha) */
-const chk = document.createElement("button");
-chk.className = "chk";
-chk.setAttribute("aria-label", "Selecionar bloco");
-chk.innerHTML = `
-  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-    <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-  </svg>
-`;
-const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
-sync();
-chk.addEventListener("click", () => {
-  if (state.selected.has(item.id)) {
-    state.selected.delete(item.id);
-    toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
-    if (ctx.context === "selected") card.remove();
-  } else {
-    if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
-    state.selected.set(item.id, { ...item });
-    toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
+  // — Fontes “Artigos e Notícias”
+  if (item.fileUrl?.includes("data/artigos_e_noticias/")) {
+    const fontes = {
+      "jusbrasil.txt": { base: "https://www.jusbrasil.com.br/artigos-noticias/busca?q=", icon: "jusbrasil.png" },
+      "conjur.txt":    { base: "https://www.conjur.com.br/pesquisa/?q=",                 icon: "conjur.png"    },
+      "migalhas.txt":  { base: "https://www.migalhas.com.br/busca?q=",                   icon: "migalhas.png"  }
+    };
+    const fileName = item.fileUrl.split("/").pop().toLowerCase();
+    const fonte = fontes[fileName];
+    if (fonte?.base) {
+      const query = encodeURIComponent((item.title || "").trim());
+      const urlFinal = `${fonte.base}${query}`;
+      const btn = document.createElement("button");
+      btn.className = "round-btn";
+      btn.setAttribute("aria-label", "Ver fonte original");
+      btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
+      btn.addEventListener("click", () => window.open(urlFinal, "_blank", "noopener"));
+      actions.append(btn);
+    }
   }
+
+  /* Check (pilha) */
+  const chk = document.createElement("button");
+  chk.className = "chk";
+  chk.setAttribute("aria-label", "Selecionar bloco");
+  chk.innerHTML = `
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    </svg>
+  `;
+  const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
   sync();
-  updateBottom();
-});
+  chk.addEventListener("click", () => {
+    if (state.selected.has(item.id)) {
+      state.selected.delete(item.id);
+      toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
+      if (ctx.context === "selected") card.remove();
+    } else {
+      if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
+      state.selected.set(item.id, { ...item });
+      toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
+    }
+    sync();
+    updateBottom();
+  });
 
-// não mostrar o "Selecionar" dentro do modal (reader)
-if (ctx.context !== "reader") {
-  actions.append(chk);
-}
+  // não mostrar o "Selecionar" dentro do modal (reader)
+  if (ctx.context !== "reader") {
+    actions.append(chk);
+  }
 
-
-  actions.append(chk);
   left.append(body, actions);
   card.append(left);
   return card;
 }
+
 
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
@@ -1059,15 +1040,37 @@ Object.assign(window, {
   renderCard,
   toast,
 });
+/* ---------- Modal incremental: config + helpers ---------- */
+const READER_NEIGHBORHOOD = 3;   // quantos blocos ao redor da âncora renderizar primeiro
+const READER_CHUNK_SIZE   = 20;  // tamanho dos lotes incrementais
+const READER_IDLE_MS      = 16;  // respiro entre lotes (aprox. 1 frame)
+
+function chunkArray(arr, size) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
+function idle(fn, delay = READER_IDLE_MS) {
+  if (typeof requestIdleCallback === "function") {
+    return requestIdleCallback(() => fn());
+  }
+  return setTimeout(fn, delay);
+}
+
+// Prefetch parser silencioso (uso: assim que a prévia aparece)
+async function prefetchFile(url, label) {
+  try { await parseFile(url, label); } catch (_) { /* ignora */ }
+}
 
 /* ---------- Leitor (modal) ---------- */
 async function openReader(item, tokens = []) {
-  if (els.readerTitle) els.readerTitle.textContent = item.source;
+  if (els.readerTitle) els.readerTitle.textContent = item.source || "";
   if (els.selCount) els.selCount.textContent = `${state.selected.size}/${MAX_SEL}`;
   if (els.readerBody) els.readerBody.innerHTML = "";
   showModal(els.readerModal);
 
-  // skeleton
+  // Skeleton imediato
   for (let i = 0; i < 3; i++) {
     const s = document.createElement("div");
     s.className = "skel block";
@@ -1076,19 +1079,57 @@ async function openReader(item, tokens = []) {
   }
 
   try {
+    // Pega todos os itens (parse com cache)
     const items = await parseFile(item.fileUrl, item.source);
     els.readerBody.innerHTML = "";
 
-    items.forEach((a) => {
-      const card = renderCard(a, tokens, { context: "reader" });
-      card.id = a.htmlId;
+    // Descobre índice da âncora (o bloco clicado)
+    const anchorIdx = items.findIndex(it => it.id === item.id || it.htmlId === item.htmlId);
+    const idx = anchorIdx >= 0 ? anchorIdx : 0;
+
+    // 1) Render “relâmpago”: âncora + vizinhos
+    const start = Math.max(0, idx - READER_NEIGHBORHOOD);
+    const end   = Math.min(items.length, idx + READER_NEIGHBORHOOD + 1);
+    for (let i = start; i < end; i++) {
+      const card = renderCard(items[i], tokens, { context: "reader" });
+      card.id = items[i].htmlId;
       els.readerBody.appendChild(card);
-    });
-    // aplica grifo no DOM inteiro do leitor
+    }
+
+    // Grifa após primeira pintura
     const phrases = Array.isArray(window.__phrases) ? window.__phrases : [];
     const searchTokens = (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens;
-    applyHighlights(els.readerBody, searchTokens.concat(phrases));
+    idle(() => applyHighlights(els.readerBody, searchTokens.concat(phrases)));
 
+    // 2) Botão “Carregar restante” (opcional + incremental)
+    const restTop    = items.slice(0, start);
+    const restBottom = items.slice(end);
+    const restAll    = [...restBottom, ...restTop]; // prioridade: depois da âncora
+
+    if (restAll.length > 0) {
+      const bar = document.createElement("div");
+      bar.className = "reader-loadbar";
+      bar.style.cssText = "display:flex;gap:10px;align-items:center;justify-content:center;margin:12px 0;";
+
+      const btn = document.createElement("button");
+      btn.className = "btn";
+      btn.textContent = `Carregar restante (${restAll.length})`;
+      btn.addEventListener("click", () => {
+        btn.disabled = true;
+        loadRestIncremental(restAll, searchTokens.concat(phrases));
+      });
+
+      const small = document.createElement("small");
+      small.textContent = "Conteúdo grande — carregamento em lotes.";
+
+      bar.append(btn, small);
+      els.readerBody.appendChild(bar);
+
+      // Autoload gradual (sem o clique), preserva fluidez
+      idle(() => loadRestIncremental(restAll, searchTokens.concat(phrases)));
+    }
+
+    // 3) Scroll suave até a âncora (se ela não estiver no topo)
     const anchor = els.readerBody.querySelector(`#${CSS.escape(item.htmlId)}`);
     if (anchor) {
       anchor.scrollIntoView({ block: "center", behavior: "instant" });
@@ -1096,12 +1137,55 @@ async function openReader(item, tokens = []) {
       setTimeout(() => anchor.classList.remove("highlight"), 1800);
     }
     els.readerBody.focus();
+
   } catch (e) {
     toast("Erro ao abrir o arquivo. Veja o console.");
     console.warn(e);
     hideModal(els.readerModal);
   }
+
+  // Carrega o restante em lotes, com respiros para não travar a UI
+  function loadRestIncremental(restItems, hlTokens) {
+    const batches = chunkArray(restItems, READER_CHUNK_SIZE);
+    let rendered = 0;
+
+    function step() {
+      if (!batches.length) return;
+      const pack = batches.shift();
+
+      // Render lote
+      const frag = document.createDocumentFragment();
+      for (const it of pack) {
+        const card = renderCard(it, [], { context: "reader" });
+        card.id = it.htmlId;
+        frag.appendChild(card);
+      }
+      els.readerBody.appendChild(frag);
+
+      // Highlight só do lote recém inserido (mais leve)
+      idle(() => applyHighlights(els.readerBody, hlTokens));
+
+      rendered += pack.length;
+
+      // Atualiza barra se existir
+      const btn = els.readerBody.querySelector(".reader-loadbar .btn");
+      if (btn) {
+        const remain = restItems.length - rendered;
+        if (remain > 0) {
+          btn.textContent = `Carregar restante (${remain})`;
+        } else {
+          btn.closest(".reader-loadbar")?.remove();
+        }
+      }
+
+      // Próximo lote
+      if (batches.length) idle(step);
+    }
+
+    step();
+  }
 }
+
 
 /* ---------- MODAIS ---------- */
 function showModal(el) { if (el) { el.hidden = false; document.body.style.overflow = "hidden"; } }
@@ -1490,94 +1574,108 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
 
   // ---- LAZY group section (preview 1 card; carrega o resto ao abrir, com ranking top-N)
   function renderLazyGroupSection(entry, tokens, term) {
-    const { label, url, items, partial } = entry;
+  const { label, url, items, partial } = entry;
 
-    const sec = document.createElement("section");
-    sec.className = "group";
+  const sec = document.createElement("section");
+  sec.className = "group";
 
-    const head = document.createElement("button");
-    head.className = "group-head";
-    head.setAttribute("aria-expanded", "false");
-    head.innerHTML = `
-      <span class="group-title">${label}</span>
-      <span class="group-caret" aria-hidden="true">▾</span>
-    `;
-    sec.appendChild(head);
+  const head = document.createElement("button");
+  head.className = "group-head";
+  head.setAttribute("aria-expanded", "false");
+  head.innerHTML = `
+    <span class="group-title">${label}</span>
+    <span class="group-caret" aria-hidden="true">▾</span>
+  `;
+  sec.appendChild(head);
 
-    const body = document.createElement("div");
-    body.className = "group-body";
-    body.hidden = true;
-    body.appendChild(window.renderCard(items[0], tokens));
-    sec.appendChild(body);
+  const body = document.createElement("div");
+  body.className = "group-body";
+  body.hidden = true;
+  body.appendChild(window.renderCard(items[0], tokens));
+  sec.appendChild(body);
 
-    const foot = document.createElement("div");
-    foot.className = "group-foot";
-    foot.hidden = true;
-    const info = document.createElement("small");
-    info.textContent = partial ? "Prévia: 1 resultado" : `Exibindo ${items.length}`;
-    foot.appendChild(info);
-    sec.appendChild(foot);
+  const foot = document.createElement("div");
+  foot.className = "group-foot";
+  foot.hidden = true;
+  const info = document.createElement("small");
+  info.textContent = partial ? "Prévia: 1 resultado" : `Exibindo ${items.length}`;
+  foot.appendChild(info);
+  sec.appendChild(foot);
 
-    let loadedAll = !partial;
-    head.addEventListener("click", async () => {
-      const open = head.getAttribute("aria-expanded") === "true";
-      head.setAttribute("aria-expanded", open ? "false" : "true");
-      body.hidden = open;
-      foot.hidden = open;
+  let loadedAll = !partial;
 
-      if (!open && !loadedAll) {
-        const sk = document.createElement("div");
-        sk.className = "skel block";
-        sk.style.margin = "10px 12px";
-        body.appendChild(sk);
+  // Prefetch silencioso logo após montar a prévia
+  idle(() => prefetchFile(url, label));
 
-        try {
-          const fullItems = await window.parseFile(url, label);
+  head.addEventListener("click", async () => {
+    const open = head.getAttribute("aria-expanded") === "true";
+    head.setAttribute("aria-expanded", open ? "false" : "true");
+    body.hidden = open;
+    foot.hidden = open;
 
-          // split tokens em palavras/números (strings)
-          const words = (tokens || []).filter(t => !/^\d{1,4}$/.test(t));
-          const nums  = (tokens || []).filter(t =>  /^\d{1,4}$/.test(t));
-          const termNorm = window.norm(window.stripThousandDots(term));
-          const qMode = window.detectQueryMode(termNorm);
+    if (!open && !loadedAll) {
+      const sk = document.createElement("div");
+      sk.className = "skel block";
+      sk.style.margin = "10px 12px";
+      body.appendChild(sk);
 
-          // filtra matches como antes
-          const candidates = [];
-          for (const it of fullItems) {
-            const bag = it._bag || window.norm(window.stripThousandDots(it.text));
-            const okWords = window.hasAllWordTokens(bag, words);
-            const okNums  = window.matchesNumbers(it, nums, window.KW_RX.test(termNorm), qMode);
-            if (okWords && okNums) {
-              candidates.push(it);
-            }
-          }
+      try {
+        const fullItems = await window.parseFile(url, label);
 
-          // rankeia candidatos (top-N)
-          const TOP_N = 20;
-          candidates.sort((a,b) => {
-            const sa = scoreItem(a, words, nums, termNorm, qMode);
-            const sb = scoreItem(b, words, nums, termNorm, qMode);
-            return sb - sa;
-          });
-          const ranked = candidates.slice(0, TOP_N);
+        // split tokens em palavras/números (strings)
+        const words = (tokens || []).filter(t => !/^\d{1,4}$/.test(t));
+        const nums  = (tokens || []).filter(t =>  /^\d{1,4}$/.test(t));
+        const termNorm = window.norm(window.stripThousandDots(term));
+        const qMode = window.detectQueryMode(termNorm);
 
-          loadedAll = true;
-          body.innerHTML = "";
-          ranked.forEach((it) => body.appendChild(window.renderCard(it, tokens)));
-
-          info.textContent = `Exibindo ${ranked.length}${candidates.length > ranked.length ? ` de ${candidates.length}` : ""}`;
-          const count = document.createElement("span");
-          count.className = "group-count";
-          count.textContent = candidates.length;
-          head.insertBefore(count, head.querySelector(".group-caret"));
-        } catch (e) {
-          console.warn(e);
-          if (window.toast) window.toast("Falha ao carregar o grupo.");
+        // filtra matches como antes
+        const candidates = [];
+        for (const it of fullItems) {
+          const bag = it._bag || window.norm(window.stripThousandDots(it.text));
+          const okWords = window.hasAllWordTokens(bag, words);
+          const okNums  = window.matchesNumbers(it, nums, window.KW_RX.test(termNorm), qMode);
+          if (okWords && okNums) candidates.push(it);
         }
-      }
-    });
 
-    return sec;
-  }
+        // rank (leve) e render incremental para não travar
+        const TOP_N = 20;
+        candidates.sort((a,b) => {
+          const sa = scoreItem(a, words, nums, termNorm, qMode);
+          const sb = scoreItem(b, words, nums, termNorm, qMode);
+          return sb - sa;
+        });
+
+        loadedAll = true;
+        body.innerHTML = "";
+
+        const ranked = candidates.slice(0, TOP_N);
+        const batches = chunkArray(ranked, READER_CHUNK_SIZE / 2); // lotes menores na lista
+        const renderBatch = () => {
+          const lot = batches.shift();
+          if (!lot) return;
+          const frag = document.createDocumentFragment();
+          lot.forEach((it) => frag.appendChild(window.renderCard(it, tokens)));
+          body.appendChild(frag);
+          idle(renderBatch);
+        };
+        renderBatch();
+
+        info.textContent = `Exibindo ${ranked.length}${candidates.length > ranked.length ? ` de ${candidates.length}` : ""}`;
+        const count = document.createElement("span");
+        count.className = "group-count";
+        count.textContent = candidates.length;
+        head.insertBefore(count, head.querySelector(".group-caret"));
+
+      } catch (e) {
+        console.warn(e);
+        if (window.toast) window.toast("Falha ao carregar o grupo.");
+      }
+    }
+  });
+
+  return sec;
+}
+
   window.renderLazyGroupSection = renderLazyGroupSection;
 
   // Override: renderLazyResults com buckets
