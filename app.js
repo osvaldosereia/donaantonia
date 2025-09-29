@@ -1198,17 +1198,25 @@ const mkBar = (pos /* 'top' | 'bottom' */, label, onClick) => {
   const bar = document.createElement("div");
   bar.className = "reader-loadbar";
   bar.style.cssText = "display:flex;gap:10px;align-items:center;justify-content:center;margin:12px 0;";
+  bar.setAttribute("aria-live", "polite"); // acessibilidade
+
   const btn = document.createElement("button");
   btn.className = "btn";
   btn.textContent = label;
-  btn.addEventListener("click", () => { btn.disabled = true; onClick(btn); });
+
   const small = document.createElement("small");
   small.textContent = "Conteúdo grande — carregamento em lotes.";
+  small.id = (pos === "top") ? "readerTopHint" : "readerBottomHint"; // id único
+  btn.setAttribute("aria-describedby", small.id); // acessibilidade
+
+  btn.addEventListener("click", () => { btn.disabled = true; onClick(btn); });
+
   bar.append(btn, small);
   if (pos === "top") els.readerBody.insertBefore(bar, list);
   else els.readerBody.appendChild(bar);
   return { bar, btn };
 };
+
 
 // loaders (anteriores = prepend; próximos = append)
 const BATCH = READER_CHUNK_SIZE; // reaproveita constante
@@ -1260,6 +1268,22 @@ if (restBottom.length) bottomUI = mkBar("bottom", `Carregar próximos (${restBot
 
 // Autoload leve: carrega o primeiro lote de “próximos” para dar sensação de continuidade
 if (restBottom.length && bottomUI?.btn) idle(() => loadNextIncremental(bottomUI.btn));
+// Autoload ao rolar (IntersectionObserver): carrega sozinho ao encostar no topo/rodapé
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      if (e.target.dataset.dir === 'top' && topUI?.btn && !topUI.btn.disabled) {
+        topUI.btn.click();
+      } else if (e.target.dataset.dir === 'bottom' && bottomUI?.btn && !bottomUI.btn.disabled) {
+        bottomUI.btn.click();
+      }
+    }
+  }, { root: els.readerBody, threshold: 0.2 });
+
+  if (topUI?.bar)    { topUI.bar.dataset.dir = 'top';    io.observe(topUI.bar); }
+  if (bottomUI?.bar) { bottomUI.bar.dataset.dir = 'bottom'; io.observe(bottomUI.bar); }
+}
 
 // 3) Scroll suave até a âncora
 const anchor = els.readerBody.querySelector(`#${CSS.escape(item.htmlId)}`);
