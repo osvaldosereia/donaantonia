@@ -233,7 +233,7 @@ async function parseFile(url, sourceLabel) {
   return items;
 }
 
-//#region [BLK08] SEARCH • predicados, preview, expand, doSearch (parte 1)
+//#region [BLK08] SEARCH • predicados, preview, expand, doSearch (com aceleração)
 
 function tokenize(query) {
   const src = String(query || "");
@@ -395,6 +395,7 @@ async function doSearch() {
     window._skipFocus = false;
   }
 }
+
 // ===== HIGHLIGHT HELPERS =====
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
