@@ -966,7 +966,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 const geminiBtn = document.createElement("button");
 geminiBtn.className = "round-btn";
 geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
-geminiBtn.innerHTML = '<img src="icons/ai-gemini.png" alt="Gemini">';
+geminiBtn.innerHTML = '<img src="icons/ai-gemini3.png" alt="Gemini">';
 
 // helpers locais para montar o prompt
 const __GEMINI_PROMPTS = [
@@ -1398,7 +1398,7 @@ function ensureBaseHub() {
     const hubBtn3 = document.createElement("button");
     hubBtn3.className = "round-btn";
     hubBtn3.setAttribute("aria-label", "google-ai");
-    hubBtn3.innerHTML = '<img src="icons/ai-gemini.png" alt="">';
+    hubBtn3.innerHTML = '<img src="icons/ai-gemini3.png" alt="">';
     hubBtn3.addEventListener("click", () => {
       const q = makeAggregateQuery(); if (!q) return;
       window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
