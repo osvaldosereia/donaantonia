@@ -397,8 +397,12 @@ async function doSearch() {
     const { wordTokens, numTokens } = splitTokens(tokens);
 
     let allOptions = Array.from(els.codeSelect?.querySelectorAll("option") || [])
-      .map((o) => ({ url: (o.value || "").trim(), label: (o.textContent || "").trim() }))
-      .filter((o) => o.url);
+  .map((o) => ({
+    url: (o.value || "").trim(),
+    label: (o.textContent || "").trim()
+  }))
+  .filter((o) => o.url && o.url.endsWith(".txt") || o.url.startsWith("http"));
+
 
     if (codeInfo) {
       allOptions = allOptions.filter((o) => o.label === codeInfo.label);
