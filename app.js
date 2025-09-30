@@ -31,11 +31,11 @@
 //#region [BLK00] BOOT • Service Worker & bootstrap
 /* Service Worker (opcional) */
 if ("serviceWorker" in navigator) {
-  //#region [BLK14] INIT • Autoexec, binds, ?q=, histórico
-window.addEventListener("load", () => {
+  window.addEventListener("load", () => {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   });
 }
+
 
 //#region [BLK03] TEXT • Helpers/Normalize/Tokenize
 /* ---------- helpers ---------- */
