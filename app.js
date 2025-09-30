@@ -1016,7 +1016,7 @@ function buildPromptQueryFromItem(item, tipo) {
   return encodeURIComponent(trimmed.length > 4800 ? trimmed.slice(0, 4800) : trimmed);
 }
 
-eminiBtn.addEventListener("click", () => {
+geminiBtn.addEventListener("click", () => {
   const q = buildPromptQueryFromItem(item, "gemini");
   openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
