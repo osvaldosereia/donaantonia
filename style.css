@@ -263,18 +263,55 @@ body{
 
 /* ========== 5) HUB / BOTÕES REDONDOS ========== */
 .round-btn{
-  width:36px; height:36px; border-radius:999px;
-  border:1px solid #d6dbe6; background:#fff; display:inline-grid; place-items:center;
-  cursor:pointer; box-shadow:0 1px 2px rgba(0,0,0,.05);
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  border:1px solid #d6dbe6;
+  background:#fff;
+
+  /* centralização robusta */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  /* neutraliza tipografia que desloca o ícone */
+  padding:0;
+  line-height:0;
+  vertical-align:middle;
+
+  cursor:pointer;
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
   transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .round-btn:hover{ border-color:var(--line-strong); box-shadow:0 6px 18px rgba(17,24,39,.08); }
 .round-btn:active{ transform:translateY(1px); }
-.round-btn img{ width:28px; height:28px; display:block; object-fit:contain; }
+.round-btn img,
+.round-btn svg{
+  width:28px;
+  height:28px;
+  display:block;
+  margin:0;
+  object-fit:contain;
+}
 
 /* ícone-only genérico usado em alguns toggles */
-.card .toggle.btn--icon{ width:36px; height:32px; padding:0; display:inline-flex; align-items:center; justify-content:center; }
-.card .toggle.btn--icon img{ width:28px; height:28px; display:block; object-fit:contain; }
+.card .toggle.btn--icon{
+  width:36px;
+  height:36px;           /* igual ao round-btn */
+  padding:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height:0;
+}
+.card .toggle.btn--icon img,
+.card .toggle.btn--icon svg{
+  width:28px;
+  height:28px;
+  display:block;
+  margin:0;
+  object-fit:contain;
+}
 
 /* Hub (menu abre à esquerda) */
 .hub-wrap{ position:relative; display:inline-flex; align-items:center; gap:8px; }
@@ -284,6 +321,7 @@ body{
   transition:opacity .18s ease, transform .18s ease;
 }
 .hub-menu.open{ opacity:1; pointer-events:auto; transform:translateX(0); }
+
 
 /* ========== 6) HISTÓRICO (Dropdown) ========== */
 .topbar-history{ position:relative; display:flex; align-items:center; justify-content:center; }
