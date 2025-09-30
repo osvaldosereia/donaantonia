@@ -847,84 +847,60 @@ function truncatedHTML(fullText, tokens) {
   return highlight(out, tokens);
 }
 
-/* ===== PROMPTS PERSONALIZADOS POR CATEGORIA ===== */
+/* ===== PROMPTS POR CATEGORIA (GEMINI e QUESTÕES) ===== */
 
 const PROMPTS = {
-  gemini: [
-    {
-      test: /(?:\/data\/codigos\/|\/CF88\/)/i,
-      prefix: "Você é professor de Direito. Analise o dispositivo abaixo. Traga: (1) conceito e finalidade; (2) elementos/pressupostos; (3) principais debates doutrinários; (4) jurisprudência dominante e súmulas aplicáveis; (5) exemplos práticos e pegadinhas de prova; (6) observações de prática forense."
-    },
-    {
-      test: /\/data\/leis\//i,
-      prefix: "Explique o trecho de lei abaixo com foco para concursos e prática: (1) escopo e contexto; (2) requisitos; (3) exceções; (4) entendimentos dos tribunais; (5) exemplos práticos; (6) erros comuns."
-    },
-    {
-      test: /\/data\/sumulas\//i,
-      prefix: "Analise a Súmula abaixo: (1) enunciado em linguagem clara; (2) alcance e limites; (3) precedentes que a fundamentam; (4) hipóteses de não aplicação; (5) como cai em prova; (6) exemplos curtos."
-    },
-    {
-      test: /\/data\/enunciados\//i,
-      prefix: "Analise o enunciado: explique sentido, contexto, aplicações típicas, controvérsias e exemplos práticos."
-    },
-    {
-      test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i,
-      prefix: "Extraia a tese repetitiva/tópico central: (1) tese; (2) requisitos; (3) modulação/efeitos; (4) precedentes; (5) impactos práticos; (6) dicas de prova."
-    },
-    {
-      test: /\/data\/julgados\//i,
-      prefix: "Resuma o julgado: (1) problema jurídico; (2) ratio decidendi; (3) tese firmada; (4) fundamentos legais/constitucionais; (5) precedentes citados; (6) efeitos práticos e como usar em peças."
-    },
-    {
-      test: /\/data\/artigos_e_noticias\//i,
-      prefix: "Faça um briefing jornalístico-jurídico: (1) tese/ideia central; (2) fatos e data; (3) base legal envolvida; (4) posições divergentes; (5) implicações práticas; (6) pontos de atenção."
-    }
-  ],
-  questoes: [
-    {
-      test: /(?:\/data\/codigos\/|\/CF88\/)/i,
-      prefix: "Gere 10 questões objetivas (múltipla escolha, A–D) sobre o dispositivo abaixo. Misture letra de lei, interpretação, e aplicação prática. Inclua 2 com jurisprudência dominante/súmulas. Traga gabarito comentado curto ao final."
-    },
-    {
-      test: /\/data\/leis\//i,
-      prefix: "Gere 10 questões objetivas (A–D) sobre o trecho de lei. Varie entre: conceitos, requisitos, exceções e entendimentos dos tribunais. Use pegadinhas comuns (terminologia, prazos, condições). Gabarito comentado ao final."
-    },
-    {
-      test: /\/data\/sumulas\//i,
-      prefix: "Gere 10 questões objetivas (A–D) sobre a Súmula. Explore alcance, limites, hipóteses de não aplicação e precedentes-base. Inclua 3 itens comparando enunciados próximos. Gabarito comentado ao final."
-    },
-    {
-      test: /\/data\/enunciados\//i,
-      prefix: "Gere 10 questões objetivas (A–D) sobre o enunciado. Foque sentido, contexto, aplicações típicas e controvérsias. Traga 3 itens situacionais (casos concretos). Gabarito comentado ao final."
-    },
-    {
-      test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i,
-      prefix: "Gere 10 questões objetivas (A–D) sobre a tese/tema repetitivo. Aborde tese firmada, requisitos, modulação/efeitos e precedentes-chave. Inclua 2 itens sobre impacto prático. Gabarito comentado ao final."
-    },
-    {
-      test: /\/data\/julgados\//i,
-      prefix: "Gere 10 questões objetivas (A–D) sobre o julgado. Trate do problema jurídico, ratio decidendi, tese firmada e fundamentos legais/constitucionais. Inclua 3 itens de caso concreto. Gabarito comentado ao final."
-    },
-    {
-      test: /\/data\/artigos_e_noticias\//i,
-      prefix: "Gere 10 questões objetivas (A–D) a partir do texto jornalístico/artigo. Foque tese central, fatos relevantes, base legal, posições divergentes e implicações práticas. Evite atualidades fora do texto. Gabarito comentado ao final."
-    }
-  ]
+  gemini: {
+    artigos_e_noticias: "Faça um briefing jurídico-jornalístico sobre o conteúdo abaixo. Traga: (1) ideia central; (2) contexto fático e data; (3) base legal envolvida; (4) visões opostas ou controvérsias; (5) implicações práticas; (6) pontos de atenção para concursos.",
+    codigos: "Analise o dispositivo abaixo de forma detalhada. Traga: (1) conceito e finalidade; (2) elementos/pressupostos; (3) principais debates doutrinários; (4) jurisprudência dominante e súmulas aplicáveis; (5) exemplos práticos e pegadinhas de prova; (6) observações de prática forense.",
+    enunciados: "Explique o enunciado abaixo: (1) sentido jurídico; (2) contexto interpretativo; (3) aplicação prática em concursos e peças; (4) controvérsias; (5) exemplos concretos.",
+    estatutos: "Explique o dispositivo do estatuto abaixo: (1) finalidade; (2) público‑alvo; (3) normas especiais aplicáveis; (4) jurisprudência e entendimentos predominantes; (5) exemplos práticos e uso forense.",
+    julgados: "Resuma o julgado com foco em concursos: (1) problema jurídico central; (2) ratio decidendi; (3) tese fixada; (4) base legal e fundamentos; (5) efeitos práticos; (6) como usar em peças.",
+    leis: "Explique o trecho de lei abaixo com foco didático: (1) escopo e contexto; (2) requisitos; (3) exceções; (4) entendimentos dos tribunais; (5) exemplos práticos e armadilhas; (6) aplicações reais.",
+    sumulas: "Analise a súmula com linguagem clara: (1) significado do enunciado; (2) alcance e exceções; (3) precedentes-base; (4) hipóteses de inaplicabilidade; (5) como aparece em prova.",
+    temas_repetitivos: "Analise a tese repetitiva: (1) tese firmada; (2) contexto e origem; (3) modulação de efeitos; (4) precedentes citados; (5) implicações práticas e atenção em concursos.",
+    teses: "Interprete a tese jurídica com clareza: (1) conteúdo central; (2) aplicação nos tribunais; (3) conflitos doutrinários; (4) exemplos reais; (5) impacto no cotidiano jurídico.",
+    videos: "Extraia as informações centrais do vídeo: (1) tese principal; (2) contexto jurídico; (3) base normativa envolvida; (4) implicações práticas; (5) aplicação em provas e petições."
+  },
+  questoes: {
+    artigos_e_noticias: "Crie 10 questões objetivas (A–D) sobre o conteúdo abaixo. Aborde: (1) tese principal; (2) fatos centrais; (3) base legal; (4) posições divergentes; (5) efeitos práticos. Gabarito comentado ao final.",
+    codigos: "Gere 10 questões objetivas (A–D) sobre o dispositivo abaixo. Misture letra da lei, interpretação e aplicação prática. Inclua pegadinhas e 2 itens com jurisprudência. Gabarito comentado ao final.",
+    enunciados: "Crie 10 questões objetivas (A–D) sobre o enunciado. Explore sentido, contexto, aplicação e polêmicas. Inclua 3 itens de caso prático. Gabarito comentado ao final.",
+    estatutos: "Gere 10 questões objetivas (A–D) sobre o dispositivo do estatuto. Foque destinatários, regras específicas, jurisprudência, e como o estatuto aparece em provas. Gabarito comentado ao final.",
+    julgados: "Elabore 10 questões objetivas (A–D) sobre o julgado abaixo. Foque na tese firmada, fundamentos legais, jurisprudência correlata e uso prático. Gabarito comentado ao final.",
+    leis: "Gere 10 questões objetivas (A–D) sobre o trecho legal. Misture requisitos, exceções, entendimentos jurisprudenciais e casos práticos. Gabarito comentado ao final.",
+    sumulas: "Crie 10 questões objetivas (A–D) sobre a súmula. Explore significado, hipóteses de aplicação/inaplicação, e comparações entre enunciados semelhantes. Gabarito comentado ao final.",
+    temas_repetitivos: "Gere 10 questões objetivas (A–D) sobre a tese repetitiva. Aborde conteúdo, modulação, precedentes, efeitos e relevância para concursos. Gabarito comentado ao final.",
+    teses: "Crie 10 questões objetivas (A–D) sobre a tese jurídica abaixo. Explore conteúdo central, aplicação, divergências e efeitos práticos. Gabarito comentado ao final.",
+    videos: "Crie 10 questões objetivas (A–D) com base no vídeo. Explore a tese apresentada, contexto legal, exemplos práticos e aplicações. Gabarito comentado ao final."
+  }
 };
 
-function getPromptPrefix(url, tipo = "gemini") {
-  const u = String(url || "");
-  const grupo = PROMPTS[tipo] || [];
-  for (const cfg of grupo) {
-    if (cfg.test.test(u)) return cfg.prefix;
-  }
-  return tipo === "questoes"
-    ? "Gere 10 questões objetivas (A–D) variadas sobre o conteúdo abaixo, com gabarito comentado ao final."
-    : "Explique didaticamente o conteúdo jurídico abaixo, com conceito, requisitos, doutrina, jurisprudência, exemplos e armadilhas de prova.";
+function detectCategoria(url = "") {
+  if (url.includes("/artigos_e_noticias/")) return "artigos_e_noticias";
+  if (url.includes("/codigos/") || url.includes("/CF88/")) return "codigos";
+  if (url.includes("/enunciados/")) return "enunciados";
+  if (url.includes("/estatutos/")) return "estatutos";
+  if (url.includes("/julgados/")) return "julgados";
+  if (url.includes("/leis/")) return "leis";
+  if (url.includes("/sumulas/")) return "sumulas";
+  if (url.includes("/temas_repetitivos/")) return "temas_repetitivos";
+  if (url.includes("/teses/")) return "teses";
+  if (url.includes("/videos/")) return "videos";
+  return null;
 }
 
 function buildPromptQueryFromItem(item, tipo = "gemini") {
-  const prefix = getPromptPrefix(item.fileUrl, tipo);
+  const categoria = detectCategoria(item.fileUrl);
+  if (!categoria) {
+    console.error("Categoria não identificada para URL:", item.fileUrl);
+    return "";
+  }
+  const prefix = PROMPTS[tipo][categoria];
+  if (!prefix) {
+    console.error("Prompt não configurado para tipo/categoria:", tipo, categoria);
+    return "";
+  }
   const header = `### ${item.title || ""}${item.source ? ` — [${item.source}]` : ""}`;
   const raw = `${prefix}\n\n${header}\n\n${item.text || ""}`.replace(/\s+/g, " ").trim();
   const MAX = 4800;
@@ -932,8 +908,6 @@ function buildPromptQueryFromItem(item, tipo = "gemini") {
 }
 
 /* ===== BOTÕES NO CARD (Gemini e Questões) ===== */
-
-// dentro do renderCard():
 const geminiBtn = document.createElement("button");
 geminiBtn.className = "round-btn";
 geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
@@ -941,6 +915,10 @@ geminiBtn.title = "Estudar";
 geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
 geminiBtn.addEventListener("click", () => {
   const q = buildPromptQueryFromItem(item, "gemini");
+  if (!q) {
+    alert("Não foi possível identificar categoria para gerar o prompt Gemini.");
+    return;
+  }
   const url = `https://www.google.com/search?q=${q}&udm=50`;
   openExternal(url);
 });
@@ -952,15 +930,15 @@ questoesBtn.title = "Questões";
 questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
 questoesBtn.addEventListener("click", () => {
   const q = buildPromptQueryFromItem(item, "questoes");
+  if (!q) {
+    alert("Não foi possível identificar categoria para gerar o prompt Questões.");
+    return;
+  }
   const url = `https://www.google.com/search?q=${q}&udm=50`;
   openExternal(url);
 });
 
-// adiciona os dois botões lado a lado
 actions.append(geminiBtn, questoesBtn);
-
-
-
 
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
