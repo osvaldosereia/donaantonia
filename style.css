@@ -274,7 +274,7 @@ body{
 
 /* ícone-only genérico usado em alguns toggles */
 .card .toggle.btn--icon{ width:36px; height:32px; padding:0; display:inline-flex; align-items:center; justify-content:center; }
-.card .toggle.btn--icon img{ width:18px; height:18px; display:block; object-fit:contain; }
+.card .toggle.btn--icon img{ width:28px; height:28px; display:block; object-fit:contain; }
 
 /* Hub (menu abre à esquerda) */
 .hub-wrap{ position:relative; display:inline-flex; align-items:center; gap:8px; }
