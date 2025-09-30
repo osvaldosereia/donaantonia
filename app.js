@@ -848,53 +848,7 @@ function truncatedHTML(fullText, tokens) {
 }
 
 /* ===== Prompts personalizados p/ Gemini por tipo de arquivo ===== */
-const GEMINI_PROMPTS = [
-  {
-    test: /(?:\/data\/codigos\/|\/CF88\/)/i,
-    prefix: "Analise o dispositivo abaixo de forma detalhada. Traga: (1) conceito e finalidade; (2) elementos/pressupostos; (3) principais debates doutrinários; (4) jurisprudência dominante e súmulas aplicáveis; (5) exemplos práticos e dicas de prova; (6) observações de prática forense."
-  },
-  {
-    test: /\/data\/leis\//i,
-    prefix: "Explique o trecho de lei abaixo: (1) escopo e contexto; (2) requisitos; (3) exceções; (4) entendimentos dos tribunais; (5) exemplos práticos; (6) erros comuns."
-  },
-  {
-    test: /\/data\/sumulas\//i,
-    prefix: "Analise a Súmula abaixo: (1) enunciado em linguagem clara; (2) alcance e limites; (3) precedentes que a fundamentam; (4) hipóteses de não aplicação; (5) como cai em prova; (6) exemplos curtos."
-  },
-  {
-    test: /\/data\/enunciados\//i,
-    prefix: "Analise o enunciado: explique sentido, contexto, aplicações típicas, controvérsias e exemplos práticos."
-  },
-  {
-    test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i,
-    prefix: "Extraia a tese repetitiva/tópico central: (1) tese; (2) requisitos; (3) modulação/efeitos; (4) precedentes; (5) impactos práticos; (6) dicas de prova."
-  },
-  {
-    test: /\/data\/julgados\//i,
-    prefix: "Resuma o julgado: (1) problema jurídico; (2) ratio decidendi; (3) tese firmada; (4) fundamentos legais/constitucionais; (5) precedentes citados; (6) efeitos práticos e como usar em peças."
-  },
-  {
-    test: /\/data\/artigos_e_noticias\//i,
-    prefix: "Faça um briefing jornalístico-jurídico: (1) tese/ideia central; (2) fatos e data; (3) base legal envolvida; (4) posições divergentes; (5) implicações práticas; (6) pontos de atenção."
-  }
-];
 
-function getGeminiPrefixByUrl(url) {
-  const u = String(url || "");
-  for (const cfg of GEMINI_PROMPTS) {
-    if (cfg.test.test(u)) return cfg.prefix;
-  }
-  // fallback geral
-  return "Pesquise para responder e entregue uma resposta completa e de alta qualidade.";
-}
-
-function buildGeminiQueryFromItem(item) {
-  const prefix = getGeminiPrefixByUrl(item.fileUrl);
-  const header = `### ${item.title || ""}${item.source ? ` — [${item.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${item.text || ""}`.replace(/\s+/g, " ").trim();
-  const MAX = 4800; // margem para URL
-  return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
-}
 
 //#region [BLK10] RENDER • Cards
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
