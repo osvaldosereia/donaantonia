@@ -396,6 +396,7 @@ async function doSearch() {
   }
 }
 
+
 // ===== HIGHLIGHT HELPERS =====
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
