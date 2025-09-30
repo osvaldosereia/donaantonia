@@ -952,6 +952,17 @@ if (ctx.context === "reader") {
 body.style.cursor = "pointer";
 body.addEventListener("click", () => openReader(item));
 
+// marcador lateral esquerdo
+const marker = document.createElement("div");
+marker.className = "card-marker";
+marker.title = "Marcar trecho para estudar";
+marker.addEventListener("click", (e) => {
+  e.stopPropagation();
+  showToast("Selecione o trecho que deseja estudar.");
+});
+card.appendChild(marker);
+
+   
 // Seleção de texto dentro do card
 body.addEventListener("mouseup", (e) => {
   const selected = window.getSelection().toString().trim();
