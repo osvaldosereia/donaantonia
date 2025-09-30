@@ -1393,13 +1393,14 @@ function ensureBaseHub() {
     });
 
     const hubBtn3 = document.createElement("button");
-    hubBtn3.className = "round-btn";
-    hubBtn3.setAttribute("aria-label", "google-ai");
-    hubBtn3.innerHTML = '<img src="icons/ai-gemini3.png" alt="">';
-    hubBtn3.addEventListener("click", () => {
-      const q = makeAggregateQuery(); if (!q) return;
-      window.open(`https://www.google.com/search?q=${q}&udm=50`, "_blank", "noopener");
-    });
+hubBtn3.className = "round-btn";
+hubBtn3.setAttribute("aria-label", "google-ai");
+hubBtn3.innerHTML = '<img src="icons/ai-gemini3.png" alt="">';
+hubBtn3.addEventListener("click", () => {
+  const query = encodeURIComponent("Explique o seguinte tema jurídico com profundidade: ");
+  window.open(`https://www.google.com/search?q=${query}&udm=50`, "_blank", "noopener");
+});
+
 
     hubMenu.append(hubBtn1, hubBtn2, hubBtn3);
 
