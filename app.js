@@ -847,12 +847,51 @@ function truncatedHTML(fullText, tokens) {
   return highlight(out, tokens);
 }
 
-/* ===== Prompts únicos (sem categorização) ===== */
-const PROMPT_GEMINI = "Voce e professor de Direito. Explique didaticamente o conteudo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudencia/sumulas relevantes; (5) exemplos praticos e pegadinhas de prova; (6) observacoes de pratica forense.";
+/* ===== Prompts unicos (sem categorizacao) + defensivos ===== */
+const PROMPT_GEMINI  = "Voce e professor de Direito. Explique didaticamente o conteudo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudencia/sumulas relevantes; (5) exemplos praticos e pegadinhas de prova; (6) observacoes de pratica forense.";
 const PROMPT_QUESTOES = "Gere 10 questoes objetivas (A-D) sobre o conteudo abaixo, variando letra de lei, interpretacao e casos praticos; inclua ao menos 2 itens com jurisprudencia/sumulas. Ao final, traga gabarito comentado curto.";
 
-/* Builder unico para ambos os botoes — corta antes de normalizar e ASCII-only */
-function buildPromptQueryFromItem(item, tipo) {
+/* ==== helpers defensivos (nao quebrar se funcoes externas faltarem) ==== */
+function escapeHTML(s){
+  return String(s||"")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+}
+function safeHighlight(text, tokens){
+  try{
+    if (typeof highlight === "function") return highlight(text, tokens||[]);
+  }catch(e){}
+  return escapeHTML(text);
+}
+function safeTruncatedHTML(text, tokens){
+  try{
+    if (typeof truncatedHTML === "function") return truncatedHTML(text, tokens||[]);
+  }catch(e){}
+  const LIM = 600;
+  const t = String(text||"");
+  const cut = t.length > LIM ? t.slice(0,LIM) + " ..." : t;
+  return "<pre class=\"plain\">"+escapeHTML(cut)+"</pre>";
+}
+function safeApplyHighlights(el, tokens){
+  try{
+    if (typeof applyHighlights === "function") applyHighlights(el, tokens||[]);
+  }catch(e){}
+}
+function safeOpenReader(item){
+  try{
+    if (typeof openReader === "function") return openReader(item);
+  }catch(e){}
+  // fallback: nada
+}
+function appendAll(parent, nodes){
+  for (const n of nodes) parent.appendChild(n);
+}
+
+/* ==== Builder unico para ambos os botoes — corta antes de normalizar ==== */
+function buildPromptQueryFromItem(item, tipo){
   if (!item) return "";
   const prefix = (tipo === "gemini") ? PROMPT_GEMINI : PROMPT_QUESTOES;
 
@@ -862,11 +901,11 @@ function buildPromptQueryFromItem(item, tipo) {
 
   // Corte antecipado do corpo para evitar travamento
   var rawBody = (item && typeof item.text === "string") ? item.text : "";
-  var BODY_MAX = 3500; // deixa espaco para prefix+header sem estourar
+  var BODY_MAX = 3500; // espaco pro prefix+header
   var bodyCut = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
 
   // Normaliza espacos apenas no trecho reduzido
-  var raw = (prefix + "\n\n" + header + "\n\n" + bodyCut).replace(/\s+/g, " ").trim();
+  var raw = (prefix + "\n\n" + header + "\n\n" + bodyCut).replace(/\s+/g," ").trim();
 
   // Limite de seguranca para URL (iOS/Google)
   var MAX = 1800;
@@ -876,124 +915,129 @@ function buildPromptQueryFromItem(item, tipo) {
 }
 
 /* util para abrir nova aba com seguranca */
-function openExternal(url) {
-  try {
+function openExternal(url){
+  try{
     window.open(url, "_blank", "noopener,noreferrer");
-  } catch (e) {
+  }catch(e){
     location.href = url;
   }
 }
 
-//#region [BLK10] RENDER • Cards
-function renderCard(item, tokens = [], ctx = { context: "results" }) {
-  const card = document.createElement("article");
-  card.className = "card";
-  if (item && item.id != null) card.dataset.id = item.id;
-  if (item && item.source) card.setAttribute("data-source", item.source);
+/* fallback para limite de caracteres se nao existir globalmente */
+if (typeof CARD_CHAR_LIMIT !== "number") {
+  var CARD_CHAR_LIMIT = 400;
+}
 
-  const left = document.createElement("div");
+/* ===========================
+   [BLK10] RENDER • Cards
+   =========================== */
+function renderCard(item, tokens = [], ctx = { context: "results" }){
+  try{
+    const card = document.createElement("article");
+    card.className = "card";
+    if (item && item.id != null) card.dataset.id = item.id;
+    if (item && item.source) card.setAttribute("data-source", item.source);
 
-  // chip do codigo (nao no modal leitor)
-  if (item && item.source && ctx.context !== "reader") {
-    const pill = document.createElement("a");
-    pill.href = "#";
-    pill.className = "pill";
-    pill.textContent = "CODIGO: " + item.source + " (abrir)";
-    pill.addEventListener("click", function(e) {
-      e.preventDefault();
-      openReader(item);
-    });
-    left.append(pill);
-  }
+    const left = document.createElement("div");
 
-  const body = document.createElement("div");
-  body.className = "body";
-  const plainText = (item && typeof item.text === "string") ? item.text : "";
+    // chip do codigo (nao no modal leitor)
+    if (item && item.source && ctx.context !== "reader") {
+      const pill = document.createElement("a");
+      pill.href = "#";
+      pill.className = "pill";
+      pill.textContent = "CODIGO: " + item.source + " (abrir)";
+      pill.addEventListener("click", function(e){
+        e.preventDefault();
+        safeOpenReader(item);
+      });
+      left.appendChild(pill);
+    }
 
-  if (ctx.context === "reader") {
-    body.innerHTML = highlight(
-      plainText,
-      (window.searchTokens && window.searchTokens.length) ? window.searchTokens : (Array.isArray(tokens) ? tokens : [])
-    );
-  } else {
-    body.classList.add("is-collapsed");
+    const body = document.createElement("div");
+    body.className = "body";
+    const plainText = (item && typeof item.text === "string") ? item.text : "";
+
     const tokensForHL = (window.searchTokens && window.searchTokens.length)
       ? window.searchTokens
       : (Array.isArray(tokens) ? tokens : []);
-    body.innerHTML = truncatedHTML(plainText, tokensForHL);
-  }
-  body.style.cursor = "pointer";
-  body.addEventListener("click", function() { openReader(item); });
 
-  const actions = document.createElement("div");
-  actions.className = "actions";
+    if (ctx.context === "reader") {
+      body.innerHTML = safeHighlight(plainText, tokensForHL);
+    } else {
+      body.classList.add("is-collapsed");
+      body.innerHTML = safeTruncatedHTML(plainText, tokensForHL);
+    }
+    body.style.cursor = "pointer";
+    body.addEventListener("click", function(){ safeOpenReader(item); });
 
-  /* TOGGLE (seta) alinhado a esquerda */
-  if (plainText.length > (typeof CARD_CHAR_LIMIT === "number" ? CARD_CHAR_LIMIT : 400)) {
-    const toggle = document.createElement("button");
-    toggle.className = "toggle toggle-left";
-    toggle.textContent = "▼";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.addEventListener("click", function() {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
-      toggle.textContent = expanded ? "▼" : "▲";
-      if (expanded) {
-        body.classList.add("is-collapsed");
-        const tokensForHL2 = (window.searchTokens && window.searchTokens.length)
-          ? window.searchTokens
-          : (Array.isArray(tokens) ? tokens : []);
-        body.innerHTML = truncatedHTML(plainText, tokensForHL2);
-      } else {
-        body.classList.remove("is-collapsed");
-        body.innerHTML = highlight(
-          plainText,
-          (window.searchTokens && window.searchTokens.length) ? window.searchTokens : (Array.isArray(tokens) ? tokens : [])
-        );
-        applyHighlights(
-          body,
-          (window.searchTokens && window.searchTokens.length) ? window.searchTokens : (Array.isArray(tokens) ? tokens : [])
-        );
-      }
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    /* TOGGLE (seta) alinhado a esquerda */
+    if (plainText.length > CARD_CHAR_LIMIT) {
+      const toggle = document.createElement("button");
+      toggle.className = "toggle toggle-left";
+      toggle.textContent = "▼";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.addEventListener("click", function(){
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+        toggle.textContent = expanded ? "▼" : "▲";
+        if (expanded) {
+          body.classList.add("is-collapsed");
+          body.innerHTML = safeTruncatedHTML(plainText, tokensForHL);
+        } else {
+          body.classList.remove("is-collapsed");
+          body.innerHTML = safeHighlight(plainText, tokensForHL);
+          safeApplyHighlights(body, tokensForHL);
+        }
+      });
+      actions.appendChild(toggle);
+    }
+
+    // — Gemini (prompt unico)
+    const geminiBtn = document.createElement("button");
+    geminiBtn.type = "button";
+    geminiBtn.className = "round-btn";
+    geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
+    geminiBtn.title = "Estudar";
+    geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
+    geminiBtn.addEventListener("click", function(){
+      const q = buildPromptQueryFromItem(item, "gemini");
+      openExternal("https://www.google.com/search?q=" + q + "&udm=50");
     });
-    actions.append(toggle);
+
+    // — Questoes (prompt unico)
+    const questoesBtn = document.createElement("button");
+    questoesBtn.type = "button";
+    questoesBtn.className = "round-btn";
+    questoesBtn.setAttribute("aria-label", "Gerar questoes");
+    questoesBtn.title = "Questoes";
+    questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questoes">';
+    questoesBtn.addEventListener("click", function(){
+      const q = buildPromptQueryFromItem(item, "questoes");
+      openExternal("https://www.google.com/search?q=" + q + "&udm=50");
+    });
+
+    // adiciona os dois botoes lado a lado
+    appendAll(actions, [geminiBtn, questoesBtn]);
+
+    const right = document.createElement("div");
+    right.className = "right";
+    right.appendChild(actions);
+
+    appendAll(card, [left, body, right]);
+    return card;
+  }catch(err){
+    // Em ultimo caso, retorna um card de erro para nao travar o fluxo
+    const fallback = document.createElement("article");
+    fallback.className = "card error";
+    fallback.innerHTML = "<pre>"+escapeHTML(String(err && err.message || err || "Erro ao renderizar card"))+"</pre>";
+    return fallback;
   }
-
-  // — Gemini (prompt unico)
-  const geminiBtn = document.createElement("button");
-  geminiBtn.type = "button";
-  geminiBtn.className = "round-btn";
-  geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
-  geminiBtn.title = "Estudar";
-  geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
-  geminiBtn.addEventListener("click", function() {
-    const q = buildPromptQueryFromItem(item, "gemini");
-    openExternal("https://www.google.com/search?q=" + q + "&udm=50");
-  });
-
-  // — Questoes (prompt unico)
-  const questoesBtn = document.createElement("button");
-  questoesBtn.type = "button";
-  questoesBtn.className = "round-btn";
-  questoesBtn.setAttribute("aria-label", "Gerar questoes");
-  questoesBtn.title = "Questoes";
-  questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questoes">';
-  questoesBtn.addEventListener("click", function() {
-    const q = buildPromptQueryFromItem(item, "questoes");
-    openExternal("https://www.google.com/search?q=" + q + "&udm=50");
-  });
-
-  // adiciona os dois botoes lado a lado
-  actions.append(geminiBtn, questoesBtn);
-
-  const right = document.createElement("div");
-  right.className = "right";
-  right.append(actions);
-
-  card.append(left, body, right);
-  return card;
 }
 // ==== FIM (antes do bloco do YouTube) ====
+
 
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
