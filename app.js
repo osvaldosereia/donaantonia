@@ -965,7 +965,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   geminiBtn.className = "round-btn";
   geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
   geminiBtn.title = "Estudar";
-  geminiBtn.innerHTML = '<img src="icons/ai-gemini.png" alt="Gemini">';
+  geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
 
   // helpers locais para montar o prompt do Gemini
   const __GEMINI_PROMPTS = [
