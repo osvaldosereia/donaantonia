@@ -847,89 +847,69 @@ function truncatedHTML(fullText, tokens) {
   return highlight(out, tokens);
 }
 
-/* ===== Prompts unicos (sem categorizacao) + defensivos ===== */
+/* ===== Prompts unicos (sem categorizacao) — versao segura ===== */
 const PROMPT_GEMINI  = "Voce e professor de Direito. Explique didaticamente o conteudo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudencia/sumulas relevantes; (5) exemplos praticos e pegadinhas de prova; (6) observacoes de pratica forense.";
 const PROMPT_QUESTOES = "Gere 10 questoes objetivas (A-D) sobre o conteudo abaixo, variando letra de lei, interpretacao e casos praticos; inclua ao menos 2 itens com jurisprudencia/sumulas. Ao final, traga gabarito comentado curto.";
 
-/* ==== helpers defensivos (nao quebrar se funcoes externas faltarem) ==== */
+/* ===== helpers defensivos ===== */
 function escapeHTML(s){
-  return String(s||"")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#39;");
+  s = (s == null) ? "" : String(s);
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 }
 function safeHighlight(text, tokens){
-  try{
-    if (typeof highlight === "function") return highlight(text, tokens||[]);
-  }catch(e){}
-  return escapeHTML(text);
+  try{ if (typeof highlight === "function") return highlight(text, tokens||[]); }catch(e){}
+  return "<pre class=\"plain\">"+escapeHTML(text)+"</pre>";
 }
 function safeTruncatedHTML(text, tokens){
-  try{
-    if (typeof truncatedHTML === "function") return truncatedHTML(text, tokens||[]);
-  }catch(e){}
-  const LIM = 600;
-  const t = String(text||"");
-  const cut = t.length > LIM ? t.slice(0,LIM) + " ..." : t;
+  try{ if (typeof truncatedHTML === "function") return truncatedHTML(text, tokens||[]); }catch(e){}
+  var LIM = 500;
+  var t = (text == null) ? "" : String(text);
+  var cut = t.length > LIM ? t.slice(0, LIM) + " ..." : t;
   return "<pre class=\"plain\">"+escapeHTML(cut)+"</pre>";
 }
 function safeApplyHighlights(el, tokens){
-  try{
-    if (typeof applyHighlights === "function") applyHighlights(el, tokens||[]);
-  }catch(e){}
+  try{ if (typeof applyHighlights === "function") applyHighlights(el, tokens||[]); }catch(e){}
 }
 function safeOpenReader(item){
-  try{
-    if (typeof openReader === "function") return openReader(item);
-  }catch(e){}
-  // fallback: nada
-}
-function appendAll(parent, nodes){
-  for (const n of nodes) parent.appendChild(n);
+  try{ if (typeof openReader === "function") return openReader(item); }catch(e){}
 }
 
-/* ==== Builder unico para ambos os botoes — corta antes de normalizar ==== */
+/* fallback para limite de caracteres, sem sobrescrever valor existente */
+if (typeof window.CARD_CHAR_LIMIT !== "number") { window.CARD_CHAR_LIMIT = 400; }
+
+/* ===== Builder unico super-levinho (corta antes, sem replace pesado) ===== */
 function buildPromptQueryFromItem(item, tipo){
-  if (!item) return "";
-  const prefix = (tipo === "gemini") ? PROMPT_GEMINI : PROMPT_QUESTOES;
-
-  var title  = (item && item.title)  ? String(item.title)  : "";
-  var source = (item && item.source) ? " - [" + String(item.source) + "]" : "";
-  var header = "### " + title + source;
-
-  // Corte antecipado do corpo para evitar travamento
-  var rawBody = (item && typeof item.text === "string") ? item.text : "";
-  var BODY_MAX = 3500; // espaco pro prefix+header
-  var bodyCut = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
-
-  // Normaliza espacos apenas no trecho reduzido
-  var raw = (prefix + "\n\n" + header + "\n\n" + bodyCut).replace(/\s+/g," ").trim();
-
-  // Limite de seguranca para URL (iOS/Google)
-  var MAX = 1800;
-  var clipped = raw.length > MAX ? raw.slice(0, MAX) : raw;
-
-  return encodeURIComponent(clipped);
-}
-
-/* util para abrir nova aba com seguranca */
-function openExternal(url){
   try{
-    window.open(url, "_blank", "noopener,noreferrer");
+    var prefix = (tipo === "gemini") ? PROMPT_GEMINI : PROMPT_QUESTOES;
+    var title  = (item && item.title)  ? String(item.title)  : "";
+    var source = (item && item.source) ? " - [" + String(item.source) + "]" : "";
+    var header = "### " + title + source;
+
+    var rawBody = (item && typeof item.text === "string") ? item.text : "";
+    var BODY_MAX = 1000;   // bem curto para evitar travas
+    var bodyCut = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
+
+    // nada de normalizar tudo; so um trim leve no header
+    var head = (prefix + "\n\n" + header + "\n\n").trim();
+    var raw  = head + bodyCut;
+
+    var MAX = 1400;        // URL curtinha p/ iOS
+    var clipped = raw.length > MAX ? raw.slice(0, MAX) : raw;
+
+    return encodeURIComponent(clipped);
   }catch(e){
-    location.href = url;
+    return encodeURIComponent("Explique o texto abaixo: " + (item && item.title ? item.title : ""));
   }
 }
 
-/* fallback para limite de caracteres se nao existir globalmente */
-if (typeof CARD_CHAR_LIMIT !== "number") {
-  var CARD_CHAR_LIMIT = 400;
+/* ===== abrir em nova aba com seguranca ===== */
+function openExternal(url){
+  try{ window.open(url, "_blank", "noopener,noreferrer"); }
+  catch(e){ location.href = url; }
 }
 
 /* ===========================
-   [BLK10] RENDER • Cards
+   [BLK10] RENDER • Cards  (robusto)
    =========================== */
 function renderCard(item, tokens = [], ctx = { context: "results" }){
   try{
@@ -940,12 +920,12 @@ function renderCard(item, tokens = [], ctx = { context: "results" }){
 
     const left = document.createElement("div");
 
-    // chip do codigo (nao no modal leitor)
+    // chip (somente fora do reader)
     if (item && item.source && ctx.context !== "reader") {
       const pill = document.createElement("a");
       pill.href = "#";
       pill.className = "pill";
-      pill.textContent = "CODIGO: " + item.source + " (abrir)";
+      pill.textContent = "Abrir: " + item.source;
       pill.addEventListener("click", function(e){
         e.preventDefault();
         safeOpenReader(item);
@@ -955,17 +935,17 @@ function renderCard(item, tokens = [], ctx = { context: "results" }){
 
     const body = document.createElement("div");
     body.className = "body";
-    const plainText = (item && typeof item.text === "string") ? item.text : "";
+    const text = (item && typeof item.text === "string") ? item.text : "";
 
-    const tokensForHL = (window.searchTokens && window.searchTokens.length)
+    const tokensHL = (window.searchTokens && window.searchTokens.length)
       ? window.searchTokens
       : (Array.isArray(tokens) ? tokens : []);
 
     if (ctx.context === "reader") {
-      body.innerHTML = safeHighlight(plainText, tokensForHL);
+      body.innerHTML = safeHighlight(text, tokensHL);
     } else {
       body.classList.add("is-collapsed");
-      body.innerHTML = safeTruncatedHTML(plainText, tokensForHL);
+      body.innerHTML = safeTruncatedHTML(text, tokensHL);
     }
     body.style.cursor = "pointer";
     body.addEventListener("click", function(){ safeOpenReader(item); });
@@ -973,8 +953,8 @@ function renderCard(item, tokens = [], ctx = { context: "results" }){
     const actions = document.createElement("div");
     actions.className = "actions";
 
-    /* TOGGLE (seta) alinhado a esquerda */
-    if (plainText.length > CARD_CHAR_LIMIT) {
+    // TOGGLE (evita custo desnecessario)
+    if (text && text.length > window.CARD_CHAR_LIMIT) {
       const toggle = document.createElement("button");
       toggle.className = "toggle toggle-left";
       toggle.textContent = "▼";
@@ -985,11 +965,11 @@ function renderCard(item, tokens = [], ctx = { context: "results" }){
         toggle.textContent = expanded ? "▼" : "▲";
         if (expanded) {
           body.classList.add("is-collapsed");
-          body.innerHTML = safeTruncatedHTML(plainText, tokensForHL);
+          body.innerHTML = safeTruncatedHTML(text, tokensHL);
         } else {
           body.classList.remove("is-collapsed");
-          body.innerHTML = safeHighlight(plainText, tokensForHL);
-          safeApplyHighlights(body, tokensForHL);
+          body.innerHTML = safeHighlight(text, tokensHL);
+          safeApplyHighlights(body, tokensHL);
         }
       });
       actions.appendChild(toggle);
@@ -1019,24 +999,27 @@ function renderCard(item, tokens = [], ctx = { context: "results" }){
       openExternal("https://www.google.com/search?q=" + q + "&udm=50");
     });
 
-    // adiciona os dois botoes lado a lado
-    appendAll(actions, [geminiBtn, questoesBtn]);
+    actions.appendChild(geminiBtn);
+    actions.appendChild(questoesBtn);
 
     const right = document.createElement("div");
     right.className = "right";
     right.appendChild(actions);
 
-    appendAll(card, [left, body, right]);
+    card.appendChild(left);
+    card.appendChild(body);
+    card.appendChild(right);
     return card;
+
   }catch(err){
-    // Em ultimo caso, retorna um card de erro para nao travar o fluxo
     const fallback = document.createElement("article");
     fallback.className = "card error";
-    fallback.innerHTML = "<pre>"+escapeHTML(String(err && err.message || err || "Erro ao renderizar card"))+"</pre>";
+    fallback.innerHTML = "<pre>"+escapeHTML(String(err && (err.message || err)))+"</pre>";
     return fallback;
   }
 }
 // ==== FIM (antes do bloco do YouTube) ====
+
 
 
 
