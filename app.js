@@ -1004,11 +1004,13 @@ const getGeminiPrefixByUrl = (it) => {
 
 const buildGeminiQueryFromItem = (it) => {
   const prefix = getGeminiPrefixByUrl(it);
-  const header = `### ${it.title || ""}${it.source ? ` — [${it.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${it.text || ""}`.replace(/\s+/g, " ").trim();
+  // remove o header para não duplicar o título (o body já o contém)
+  const body = String(it.text || "");
+  const raw = `${prefix}\n\n${body}`.replace(/\s+/g, " ").trim();
   const MAX = 4800; // margem p/ URL
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+
 
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
@@ -1076,11 +1078,13 @@ const getQuestoesPrefixByUrl = (it) => {
 
 const buildQuestoesQueryFromItem = (it) => {
   const prefix = getQuestoesPrefixByUrl(it);
-  const header = `### ${it.title || ""}${it.source ? ` — [${it.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${it.text || ""}`.replace(/\s+/g, " ").trim();
+  // remove o header para não duplicar o título (o body já o contém)
+  const body = String(it.text || "");
+  const raw = `${prefix}\n\n${body}`.replace(/\s+/g, " ").trim();
   const MAX = 4800;
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+
 
 questoesBtn.addEventListener("click", () => {
   const q = buildPromptQueryFromItem(item, "questoes");
