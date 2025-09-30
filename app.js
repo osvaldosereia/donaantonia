@@ -1132,7 +1132,7 @@ actions.append(geminiBtn, questoesBtn);
     if (fonte?.base) {
       const query = encodeURIComponent((item.title || "").trim());
       const urlFinal = `${fonte.base}${query}`;
-      cement("button");
+      const btn = document.createElement("button");
       btn.className = "round-btn";
       btn.setAttribute("aria-label", "Ver fonte original");
       btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
