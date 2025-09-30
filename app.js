@@ -233,7 +233,7 @@ async function parseFile(url, sourceLabel) {
   return items;
 }
 
-//#region [BLK08] SEARCH • predicados, preview, expand, doSearch (com aceleração)
+//#region [BLK08] SEARCH • predicados, preview, expand, doSearch (parte 1)
 
 function tokenize(query) {
   const src = String(query || "");
@@ -262,10 +262,14 @@ function tokenize(query) {
 
 function splitTokens(tokens) {
   const wordTokens = [];
-  const numTokens  = [];
-  for (const t of tokens) (/^\d{1,4}$/.test(t) ? numTokens : wordTokens).push(t);
+  const numTokens = [];
+  for (const t of tokens) {
+    (/^\d{1,4}$/.test(t) ? numTokens : wordTokens).push(t);
+  }
   return { wordTokens, numTokens };
 }
+
+const KW_RX = /\b(codigo|constitui|lei|estatuto|clt|penal|civil|cpp|cpc|cp|cf|cdc|cdc|stf|stj|tj|jurisprud|doutrin|sumula|enunciad|informativo|re|resp|are|ad[ii]|adpf|tema|precedent|decis[aã]o)\b/;
 
 function detectQueryMode(normQuery) {
   const trimmed = normQuery.trim();
@@ -285,6 +289,55 @@ function matchesNumbers(item, numTokens, queryHasLegalKeyword, queryMode) {
     return numTokens.every((n) => hasExactNumber(bag, n));
   }
   return numTokens.every((n) => numberRespectsWindows(item.text, n, queryMode));
+}
+
+function pathPriority(url) {
+  if (!url) return 999;
+  const p = url.toLowerCase();
+  if (p.includes("/cf88/")) return 1;
+  if (p.includes("/codigos/")) return 2;
+  if (p.includes("/leis/")) return 3;
+  if (p.includes("/sumulas/")) return 4;
+  if (p.includes("/informativos/")) return 5;
+  if (p.includes("/jurisprudencia/")) return 6;
+  if (p.includes("/videos/")) return 7;
+  return 999;
+}
+
+function detectCodeFromQuery(normQuery) {
+  const known = [
+    ["CF88", ["constitui", "cf", "constituicao"]],
+    ["Código Penal", ["cp", "penal"]],
+    ["Código Civil", ["cc", "civil"]],
+    ["Código de Processo Penal", ["cpp"]],
+    ["Código de Processo Civil", ["cpc"]],
+    ["Código Tributário Nacional", ["ctn", "tribut"]],
+    ["CLT", ["clt", "trabalh"]],
+    ["CDC", ["cdc", "consumid"]],
+    ["ECA", ["eca", "crianca", "adolesc"]],
+    ["Lei Maria da Penha", ["maria", "penha"]],
+    ["Lei de Drogas", ["11343", "drogas"]],
+    ["Lei de Execução Penal", ["lep", "execucao", "penal"]],
+  ];
+
+  const out = [];
+  for (const [label, words] of known) {
+    for (const w of words) {
+      if (normQuery.includes(w)) {
+        out.push({ label, keyWords: new Set(words) });
+        break;
+      }
+    }
+  }
+  return out.length ? out[0] : null;
+}
+
+async function firstMatchInFile(url, label, predicate) {
+  const items = await parseFile(url, label);
+  for (const it of items) {
+    if (predicate(it)) return it;
+  }
+  return null;
 }
 
 let __searchAbort;
@@ -395,6 +448,7 @@ async function doSearch() {
     window._skipFocus = false;
   }
 }
+
 
 
 // ===== HIGHLIGHT HELPERS =====
