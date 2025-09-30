@@ -1002,46 +1002,42 @@ const getGeminiPrefixByUrl = (it) => {
   return "Explique didaticamente o conteúdo jurídico abaixo, com conceito, requisitos, doutrina, jurisprudência, exemplos e armadilhas de prova.";
 };
 
-cconst buildGeminiQueryFromItem = (it) => {
+const buildGeminiQueryFromItem = (it) => {
   const prefix = getGeminiPrefixByUrl(it);
-  const title  = String(it.title || "").trim();
-  const source = String(it.source || "").trim();
+  const title  = (it && it.title)  ? String(it.title).trim()  : "";
+  const source = (it && it.source) ? String(it.source).trim() : "";
 
-  // limpa título/fonte duplicados do início do body
-  let body = String(it.text || "");
+  // corpo original
+  let body = String((it && it.text) || "");
+
+  // remove só a PRIMEIRA linha se ela repetir o título (com ou sem fonte)
   if (title) {
-    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const dash = "[\\-–—]";
-    const patterns = [];
+    const firstNL = body.indexOf("\n");
+    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim();
 
-    // ### Título — [Fonte]
-    if (source) {
-      patterns.push(new RegExp(
-        "^\\s*(?:#+\\s*)?" + esc(title) + "\\s*" + dash + "\\s*\\[" + esc(source) + "\\]\\s*\\n?",
-        "i"
-      ));
-    }
-    // ### Título
-    patterns.push(new RegExp("^\\s*(?:#+\\s*)?" + esc(title) + "\\s*\\n?", "i"));
-    // [Fonte] (caso venha sozinho no topo)
-    if (source) {
-      patterns.push(new RegExp("^\\s*\\[" + esc(source) + "\\]\\s*\\n?", "i"));
-    }
+    const normalize = (s) => s.replace(/^#+\s*/, "").trim().toLowerCase();
+    const lineNorm  = normalize(firstLine);
 
-    for (const rx of patterns) body = body.replace(rx, "");
-    body = body.trim();
+    const cand1 = (title + (source ? ` — [${source}]` : "")).toLowerCase(); // travessão
+    const cand2 = (title + (source ? ` - [${source}]` : "")).toLowerCase(); // traço simples
+    const cand3 = title.toLowerCase();
+
+    if (lineNorm === cand1 || lineNorm === cand2 || lineNorm === cand3) {
+      body = (firstNL >= 0) ? body.slice(firstNL + 1).trimStart() : "";
+    }
   }
 
-  const raw = `${prefix}\n\n${body}`.replace(/\s+/g, " ").trim();
+  // monta leve, sem replace global, e corta cedo pra não pesar
   const MAX = 4800; // margem p/ URL
-  return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
+  const head = prefix + "\n\n";
+  const ROOM = Math.max(0, MAX - head.length);
+  if (body.length > ROOM) body = body.slice(0, ROOM);
+
+  return encodeURIComponent((head + body).trim());
 };
-
-
 
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
-  const title = item.title || "";
   const body  = item.text || "";
   let prefix = "";
 
@@ -1059,7 +1055,7 @@ function buildPromptQueryFromItem(item, tipo) {
 }
 
 geminiBtn.addEventListener("click", () => {
-  const q = buildPromptQueryFromItem(item, "gemini");
+  const q = buildGeminiQueryFromItem(item);
   openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
 
@@ -1114,7 +1110,7 @@ const buildQuestoesQueryFromItem = (it) => {
 
 
 questoesBtn.addEventListener("click", () => {
-  const q = buildPromptQueryFromItem(item, "questoes");
+  const q = buildQuestoesQueryFromItem(item);
   openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
 
