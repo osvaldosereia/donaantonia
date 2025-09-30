@@ -1002,14 +1002,41 @@ const getGeminiPrefixByUrl = (it) => {
   return "Explique didaticamente o conteúdo jurídico abaixo, com conceito, requisitos, doutrina, jurisprudência, exemplos e armadilhas de prova.";
 };
 
-const buildGeminiQueryFromItem = (it) => {
+cconst buildGeminiQueryFromItem = (it) => {
   const prefix = getGeminiPrefixByUrl(it);
-  // remove o header para não duplicar o título (o body já o contém)
-  const body = String(it.text || "");
+  const title  = String(it.title || "").trim();
+  const source = String(it.source || "").trim();
+
+  // limpa título/fonte duplicados do início do body
+  let body = String(it.text || "");
+  if (title) {
+    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const dash = "[\\-–—]";
+    const patterns = [];
+
+    // ### Título — [Fonte]
+    if (source) {
+      patterns.push(new RegExp(
+        "^\\s*(?:#+\\s*)?" + esc(title) + "\\s*" + dash + "\\s*\\[" + esc(source) + "\\]\\s*\\n?",
+        "i"
+      ));
+    }
+    // ### Título
+    patterns.push(new RegExp("^\\s*(?:#+\\s*)?" + esc(title) + "\\s*\\n?", "i"));
+    // [Fonte] (caso venha sozinho no topo)
+    if (source) {
+      patterns.push(new RegExp("^\\s*\\[" + esc(source) + "\\]\\s*\\n?", "i"));
+    }
+
+    for (const rx of patterns) body = body.replace(rx, "");
+    body = body.trim();
+  }
+
   const raw = `${prefix}\n\n${body}`.replace(/\s+/g, " ").trim();
   const MAX = 4800; // margem p/ URL
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+
 
 
 function buildPromptQueryFromItem(item, tipo) {
