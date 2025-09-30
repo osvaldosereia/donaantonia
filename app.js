@@ -876,7 +876,27 @@ function buildPromptQuery(item, promptText) {
   return encodeURIComponent(cut);
 }
 
-/* ---------- [BLK10] RENDER • Cards (simplificado) ---------- */
+//#region [BLK10] RENDER • Cards (prompts únicos)
+const PROMPT_GEMINI = `
+Explique didaticamente o conteúdo jurídico abaixo:
+(1) conceito e finalidade; (2) requisitos e exceções; (3) jurisprudência dominante;
+(4) exemplos práticos; (5) armadilhas de prova; (6) notas de prática forense.
+`.trim();
+
+const PROMPT_QUESTOES = `
+Gere 10 questões objetivas (A–D) sobre o conteúdo abaixo, misturando letra de lei,
+interpretação e aplicação prática; inclua 2 com jurisprudência dominante/súmulas;
+traga gabarito comentado curto ao final.
+`.trim();
+
+function buildPromptQuery(item, promptText) {
+  const title = item?.title || "";
+  const source = item?.source ? ` — [${item.source}]` : "";
+  const body = item?.text || "";
+  const full = `${promptText}\n\n### ${title}${source}\n\n${body}`.replace(/\s+/g, " ").trim();
+  return encodeURIComponent(full.length > 4800 ? full.slice(0, 4800) : full);
+}
+
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
   card.className = "card";
@@ -885,7 +905,6 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   const left = document.createElement("div");
 
-  // chip do código (não no modal leitor)
   if (item?.source && ctx.context !== "reader") {
     const pill = document.createElement("a");
     pill.href = "#";
@@ -900,10 +919,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   const body = document.createElement("div");
   body.className = "body";
-
-  const tokensForHL = (window.searchTokens && window.searchTokens.length)
-    ? window.searchTokens
-    : (Array.isArray(tokens) ? tokens : []);
+  const tokensForHL = (window.searchTokens?.length) ? window.searchTokens : tokens;
 
   if (ctx.context === "reader") {
     body.innerHTML = highlight(item?.text || "", tokensForHL);
@@ -918,9 +934,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const actions = document.createElement("div");
   actions.className = "actions";
 
-  /* TOGGLE (seta) alinhado à esquerda */
-  const limit = (typeof CARD_CHAR_LIMIT !== "undefined") ? CARD_CHAR_LIMIT : 600;
-  if ((item?.text || "").length > limit) {
+  if ((item?.text || "").length > CARD_CHAR_LIMIT) {
     const toggle = document.createElement("button");
     toggle.className = "toggle toggle-left";
     toggle.textContent = "▼";
@@ -941,7 +955,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     actions.append(toggle);
   }
 
-  // — Botão Gemini (1 prompt fixo)
+  // Gemini
   const geminiBtn = document.createElement("button");
   geminiBtn.type = "button";
   geminiBtn.className = "round-btn";
@@ -953,7 +967,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     openExternal(`https://www.google.com/search?q=${q}&udm=50`);
   });
 
-  // — Botão Questões (1 prompt fixo)
+  // Questões
   const questoesBtn = document.createElement("button");
   questoesBtn.type = "button";
   questoesBtn.className = "round-btn";
@@ -967,9 +981,38 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   actions.append(geminiBtn, questoesBtn);
 
-  card.append(left, body, actions);
+  // Selecionar (não mostra no modal)
+  if (ctx.context !== "reader") {
+    const chk = document.createElement("button");
+    chk.className = "chk";
+    chk.setAttribute("aria-label", "Selecionar bloco");
+    chk.innerHTML = `
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+        <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+      </svg>`;
+    const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
+    sync();
+    chk.addEventListener("click", () => {
+      if (state.selected.has(item.id)) {
+        state.selected.delete(item.id);
+        toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
+        if (ctx.context === "selected") card.remove();
+      } else {
+        if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
+        state.selected.set(item.id, { ...item });
+        toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
+      }
+      sync();
+      updateBottom();
+    });
+    actions.append(chk);
+  }
+
+  left.append(body, actions);
+  card.append(left);
   return card;
 }
+
 
 
 
