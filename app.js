@@ -847,56 +847,51 @@ function truncatedHTML(fullText, tokens) {
   return highlight(out, tokens);
 }
 
-/* ===== Prompts personalizados p/ Gemini por tipo de arquivo ===== */
+// ===== Prompts por tipo de arquivo =====
 const GEMINI_PROMPTS = [
-  {
-    test: /(?:\/data\/codigos\/|\/CF88\/)/i,
-    prefix: "Analise o dispositivo abaixo de forma detalhada. Traga: (1) conceito e finalidade; (2) elementos/pressupostos; (3) principais debates doutrinários; (4) jurisprudência dominante e súmulas aplicáveis; (5) exemplos práticos e dicas de prova; (6) observações de prática forense."
-  },
-  {
-    test: /\/data\/leis\//i,
-    prefix: "Explique o trecho de lei abaixo: (1) escopo e contexto; (2) requisitos; (3) exceções; (4) entendimentos dos tribunais; (5) exemplos práticos; (6) erros comuns."
-  },
-  {
-    test: /\/data\/sumulas\//i,
-    prefix: "Analise a Súmula abaixo: (1) enunciado em linguagem clara; (2) alcance e limites; (3) precedentes que a fundamentam; (4) hipóteses de não aplicação; (5) como cai em prova; (6) exemplos curtos."
-  },
-  {
-    test: /\/data\/enunciados\//i,
-    prefix: "Analise o enunciado: explique sentido, contexto, aplicações típicas, controvérsias e exemplos práticos."
-  },
-  {
-    test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i,
-    prefix: "Extraia a tese repetitiva/tópico central: (1) tese; (2) requisitos; (3) modulação/efeitos; (4) precedentes; (5) impactos práticos; (6) dicas de prova."
-  },
-  {
-    test: /\/data\/julgados\//i,
-    prefix: "Resuma o julgado: (1) problema jurídico; (2) ratio decidendi; (3) tese firmada; (4) fundamentos legais/constitucionais; (5) precedentes citados; (6) efeitos práticos e como usar em peças."
-  },
-  {
-    test: /\/data\/artigos_e_noticias\//i,
-    prefix: "Faça um briefing jornalístico-jurídico: (1) tese/ideia central; (2) fatos e data; (3) base legal envolvida; (4) posições divergentes; (5) implicações práticas; (6) pontos de atenção."
-  }
+  { test: /(?:\/data\/codigos\/|\/CF88\/)/i, prefix: "Analise o dispositivo abaixo de forma detalhada..." },
+  { test: /\/data\/leis\//i, prefix: "Explique o trecho de lei abaixo..." },
+  { test: /\/data\/sumulas\//i, prefix: "Analise a Súmula abaixo..." },
+  { test: /\/data\/enunciados\//i, prefix: "Analise o enunciado..." },
+  { test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i, prefix: "Extraia a tese repetitiva/tópico central..." },
+  { test: /\/data\/julgados\//i, prefix: "Resuma o julgado..." },
+  { test: /\/data\/artigos_e_noticias\//i, prefix: "Faça um briefing jornalístico-jurídico..." }
 ];
 
-function getGeminiPrefixByUrl(url) {
+const QUESTOES_PROMPTS = [
+  { test: /(?:\/data\/codigos\/|\/CF88\/)/i, prefix: "Gere 10 questões objetivas..." },
+  { test: /\/data\/leis\//i, prefix: "Gere 10 questões objetivas..." },
+  { test: /\/data\/sumulas\//i, prefix: "Gere 10 questões objetivas..." },
+  { test: /\/data\/enunciados\//i, prefix: "Gere 10 questões objetivas..." },
+  { test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i, prefix: "Gere 10 questões objetivas..." },
+  { test: /\/data\/julgados\//i, prefix: "Gere 10 questões objetivas..." },
+  { test: /\/data\/artigos_e_noticias\//i, prefix: "Gere 10 questões objetivas..." }
+];
+
+// Funções auxiliares
+function getPrefixByUrl(url, prompts) {
   const u = String(url || "");
-  for (const cfg of GEMINI_PROMPTS) {
+  for (const cfg of prompts) {
     if (cfg.test.test(u)) return cfg.prefix;
   }
-  // fallback geral
-  return "Pesquise para responder e entregue uma resposta completa e de alta qualidade.";
+  return "Explique didaticamente o conteúdo jurídico abaixo...";
 }
 
-function buildGeminiQueryFromItem(item) {
-  const prefix = getGeminiPrefixByUrl(item.fileUrl);
-  const header = `### ${item.title || ""}${item.source ? ` — [${item.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${item.text || ""}`.replace(/\s+/g, " ").trim();
-  const MAX = 4800; // margem para URL
-  return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
+function buildPromptQueryFromItem(item, tipo = "gemini") {
+  const title = item.title || "";
+  const body = item.text || "";
+  const source = item.source ? ` — [${item.source}]` : "";
+
+  const prefix = tipo === "questoes"
+    ? getPrefixByUrl(item.fileUrl, QUESTOES_PROMPTS)
+    : getPrefixByUrl(item.fileUrl, GEMINI_PROMPTS);
+
+  const full = `${prefix}\n\n### ${title}${source}\n\n${body}`.replace(/\s+/g, " ").trim();
+  const MAX = 4800;
+  return encodeURIComponent(full.length > MAX ? full.slice(0, MAX) : full);
 }
 
-//#region [BLK10] RENDER • Cards
+// ===== RENDER DE CARD =====
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
   card.className = "card";
@@ -905,7 +900,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   const left = document.createElement("div");
 
-  // chip do código (não no modal leitor)
+  // Chip
   if (item.source && ctx.context !== "reader") {
     const pill = document.createElement("a");
     pill.href = "#";
@@ -920,148 +915,73 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   const body = document.createElement("div");
   body.className = "body";
+  const tokensForHL = window.searchTokens?.length ? window.searchTokens : tokens;
+
   if (ctx.context === "reader") {
-    body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
+    body.innerHTML = highlight(item.text, tokensForHL);
   } else {
     body.classList.add("is-collapsed");
-    const tokensForHL = (window.searchTokens && window.searchTokens.length)
-      ? window.searchTokens
-      : (Array.isArray(tokens) ? tokens : []);
     body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
   }
+
   body.style.cursor = "pointer";
   body.addEventListener("click", () => openReader(item));
 
   const actions = document.createElement("div");
   actions.className = "actions";
 
-  /* TOGGLE (seta) alinhado à esquerda */
   if (item.text.length > CARD_CHAR_LIMIT) {
     const toggle = document.createElement("button");
     toggle.className = "toggle toggle-left";
     toggle.textContent = "▼";
     toggle.setAttribute("aria-expanded", "false");
+
     toggle.addEventListener("click", () => {
       const expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+      toggle.setAttribute("aria-expanded", String(!expanded));
       toggle.textContent = expanded ? "▼" : "▲";
-      if (expanded) {
-        body.classList.add("is-collapsed");
-        const tokensForHL = (window.searchTokens && window.searchTokens.length)
-          ? window.searchTokens
-          : (Array.isArray(tokens) ? tokens : []);
-        body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
-      } else {
+      if (!expanded) {
         body.classList.remove("is-collapsed");
-        body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
-        applyHighlights(body, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
+        body.innerHTML = highlight(item.text, tokensForHL);
+        applyHighlights(body, tokensForHL);
+      } else {
+        body.classList.add("is-collapsed");
+        body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
       }
     });
+
     actions.append(toggle);
   }
 
-   // — Gemini (AI mode / udm=50) — prompts por categoria
-const geminiBtn = document.createElement("button");
-geminiBtn.type = "button";              // <— ADICIONE ESTA LINHA
-geminiBtn.className = "round-btn";
-geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
-geminiBtn.title = "Estudar";
-geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
+  // Botão Gemini
+  const geminiBtn = document.createElement("button");
+  geminiBtn.type = "button";
+  geminiBtn.className = "round-btn";
+  geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
+  geminiBtn.title = "Estudar";
+  geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
+  geminiBtn.addEventListener("click", () => {
+    const q = buildPromptQueryFromItem(item, "gemini");
+    openExternal(`https://www.google.com/search?q=${q}&udm=50`);
+  });
 
-// prompts do Gemini por categoria
+  // Botão Questões
+  const questoesBtn = document.createElement("button");
+  questoesBtn.type = "button";
+  questoesBtn.className = "round-btn";
+  questoesBtn.setAttribute("aria-label", "Gerar questões");
+  questoesBtn.title = "Questões";
+  questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
+  questoesBtn.addEventListener("click", () => {
+    const q = buildPromptQueryFromItem(item, "questoes");
+    openExternal(`https://www.google.com/search?q=${q}&udm=50`);
+  });
 
-const getGeminiPrefixByUrl = (url) => {
-  const u = String(url || "");
-  for (const cfg of __GEMINI_PROMPTS) if (cfg.test.test(u)) return cfg.prefix;
-  return "Explique didaticamente o conteúdo jurídico abaixo, com conceito, requisitos, doutrina, jurisprudência, exemplos e armadilhas de prova.";
-};
-const buildGeminiQueryFromItem = (it) => {
-  const prefix = getGeminiPrefixByUrl(it.fileUrl);
-  const header = `### ${it.title || ""}${it.source ? ` — [${it.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${it.text || ""}`.replace(/\s+/g, " ").trim();
-  const MAX = 4800; // margem p/ URL
-  return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
-};
-function buildPromptQueryFromItem(item, tipo) {
-  if (!item) return "";
-  const title = item.title || "";
-  const body  = item.text || "";
-  let prefix = "";
+  actions.append(geminiBtn, questoesBtn);
 
-  if (tipo === "gemini") {
-    prefix = getGeminiPrefixByUrl(item.fileUrl);
-  } else if (tipo === "questoes") {
-    prefix = getQuestoesPrefixByUrl(item.fileUrl);
-  } else {
-    prefix = "Explique o conteúdo abaixo com profundidade:";
-  }
-
-  const full = `${prefix}\n\n### ${title}${item.source ? ` — [${item.source}]` : ""}\n\n${body}`;
-  const trimmed = full.replace(/\s+/g, " ").trim();
-  return encodeURIComponent(trimmed.length > 4800 ? trimmed.slice(0, 4800) : trimmed);
+  card.append(left, body, actions);
+  return card;
 }
-
-geminiBtn.addEventListener("click", () => {
-  const q = buildPromptQueryFromItem(item, "gemini");
-  openExternal(`https://www.google.com/search?q=${q}&udm=50`);
-});
-
-// — Questões (novo botão) — prompts por categoria
-const questoesBtn = document.createElement("button");
-questoesBtn.type = "button";            // <— ADICIONE ESTA LINHA
-questoesBtn.className = "round-btn";
-questoesBtn.setAttribute("aria-label", "Gerar questões");
-questoesBtn.title = "Questões";
-questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
-
-// prompts do botão Questões por categoria
-const __QUESTOES_PROMPTS = [
-  { test: /(?:\/data\/codigos\/|\/CF88\/)/i,
-    prefix:
-"Gere 10 questões objetivas (múltipla escolha, A–D) sobre o dispositivo abaixo. Misture letra de lei, interpretação, e aplicação prática. Inclua 2 com jurisprudência dominante/súmulas. Traga gabarito comentado curto ao final." },
-  { test: /\/data\/leis\//i,
-    prefix:
-"Gere 10 questões objetivas (A–D) sobre o trecho de lei. Varie entre: conceitos, requisitos, exceções e entendimentos dos tribunais. Use pegadinhas comuns (terminologia, prazos, condições). Gabarito comentado ao final." },
-  { test: /\/data\/sumulas\//i,
-    prefix:
-"Gere 10 questões objetivas (A–D) sobre a Súmula. Explore alcance, limites, hipóteses de não aplicação e precedentes-base. Inclua 3 itens comparando enunciados próximos. Gabarito comentado ao final." },
-  { test: /\/data\/enunciados\//i,
-    prefix:
-"Gere 10 questões objetivas (A–D) sobre o enunciado. Foque sentido, contexto, aplicações típicas e controvérsias. Traga 3 itens situacionais (casos concretos). Gabarito comentado ao final." },
-  { test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/)/i,
-    prefix:
-"Gere 10 questões objetivas (A–D) sobre a tese/tema repetitivo. Aborde tese firmada, requisitos, modulação/efeitos e precedentes-chave. Inclua 2 itens sobre impacto prático. Gabarito comentado ao final." },
-  { test: /\/data\/julgados\//i,
-    prefix:
-"Gere 10 questões objetivas (A–D) sobre o julgado. Trate do problema jurídico, ratio decidendi, tese firmada e fundamentos legais/constitucionais. Inclua 3 itens de caso concreto. Gabarito comentado ao final." },
-  { test: /\/data\/artigos_e_noticias\//i,
-    prefix:
-"Gere 10 questões objetivas (A–D) a partir do texto jornalístico/artigo. Foque tese central, fatos relevantes, base legal, posições divergentes e implicações práticas. Evite atualidades fora do texto. Gabarito comentado ao final." }
-];
-const getQuestoesPrefixByUrl = (url) => {
-  const u = String(url || "");
-  for (const cfg of __QUESTOES_PROMPTS) if (cfg.test.test(u)) return cfg.prefix;
-  // fallback geral
-  return "Gere 10 questões objetivas (A–D) variadas sobre o conteúdo abaixo, com gabarito comentado ao final.";
-};
-const buildQuestoesQueryFromItem = (it) => {
-  const prefix = getQuestoesPrefixByUrl(it.fileUrl);
-  const header = `### ${it.title || ""}${it.source ? ` — [${it.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${it.text || ""}`.replace(/\s+/g, " ").trim();
-  const MAX = 4800;
-  return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
-};
-
-questoesBtn.addEventListener("click", () => {
-  const q = buildPromptQueryFromItem(item, "questoes");
-  openExternal(`https://www.google.com/search?q=${q}&udm=50`);
-});
-
-// adiciona os dois botões lado a lado
-actions.append(geminiBtn, questoesBtn);
-
-
-
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
   if (item.fileUrl?.includes("data/videos/")) {
