@@ -217,6 +217,16 @@ const state = {
   urlToLabel: new Map(),
 };
 
+// [GLOBAL] Popover para seleção de texto
+const selectionPopover = document.createElement("div");
+selectionPopover.className = "selection-popover hidden";
+selectionPopover.innerHTML = `
+  <button class="round-btn" data-action="search" title="Pesquisar">🔍</button>
+  <button class="round-btn" data-action="gemini" title="Gemini">🤖</button>
+  <button class="round-btn" data-action="questions" title="Questões">📝</button>
+`;
+document.body.appendChild(selectionPopover);
+
 
 /* ---------- util ---------- */
 function toast(msg) {
@@ -929,21 +939,73 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   }
 
   const body = document.createElement("div");
-  body.className = "body";
-  if (ctx.context === "reader") {
-    body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
+body.className = "body";
+if (ctx.context === "reader") {
+  body.innerHTML = highlight(item.text, (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens);
+} else {
+  body.classList.add("is-collapsed");
+  const tokensForHL = (window.searchTokens && window.searchTokens.length)
+    ? window.searchTokens
+    : (Array.isArray(tokens) ? tokens : []);
+  body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
+}
+body.style.cursor = "pointer";
+body.addEventListener("click", () => openReader(item));
+
+// Seleção de texto dentro do card
+body.addEventListener("mouseup", (e) => {
+  const selected = window.getSelection().toString().trim();
+  if (selected.length > 0) {
+    const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+    showSelectionPopover(rect, selected, item);
   } else {
-    body.classList.add("is-collapsed");
-    const tokensForHL = (window.searchTokens && window.searchTokens.length)
-      ? window.searchTokens
-      : (Array.isArray(tokens) ? tokens : []);
-    body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
+    hideSelectionPopover();
   }
-  body.style.cursor = "pointer";
-  body.addEventListener("click", () => openReader(item));
+});
+
+                        
+// Seleção de texto dentro do card
+body.addEventListener("mouseup", (e) => {
+  const selected = window.getSelection().toString().trim();
+  if (selected.length > 0) {
+    const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+    showSelectionPopover(rect, selected, item);
+  } else {
+    hideSelectionPopover();
+  }
+});
 
   const actions = document.createElement("div");
   actions.className = "actions";
+
+// — Marcador discreto (ensina sobre seleção)
+const markerBtn = document.createElement("button");
+markerBtn.type = "button";
+markerBtn.className = "round-btn marker-btn";
+markerBtn.setAttribute("aria-label", "Dica de seleção");
+markerBtn.title = "Selecionar trecho";
+markerBtn.innerHTML = '<img src="icons/marker.png" alt="Selecionar">';
+
+markerBtn.addEventListener("click", () => {
+  toast("Selecione um trecho do texto para pesquisar, gerar questões ou estudar com o Gemini.");
+});
+
+actions.append(markerBtn);
+
+   
+   // — Marcador discreto (ensina sobre seleção)
+  const markerBtn = document.createElement("button");
+  markerBtn.type = "button";
+  markerBtn.className = "round-btn marker-btn";
+  markerBtn.setAttribute("aria-label", "Dica de seleção");
+  markerBtn.title = "Selecionar trecho";
+  markerBtn.innerHTML = '<img src="icons/marker.png" alt="Selecionar">';
+
+  markerBtn.addEventListener("click", () => {
+    toast("Selecione um trecho do texto para pesquisar, gerar questões ou estudar com o Gemini.");
+  });
+
+  actions.append(markerBtn);
 
   /* TOGGLE (seta) alinhado à esquerda */
   if (item.text.length > CARD_CHAR_LIMIT) {
@@ -2039,6 +2101,44 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
   };
 
 })();
+
+function showSelectionPopover(rect, selectedText, item) {
+  selectionPopover.classList.remove("hidden");
+  selectionPopover.style.top = `${window.scrollY + rect.top - 40}px`;
+  selectionPopover.style.left = `${window.scrollX + rect.left + rect.width / 2}px`;
+  selectionPopover.dataset.selected = selectedText;
+  selectionPopover.dataset.itemId = item.id || "";
+}
+
+function hideSelectionPopover() {
+  selectionPopover.classList.add("hidden");
+  selectionPopover.dataset.selected = "";
+  selectionPopover.dataset.itemId = "";
+}
+
+// Fecha ao clicar fora do popover
+document.addEventListener("click", (e) => {
+  if (!selectionPopover.contains(e.target)) {
+    hideSelectionPopover();
+  }
+});
+
+// Ações dos botões do popover
+selectionPopover.addEventListener("click", (e) => {
+  if (e.target.tagName !== "BUTTON") return;
+  const action = e.target.dataset.action;
+  const text = selectionPopover.dataset.selected;
+
+  if (action === "search") {
+    els.q.value = text;
+    doSearch();
+  } else if (action === "gemini") {
+    openWithGemini(text);
+  } else if (action === "questions") {
+    openWithQuestions(text);
+  }
+  hideSelectionPopover();
+});
 
 
 //#endregion /* EOF: app.js */
