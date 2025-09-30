@@ -848,36 +848,37 @@ function truncatedHTML(fullText, tokens) {
 }
 
 /* ===== Prompts únicos (sem categorização) ===== */
-const PROMPT_GEMINI = "Você é professor de Direito. Explique didaticamente o conteúdo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudência/súmulas relevantes; (5) exemplos práticos e pegadinhas de prova; (6) observações de prática forense.";
-const PROMPT_QUESTOES = "Gere 10 questões objetivas (A–D) sobre o conteúdo abaixo, variando letra de lei, interpretação e casos práticos; inclua ao menos 2 itens com jurisprudência/súmulas. Ao final, traga gabarito comentado curto.";
+const PROMPT_GEMINI = "Voce e professor de Direito. Explique didaticamente o conteudo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudencia/sumulas relevantes; (5) exemplos praticos e pegadinhas de prova; (6) observacoes de pratica forense.";
+const PROMPT_QUESTOES = "Gere 10 questoes objetivas (A-D) sobre o conteudo abaixo, variando letra de lei, interpretacao e casos praticos; inclua ao menos 2 itens com jurisprudencia/sumulas. Ao final, traga gabarito comentado curto.";
 
-/* Builder único para ambos os botões — OTIMIZADO (corta antes de normalizar) */
+/* Builder unico para ambos os botoes — otimizado e ASCII-only */
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
   const prefix = (tipo === "gemini") ? PROMPT_GEMINI : PROMPT_QUESTOES;
-  const title  = (item.title || "");
-  const source = (item.source ? ` — [${item.source}]` : "");
-  const header = `### ${title}${source}`;
+  const title  = (item && item.title) ? String(item.title) : "";
+  const source = (item && item.source) ? " — [" + String(item.source) + "]" : "";
+  const header = "### " + title + source;
 
-  // Corte antecipado para evitar travamento em textos muito grandes
-  const BODY_MAX = 3500; // espaço pro prefix+header sem estourar depois
-  const rawBody  = typeof item.text === "string" ? item.text : "";
-  const bodyCut  = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
+  // Corte antecipado para evitar travar com textos grandes
+  var rawBody = (item && typeof item.text === "string") ? item.text : "";
+  var BODY_MAX = 3500;
+  var bodyCut = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
 
-  // Agora sim normaliza espaços só no trecho reduzido
-  const raw = `${prefix}\n\n${header}\n\n${bodyCut}`.replace(/\s+/g, " ").trim();
+  // Normaliza espacos apenas no trecho reduzido
+  var raw = (prefix + "\n\n" + header + "\n\n" + bodyCut).replace(/\s+/g, " ").trim();
 
-  // Limite de segurança para URL (iOS/Google)
-  const MAX = 1800;
-  const clipped = raw.length > MAX ? raw.slice(0, MAX) : raw;
+  // Limite de seguranca de URL (iOS/Google)
+  var MAX = 1800;
+  var clipped = raw.length > MAX ? raw.slice(0, MAX) : raw;
+
   return encodeURIComponent(clipped);
 }
 
-/* util para abrir nova aba com segurança */
+/* util para abrir nova aba com seguranca */
 function openExternal(url) {
   try {
     window.open(url, "_blank", "noopener,noreferrer");
-  } catch (_) {
+  } catch (e) {
     location.href = url;
   }
 }
@@ -891,13 +892,13 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   const left = document.createElement("div");
 
-  // chip do código (não no modal leitor)
+  // chip do codigo (nao no modal leitor)
   if (item.source && ctx.context !== "reader") {
     const pill = document.createElement("a");
     pill.href = "#";
     pill.className = "pill";
-    pill.textContent = `📘 ${item.source} (abrir)`;
-    pill.addEventListener("click", (e) => {
+    pill.textContent = "CODIGO: " + item.source + " (abrir)";
+    pill.addEventListener("click", function(e) {
       e.preventDefault();
       openReader(item);
     });
@@ -919,27 +920,27 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
   }
   body.style.cursor = "pointer";
-  body.addEventListener("click", () => openReader(item));
+  body.addEventListener("click", function() { openReader(item); });
 
   const actions = document.createElement("div");
   actions.className = "actions";
 
-  /* TOGGLE (seta) alinhado à esquerda */
+  /* TOGGLE (seta) alinhado a esquerda */
   if ((item.text || "").length > CARD_CHAR_LIMIT) {
     const toggle = document.createElement("button");
     toggle.className = "toggle toggle-left";
     toggle.textContent = "▼";
     toggle.setAttribute("aria-expanded", "false");
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", function() {
       const expanded = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
       toggle.textContent = expanded ? "▼" : "▲";
       if (expanded) {
         body.classList.add("is-collapsed");
-        const tokensForHL = (window.searchTokens && window.searchTokens.length)
+        const tokensForHL2 = (window.searchTokens && window.searchTokens.length)
           ? window.searchTokens
           : (Array.isArray(tokens) ? tokens : []);
-        body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
+        body.innerHTML = truncatedHTML(item.text || "", tokensForHL2);
       } else {
         body.classList.remove("is-collapsed");
         body.innerHTML = highlight(
@@ -955,31 +956,31 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     actions.append(toggle);
   }
 
-  // — Gemini (prompt único)
+  // — Gemini (prompt unico)
   const geminiBtn = document.createElement("button");
   geminiBtn.type = "button";
   geminiBtn.className = "round-btn";
   geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
   geminiBtn.title = "Estudar";
   geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
-  geminiBtn.addEventListener("click", () => {
+  geminiBtn.addEventListener("click", function() {
     const q = buildPromptQueryFromItem(item, "gemini");
-    openExternal(`https://www.google.com/search?q=${q}&udm=50`);
+    openExternal("https://www.google.com/search?q=" + q + "&udm=50");
   });
 
-  // — Questões (prompt único)
+  // — Questoes (prompt unico)
   const questoesBtn = document.createElement("button");
   questoesBtn.type = "button";
   questoesBtn.className = "round-btn";
-  questoesBtn.setAttribute("aria-label", "Gerar questões");
-  questoesBtn.title = "Questões";
-  questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
-  questoesBtn.addEventListener("click", () => {
+  questoesBtn.setAttribute("aria-label", "Gerar questoes");
+  questoesBtn.title = "Questoes";
+  questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questoes">';
+  questoesBtn.addEventListener("click", function() {
     const q = buildPromptQueryFromItem(item, "questoes");
-    openExternal(`https://www.google.com/search?q=${q}&udm=50`);
+    openExternal("https://www.google.com/search?q=" + q + "&udm=50");
   });
 
-  // adiciona os dois botões lado a lado
+  // adiciona os dois botoes lado a lado
   actions.append(geminiBtn, questoesBtn);
 
   const right = document.createElement("div");
@@ -989,7 +990,6 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   card.append(left, body, right);
   return card;
 }
-// ==== FIM (antes do bloco do YouTube) ====
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
   if (item.fileUrl?.includes("data/videos/")) {
