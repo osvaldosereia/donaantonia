@@ -451,10 +451,12 @@ async function doSearch() {
 
 
 
-// ===== HIGHLIGHT HELPERS =====
-const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+//#region [BLK09] HIGHLIGHT (applyHighlights e afins)
 
-// Gera tokens a partir do termo digitado (remove curtos e duplicados)
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function buildTokens(q) {
   return (q || "")
     .toLowerCase()
@@ -464,7 +466,7 @@ function buildTokens(q) {
     .filter((t, i, a) => a.indexOf(t) === i);
 }
 
-// NOVA VERSÃO — applyHighlights: suporta "frases exatas" e termos; evita links/botões; acento-insensível
+// NOVA VERSÃO — applyHighlights: suporta frases exatas e termos; evita links/botões; acento-insensível
 function applyHighlights(rootEl, tokens) {
   if (!rootEl || !tokens || tokens.length === 0) return;
 
@@ -577,6 +579,7 @@ function applyHighlights(rootEl, tokens) {
     node.parentNode.replaceChild(frag, node);
   });
 }
+
 //#region [BLK10] RENDER • Cards
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
