@@ -998,9 +998,8 @@ const buildGeminiQueryFromItem = (it) => {
 };
 
 geminiBtn.addEventListener("click", () => {
-  const q = buildGeminiQueryFromItem(item);
-  const url = `https://www.google.com/search?q=${q}&udm=50`;
-  openExternal(url);
+  const q = buildPromptQueryFromItem(item, "gemini");
+  openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
 
 // — Questões (novo botão) — prompts por categoria
@@ -1049,9 +1048,8 @@ const buildQuestoesQueryFromItem = (it) => {
 };
 
 questoesBtn.addEventListener("click", () => {
-  const q = buildQuestoesQueryFromItem(item);
-  const url = `https://www.google.com/search?q=${q}&udm=50`;
-  openExternal(url);
+  const q = buildPromptQueryFromItem(item, "questoes");
+  openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
 
 // adiciona os dois botões lado a lado
