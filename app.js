@@ -218,11 +218,11 @@ async function fetchText(url) {
   } catch {
     r = await fetch(url, { cache: "default" });
   }
-  if (!r.ok) throw new Error(`fetch-fail ${r.status} ${url}`);
-  const t = sanitize(await r.text());
-  state.cacheTxt.set(url, t);
-  return t;
+  if (!r.ok) {
+  console.warn("Erro ao carregar arquivo:", r.status, url);
+  throw new Error(`fetch-fail ${r.status} ${url}`);
 }
+
 
 async function parseFile(url, sourceLabel) {
   if (state.cacheParsed.has(url)) return state.cacheParsed.get(url);
