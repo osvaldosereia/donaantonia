@@ -461,3 +461,25 @@ mark.hl {
     --topbar-h: 72px;           /* ex.: de 60px → 72px */
   }
 }
+/* Botão marcador discreto */
+.marker-btn {
+  background-color: #f1f1f1;
+  border: none;
+  width: 28px;
+  height: 28px;
+  margin-right: auto; /* força alinhar à esquerda */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+.marker-btn:hover {
+  opacity: 1;
+  background-color: #e5e5e5;
+}
+.marker-btn img {
+  width: 16px;
+  height: 16px;
+}
