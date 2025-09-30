@@ -879,16 +879,49 @@ const GEMINI_PROMPTS = [
   }
 ];
 
-/* NOVO: monta um "haystack" com os possíveis campos de origem */
+/* === Helpers p/ match e anti-duplicação === */
 function getHaystackForMatch(it) {
   if (!it) return "";
   const parts = [
-    it.fileUrl, it.url, it.path, it.src,
-    it.href, it?.meta?.url, it.source, it.title
+    it.fileUrl, it.url, it.path, it.src, it.href,
+    it?.meta?.url, it.source, it.title
   ].filter(Boolean).map(String);
   return parts.join(" ").toLowerCase();
 }
+function escapeRegExp(str) {
+  return String(str || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function stripLeadingDup(text, item) {
+  let b = String(text || "");
+  const t = (item.title || "").trim();
+  const s = (item.source || "").trim();
 
+  const patterns = [];
+  if (t && s) {
+    patterns.push(new RegExp(
+      "^\\s*(?:#+\\s*)?" + escapeRegExp(t) + "\\s*(?:—|-)\\s*\\[" + escapeRegExp(s) + "\\]\\s*",
+      "i"
+    ));
+  }
+  if (t) {
+    patterns.push(new RegExp("^\\s*(?:#+\\s*)?" + escapeRegExp(t) + "\\s*", "i"));
+  }
+  if (s) {
+    patterns.push(new RegExp("^\\s*\\[" + escapeRegExp(s) + "\\]\\s*", "i"));
+  }
+
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const rx of patterns) {
+      const nb = b.replace(rx, "");
+      if (nb !== b) { b = nb; changed = true; }
+    }
+  }
+  return b.trim();
+}
+
+/* ===== Prefix por item (global) ===== */
 function getGeminiPrefixByUrl(item) {
   const u = getHaystackForMatch(item);
   for (const cfg of GEMINI_PROMPTS) {
@@ -898,10 +931,12 @@ function getGeminiPrefixByUrl(item) {
   return "Pesquise para responder e entregue uma resposta completa e de alta qualidade.";
 }
 
+/* ===== Builders (globais) — com remoção de duplicação ===== */
 function buildGeminiQueryFromItem(item) {
-  const prefix = getGeminiPrefixByUrl(item); // <<< passou o item inteiro
+  const prefix = getGeminiPrefixByUrl(item);
   const header = `### ${item.title || ""}${item.source ? ` — [${item.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${item.text || ""}`.replace(/\s+/g, " ").trim();
+  const bodyClean = stripLeadingDup(item.text || "", item);
+  const raw = `${prefix}\n\n${header}\n\n${bodyClean}`.replace(/\s+/g, " ").trim();
   const MAX = 4800; // margem para URL
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 }
@@ -972,13 +1007,13 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
    // — Gemini (AI mode / udm=50) — prompts por categoria
 const geminiBtn = document.createElement("button");
-geminiBtn.type = "button";              // <— ADICIONE ESTA LINHA
+geminiBtn.type = "button";
 geminiBtn.className = "round-btn";
 geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
 geminiBtn.title = "Estudar";
 geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
 
-// prompts do Gemini por categoria
+// prompts do Gemini por categoria (escopo local do renderCard)
 const __GEMINI_PROMPTS = [
   { test: /(?:\/data\/codigos\/|\/CF88\/|codigos|cf88)/i,
     prefix: "Você é professor de Direito. Analise o dispositivo abaixo. Traga: (1) conceito e finalidade; (2) elementos/pressupostos; (3) principais debates doutrinários; (4) jurisprudência dominante e súmulas aplicáveis; (5) exemplos práticos e pegadinhas de prova; (6) observações de prática forense." },
@@ -995,36 +1030,34 @@ const __GEMINI_PROMPTS = [
   { test: /\/data\/artigos_e_noticias\/|artigos?|not[ií]cias?/i,
     prefix: "Faça um briefing jornalístico-jurídico: (1) tese/ideia central; (2) fatos e data; (3) base legal envolvida; (4) posições divergentes; (5) implicações práticas; (6) pontos de atenção." }
 ];
-
 const getGeminiPrefixByUrl = (it) => {
   const u = getHaystackForMatch(it);
   for (const cfg of __GEMINI_PROMPTS) if (cfg.test.test(u)) return cfg.prefix;
   return "Explique didaticamente o conteúdo jurídico abaixo, com conceito, requisitos, doutrina, jurisprudência, exemplos e armadilhas de prova.";
 };
-
 const buildGeminiQueryFromItem = (it) => {
   const prefix = getGeminiPrefixByUrl(it);
   const header = `### ${it.title || ""}${it.source ? ` — [${it.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${it.text || ""}`.replace(/\s+/g, " ").trim();
+  const bodyClean = stripLeadingDup(it.text || "", it);
+  const raw = `${prefix}\n\n${header}\n\n${bodyClean}`.replace(/\s+/g, " ").trim();
   const MAX = 4800; // margem p/ URL
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
-
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
   const title = item.title || "";
-  const body  = item.text || "";
+  const bodyClean = stripLeadingDup(item.text || "", item);
   let prefix = "";
 
   if (tipo === "gemini") {
-    prefix = getGeminiPrefixByUrl(item); // <<< passou o item inteiro
+    prefix = getGeminiPrefixByUrl(item);
   } else if (tipo === "questoes") {
-    prefix = getQuestoesPrefixByUrl(item); // <<< idem
+    prefix = getQuestoesPrefixByUrl(item);
   } else {
     prefix = "Explique o conteúdo abaixo com profundidade:";
   }
 
-  const full = `${prefix}\n\n### ${title}${item.source ? ` — [${item.source}]` : ""}\n\n${body}`;
+  const full = `${prefix}\n\n### ${title}${item.source ? ` — [${item.source}]` : ""}\n\n${bodyClean}`;
   const trimmed = full.replace(/\s+/g, " ").trim();
   return encodeURIComponent(trimmed.length > 4800 ? trimmed.slice(0, 4800) : trimmed);
 }
@@ -1036,13 +1069,13 @@ geminiBtn.addEventListener("click", () => {
 
 // — Questões (novo botão) — prompts por categoria
 const questoesBtn = document.createElement("button");
-questoesBtn.type = "button";            // <— ADICIONE ESTA LINHA
+questoesBtn.type = "button";
 questoesBtn.className = "round-btn";
 questoesBtn.setAttribute("aria-label", "Gerar questões");
 questoesBtn.title = "Questões";
 questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
 
-// prompts do botão Questões por categoria
+// prompts do botão Questões por categoria (escopo local do renderCard)
 const __QUESTOES_PROMPTS = [
   { test: /(?:\/data\/codigos\/|\/CF88\/|codigos|cf88)/i,
     prefix:
@@ -1066,18 +1099,17 @@ const __QUESTOES_PROMPTS = [
     prefix:
 "Gere 10 questões objetivas (A–D) a partir do texto jornalístico/artigo. Foque tese central, fatos relevantes, base legal, posições divergentes e implicações práticas. Evite atualidades fora do texto. Gabarito comentado ao final." }
 ];
-
 const getQuestoesPrefixByUrl = (it) => {
   const u = getHaystackForMatch(it);
   for (const cfg of __QUESTOES_PROMPTS) if (cfg.test.test(u)) return cfg.prefix;
   // fallback geral
   return "Gere 10 questões objetivas (A–D) variadas sobre o conteúdo abaixo, com gabarito comentado ao final.";
 };
-
 const buildQuestoesQueryFromItem = (it) => {
   const prefix = getQuestoesPrefixByUrl(it);
   const header = `### ${it.title || ""}${it.source ? ` — [${it.source}]` : ""}`;
-  const raw = `${prefix}\n\n${header}\n\n${it.text || ""}`.replace(/\s+/g, " ").trim();
+  const bodyClean = stripLeadingDup(it.text || "", it);
+  const raw = `${prefix}\n\n${header}\n\n${bodyClean}`.replace(/\s+/g, " ").trim();
   const MAX = 4800;
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
@@ -1089,8 +1121,6 @@ questoesBtn.addEventListener("click", () => {
 
 // adiciona os dois botões lado a lado
 actions.append(geminiBtn, questoesBtn);
-
-
 
 
 
