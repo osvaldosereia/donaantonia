@@ -1004,36 +1004,28 @@ const getGeminiPrefixByUrl = (it) => {
 
 const buildGeminiQueryFromItem = (it) => {
   const prefix = getGeminiPrefixByUrl(it);
-  const title  = (it && it.title)  ? String(it.title).trim()  : "";
-  const source = (it && it.source) ? String(it.source).trim() : "";
+  const title  = String(it.title || "").trim();
+  const source = String(it.source || "").trim();
+  const header = `### ${title}${source ? ` — [${source}]` : ""}`;
 
   // corpo original
-  let body = String((it && it.text) || "");
+  let body = String(it.text || "");
 
-  // remove só a PRIMEIRA linha se ela repetir o título (com ou sem fonte)
+  // se a primeira linha do body já for o título (com ou sem fonte), removemos
   if (title) {
-    const firstNL = body.indexOf("\n");
-    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim();
+    const firstNL   = body.indexOf("\n");
+    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim().replace(/^#+\s*/, "");
+    const candA = `${title}${source ? ` — [${source}]` : ""}`;
+    const candB = `${title}${source ? ` - [${source}]` : ""}`;
 
-    const normalize = (s) => s.replace(/^#+\s*/, "").trim().toLowerCase();
-    const lineNorm  = normalize(firstLine);
-
-    const cand1 = (title + (source ? ` — [${source}]` : "")).toLowerCase(); // travessão
-    const cand2 = (title + (source ? ` - [${source}]` : "")).toLowerCase(); // traço simples
-    const cand3 = title.toLowerCase();
-
-    if (lineNorm === cand1 || lineNorm === cand2 || lineNorm === cand3) {
-      body = (firstNL >= 0) ? body.slice(firstNL + 1).trimStart() : "";
+    if (firstLine === candA || firstLine === candB || firstLine === title) {
+      body = (firstNL >= 0 ? body.slice(firstNL + 1) : "").trimStart();
     }
   }
 
-  // monta leve, sem replace global, e corta cedo pra não pesar
-  const MAX = 4800; // margem p/ URL
-  const head = prefix + "\n\n";
-  const ROOM = Math.max(0, MAX - head.length);
-  if (body.length > ROOM) body = body.slice(0, ROOM);
-
-  return encodeURIComponent((head + body).trim());
+  const raw = `${prefix}\n\n${header}\n\n${body}`;
+  const MAX = 4800;
+  return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
 
 function buildPromptQueryFromItem(item, tipo) {
@@ -1102,12 +1094,30 @@ const getQuestoesPrefixByUrl = (it) => {
 
 const buildQuestoesQueryFromItem = (it) => {
   const prefix = getQuestoesPrefixByUrl(it);
-  // remove o header para não duplicar o título (o body já o contém)
-  const body = String(it.text || "");
-  const raw = `${prefix}\n\n${body}`.replace(/\s+/g, " ").trim();
+  const title  = String(it.title || "").trim();
+  const source = String(it.source || "").trim();
+  const header = `### ${title}${source ? ` — [${source}]` : ""}`;
+
+  // corpo original
+  let body = String(it.text || "");
+
+  // se a primeira linha do body já for o título (com ou sem fonte), removemos
+  if (title) {
+    const firstNL   = body.indexOf("\n");
+    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim().replace(/^#+\s*/, "");
+    const candA = `${title}${source ? ` — [${source}]` : ""}`;
+    const candB = `${title}${source ? ` - [${source}]` : ""}`;
+
+    if (firstLine === candA || firstLine === candB || firstLine === title) {
+      body = (firstNL >= 0 ? body.slice(firstNL + 1) : "").trimStart();
+    }
+  }
+
+  const raw = `${prefix}\n\n${header}\n\n${body}`;
   const MAX = 4800;
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+
 
 
 questoesBtn.addEventListener("click", () => {
