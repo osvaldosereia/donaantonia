@@ -270,7 +270,7 @@ body{
 }
 .round-btn:hover{ border-color:var(--line-strong); box-shadow:0 6px 18px rgba(17,24,39,.08); }
 .round-btn:active{ transform:translateY(1px); }
-.round-btn img{ width:18px; height:18px; display:block; object-fit:contain; }
+.round-btn img{ width:28px; height:28px; display:block; object-fit:contain; }
 
 /* ícone-only genérico usado em alguns toggles */
 .card .toggle.btn--icon{ width:36px; height:32px; padding:0; display:inline-flex; align-items:center; justify-content:center; }
