@@ -1038,6 +1038,7 @@ const buildGeminiQueryFromItem = (it) => {
 
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
+  const title = item.title || "";
   const body  = item.text || "";
   let prefix = "";
 
