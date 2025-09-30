@@ -980,7 +980,9 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   card.append(left, body, right);
   return card;
+ }
 }
+
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
   if (item.fileUrl?.includes("data/videos/")) {
