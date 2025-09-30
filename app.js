@@ -906,139 +906,41 @@ function buildPromptQueryFromItem(item, tipo = "gemini") {
   const MAX = 4800;
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 }
+function renderCard(item, tokens = [], ctx = {}) {
+  const context = ctx.context || "results";
+  const card = document.createElement("article");
+  card.className = "card";
+  card.id = item.htmlId;
 
-/* ===== BOTÕES NO CARD (Gemini e Questões) ===== */
-const geminiBtn = document.createElement("button");
-geminiBtn.className = "round-btn";
-geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
-geminiBtn.title = "Estudar";
-geminiBtn.innerHTML = '<img src="icons/ai-gemini4.png" alt="Gemini">';
-geminiBtn.addEventListener("click", () => {
-  const q = buildPromptQueryFromItem(item, "gemini");
-  if (!q) {
-    alert("Não foi possível identificar categoria para gerar o prompt Gemini.");
-    return;
-  }
-  const url = `https://www.google.com/search?q=${q}&udm=50`;
-  openExternal(url);
-});
+  const left = document.createElement("div");
+  left.className = "left";
 
-const questoesBtn = document.createElement("button");
-questoesBtn.className = "round-btn";
-questoesBtn.setAttribute("aria-label", "Gerar questões");
-questoesBtn.title = "Questões";
-questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
-questoesBtn.addEventListener("click", () => {
-  const q = buildPromptQueryFromItem(item, "questoes");
-  if (!q) {
-    alert("Não foi possível identificar categoria para gerar o prompt Questões.");
-    return;
-  }
-  const url = `https://www.google.com/search?q=${q}&udm=50`;
-  openExternal(url);
-});
+  const h = document.createElement("h3");
+  h.className = "title";
+  h.textContent = item.title || "";
+  h.addEventListener("click", () => openReader(item, tokens));
 
-actions.append(geminiBtn, questoesBtn);
+  const meta = document.createElement("div");
+  meta.className = "meta";
+  meta.textContent = item.source ? item.source : "";
 
+  const body = document.createElement("div");
+  body.className = "body";
+  body.innerHTML = truncatedHTML(item.text || "", tokens);
+  body.addEventListener("click", () => openReader(item, tokens));
 
-  // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
-  if (item.fileUrl?.includes("data/videos/")) {
-    const CHANNEL_NAMES = {
-      "supremo.txt": "tv supremo",
-      "instante_juridico.txt": "instante juridico",
-      "me_julga.txt": "me julga",
-      "seus_direitos.txt": "seus direitos",
-      "direito_desenhado.txt": "direito desenhado",
-      "diego_pureza.txt": "prof diego pureza",
-      "estrategia_carreiras_juridicas.txt": "estrategia carreiras juridicas",
-      "ana_carolina_aidar.txt": "ana carolina aidar",
-      "cebrian.txt": "cebrian",
-      "fonte_juridica_oficial.txt": "fonte juridica oficial",
-      "paulo_henrique_helene.txt": "paulo henrique helene",
-      "profnidal.txt": "professor nidal",
-      "monicarieger.txt": "monica rieger",
-      "rodrigo_castello.txt": "rodrigo castello",
-      "prof_alan_gestao.txt": "prof alan gestao",
-      "simplificando_direito_penal.txt": "simplificando direito penal",
-      "geofre_saraiva.txt": "geofre saraiva",
-      "ricardo_torques.txt": "ricardo torques",
-      "prof_eduardo_tanaka.txt": "prof eduardo tanaka",
-      "trilhante.txt": "trilhante",
-      "qconcurso.txt": "qconcurso",
-      "paulo_rodrigues_direito_para_a_vida.txt": "paulo rodrigues direito para a vida"
-    };
-    const fileName = item.fileUrl.split("/").pop().toLowerCase();
-    const canalNome = CHANNEL_NAMES[fileName];
-    if (canalNome) {
-      const title = (item.title || "").trim();
-      const rawQuery = `${canalNome} ${title}`;
-      const q = encodeURIComponent(rawQuery); // iOS: m.youtube.com e sem +
-      const urlFinal = `https://m.youtube.com/results?search_query=${q}`;
-      const ytBtn = document.createElement("button");
-      ytBtn.className = "round-btn";
-      ytBtn.setAttribute("aria-label", "Ver no YouTube");
-      ytBtn.innerHTML = '<img src="icons/youtube.png" alt="YouTube">';
-      ytBtn.addEventListener("click", () => openExternal(urlFinal));
-      actions.append(ytBtn);
-    }
-  }
+  const actions = document.createElement("div");
+  actions.className = "actions";
 
-  // — Fontes “Artigos e Notícias”
-  if (item.fileUrl?.includes("data/artigos_e_noticias/")) {
-    const fontes = {
-      "jusbrasil.txt": { base: "https://www.jusbrasil.com.br/artigos-noticias/busca?q=", icon: "jusbrasil.png" },
-      "conjur.txt":    { base: "https://www.conjur.com.br/pesquisa/?q=",                 icon: "conjur.png"    },
-      "migalhas.txt":  { base: "https://www.migalhas.com.br/busca?q=",                   icon: "migalhas.png"  }
-    };
-    const fileName = item.fileUrl.split("/").pop().toLowerCase();
-    const fonte = fontes[fileName];
-    if (fonte?.base) {
-      const query = encodeURIComponent((item.title || "").trim());
-      const urlFinal = `${fonte.base}${query}`;
-      const btn = document.createElement("button");
-      btn.className = "round-btn";
-      btn.setAttribute("aria-label", "Ver fonte original");
-      btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
-      btn.addEventListener("click", () => window.open(urlFinal, "_blank", "noopener"));
-      actions.append(btn);
-    }
-  }
+  // botões Gemini, Questões, YouTube, fontes e check vão aqui
+  // ⚠️ Cole o trecho que você já tinha, mas agora DENTRO desta função
 
-  /* Check (pilha) */
-  const chk = document.createElement("button");
-  chk.className = "chk";
-  chk.setAttribute("aria-label", "Selecionar bloco");
-  chk.innerHTML = `
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    </svg>
-  `;
-  const sync = () => { chk.dataset.checked = state.selected.has(item.id) ? "true" : "false"; };
-  sync();
-  chk.addEventListener("click", () => {
-    if (state.selected.has(item.id)) {
-      state.selected.delete(item.id);
-      toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
-      if (ctx.context === "selected") card.remove();
-    } else {
-      if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
-      state.selected.set(item.id, { ...item });
-      toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
-    }
-    sync();
-    updateBottom();
-  });
+  // [... cole o bloco que começa em const geminiBtn e termina em return card; ...]
 
-  // não mostrar o "Selecionar" dentro do modal (reader)
-  if (ctx.context !== "reader") {
-    actions.append(chk);
-  }
-
-  left.append(body, actions);
+  left.append(h, meta, body, actions);
   card.append(left);
   return card;
 }
-
 
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
