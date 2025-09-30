@@ -1005,28 +1005,32 @@ const getGeminiPrefixByUrl = (it) => {
 const buildGeminiQueryFromItem = (it) => {
   const prefix = getGeminiPrefixByUrl(it);
   const title  = String(it.title || "").trim();
-  const source = String(it.source || "").trim();
-  const header = `### ${title}${source ? ` — [${source}]` : ""}`;
+
+  // header SEM fonte
+  const header = title ? `### ${title}` : "";
 
   // corpo original
   let body = String(it.text || "");
 
-  // se a primeira linha do body já for o título (com ou sem fonte), removemos
+  // remove a PRIMEIRA linha se ela for o título (com ou sem "— [Fonte]")
   if (title) {
     const firstNL   = body.indexOf("\n");
-    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim().replace(/^#+\s*/, "");
-    const candA = `${title}${source ? ` — [${source}]` : ""}`;
-    const candB = `${title}${source ? ` - [${source}]` : ""}`;
+    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim();
 
-    if (firstLine === candA || firstLine === candB || firstLine === title) {
+    // normaliza: tira "### " do começo e remove " — [QualquerCoisa]" no final
+    const normalizeHeading = (s) =>
+      s.replace(/^#+\s*/, "").replace(/\s*(?:—|-)\s*\[[^\]]+\]\s*$/,"").trim();
+
+    if (normalizeHeading(firstLine) === title) {
       body = (firstNL >= 0 ? body.slice(firstNL + 1) : "").trimStart();
     }
   }
 
-  const raw = `${prefix}\n\n${header}\n\n${body}`;
+  const raw = header ? `${prefix}\n\n${header}\n\n${body}` : `${prefix}\n\n${body}`;
   const MAX = 4800;
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+
 
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
@@ -1095,28 +1099,31 @@ const getQuestoesPrefixByUrl = (it) => {
 const buildQuestoesQueryFromItem = (it) => {
   const prefix = getQuestoesPrefixByUrl(it);
   const title  = String(it.title || "").trim();
-  const source = String(it.source || "").trim();
-  const header = `### ${title}${source ? ` — [${source}]` : ""}`;
+
+  // header SEM fonte
+  const header = title ? `### ${title}` : "";
 
   // corpo original
   let body = String(it.text || "");
 
-  // se a primeira linha do body já for o título (com ou sem fonte), removemos
+  // remove a PRIMEIRA linha se ela for o título (com ou sem "— [Fonte]")
   if (title) {
     const firstNL   = body.indexOf("\n");
-    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim().replace(/^#+\s*/, "");
-    const candA = `${title}${source ? ` — [${source}]` : ""}`;
-    const candB = `${title}${source ? ` - [${source}]` : ""}`;
+    const firstLine = (firstNL >= 0 ? body.slice(0, firstNL) : body).trim();
 
-    if (firstLine === candA || firstLine === candB || firstLine === title) {
+    const normalizeHeading = (s) =>
+      s.replace(/^#+\s*/, "").replace(/\s*(?:—|-)\s*\[[^\]]+\]\s*$/,"").trim();
+
+    if (normalizeHeading(firstLine) === title) {
       body = (firstNL >= 0 ? body.slice(firstNL + 1) : "").trimStart();
     }
   }
 
-  const raw = `${prefix}\n\n${header}\n\n${body}`;
+  const raw = header ? `${prefix}\n\n${header}\n\n${body}` : `${prefix}\n\n${body}`;
   const MAX = 4800;
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+
 
 
 
