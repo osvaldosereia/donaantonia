@@ -1046,32 +1046,32 @@ questoesBtn.innerHTML = '<img src="icons/ai-questoes.png" alt="Questões">';
 const __QUESTOES_PROMPTS = [
   { test: /(?:\/data\/codigos\/|\/CF88\/|codigos|cf88)/i,
     prefix:
-"Gere 10 questões objetivas (múltipla escolha, A–D) sobre o dispositivo abaixo. Misture letra de lei, interpretação, e aplicação prática. Inclua 2 com jurisprudência dominante/súmulas. Traga gabarito comentado curto ao final." },
+"Gere 5 questões dissertativas e 5 questões objetivas variadas sobre o dispositivo abaixo. Misture letra de lei, interpretação, e aplicação prática. Inclua 2 com jurisprudência dominante/súmulas. Traga gabarito comentado curto ao final." },
   { test: /\/data\/leis\/|(^|[\s\-\_])leis?([\s\-\_]|$)/i,
     prefix:
-"Gere 10 questões objetivas (A–D) sobre o trecho de lei. Varie entre: conceitos, requisitos, exceções e entendimentos dos tribunais. Use pegadinhas comuns (terminologia, prazos, condições). Gabarito comentado ao final." },
+"Gere 5 questões dissertativas e 5 questões objetivas variadas sobre o trecho de lei. Varie entre: conceitos, requisitos, exceções e entendimentos dos tribunais. Use pegadinhas comuns (terminologia, prazos, condições). Gabarito comentado ao final." },
   { test: /\/data\/sumulas\/|s[uú]mulas?/i,
     prefix:
-"Gere 10 questões objetivas (A–D) sobre a Súmula. Explore alcance, limites, hipóteses de não aplicação e precedentes-base. Inclua 3 itens comparando enunciados próximos. Gabarito comentado ao final." },
+"Gere 5 questões dissertativas e 5 questões objetivas variadas sobre a Súmula. Explore alcance, limites, hipóteses de não aplicação e precedentes-base. Inclua 3 itens comparando enunciados próximos. Gabarito comentado ao final." },
   { test: /\/data\/enunciados\/|enunciados?/i,
     prefix:
-"Gere 10 questões objetivas (A–D) sobre o enunciado. Foque sentido, contexto, aplicações típicas e controvérsias. Traga 3 itens situacionais (casos concretos). Gabarito comentado ao final." },
+"Gere 5 questões dissertativas e 5 questões objetivas variadas sobre o enunciado. Foque sentido, contexto, aplicações típicas e controvérsias. Traga 3 itens situacionais (casos concretos). Gabarito comentado ao final." },
   { test: /(?:\/data\/temas_repetitivos\/|\/data\/teses\/|temas_repetitivos|teses)/i,
     prefix:
-"Gere 10 questões objetivas (A–D) sobre a tese/tema repetitivo. Aborde tese firmada, requisitos, modulação/efeitos e precedentes-chave. Inclua 2 itens sobre impacto prático. Gabarito comentado ao final." },
+"Gere 5 questões dissertativas e 5 questões objetivas variadas sobre a tese/tema repetitivo. Aborde tese firmada, requisitos, modulação/efeitos e precedentes-chave. Inclua 2 itens sobre impacto prático. Gabarito comentado ao final." },
   { test: /\/data\/julgados\/|julgados?/i,
     prefix:
-"Gere 10 questões objetivas (A–D) sobre o julgado. Trate do problema jurídico, ratio decidendi, tese firmada e fundamentos legais/constitucionais. Inclua 3 itens de caso concreto. Gabarito comentado ao final." },
+"Gere 5 questões dissertativas e 5 questões objetivas variadas sobre o julgado. Trate do problema jurídico, ratio decidendi, tese firmada e fundamentos legais/constitucionais. Inclua 3 itens de caso concreto. Gabarito comentado ao final." },
   { test: /\/data\/artigos_e_noticias\/|artigos?|not[ií]cias?/i,
     prefix:
-"Gere 10 questões objetivas (A–D) a partir do texto jornalístico/artigo. Foque tese central, fatos relevantes, base legal, posições divergentes e implicações práticas. Evite atualidades fora do texto. Gabarito comentado ao final." }
+"Gere 5 questões dissertativas e 5 questões objetivas variadas a partir do texto jornalístico/artigo. Foque tese central, fatos relevantes, base legal, posições divergentes e implicações práticas. Evite atualidades fora do texto. Gabarito comentado ao final." }
 ];
 
 const getQuestoesPrefixByUrl = (it) => {
   const u = getHaystackForMatch(it);
   for (const cfg of __QUESTOES_PROMPTS) if (cfg.test.test(u)) return cfg.prefix;
   // fallback geral
-  return "Gere 10 questões objetivas (A–D) variadas sobre o conteúdo abaixo, com gabarito comentado ao final.";
+  return "Gere 5 questões dissertativas e 5 questões objetivas variadas sobre o conteúdo abaixo, com gabarito comentado ao final.";
 };
 
 const buildQuestoesQueryFromItem = (it) => {
