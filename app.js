@@ -962,6 +962,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
    // — Gemini (AI mode / udm=50) — prompts por categoria
 const geminiBtn = document.createElement("button");
+geminiBtn.type = "button";              // <— ADICIONE ESTA LINHA
 geminiBtn.className = "round-btn";
 geminiBtn.setAttribute("aria-label", "Estudar com Gemini");
 geminiBtn.title = "Estudar";
@@ -996,14 +997,33 @@ const buildGeminiQueryFromItem = (it) => {
   const MAX = 4800; // margem p/ URL
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 };
+function buildPromptQueryFromItem(item, tipo) {
+  if (!item) return "";
+  const title = item.title || "";
+  const body  = item.text || "";
+  let prefix = "";
 
-geminiBtn.addEventListener("click", () => {
+  if (tipo === "gemini") {
+    prefix = getGeminiPrefixByUrl(item.fileUrl);
+  } else if (tipo === "questoes") {
+    prefix = getQuestoesPrefixByUrl(item.fileUrl);
+  } else {
+    prefix = "Explique o conteúdo abaixo com profundidade:";
+  }
+
+  const full = `${prefix}\n\n### ${title}${item.source ? ` — [${item.source}]` : ""}\n\n${body}`;
+  const trimmed = full.replace(/\s+/g, " ").trim();
+  return encodeURIComponent(trimmed.length > 4800 ? trimmed.slice(0, 4800) : trimmed);
+}
+
+eminiBtn.addEventListener("click", () => {
   const q = buildPromptQueryFromItem(item, "gemini");
   openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
 
 // — Questões (novo botão) — prompts por categoria
 const questoesBtn = document.createElement("button");
+questoesBtn.type = "button";            // <— ADICIONE ESTA LINHA
 questoesBtn.className = "round-btn";
 questoesBtn.setAttribute("aria-label", "Gerar questões");
 questoesBtn.title = "Questões";
