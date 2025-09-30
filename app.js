@@ -848,16 +848,24 @@ function truncatedHTML(fullText, tokens) {
 }
 
 /* ===== Prompts únicos (sem categorização) ===== */
-const PROMPT_GEMINI = "Você é professor de Direito e escritor de apostilas universitarias. Tranforme o tema abaixo em uma breve apostila didatica e exemplificativa capaz de qualificar universitários sobre o tema:";
-const PROMPT_QUESTOES = "Voce é um professor de direito, crie 10 questões objetivas (A–D) sobre todo o tema abaixo para estudantes universitario testarem seu conhecimento, traga gabarito comentado curto.";
+const PROMPT_GEMINI = "Você é professor de Direito. Explique didaticamente o conteúdo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudência/súmulas relevantes; (5) exemplos práticos e pegadinhas de prova; (6) observações de prática forense.";
+const PROMPT_QUESTOES = "Gere 10 questões objetivas (A–D) sobre o conteúdo abaixo, variando letra de lei, interpretação e casos práticos; inclua ao menos 2 itens com jurisprudência/súmulas. Ao final, traga gabarito comentado curto.";
 
-/* Builder único para ambos os botões */
+/* Builder único para ambos os botões — OTIMIZADO (corta antes de normalizar) */
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
   const prefix = (tipo === "gemini") ? PROMPT_GEMINI : PROMPT_QUESTOES;
-  const header = `### ${item.title || ""}${item.source ? ` — [${item.source}]` : ""}`;
-  const body   = `${item.text || ""}`;
-  const raw    = `${prefix}\n\n${header}\n\n${body}`.replace(/\s+/g, " ").trim();
+  const title  = (item.title || "");
+  const source = (item.source ? ` — [${item.source}]` : "");
+  const header = `### ${title}${source}`;
+
+  // Corte antecipado para evitar travamento em textos muito grandes
+  const BODY_MAX = 3500; // espaço pro prefix+header sem estourar depois
+  const rawBody  = typeof item.text === "string" ? item.text : "";
+  const bodyCut  = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
+
+  // Agora sim normaliza espaços só no trecho reduzido
+  const raw = `${prefix}\n\n${header}\n\n${bodyCut}`.replace(/\s+/g, " ").trim();
 
   // Limite de segurança para URL (iOS/Google)
   const MAX = 1800;
@@ -980,9 +988,8 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   card.append(left, body, right);
   return card;
- }
 }
-
+// ==== FIM (antes do bloco do YouTube) ====
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
   if (item.fileUrl?.includes("data/videos/")) {
