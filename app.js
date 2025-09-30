@@ -851,23 +851,24 @@ function truncatedHTML(fullText, tokens) {
 const PROMPT_GEMINI = "Voce e professor de Direito. Explique didaticamente o conteudo abaixo com: (1) conceito e finalidade; (2) requisitos/elementos; (3) doutrina dominante; (4) jurisprudencia/sumulas relevantes; (5) exemplos praticos e pegadinhas de prova; (6) observacoes de pratica forense.";
 const PROMPT_QUESTOES = "Gere 10 questoes objetivas (A-D) sobre o conteudo abaixo, variando letra de lei, interpretacao e casos praticos; inclua ao menos 2 itens com jurisprudencia/sumulas. Ao final, traga gabarito comentado curto.";
 
-/* Builder unico para ambos os botoes — otimizado e ASCII-only */
+/* Builder unico para ambos os botoes — corta antes de normalizar e ASCII-only */
 function buildPromptQueryFromItem(item, tipo) {
   if (!item) return "";
   const prefix = (tipo === "gemini") ? PROMPT_GEMINI : PROMPT_QUESTOES;
-  const title  = (item && item.title) ? String(item.title) : "";
-  const source = (item && item.source) ? " — [" + String(item.source) + "]" : "";
-  const header = "### " + title + source;
 
-  // Corte antecipado para evitar travar com textos grandes
+  var title  = (item && item.title)  ? String(item.title)  : "";
+  var source = (item && item.source) ? " - [" + String(item.source) + "]" : "";
+  var header = "### " + title + source;
+
+  // Corte antecipado do corpo para evitar travamento
   var rawBody = (item && typeof item.text === "string") ? item.text : "";
-  var BODY_MAX = 3500;
+  var BODY_MAX = 3500; // deixa espaco para prefix+header sem estourar
   var bodyCut = rawBody.length > BODY_MAX ? rawBody.slice(0, BODY_MAX) : rawBody;
 
   // Normaliza espacos apenas no trecho reduzido
   var raw = (prefix + "\n\n" + header + "\n\n" + bodyCut).replace(/\s+/g, " ").trim();
 
-  // Limite de seguranca de URL (iOS/Google)
+  // Limite de seguranca para URL (iOS/Google)
   var MAX = 1800;
   var clipped = raw.length > MAX ? raw.slice(0, MAX) : raw;
 
@@ -887,13 +888,13 @@ function openExternal(url) {
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
   card.className = "card";
-  card.dataset.id = item.id;
-  if (item.source) card.setAttribute("data-source", item.source);
+  if (item && item.id != null) card.dataset.id = item.id;
+  if (item && item.source) card.setAttribute("data-source", item.source);
 
   const left = document.createElement("div");
 
   // chip do codigo (nao no modal leitor)
-  if (item.source && ctx.context !== "reader") {
+  if (item && item.source && ctx.context !== "reader") {
     const pill = document.createElement("a");
     pill.href = "#";
     pill.className = "pill";
@@ -907,17 +908,19 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   const body = document.createElement("div");
   body.className = "body";
+  const plainText = (item && typeof item.text === "string") ? item.text : "";
+
   if (ctx.context === "reader") {
     body.innerHTML = highlight(
-      item.text,
-      (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens
+      plainText,
+      (window.searchTokens && window.searchTokens.length) ? window.searchTokens : (Array.isArray(tokens) ? tokens : [])
     );
   } else {
     body.classList.add("is-collapsed");
     const tokensForHL = (window.searchTokens && window.searchTokens.length)
       ? window.searchTokens
       : (Array.isArray(tokens) ? tokens : []);
-    body.innerHTML = truncatedHTML(item.text || "", tokensForHL);
+    body.innerHTML = truncatedHTML(plainText, tokensForHL);
   }
   body.style.cursor = "pointer";
   body.addEventListener("click", function() { openReader(item); });
@@ -926,7 +929,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   actions.className = "actions";
 
   /* TOGGLE (seta) alinhado a esquerda */
-  if ((item.text || "").length > CARD_CHAR_LIMIT) {
+  if (plainText.length > (typeof CARD_CHAR_LIMIT === "number" ? CARD_CHAR_LIMIT : 400)) {
     const toggle = document.createElement("button");
     toggle.className = "toggle toggle-left";
     toggle.textContent = "▼";
@@ -940,16 +943,16 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
         const tokensForHL2 = (window.searchTokens && window.searchTokens.length)
           ? window.searchTokens
           : (Array.isArray(tokens) ? tokens : []);
-        body.innerHTML = truncatedHTML(item.text || "", tokensForHL2);
+        body.innerHTML = truncatedHTML(plainText, tokensForHL2);
       } else {
         body.classList.remove("is-collapsed");
         body.innerHTML = highlight(
-          item.text,
-          (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens
+          plainText,
+          (window.searchTokens && window.searchTokens.length) ? window.searchTokens : (Array.isArray(tokens) ? tokens : [])
         );
         applyHighlights(
           body,
-          (window.searchTokens && window.searchTokens.length) ? window.searchTokens : tokens
+          (window.searchTokens && window.searchTokens.length) ? window.searchTokens : (Array.isArray(tokens) ? tokens : [])
         );
       }
     });
@@ -990,6 +993,8 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   card.append(left, body, right);
   return card;
 }
+// ==== FIM (antes do bloco do YouTube) ====
+
 
   // — YouTube (apenas data/videos/, com mapa de canais e fix iOS)
   if (item.fileUrl?.includes("data/videos/")) {
