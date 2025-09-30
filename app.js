@@ -13,7 +13,7 @@
 //   [BLK08] SEARCH (predicados, preview, expand, doSearch)
 //   [BLK09] HIGHLIGHT (applyHighlights e afins)
 //   [BLK10] RENDER • Cards
-//   [BLK11] RENDER • Buckets & Results
+//   [BLK11]  • Buckets & Results
 //   [BLK12] UI • Seleção & Hub & Toasts
 //   [BLK13] MODALS • Leitor
 //   [BLK14] INIT • Autoexec, binds, ?q=, histórico
@@ -732,7 +732,7 @@ async function doSearch() {
     let tokens = tokenize(normQuery);
     if (!tokens.length && (!window.__phrases || window.__phrases.length === 0)) {
       skel.remove();
-      window.renderBlock(termRaw, [], []); // usa override bucketizado
+      window.Block(termRaw, [], []); // usa override bucketizado
       toast("Use palavras com 3+ letras ou números (1–4 dígitos).");
       return;
     }
@@ -934,6 +934,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const actions = document.createElement("div");
   actions.className = "actions";
 
+  // Toggle (expand/collapse)
   if ((item?.text || "").length > CARD_CHAR_LIMIT) {
     const toggle = document.createElement("button");
     toggle.className = "toggle toggle-left";
@@ -944,18 +945,18 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
       toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
       toggle.textContent = expanded ? "▼" : "▲";
       if (expanded) {
-        body.classList.add("is-collapsed");
-        body.innerHTML = truncatedHTML(item?.text || "", tokensForHL);
-      } else {
         body.classList.remove("is-collapsed");
         body.innerHTML = highlight(item?.text || "", tokensForHL);
         applyHighlights(body, tokensForHL);
+      } else {
+        body.classList.add("is-collapsed");
+        body.innerHTML = truncatedHTML(item?.text || "", tokensForHL);
       }
     });
     actions.append(toggle);
   }
 
-  // Gemini
+  // Botões de IA
   const geminiBtn = document.createElement("button");
   geminiBtn.type = "button";
   geminiBtn.className = "round-btn";
@@ -967,7 +968,6 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     openExternal(`https://www.google.com/search?q=${q}&udm=50`);
   });
 
-  // Questões
   const questoesBtn = document.createElement("button");
   questoesBtn.type = "button";
   questoesBtn.className = "round-btn";
@@ -981,7 +981,7 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
 
   actions.append(geminiBtn, questoesBtn);
 
-  // Selecionar (não mostra no modal)
+  // Botão “Selecionar” (só fora do modal)
   if (ctx.context !== "reader") {
     const chk = document.createElement("button");
     chk.className = "chk";
@@ -998,7 +998,10 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
         toast(`Removido (${state.selected.size}/${MAX_SEL}).`);
         if (ctx.context === "selected") card.remove();
       } else {
-        if (state.selected.size >= MAX_SEL) { toast(`⚠️ Limite de ${MAX_SEL} blocos.`); return; }
+        if (state.selected.size >= MAX_SEL) {
+          toast(`⚠️ Limite de ${MAX_SEL} blocos.`);
+          return;
+        }
         state.selected.set(item.id, { ...item });
         toast(`Adicionado (${state.selected.size}/${MAX_SEL}).`);
       }
@@ -1008,10 +1011,52 @@ function renderCard(item, tokens = [], ctx = { context: "results" }) {
     actions.append(chk);
   }
 
+  // YouTube (vídeos)
+  if (item.fileUrl?.includes("data/videos/")) {
+    const CHANNEL_NAMES = {
+      "supremo.txt": "tv supremo",
+      "trilhante.txt": "trilhante",
+      // adicione outros se quiser...
+    };
+    const fileName = item.fileUrl.split("/").pop().toLowerCase();
+    const canalNome = CHANNEL_NAMES[fileName];
+    if (canalNome) {
+      const q = encodeURIComponent(`${canalNome} ${item.title || ""}`.trim());
+      const ytBtn = document.createElement("button");
+      ytBtn.className = "round-btn";
+      ytBtn.setAttribute("aria-label", "Ver no YouTube");
+      ytBtn.innerHTML = '<img src="icons/youtube.png" alt="YouTube">';
+      ytBtn.addEventListener("click", () => openExternal(`https://m.youtube.com/results?search_query=${q}`));
+      actions.append(ytBtn);
+    }
+  }
+
+  // Fontes externas (notícias)
+  if (item.fileUrl?.includes("data/artigos_e_noticias/")) {
+    const fontes = {
+      "jusbrasil.txt": { base: "https://www.jusbrasil.com.br/artigos-noticias/busca?q=", icon: "jusbrasil.png" },
+      "conjur.txt":    { base: "https://www.conjur.com.br/pesquisa/?q=",                 icon: "conjur.png"    },
+      "migalhas.txt":  { base: "https://www.migalhas.com.br/busca?q=",                   icon: "migalhas.png"  }
+    };
+    const fileName = item.fileUrl.split("/").pop().toLowerCase();
+    const fonte = fontes[fileName];
+    if (fonte) {
+      const query = encodeURIComponent((item.title || "").trim());
+      const urlFinal = `${fonte.base}${query}`;
+      const btn = document.createElement("button");
+      btn.className = "round-btn";
+      btn.setAttribute("aria-label", "Ver fonte original");
+      btn.innerHTML = `<img src="icons/${fonte.icon}" alt="Fonte">`;
+      btn.addEventListener("click", () => openExternal(urlFinal));
+      actions.append(btn);
+    }
+  }
+
   left.append(body, actions);
   card.append(left);
   return card;
 }
+
 
 
 
