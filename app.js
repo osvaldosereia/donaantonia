@@ -1373,11 +1373,6 @@ actions.append(geminiBtn, questoesBtn);
     actions.append(chk);
   }
 
-  // não mostrar o "Selecionar" dentro do modal (reader)
-if (ctx.context !== "reader") {
-  actions.append(chk);
-}
-
 // ⬇️ NOVO: adiciona observações (se existirem)
 const obs = renderObservationsForCard(item);
 if (obs) left.appendChild(obs);
