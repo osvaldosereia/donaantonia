@@ -777,32 +777,55 @@ allOptions.sort((a, b) => {
   return a.url.localeCompare(b.url);
 });
 
-    // estrutura "lazy": guardamos só o primeiro match e um loader para o resto
-    const lazyGroups = []; // [{ label, url, items:[first], partial:true }]
+    // estrutura "lazy" aprimorada: unifica arquivos com mesmo label
+const labelGroups = new Map(); // label => [urls]
+for (const { url, label } of allOptions) {
+  if (!labelGroups.has(label)) labelGroups.set(label, []);
+  labelGroups.get(label).push(url);
+}
 
-   for (const { url, label } of allOptions) {
-  try {
-    const predicate = (it) => {
-      const bag = it._bag || norm(stripThousandDots(it.text));
-      const okWords = hasAllWordTokens(bag, wordTokens);
-      const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
-      return okWords && okNums;
-    };
+const lazyGroups = [];
 
-    const first = await firstMatchInFile(url, label, predicate);
-    if (first) {
-      lazyGroups.push({ label, url, items: [first], partial: true });
+for (const [label, urls] of labelGroups.entries()) {
+  const foundItems = [];
 
-      //#region [BLK11] RENDER • Buckets & Results
-      window.renderLazyResults(termRaw, lazyGroups, tokens);
-      //#endregion
+  for (const url of urls) {
+    try {
+      const predicate = (it) => {
+        const bag = it._bag || norm(stripThousandDots(it.text));
+        const okWords = hasAllWordTokens(bag, wordTokens);
+        const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
+        return okWords && okNums;
+      };
+
+      const first = await firstMatchInFile(url, label, predicate);
+      if (first) {
+        // força a origem correta por arquivo
+        first.fileUrl = url;
+        foundItems.push(first);
+      }
+
+      if (signal.aborted) return;
+    } catch (e) {
+      toast(`⚠️ Não carreguei: ${label}`);
+      console.warn("Falha ao buscar:", e);
     }
-    if (signal.aborted) return;
-  } catch (e) {
-    toast(`⚠️ Não carreguei: ${label}`);
-    console.warn("Falha ao buscar:", e);
+  }
+
+  if (foundItems.length) {
+    lazyGroups.push({
+      label,
+      url: urls[0],   // usa primeira URL como referência
+      urls,           // armazena todas as URLs do grupo (para expansão futura)
+      items: [foundItems[0]],
+      partial: true
+    });
+
+    // renderiza sempre que encontra uma prévia nova
+    window.renderLazyResults(termRaw, lazyGroups, tokens);
   }
 }
+
 
 
     // fim da busca inicial (só previews)
