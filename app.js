@@ -1237,6 +1237,49 @@ actions.append(geminiBtn, questoesBtn);
   return card;
 }
 
+left.append(body, actions);
+card.append(left);
+
+// ⭐ FAVORITOS — ESTRELA
+const favBtn = document.createElement("button");
+favBtn.className = "fav-star";
+favBtn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 17.3l6.18 3.7-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l5.46 4.73L6.82 21z"/></svg>`;
+favBtn.setAttribute("aria-label", "Favoritar bloco");
+
+// estado salvo
+const favKey = "meujus_favoritos";
+const favs = new Set(JSON.parse(localStorage.getItem(favKey) || "[]"));
+if (favs.has(item.id)) favBtn.classList.add("active");
+
+// toggle
+favBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (favs.has(item.id)) {
+    favs.delete(item.id);
+    favBtn.classList.remove("active");
+    toast("Removido dos favoritos.");
+  } else {
+    favs.add(item.id);
+    favBtn.classList.add("active");
+    toast("Adicionado aos favoritos.");
+  }
+  localStorage.setItem(favKey, JSON.stringify([...favs]));
+});
+
+// posição no topo do card
+favBtn.style.position = "absolute";
+favBtn.style.top = "8px";
+favBtn.style.right = "8px";
+favBtn.style.background = "transparent";
+favBtn.style.border = "none";
+favBtn.style.cursor = "pointer";
+favBtn.style.color = "#ccc";
+favBtn.classList.add("star-btn");
+card.style.position = "relative";
+
+card.appendChild(favBtn); // ⬅️ A estrela é inserida aqui
+
+return card;
 
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
