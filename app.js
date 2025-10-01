@@ -45,28 +45,43 @@ window.__selectionText = null;
 window.__selectionCardId = null;
 
 document.addEventListener("selectionchange", () => {
-  const sel = window.getSelection();
-  if (!sel || sel.isCollapsed) {
-    window.__selectionText = null;
-    window.__selectionCardId = null;
-    return;
-  }
-  const range = sel.getRangeAt(0);
-  const container = range.commonAncestorContainer;
-  const card = container && (container.nodeType === 1
-    ? container.closest('.card')
-    : container.parentElement && container.parentElement.closest
-      ? container.parentElement.closest('.card')
-      : null);
+  try {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) {
+      window.__selectionText = null;
+      window.__selectionCardId = null;
+      return;
+    }
 
-  if (card) {
-    window.__selectionText = sel.toString().trim();
-    window.__selectionCardId = card.dataset.id || null;
-  } else {
+    const text = sel.toString().trim();
+    if (!text || text.length < 2) {
+      window.__selectionText = null;
+      window.__selectionCardId = null;
+      return;
+    }
+
+    const range = sel.getRangeAt(0);
+    const container = range.commonAncestorContainer;
+    let el = (container.nodeType === 1) ? container : container.parentElement;
+
+    while (el && !el.classList?.contains("card")) {
+      el = el.parentElement;
+    }
+
+    if (el && el.dataset?.id) {
+      window.__selectionText = text;
+      window.__selectionCardId = el.dataset.id;
+    } else {
+      window.__selectionText = null;
+      window.__selectionCardId = null;
+    }
+  } catch (e) {
+    console.warn("Erro na seleção de texto:", e);
     window.__selectionText = null;
     window.__selectionCardId = null;
   }
 });
+
 // Seletores e elementos
 const $ = (s) => document.querySelector(s);
 
