@@ -1010,40 +1010,60 @@ function buildGeminiQueryFromItem(it) {
 function renderObservationsForCard(item) {
   if (!window._extraObservations || !item || !item.text) return null;
 
-  const cardText = norm(item.text); // texto do card normalizado
-const matchedTermsSet = new Set();
+  const cardText = norm(item.text);
+  const matchedTermsSet = new Set();
 
-for (const bloco of window._extraObservations) {
-  const linhas = bloco.split("\n").map(l => l.trim()).filter(Boolean);
-  if (linhas.length === 0) continue;
+  for (const bloco of window._extraObservations) {
+    const linhas = bloco.split("\n").map(l => l.trim()).filter(Boolean);
+    if (linhas.length === 0) continue;
 
-  const allFound = linhas.every(palavra => {
-    const rx = new RegExp(`\\b${escapeRegExp(norm(palavra))}\\b`, "i");
-    return rx.test(cardText);
-  });
+    const allFound = linhas.every(palavra => {
+      const rx = new RegExp(`\\b${escapeRegExp(norm(palavra))}\\b`, "i");
+      return rx.test(cardText);
+    });
 
-  if (allFound) {
-    for (const termo of linhas) {
-      matchedTermsSet.add(termo);
+    if (allFound) {
+      for (const termo of linhas) {
+        matchedTermsSet.add(termo);
+      }
     }
   }
-}
 
-const matchedTerms = Array.from(matchedTermsSet);
-
-
+  const matchedTerms = Array.from(matchedTermsSet);
   if (matchedTerms.length === 0) return null;
 
-  const wrapper = document.createElement("small");
-  wrapper.className = "card-notes";
-  wrapper.style.display = "block";
-  wrapper.style.fontSize = "12px";
-  wrapper.style.marginTop = "4px";
-  wrapper.style.opacity = "0.9";
+  // Botão flutuante discreto 🧠
+  const wrapper = document.createElement("div");
+  wrapper.className = "obs-float-wrap";
+  wrapper.style.position = "absolute";
+  wrapper.style.top = "6px";
+  wrapper.style.right = "6px";
+  wrapper.style.zIndex = "10";
 
-  const label = document.createElement("span");
-  label.textContent = "🧠 ";
-  wrapper.appendChild(label);
+  const btn = document.createElement("button");
+  btn.className = "obs-btn";
+  btn.setAttribute("aria-label", "Ver termos relacionados");
+  btn.innerText = "🧠";
+  btn.style.background = "none";
+  btn.style.border = "none";
+  btn.style.cursor = "pointer";
+  btn.style.fontSize = "16px";
+  btn.style.opacity = "0.8";
+
+  const popup = document.createElement("div");
+  popup.className = "obs-popup";
+  popup.style.position = "absolute";
+  popup.style.top = "26px";
+  popup.style.right = "0";
+  popup.style.padding = "8px 10px";
+  popup.style.background = "#f4f4f4";
+  popup.style.border = "1px solid #ccc";
+  popup.style.borderRadius = "8px";
+  popup.style.boxShadow = "0 2px 6px rgba(0,0,0,0.15)";
+  popup.style.fontSize = "12px";
+  popup.style.maxWidth = "240px";
+  popup.style.lineHeight = "1.4";
+  popup.style.display = "none";
 
   matchedTerms.forEach((termo, idx) => {
     const link = document.createElement("a");
@@ -1051,17 +1071,33 @@ const matchedTerms = Array.from(matchedTermsSet);
     link.href = `https://www.google.com/search?q=${encodeURIComponent("Explique o conceito jurídico de " + termo)}&udm=50`;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
+    link.style.display = "inline-block";
     link.style.marginRight = "4px";
+    link.style.marginBottom = "2px";
     link.style.textDecoration = "underline dotted";
-    link.style.color = "inherit";
-    wrapper.appendChild(link);
+    link.style.color = "#333";
+    popup.appendChild(link);
     if (idx < matchedTerms.length - 1) {
-      wrapper.appendChild(document.createTextNode(" | "));
+      popup.appendChild(document.createTextNode(" | "));
     }
   });
 
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.style.display = popup.style.display === "none" ? "block" : "none";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
+      popup.style.display = "none";
+    }
+  });
+
+  wrapper.appendChild(btn);
+  wrapper.appendChild(popup);
   return wrapper;
 }
+
 
 //#region [BLK10] RENDER • Cards
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
