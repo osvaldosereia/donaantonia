@@ -1,30 +1,20 @@
-animus necandi
+administração pública
 -----
-teoria do domínio do fato
+agravação pelo resultado
 -----
-ônus da prova
------
-jurisprudência defensiva
------
-homicídio
------
-dolo
------
-culpa
------
-direito adquirido
------
-expectativa de direito
------
-capacidade civil
------
-absolutamente incapaz
+anterioridade da lei
 -----
 arrependimento eficaz
 -----
 arrependimento posterior
 -----
+caso fortuito
+-----
 coação irresistível
+-----
+cominação legal
+-----
+convenções, tratados e regras de direito internacional
 -----
 crime
 -----
@@ -36,19 +26,55 @@ crime doloso
 -----
 crime impossível
 -----
+culpa
+-----
+cômputo do prazo
+-----
+descriminantes putativas
+-----
+desenvolvimento mental incompleto ou retardado
+-----
 desistência voluntária
+-----
+doença mental
+-----
+dolo
+-----
+domicílio
+-----
+eficácia de sentença estrangeira
+-----
+embarcações e aeronaves brasileiras
 -----
 embriaguez
 -----
+emoção
+-----
+erro sobre a ilicitude do fato
+-----
+erro sobre a pessoa
+-----
+erro sobre elementos do tipo
+-----
 estado de necessidade
+-----
+excesso culposo
+-----
+excesso doloso
 -----
 exclusão de ilicitude
 -----
+execução e os efeitos penais
+-----
 extraterritorialidade
 -----
-homologada
+força maior
 -----
-ilicitude
+frações não computáveis
+-----
+fé pública
+-----
+genocídio
 -----
 inimputabilidade
 -----
@@ -58,15 +84,45 @@ legítima defesa
 -----
 lei excepcional
 -----
+lei posterior
+-----
+lei temporária
+-----
+lugar do crime
+-----
+menores de dezoito anos
+-----
 obediência hierárquica
 -----
-omissão
+omissão penalmente relevante
+-----
+paixão
 -----
 pena
 -----
+pena cumprida no estrangeiro
+-----
+pena de multa
+-----
+pena de tentativa
+-----
+penas privativas de liberdade
+-----
+penas restritivas de direitos
+-----
+porto ou mar territorial
+-----
 relação de causalidade
 -----
+reparação do dano
+-----
+requisição do Ministro da Justiça
+-----
 sentença condenatória
+-----
+superveniência de causa
+-----
+tempo do crime
 -----
 tentativa
 -----
@@ -74,3 +130,552 @@ territorialidade
 -----
 transitada em julgado
 -----
+tratado de extradição
+-----
+ajuste
+-----
+antecedentes
+-----
+atividade autorizada
+-----
+atividade compatível
+-----
+autodisciplina
+-----
+autoridade
+-----
+auxílio
+-----
+casa de albergado
+-----
+circunstância relevante
+-----
+circunstâncias agravantes
+-----
+circunstâncias atenuantes
+-----
+circunstâncias incomunicáveis
+-----
+colônia agrícola
+-----
+concurso de infrações
+-----
+concurso de pessoas
+-----
+concurso formal
+-----
+concurso material
+-----
+condições de caráter pessoal
+-----
+conduta social
+-----
+confissão espontânea
+-----
+conversão da pena
+-----
+crime continuado
+-----
+crime contra a administração pública
+-----
+critérios do art. 59
+-----
+culpa
+-----
+culpabilidade
+-----
+curso supletivo
+-----
+desconto em salário
+-----
+descumprimento injustificado
+-----
+desígnios autônomos
+-----
+detenção
+-----
+determinação
+-----
+dias-multa
+-----
+direitos do preso
+-----
+doença mental
+-----
+dívida ativa da Fazenda Pública
+-----
+entidades assistenciais
+-----
+erro na execução
+-----
+exame criminológico
+-----
+execução material do crime
+-----
+fixação da pena
+-----
+frequência a determinados lugares
+-----
+hospital de custódia
+-----
+inscrição em concurso público
+-----
+instigação
+-----
+integridade física e moral
+-----
+interdição temporária de direitos
+-----
+internação
+-----
+isolamento durante repouso noturno
+-----
+limitação de fim de semana
+-----
+limite das penas
+-----
+motivo fútil ou torpe
+-----
+motivos e circunstâncias
+-----
+multidão em tumulto
+-----
+parcelamento da multa
+-----
+participação de menor importância
+-----
+pena cominada
+-----
+pena de multa
+-----
+pena privativa de liberdade
+-----
+pena restritiva de direitos
+-----
+pena-base
+-----
+perda de bens e valores
+-----
+personalidade do agente
+-----
+preponderância de circunstâncias
+-----
+prescrição
+-----
+prestação de serviço à comunidade
+-----
+prestação de tarefas gratuitas
+-----
+prestação pecuniária
+-----
+previdência social
+-----
+prisão administrativa
+-----
+prisão provisória
+-----
+produto do ilícito
+-----
+progressão de regime
+-----
+promessa de recompensa
+-----
+quantia fixada na sentença
+-----
+reclusão
+-----
+regime aberto
+-----
+regime especial
+-----
+regime fechado
+-----
+regime inicial de cumprimento da pena
+-----
+regime semi-aberto
+-----
+reincidência
+-----
+reparação do dano
+-----
+resultado diverso do pretendido
+-----
+resultado mais grave previsível
+-----
+salário mínimo
+-----
+senso de responsabilidade
+-----
+suspensão de habilitação
+-----
+trabalho externo
+-----
+trabalho no período diurno
+-----
+transitado em julgado
+-----
+unificação das penas
+-----
+valor social ou moral
+-----
+violência ou grave ameaça à pessoa
+-----
+índices de correção monetária
+-----
+abuso de poder
+-----
+antecedentes criminais
+-----
+automáticos os efeitos
+-----
+ação penal de iniciativa privada
+-----
+ação penal pública
+-----
+benefício da suspensão
+-----
+bens no exterior
+-----
+bens transferidos a terceiros
+-----
+bom comportamento durante a execução
+-----
+bom desempenho no trabalho
+-----
+características hospitalares
+-----
+circunstâncias favoráveis do art. 59
+-----
+comparecimento obrigatório a juízo
+-----
+condenado não reincidente
+-----
+condenação anterior à pena de multa
+-----
+condenação por crime anterior
+-----
+condições impostas pelo juiz
+-----
+condições pessoais favoráveis
+-----
+conduta social
+-----
+crime complexo
+-----
+crime contra a Administração Pública
+-----
+crime contra a mulher
+-----
+crime doloso
+-----
+crime hediondo
+-----
+crime ou contravenção durante o período
+-----
+culpabilidade
+-----
+cumprimento parcial da pena
+-----
+decadência do direito de queixa
+-----
+declaração na sentença
+-----
+descumprimento de condições
+-----
+descumprimento de obrigações da sentença
+-----
+desinternação condicional
+-----
+diferença entre patrimônio e rendimento lícito
+-----
+direitos do internado
+-----
+efeitos da condenação
+-----
+efeitos do perdão
+-----
+execução da pena privativa de liberdade
+-----
+extinção da pena
+-----
+extinção da punibilidade
+-----
+fato indicativo de periculosidade
+-----
+frustração da execução da pena de multa
+-----
+incapacidade para o exercício do poder familiar
+-----
+inimputável
+-----
+instrumentos do crime
+-----
+internação em hospital de custódia
+-----
+irretratabilidade da representação
+-----
+limitação de fim de semana
+-----
+livramento condicional
+-----
+maior de 70 anos
+-----
+medidas de segurança
+-----
+motivos e circunstâncias do crime
+-----
+novação da dívida
+-----
+não cometimento de falta grave
+-----
+não desconto de tempo solto
+-----
+obrigação de indenizar o dano
+-----
+outras condições fixadas na sentença
+-----
+pena não superior a 2 anos
+-----
+pena não superior a 4 anos
+-----
+penas restritivas de direitos
+-----
+perda de cargo ou mandato eletivo
+-----
+perda em favor da União
+-----
+perdão do ofendido
+-----
+perdão tácito
+-----
+personalidade do agente
+-----
+perícia médica anual
+-----
+prazo da suspensão
+-----
+prestação de serviços à comunidade
+-----
+presunção de não reincidência
+-----
+produto ou proveito do crime
+-----
+proibição de ausentar-se da comarca
+-----
+proibição de frequentar determinados lugares
+-----
+prorrogação do período de prova
+-----
+queixa do ofendido
+-----
+razões de saúde
+-----
+reabilitação criminal
+-----
+recusa do querelado
+-----
+reincidente específico
+-----
+renúncia da vítima
+-----
+renúncia tácita ou expressa
+-----
+reparação do dano
+-----
+representação do ofendido
+-----
+requerimento do Ministério Público
+-----
+requisição do Ministro da Justiça
+-----
+ressarcimento do dano
+-----
+revogação da reabilitação
+-----
+revogação da suspensão
+-----
+revogação do livramento
+-----
+semi-imputável
+-----
+sigilo dos registros
+-----
+soma de penas
+-----
+subsistência mediante trabalho honesto
+-----
+substituição da pena
+-----
+suspensão condicional da pena
+-----
+tempo indeterminado
+-----
+terrorismo
+-----
+tortura
+-----
+tratamento ambulatorial
+-----
+tráfico de pessoas
+-----
+tráfico ilícito de entorpecentes
+-----
+trânsito em julgado da sentença condenatória
+-----
+vedação à nomeação ou diplomação
+-----
+extinção da punibilidade
+-----
+morte do agente
+-----
+anistia, graça ou indulto
+-----
+retroatividade de lei que não mais considera o fato como criminoso
+-----
+prescrição, decadência ou perempção
+-----
+renúncia do direito de queixa
+-----
+perdão aceito
+-----
+crimes de ação privada
+-----
+retratação do agente
+-----
+perdão judicial
+-----
+crime pressuposto
+-----
+elemento constitutivo
+-----
+circunstância agravante
+-----
+crimes conexos
+-----
+pena resultante da conexão
+-----
+transitar em julgado
+-----
+pena privativa de liberdade cominada
+-----
+penas restritivas de direito
+-----
+pena aplicada
+-----
+reincidente
+-----
+denúncia ou queixa
+-----
+crime consumado
+-----
+tentativa
+-----
+crime permanente
+-----
+bigamia
+-----
+falsificação ou alteração de assentamento do registro civil
+-----
+crimes contra a dignidade sexual
+-----
+violência contra a criança e o adolescente
+-----
+instituição de ensino
+-----
+evadir-se
+-----
+livramento condicional
+-----
+pena de multa
+-----
+pena alternativa ou cumulativamente cominada
+-----
+menor de 21 anos
+-----
+maior de 70 anos
+-----
+violência sexual contra a mulher
+-----
+embargos de declaração
+-----
+recursos aos Tribunais Superiores
+-----
+acordo de não persecução penal
+-----
+prisão por outro motivo
+-----
+pronúncia
+-----
+decisão confirmatória da pronúncia
+-----
+acórdão condenatório recorrível
+-----
+início ou continuação do cumprimento da pena
+-----
+reincidência
+-----
+crimes em concurso
+-----
+perdão judicial e efeitos de reincidência
+-----
+homicídio simples
+-----
+relevante valor social ou moral
+-----
+violenta emoção
+-----
+injusta provocação da vítima
+-----
+homicídio qualificado
+-----
+motivo torpe
+-----
+motivo fútil
+-----
+meio insidioso ou cruel
+-----
+perigo comum
+-----
+recurso que dificulte ou torne impossível a defesa
+-----
+execução, ocultação, impunidade ou vantagem de outro crime
+-----
+feminicídio
+-----
+autoridade ou agente dos arts. 142 e 144 da Constituição Federal
+-----
+sistema prisional
+-----
+Força Nacional de Segurança Pública
+-----
+membro do Poder Judiciário, do Ministério Público, da Defensoria Pública, da Advocacia Pública
+-----
+arma de fogo de uso restrito ou proibido
+-----
+homicídio contra menor de 14 anos
+-----
+instituição de educação básica pública ou privada
+-----
+milícia privada
+-----
+grupo de extermínio
+-----
+estado puerperal
+-----
+aborto provocado
+-----
+consentimento da gestante
+-----
+gestante não é maior de 14 anos
+-----
+alienada ou débil mental
+-----
+fraude, grave ameaça ou violência
+-----
+lesão corporal de natureza grave
+-----
+aborto necessário
+-----
+aborto em caso de estupro
+-----
+consentimento da gestante ou representante legal
