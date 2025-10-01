@@ -1,681 +1,495 @@
+
+Anterioridade da Lei
+-----
+crime
+-----
+lei anterior
+-----
+cominação legal
+-----
+Lei penal no tempo
+-----
+sentença condenatória
+-----
+trânsito em julgado
+-----
+Lei excepcional
+-----
+Lei temporária
+-----
+vigência
+-----
+Tempo do crime
+-----
+ação
+-----
+omissão
+-----
+resultado
+-----
+Territorialidade
+-----
+convenções
+-----
+tratados
+-----
+direito internacional
+-----
+território nacional
+-----
+embarcações
+-----
+aeronaves
+-----
+fé pública
+-----
 administração pública
 -----
-agravação pelo resultado
+genocídio
 -----
-anterioridade da lei
+extradição
+-----
+requisição do Ministro da Justiça
+-----
+pena
+-----
+sentença estrangeira
+-----
+homologação
+-----
+extradição
+-----
+denúncia
+-----
+queixa
+-----
+consumado
+-----
+tentativa
+-----
+desistência voluntária
 -----
 arrependimento eficaz
 -----
 arrependimento posterior
 -----
-caso fortuito
------
-coação irresistível
------
-cominação legal
------
-convenções, tratados e regras de direito internacional
------
-crime
------
-crime consumado
------
-crime culposo
+crime impossível
 -----
 crime doloso
 -----
-crime impossível
+crime culposo
 -----
-culpa
+imprudência
 -----
-cômputo do prazo
+negligência
 -----
-descriminantes putativas
+imperícia
 -----
-desenvolvimento mental incompleto ou retardado
+ilicitude
 -----
-desistência voluntária
------
-doença mental
------
-dolo
------
-domicílio
------
-eficácia de sentença estrangeira
------
-embarcações e aeronaves brasileiras
------
-embriaguez
------
-emoção
------
-erro sobre a ilicitude do fato
------
-erro sobre a pessoa
------
-erro sobre elementos do tipo
------
-estado de necessidade
------
-excesso culposo
------
-excesso doloso
------
-exclusão de ilicitude
------
-execução e os efeitos penais
------
-extraterritorialidade
------
-força maior
------
-frações não computáveis
------
-fé pública
------
-genocídio
------
-inimputabilidade
------
-legislação especial
------
-legítima defesa
------
-lei excepcional
------
-lei posterior
------
-lei temporária
------
-lugar do crime
------
-menores de dezoito anos
+coação irresistível
 -----
 obediência hierárquica
 -----
-omissão penalmente relevante
+estado de necessidade
+-----
+legítima defesa
+-----
+estrito cumprimento de dever legal
+-----
+exercício regular de direito
+-----
+excesso doloso
+-----
+excesso culposo
+-----
+inimputabilidade penal
+-----
+doença mental
+-----
+desenvolvimento mental incompleto
+-----
+retardado
+-----
+menores de dezoito anos
+-----
+emoção
 -----
 paixão
 -----
-pena
+embriaguez
 -----
-pena cumprida no estrangeiro
+força maior
 -----
-pena de multa
+concurso de pessoas
 -----
-pena de tentativa
+culpabilidade
+-----
+circunstâncias incomunicáveis
+-----
+ajuste
+-----
+determinação
+-----
+instigação
+-----
+auxílio
 -----
 penas privativas de liberdade
 -----
 penas restritivas de direitos
 -----
-porto ou mar territorial
------
-relação de causalidade
------
-reparação do dano
------
-requisição do Ministro da Justiça
------
-sentença condenatória
------
-superveniência de causa
------
-tempo do crime
------
-tentativa
------
-territorialidade
------
-transitada em julgado
------
-tratado de extradição
------
-ajuste
------
-antecedentes
------
-atividade autorizada
------
-atividade compatível
------
-autodisciplina
------
-autoridade
------
-auxílio
------
-casa de albergado
------
-circunstância relevante
------
-circunstâncias agravantes
------
-circunstâncias atenuantes
------
-circunstâncias incomunicáveis
------
-colônia agrícola
------
-concurso de infrações
------
-concurso de pessoas
------
-concurso formal
------
-concurso material
------
-condições de caráter pessoal
------
-conduta social
------
-confissão espontânea
------
-conversão da pena
------
-crime continuado
------
-crime contra a administração pública
------
-critérios do art. 59
------
-culpa
------
-culpabilidade
------
-curso supletivo
------
-desconto em salário
------
-descumprimento injustificado
------
-desígnios autônomos
------
-detenção
------
-determinação
------
-dias-multa
------
-direitos do preso
------
-doença mental
------
-dívida ativa da Fazenda Pública
------
-entidades assistenciais
------
-erro na execução
------
-exame criminológico
------
-execução material do crime
------
-fixação da pena
------
-frequência a determinados lugares
------
-hospital de custódia
------
-inscrição em concurso público
------
-instigação
------
-integridade física e moral
------
-interdição temporária de direitos
------
-internação
------
-isolamento durante repouso noturno
------
-limitação de fim de semana
------
-limite das penas
------
-motivo fútil ou torpe
------
-motivos e circunstâncias
------
-multidão em tumulto
------
-parcelamento da multa
------
-participação de menor importância
------
-pena cominada
------
-pena de multa
------
-pena privativa de liberdade
------
-pena restritiva de direitos
------
-pena-base
------
-perda de bens e valores
------
-personalidade do agente
------
-preponderância de circunstâncias
------
-prescrição
------
-prestação de serviço à comunidade
------
-prestação de tarefas gratuitas
------
-prestação pecuniária
------
-previdência social
------
-prisão administrativa
------
-prisão provisória
------
-produto do ilícito
------
-progressão de regime
------
-promessa de recompensa
------
-quantia fixada na sentença
+multa
 -----
 reclusão
 -----
-regime aberto
------
-regime especial
+detenção
 -----
 regime fechado
 -----
-regime inicial de cumprimento da pena
------
 regime semi-aberto
 -----
-reincidência
+regime aberto
 -----
-reparação do dano
+progressão de regime
 -----
-resultado diverso do pretendido
+exame criminológico
 -----
-resultado mais grave previsível
+individualização da execução
 -----
-salário mínimo
------
-senso de responsabilidade
------
-suspensão de habilitação
+isolamento
 -----
 trabalho externo
 -----
-trabalho no período diurno
+autodisciplina
 -----
-transitado em julgado
+senso de responsabilidade
 -----
-unificação das penas
+regime especial
 -----
-valor social ou moral
+integridade física
 -----
-violência ou grave ameaça à pessoa
+integridade moral
 -----
-índices de correção monetária
+remuneração do preso
 -----
-abuso de poder
+Previdência Social
 -----
-antecedentes criminais
+hospital de custódia
 -----
-automáticos os efeitos
+detração
 -----
-ação penal de iniciativa privada
+prestação pecuniária
 -----
-ação penal pública
------
-benefício da suspensão
------
-bens no exterior
------
-bens transferidos a terceiros
------
-bom comportamento durante a execução
------
-bom desempenho no trabalho
------
-características hospitalares
------
-circunstâncias favoráveis do art. 59
------
-comparecimento obrigatório a juízo
------
-condenado não reincidente
------
-condenação anterior à pena de multa
------
-condenação por crime anterior
------
-condições impostas pelo juiz
------
-condições pessoais favoráveis
------
-conduta social
------
-crime complexo
------
-crime contra a Administração Pública
------
-crime contra a mulher
------
-crime doloso
------
-crime hediondo
------
-crime ou contravenção durante o período
------
-culpabilidade
------
-cumprimento parcial da pena
------
-decadência do direito de queixa
------
-declaração na sentença
------
-descumprimento de condições
------
-descumprimento de obrigações da sentença
------
-desinternação condicional
------
-diferença entre patrimônio e rendimento lícito
------
-direitos do internado
------
-efeitos da condenação
------
-efeitos do perdão
------
-execução da pena privativa de liberdade
------
-extinção da pena
------
-extinção da punibilidade
------
-fato indicativo de periculosidade
------
-frustração da execução da pena de multa
------
-incapacidade para o exercício do poder familiar
------
-inimputável
------
-instrumentos do crime
------
-internação em hospital de custódia
------
-irretratabilidade da representação
+perda de bens e valores
 -----
 limitação de fim de semana
 -----
-livramento condicional
------
-maior de 70 anos
------
-medidas de segurança
------
-motivos e circunstâncias do crime
------
-novação da dívida
------
-não cometimento de falta grave
------
-não desconto de tempo solto
------
-obrigação de indenizar o dano
------
-outras condições fixadas na sentença
------
-pena não superior a 2 anos
------
-pena não superior a 4 anos
------
-penas restritivas de direitos
------
-perda de cargo ou mandato eletivo
------
-perda em favor da União
------
-perdão do ofendido
------
-perdão tácito
------
-personalidade do agente
------
-perícia médica anual
------
-prazo da suspensão
------
 prestação de serviços à comunidade
 -----
-presunção de não reincidência
------
-produto ou proveito do crime
------
-proibição de ausentar-se da comarca
------
-proibição de frequentar determinados lugares
------
-prorrogação do período de prova
------
-queixa do ofendido
------
-razões de saúde
------
-reabilitação criminal
------
-recusa do querelado
------
-reincidente específico
------
-renúncia da vítima
------
-renúncia tácita ou expressa
------
-reparação do dano
------
-representação do ofendido
------
-requerimento do Ministério Público
------
-requisição do Ministro da Justiça
------
-ressarcimento do dano
------
-revogação da reabilitação
------
-revogação da suspensão
------
-revogação do livramento
------
-semi-imputável
------
-sigilo dos registros
------
-soma de penas
------
-subsistência mediante trabalho honesto
------
-substituição da pena
------
-suspensão condicional da pena
------
-tempo indeterminado
------
-terrorismo
------
-tortura
------
-tratamento ambulatorial
------
-tráfico de pessoas
------
-tráfico ilícito de entorpecentes
------
-trânsito em julgado da sentença condenatória
------
-vedação à nomeação ou diplomação
------
-extinção da punibilidade
------
-morte do agente
------
-anistia, graça ou indulto
------
-retroatividade de lei que não mais considera o fato como criminoso
------
-prescrição, decadência ou perempção
------
-renúncia do direito de queixa
------
-perdão aceito
------
-crimes de ação privada
------
-retratação do agente
------
-perdão judicial
------
-crime pressuposto
------
-elemento constitutivo
------
-circunstância agravante
------
-crimes conexos
------
-pena resultante da conexão
------
-transitar em julgado
------
-pena privativa de liberdade cominada
------
-penas restritivas de direito
------
-pena aplicada
------
-reincidente
------
-denúncia ou queixa
------
-crime consumado
------
-tentativa
------
-crime permanente
------
-bigamia
------
-falsificação ou alteração de assentamento do registro civil
------
-crimes contra a dignidade sexual
------
-violência contra a criança e o adolescente
------
-instituição de ensino
------
-evadir-se
------
-livramento condicional
------
-pena de multa
------
-pena alternativa ou cumulativamente cominada
------
-menor de 21 anos
------
-maior de 70 anos
------
-violência sexual contra a mulher
------
-embargos de declaração
------
-recursos aos Tribunais Superiores
------
-acordo de não persecução penal
------
-prisão por outro motivo
------
-pronúncia
------
-decisão confirmatória da pronúncia
------
-acórdão condenatório recorrível
------
-início ou continuação do cumprimento da pena
+interdição temporária de direitos
 -----
 reincidência
 -----
-crimes em concurso
+condenação
 -----
-perdão judicial e efeitos de reincidência
+execução penal
 -----
-homicídio simples
+reparação do dano
 -----
-relevante valor social ou moral
+devolução do produto do ilícito
 -----
-violenta emoção
+suspensão de autorização
 -----
-injusta provocação da vítima
+habilitação para dirigir
 -----
-homicídio qualificado
+mandato eletivo
 -----
-motivo torpe
+proibição de inscrever-se em concurso público
+-----
+
+pena de multa
+-----
+fundo penitenciário
+-----
+dias-multa
+-----
+salário mínimo
+-----
+correção monetária
+-----
+trânsito em julgado
+-----
+parcelas mensais
+-----
+suspensão condicional da pena
+-----
+execução penal
+-----
+dívida de valor
+-----
+dívida ativa da Fazenda Pública
+-----
+causas interruptivas da prescrição
+-----
+causas suspensivas da prescrição
+-----
+doença mental
+-----
+cominação das penas
+-----
+penas privativas de liberdade
+-----
+penas restritivas de direitos
+-----
+penas de interdição
+-----
+crime culposo
+-----
+culpabilidade
+-----
+antecedentes
+-----
+conduta social
+-----
+personalidade do agente
+-----
+circunstâncias do crime
+-----
+consequências do crime
+-----
+comportamento da vítima
+-----
+substituição da pena
+-----
+circunstâncias agravantes
+-----
+reincidência
 -----
 motivo fútil
 -----
-meio insidioso ou cruel
+motivo torpe
+-----
+ocultação
+-----
+impunidade
+-----
+emboscada
+-----
+dissimulação
+-----
+meio insidioso
+-----
+meio cruel
 -----
 perigo comum
 -----
-recurso que dificulte ou torne impossível a defesa
+abuso de autoridade
 -----
-execução, ocultação, impunidade ou vantagem de outro crime
+relações domésticas
 -----
-feminicídio
+violência contra a mulher
 -----
-autoridade ou agente dos arts. 142 e 144 da Constituição Federal
+abuso de poder
 -----
-sistema prisional
+crime contra criança
 -----
-Força Nacional de Segurança Pública
+crime contra idoso
 -----
-membro do Poder Judiciário, do Ministério Público, da Defensoria Pública, da Advocacia Pública
+coabitação
 -----
-arma de fogo de uso restrito ou proibido
+calamidade pública
 -----
-homicídio contra menor de 14 anos
+embriaguez preordenada
 -----
-instituição de educação básica pública ou privada
+instituição de ensino
 -----
-milícia privada
+concurso de pessoas
 -----
-grupo de extermínio
+coagir
 -----
-estado puerperal
+induzir
 -----
-aborto provocado
+instigar
 -----
-consentimento da gestante
+promessa de recompensa
 -----
-gestante não é maior de 14 anos
+condenação anterior
 -----
-alienada ou débil mental
+crimes militares próprios
 -----
-fraude, grave ameaça ou violência
+crimes políticos
 -----
-lesão corporal de natureza grave
+circunstâncias atenuantes
 -----
-aborto necessário
+valor social
 -----
-aborto em caso de estupro
+valor moral
 -----
-consentimento da gestante ou representante legal
+coação resistível
+-----
+ordem de autoridade superior
+-----
+violenta emoção
+-----
+confissão espontânea
+-----
+multidão em tumulto
+-----
+circunstância relevante
+-----
+circunstâncias preponderantes
+-----
+pena-base
+-----
+causa de aumento
+-----
+causa de diminuição
+-----
+concurso material
+-----
+penas cumulativas
+-----
+concurso formal
+-----
+desígnios autônomos
+-----
+crime continuado
+-----
+pena unificada
+-----
+erro na execução
+-----
+resultado diverso do pretendido
+-----
+limite máximo de cumprimento da pena
+-----
+concurso de infrações
+-----
+
+suspensão condicional da pena
+-----
+pena privativa de liberdade
+-----
+reincidente em crime doloso
+-----
+culpabilidade
+-----
+antecedentes
+-----
+conduta social
+-----
+personalidade do agente
+-----
+substituição da pena
+-----
+pena de multa
+-----
+observação judicial
+-----
+prestação de serviços à comunidade
+-----
+limitação de fim de semana
+-----
+reparação do dano
+-----
+proibição de frequentar determinados lugares
+-----
+proibição de ausentar-se da comarca
+-----
+comparecimento obrigatório a juízo
+-----
+penas restritivas de direitos
+-----
+revogação obrigatória
+-----
+sentença irrecorrível
+-----
+revogação facultativa
+-----
+prorrogação do período de prova
+-----
+extinção da pena
+-----
+livramento condicional
+-----
+bons antecedentes
+-----
+bom comportamento
+-----
+falta grave
+-----
+trabalho honesto
+-----
+subsistência
+-----
+crime hediondo
+-----
+tráfico ilícito de entorpecentes
+-----
+tráfico de pessoas
+-----
+terrorismo
+-----
+reincidente específico
+-----
+concessão de livramento
+-----
+condenação anterior
+-----
+revogação do livramento
+-----
+efeitos da condenação
+-----
+indenização do dano
+-----
+perda de instrumentos do crime
+-----
+perda do produto do crime
+-----
+medidas assecuratórias
+-----
+infrações penais com pena máxima superior a 6 anos
+-----
+patrimônio do condenado
+-----
+titularidade de bens
+-----
+contraprestação irrisória
+-----
+procedência lícita do patrimônio
+-----
+perda requerida pelo Ministério Público
+-----
+sentença condenatória
+-----
+organizações criminosas
+-----
+milícias
+-----
+perda de cargo público
+-----
+função pública
+-----
+mandato eletivo
+-----
+abuso de poder
+-----
+violação de dever para com a Administração Pública
+-----
+poder familiar
+-----
+tutela
+-----
+curatela
+-----
+crime contra a mulher por razões da condição do sexo feminino
+-----
+inabilitação para dirigir veículo
+-----
+trânsito em julgado
+-----
+nomeação para cargo público
+-----
+diplomação em mandato eletivo
+-----
