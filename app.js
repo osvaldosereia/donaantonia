@@ -1407,7 +1407,7 @@ Object.assign(window, {
   detectQueryMode,
   renderCard,
   renderObservationsForCard, // ✅ adicionamos aqui
-  toast,
+  toast
 });
 
 /* ---------- Modal incremental: config + helpers ---------- */
