@@ -638,3 +638,188 @@ acórdão condenatório
 -----
 perdão judicial
 -----
+
+homicídio simples
+-----
+reclusão
+-----
+motivo de relevante valor social
+-----
+motivo de relevante valor moral
+-----
+violenta emoção
+-----
+injusta provocação da vítima
+-----
+homicídio qualificado
+-----
+paga ou promessa de recompensa
+-----
+motivo torpe
+-----
+motivo fútil
+-----
+meio insidioso
+-----
+meio cruel
+-----
+perigo comum
+-----
+traição
+-----
+emboscada
+-----
+dissimulação
+-----
+ocultação do crime
+-----
+impunidade
+-----
+vantagem de outro crime
+-----
+feminicídio
+-----
+autoridade ou agente dos arts. 142 e 144 da Constituição Federal
+-----
+sistema prisional
+-----
+Força Nacional de Segurança Pública
+-----
+Poder Judiciário
+-----
+Ministério Público
+-----
+Defensoria Pública
+-----
+Advocacia Pública
+-----
+oficial de justiça
+-----
+arma de fogo de uso restrito ou proibido
+-----
+homicídio contra menor de 14 anos
+-----
+instituição de ensino
+-----
+ascendente
+-----
+padrasto
+-----
+madrasta
+-----
+tutor
+-----
+curador
+-----
+preceptor
+-----
+empregador da vítima
+-----
+milícia privada
+-----
+grupo de extermínio
+-----
+violência doméstica e familiar
+-----
+menosprezo à condição de mulher
+-----
+discriminação à condição de mulher
+-----
+gestação
+-----
+descumprimento de medidas protetivas de urgência
+-----
+coautoria
+-----
+induzimento ao suicídio
+-----
+instigação ao suicídio
+-----
+automutilação
+-----
+auxílio material
+-----
+lesão corporal grave
+-----
+lesão corporal gravíssima
+-----
+crime praticado por meio de rede social
+-----
+grupo virtual
+-----
+comunidade virtual
+-----
+líder de grupo
+-----
+administrador de rede virtual
+-----
+infanticídio
+-----
+estado puerperal
+-----
+aborto provocado pela gestante
+-----
+aborto provocado por terceiro
+-----
+consentimento da gestante
+-----
+fraude
+-----
+grave ameaça
+-----
+violência
+-----
+aborto necessário
+-----
+gravidez resultante de estupro
+-----
+representante legal da gestante incapaz
+-----
+lesão corporal
+-----
+integridade corporal
+-----
+saúde de outrem
+-----
+lesão corporal de natureza grave
+-----
+incapacidade para ocupações habituais
+-----
+perigo de vida
+-----
+debilidade permanente
+-----
+aceleração de parto
+-----
+enfermidade incurável
+-----
+perda de membro
+-----
+inutilização de função
+-----
+deformidade permanente
+-----
+lesão corporal seguida de morte
+-----
+diminuição de pena
+-----
+lesões recíprocas
+-----
+lesão corporal culposa
+-----
+violência doméstica
+-----
+relações de coabitação
+-----
+relações de hospitalidade
+-----
+lesão contra pessoa com deficiência
+-----
+lesão contra autoridade pública
+-----
+lesão em instituição de ensino
+-----
+condição limitante
+-----
+lesão contra a mulher por razões da condição do sexo feminino
+-----
