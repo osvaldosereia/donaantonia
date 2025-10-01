@@ -1381,7 +1381,7 @@ left.appendChild(body);
 left.appendChild(actions);
 card.appendChild(left);
 return card;
-
+}
 
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
