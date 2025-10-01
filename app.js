@@ -552,7 +552,20 @@ function toRawGitHub(url){
     opt.value = url;
     state.urlToLabel.set(label, url);
   });
+
+  // Carrega termos extras (observações/glossário)
+  fetch("data/observacoes.txt")
+    .then(r => r.ok ? r.text() : "")
+    .then(txt => {
+      if (!txt) return;
+      window._extraObservations = txt
+        .split(/^\s*-{3,}\s*$/m)
+        .map(s => s.trim())
+        .filter(Boolean);
+    })
+    .catch(() => {});
 })();
+
 
 /* ---------- fetch/parse ---------- */
 // Split incremental: varre linha a linha e emite blocos quando encontra "-----"
@@ -994,6 +1007,40 @@ function buildGeminiQueryFromItem(it) {
   return encodeURIComponent(raw.length > MAX ? raw.slice(0, MAX) : raw);
 }
 
+function renderObservationsForCard(item) {
+  if (!window.OBSERVACOES || !item || !OBSERVACOES[item.id]) return null;
+
+  const termos = OBSERVACOES[item.id];
+  if (!Array.isArray(termos) || termos.length === 0) return null;
+
+  const wrapper = document.createElement("small");
+  wrapper.className = "card-notes";
+  wrapper.style.display = "block";
+  wrapper.style.fontSize = "11px";
+  wrapper.style.marginTop = "4px";
+  wrapper.style.opacity = "0.7";
+
+  const label = document.createElement("span");
+  label.textContent = "Observações: ";
+  wrapper.appendChild(label);
+
+  termos.forEach((termo, idx) => {
+    const link = document.createElement("a");
+    link.textContent = termo;
+    link.href = `https://www.google.com/search?q=${encodeURIComponent("Explique o conceito jurídico de " + termo)}&udm=50`;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.style.marginRight = "4px";
+    link.style.textDecoration = "underline dotted";
+    link.style.color = "inherit";
+    wrapper.appendChild(link);
+    if (idx < termos.length - 1) wrapper.appendChild(document.createTextNode(", "));
+  });
+
+  return wrapper;
+}
+
+
 //#region [BLK10] RENDER • Cards
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
   const card = document.createElement("article");
@@ -1326,9 +1373,52 @@ actions.append(geminiBtn, questoesBtn);
     actions.append(chk);
   }
 
-  left.append(body, actions);
-  card.append(left);
-  return card;
+  // não mostrar o "Selecionar" dentro do modal (reader)
+if (ctx.context !== "reader") {
+  actions.append(chk);
+}
+
+left.append(body);
+
+left.append(body);
+
+// ⬇️ NOVO: adiciona observações (se existirem)
+const obs = renderObservationsForCard(item);
+if (obs) left.appendChild(obs);
+
+left.appendChild(actions);
+card.append(left);
+return card;
+
+
+// [NOVO] Renderiza observações extras (glossário de termos)
+function renderObservationsForCard(item) {
+  if (!window._extraObservations || !Array.isArray(window._extraObservations)) return null;
+  if (!item?.text) return null;
+
+  const text = norm(item.text);
+  const matches = [];
+
+  for (const termo of window._extraObservations) {
+    const t = termo.trim();
+    if (!t || t.length < 2) continue;
+    const rx = new RegExp(`\\b${escapeRegExp(norm(t))}\\b`, "i");
+    if (rx.test(text)) matches.push(t);
+  }
+
+  if (!matches.length) return null;
+
+  const el = document.createElement("div");
+  el.className = "observations";
+  el.style.cssText = "font-size: 11px; margin-top: 4px; color: #555; line-height: 1.4;";
+
+  el.innerHTML = `<strong>Observações:</strong> ` + matches.map(t => {
+    const prompt = `Explique o seguinte termo jurídico para um estudante de Direito: "${t}"`;
+    const url = `https://www.google.com/search?q=${encodeURIComponent(prompt)}&udm=50`;
+    return `<a href="${url}" target="_blank" rel="noopener" style="color:#2c5aad;">${t}</a>`;
+  }).join(", ") + ".";
+
+  return el;
 }
 
 
@@ -1343,8 +1433,10 @@ Object.assign(window, {
   KW_RX,
   detectQueryMode,
   renderCard,
+  renderObservationsForCard, // ✅ adicionamos aqui
   toast,
 });
+
 /* ---------- Modal incremental: config + helpers ---------- */
 // Pré-carga inicial ao abrir o modal
 const READER_PRELOAD_PREV = 20;  // carregar imediatamente 20 anteriores
