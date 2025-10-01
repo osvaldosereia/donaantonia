@@ -1385,15 +1385,17 @@ actions.append(geminiBtn, questoesBtn);
     actions.append(chk);
   }
 
-// ⬇️ NOVO: adiciona observações (se existirem)
+// ⬇️ NOVO: adiciona observações (se existirem) — AGORA APÓS O BODY
+left.appendChild(body);
+
 const obs = renderObservationsForCard(item);
 if (obs) left.appendChild(obs);
 
-left.appendChild(body);
 left.appendChild(actions);
 card.appendChild(left);
 return card;
 }
+
 
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
