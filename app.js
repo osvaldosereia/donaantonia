@@ -1389,7 +1389,16 @@ actions.append(geminiBtn, questoesBtn);
 left.appendChild(body);
 
 const obs = renderObservationsForCard(item);
-if (obs) left.appendChild(obs);
+if (obs) {
+  const divider = document.createElement("hr");
+  divider.style.border = "none";
+  divider.style.borderTop = "1px solid #ddd";
+  divider.style.margin = "8px 0 4px";
+  divider.style.opacity = "0.4";
+  left.appendChild(divider);
+  left.appendChild(obs);
+}
+
 
 left.appendChild(actions);
 card.appendChild(left);
