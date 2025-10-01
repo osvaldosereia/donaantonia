@@ -1631,7 +1631,7 @@ function collapseAllGroupsAndScrollTop() {
 }
 
 /* === Histórico de buscas === */
-const MAX_HISTORY = 20;
+const MAX_HISTORY = 200;
 const HISTORY_KEY = "searchHistory";
 function saveToHistory(query) {
   const trimmed = query.trim();
