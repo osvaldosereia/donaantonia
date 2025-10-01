@@ -1031,7 +1031,7 @@ function renderObservationsForCard(item) {
   wrapper.style.opacity = "0.7";
 
   const label = document.createElement("span");
-  label.textContent = "Observações: ";
+  label.textContent = "⤑: ";
   wrapper.appendChild(label);
 
   matchedTerms.forEach((termo, idx) => {
@@ -1044,7 +1044,7 @@ function renderObservationsForCard(item) {
     link.style.textDecoration = "underline dotted";
     link.style.color = "inherit";
     wrapper.appendChild(link);
-    if (idx < matchedTerms.length - 1) wrapper.appendChild(document.createTextNode(", "));
+    if (idx < matchedTerms.length - 1) wrapper.appendChild(document.createTextNode(" | "));
   });
 
   return wrapper;
