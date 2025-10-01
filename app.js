@@ -553,18 +553,18 @@ function toRawGitHub(url){
     state.urlToLabel.set(label, url);
   });
 
-  // Carrega termos extras (observações/glossário)
-  fetch("data/observacoes.txt")
-    .then(r => r.ok ? r.text() : "")
-    .then(txt => {
-      if (!txt) return;
-      window._extraObservations = txt
-        .split(/^\s*-{3,}\s*$/m)
-        .map(s => s.trim())
-        .filter(Boolean);
-    })
-    .catch(() => {});
-})();
+// Carrega observações por palavras-chave (sem ID)
+fetch("data/observacoes.txt")
+  .then(r => r.ok ? r.text() : "")
+  .then(txt => {
+    if (!txt) return;
+    window._extraObservations = txt
+      .split(/^\s*-{3,}\s*$/m)
+      .map(s => s.trim())
+      .filter(Boolean);
+  })
+  .catch(() => {});
+
 
 
 /* ---------- fetch/parse ---------- */
@@ -1008,10 +1008,20 @@ function buildGeminiQueryFromItem(it) {
 }
 
 function renderObservationsForCard(item) {
-  if (!window.OBSERVACOES || !item || !OBSERVACOES[item.id]) return null;
+  if (!window._extraObservations || !item || !item.text) return null;
 
-  const termos = OBSERVACOES[item.id];
-  if (!Array.isArray(termos) || termos.length === 0) return null;
+  const cardText = norm(item.text); // texto do card normalizado
+  const matchedTerms = [];
+
+  for (const bloco of window._extraObservations) {
+    const linhas = bloco.split("\n").map(l => l.trim()).filter(Boolean);
+    if (linhas.length === 0) continue;
+
+    const allFound = linhas.every(palavra => cardText.includes(norm(palavra)));
+    if (allFound) matchedTerms.push(...linhas);
+  }
+
+  if (matchedTerms.length === 0) return null;
 
   const wrapper = document.createElement("small");
   wrapper.className = "card-notes";
@@ -1024,7 +1034,7 @@ function renderObservationsForCard(item) {
   label.textContent = "Observações: ";
   wrapper.appendChild(label);
 
-  termos.forEach((termo, idx) => {
+  matchedTerms.forEach((termo, idx) => {
     const link = document.createElement("a");
     link.textContent = termo;
     link.href = `https://www.google.com/search?q=${encodeURIComponent("Explique o conceito jurídico de " + termo)}&udm=50`;
@@ -1034,11 +1044,13 @@ function renderObservationsForCard(item) {
     link.style.textDecoration = "underline dotted";
     link.style.color = "inherit";
     wrapper.appendChild(link);
-    if (idx < termos.length - 1) wrapper.appendChild(document.createTextNode(", "));
+    if (idx < matchedTerms.length - 1) wrapper.appendChild(document.createTextNode(", "));
   });
 
   return wrapper;
 }
+
+
 
 
 //#region [BLK10] RENDER • Cards
@@ -1396,7 +1408,7 @@ Object.assign(window, {
   renderCard,
   renderObservationsForCard, // ✅ adicionamos aqui
   toast,
-+});
+});
 
 /* ---------- Modal incremental: config + helpers ---------- */
 // Pré-carga inicial ao abrir o modal
