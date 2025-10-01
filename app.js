@@ -2122,11 +2122,13 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
 
         // rank (leve) e render incremental para não travar
         const TOP_N = 20;
-        candidates.sort((a,b) => {
-          const sa = scoreItem(a, words, nums, termNorm, qMode);
-          const sb = scoreItem(b, words, nums, termNorm, qMode);
-          return sb - sa;
-        });
+        // Ordem natural de leitura (respeita ordem do .txt)
+candidates.sort((a, b) => {
+  const ia = parseInt((a.htmlId || "").replace("art-", ""));
+  const ib = parseInt((b.htmlId || "").replace("art-", ""));
+  return ia - ib;
+});
+
 
         loadedAll = true;
         body.innerHTML = "";
@@ -2245,11 +2247,12 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
       const termNorm = window.norm(window.stripThousandDots(term));
       const qMode = window.detectQueryMode(termNorm);
 
-      const ranked = [...g.items].sort((a,b)=>{
-        const sa = scoreItem(a, words, nums, termNorm, qMode);
-        const sb = scoreItem(b, words, nums, termNorm, qMode);
-        return sb - sa;
-      });
+      const ranked = [...g.items].sort((a, b) => {
+  const ia = parseInt((a.htmlId || "").replace("art-", ""));
+  const ib = parseInt((b.htmlId || "").replace("art-", ""));
+  return ia - ib;
+});
+
 
       ranked.forEach((it)=> body.appendChild(window.renderCard(it, tokens)));
       sec.appendChild(body);
