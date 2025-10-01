@@ -40,7 +40,7 @@ if ("serviceWorker" in navigator) {
 //#region [BLK03] TEXT • Helpers/Normalize/Tokenize
 /* ---------- helpers ---------- */
 //#region [BLK01] DOM REFS
-// [SELEÇÃO PARCIAL] — captura texto selecionado e card de origem (desktop e mobile)
+// [SELEÇÃO PARCIAL] - captura texto selecionado e card de origem (desktop e mobile)
 window.__selectionText = null;
 window.__selectionCardId = null;
 
@@ -67,8 +67,9 @@ document.addEventListener("selectionchange", () => {
     window.__selectionCardId = null;
   }
 });
-// • Seletores e elementos
+// Seletores e elementos
 const $ = (s) => document.querySelector(s);
+
 
 const els = {
   /* topo/busca */
