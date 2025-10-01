@@ -1607,16 +1607,22 @@ document.getElementById("resetBtn")?.addEventListener("click", () => {
   collapseAllGroupsAndScrollTop();
 });
 
-// Executa a busca automaticamente se vier com ?q=...
+// Executa a busca automaticamente se a URL tiver ?q=...
 document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-  if (q) {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
     const input = document.getElementById("searchInput");
-    if (input) input.value = q;
-    doSearch(); // já executa a busca
+
+    if (q && input) {
+      input.value = q.trim();
+      doSearch(); // dispara a busca
+    }
+  } catch (e) {
+    console.warn("Erro ao processar parâmetros da URL:", e);
   }
 });
+
 
 /* ---------- Reset: fecha grupos e sobe ---------- */
 function collapseAllGroupsAndScrollTop() {
