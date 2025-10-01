@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -14,170 +14,158 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- OVERRIDE: ajustes mobile para topbar e bottombar -->
-<!-- OVERRIDE: ajustes para topbar e bottombar -->
-<style>
-  /* === BOTÃO DO TOPO (desktop e mobile) === */
-  .topbar-btn {
-    background: none;
-    border: none;
-    padding: 4px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .topbar-btn img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* === LOGOS (desktop e mobile) === */
-  .logo-desktop { display: inline; }
-  .logo-mobile  { display: none; }
-
-  /* === MENU DE HISTÓRICO === */
-  .history-dropdown {
-    position: absolute;
-    top: 50px;
-    right: 12px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    list-style: none;
-    padding: 6px 0;
-    margin: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 9999;
-    min-width: 220px;
-  }
-  .history-dropdown li {
-    padding: 8px 12px;
-    cursor: pointer;
-    white-space: nowrap;
-    font-size: 0.92rem;
-    line-height: 1.4;
-  }
-  .history-dropdown li:hover {
-    background: #f2f2f2;
-  }
-
-  @media (max-width: 480px) {
-    /* BARRA INFERIOR */
-    .bottombar .bar-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding-left: max(12px, env(safe-area-inset-left));
-      padding-right: max(12px, env(safe-area-inset-right));
-    }
-    .bottombar .bar-inner .bar-title {
-      order: -1;
-      flex: 0 0 100%;
-      margin: 6px 0 2px;
-      text-align: center;
-      font-size: 0.9rem;
-      line-height: 1.25;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .bottombar .bar-group,
-    #viewBtn {
-      flex: 0 0 auto;
-    }
-
-    /* TOPBAR MOBILE */
-    .topbar .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 8px 12px;
-    }
-    .topbar .search {
-      flex: 1;
-      margin-left: 4px;
-    }
-
-    /* Troca de logos no mobile */
-    .logo-desktop { display: none !important; }
-    .logo-mobile {
-      display: inline !important;
+  <!-- Ajustes para topbar e bottombar mobile -->
+  <style>
+    .topbar-btn {
+      background: none;
+      border: none;
+      padding: 4px;
       width: 32px;
       height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  }
+    .topbar-btn img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      display: block;
+    }
 
-/* Botão flutuante inferior centralizado */
-.floating-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid #ccc;
-  font-size: 22px;
-  color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  cursor: pointer;
-  z-index: 999;
-}
-.floating-btn:hover {
-  background: #f2f2f2;
-}
+    .logo-desktop { display: inline; }
+    .logo-mobile  { display: none; }
 
-</style>
+    .history-dropdown {
+      position: absolute;
+      top: 50px;
+      right: 12px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      list-style: none;
+      padding: 6px 0;
+      margin: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 9999;
+      min-width: 220px;
+    }
+    .history-dropdown li {
+      padding: 8px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+    .history-dropdown li:hover {
+      background: #f2f2f2;
+    }
 
+    @media (max-width: 480px) {
+      .bottombar .bar-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+      }
+      .bottombar .bar-inner .bar-title {
+        order: -1;
+        flex: 0 0 100%;
+        margin: 6px 0 2px;
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 1.25;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .bottombar .bar-group,
+      #viewBtn {
+        flex: 0 0 auto;
+      }
 
+      .topbar .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 8px 12px;
+      }
+      .topbar .search {
+        flex: 1;
+        margin-left: 4px;
+      }
 
+      .logo-desktop { display: none !important; }
+      .logo-mobile {
+        display: inline !important;
+        width: 32px;
+        height: 32px;
+      }
+    }
 
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 22px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      z-index: 999;
+    }
+    .floating-btn:hover {
+      background: #f2f2f2;
+    }
+  </style>
 </head>
+
 <body>
-  <!-- TOP BAR -->
+  <!-- Topbar -->
   <header class="topbar" role="banner">
-  <div class="wrap">
-    <!-- Logo -->
-<!-- Logo padrão (desktop) -->
-<img src="icons/logo.png" alt="direito.love" class="brand logo-desktop" id="brandBtn">
+    <div class="wrap">
+      <!-- Logo -->
+      <img src="icons/logo.png" alt="direito.love" class="brand logo-desktop" id="brandBtn">
+      <img src="icons/mini-logo.png" alt="direito.love" class="brand logo-mobile" id="brandBtnMobile">
 
-<!-- Logo mini (mobile) -->
-<img src="icons/mini-logo.png" alt="direito.love" class="brand logo-mobile" id="brandBtnMobile">
+      <!-- Campo de busca -->
+      <form class="search" id="searchForm" role="search" aria-label="Buscar">
+        <input id="searchInput" type="search" placeholder="Buscar no texto…" autocomplete="off" aria-label="Buscar no texto" />
+        <div class="spinner" id="searchSpinner" aria-hidden="true"></div>
+      </form>
 
-    <!-- Campo de busca -->
-    <form class="search" id="searchForm" role="search" aria-label="Buscar">
-      <input id="searchInput" type="search" placeholder="Buscar no texto…" autocomplete="off" aria-label="Buscar no texto" />
-      <div class="spinner" id="searchSpinner" aria-hidden="true"></div>
-    </form>
-   <!-- Botão com histórico -->
-<div class="topbar-history" style="position: relative">
-  <button class="topbar-btn" id="historyBtn" aria-label="Histórico de buscas">
-    <img src="icons/menu.png" alt="Histórico">
-  </button>
-  <ul id="historyDropdown" class="history-dropdown"></ul>
-</div>
+      <!-- Botão histórico -->
+      <div class="topbar-history" style="position: relative">
+        <button class="topbar-btn" id="historyBtn" aria-label="Histórico de buscas">
+          <img src="icons/menu.png" alt="Histórico">
+        </button>
+        <ul id="historyDropdown" class="history-dropdown"></ul>
+      </div>
 
-<!-- Botão com favoritos -->
-<div class="topbar-extra" style="position: relative; margin-left: 8px">
-  <button class="topbar-btn" id="favsBtn" aria-label="Favoritos">
-    <img src="icons/star.png" alt="Favoritos">
-  </button>
-  <ul id="favsDropdown" class="history-dropdown"></ul>
-</div>
+      <!-- Botão favoritos -->
+      <div class="topbar-extra" style="position: relative; margin-left: 8px">
+        <button class="topbar-btn" id="favsBtn" aria-label="Favoritos">
+          <img src="icons/star.png" alt="Favoritos">
+        </button>
+        <ul id="favsDropdown" class="history-dropdown"></ul>
+      </div>
+    </div>
+  </header>
 
-</div> <!-- Fecha .topbar-inner -->
-</header>
+  <!-- Continua com o <select>, <main>, modais, script, etc. como já está no seu código -->
+
 
 
  <!-- Catálogo (oculto) -->
