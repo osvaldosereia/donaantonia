@@ -1017,12 +1017,13 @@ function renderObservationsForCard(item) {
     const linhas = bloco.split("\n").map(l => l.trim()).filter(Boolean);
     if (linhas.length === 0) continue;
 
-   const allFound = linhas.every(palavra => {
-  const rx = new RegExp(`\\b${escapeRegExp(norm(palavra))}\\b`, "i");
-  return rx.test(cardText);
-});
-if (allFound) matchedTerms.push(...linhas);
+    const allFound = linhas.every(palavra => {
+      const rx = new RegExp(`\\b${escapeRegExp(norm(palavra))}\\b`, "i");
+      return rx.test(cardText);
+    });
 
+    if (allFound) matchedTerms.push(...linhas);
+  } // ✅ fechamento correto do `for`
 
   if (matchedTerms.length === 0) return null;
 
@@ -1047,14 +1048,13 @@ if (allFound) matchedTerms.push(...linhas);
     link.style.textDecoration = "underline dotted";
     link.style.color = "inherit";
     wrapper.appendChild(link);
-    if (idx < matchedTerms.length - 1) wrapper.appendChild(document.createTextNode(" | "));
+    if (idx < matchedTerms.length - 1) {
+      wrapper.appendChild(document.createTextNode(" | "));
+    }
   });
 
   return wrapper;
 }
-
-
-
 
 //#region [BLK10] RENDER • Cards
 function renderCard(item, tokens = [], ctx = { context: "results" }) {
