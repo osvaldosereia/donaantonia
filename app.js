@@ -1394,7 +1394,7 @@ if (obs) {
   divider.style.border = "none";
   divider.style.borderTop = "1px solid #ddd";
   divider.style.margin = "8px 0 4px";
-  divider.style.opacity = "0.4";
+  divider.style.opacity = "0.8";
   left.appendChild(divider);
   left.appendChild(obs);
 }
