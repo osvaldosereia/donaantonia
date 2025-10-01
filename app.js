@@ -564,7 +564,7 @@ fetch("data/observacoes.txt")
       .filter(Boolean);
   })
   .catch(() => {});
-
+})(); 
 
 
 /* ---------- fetch/parse ---------- */
