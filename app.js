@@ -1378,17 +1378,15 @@ if (ctx.context !== "reader") {
   actions.append(chk);
 }
 
-left.append(body);
-
-left.append(body);
-
 // ⬇️ NOVO: adiciona observações (se existirem)
 const obs = renderObservationsForCard(item);
 if (obs) left.appendChild(obs);
 
+left.appendChild(body);
 left.appendChild(actions);
-card.append(left);
+card.appendChild(left);
 return card;
+
 
 
 // [NOVO] Renderiza observações extras (glossário de termos)
