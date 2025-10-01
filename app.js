@@ -1031,7 +1031,7 @@ function renderObservationsForCard(item) {
   wrapper.style.opacity = "0.9";
 
   const label = document.createElement("span");
-  label.textContent = "⤑: ";
+  label.textContent = "🧠 ";
   wrapper.appendChild(label);
 
   matchedTerms.forEach((termo, idx) => {
