@@ -1124,10 +1124,13 @@ function buildPromptQueryFromItem(item, tipo) {
   return encodeURIComponent(trimmed.length > 4800 ? trimmed.slice(0, 4800) : trimmed);
 }
 
-geminiBtn.addEventListener("click", () => {
+geminiBtn.addEventListener("click", (e) => {
+  e.preventDefault();             // ✅ impede ação padrão
+  e.stopPropagation();            // ✅ impede que o clique limpe a seleção
   const q = buildGeminiQueryFromItem(item);
   openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
+
 
 // — Questões (novo botão) — prompts por categoria
 const questoesBtn = document.createElement("button");
@@ -1200,10 +1203,13 @@ const buildQuestoesQueryFromItem = (it) => {
 
 
 
-questoesBtn.addEventListener("click", () => {
+questoesBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
   const q = buildQuestoesQueryFromItem(item);
   openExternal(`https://www.google.com/search?q=${q}&udm=50`);
 });
+
 
 // adiciona os dois botões lado a lado
 actions.append(geminiBtn, questoesBtn);
