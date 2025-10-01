@@ -1017,9 +1017,12 @@ function renderObservationsForCard(item) {
     const linhas = bloco.split("\n").map(l => l.trim()).filter(Boolean);
     if (linhas.length === 0) continue;
 
-    const allFound = linhas.every(palavra => cardText.includes(norm(palavra)));
-    if (allFound) matchedTerms.push(...linhas);
-  }
+   const allFound = linhas.every(palavra => {
+  const rx = new RegExp(`\\b${escapeRegExp(norm(palavra))}\\b`, "i");
+  return rx.test(cardText);
+});
+if (allFound) matchedTerms.push(...linhas);
+
 
   if (matchedTerms.length === 0) return null;
 
