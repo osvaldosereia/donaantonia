@@ -836,10 +836,11 @@ for (const [label, urls] of labelGroups.entries()) {
     els.stack.setAttribute("aria-busy", "false");
     els.spinner?.classList.remove("show");
 
-    if (!window._skipFocus) {
-      els.q?.select();
-    }
-    window._skipFocus = false;
+   if (!window._skipFocus && !window.getSelection()?.toString()) {
+  els.q?.select();
+}
+window._skipFocus = false;
+
   }
 }
 
