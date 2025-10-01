@@ -1051,7 +1051,6 @@ function renderObservationsForCard(item) {
   btn.style.opacity = "0.8";
 
   const popup = document.createElement("div");
-  popup.className = "obs-popup";
   popup.style.position = "absolute";
   popup.style.top = "26px";
   popup.style.right = "0";
@@ -1065,22 +1064,44 @@ function renderObservationsForCard(item) {
   popup.style.lineHeight = "1.4";
   popup.style.display = "none";
 
-  matchedTerms.forEach((termo, idx) => {
-    const link = document.createElement("a");
-    link.textContent = termo;
-    link.href = `https://www.google.com/search?q=${encodeURIComponent("Explique o conceito jurídico de " + termo)}&udm=50`;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.style.display = "inline-block";
-    link.style.marginRight = "4px";
-    link.style.marginBottom = "2px";
-    link.style.textDecoration = "underline dotted";
-    link.style.color = "#333";
-    popup.appendChild(link);
-    if (idx < matchedTerms.length - 1) {
-      popup.appendChild(document.createTextNode(" | "));
-    }
-  });
+ // container popup
+popup.className = "obs-popup";
+popup.style.cssText = `
+  position: absolute;
+  top: 26px;
+  right: 0;
+  padding: 10px;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  font-size: 14px;
+  max-height: 280px;
+  overflow-y: auto;
+  max-width: 90vw;
+  width: 100%;
+  min-width: 200px;
+  display: none;
+  line-height: 1.5;
+  white-space: normal;
+`;
+
+// cada termo = 1 linha
+matchedTerms.forEach((termo) => {
+  const link = document.createElement("a");
+  link.textContent = termo;
+  link.href = `https://www.google.com/search?q=${encodeURIComponent("Explique o conceito jurídico de " + termo)}&udm=50`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.style.cssText = `
+    display: block;
+    margin-bottom: 6px;
+    text-decoration: underline dotted;
+    color: #333;
+  `;
+  popup.appendChild(link);
+});
+
 
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
