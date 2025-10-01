@@ -67,7 +67,7 @@ document.addEventListener("selectionchange", () => {
     window.__selectionCardId = null;
   }
 });
- • Seletores e elementos
+// • Seletores e elementos
 const $ = (s) => document.querySelector(s);
 
 const els = {
