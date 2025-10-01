@@ -464,3 +464,6 @@ mark.hl {
 .card, .card * {
   user-select: text !important;
 }
+.card {
+  position: relative; /* necessário p/ botão flutuante */
+}
