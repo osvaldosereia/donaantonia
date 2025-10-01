@@ -467,3 +467,39 @@ mark.hl {
 .card {
   position: relative; /* necessário p/ botão flutuante */
 }
+.obs-tooltip {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 99;
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  font-size: 13px;
+  font-family: system-ui, sans-serif;
+  max-width: 280px;
+  min-width: 220px;
+  white-space: normal;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+/* estilo dos termos no balão */
+.obs-tooltip a {
+  padding: 2px 6px;
+  background: #f1f1f1;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background .2s;
+}
+.obs-tooltip a:hover {
+  background: var(--blue-soft);
+}
