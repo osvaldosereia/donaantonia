@@ -1043,7 +1043,7 @@ function renderObservationsForCard(item) {
   const btn = document.createElement("button");
   btn.className = "obs-btn";
   btn.setAttribute("aria-label", "Ver termos relacionados");
-  btn.innerText = "🧠";
+  btn.innerText = "🙋‍♂️";
   btn.style.background = "none";
   btn.style.border = "none";
   btn.style.cursor = "pointer";
