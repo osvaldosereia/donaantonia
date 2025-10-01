@@ -161,14 +161,24 @@
       <div class="spinner" id="searchSpinner" aria-hidden="true"></div>
     </form>
    <!-- Botão com histórico -->
-    <div class="topbar-history" style="position: relative">
+<div class="topbar-history" style="position: relative">
   <button class="topbar-btn" id="historyBtn" aria-label="Histórico de buscas">
-    <img src="icons/menu.png" alt="">
+    <img src="icons/menu.png" alt="Histórico">
   </button>
- <ul id="historyDropdown" class="history-dropdown"></ul>
+  <ul id="historyDropdown" class="history-dropdown"></ul>
 </div>
-  </div>
+
+<!-- Botão com favoritos -->
+<div class="topbar-extra" style="position: relative; margin-left: 8px">
+  <button class="topbar-btn" id="favsBtn" aria-label="Favoritos">
+    <img src="icons/star.png" alt="Favoritos">
+  </button>
+  <ul id="favsDropdown" class="history-dropdown"></ul>
+</div>
+
+</div> <!-- Fecha .topbar-inner -->
 </header>
+
 
  <!-- Catálogo (oculto) -->
 <select id="codeSelect" hidden>
