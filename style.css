@@ -466,3 +466,12 @@ mark.hl {
     --topbar-h: 72px;           /* ex.: de 60px → 72px */
   }
 }
+.star-btn {
+  transition: color 0.2s ease;
+}
+.star-btn.active {
+  color: #f4b400;
+}
+.star-btn:hover {
+  color: #f4b400;
+}
