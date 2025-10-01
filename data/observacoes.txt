@@ -1,3 +1,53 @@
+abolição violenta do Estado Democrático de Direito
+-----
+poderes constitucionais
+-----
+golpe de Estado
+-----
+governo legitimamente constituído
+-----
+interrupção do processo eleitoral
+-----
+aferição de resultado eleitoral
+-----
+violação indevida de mecanismos de segurança do sistema eletrônico de votação
+-----
+Justiça Eleitoral
+-----
+violência política
+-----
+exercício de direitos políticos
+-----
+violência física, sexual ou psicológica
+-----
+raça, cor, etnia, religião ou procedência nacional
+-----
+sabotagem
+-----
+meios de comunicação ao público
+-----
+estabelecimentos, instalações ou serviços destinados à defesa nacional
+-----
+manifestações críticas aos poderes constitucionais
+-----
+atividade jornalística
+-----
+reivindicação de direitos e garantias constitucionais
+-----
+passeatas, reuniões, greves, aglomerações ou manifestações políticas
+-----
+crimes contra a existência, segurança e integridade do Estado
+-----
+crimes contra a economia popular
+-----
+crimes de imprensa
+-----
+crimes de falência
+-----
+crimes de responsabilidade do Presidente da República, Governadores ou Interventores
+-----
+crimes militares
+-----
 
 Anterioridade da Lei
 -----
@@ -57,7 +107,6 @@ sentença estrangeira
 -----
 homologação
 -----
-extradição
 -----
 denúncia
 -----
@@ -207,7 +256,6 @@ mandato eletivo
 -----
 proibição de inscrever-se em concurso público
 -----
-
 pena de multa
 -----
 fundo penitenciário
@@ -218,13 +266,11 @@ salário mínimo
 -----
 correção monetária
 -----
-trânsito em julgado
 -----
 parcelas mensais
 -----
 suspensão condicional da pena
 -----
-execução penal
 -----
 dívida de valor
 -----
@@ -234,19 +280,14 @@ causas interruptivas da prescrição
 -----
 causas suspensivas da prescrição
 -----
-doença mental
 -----
 cominação das penas
 -----
-penas privativas de liberdade
 -----
-penas restritivas de direitos
 -----
 penas de interdição
 -----
-crime culposo
 -----
-culpabilidade
 -----
 antecedentes
 -----
@@ -264,7 +305,6 @@ substituição da pena
 -----
 circunstâncias agravantes
 -----
-reincidência
 -----
 motivo fútil
 -----
@@ -304,7 +344,6 @@ embriaguez preordenada
 -----
 instituição de ensino
 -----
-concurso de pessoas
 -----
 coagir
 -----
@@ -366,32 +405,21 @@ limite máximo de cumprimento da pena
 -----
 concurso de infrações
 -----
-
-suspensão condicional da pena
 -----
 pena privativa de liberdade
 -----
 reincidente em crime doloso
 -----
-culpabilidade
 -----
-antecedentes
 -----
-conduta social
 -----
-personalidade do agente
 -----
-substituição da pena
 -----
-pena de multa
 -----
 observação judicial
 -----
-prestação de serviços à comunidade
 -----
-limitação de fim de semana
 -----
-reparação do dano
 -----
 proibição de frequentar determinados lugares
 -----
@@ -399,7 +427,6 @@ proibição de ausentar-se da comarca
 -----
 comparecimento obrigatório a juízo
 -----
-penas restritivas de direitos
 -----
 revogação obrigatória
 -----
@@ -435,7 +462,6 @@ reincidente específico
 -----
 concessão de livramento
 -----
-condenação anterior
 -----
 revogação do livramento
 -----
@@ -461,7 +487,6 @@ procedência lícita do patrimônio
 -----
 perda requerida pelo Ministério Público
 -----
-sentença condenatória
 -----
 organizações criminosas
 -----
@@ -471,9 +496,7 @@ perda de cargo público
 -----
 função pública
 -----
-mandato eletivo
 -----
-abuso de poder
 -----
 violação de dever para com a Administração Pública
 -----
@@ -487,18 +510,15 @@ crime contra a mulher por razões da condição do sexo feminino
 -----
 inabilitação para dirigir veículo
 -----
-trânsito em julgado
 -----
 nomeação para cargo público
 -----
 diplomação em mandato eletivo
 -----
-
 reabilitação
 -----
 sigilo dos registros
 -----
-efeitos da condenação
 -----
 domicílio no País
 -----
@@ -546,7 +566,6 @@ ação de iniciativa privada
 -----
 representação do ofendido
 -----
-requisição do Ministro da Justiça
 -----
 queixa do ofendido
 -----
@@ -568,7 +587,6 @@ querelado
 -----
 perdão tácito
 -----
-extinção da punibilidade
 -----
 anistia
 -----
@@ -600,7 +618,6 @@ prescrição das penas restritivas de direito
 -----
 prescrição após o trânsito em julgado
 -----
-reincidência
 -----
 termo inicial da prescrição
 -----
@@ -628,7 +645,6 @@ causas impeditivas da prescrição
 -----
 acordo de não persecução penal
 -----
-causas interruptivas da prescrição
 -----
 recebimento da denúncia
 -----
@@ -636,18 +652,14 @@ pronúncia
 -----
 acórdão condenatório
 -----
-perdão judicial
 -----
-
 homicídio simples
 -----
-reclusão
 -----
 motivo de relevante valor social
 -----
 motivo de relevante valor moral
 -----
-violenta emoção
 -----
 injusta provocação da vítima
 -----
@@ -655,25 +667,17 @@ homicídio qualificado
 -----
 paga ou promessa de recompensa
 -----
-motivo torpe
 -----
-motivo fútil
 -----
-meio insidioso
 -----
-meio cruel
 -----
-perigo comum
 -----
 traição
 -----
-emboscada
 -----
-dissimulação
 -----
 ocultação do crime
 -----
-impunidade
 -----
 vantagem de outro crime
 -----
@@ -699,7 +703,6 @@ arma de fogo de uso restrito ou proibido
 -----
 homicídio contra menor de 14 anos
 -----
-instituição de ensino
 -----
 ascendente
 -----
@@ -823,7 +826,6 @@ condição limitante
 -----
 lesão contra a mulher por razões da condição do sexo feminino
 -----
-
 perigo de contágio venéreo
 -----
 ato libidinoso
@@ -850,7 +852,6 @@ vigilância
 -----
 autoridade
 -----
-lesão corporal de natureza grave
 -----
 abandono em lugar ermo
 -----
@@ -928,20 +929,14 @@ conceito desfavorável de funcionário público
 -----
 retratação
 -----
-querelado
 -----
 pedido de explicações em juízo
 -----
-requisição do Ministro da Justiça
 -----
-representação do ofendido
 -----
-
 constrangimento ilegal
 -----
-violência
 -----
-grave ameaça
 -----
 capacidade de resistência
 -----
@@ -963,7 +958,6 @@ cyberbullying
 -----
 rede de computadores
 -----
-rede social
 -----
 jogos on-line
 -----
@@ -1019,7 +1013,6 @@ apreensão de documentos pessoais
 -----
 preconceito de raça, cor, etnia, religião ou origem
 -----
-tráfico de pessoas
 -----
 agenciamento
 -----
@@ -1037,7 +1030,6 @@ adoção ilegal
 -----
 relações de parentesco
 -----
-coabitação
 -----
 dependência econômica
 -----
@@ -1077,5 +1069,1246 @@ correspondência comercial
 -----
 abuso de condição de sócio ou empregado
 -----
-representação do ofendido
+-----
+divulgação de segredo
+-----
+documento particular
+-----
+correspondência confidencial
+-----
+informações sigilosas
+-----
+informações reservadas
+-----
+Administração Pública
+-----
+violação de segredo profissional
+-----
+função
+-----
+ministério
+-----
+ofício
+-----
+profissão
+-----
+invasão de dispositivo informático
+-----
+adulteração de dados
+-----
+instalação de vulnerabilidades
+-----
+conteúdo de comunicações eletrônicas privadas
+-----
+segredos comerciais
+-----
+segredos industriais
+-----
+controle remoto não autorizado
+-----
+divulgação de dados obtidos
+-----
+-----
+governadores
+-----
+prefeitos
+-----
+Presidente do STF
+-----
+Presidentes da Câmara e Senado
+-----
+dirigente da administração pública
+-----
+-----
+furto
+-----
+repouso noturno
+-----
+criminoso primário
+-----
+pequeno valor
+-----
+energia elétrica como coisa móvel
+-----
+furto qualificado
+-----
+destruição de obstáculo
+-----
+rompimento de obstáculo
+-----
+abuso de confiança
+-----
+-----
+escalada
+-----
+destreza
+-----
+chave falsa
+-----
+-----
+furto contra serviços públicos essenciais
+-----
+uso de explosivo
+-----
+furto mediante dispositivo eletrônico
+-----
+servidor fora do território nacional
+-----
+furto contra idoso ou vulnerável
+-----
+furto de veículo automotor
+-----
+furto de semovente
+-----
+furto de substâncias explosivas
+-----
+furto de cabos ou fios elétricos
+-----
+furto de coisa comum
+-----
+condômino
+-----
+co-herdeiro
+-----
+sócio
+-----
+coisa comum fungível
+-----
+roubo
+-----
+-----
+impossibilidade de resistência
+-----
+impunidade do crime
+-----
+roubo contra serviços públicos essenciais
+-----
+concurso de pessoas no roubo
+-----
+transporte de valores
+-----
+roubo de veículo automotor
+-----
+restrição de liberdade da vítima
+-----
+arma branca
+-----
+arma de fogo
+-----
+arma de fogo de uso restrito
+-----
+lesão corporal grave no roubo
+-----
+roubo seguido de morte
+-----
+extorsão
+-----
+vantagem econômica indevida
+-----
+extorsão com restrição de liberdade
+-----
+extorsão mediante seqüestro
+-----
+resgate
+-----
+bando ou quadrilha
+-----
+extorsão indireta
+-----
+documento como garantia de dívida
+-----
+procedimento criminal contra a vítima
+-----
+alteração de limites
+-----
+tapume
+-----
+marco divisório
+-----
+usurpação de águas
+-----
+esbulho possessório
+-----
+supressão ou alteração de marca em animais
+-----
+dano
+-----
+dano qualificado
+-----
+substância inflamável
+-----
+substância explosiva
+-----
+patrimônio público
+-----
+empresa concessionária de serviços públicos
+-----
+prejuízo considerável
+-----
+introdução ou abandono de animais em propriedade alheia
+-----
+dano em coisa de valor artístico
+-----
+dano em coisa de valor arqueológico
+-----
+dano em coisa de valor histórico
+-----
+local especialmente protegido
+-----
+apropriação indébita
+-----
+depósito necessário
+-----
+-----
+-----
+síndico
+-----
+liquidatário
+-----
+inventariante
+-----
+testamenteiro
+-----
+depositário judicial
+-----
+apropriação indébita previdenciária
+-----
+contribuições previdenciárias
+-----
+ação fiscal
+-----
+execuções fiscais
+-----
+apropriação de coisa havida por erro
+-----
+caso fortuito
+-----
+força da natureza
+-----
+apropriação de tesouro
+-----
+apropriação de coisa achada
+-----
+autoridade competente
+-----
+estelionato
+-----
+artifício
+-----
+ardil
+-----
+meio fraudulento
+-----
+disposição de coisa alheia como própria
+-----
+alienação fraudulenta
+-----
+defraudação de penhor
+-----
+fraude na entrega de coisa
+-----
+fraude para recebimento de indenização
+-----
+fraude em valor de seguro
+-----
+fraude no pagamento por meio de cheque
+-----
+fraude eletrônica
+-----
+-----
+estelionato contra idoso
+-----
+estelionato contra vulnerável
+-----
+-----
+ativos virtuais
+-----
+valores mobiliários
+-----
+duplicata simulada
+-----
+abuso de incapazes
+-----
+alienação mental
+-----
+debilidade mental
+-----
+induzimento à especulação
+-----
+fraude no comércio
+-----
+mercadoria falsificada
+-----
+mercadoria deteriorada
+-----
+fraudes e abusos em sociedade por ações
+-----
+afirmação falsa em prospecto
+-----
+cotação falsa de ações
+-----
+lucros fictícios
+-----
+dividendos fictícios
+-----
+liquidante
+-----
+acionista
+-----
+negociação de voto em assembleia
+-----
+emissão irregular de warrant
+-----
+fraude à execução
+-----
+simulação de dívidas
+-----
+Adquirir, receber, transportar, conduzir ou ocultar
+-----
+produto de crime
+-----
+influir para que terceiro, de boa-fé
+-----
+Pena - reclusão, de um a quatro anos, e multa
+-----
+Receptação qualificada
+-----
+ter em depósito
+-----
+no exercício de atividade comercial ou industrial
+-----
+atividade comercial irregular ou clandestina
+-----
+presumir-se obtida por meio criminoso
+-----
+detenção, de um mês a um ano, ou multa
+-----
+receptação é punível, ainda que desconhecido ou isento de pena o autor
+-----
+receptação dolosa
+-----
+§ 2º do art. 155
+-----
+bens do patrimônio da União, de Estado, do Distrito Federal, de Município ou de autarquia
+-----
+-----
+modais logísticos ferroviários ou metroviários
+-----
+semovente domesticável de produção
+-----
+abatido ou dividido em partes
+-----
+isento de pena
+-----
+sociedade conjugal
+-----
+ascendente ou descendente
+-----
+proceder mediante representação
+-----
+cônjuge desquitado ou judicialmente separado
+-----
+crime de roubo ou de extorsão
+-----
+grave ameaça ou violência à pessoa
+-----
+estranho que participa do crime
+-----
+instituições financeiras
+-----
+prestadores de serviço de segurança privada
+-----
+Estatuto da Segurança Privada e da Segurança das Instituições Financeiras
+-----
+direitos de autor e os que lhe são conexos
+-----
+reprodução total ou parcial
+-----
+intuito de lucro direto ou indireto
+-----
+sem autorização expressa do autor
+-----
+obra intelectual, interpretação, execução ou fonograma
+-----
+oferecimento ao público
+-----
+exceção ou limitação ao direito de autor
+-----
+uso privado do copista
+-----
+ação penal pública incondicionada
+-----
+ação penal pública condicionada à representação
+-----
+liberdade de trabalho
+-----
+contrato de trabalho
+-----
+associação profissional
+-----
+abandono coletivo de trabalho
+-----
+obra pública ou serviço de interesse coletivo
+-----
+-----
+frustrar direito assegurado pela legislação do trabalho
+-----
+retenção de documentos pessoais ou contratuais
+-----
+nacionalização do trabalho
+-----
+decisão administrativa
+-----
+aliciamento para o fim de emigração
+-----
+aliciamento de trabalhadores
+-----
+Ultraje a culto
+-----
+impedimento ou perturbação de ato religioso
+-----
+escarnecer de alguém publicamente
+-----
+motivo de crença ou função religiosa
+-----
+vilipendiar publicamente ato ou objeto de culto religioso
+-----
+pena aumentada de um terço
+-----
+cerimônia funerária
+-----
+violação de sepultura
+-----
+urna funerária
+-----
+subtração ou ocultação de cadáver
+-----
+vilipêndio a cadáver
+-----
+conjunção carnal
+-----
+-----
+-----
+-----
+violação sexual mediante fraude
+-----
+livre manifestação de vontade da vítima
+-----
+vantagem econômica
+-----
+importunação sexual
+-----
+sem anuência da vítima
+-----
+satisfazer a própria lascívia ou a de terceiro
+-----
+assédio sexual
+-----
+superior hierárquico ou ascendência inerente ao exercício de emprego, cargo ou função
+-----
+registro não autorizado da intimidade sexual
+-----
+cena de nudez ou ato sexual ou libidinoso de caráter íntimo e privado
+-----
+estupro de vulnerável
+-----
+menor de 14 anos
+-----
+enfermidade ou deficiência mental
+-----
+não oferecer resistência
+-----
+consentimento da vítima
+-----
+corrupção de menores
+-----
+satisfação de lascívia mediante presença de criança ou adolescente
+-----
+favorecimento da prostituição ou exploração sexual de vulnerável
+-----
+-----
+cassação da licença de localização e funcionamento do estabelecimento
+-----
+divulgação de cena de estupro
+-----
+pornografia
+-----
+relação íntima de afeto com a vítima
+-----
+vingança ou humilhação
+-----
+exclusão de ilicitude
+-----
+publicação de natureza jornalística, científica, cultural ou acadêmica
+-----
+-----
+concurso de 2 ou mais pessoas
+-----
+ascendente, padrasto, madrasta, tio, irmão, cônjuge, companheiro, tutor, curador, preceptor ou empregador da vítima
+-----
+autoridade sobre a vítima
+-----
+estupro coletivo
+-----
+estupro corretivo
+-----
+controlar o comportamento social ou sexual da vítima
+-----
+mediação para servir a lascívia de outrem
+-----
+induzir alguém a satisfazer a lascívia de outrem
+-----
+ascendente, descendente, cônjuge ou companheiro, irmão, tutor ou curador
+-----
+fins de educação, de tratamento ou de guarda
+-----
+grave ameaça ou fraude
+-----
+fim de lucro
+-----
+favorecimento da prostituição
+-----
+-----
+casa de prostituição
+-----
+rufianismo
+-----
+tirar proveito da prostituição alheia
+-----
+tráfico internacional de pessoa para fim de exploração sexual
+-----
+promoção de migração ilegal
+-----
+-----
+condição desumana ou degradante
+-----
+ato obsceno
+-----
+objeto obsceno
+-----
+escrito, desenho, pintura, estampa obscena
+-----
+representação teatral ou exibição cinematográfica de caráter obsceno
+-----
+audição ou recitação de caráter obsceno
+-----
+gravidez como resultado do crime
+-----
+doença sexualmente transmissível
+-----
+processos em segredo de justiça
+-----
+Cadastro de Pessoas Físicas (CPF)
+-----
+monitoramento por dispositivo eletrônico
+-----
+-----
+erro essencial
+-----
+ocultação de impedimento
+-----
+nulidade absoluta
+-----
+simulação de autoridade para celebração de casamento
+-----
+simulação de casamento
+-----
+registro de nascimento inexistente
+-----
+parto suposto
+-----
+supressão ou alteração de direito inerente ao estado civil
+-----
+sonegação de estado de filiação
+-----
+abandono material
+-----
+pensão alimentícia judicialmente acordada
+-----
+entrega de filho menor a pessoa inidônea
+-----
+abandono intelectual
+-----
+induzir menor a frequentar casa de jogo ou mal-afamada
+-----
+residir ou trabalhar em casa de prostituição
+-----
+mendigar ou servir a mendigo para excitar a comoção pública
+-----
+pátrio poder
+-----
+-----
+-----
+induzimento a fuga de incapaz
+-----
+subtração de incapazes
+-----
+destituição do pátrio poder, tutela ou curatela
+-----
+incêndio
+-----
+expor a perigo a vida, a integridade física ou o patrimônio de outrem
+-----
+vantagem pecuniária em proveito próprio ou alheio
+-----
+casa habitada ou destinada a habitação
+-----
+edifício público ou destinado a uso público
+-----
+obra de assistência social ou de cultura
+-----
+embarcação, aeronave, comboio ou veículo de transporte coletivo
+-----
+estação ferroviária ou aeródromo
+-----
+estaleiro, fábrica ou oficina
+-----
+depósito de explosivo, combustível ou inflamável
+-----
+poço petrolífico ou galeria de mineração
+-----
+lavoura, pastagem, mata ou floresta
+-----
+incêndio culposo
+-----
+explosão
+-----
+engenho de dinamite ou substância de efeitos análogos
+-----
+uso de gás tóxico ou asfixiante
+-----
+sem licença da autoridade
+-----
+inundação
+-----
+perigo de inundação
+-----
+desabamento ou desmoronamento
+-----
+subtração, ocultação ou inutilização de material de salvamento
+-----
+-----
+difusão de doença ou praga
+-----
+perigo de desastre ferroviário
+-----
+linha férrea, material rodante ou de tração
+-----
+falso aviso acerca do movimento dos veículos
+-----
+radiotelegrafia
+-----
+estrada de ferro
+-----
+atentado contra a segurança de transporte marítimo, fluvial ou aéreo
+-----
+navegação marítima, fluvial ou aérea
+-----
+naufrágio, submersão ou encalhe
+-----
+queda ou destruição de aeronave
+-----
+sinistro
+-----
+atentado contra a segurança de outro meio de transporte
+-----
+arremesso de projétil
+-----
+serviço de utilidade pública
+-----
+subtração de material essencial ao funcionamento dos serviços
+-----
+interrupção ou perturbação de serviço telegráfico, telefônico, informático ou telemático
+-----
+informação de utilidade pública
+-----
+-----
+epidemia
+-----
+propagação de germes patogênicos
+-----
+infração de medida sanitária preventiva
+-----
+doença contagiosa
+-----
+funcionário da saúde pública
+-----
+notificação compulsória
+-----
+envenenamento de água potável
+-----
+substância alimentícia ou medicinal
+-----
+corrupção ou poluição de água potável
+-----
+falsificação, corrupção, adulteração ou alteração de substância ou produtos alimentícios
+-----
+valor nutritivo
+-----
+bebidas com ou sem teor alcoólico
+-----
+produto destinado a fins terapêuticos ou medicinais
+-----
+medicamentos, matérias-primas, insumos farmacêuticos, cosméticos, saneantes e produtos de diagnóstico
+-----
+sem registro no órgão de vigilância sanitária competente
+-----
+redução de valor terapêutico
+-----
+procedência ignorada
+-----
+estabelecimento sem licença da autoridade sanitária
+-----
+processo proibido ou substância não permitida
+-----
+invólucro ou recipiente com falsa indicação
+-----
+substância destinada à falsificação
+-----
+substância nociva à saúde pública
+-----
+medicamento em desacordo com receita médica
+-----
+exercício ilegal da medicina, arte dentária ou farmacêutica
+-----
+charlatanismo
+-----
+cura por meio secreto ou infalível
+-----
+curandeirismo
+-----
+diagnóstico por meios ilícitos
+-----
+incitação ao crime
+-----
+animosidade entre as Forças Armadas
+-----
+apologia de crime ou criminoso
+-----
+associação criminosa
+-----
+associação armada
+-----
+participação de criança ou adolescente
+-----
+constituição de milícia privada
+-----
+organização paramilitar
+-----
+milícia particular
+-----
+grupo ou esquadrão
+-----
+moeda falsa
+-----
+papel-moeda de curso legal
+-----
+introduzir na circulação moeda falsa
+-----
+funcionário público ou diretor, gerente ou fiscal de banco de emissão
+-----
+moeda com título ou peso inferior
+-----
+papel-moeda em quantidade superior à autorizada
+-----
+crimes assimilados ao de moeda falsa
+-----
+cédula, nota ou bilhete representativo de moeda
+-----
+petrechos para falsificação de moeda
+-----
+emissão de título ao portador sem permissão legal
+-----
+falsificação de papéis públicos
+-----
+selo destinado a controle tributário
+-----
+papel selado
+-----
+papel de crédito público
+-----
+vale postal
+-----
+cautela de penhor
+-----
+caderneta de depósito
+-----
+talão, recibo, guia, alvará
+-----
+arrecadação de rendas públicas
+-----
+-----
+petrechos de falsificação
+-----
+falsificação do selo ou sinal público
+-----
+selo público destinado a autenticar atos oficiais
+-----
+selo ou sinal atribuído por lei a entidade de direito público
+-----
+sinal público de tabelião
+-----
+logotipos, siglas ou símbolos identificadores de órgãos públicos
+-----
+falsificação de documento público
+-----
+documento emanado de entidade paraestatal
+-----
+título ao portador
+-----
+ações de sociedade comercial
+-----
+livros mercantis
+-----
+testamento particular
+-----
+folha de pagamento
+-----
+carteira de trabalho e previdência social
+-----
+documento contábil
+-----
+falsificação de documento particular
+-----
+cartão de crédito ou débito
+-----
+falsidade ideológica
+-----
+falso reconhecimento de firma ou letra
+-----
+certidão ou atestado ideologicamente falso
+-----
+atestado médico falso
+-----
+selo ou peça filatélica
+-----
+uso de documento falso
+-----
+supressão de documento
+-----
+falsificação de sinal de contraste de metal precioso
+-----
+fiscalização alfandegária
+-----
+falsa identidade
+-----
+fraude de lei sobre estrangeiro
+-----
+atribuir a estrangeiro falsa qualidade
+-----
+ação, título ou valor pertencente a estrangeiro
+-----
+adulteração de sinal identificador de veículo
+-----
+número de chassi, monobloco, motor, placa de identificação
+-----
+veículo automotor, elétrico, híbrido, reboque ou semirreboque
+-----
+maquinismo ou objeto destinado à falsificação
+-----
+atividade comercial irregular ou clandestina em residência
+-----
+fraudes em certames de interesse público
+-----
+conteúdo sigiloso
+-----
+concurso público
+-----
+avaliação ou exame públicos
+-----
+processo seletivo para ingresso no ensino superior
+-----
+processo seletivo previstos em lei
+-----
+credibilidade do certame
+-----
+acesso de pessoas não autorizadas
+-----
+dano à administração pública
+-----
+-----
+peculato
+-----
+dinheiro, valor ou qualquer outro bem móvel, público ou particular
+-----
+posse em razão do cargo
+-----
+peculato culposo
+-----
+extinção da punibilidade pela reparação do dano
+-----
+peculato mediante erro de outrem
+-----
+inserção de dados falsos em sistema de informações
+-----
+sistemas informatizados ou bancos de dados da Administração Pública
+-----
+vantagem indevida
+-----
+modificação ou alteração não autorizada de sistema de informações
+-----
+extravio de livro oficial
+-----
+sonegação ou inutilização de documento
+-----
+emprego irregular de verbas ou rendas públicas
+-----
+concussão
+-----
+excesso de exação
+-----
+tributo ou contribuição social
+-----
+meio vexatório ou gravoso
+-----
+corrupção passiva
+-----
+promessa de vantagem
+-----
+ato de ofício
+-----
+contrabando
+-----
+descaminho
+-----
+prevaricação
+-----
+ato de ofício contra disposição expressa de lei
+-----
+diretor de penitenciária
+-----
+aparelho telefônico, de rádio ou similar em presídio
+-----
+condescendência criminosa
+-----
+infração no exercício do cargo
+-----
+-----
+advocacia administrativa
+-----
+interesse privado perante a administração pública
+-----
+violência arbitrária
+-----
+abandono de função
+-----
+faixa de fronteira
+-----
+exercício funcional ilegalmente antecipado ou prolongado
+-----
+exonerado, removido, substituído ou suspenso
+-----
+violação de sigilo funcional
+-----
+atribuição, fornecimento ou empréstimo de senha
+-----
+acesso restrito
+-----
+violação do sigilo de proposta de concorrência
+-----
+funcionário público transitoriamente ou sem remuneração
+-----
+cargo, emprego ou função em entidade paraestatal
+-----
+empresa prestadora de serviço contratada ou conveniada
+-----
+atividade típica da Administração Pública
+-----
+ocupantes de cargos em comissão
+-----
+função de direção ou assessoramento
+-----
+administração direta
+-----
+sociedade de economia mista
+-----
+empresa pública
+-----
+fundação instituída pelo poder público
+-----
+usurpação de função pública
+-----
+vantagem auferida
+-----
+resistência
+-----
+execução de ato legal
+-----
+violência ou ameaça a funcionário competente
+-----
+desobediência
+-----
+ordem legal de funcionário público
+-----
+desacato
+-----
+tráfico de influência
+-----
+vantagem ou promessa de vantagem
+-----
+ato praticado por funcionário público
+-----
+corrupção ativa
+-----
+direito ou imposto devido
+-----
+mercadoria de procedência estrangeira
+-----
+importação fraudulenta
+-----
+comércio irregular ou clandestino de mercadorias
+-----
+-----
+mercadoria proibida
+-----
+registro, análise ou autorização de órgão público competente
+-----
+reinsere mercadoria destinada à exportação
+-----
+concorrência pública
+-----
+hasta pública
+-----
+entidade paraestatal
+-----
+vantagem em concorrência ou licitação
+-----
+edital
+-----
+selo ou sinal empregado por funcionário público
+-----
+livro oficial
+-----
+processo ou documento em custódia de funcionário
+-----
+sonegação de contribuição previdenciária
+-----
+contribuição social previdenciária
+-----
+-----
+trabalhador avulso
+-----
+trabalhador autônomo
+-----
+tomador de serviços
+-----
+contabilidade da empresa
+-----
+receitas ou lucros auferidos
+-----
+remunerações pagas ou creditadas
+-----
+extinção da punibilidade pela confissão espontânea
+-----
+pessoa jurídica
+-----
+funcionário público estrangeiro
+-----
+representações diplomáticas
+-----
+organizações públicas internacionais
+-----
+corrupção ativa em transação comercial internacional
+-----
+tráfico de influência em transação comercial internacional
+-----
+contratação direta ilegal
+-----
+frustração do caráter competitivo de licitação
+-----
+adjudicação do objeto da licitação
+-----
+patrocínio de contratação indevida
+-----
+contrato administrativo
+-----
+prorrogação contratual sem autorização
+-----
+preterição da ordem cronológica de exigibilidade
+-----
+perturbação de processo licitatório
+-----
+violação de sigilo em licitação
+-----
+afastamento de licitante
+-----
+fraude em licitação ou contrato
+-----
+entrega de mercadoria ou serviços em desacordo com edital
+-----
+mercadoria falsificada, deteriorada ou inservível
+-----
+alteração da substância, qualidade ou quantidade
+-----
+contratação inidônea
+-----
+empresa ou profissional declarado inidôneo
+-----
+impedimento indevido
+-----
+registros cadastrais
+-----
+omissão grave de dado ou informação por projetista
+-----
+levantamento cadastral
+-----
+condição de contorno
+-----
+projeto básico, executivo ou anteprojeto
+-----
+diálogo competitivo
+-----
+procedimento de manifestação de interesse
+-----
+sondagens, topografia, estudos de demanda, condições ambientais
+-----
+pena de multa vinculada ao valor do contrato licitado
+-----
+reingresso de estrangeiro expulso
+-----
+denunciação caluniosa
+-----
+inquérito policial
+-----
+procedimento investigatório criminal
+-----
+processo judicial
+-----
+processo administrativo disciplinar
+-----
+inquérito civil
+-----
+ação de improbidade administrativa
+-----
+infração ético-disciplinar
+-----
+ato ímprobo
+-----
+anonimato ou nome suposto
+-----
+contravenção
+-----
+comunicação falsa de crime ou contravenção
+-----
+auto-acusação falsa
+-----
+falso testemunho
+-----
+falsa perícia
+-----
+testemunha, perito, contador, tradutor ou intérprete
+-----
+processo judicial, administrativo, inquérito policial ou juízo arbitral
+-----
+suborno
+-----
+prova destinada a produzir efeito em processo penal
+-----
+prova destinada a produzir efeito em processo civil envolvendo administração pública
+-----
+retração ou declaração da verdade antes da sentença
+-----
+corrupção de testemunha, perito, contador, tradutor ou intérprete
+-----
+coação no curso do processo
+-----
+processo envolvendo crime contra a dignidade sexual
+-----
+exercício arbitrário das próprias razões
+-----
+pretensão legítima
+-----
+fraude processual
+-----
+favorecimento pessoal
+-----
+favorecimento real
+-----
+aparelho telefônico em estabelecimento prisional
+-----
+fuga de pessoa presa
+-----
+medida de segurança detentiva
+-----
+custódia ou guarda de preso
+-----
+evasão mediante violência contra a pessoa
+-----
+arrebatamento de preso
+-----
+motim de presos
+-----
+patrocínio infiel
+-----
+patrocínio simultâneo ou tergiversação
+-----
+sonegação de papel ou objeto de valor probatório
+-----
+exploração de prestígio
+-----
+juiz, jurado, Ministério Público, funcionário de justiça, perito, tradutor, intérprete ou testemunha
+-----
+violência ou fraude em arrematação judicial
+-----
+desobediência a decisão judicial sobre perda ou suspensão de direito
+-----
+múnus público
+-----
+crimes contra as finanças públicas
+-----
+operação de crédito interno ou externo
+-----
+autorização legislativa
+-----
+resolução do Senado Federal
+-----
+dívida consolidada
+-----
+inscrição de despesas em restos a pagar
+-----
+assunção de obrigação no último ano de mandato
+-----
+exercício financeiro
+-----
+ordenação de despesa não autorizada
+-----
+prestação de garantia graciosa
+-----
+contragarantia
+-----
+cancelamento de restos a pagar
+-----
+aumento de despesa com pessoal
+-----
+títulos da dívida pública
+-----
+sistema centralizado de liquidação e custódia
+-----
+crimes contra o Estado Democrático de Direito
+-----
+atentado à soberania nacional
+-----
+atos típicos de guerra
+-----
+invasão do território nacional
+-----
+operação bélica
+-----
+atentado à integridade nacional
+-----
+desmembramento de território nacional
+-----
+espionagem
+-----
+documento ou informação secretos ou ultrassecretos
+-----
+ordem constitucional
+-----
+auxílio a espião
+-----
+violação do dever de sigilo
+-----
+acesso não autorizado a sistemas de informação
+-----
+divulgação de crime ou violação de direitos humanos
 -----
