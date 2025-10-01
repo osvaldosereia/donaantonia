@@ -1388,38 +1388,6 @@ card.appendChild(left);
 return card;
 
 
-
-// [NOVO] Renderiza observações extras (glossário de termos)
-function renderObservationsForCard(item) {
-  if (!window._extraObservations || !Array.isArray(window._extraObservations)) return null;
-  if (!item?.text) return null;
-
-  const text = norm(item.text);
-  const matches = [];
-
-  for (const termo of window._extraObservations) {
-    const t = termo.trim();
-    if (!t || t.length < 2) continue;
-    const rx = new RegExp(`\\b${escapeRegExp(norm(t))}\\b`, "i");
-    if (rx.test(text)) matches.push(t);
-  }
-
-  if (!matches.length) return null;
-
-  const el = document.createElement("div");
-  el.className = "observations";
-  el.style.cssText = "font-size: 11px; margin-top: 4px; color: #555; line-height: 1.4;";
-
-  el.innerHTML = `<strong>Observações:</strong> ` + matches.map(t => {
-    const prompt = `Explique o seguinte termo jurídico para um estudante de Direito: "${t}"`;
-    const url = `https://www.google.com/search?q=${encodeURIComponent(prompt)}&udm=50`;
-    return `<a href="${url}" target="_blank" rel="noopener" style="color:#2c5aad;">${t}</a>`;
-  }).join(", ") + ".";
-
-  return el;
-}
-
-
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
   els,
