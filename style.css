@@ -364,6 +364,11 @@ body{
 }
 .history-dropdown.open{ display:block; }
 
+.topbar-extra {
+  margin-left: 8px;
+}
+
+
 /* ========== 7) UTILIDADES ========== */
 .skel{ animation:pulse 1.2s ease-in-out infinite; background:linear-gradient(90deg,#eef1f6,#f6f7fb,#eef1f6); border-radius:10px; }
 .skel.block{ height:48px; }
