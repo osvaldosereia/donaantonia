@@ -1385,7 +1385,7 @@ return card;
 
 /* === Publica helpers no window (fora de funções) === */
 Object.assign(window, {
-  els,
+   els,
   parseFile,
   norm,
   stripThousandDots,
@@ -1396,7 +1396,7 @@ Object.assign(window, {
   renderCard,
   renderObservationsForCard, // ✅ adicionamos aqui
   toast,
-});
++});
 
 /* ---------- Modal incremental: config + helpers ---------- */
 // Pré-carga inicial ao abrir o modal
