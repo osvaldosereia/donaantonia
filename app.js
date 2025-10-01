@@ -1026,9 +1026,9 @@ function renderObservationsForCard(item) {
   const wrapper = document.createElement("small");
   wrapper.className = "card-notes";
   wrapper.style.display = "block";
-  wrapper.style.fontSize = "11px";
+  wrapper.style.fontSize = "12px";
   wrapper.style.marginTop = "4px";
-  wrapper.style.opacity = "0.7";
+  wrapper.style.opacity = "0.9";
 
   const label = document.createElement("span");
   label.textContent = "⤑: ";
