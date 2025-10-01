@@ -461,3 +461,6 @@ mark.hl {
     --topbar-h: 72px;           /* ex.: de 60px → 72px */
   }
 }
+.card, .card * {
+  user-select: text !important;
+}
