@@ -891,16 +891,14 @@ for (const [label, urls] of labelGroups.entries()) {
         const okWords = hasAllWordTokens(bag, wordTokens);
         const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
-        // Busca nos aliases (se existirem)
-        const matchAlias = (it.aliases || []).some(alias => {
-          const aliasNorm = norm(alias);
-          // checa se pelo menos 1 variação de token da busca aparece no alias
-          return queryTokens.some(t =>
-            simpleVariants(t).some(v => aliasNorm.includes(v))
-          );
-        });
+       // Busca nos aliases (se existirem)
+const matchAlias = (it.aliases || []).some(alias => {
+  const aliasNorm = norm(alias);
+  return queryTokens.some(t => bagHasTokenWord(aliasNorm, t));
+});
 
-        return (okWords && okNums) || matchAlias;
+return (okWords && okNums) || matchAlias;
+
       };
 
       const first = await firstMatchInFile(url, label, predicate);
