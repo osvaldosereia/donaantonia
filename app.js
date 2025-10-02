@@ -656,9 +656,11 @@ if (trimmed.replace(/^\s+/, "").toLowerCase().startsWith("@aliases:")) {
     .map(t => t.trim())
     .filter(Boolean);
 
-  aliases.push(...found);   // <<< acumula todos
+  if (!aliases) aliases = [];
+  aliases.push(...found);   // <<< acumula no array em vez de sobrescrever
   return false;             // não aparece no body
 }
+
 
 
 
@@ -679,7 +681,7 @@ if (trimmed.replace(/^\s+/, "").toLowerCase().startsWith("@aliases:")) {
     _bag,
     fileUrl,
     videoUrl: videoLink || null,
-    aliases // <<< NOVO campo
+  aliases: aliases || []   // <<< garante que sempre tenha array
   };
 }
 
