@@ -891,29 +891,26 @@ for (const [label, urls] of labelGroups.entries()) {
   const okWords = hasAllWordTokens(bag, wordTokens);
   const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
- // Busca nos aliases (se existirem)
-const matchAlias = (it.aliases || []).some(alias => {
-  const aliasNorm = norm(alias);
+  // Busca nos aliases (se existirem)
+  const matchAlias = (it.aliases || []).some(alias => {
+    const aliasNorm = norm(alias);
 
-  // 1) Busca por correspondência exata (quando a pessoa digita exatamente o alias)
-  if (aliasNorm === queryNorm) return true;
+    // 1) Busca por correspondência exata
+    if (aliasNorm === queryNorm) return true;
 
-  // 2) Busca token a token (singular/plural, variações)
-  return queryTokens.some(t => {
-    return bagHasTokenWord(aliasNorm, t);
+    // 2) Busca token a token (singular/plural, variações)
+    return queryTokens.some(t => bagHasTokenWord(aliasNorm, t));
   });
-});
 
-return (okWords && okNums) || matchAlias;
-
-
+  return (okWords && okNums) || matchAlias;
+};
 
       const first = await firstMatchInFile(url, label, predicate);
-      if (first) {
-        // força a origem correta por arquivo
-        first.fileUrl = url;
-        foundItems.push(first);
-      }
+if (first) {
+  // força a origem correta por arquivo
+  first.fileUrl = url;
+  foundItems.push(first);
+}
 
       if (signal.aborted) return;
     } catch (e) {
