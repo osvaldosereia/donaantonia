@@ -872,13 +872,14 @@ for (const [label, urls] of labelGroups.entries()) {
 const queryNorm = norm(termRaw);
 const queryTokens = tokenize(queryNorm);
 
+// Busca nos aliases (se existirem)
 const matchAlias = (it.aliases || []).some(alias => {
   const aliasNorm = norm(alias);
-  return queryTokens.every(t => aliasNorm.includes(t));
+  return wordTokens.some(t => bagHasTokenWord(aliasNorm, t));
 });
 
 return (okWords && okNums) || matchAlias;
-};
+
 
 
 
