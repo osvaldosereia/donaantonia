@@ -1,400 +1,603 @@
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 1
 A autorização para apresentação de projetos, levantamentos, investigações ou estudos no âmbito do Procedimento de Manifestação de Interesse, quando concedida mediante restrição ao número de participantes, deve dar-se por meio de seleção imparcial dos interessados, com ampla publicidade e critérios objetivos.
+@aliases: PMI com restrição de participantes, seleção imparcial no PMI, ampla publicidade no PMI, critérios objetivos em manifestação de interesse, autorização de estudos pelo PMI, transparência em PMI, seleção competitiva no PMI, procedimento de manifestação de interesse
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 2
 O administrador público está autorizado por lei a valer-se do desforço imediato sem necessidade de autorização judicial, solicitando, se necessário, força policial, contanto que o faça preventivamente ou logo após a invasão ou ocupação de imóvel público de uso especial, comum ou dominical, e não vá além do indispensável à manutenção ou restituição da posse (art. 37 da Constituição Federal; art. 1.210, §1º, do Código Civil; art. 79, § 2º, do Decreto-Lei n. 9.760/1946; e art. 11 da Lei n. 9.636/1998).
+@aliases: desforço imediato administrativo, autotutela possessória da Administração, uso de força policial em bem público, reintegração administrativa de posse, invasão de imóvel público, poder de polícia possessório, art. 1.210 §1º CC na Administração, imóveis públicos de uso especial comum e dominical
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 3
 Não constitui ofensa ao artigo 9º do Decreto-Lei n. 3.365/1941 o exame por parte do Poder Judiciário, no curso do processo de desapropriação, da regularidade do processo administrativo de desapropriação e da presença dos elementos de validade do ato de declaração de utilidade pública.
+@aliases: controle judicial do processo expropriatório, exame da regularidade administrativa na desapropriação, validade da utilidade pública declarada, sindicabilidade judicial na desapropriação, art. 9º DL 3.365/1941, devido processo desapropriatório, utilidade pública sob controle judicial, legalidade do ato expropriatório
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 4
 O ato declaratório da desapropriação, por utilidade ou necessidade pública, ou por interesse social, deve ser motivado de maneira explícita, clara e congruente, não sendo suficiente a mera referência à hipótese legal.
+@aliases: motivação do decreto expropriatório, fundamentação explícita na desapropriação, utilidade ou necessidade pública motivada, interesse social com motivação congruente, vedação a motivação genérica, ato declaratório de desapropriação, dever de motivar expropriação, controle da motivação administrativa
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 5
 O conceito de dirigentes de organização da sociedade civil estabelecido no artigo 2º, inciso IV, da Lei Federal n. 13.019/2014 contempla profissionais com a atuação efetiva na gestão executiva da entidade, por meio do exercício de funções de administração, gestão, controle e representação da pessoa jurídica, e, por isso, não se estende aos membros de órgãos colegiados não executivos, independentemente da nomenclatura adotada pelo estatuto social.
+@aliases: dirigentes de OSC no MROSC, gestão executiva em OSC, art. 2º IV Lei 13.019/2014, exclusão de colegiados não executivos, representação da pessoa jurídica em OSC, funções de administração e controle em OSC, estatuto social e conceito de dirigente, marco regulatório das OSC
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 6
 O atraso superior a 90 (noventa) dias dos pagamentos devidos pela Administração Pública autoriza o contratado a suspender o cumprimento de suas obrigações até que seja normalizada a situação, mesmo sem provimento jurisdicional.
+@aliases: suspensão de execução por atraso superior a 90 dias, mora da Administração em contratos, exceção de contrato não cumprido contra a Administração, direito de suspender obrigações contratuais, inadimplemento estatal e suspensão, pagamentos atrasados pela Administração, tutela contratual do particular, paralisação contratual lícita
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 7
 Configura ato de improbidade administrativa a conduta do agente público que, em atuação legislativa lato sensu, recebe vantagem econômica indevida.
+@aliases: improbidade por vantagem indevida legislativa, agente público em função legislativa, corrupção legislativa lato sensu, ato ímprobo por propina, enriquecimento ilícito em atividade legislativa, LIA e atuação legislativa, vantagem indevida a parlamentar ou conselheiro, responsabilização por improbidade
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 8
 O exercício da função social das empresas estatais é condicionado ao atendimento da sua finalidade pública específica e deve levar em conta os padrões de eficiência exigidos das sociedades empresárias atuantes no mercado, conforme delimitações e orientações dos §§1º a 3º do art. 27 da Lei 13.303/2016.
+@aliases: função social nas estatais, finalidade pública específica das estatais, eficiência empresarial na Lei das Estatais, art. 27 §§1º-3º Lei 13.303/2016, governança de empresas estatais, atuação de estatais no mercado, interesse público e eficiência, parâmetros de gestão em estatais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 9
 Em respeito ao princípio da autonomia federativa (art. 18 da CF), a vedação ao acúmulo dos títulos de OSCIP e OS prevista no art. 2º, inc. IX, c/c art. 18, §§ 1º e 2º, da Lei n. 9.790/1999 apenas se refere à esfera federal, não abrangendo a qualificação como OS nos Estados, no Distrito Federal e nos Municípios.
+@aliases: acúmulo de títulos OSCIP e OS, autonomia federativa no terceiro setor, limitação federal da Lei 9.790/1999, qualificação OS em Estados e Municípios, art. 18 CF e entidades do terceiro setor, coexistência de qualificações no âmbito local, OSCIP x OS na esfera federal, regime jurídico das organizações sociais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 10
 Em contratos administrativos decorrentes de licitações regidas pela Lei n. 8.666/1993, é facultado à Administração Pública propor aditivo para alterar a cláusula de resolução de conflitos entre as partes, incluindo métodos alternativos ao Poder Judiciário como Mediação, Arbitragem e Dispute Board.
+@aliases: aditivo para ADR em contratos, cláusula compromissória na Lei 8.666, mediação e arbitragem na Administração, dispute board em contratos públicos, alteração de cláusula de resolução de disputas, métodos adequados de solução de conflitos, ADR em licitações antigas, gestão de conflitos contratuais públicos
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 11
 O contrato de desempenho previsto na Lei n. 13.934/2019, quando celebrado entre órgãos que mantêm entre si relação hierárquica, significa a suspensão da hierarquia administrativa, por autovinculação do órgão superior, em relação ao objeto acordado, para substituí-la por uma regulação contratual, nos termos do art. 3º da referida Lei.
+@aliases: contrato de desempenho na Administração, suspensão da hierarquia por autovinculação, Lei 13.934/2019 art. 3º, regulação contratual interna, gestão por resultados no setor público, pactuação entre órgãos hierárquicos, governança por contratos na Administração, accountability por metas
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 12
 A decisão administrativa robótica deve ser suficientemente motivada, sendo a sua opacidade motivo de invalidação.
+@aliases: motivação de decisões automatizadas, transparência algorítmica no setor público, explicabilidade de IA governamental, invalidação por opacidade algorítmica, decisão robótica na Administração, accountability algorítmica, due process em sistemas automatizados, governança de algoritmos públicos
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 13
 As empresas estatais são organizações públicas pela sua finalidade, portanto, submetem-se à aplicabilidade da Lei n. 12.527/2011, "Lei de Acesso à Informação", de acordo com o art. 1º, parágrafo único, inc. II, não cabendo a decretos e outras normas infralegais estabelecer outras restrições de acesso a informações não previstas na Lei.
+@aliases: LAI aplicada às estatais, organizações públicas por finalidade, art. 1º parágrafo único II LAI, vedação a restrições infralegais de acesso, transparência em empresas estatais, publicidade ativa nas estatais, acesso à informação e estatais, limites normativos à restrição de acesso
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 14
 A demonstração da existência de relevante interesse coletivo ou de imperativo de segurança nacional, descrita no § 1º do art. 2º da Lei n. 13.303/2016, será atendida por meio do envio ao órgão legislativo competente de estudos/documentos (anexos à exposição de motivos) com dados objetivos que justifiquem a decisão pela criação de empresa pública ou de sociedade de economia mista cujo objeto é a exploração de atividade econômica.
+@aliases: justificativa para criação de estatais, interesse coletivo ou segurança nacional, estudos anexos à exposição de motivos, art. 2º §1º Lei 13.303/2016, dados objetivos para estatais de atividade econômica, submissão ao Legislativo competente, criação de empresa pública e SEM, motivação técnica para estatais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 15
 A Administração Pública promoverá a publicidade das arbitragens da qual seja parte, nos termos da Lei n. 12.527/2011 (Lei de Acesso à Informação).
+@aliases: publicidade de arbitragens públicas, transparência de procedimentos arbitrais, LAI e arbitragem com a Administração, divulgação de informações arbitrais, acesso à informação em arbitragem estatal, confidencialidade mitigada na arbitragem pública, dever de publicidade em arbitragem, arbitragem e controle social
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 16
 As hipóteses de remoção de servidor público a pedido, independentemente do interesse da Administração, fixadas no art. 36, parágrafo único, III, da Lei n. 8.112/1990 são taxativas. Por esse motivo, a autoridade que indefere a remoção, quando não presentes os requisitos da lei, não pratica ato ilegal ou abusivo.
+@aliases: remoção a pedido taxativa, art. 36 parágrafo único III Lei 8.112, indeferimento de remoção sem requisitos, legalidade do indeferimento de remoção, mobilidade do servidor público, remoção independentemente do interesse, limites à remoção voluntária, ato não abusivo na remoção
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 17
 Os contratos celebrados pelas empresas estatais, regidos pela Lei n. 13.303/2016, não possuem aplicação subsidiária da Lei n. 8.666/1993. Em casos de lacuna contratual, aplicam-se as disposições daquela Lei e as regras e os princípios de direito privado.
+@aliases: contratos de estatais sem Lei 8.666, aplicação exclusiva da Lei 13.303, lacunas supridas por direito privado, regime contratual das estatais, derrogação da 8.666/1993 nas estatais, normas internas e direito privado, governança contratual de estatais, interpretação da Lei das Estatais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 18
 A ausência de previsão editalícia não afasta a possibilidade de celebração de compromisso arbitral em conflitos oriundos de contratos administrativos.
+@aliases: compromisso arbitral sem previsão no edital, arbitragem em contratos administrativos, cláusula compromissória posterior, ADR na Administração Pública, solução extrajudicial de controvérsias, convenção de arbitragem superveniente, arbitrabilidade objetiva administrativa, conflitos contratuais públicos
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 19
 As controvérsias acerca de equilíbrio econômico-financeiro dos contratos administrativos integram a categoria das relativas a direitos patrimoniais disponíveis, para cuja solução se admitem meios extrajudiciais adequados de prevenção e resolução de controvérsias, notadamente a conciliação, a mediação, o comitê de resolução de disputas (Dispute Board) e a arbitragem.
+@aliases: equilíbrio econômico-financeiro como direito disponível, arbitragem sobre reequilíbrio, mediação e dispute board em contratos públicos, ADR em equilíbrio contratual, conciliação administrativa, recomposição do equilíbrio por meios extrajudiciais, direitos patrimoniais disponíveis na Administração, prevenção de controvérsias contratuais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 20
 O exercício da autotutela administrativa, para o desfazimento do ato administrativo que produza efeitos concretos favoráveis aos seus destinatários, está condicionado à prévia intimação e oportunidade de contraditório aos beneficiários do ato.
+@aliases: autotutela com contraditório prévio, anulação de ato favorável, intimação dos beneficiários do ato, devido processo administrativo na autotutela, proteção da confiança administrativa, desfazimento de ato com efeitos concretos, garantia do contraditório e ampla defesa, segurança jurídica na autotutela
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 21
 A conduta de apresentação de documentos falsos ou adulterados por pessoa jurídica em processo licitatório configura o ato lesivo previsto no art. 5º, IV, "d", da Lei n. 12.846/2013, independentemente de essa sagrar-se vencedora no certame ou ter neste obstada a continuidade da sua participação.
+@aliases: fraude documental em licitação, ato lesivo Lei Anticorrupção, art. 5º IV d Lei 12.846, responsabilidade da pessoa jurídica por falsidade, punição independentemente do resultado do certame, integridade em licitações, compliance e documentos falsos, ilícitos na fase de habilitação
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 22
 A participação de empresa estatal no capital de empresa privada que não integra a Administração Pública enquadra-se dentre as hipóteses de "oportunidades de negócio", prevista no art. 28, § 4º, da Lei n. 13.303/2016, devendo a decisão pela referida participação observar os ditames legais e os regulamentos editados pela empresa estatal a respeito dessa possibilidade.
+@aliases: investimento societário de estatal, oportunidades de negócio art. 28 §4º, participação minoritária de estatais, governança e compliance em investimentos, regulamentos internos de estatais, decisões de investimento público, participação em empresas privadas, Lei 13.303 e investimentos
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 23
 O art. 9º, II, c/c art. 10 da Lei n. 8.112 estabelece a nomeação de servidor em comissão para cargos de confiança vagos. A existência de processo seletivo por competências para escolha de servidor para cargos de confiança vagos não equipara as regras deste processo seletivo às de concurso público, nem o regime jurídico de servidor em comissão ao de servidor em caráter efetivo, quando se tratar de cargo isolado de provimento efetivo ou de carreira.
+@aliases: nomeação em comissão para cargo vago, processo por competências não é concurso, art. 9º II e art. 10 Lei 8.112, distinção entre cargo efetivo e comissão, cargos de confiança vagos, provimento em comissão e regime jurídico, seleção interna para funções de confiança, provimento isolado e de carreira
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 24
 Viola a legalidade o regulamento interno de licitações e contratos editado por empresa estatal de qualquer ente da federação que estabelece prazo inferior ao previsto no art. 83, § 2º, da Lei n. 13.303/2016, referente à apresentação de defesa prévia no âmbito de processo administrativo sancionador.
+@aliases: defesa prévia na Lei das Estatais, art. 83 §2º Lei 13.303/2016, ilegalidade de prazo inferior em regulamento, devido processo sancionador em estatais, prazos mínimos em processos sancionadores, regulamento interno de estatais, legalidade em licitações e contratos de estatais, garantia de contraditório em estatais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 25
 A ausência de tutela a que se refere o art. 3º, caput, da Lei n. 13.848/2019 impede a interposição de recurso hierárquico impróprio contra decisões finais proferidas pela diretoria colegiada das agências reguladoras, ressalvados os casos de previsão legal expressa e assegurada, em todo caso, a apreciação judicial, em atenção ao disposto no art. 5º, XXXV, da Constituição Federal.
+@aliases: recurso hierárquico impróprio nas agências, Lei 13.848/2019 art. 3º caput, decisões finais da diretoria colegiada, ausência de tutela ministerial, controle judicial art. 5º XXXV CF, estrutura recursal no setor regulado, autonomia decisória de agências, revisão interna limitada
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 26
 A Lei n. 10.520/2002 define o bem ou serviço comum com base em critérios eminentemente mercadológicos, de modo que a complexidade técnica ou a natureza intelectual do bem ou serviço não impedem a aplicação do pregão se o mercado possui definições usualmente praticadas em relação ao objeto da licitação.
+@aliases: conceito de bem e serviço comum, critérios mercadológicos da Lei 10.520, pregão para objeto intelectual, complexidade técnica e pregão, definições usuais de mercado, aplicabilidade do pregão, classificação do objeto licitado, pregão e mercadologia
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 27
 A contratação para celebração de oportunidade de negócios, conforme prevista pelo art. 28, § 3º, II, e § 4º da Lei n. 13.303/2016 deverá ser avaliada de acordo com as práticas do setor de atuação da empresa estatal. A menção à inviabilidade de competição para concretização da oportunidade de negócios deve ser entendida como impossibilidade de comparação objetiva, no caso das propostas de parceria e de reestruturação societária e como desnecessidade de procedimento competitivo, quando a oportunidade puder ser ofertada a todos os interessados.
+@aliases: contratação por oportunidade de negócios, avaliação por práticas setoriais estatais, inviabilidade de competição interpretada, parceria e reestruturação societária em estatais, art. 28 §3º II e §4º Lei 13.303, comparação objetiva impossível, desnecessidade de procedimento competitivo, oportunidades ofertadas a todos
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 28
 Na fase interna da licitação para concessões e parcerias público-privadas, o Poder Concedente deverá indicar as razões que o levaram a alocar o risco no concessionário ou no Poder Concedente, tendo como diretriz a melhor capacidade da parte para gerenciá-lo.
+@aliases: alocação de riscos em concessões, matriz de riscos em PPP, fase interna e justificativa de riscos, melhor capacidade de gestão do risco, poder concedente versus concessionária, diretrizes de risk allocation, planejamento de concessões e PPP, motivação da alocação de risco
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 29
 A Administração Pública pode promover comunicações formais com potenciais interessados durante a fase de planejamento das contratações públicas para a obtenção de informações técnicas e comerciais relevantes à definição do objeto e elaboração do projeto básico ou termo de referência, sendo que este diálogo público-privado deve ser registrado no processo administrativo e não impede o particular colaborador de participar em eventual licitação pública, ou mesmo de celebrar o respectivo contrato, tampouco lhe confere a autoria do projeto básico ou termo de referência.
+@aliases: diálogo público-privado no planejamento, comunicações formais pré-licitação, registro do diálogo no processo, participação futura do colaborador, definição do objeto e projeto básico, termo de referência colaborativo, mercado e Administração na fase interna, autoria do projeto básico não presumida
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 30
 A "inviabilidade de procedimento competitivo" prevista no art. 28, § 3º, inc. II, da Lei n. 13.303/2016 não significa que, para a configuração de uma oportunidade de negócio, somente poderá haver um interessado em estabelecer uma parceria com a empresa estatal. É possível que, mesmo diante de mais de um interessado, esteja configurada a inviabilidade de procedimento competitivo.
+@aliases: inviabilidade de competição com múltiplos interessados, oportunidades de negócio em estatais, art. 28 §3º II Lei 13.303, parceria estratégica sem competição, impossibilidade de comparação objetiva, dispensa de procedimento competitivo, avaliação de propostas incomparáveis, negócios com estatais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 31
 A avaliação do bem expropriado deve levar em conta as condições mercadológicas existentes à época da efetiva perda da posse do bem.
+@aliases: data-base da avaliação expropriatória, condições de mercado na perda da posse, indenização justa na desapropriação, valor de mercado à época, laudo de avaliação temporal, critérios de indenização, expropriação e avaliação retroativa, marco temporal da posse
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 32
 É possível a contratação de seguro de responsabilidade civil aos administradores de empresas estatais, na forma do art. 17, § 1º, da Lei n. 13.303/2016, a qual não abrangerá a prática de atos fraudulentos de favorecimento pessoal ou práticas dolosas lesivas à companhia e ao mercado de capitais.
+@aliases: seguro D&O em estatais, art. 17 §1º Lei 13.303, exclusão de atos dolosos e fraudulentos, responsabilidade de administradores de estatais, cobertura de responsabilidade civil, governança e seguros em estatais, limitações de cobertura D&O, proteção ao mercado de capitais
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 33
 O prazo processual, no âmbito do processo administrativo, deverá ser contado em dias corridos mesmo com a vigência dos arts. 15 e 219 do CPC, salvo se existir norma específica estabelecendo essa forma de contagem.
+@aliases: contagem de prazo em dias corridos no PAD, inaplicabilidade do CPC aos prazos administrativos, norma específica de contagem de prazos, arts. 15 e 219 CPC no processo administrativo, prazos no processo administrativo disciplinar, regra geral de contagem contínua, temporalidade no processo administrativo, contagem processual na Administração
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 34
 Nos contratos de concessão e PPP, o reajuste contratual para reposição do valor da moeda no tempo é automático e deve ser aplicado independentemente de alegações do Poder Público sobre descumprimentos contratuais ou desequilíbrio econômico-financeiro do contrato, os quais devem ser apurados em processos administrativos próprios para este fim, nos quais serão garantidos ao parceiro privado os direitos ao contraditório e à ampla defesa.
+@aliases: reajuste automático em concessões, reposição inflacionária contratual, independência do reajuste de inadimplementos, processos próprios para apuração de faltas, contraditório e ampla defesa em concessões, PPP e cláusula de reajuste, equilíbrio econômico-financeiro e reajuste, aplicação automática do índice
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 35
 Cabe mandado de segurança para pleitear que seja obedecida a ordem cronológica para pagamentos em relação a crédito já reconhecido e atestado pela Administração, de acordo com o art. 5º, caput, da Lei n. 8.666/1993.
+@aliases: mandado de segurança para ordem cronológica, pagamentos de fornecedores na 8.666, crédito reconhecido e atestado, preterição da ordem de pagamentos, direito líquido e certo de pagamento, execução orçamentária e fila cronológica, proteção judicial à ordem de pagamento, controle judicial de pagamentos públicos
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 36
 A responsabilidade solidária das empresas consorciadas pelos atos praticados na licitação e na execução do contrato, de que trata o inc. V do art. 33 da Lei n. 8.666/1993, refere-se à responsabilidade civil, não se estendendo às penalidades administrativas.
+@aliases: consórcio e responsabilidade solidária civil, art. 33 V Lei 8.666, penalidades administrativas não solidárias, atos na licitação e execução contratual, alocação de responsabilidades em consórcios, sanções individuais em consórcios, responsabilidade civil dos consorciados, regime sancionador em consórcios
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 37
 A estabilidade do servidor titular de cargo público efetivo depende da reunião de dois requisitos cumulativos: (i) o efetivo desempenho das atribuições do cargo pelo período de 3 (três) anos; e (ii) a confirmação do servidor no serviço mediante aprovação pela comissão de avaliação responsável (art. 41, caput e § 4º, da CF c/c arts. 20 a 22 da Lei n. 8.112/1990). Assim, não há estabilização automática em virtude do tempo, sendo o resultado positivo em avaliação especial de desempenho uma condição indispensável para a aquisição da estabilidade.
+@aliases: estabilidade condicionada à avaliação especial, 3 anos de efetivo exercício, art. 41 CF e Lei 8.112 arts. 20-22, ausência de estabilidade automática, comissão de avaliação do estágio probatório, confirmação no serviço público, avaliação de desempenho no probatório, requisitos cumulativos para estabilidade
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 38
 A realização de Análise de Impacto Regulatório (AIR) por órgãos e entidades da Administração Pública federal deve contemplar a alternativa de não regulação estatal ou desregulação, conforme o caso.
+@aliases: AIR com alternativa de não regular, desregulação como opção na AIR, análise de impacto regulatório federal, avaliação de custos e benefícios regulatórios, melhores práticas de policy making, órgãos federais e AIR, comparação de alternativas regulatórias, justificativa de intervenção estatal
+---
 
------
 I Jornada de Direito Administrativo - Enunciado 39
 A indicação e a aceitação de árbitros pela Administração Pública não dependem de seleção pública formal, como concurso ou licitação, mas devem ser objeto de fundamentação prévia e por escrito, considerando os elementos relevantes.
+@aliases: arbitragem com a Administração, indicação e aceitação de árbitros, motivação escrita na escolha de árbitros, escolha de árbitros sem licitação, critérios de seleção de árbitros públicos, governança na nomeação de árbitros, arbitragem envolvendo entes estatais, fundamentação prévia da arbitragem
 
------
+---
+
 I Jornada de Direito Administrativo - Enunciado 40
 Nas ações indenizatórias ajuizadas contra a Fazenda Pública aplica-se o prazo prescricional quinquenal previsto no Decreto n. 20.910/1932 (art. 1º), em detrimento do prazo trienal estabelecido no Código Civil de 2002 (art. 206, § 3º, V), por se tratar de norma especial que prevalece sobre a geral.
+@aliases: prescrição quinquenal contra a Fazenda, Decreto 20.910/1932 art. 1º, prevalência de norma especial, afastamento do prazo trienal do CC, ações indenizatórias contra o Estado, prazo prescricional em responsabilidade estatal, prescrição em demandas contra a Administração, prazo de 5 anos Fazenda Pública
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 1
 A proteção que o Código defere ao nascituro alcança o natimorto no que concerne aos direitos da personalidade, tais como: nome, imagem e sepultura.
+@aliases: direitos da personalidade do natimorto, proteção ao nascituro no CC, nome e imagem do natimorto, direito à sepultura digna, tutela personalíssima pré-natal, extensão de direitos ao natimorto, dignidade do natimorto, personalidade em formação e tutela
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 2
 Sem prejuízo dos direitos da personalidade nele assegurados, o art. 2º do Código Civil não é sede adequada para questões emergentes da reprogenética humana, que deve ser objeto de um estatuto próprio.
+@aliases: reprogenética humana estatuto próprio, limites do art. 2º do CC, direitos da personalidade e reprodução assistida, necessidade de marco legal específico, bioética e direito civil, filiação em técnicas de reprodução, embriões e regime jurídico, autonomia normativa da reprodução humana
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 3
 A redução do limite etário para a definição da capacidade civil aos 18 anos não altera o disposto no art. 16, I, da Lei n. 8.213/91, que regula específica situação de dependência econômica para fins previdenciários e outras situações similares de proteção, previstas em legislação especial.
+@aliases: capacidade civil aos 18 e previdência, art. 16 I Lei 8.213/91, dependência econômica previdenciária, prevalência de lei especial previdenciária, autonomia normativa da seguridade, menores e dependência previdenciária, interpretação CC e legislação especial, proteção previdenciária específica
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 4
 O exercício dos direitos da personalidade pode sofrer limitação voluntária, desde que não seja permanente nem geral.
+@aliases: limitação voluntária de direitos da personalidade, disponibilidade relativa de direitos personalíssimos, restrição temporária e específica, consentimento informado, limites à renúncia de direitos personalíssimos, boa-fé e autodeterminação, validade de limitações não permanentes, tutela da dignidade
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 5
-1) As disposições do art. 12 têm caráter geral e aplicam-se, inclusive, às situações previstas no art. 20, excepcionados os casos expressos de legitimidade para requerer as medidas nele estabelecidas; 2) as disposições do art. 20 do novo Código Civil têm a finalidade específica de regrar a projeção dos bens personalíssimos nas situações nele enumeradas. Com exceção dos casos expressos de legitimação que se conformem com a tipificação preconizada nessa norma, a ela podem ser aplicadas subsidiariamente as regras instituídas no art. 12.
 
------
+1. As disposições do art. 12 têm caráter geral e aplicam-se, inclusive, às situações previstas no art. 20, excepcionados os casos expressos de legitimidade para requerer as medidas nele estabelecidas; 2) as disposições do art. 20 do novo Código Civil têm a finalidade específica de regrar a projeção dos bens personalíssimos nas situações nele enumeradas. Com exceção dos casos expressos de legitimação que se conformem com a tipificação preconizada nessa norma, a ela podem ser aplicadas subsidiariamente as regras instituídas no art. 12.
+   @aliases: art. 12 e 20 do CC interpretação, projeção de bens personalíssimos, legitimidade ativa diferenciada, subsidiariedade do art. 12, tutela da imagem honra e vida privada, medidas protetivas de direitos da personalidade, caráter geral do art. 12, aplicação específica do art. 20
+
+---
+
 I Jornada de Direito Civil - Enunciado 6
 A expressão "exigência médica" contida no art. 13 refere-se tanto ao bem-estar físico quanto ao bem-estar psíquico do disponente.
+@aliases: exigência médica art. 13 CC, bem-estar físico e psíquico, disposição do próprio corpo, intervenções justificadas por saúde mental, atos de disposição corporal, proteção integral da saúde, critérios médicos no art. 13, tutela do disponente
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 7
 Só se aplica a desconsideração da personalidade jurídica quando houver a prática de ato irregular e, limitadamente, aos administradores ou sócios que nela hajam incorrido.
+@aliases: desconsideração por abuso ou irregularidade, alcance a sócios e administradores envolvidos, teoria maior da desconsideração no CC, responsabilidade excepcional de sócios, ato irregular como requisito, limitação subjetiva da desconsideração, abuso de personalidade jurídica, fraude e confusão patrimonial
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 8
 A constituição de fundação para fins científicos, educacionais ou de promoção do meio ambiente está compreendida no Código Civil, art. 62, parágrafo único.
+@aliases: fundações científicas educacionais e ambientais, art. 62 parágrafo único CC, constituição de fundações privadas, finalidade de interesse público, requisitos estatutários de fundação, curadoria do MP em fundações, registro de fundações no CC, promoção do meio ambiente por fundações
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 9
 Deve ser interpretado de modo a excluir apenas as fundações com fins lucrativos.
+@aliases: vedação a fundações com fins lucrativos, interpretação restritiva do CC, finalidade não lucrativa das fundações, natureza filantrópica das fundações, exclusão de lucro em fundações, regime jurídico de fundações privadas, finalidade estatutária altruística, delimitação de fins nas fundações
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 10
 Em face do princípio da especialidade, o art. 66, § 1º, deve ser interpretado em sintonia com os arts. 70 e 178 da LC n. 75/93.
+@aliases: princípio da especialidade e LC 75/93, interpretação conjunta art. 66 §1º CC, articulação com arts. 70 e 178 LC 75/93, competência do MP sobre fundações, fiscalização ministerial de fundações, harmonização CC e LC 75, controle do Ministério Público Federal, regime especial de fundações
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 11
 Não persiste no novo sistema legislativo a categoria dos bens imóveis por acessão intelectual, não obstante a expressão "tudo quanto se lhe incorporar natural ou artificialmente", constante da parte final do art. 79 do Código Civil.
+@aliases: extinção da acessão intelectual, interpretação do art. 79 CC, bens imóveis por incorporação natural ou artificial, classificação de bens no CC, imóveis por destinação e acessão, sistema de bens no novo CC, superação da categoria antiga, incorporação e natureza do bem
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 12
 Na sistemática do art. 138, é irrelevante ser ou não escusável o erro, porque o dispositivo adota o princípio da confiança.
+@aliases: erro e princípio da confiança, art. 138 CC irrelevância da escusabilidade, anulabilidade por erro objetivo, proteção à confiança no negócio, erro substancial e confiança, segurança das declarações negociais, teoria da confiança no CC, vício do consentimento
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 13
 O aspecto objetivo da convenção requer a existência do suporte fático no negócio a converter-se.
+@aliases: conversão do negócio jurídico, suporte fático exigido, teoria objetiva da conversão, requisitos para conversão, convalidação por adequação do negócio, elemento fático da convenção, eficiência negocial pela conversão, preservação do negócio jurídico
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 14
-1) O início do prazo prescricional ocorre com o surgimento da pretensão, que decorre da exigibilidade do direito subjetivo; 2) o art. 189 diz respeito a casos em que a pretensão nasce imediatamente após a violação do direito absoluto ou da obrigação de não fazer.
 
------
+1. O início do prazo prescricional ocorre com o surgimento da pretensão, que decorre da exigibilidade do direito subjetivo; 2) o art. 189 diz respeito a casos em que a pretensão nasce imediatamente após a violação do direito absoluto ou da obrigação de não fazer.
+   @aliases: termo inicial da prescrição art. 189, exigibilidade e nascimento da pretensão, violação de direito absoluto, obrigação de não fazer e prescrição, contagem da prescrição no CC, lesão e início imediato da pretensão, teoria da actio nata, prescrição e exigibilidade
+
+---
+
 I Jornada de Direito Civil - Enunciado 15
 As disposições do art. 236 do novo Código Civil também são aplicáveis à hipótese do art. 240, in fine.
+@aliases: aplicação do art. 236 ao art. 240, interpretação do art. 240 in fine, leitura sistemática de dispositivos do CC, extensão de regime entre artigos, harmonização interna do Código Civil, eficácia normativa correlata, integração de normas civis, coerência interpretativa no CC
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 16
 O art. 299 do Código Civil não exclui a possibilidade da assunção cumulativa da dívida quando dois ou mais devedores se tornam responsáveis pelo débito com a concordância do credor.
+@aliases: assunção cumulativa de dívida, coassunção com anuência do credor, pluralidade de devedores no CC, responsabilidade conjunta por dívida, art. 299 CC interpretação, modificação subjetiva da obrigação, ingresso de co-devedor, reforço de garantia ao credor
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 17
 A interpretação da expressão "motivos imprevisíveis" constante do art. 317 do novo Código Civil deve abarcar tanto causas de desproporção não-previsíveis como também causas previsíveis, mas de resultados imprevisíveis.
+@aliases: art. 317 e imprevisibilidade, revisão por onerosidade excessiva, causas previsíveis de resultado imprevisível, teoria da imprevisão no CC, desequilíbrio contratual superveniente, reajuste judicial por desproporção, cláusula de hardship civil, interpretação ampla de motivos imprevisíveis
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 18
 A "quitação regular" referida no art. 319 do novo Código Civil engloba a quitação dada por meios eletrônicos ou por quaisquer formas de "comunicação a distância", assim entendida aquela que permite ajustar negócios jurídicos e praticar atos jurídicos sem a presença corpórea simultânea das partes ou de seus representantes.
+@aliases: quitação eletrônica válida, comunicação à distância no CC, recibo digital e eficácia, art. 319 interpretação, contratos celebrados remotamente, prova de pagamento por meios eletrônicos, negócios jurídicos sem presença física, certificação e rastreabilidade da quitação
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 19
 A matéria da compensação no que concerne às dívidas fiscais e parafiscais de estados, do Distrito Federal e de municípios não é regida pelo art. 374 do Código Civil.
+@aliases: compensação tributária fora do CC, autonomia do direito tributário, dívidas fiscais e parafiscais locais, lei específica para compensação, limites à compensação no âmbito tributário, art. 374 CC inaplicável, compensação com a Fazenda Pública, regime jurídico próprio da compensação tributária
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 20
 A taxa de juros moratórios a que se refere o art. 406 é a do art. 161, § 1º, do Código Tributário Nacional, ou seja, um por cento ao mês.
+@aliases: juros moratórios legais 1% ao mês, art. 406 CC e CTN 161 §1º, taxa legal de juros civis, juros de mora no CC, integração CC e CTN, cálculo de juros moratórios, parâmetros legais de juros, interpretação consolidada do art. 406
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 21
 A função social do contrato, prevista no art. 421 do novo Código Civil, constitui cláusula geral a impor a revisão do princípio da relatividade dos efeitos do contrato em relação a terceiros, implicando a tutela externa do crédito.
+@aliases: função social e eficácia perante terceiros, relativização da relatividade contratual, tutela externa do crédito, art. 421 CC cláusula geral, oponibilidade social do contrato, proteção de terceiros afetados, expansão dos efeitos contratuais, limites à autonomia obrigacional
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 22
 A função social do contrato, prevista no art. 421 do novo Código Civil, constitui cláusula geral que reforça o princípio de conservação do contrato, assegurando trocas úteis e justas.
+@aliases: função social e conservação contratual, manutenção do vínculo útil, equilíbrio e justiça nas trocas, art. 421 CC reforço conservativo, preservação do negócio jurídico, intervenção mínima e utilidade, continuidade contratual, correção de desequilíbrios leves
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 23
 A função social do contrato, prevista no art. 421 do novo Código Civil, não elimina o princípio da autonomia contratual, mas atenua ou reduz o alcance desse princípio quando presentes interesses metaindividuais ou interesse individual relativo à dignidade da pessoa humana.
+@aliases: autonomia contratual mitigada, dignidade da pessoa humana nos contratos, interesses metaindividuais e função social, art. 421 CC limites à autonomia, ponderação entre autonomia e função social, intervenção por valores constitucionais, redução do alcance da autonomia, proteção de vulneráveis
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 24
 Em virtude do princípio da boa-fé, positivado no art. 422 do novo Código Civil, a violação dos deveres anexos constitui espécie de inadimplemento, independentemente de culpa.
+@aliases: deveres anexos e inadimplemento, boa-fé objetiva art. 422, responsabilidade sem culpa por deveres laterais, dever de cooperação e lealdade, violação de deveres instrumentais, inadimplemento lateral, standard de conduta objetiva, tutela da confiança contratual
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 25
 O art. 422 do Código Civil não inviabiliza a aplicação pelo julgador do princípio da boa-fé nas fases pré-contratual e pós-contratual.
+@aliases: boa-fé pré-contratual e pós-contratual, culpa in contrahendo e post pactum, extensão temporal da boa-fé, art. 422 aplicado fora da execução, deveres de informação e lealdade, responsabilidade por negociações, encerramento contratual e boa-fé, proteção nas tratativas
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 26
 A cláusula geral contida no art. 422 do novo Código Civil impõe ao juiz interpretar e, quando necessário, suprir e corrigir o contrato segundo a boa-fé objetiva, entendida como a exigência de comportamento leal dos contratantes.
+@aliases: integração judicial pelo art. 422, suprimento e correção do contrato, boa-fé objetiva como padrão, exigência de lealdade recíproca, interpretação conforme boa-fé, controle judicial de condutas contratuais, dever de cooperação, correção de lacunas contratuais
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 27
 Na interpretação da cláusula geral da boa-fé, deve-se levar em conta o sistema do Código Civil e as conexões sistemáticas com outros estatutos normativos e fatores metajurídicos.
+@aliases: interpretação sistêmica da boa-fé, diálogo das fontes no CC, conexões com outros estatutos, fatores metajurídicos na interpretação, integração normativa da boa-fé, método sistemático-teleológico, harmonização intersistêmica, aplicação transversal da boa-fé
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 28
 O disposto no art. 445, §§ 1º e 2º, do Código Civil reflete a consagração da doutrina e da jurisprudência quanto à natureza decadencial das ações edilícias.
+@aliases: ações edilícias e decadência, art. 445 §§1º-2º CC, vícios redibitórios e prazos, natureza decadencial consolidada, abatimento do preço e redibição, prazos das garantias por vícios, tutela do comprador, regime das ações edilícias
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 29
 A interpretação do art. 456 do novo Código Civil permite ao evicto a denunciação direta de qualquer dos responsáveis pelo vício.
+@aliases: evicção e denunciação direta, art. 456 CC interpretação, chamamento de alienantes sucessivos, responsabilidade pela evicção, cadeia de transmissão e garantia, defesa do adquirente evicto, denunciação à lide ampla, proteção contra perda do bem
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 30
 A disposição do parágrafo único do art. 463 do novo Código Civil deve ser interpretada como fator de eficácia perante terceiros.
+@aliases: art. 463 parágrafo único eficácia externa, oponibilidade a terceiros, publicidade e eficácia do negócio, requisito de eficácia erga omnes, proteção de terceiros de boa-fé, formalidades para eficácia perante terceiros, reforço da segurança jurídica, efeitos externos do contrato
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 31
 As perdas e danos mencionados no art. 475 do novo Código Civil dependem da imputabilidade da causa da possível resolução.
+@aliases: perdas e danos na resolução, imputabilidade como requisito, art. 475 CC interpretação, responsabilidade pela rescisão, resolução por inadimplemento, culpa e risco na resolução, indenização condicionada à imputação, tutela ressarcitória contratual
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 32
 No contrato estimatório (art. 534), o consignante transfere ao consignatário, temporariamente, o poder de alienação da coisa consignada com opção de pagamento do preço de estima ou sua restituição ao final do prazo ajustado.
+@aliases: contrato estimatório consignação mercantil, poder de alienação temporário, preço de estima ou devolução, consignante e consignatário no CC, prazo ajustado e opções, riscos no contrato estimatório, natureza do contrato estimatório, circulação de mercadorias em consignação
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 33
 O novo Código Civil estabeleceu um novo sistema para a revogação da doação por ingratidão, pois o rol legal previsto no art. 557 deixou de ser taxativo, admitindo, excepcionalmente, outras hipóteses.
+@aliases: revogação de doação por ingratidão, rol não taxativo do art. 557, hipóteses ampliadas de ingratidão, sistema aberto no CC, exceções admitidas, proteção ao doador, causas de revogação da doação, regime da liberalidade e ingratidão
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 34
 No novo Código Civil, quaisquer contratos de mútuo destinados a fins econômicos presumem-se onerosos (art. 591), ficando a taxa de juros compensatórios limitada ao disposto no art. 406, com capitalização anual.
+@aliases: mútuo econômico presume-se oneroso, art. 591 CC e juros compensatórios, limite do art. 406 CC, capitalização anual permitida, contratos de mútuo empresarial, remuneração do mútuo no CC, parâmetros legais de juros compensatórios, onerosidade presumida
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 35
 A expressão "se enriquecer à custa de outrem" do art. 886 do novo Código Civil não significa, necessariamente, que deverá haver empobrecimento.
+@aliases: enriquecimento sem causa sem empobrecimento, art. 886 interpretação, deslocamento patrimonial injustificado, ação in rem verso, ausência de correlação necessária com empobrecimento, tutela restitutória autônoma, fundamento do enriquecimento sem causa, vedação ao enriquecimento indevido
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 36
 O art. 886 do novo Código Civil não exclui o direito à restituição do que foi objeto de enriquecimento sem causa nos casos em que os meios alternativos conferidos ao lesado encontram obstáculos de fato.
+@aliases: subsidiariedade do enriquecimento sem causa, obstáculos fáticos às vias alternativas, direito à restituição preservado, ação de enriquecimento como via residual, art. 886 interpretação ampliativa, impedimentos práticos e tutela, restituição por impossibilidade de outros meios, proteção ao lesado
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 37
 A responsabilidade civil decorrente do abuso do direito independe de culpa e fundamenta-se somente no critério objetivo-finalístico.
+@aliases: abuso de direito responsabilidade objetiva, critério objetivo-finalístico, art. 187 e 927 CC, ilicitude do exercício anormal do direito, dever de indenizar sem culpa, função social e limites do direito, dano por abuso de prerrogativa, responsabilização por desvio de finalidade
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 38
 A responsabilidade fundada no risco da atividade, como prevista na segunda parte do parágrafo único do art. 927 do novo Código Civil, configura-se quando a atividade normalmente desenvolvida pelo autor do dano causar a pessoa determinada um ônus maior do que aos demais membros da coletividade.
+@aliases: responsabilidade objetiva por risco da atividade, art. 927 parágrafo único segunda parte, ônus maior individualizado, teoria do risco criado, atividades de risco acentuado, dever de indenizar independentemente de culpa, distribuição de riscos sociais, proteção da vítima específica
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 39
 A impossibilidade de privação do necessário à pessoa, prevista no art. 928, traduz um dever de indenização eqüitativa, informado pelo princípio constitucional da proteção à dignidade da pessoa humana. Como conseqüência, também os pais, tutores e curadores serão beneficiados pelo limite humanitário do dever de indenizar, de modo que a passagem ao patrimônio do incapaz se dará não quando esgotados todos os recursos do responsável, mas se reduzidos estes ao montante necessário à manutenção de sua dignidade.
+@aliases: art. 928 CC indenização equitativa, limite humanitário do dever de indenizar, dignidade da pessoa humana e responsabilidade civil, proteção do patrimônio do incapaz, benefício a pais tutores e curadores, redução ao necessário para dignidade, vedação à privação do necessário, reparação com cláusula humanitária
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 40
 O incapaz responde pelos prejuízos que causar de maneira subsidiária ou excepcionalmente como devedor principal, na hipótese do ressarcimento devido pelos adolescentes que praticarem atos infracionais nos termos do art. 116 do Estatuto da Criança e do Adolescente, no âmbito das medidas socioeducativas ali previstas.
+@aliases: responsabilidade subsidiária do incapaz, devedor principal excepcional adolescente, art. 116 ECA ressarcimento, atos infracionais e danos civis, medidas socioeducativas e indenização, responsabilização patrimonial do incapaz, reparação por adolescente infrator, regime civil-educativo do dano
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 41
------
+@aliases: enunciado 41 sem conteúdo, lacuna de texto no enunciado, referência sem transcrição, pendente de redação oficial
+
+---
+
 I Jornada de Direito Civil - Enunciado 42
 O art. 931 amplia o conceito de fato do produto existente no art. 12 do Código de Defesa do Consumidor, imputando responsabilidade civil à empresa e aos empresários individuais vinculados à circulação dos produtos.
+@aliases: art. 931 CC fato do produto ampliado, responsabilidade de empresa e empresário individual, extensão ao conceito do art. 12 CDC, cadeia de circulação de produtos, responsabilidade objetiva na produção e distribuição, imputação pelo fato do produto, ampliação do polo passivo, tutela do consumidor por via civil
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 43
 A responsabilidade civil pelo fato do produto, prevista no art. 931 do novo Código Civil, também inclui os riscos do desenvolvimento.
+@aliases: riscos do desenvolvimento no art. 931, responsabilidade objetiva por inovação, fato do produto com risco desconhecido, desenvolvimento tecnológico e responsabilidade, teoria do risco de desenvolvimento, proteção do consumidor frente a inovação, responsabilidade por defeitos imprevisíveis, produtos de alta tecnologia e dano
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 44
 Na hipótese do art. 934, o empregador e o comitente somente poderão agir regressivamente contra o empregado ou preposto se estes tiverem causado dano com dolo ou culpa.
+@aliases: ação regressiva do empregador art. 934, responsabilidade do preposto com dolo ou culpa, limite à regressividade patronal, comitente e empregado responsabilidade civil, culpa do empregado como requisito, regresso condicionado a dolo ou culpa, responsabilidade objetiva externa e regresso interno, vínculo de preposição e regresso
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 45
 No caso do art. 935, não mais se poderá questionar a existência do fato ou quem seja o seu autor se essas questões se acharem categoricamente decididas no juízo criminal.
+@aliases: art. 935 coisa julgada penal, vinculação cível a fato e autoria, impossibilidade de rediscussão na esfera civil, eficácia da sentença penal na responsabilidade civil, prejudicialidade penal, decisão criminal como lastro probatório, coordenação entre esferas penal e civil, limites da independência das instâncias
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 46
 A possibilidade de redução do montante da indenização em face do grau de culpa do agente, estabelecida no parágrafo único do art. 944 do novo Código Civil, deve ser interpretada restritivamente, por representar uma exceção ao princípio da reparação integral do dano[,] não se aplicando às hipóteses de responsabilidade objetiva. (Alterado pelo Enunciado 380 - IV Jornada)
+@aliases: redução equitativa art. 944 parágrafo único, exceção ao princípio da reparação integral, interpretação restritiva da redução, inaplicabilidade na responsabilidade objetiva, gradação da culpa e quantum indenizatório, Enunciado 380 IV Jornada, moderação do valor por culpa do agente, limites à mitigação do dano
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 47
 O art. 945 do novo Código Civil, que não encontra correspondente no Código Civil de 1916, não exclui a aplicação da teoria da causalidade adequada.
+@aliases: art. 945 concorrência de culpas, manutenção da causalidade adequada, compatibilização entre culpa concorrente e nexo, teoria da causalidade no CC/2002, distribuição do dano por concorrência, imputação com base na adequação causal, distinção entre nexo e culpa, hermenêutica do art. 945
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 48
 parágrafo único: O parágrafo único do art. 950 do novo Código Civil institui direito potestativo do lesado para exigir pagamento da indenização de uma só vez, mediante arbitramento do valor pelo juiz, atendidos os arts. 944 e 945 e a possibilidade econômica do ofensor.
+@aliases: art. 950 parágrafo único pagamento em parcela única, direito potestativo do lesionado, arbitramento judicial da indenização, observância aos arts. 944 e 945, capacidade econômica do ofensor, conversão de pensão em capital, indenização por incapacidade laboral, liquidação de dano material futuro
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 49
 Interpreta-se restritivamente a regra do art. 1.228, § 2º, do novo Código Civil, em harmonia com o princípio da função social da propriedade e com o disposto no art. 187.
+@aliases: art. 1.228 §2º interpretação restritiva, função social da propriedade como limite, abuso de direito art. 187, contenção do direito de propriedade, tutela do interesse coletivo na propriedade, uso anormal da propriedade, ponderação entre domínio e função social, restrições ao exercício proprietário
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 50
 A partir da vigência do novo Código Civil, o prazo prescricional das ações de reparação de danos que não houver atingido a metade do tempo previsto no Código Civil de 1916 fluirá por inteiro, nos termos da nova lei (art. 206).
+@aliases: transição prescricional CC/2002 art. 206, regra da metade do prazo, reinício integral da prescrição, direito intertemporal da prescrição, ações de reparação de danos e prazos, aplicação imediata do novo prazo, contagem a partir da vigência do CC/2002, adequação de prazos antigos
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 51
 A teoria da desconsideração da personalidade jurídica - disregard doctrine - fica positivada no novo Código Civil, mantidos os parâmetros existentes nos microssistemas legais e na construção jurídica sobre o tema.
+@aliases: desconsideração positivada no CC, disregard doctrine no direito brasileiro, parâmetros dos microssistemas preservados, abuso de personalidade e fraude, extensão a sócios e administradores, superação do véu societário, compatibilização com CDC e ambiental, critérios para desconsiderar
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 52
 Por força da regra do art. 903 do Código Civil, as disposições relativas aos títulos de crédito não se aplicam aos já existentes.
+@aliases: art. 903 CC irretroatividade, títulos de crédito preexistentes, ultratividade das normas anteriores, segurança jurídica nos títulos, regime de transição dos títulos, não aplicação imediata a títulos antigos, preservação de relações cambiárias, direito intertemporal cambiário
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 53
 Deve-se levar em consideração o princípio da função social na interpretação das normas relativas à empresa, a despeito da falta de referência expressa.
+@aliases: função social da empresa, interpretação teleológica empresarial, aplicação implícita do princípio social, limites ao exercício da empresa, solidariedade e empresa, leitura constitucional do direito empresarial, responsabilidade social empresarial jurídica, orientação principiológica nas sociedades
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 54
 É caracterizador do elemento empresa a declaração da atividade-fim, assim como a prática de atos empresariais.
+@aliases: elemento empresa e atividade-fim, prática habitual de atos empresariais, caracterização do empresário, objeto social e exercício da empresa, empresa como atividade organizada, requisito objetivo da empresa, identificação do estabelecimento empresarial, definição funcional de empresa
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 55
 O domicílio da pessoa jurídica empresarial regular é o estatutário ou o contratual em que indicada a sede da empresa, na forma dos arts. 968, IV, e 969, combinado com o art. 1.150, todos do Código Civil.
+@aliases: domicílio estatutário da pessoa jurídica, sede contratual como domicílio, arts. 968 IV 969 e 1.150 CC, registro e indicação de sede, domicílio empresarial regular, competência territorial empresarial, localização jurídica da sociedade, estatuto ou contrato social e domicílio
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 56
 Cancelado pelo En. 235 - III Jornada
+@aliases: enunciado cancelado pelo 235 III Jornada, perda de vigência do enunciado 56, referência a cancelamento em jornada civil, substituição por entendimento posterior
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 57
 A opção pelo tipo empresarial não afasta a natureza simples da sociedade.
+@aliases: sociedade simples com tipo empresarial, natureza simples prevalente, escolha do tipo não altera natureza, classificação societária material, registro empresarial e natureza jurídica, distinção entre simples e empresária, organização da atividade como critério, forma versus essência societária
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 58
 A sociedade em comum compreende as figuras doutrinárias da sociedade de fato e da irregular.
+@aliases: sociedade em comum conceito abrangente, sociedade de fato e irregular, ausência de registro e efeitos, responsabilidade dos sócios em comum, prova da sociedade de fato, regime jurídico da sociedade irregular, relação entre tipos não personificados, atuação societária sem personalidade
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 59
 Os sociogestores e os administradores das empresas são responsáveis subsidiária e ilimitadamente pelos atos ilícitos praticados, de má gestão ou contrários ao previsto no contrato social ou estatuto, consoante estabelecem os arts. 990, 1.009, 1.016, 1.017 e 1.091, todos do Código Civil.
+@aliases: responsabilidade de sócio gestor e administrador, atos ilícitos e má gestão societária, responsabilidade subsidiária e ilimitada, arts. 990 1009 1016 1017 1091 CC, violação a contrato social ou estatuto, responsabilização civil de gestores, excesso de poderes e gestão temerária, dever de diligência do administrador
 
------
+---
+
 I Jornada de Direito Civil - Enunciado 60
 As expressões "de peita" ou "suborno" do § 1º do art. 1.011 do novo Código Civil devem ser entendidas como corrupção, ativa ou passiva.
+@aliases: “de peita” e suborno como corrupção, art. 1.011 §1º CC interpretação, corrupção ativa e passiva no direito privado, probidade na administração societária, vedação a vantagens indevidas a administradores, ilícito societário por suborno, dever de lealdade do administrador, sanções por corrupção em sociedades
+
 
 -----
 I Jornada de Direito Civil - Enunciado 61
