@@ -649,14 +649,15 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
       return false;
     }
 
-    // Aliases
-    if (trimmed.toLowerCase().startsWith("@aliases:")) {
-      aliases = trimmed.replace(/^@aliases:/i, "")
-        .split(",")
-        .map(t => t.trim())
-        .filter(Boolean);
-      return false; // não aparece no body
-    }
+   // Aliases
+if (trimmed.replace(/^\s+/, "").toLowerCase().startsWith("@aliases:")) {
+  aliases = trimmed.replace(/^\s*@aliases:/i, "")
+    .split(",")
+    .map(t => t.trim())
+    .filter(Boolean);
+  return false; // não aparece no body
+}
+
 
     return true;
   });
