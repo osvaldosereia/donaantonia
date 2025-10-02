@@ -868,12 +868,15 @@ for (const [label, urls] of labelGroups.entries()) {
   const okWords = hasAllWordTokens(bag, wordTokens);
   const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
-  // Busca nos aliases (se existirem)
-  const qNorm = norm(termRaw);
-  const matchAlias = (it.aliases || []).some(a => qNorm.includes(norm(a)));
+ // Busca nos aliases (se existirem)
+const matchAlias = (it.aliases || []).some(alias => {
+  const aliasBag = norm(alias);
+  return wordTokens.every(t => aliasBag.includes(t));
+});
 
-  return (okWords && okNums) || matchAlias;
+return (okWords && okNums) || matchAlias;
 };
+
 
 
       const first = await firstMatchInFile(url, label, predicate);
