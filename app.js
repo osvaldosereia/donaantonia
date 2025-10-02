@@ -632,36 +632,64 @@ function splitBlocks(txt) {
     .filter(Boolean);
 }
 function parseBlock(block, idx, fileUrl, sourceLabel) {
-  const lines = block.split("\n");
-  const firstIdx = lines.findIndex((l) => l.trim().length > 0);
-  const first = firstIdx >= 0 ? lines[firstIdx].trim() : `Bloco ${idx + 1}`;
+  const lines = String(block).split("\n");
+  const firstIdx = lines.findIndex(l => l.trim().length > 0);
+  let first = firstIdx >= 0 ? lines[firstIdx] : `Bloco ${idx + 1}`;
   let bodyLines = lines.slice(firstIdx + 1);
 
   let videoLink = null;
-  let aliases = [];
+  const aliases = [];
 
-  bodyLines = bodyLines.filter((line) => {
-    const trimmed = line.trim();
-
-    // YouTube
-    if (/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)/.test(trimmed)) {
-      videoLink = trimmed;
-      return false;
-    }
-
-    // Aliases
-    if (/^\s*@aliases:/i.test(trimmed)) {
-      const found = trimmed.replace(/^\s*@aliases:/i, "")
+  // helper: extrai aliases de um texto e retorna {textSemAlias, novosAliases[]}
+  const extractAliases = (line) => {
+    let out = String(line);
+    const found = [];
+    // pega tudo após @aliases: (ou @alias:) — onde quer que esteja na linha
+    const rx = /@aliases?\s*:\s*([^#\n]*)/ig;
+    let m;
+    while ((m = rx.exec(out)) !== null) {
+      const tail = (m[1] || "")
         .split(",")
         .map(t => t.trim())
         .filter(Boolean);
+      if (tail.length) found.push(...tail);
+    }
+    // remove o trecho @aliases: ... da linha
+    out = out.replace(rx, "").replace(/\s{2,}/g, " ").trimEnd();
+    return { line: out, found };
+  };
 
-      aliases.push(...found);   // acumula em vez de sobrescrever
-      return false;             // não aparece no body
+  // 1) Aliases no TÍTULO (primeira linha)
+  if (/@aliases?/i.test(first)) {
+    const { line, found } = extractAliases(first);
+    if (found.length) aliases.push(...found);
+    // se o @aliases estava colado após um traço/—, limpa o final
+    first = line.replace(/[—–-]\s*$/, "").trim() || `Bloco ${idx + 1}`;
+  }
+
+  // 2) Varre o corpo linha a linha
+  bodyLines = bodyLines.map(raw => {
+    const line = raw.trim();
+
+    // YouTube (linha toda é link)
+    if (/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)/.test(line)) {
+      videoLink = line;
+      return ""; // some do corpo
     }
 
-    return true;
-  });
+    // Aliases em QUALQUER posição da linha
+    if (/@aliases?/i.test(line)) {
+      const { line: rest, found } = extractAliases(line);
+      if (found.length) aliases.push(...found);
+      // mantém o que sobrou da linha (se sobrar algo útil)
+      return rest.trim();
+    }
+
+    return raw;
+  }).filter(l => l && l.trim().length > 0); // remove vazias
+
+  // dedup + normaliza brancos
+  const aliasesFinal = Array.from(new Set(aliases.map(a => a.replace(/\s+/g, " ").trim())));
 
   const body = bodyLines.join("\n").trim();
   const full = [first, body].filter(Boolean).join("\n");
@@ -677,9 +705,10 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
     _bag,
     fileUrl,
     videoUrl: videoLink || null,
-    aliases: aliases || []   // garante array sempre
+    aliases: aliasesFinal
   };
 }
+
 
 
 
