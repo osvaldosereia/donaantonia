@@ -894,10 +894,11 @@ for (const [label, urls] of labelGroups.entries()) {
        // Busca nos aliases (se existirem)
 const matchAlias = (it.aliases || []).some(alias => {
   const aliasNorm = norm(alias);
-  return queryTokens.some(t => bagHasTokenWord(aliasNorm, t));
+  return queryTokens.every(t => aliasNorm.includes(t));
 });
 
 return (okWords && okNums) || matchAlias;
+
 
       };
 
