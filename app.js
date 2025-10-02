@@ -887,20 +887,21 @@ for (const [label, urls] of labelGroups.entries()) {
   for (const url of urls) {
     try {
       const predicate = (it) => {
-        const bag = it._bag || norm(stripThousandDots(it.text));
-        const okWords = hasAllWordTokens(bag, wordTokens);
-        const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
+  const bag = it._bag || norm(stripThousandDots(it.text));
+  const okWords = hasAllWordTokens(bag, wordTokens);
+  const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
-       // Busca nos aliases (se existirem)
-const matchAlias = (it.aliases || []).some(alias => {
-  const aliasNorm = norm(alias);
-  return queryTokens.every(t => aliasNorm.includes(t));
-});
+  // Busca nos aliases (se existirem)
+  const matchAlias = (it.aliases || []).some(alias => {
+    const aliasNorm = norm(alias);
+    // aqui eu mudei para .some() para bater qualquer token,
+    // mas se você quiser só quando TODOS tokens baterem, use .every()
+    return queryTokens.some(t => aliasNorm.includes(t));
+  });
 
-return (okWords && okNums) || matchAlias;
+  return (okWords && okNums) || matchAlias;
+};
 
-
-      };
 
       const first = await firstMatchInFile(url, label, predicate);
       if (first) {
