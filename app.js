@@ -892,13 +892,15 @@ for (const [label, urls] of labelGroups.entries()) {
   const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
   // Busca nos aliases
-  const matchAlias = (it.aliases || []).some(alias => {
-    const aliasNorm = norm(alias);
-    return aliasNorm.includes(norm(termRaw));  // busca direta
-  });
+const matchAlias = (it.aliases || []).some(alias => {
+  const aliasNorm = norm(alias);
+  // exige que todos os tokens da busca estejam no alias
+  return wordTokens.every(t => aliasNorm.includes(t));
+});
 
-  return (okWords && okNums) || matchAlias;
+return (okWords && okNums) || matchAlias;
 };
+
 
 
       const first = await firstMatchInFile(url, label, predicate);
