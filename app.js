@@ -649,14 +649,17 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
       return false;
     }
 
-   // Aliases
+  // Aliases
 if (trimmed.replace(/^\s+/, "").toLowerCase().startsWith("@aliases:")) {
-  aliases = trimmed.replace(/^\s*@aliases:/i, "")
+  const found = trimmed.replace(/^\s*@aliases:/i, "")
     .split(",")
     .map(t => t.trim())
     .filter(Boolean);
-  return false; // não aparece no body
+
+  aliases.push(...found);   // <<< acumula todos
+  return false;             // não aparece no body
 }
+
 
 
     return true;
