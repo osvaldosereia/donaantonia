@@ -849,7 +849,7 @@ allOptions.sort((a, b) => {
   return a.url.localeCompare(b.url);
 });
 
-   // estrutura "lazy" aprimorada: unifica arquivos com mesmo label
+  // estrutura "lazy" aprimorada: unifica arquivos com mesmo label
 const labelGroups = new Map(); // label => [urls]
 for (const { url, label } of allOptions) {
   if (!labelGroups.has(label)) labelGroups.set(label, []);
@@ -861,6 +861,25 @@ const lazyGroups = [];
 // Normaliza e tokeniza a query apenas 1 vez
 const queryNorm   = norm(termRaw);
 const queryTokens = tokenize(queryNorm);
+
+// Função simples para gerar variações singular/plural
+function simpleVariants(t) {
+  const v = new Set([t]);
+  if (!t.endsWith("s")) {
+    v.add(t + "s");
+    v.add(t + "es");
+  } else {
+    v.add(t.slice(0, -1));
+  }
+  if (t.endsWith("m")) v.add(t.slice(0, -1) + "ns");
+  if (t.endsWith("ao")) {
+    const base = t.slice(0, -2);
+    v.add(base + "oes");
+    v.add(base + "aos");
+    v.add(base + "aes");
+  }
+  return [...v];
+}
 
 for (const [label, urls] of labelGroups.entries()) {
   const foundItems = [];
@@ -875,8 +894,10 @@ for (const [label, urls] of labelGroups.entries()) {
         // Busca nos aliases (se existirem)
         const matchAlias = (it.aliases || []).some(alias => {
           const aliasNorm = norm(alias);
-          // checa se pelo menos 1 token da busca está contido no alias
-          return queryTokens.some(t => aliasNorm.includes(t));
+          // checa se pelo menos 1 variação de token da busca aparece no alias
+          return queryTokens.some(t =>
+            simpleVariants(t).some(v => aliasNorm.includes(v))
+          );
         });
 
         return (okWords && okNums) || matchAlias;
@@ -909,6 +930,7 @@ for (const [label, urls] of labelGroups.entries()) {
     window.renderLazyResults(termRaw, lazyGroups, tokens);
   }
 }
+
 
     // fim da busca inicial (só previews)
     skel.remove();
