@@ -640,60 +640,57 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
   let videoLink = null;
   const aliases = [];
 
-  // helper: extrai aliases de um texto e retorna {textSemAlias, novosAliases[]}
-  const extractAliases = (line) => {
-    let out = String(line);
+  // extrai aliases de um texto e devolve { lineSemAlias, found[] }
+  const extractAliases = (text) => {
+    let out = String(text);
     const found = [];
-    // pega tudo após @aliases: (ou @alias:) — onde quer que esteja na linha
-    const rx = /@aliases?\s*:\s*([^#\n]*)/ig;
+    const rx = /@aliases?\s*:\s*([^#\n]*)/ig; // @alias: ou @aliases:
     let m;
     while ((m = rx.exec(out)) !== null) {
-      const tail = (m[1] || "")
-        .split(",")
+      const list = (m[1] || "")
+        .split(/[,\|;]+/)
         .map(t => t.trim())
         .filter(Boolean);
-      if (tail.length) found.push(...tail);
+      if (list.length) found.push(...list);
     }
-    // remove o trecho @aliases: ... da linha
     out = out.replace(rx, "").replace(/\s{2,}/g, " ").trimEnd();
     return { line: out, found };
   };
 
-  // 1) Aliases no TÍTULO (primeira linha)
+  // Aliases no título
   if (/@aliases?/i.test(first)) {
     const { line, found } = extractAliases(first);
     if (found.length) aliases.push(...found);
-    // se o @aliases estava colado após um traço/—, limpa o final
-    first = line.replace(/[—–-]\s*$/, "").trim() || `Bloco ${idx + 1}`;
+    first = (line || `Bloco ${idx + 1}`).replace(/[—–-]\s*$/, "").trim();
   }
 
-  // 2) Varre o corpo linha a linha
+  // Corpo
   bodyLines = bodyLines.map(raw => {
     const line = raw.trim();
 
-    // YouTube (linha toda é link)
+    // YouTube
     if (/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)/.test(line)) {
       videoLink = line;
-      return ""; // some do corpo
+      return "";
     }
 
-    // Aliases em QUALQUER posição da linha
+    // Aliases em qualquer ponto da linha
     if (/@aliases?/i.test(line)) {
       const { line: rest, found } = extractAliases(line);
       if (found.length) aliases.push(...found);
-      // mantém o que sobrou da linha (se sobrar algo útil)
       return rest.trim();
     }
 
     return raw;
-  }).filter(l => l && l.trim().length > 0); // remove vazias
+  }).filter(l => l && l.trim().length > 0);
 
-  // dedup + normaliza brancos
   const aliasesFinal = Array.from(new Set(aliases.map(a => a.replace(/\s+/g, " ").trim())));
-
   const body = bodyLines.join("\n").trim();
   const full = [first, body].filter(Boolean).join("\n");
-  const _bag = norm(stripThousandDots(full));
+
+  // **IMPORTANTE:** inclui aliases no _bag para a lógica padrão de palavras também enxergar
+  const aliasText = aliasesFinal.join(" ");
+  const _bag = norm(stripThousandDots([full, aliasText].filter(Boolean).join("\n")));
 
   return {
     id: `${fileUrl}::art-${idx}`,
