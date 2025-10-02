@@ -635,20 +635,33 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
   const lines = block.split("\n");
   const firstIdx = lines.findIndex((l) => l.trim().length > 0);
   const first = firstIdx >= 0 ? lines[firstIdx].trim() : `Bloco ${idx + 1}`;
-  const bodyLines = lines.slice(firstIdx + 1);
+  let bodyLines = lines.slice(firstIdx + 1);
 
-  // Captura o link (se existir) e remove do corpo
+  // Captura links do YouTube e remove do corpo
   let videoLink = null;
-  const filteredBody = bodyLines.filter((line) => {
+  let aliases = [];
+  bodyLines = bodyLines.filter((line) => {
     const trimmed = line.trim();
+
+    // YouTube
     if (/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)/.test(trimmed)) {
       videoLink = trimmed;
       return false;
     }
+
+    // Aliases
+    if (trimmed.toLowerCase().startsWith("@aliases:")) {
+      aliases = trimmed.replace(/^@aliases:/i, "")
+        .split(",")
+        .map(t => t.trim())
+        .filter(Boolean);
+      return false; // não aparece no body
+    }
+
     return true;
   });
 
-  const body = filteredBody.join("\n").trim();
+  const body = bodyLines.join("\n").trim();
   const full = [first, body].filter(Boolean).join("\n");
   const _bag = norm(stripThousandDots(full));
 
@@ -658,12 +671,14 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
     source: sourceLabel,
     title: first,
     body,
-    text: full,         // texto sem o link
+    text: full,
     _bag,
     fileUrl,
-    videoUrl: videoLink || null
+    videoUrl: videoLink || null,
+    aliases // <<< NOVO campo
   };
 }
+
 
 async function parseFile(url, sourceLabel) {
   if (state.cacheParsed.has(url)) return state.cacheParsed.get(url);
@@ -849,11 +864,17 @@ for (const [label, urls] of labelGroups.entries()) {
   for (const url of urls) {
     try {
       const predicate = (it) => {
-        const bag = it._bag || norm(stripThousandDots(it.text));
-        const okWords = hasAllWordTokens(bag, wordTokens);
-        const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
-        return okWords && okNums;
-      };
+  const bag = it._bag || norm(stripThousandDots(it.text));
+  const okWords = hasAllWordTokens(bag, wordTokens);
+  const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
+
+  // Busca nos aliases (se existirem)
+  const qNorm = norm(termRaw);
+  const matchAlias = (it.aliases || []).some(a => qNorm.includes(norm(a)));
+
+  return (okWords && okNums) || matchAlias;
+};
+
 
       const first = await firstMatchInFile(url, label, predicate);
       if (first) {
