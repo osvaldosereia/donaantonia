@@ -872,16 +872,13 @@ for (const [label, urls] of labelGroups.entries()) {
 const queryNorm = norm(termRaw);
 const queryTokens = tokenize(queryNorm);
 
-// Busca nos aliases (se existirem)
 const matchAlias = (it.aliases || []).some(alias => {
   const aliasNorm = norm(alias);
-  return wordTokens.some(t => bagHasTokenWord(aliasNorm, t));
+  // checa se pelo menos 1 token da busca está contido no alias
+  return queryTokens.some(t => aliasNorm.includes(t));
 });
 
 return (okWords && okNums) || matchAlias;
-
-
-
 
 
       const first = await firstMatchInFile(url, label, predicate);
