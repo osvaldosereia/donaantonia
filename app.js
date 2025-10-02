@@ -849,7 +849,7 @@ allOptions.sort((a, b) => {
   return a.url.localeCompare(b.url);
 });
 
-    // estrutura "lazy" aprimorada: unifica arquivos com mesmo label
+   // estrutura "lazy" aprimorada: unifica arquivos com mesmo label
 const labelGroups = new Map(); // label => [urls]
 for (const { url, label } of allOptions) {
   if (!labelGroups.has(label)) labelGroups.set(label, []);
@@ -858,28 +858,29 @@ for (const { url, label } of allOptions) {
 
 const lazyGroups = [];
 
+// Normaliza e tokeniza a query apenas 1 vez
+const queryNorm   = norm(termRaw);
+const queryTokens = tokenize(queryNorm);
+
 for (const [label, urls] of labelGroups.entries()) {
   const foundItems = [];
 
   for (const url of urls) {
     try {
       const predicate = (it) => {
-  const bag = it._bag || norm(stripThousandDots(it.text));
-  const okWords = hasAllWordTokens(bag, wordTokens);
-  const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
+        const bag = it._bag || norm(stripThousandDots(it.text));
+        const okWords = hasAllWordTokens(bag, wordTokens);
+        const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
-// Busca nos aliases (se existirem)
-const queryNorm = norm(termRaw);
-const queryTokens = tokenize(queryNorm);
+        // Busca nos aliases (se existirem)
+        const matchAlias = (it.aliases || []).some(alias => {
+          const aliasNorm = norm(alias);
+          // checa se pelo menos 1 token da busca está contido no alias
+          return queryTokens.some(t => aliasNorm.includes(t));
+        });
 
-const matchAlias = (it.aliases || []).some(alias => {
-  const aliasNorm = norm(alias);
-  // checa se pelo menos 1 token da busca está contido no alias
-  return queryTokens.some(t => aliasNorm.includes(t));
-});
-
-return (okWords && okNums) || matchAlias;
-
+        return (okWords && okNums) || matchAlias;
+      };
 
       const first = await firstMatchInFile(url, label, predicate);
       if (first) {
@@ -908,8 +909,6 @@ return (okWords && okNums) || matchAlias;
     window.renderLazyResults(termRaw, lazyGroups, tokens);
   }
 }
-
-
 
     // fim da busca inicial (só previews)
     skel.remove();
