@@ -637,9 +637,9 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
   const first = firstIdx >= 0 ? lines[firstIdx].trim() : `Bloco ${idx + 1}`;
   let bodyLines = lines.slice(firstIdx + 1);
 
-  // Captura links do YouTube e remove do corpo
   let videoLink = null;
   let aliases = [];
+
   bodyLines = bodyLines.filter((line) => {
     const trimmed = line.trim();
 
@@ -649,20 +649,16 @@ function parseBlock(block, idx, fileUrl, sourceLabel) {
       return false;
     }
 
-  // Aliases
-if (trimmed.replace(/^\s+/, "").toLowerCase().startsWith("@aliases:")) {
-  const found = trimmed.replace(/^\s*@aliases:/i, "")
-    .split(",")
-    .map(t => t.trim())
-    .filter(Boolean);
+    // Aliases
+    if (/^\s*@aliases:/i.test(trimmed)) {
+      const found = trimmed.replace(/^\s*@aliases:/i, "")
+        .split(",")
+        .map(t => t.trim())
+        .filter(Boolean);
 
-  if (!aliases) aliases = [];
-  aliases.push(...found);   // <<< acumula no array em vez de sobrescrever
-  return false;             // não aparece no body
-}
-
-
-
+      aliases.push(...found);   // acumula em vez de sobrescrever
+      return false;             // não aparece no body
+    }
 
     return true;
   });
@@ -681,9 +677,10 @@ if (trimmed.replace(/^\s+/, "").toLowerCase().startsWith("@aliases:")) {
     _bag,
     fileUrl,
     videoUrl: videoLink || null,
-  aliases: aliases || []   // <<< garante que sempre tenha array
+    aliases: aliases || []   // garante array sempre
   };
 }
+
 
 
 async function parseFile(url, sourceLabel) {
