@@ -2189,12 +2189,20 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
 
         // filtra matches como antes
         const candidates = [];
-        for (const it of fullItems) {
-          const bag = it._bag || window.norm(window.stripThousandDots(it.text));
-          const okWords = window.hasAllWordTokens(bag, words);
-          const okNums  = window.matchesNumbers(it, nums, window.KW_RX.test(termNorm), qMode);
-          if (okWords && okNums) candidates.push(it);
-        }
+for (const it of fullItems) {
+  const bag = it._bag || window.norm(window.stripThousandDots(it.text));
+  const okWords = window.hasAllWordTokens(bag, words);
+  const okNums  = window.matchesNumbers(it, nums, window.KW_RX.test(termNorm), qMode);
+
+  // match por aliases (todas as palavras da busca precisam aparecer no alias normalizado)
+  const matchAlias = (it.aliases || []).some(alias => {
+    const a = window.norm(alias);
+    return words.every(w => a.includes(w));
+  });
+
+  if ((okWords || matchAlias) && okNums) candidates.push(it);
+}
+
 
         // rank (leve) e render incremental para não travar
         const TOP_N = 20;
