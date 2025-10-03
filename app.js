@@ -314,6 +314,74 @@ function openExternal(url) {
 function stripThousandDots(s) {
   return String(s).replace(/(?<=\d)\.(?=\d)/g, "");
 }
+/* =====================================================================
+   REMISSÕES: extrair artigos de frases “Vide art./arts.”
+   Suporta: listas, intervalos “115 a 120” e sufixos “121-A/1609B”
+   ===================================================================== */
+function __expandRange(a, b) {
+  const out = [];
+  const x = Math.min(a, b), y = Math.max(a, b);
+  for (let i = x; i <= y; i++) out.push(String(i));
+  return out;
+}
+
+function __normRemRef(s) {
+  return stripThousandDots(String(s || "")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
+    .replace(/[º°o]\b/gi, "");
+}
+
+/* “121-A”, “1609B”, “1.609-C” → base “121”, “1609” */
+function __toBaseArticle(tok) {
+  const t = stripThousandDots(String(tok).replace(/[º°]/g, "")).trim();
+  const m = t.match(/^(\d{1,4})(?:[.\-]?[A-Za-z])?$/);
+  return m ? m[1] : null;
+}
+
+/* Extrai artigos de:
+   - “Vide art. 4 do CC”
+   - “Vide arts. 5, 115 a 120, 166, I, 542, 1.609, parágrafo único…”
+   Ignora romanos, “caput”, “parágrafo”, “alínea”, “inciso”. */
+function extractArticleRefsFromText(raw) {
+  if (!raw) return [];
+  const s = __normRemRef(raw);
+
+  // trecho após "vide art/arts"; se não houver, usa a string toda
+  const m = s.match(/\bvide\s+arts?\.?([^.\n]*)/i);
+  const scope = m ? m[1] : s;
+
+  const cleaned = scope
+    .replace(/\bcaput\b/gi, " ")
+    .replace(/\bparagrafo(?:\s+unico)?\b/gi, " ")
+    .replace(/\balinea\b/gi, " ")
+    .replace(/\binciso\b/gi, " ")
+    .replace(/\b[IVXLCDM]{1,8}\b/gi, " ");
+
+  const out = new Set();
+
+  // intervalos “115 a 120”, “115-120”
+  const rangeRx = /(\d{1,4})(?:\s*(?:a|-|–|—)\s*)(\d{1,4})/gi;
+  let r;
+  let tmp = cleaned;
+  while ((r = rangeRx.exec(cleaned)) !== null) {
+    const a = parseInt(stripThousandDots(r[1]), 10);
+    const b = parseInt(stripThousandDots(r[2]), 10);
+    if (!Number.isNaN(a) && !Number.isNaN(b)) {
+      __expandRange(a, b).forEach(n => out.add(n));
+    }
+    tmp = tmp.replace(r[0], " ");
+  }
+
+  // números avulsos com sufixo opcional (121-A, 1609B, 1.609-C)
+  const singleRx = /\b\d{1,4}(?:[.\-]?[A-Za-z])?\b/g;
+  let sM;
+  while ((sM = singleRx.exec(tmp)) !== null) {
+    const base = __toBaseArticle(sM[0]);
+    if (base) out.add(base);
+  }
+
+  return Array.from(out);
+}
 
 /* ---------- CÓDIGOS: abreviações/sinônimos → rótulo do <select> ---------- */
 const CODE_ABBREVS = new Map(Object.entries({
