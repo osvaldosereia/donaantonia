@@ -554,6 +554,14 @@ function numberRespectsWindows(text, n, queryMode /* "art"|"sumula"|null */) {
   return false;
 }
 
+// Confere se o título do card é "Art. N" para algum dos números pedidos
+function isArticleHeaderMatch(it, nums) {
+  const t = String(it.title || "");
+  const m = t.match(/^\s*(Art\.?|Artigo)\s*(\d{1,4})/i);
+  return !!(m && nums.includes(m[2]));
+}
+
+
 function extractLegalRefsToSet(text) {
   const rx = /\b(art\.?|artigo|s[uú]mula)\b[^0-9a-zA-Z]{0,12}(\d{1,4}[a-zA-Z\-]?)/giu;
   const out = new Set();
@@ -922,15 +930,23 @@ async function doSearch() {
   /* Remissões “Vide art./arts.” na própria query:
        substitui tokens por artigos explícitos e força modo ART */
     const explicitRefs = extractArticleRefsFromText(termRaw);
-    if (explicitRefs.length) {
-      tokens = explicitRefs;      // só artigos
-      window.__phrases = [];      // sem frases
-      queryMode = "art";          // força janela Art. para evitar falsos positivos
-    }
+const isRemissao = explicitRefs.length > 0;
+     window.__isRemissao = isRemissao;
+
+
+if (isRemissao) {
+  tokens = explicitRefs;   // só os artigos citados (ex.: ["4","5"])
+  window.__phrases = [];   // sem frases
+  queryMode = "art";       // janela do tipo Art.
+  window.searchTokens = []; // <<< desliga highlight de números
+}
+
 
     // salva tokens globais p/ highlight (strings) + frases "..."
     const phrases = Array.isArray(window.__phrases) ? window.__phrases : [];
-    window.searchTokens = (Array.isArray(tokens) && tokens.length ? tokens : buildTokens(els.q?.value)).concat(phrases);
+window.searchTokens = isRemissao
+  ? phrases
+  : (Array.isArray(tokens) && tokens.length ? tokens : buildTokens(els.q?.value)).concat(phrases);
 
     const queryHasLegalKeyword = KW_RX.test(normQuery) || (explicitRefs.length > 0);
     const { wordTokens, numTokens } = splitTokens(tokens);
@@ -992,19 +1008,23 @@ for (const [label, urls] of labelGroups.entries()) {
 
   for (const url of urls) {
     try {
-      const predicate = (it) => {
+     const predicate = (it) => {
   const bag = it._bag || norm(stripThousandDots(it.text));
   const okWords = hasAllWordTokens(bag, wordTokens);
-  const okNums  = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
+  const okNumsDefault = matchesNumbers(it, numTokens, queryHasLegalKeyword, queryMode);
 
-  // Busca nos aliases
-const matchAlias = (it.aliases || []).some(alias => {
-  const aliasNorm = norm(alias);
-  // exige que todos os tokens da busca estejam no alias
-  return wordTokens.every(t => aliasNorm.includes(t));
-});
+  const matchAlias = (it.aliases || []).some(alias => {
+    const aliasNorm = norm(alias);
+    return wordTokens.every(t => aliasNorm.includes(t));
+  });
 
-return (okWords && okNums) || matchAlias;
+  const headerOK = !isRemissao || isArticleHeaderMatch(it, numTokens);
+  const numOK = !numTokens.length ? true
+    : (isRemissao
+        ? numTokens.some(n => numberRespectsWindows(it.text, n, "art"))
+        : okNumsDefault);
+
+  return ((okWords || matchAlias) && numOK) && headerOK;
 };
 
 
@@ -1638,6 +1658,7 @@ Object.assign(window, {
   detectQueryMode,
   renderCard,
   renderObservationsForCard, // ✅ adicionamos aqui
+   isArticleHeaderMatch,
   toast
 });
 
@@ -2266,19 +2287,26 @@ function scoreItem(it, words, nums, termNorm, queryMode) {
 
         // filtra matches como antes
         const candidates = [];
+const isRem = !!window.__isRemissao;
 for (const it of fullItems) {
   const bag = it._bag || window.norm(window.stripThousandDots(it.text));
   const okWords = window.hasAllWordTokens(bag, words);
-  const okNums  = window.matchesNumbers(it, nums, window.KW_RX.test(termNorm), qMode);
+  const okNumsDefault = window.matchesNumbers(it, nums, window.KW_RX.test(termNorm), qMode);
 
-  // match por aliases (todas as palavras da busca precisam aparecer no alias normalizado)
   const matchAlias = (it.aliases || []).some(alias => {
     const a = window.norm(alias);
     return words.every(w => a.includes(w));
   });
 
-  if ((okWords || matchAlias) && okNums) candidates.push(it);
+  const headerOK = !isRem || window.isArticleHeaderMatch(it, nums);
+  const numOK = !nums.length ? true
+    : (isRem
+        ? nums.some(n => window.numberRespectsWindows(it.text, n, "art"))
+        : okNumsDefault);
+
+  if ((okWords || matchAlias) && numOK && headerOK) candidates.push(it);
 }
+
 
 
         // rank (leve) e render incremental para não travar
