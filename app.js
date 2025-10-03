@@ -892,7 +892,7 @@ async function doSearch() {
 
   try {
     const normQuery = norm(term);
-    const queryMode = detectQueryMode(normQuery); // "art" | "sumula" | null
+    let queryMode = detectQueryMode(normQuery); // "art" | "sumula" | null
 
     // dica de código (cc, cp, cpc, "codigo civil", etc.)
     const codeInfo = detectCodeFromQuery(normQuery);
@@ -918,12 +918,21 @@ async function doSearch() {
     if (queryMode === "sumula") {
       tokens = tokens.filter(t => !/^s[uú]mula$/i.test(t));
     }
+     
+  /* Remissões “Vide art./arts.” na própria query:
+       substitui tokens por artigos explícitos e força modo ART */
+    const explicitRefs = extractArticleRefsFromText(termRaw);
+    if (explicitRefs.length) {
+      tokens = explicitRefs;      // só artigos
+      window.__phrases = [];      // sem frases
+      queryMode = "art";          // força janela Art. para evitar falsos positivos
+    }
 
     // salva tokens globais p/ highlight (strings) + frases "..."
     const phrases = Array.isArray(window.__phrases) ? window.__phrases : [];
     window.searchTokens = (Array.isArray(tokens) && tokens.length ? tokens : buildTokens(els.q?.value)).concat(phrases);
 
-    const queryHasLegalKeyword = KW_RX.test(normQuery);
+    const queryHasLegalKeyword = KW_RX.test(normQuery) || (explicitRefs.length > 0);
     const { wordTokens, numTokens } = splitTokens(tokens);
 
     // monta a lista de arquivos; se codeInfo → filtra pelo rótulo do <select>
