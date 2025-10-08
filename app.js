@@ -143,6 +143,31 @@ function parseRef(q){
   }
   return { art, par, inc, ali, dip, norm:n };
 }
+/* ===== Variantes numéricas/alfa ===== */
+function normNumToken(tok){
+  // ex.: "1.990" → "1990", "927-A" → "927a", "§ 2º" → "par2"
+  let s = normJur(tok);
+  s = s.replace(/\bparagrafo\s+(\d+|unico)\b/g,'par$1');
+  s = s.replace(/(?<=\b\d{1,3})[.\-](?=\d{1,3}\b)/g,''); // remove pontos/hífens internos em números
+  s = s.replace(/[\-]/g,''); // 927-a → 927a
+  return s;
+}
+function genVariantsFromQuery(q){
+  const raw = (q||'').trim();
+  if(!raw) return [];
+  const parts = raw.split(/[\s,;/]+/).filter(Boolean);
+  const out = new Set();
+  for(const p of parts){
+    const n = normNumToken(p);
+    if(n) out.add(n);
+    // se for número puro c/ sufixo opcional (ex.: 927, 927a), gera versão com pontos de milhar
+    if(/^\d+[a-z]?$/.test(n)){
+      const withDots = n.replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.');
+      out.add(withDots);
+    }
+  }
+  return [...out];
+}
 
    
   /* ===== Toast ===== */
@@ -256,17 +281,18 @@ for (const it of dispositivos) it.link = mkLink(`${title} — ${it.texto}`);
 for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto, it.texto));
 
 
-    const dispText=dispositivos.map(x=>x.texto+(x.comentarios?` ${x.comentarios.join(' ')}`:'')).join(' ');
-    const remText =remissoes.map(x=>x.texto+(x.comentarios?` ${x.comentarios.join(' ')}`:'')).join(' ');
+    conconst dispText=dispositivos.map(x=>[x.texto,(x.comentarios||[]).join(' ')].filter(Boolean).join(' ')).join(' ');
+const remText =remissoes.map(x=>[x.texto,(x.comentarios||[]).join(' ')].filter(Boolean).join(' ')).join(' ');
+const fullRaw = [title, dispText, remText].filter(Boolean).join(' ');
 
-    return {
-      slug, title, dispositivos, remissoes,
-      titleN:normPT(title),
-      dispN:normPT(dispText),
-      remN:normPT(remText),
-      bodyN:normPT(dispText+' '+remText),
-      metaLine
-    };
+return {
+  slug, title, dispositivos, remissoes,
+  titleN: normJur(title),
+  dispN:  normJur(dispText),
+  remN:   normJur(remText),
+  bodyN:  normJur(fullRaw),   // TODO CORPO: dispositivos + remissões + comentários + título
+  metaLine
+};
   }
 
   /* ===== Highlight ===== */
@@ -316,32 +342,41 @@ for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto,
   let acList=$('#suggestions');
   if(acList) acList.hidden=true;
 
-  function scoreFields(q,t){
+ function scoreFields(q,t){
   const ref = parseRef(q);
-  // base: título + dispositivos + remissões
-  let s = 1.2*_hitPT(t.titleN, ref.norm) + _hitPT(t.dispN||'', ref.norm) + _hitPT(t.remN||'', ref.norm);
+  // base: título + dispositivos + remissões + CORPO COMPLETO
+  let s = 1.2*_hitPT(t.titleN, ref.norm)
+        + 1.0*_hitPT(t.dispN||'', ref.norm)
+        + 0.9*_hitPT(t.remN||'',  ref.norm)
+        + 0.8*_hitPT(t.bodyN||'', ref.norm);
 
-  // boost por match de artigo explícito
+  // boost por referência explícita (art/§/inc/al)
   if(ref.art){
     const artRX = new RegExp(`\\bart\\s*${ref.art}\\b`);
-    if(artRX.test(t.titleN) || artRX.test(t.dispN||'')) s += 120;
+    if(artRX.test(t.titleN) || artRX.test(t.dispN||'') || artRX.test(t.bodyN||'')) s += 120;
   }
-  // boost por parágrafo/inciso/alínea
-  if(ref.par && (new RegExp(`\\b(par|§)\\s*${ref.par}\\b`).test(t.dispN||''))) s += 40;
-  if(ref.inc && (new RegExp(`\\binciso\\s*(${ref.inc})\\b`).test(t.dispN||''))) s += 35;
-  if(ref.ali && (new RegExp(`\\balinea\\s*${ref.ali}\\b`).test(t.dispN||''))) s += 30;
+  if(ref.par && (new RegExp(`\\b(par|§)\\s*${ref.par}\\b`).test(t.bodyN||''))) s += 45;
+  if(ref.inc && (new RegExp(`\\binciso\\s*(${ref.inc})\\b`).test(t.bodyN||''))) s += 40;
+  if(ref.ali && (new RegExp(`\\balinea\\s*${ref.ali}\\b`).test(t.bodyN||''))) s += 35;
 
-  // diploma coerente com a categoria (group)
+  // variantes numéricas/alfa — cobre "1990", "1.990", "927a", "927-a"
+  const vars = genVariantsFromQuery(q);
+  for(const v of vars){
+    if(v && (t.bodyN||'').includes(normJur(v))) s += 90;
+  }
+
+  // diploma coerente com a categoria
   if(ref.dip){
-    const g = normJur(t.group||'');
+    const g = t.groupN || normJur(t.group||'');
     if(g.includes(ref.dip)) s += 80;
   }
 
-  // proximidade: se query tem "art" + número e ambos aparecem no título, pequeno extra
+  // proximidade simples
   if(/\bart\b/.test(ref.norm) && /\d/.test(ref.norm) && /\bart\b/.test(t.titleN) && /\d/.test(t.titleN)) s += 20;
 
   return { score: s };
 }
+
 
 
   function bindAutocomplete(){
