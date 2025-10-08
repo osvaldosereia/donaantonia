@@ -1,7 +1,63 @@
 
 
 
-
+# Usufruto e Administração dos Bens dos Filhos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.689. O pai e a mãe, enquanto no exercício do poder familiar:
+- I – são usufrutuários dos bens dos filhos;
+- II – têm a administração dos bens dos filhos menores sob sua autoridade.
+# Remissões Normativas
+- Vide art. 1.637, caput, do CC.
+-- dispõe que, se o pai ou a mãe abusar de sua autoridade, faltando aos deveres a eles inerentes ou arruinando os bens dos filhos, cabe ao juiz, a requerimento de algum parente, ou do Ministério Público, adotar a medida que lhe pareça reclamada pela segurança do menor e seus haveres.
+-----
+# Representação e Assistência dos Filhos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.690. Compete aos pais, e na falta de um deles ao outro, com exclusividade, representar os filhos menores de dezesseis anos, bem como assisti-los até completarem a maioridade ou serem emancipados.
+- Parágrafo único. Os pais devem decidir em comum as questões relativas aos filhos e a seus bens; havendo divergência, poderá qualquer deles recorrer ao juiz para a solução necessária.
+# Remissões Normativas
+- Vide art. 1.517, parágrafo único, do CC.
+-- trata da necessidade de autorização de ambos os pais para o casamento do filho menor de idade, admitindo o suprimento judicial em caso de denegação injusta.
+- Vide art. 21 do ECA.
+-- estabelece que o poder familiar será exercido, em igualdade de condições, pelo pai e pela mãe, na forma do que dispuser a legislação civil, assegurado a qualquer deles o direito de, em caso de discordância, recorrer à autoridade judiciária competente para a solução da divergência.
+-----
+# Limites à Administração dos Bens dos Filhos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.691. Não podem os pais alienar, ou gravar de ônus real os imóveis dos filhos, nem contrair, em nome deles, obrigações que ultrapassem os limites da simples administração, salvo por necessidade ou evidente interesse da prole, mediante prévia autorização do juiz.
+- Parágrafo único. Podem pleitear a declaração de nulidade dos atos previstos neste artigo:
+- I – os filhos;
+- II – os herdeiros;
+- III – o representante legal.
+# Remissões Normativas
+- Vide art. 1.637, caput, do CC.
+-- trata das medidas judiciais cabíveis em caso de abuso da autoridade parental ou dilapidação do patrimônio dos filhos.
+-----
+# Conflito de Interesses e Curador Especial
+- Código Civil
+# Dispositivos Legais
+- Art. 1.692. Sempre que no exercício do poder familiar colidir o interesse dos pais com o do filho, a requerimento deste ou do Ministério Público o juiz lhe dará curador especial.
+# Remissões Normativas
+- Vide arts. 142, parágrafo único, e 148, parágrafo único, f, do ECA.
+-- dispõem, respectivamente, sobre a nomeação de curador especial em procedimentos que envolvam interesses de crianças e adolescentes e sobre a competência da Justiça da Infância e da Juventude para conhecer de ações de nomeação e remoção de tutores, curadores e guardiães.
+-----
+# Bens Excluídos do Usufruto e da Administração dos Pais
+- Código Civil
+# Dispositivos Legais
+- Art. 1.693. Excluem-se do usufruto e da administração dos pais:
+- I – os bens adquiridos pelo filho havido fora do casamento, antes do reconhecimento;
+- II – os valores auferidos pelo filho maior de dezesseis anos, no exercício de atividade profissional e os bens com tais recursos adquiridos;
+- III – os bens deixados ou doados ao filho, sob a condição de não serem usufruídos, ou administrados, pelos pais;
+- IV – os bens que aos filhos couberem na herança, quando os pais forem excluídos da sucessão.
+# Remissões Normativas
+- Vide arts. 5.º, I, e 227, § 6.º, da CF.
+-- estabelecem, respectivamente, a igualdade de direitos e obrigações entre homens e mulheres e a igualdade de direitos entre os filhos, havidos ou não da relação do casamento, ou por adoção.
+- Vide art. 1.848 do CC.
+-- trata da exigência de justa causa para a aposição de cláusulas restritivas (inalienabilidade, impenhorabilidade e incomunicabilidade) sobre os bens da legítima em testamento.
+- Vide art. 1.816, parágrafo único, do CC.
+-- estabelece que o excluído da sucessão não terá direito ao usufruto ou à administração dos bens que a seus sucessores couberem na herança, nem à sucessão eventual desses bens.
+-----
 # Direito a Alimentos
 - Código Civil
 # Dispositivos Legais
