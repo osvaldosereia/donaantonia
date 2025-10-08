@@ -354,80 +354,85 @@ for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto,
   }
 
   function onInputAC(e){
-const q = normJur((e.target.value||'').trim());
-    if(q.length<2 || !TEMAS.length){ acList.innerHTML=''; acList.hidden=true; closeAcDropdown(); return; }
+  const raw = (e.target.value||'').trim();   // o que o usuário digitou
+  const q   = normJur(raw);                  // normalizado p/ matching
 
-    let arr=TEMAS.map(t=>({t, ...scoreFields(q,t)}))
-      .filter(x=>x.score>0)
-      .sort((a,b)=> b.score-a.score || a.t.title.localeCompare(b.t.title,'pt-BR'))
-      .slice(0,40);
+  if(q.length<2 || !TEMAS.length){
+    acList.innerHTML=''; acList.hidden=true; closeAcDropdown(); return;
+  }
 
-    if(!arr.length){ acList.innerHTML=''; acList.hidden=true; closeAcDropdown(); return; }
+  let arr = TEMAS.map(t=>({t, ...scoreFields(q,t)}))
+    .filter(x=>x.score>0)
+    .sort((a,b)=> b.score-a.score || a.t.title.localeCompare(b.t.title,'pt-BR'))
+    .slice(0,40);
 
-    const counts=new Map();
-    for(const x of arr){ const g=x.t.group||'Geral'; counts.set(g,(counts.get(g)||0)+1); }
-    const catList=[...counts.keys()].sort((a,b)=> a.localeCompare(b,'pt-BR'));
+  if(!arr.length){ acList.innerHTML=''; acList.hidden=true; closeAcDropdown(); return; }
 
-    if(activeCat && activeCat!=='Todos'){
-      const filtered=arr.filter(x=>(x.t.group||'Geral')===activeCat);
-      arr = filtered.length?filtered:arr;
-    }
+  const counts=new Map();
+  for(const x of arr){ const g=x.t.group||'Geral'; counts.set(g,(counts.get(g)||0)+1); }
+  const catList=[...counts.keys()].sort((a,b)=> a.localeCompare(b,'pt-BR'));
 
-    const lastAc={
-      q,
-      categories:['Todos', ...catList],
-      items: arr.slice(0,20).map(x=>({ slug:x.t.slug, title:x.t.title, group:x.t.group||'Geral' }))
-    };
-    try{ sessionStorage.setItem(LAST_AC_KEY, JSON.stringify(lastAc)); }catch{}
+  if(activeCat && activeCat!=='Todos'){
+    const filtered=arr.filter(x=>(x.t.group||'Geral')===activeCat);
+    arr = filtered.length?filtered:arr;
+  }
 
-    const chipsHTML = `
-      <div class="ac-chips" role="group" aria-label="Filtrar sugestões por categoria">
-        <button type="button" class="ac-chip" data-cat="Todos" aria-pressed="${activeCat==='Todos'}">Todos</button>
-        ${catList.map(cat=>`<button type="button" class="ac-chip" data-cat="${(cat||'').replace(/"/g,'&quot;')}" aria-pressed="${activeCat===cat}">${escapeHTML(cat)}</button>`).join('')}
-      </div>`;
+  const lastAc = {
+    q: raw,  // guarda o texto cru
+    categories: ['Todos', ...catList],
+    items: arr.slice(0,20).map(x=>({ slug:x.t.slug, title:x.t.title, group:x.t.group||'Geral' }))
+  };
+  try{ sessionStorage.setItem(LAST_AC_KEY, JSON.stringify(lastAc)); }catch{}
 
-    const listHTML = arr.slice(0,8).map(x=>{
-      const { t } = x;
-      const titleHTML = highlightTitle(t.title, q);
-      const snippet   = getDispSnippet(t.slug, 60);
-      return `<li role="option">
-        <a href="#/tema/${t.slug}" data-q="${escapeHTML(q)}">
-          <div class="s1">${titleHTML}</div>
-          ${snippet ? `<div class="s3">${escapeHTML(snippet)}</div>` : ''}
-          <div class="s2">${escapeHTML(t.group || 'Geral')}</div>
-        </a>
-      </li>`;
-    }).join('');
+  const chipsHTML = `
+    <div class="ac-chips" role="group" aria-label="Filtrar sugestões por categoria">
+      <button type="button" class="ac-chip" data-cat="Todos" aria-pressed="${activeCat==='Todos'}">Todos</button>
+      ${catList.map(cat=>`<button type="button" class="ac-chip" data-cat="${(cat||'').replace(/"/g,'&quot;')}" aria-pressed="${activeCat===cat}">${escapeHTML(cat)}</button>`).join('')}
+    </div>`;
 
-    acList.innerHTML = chipsHTML + listHTML;
-    acList.hidden = false;
+  const listHTML = arr.slice(0,8).map(x=>{
+    const { t } = x;
+    const titleHTML = highlightTitle(t.title, q);   // usa normalizado p/ destaque
+    const snippet   = getDispSnippet(t.slug, 60);
+    return `<li role="option">
+      <a href="#/tema/${t.slug}" data-q="${escapeHTML(raw)}">
+        <div class="s1">${titleHTML}</div>
+        ${snippet ? `<div class="s3">${escapeHTML(snippet)}</div>` : ''}
+        <div class="s2">${escapeHTML(t.group || 'Geral')}</div>
+      </a>
+    </li>`;
+  }).join('');
 
-    acList.querySelectorAll('.ac-chip').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        activeCat=btn.getAttribute('data-cat')||'Todos';
-        input.dispatchEvent(new Event('input',{bubbles:false}));
-      });
+  acList.innerHTML = chipsHTML + listHTML;
+  acList.hidden = false;
+
+  acList.querySelectorAll('.ac-chip').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      activeCat=btn.getAttribute('data-cat')||'Todos';
+      input.dispatchEvent(new Event('input',{bubbles:false}));
     });
-  }
+  });
+}
 
-  function onKeydownAC(ev){
-    if(ev.key==='Enter'){
-      const a=acList?.querySelector('a');
-      if(a){
-        const q=a.getAttribute('data-q')||'';
-        try{ sessionStorage.setItem(LAST_SEARCH_KEY, JSON.stringify({q})); }catch{}
-        location.hash=a.getAttribute('href');
-        acList.hidden=true;
-      }
+function onKeydownAC(ev){
+  if(ev.key==='Enter'){
+    const a=acList?.querySelector('a');
+    if(a){
+      const raw=a.getAttribute('data-q')||'';
+      try{ sessionStorage.setItem(LAST_SEARCH_KEY, JSON.stringify({q: raw})); }catch{}
+      location.hash=a.getAttribute('href');
+      acList.hidden=true;
     }
   }
+}
 
-  function onClickAC(ev){
-    const a=ev.target.closest('a'); if(!a) return;
-    const q=a.getAttribute('data-q')||'';
-    try{ sessionStorage.setItem(LAST_SEARCH_KEY, JSON.stringify({q})); }catch{}
-    acList.hidden=true;
-  }
+function onClickAC(ev){
+  const a=ev.target.closest('a'); if(!a) return;
+  const raw=a.getAttribute('data-q')||'';
+  try{ sessionStorage.setItem(LAST_SEARCH_KEY, JSON.stringify({q: raw})); }catch{}
+  acList.hidden=true;
+}
+
 
   window.addEventListener('hashchange', ()=>{ if(acList) acList.hidden=true; closeAcDropdown(); });
 
