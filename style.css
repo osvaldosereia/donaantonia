@@ -346,3 +346,34 @@ button.mini{
   margin-top: 6px !important;
   padding-top: 6px !important;
 }
+/* = Home: logo + busca centralizados na metade superior = */
+.home-hero{
+  min-height:50vh;           /* metade superior da tela */
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;       /* empurra o stack p/ base da metade superior */
+  padding-bottom:24px;        /* respiro p/ dropdown da busca */
+}
+.home-stack{
+  display:flex; flex-direction:column;
+  align-items:center; gap:16px;
+  width:min(680px, 92vw);
+  margin:0 auto;
+}
+.home-logo{
+  display:block;
+  height:56px;                /* mobile */
+  width:auto;
+}
+@media (min-width:768px){
+  .home-logo{ height:72px; }  /* desktop */
+}
+.home-search{
+  width:100%;
+}
+.home-search input[type="search"],
+.home-search input[type="text"]{
+  display:block;
+  width:100%;
+  margin:0 auto;
+}
