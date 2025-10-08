@@ -2,8 +2,95 @@
 
 
 
-
-
+# Direito a Alimentos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.694. Podem os parentes, os cônjuges ou companheiros pedir uns aos outros os alimentos de que necessitem para viver de modo compatível com a sua condição social, inclusive para atender às necessidades de sua educação.
+- § 1.º Os alimentos devem ser fixados na proporção das necessidades do reclamante e dos recursos da pessoa obrigada.
+- § 2.º Os alimentos serão apenas os indispensáveis à subsistência, quando a situação de necessidade resultar de culpa de quem os pleiteia.
+# Remissões Normativas
+- Vide Lei n. 5.478, de 25-7-1968 (Lei de Alimentos).
+-- dispõe sobre a ação de alimentos e estabelece um rito processual especial e mais célere.
+- Vide art. 1.º da Lei n. 8.971, de 29-12-1994.
+-- regula o direito dos companheiros a alimentos e à sucessão.
+- Vide arts. 11 a 14 da Lei n. 10.741, de 1.º-10-2003 (Estatuto da Pessoa Idosa).
+-- tratam da obrigação alimentar em relação à pessoa idosa, que é solidária, podendo-se optar entre os prestadores.
+- Vide Súmula 358 do STJ.
+-- estabelece que o cancelamento de pensão alimentícia de filho que atingiu a maioridade está sujeito à decisão judicial, mediante contraditório, ainda que nos próprios autos.
+-----
+# Requisitos para a Concessão de Alimentos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.695. São devidos os alimentos quando quem os pretende não tem bens suficientes, nem pode prover, pelo seu trabalho, à própria mantença, e aquele, de quem se reclamam, pode fornecê-los, sem desfalque do necessário ao seu sustento.
+-----
+# Reciprocidade e Extensão do Direito a Alimentos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.696. O direito à prestação de alimentos é recíproco entre pais e filhos, e extensivo a todos os ascendentes, recaindo a obrigação nos mais próximos em grau, uns em falta de outros.
+# Remissões Normativas
+- Vide Súmula 596 do STJ.
+-- estabelece que a obrigação alimentar dos avós tem natureza complementar e subsidiária, somente se configurando no caso de impossibilidade total ou parcial de seu cumprimento pelos pais.
+- Vide art. 229 da CF.
+-- dispõe que os pais têm o dever de assistir, criar и educar os filhos menores, e os filhos maiores têm o dever de ajudar e amparar os pais na velhice, carência ou enfermidade.
+- Vide art. 244 do CP.
+-- tipifica como crime o abandono material, que consiste em deixar, sem justa causa, de prover a subsistência do cônjuge, ou de filho menor de 18 anos ou inapto para o trabalho, ou de ascendente inválido ou maior de 60 anos.
+-----
+# Ordem de Prestação de Alimentos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.697. Na falta dos ascendentes cabe a obrigação aos descendentes, guardada a ordem de sucessão e, faltando estes, aos irmãos, assim germanos como unilaterais.
+-----
+# Concurso de Parentes na Prestação de Alimentos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.698. Se o parente, que deve alimentos em primeiro lugar, não estiver em condições de suportar totalmente o encargo, serão chamados a concorrer os de grau imediato; sendo várias as pessoas obrigadas a prestar alimentos, todas devem concorrer na proporção dos respectivos recursos, e, intentada ação contra uma delas, poderão as demais ser chamadas a integrar a lide.
+# Remissões Normativas
+- Vide Súmula 596 do STJ.
+-- estabelece a natureza complementar e subsidiária da obrigação alimentar dos avós.
+- Vide art. 1.694, § 1.º, do CC.
+-- dispõe que os alimentos devem ser fixados na proporção das necessidades do reclamante e dos recursos da pessoa obrigada.
+- Vide arts. 12 e 14 do Estatuto da Pessoa Idosa.
+-- tratam da obrigação alimentar em relação à pessoa idosa, que é solidária, podendo-se optar entre os prestadores.
+-----
+# Revisão, Exoneração e Majoração dos Alimentos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.699. Se, fixados os alimentos, sobrevier mudança na situação financeira de quem os supre, ou na de quem os recebe, poderá o interessado reclamar ao juiz, conforme as circunstâncias, exoneração, redução ou majoração do encargo.
+# Remissões Normativas
+- Vide arts. 13 e 15 da Lei n. 5.478, de 25-7-1968 (Lei de Alimentos).
+-- tratam, respectivamente, do recurso contra a sentença que concede alimentos e da possibilidade de revisão da decisão, a qualquer tempo, em face da modificação da situação financeira dos interessados.
+- Vide art. 505, I, do CPC.
+-- dispõe que a sentença de mérito não faz coisa julgada material se tratar de relação jurídica de trato continuado e sobrevier modificação no estado de fato ou de direito.
+-----
+# Transmissibilidade da Obrigação Alimentar
+- Código Civil
+# Dispositivos Legais
+- Art. 1.700. A obrigação de prestar alimentos transmite-se aos herdeiros do devedor, na forma do art. 1.694.
+# Remissões Normativas
+- Vide art. 1.997 do CC.
+-- estabelece que a herança responde pelo pagamento das dívidas do falecido, mas, feita a partilha, só respondem os herdeiros, cada qual em proporção da parte que na herança lhe coube.
+- Vide art. 23 da Lei n. 6.515, de 26-12-1977 (Lei do Divórcio).
+-- dispõe que a obrigação de prestar alimentos transmite-se aos herdeiros do devedor.
+-----
+# Forma de Cumprimento da Prestação Alimentícia
+- Código Civil
+# Dispositivos Legais
+- Art. 1.701. A pessoa obrigada a suprir alimentos poderá pensionar o alimentando, ou dar-lhe hospedagem e sustento, sem prejuízo do dever de prestar o necessário à sua educação, quando menor.
+- Parágrafo único. Compete ao juiz, se as circunstâncias o exigirem, fixar a forma do cumprimento da prestação.
+# Remissões Normativas
+- Vide art. 1.920 do CC.
+-- trata do legado de alimentos, que abrange o sustento, a cura, o vestuário e a casa, enquanto viver o legatário, e a educação, se ele for menor.
+- Vide art. 25 da Lei n. 5.478, de 25-7-1968.
+-- estabelece que a responsabilidade do fiador de alimentos cessa com a morte do devedor ou do credor, ou com o trânsito em julgado da sentença que exonerar o devedor.
+-----
+# Alimentos na Separação Litigiosa
+- Código Civil
+# Dispositivos Legais
+- Art. 1.702. Na separação judicial litigiosa, sendo um dos cônjuges inocente e desprovido de recursos, prestar-lhe-á o outro a pensão alimentícia que o juiz fixar, obedecidos os critérios estabelecidos no art. 1.694.
+# Remissões Normativas
+- Vide art. 19 da Lei n. 6.515, de 26-12-1977 (Lei do Divórcio).
+-- dispõe que a pensão alimentícia será fixada com base nas necessidades do reclamante e nos recursos da pessoa obrigada.
+-----
 # Manutenção dos Filhos
 - Código Civil
 # Dispositivos Legais
