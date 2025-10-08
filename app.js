@@ -216,18 +216,30 @@ function genVariantsFromQuery(q){
     artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
     comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
     julgados: (t, full) => {
-  // remove "Título:", nomes de seção e marcadores, pega só o corpo
+  // extrai só o corpo e pega os 20 primeiros caracteres
   const seed = String(full||'')
-    .replace(/^\s*T[íi]tulo:.*$/im, '')                  // linha "Título:"
-    .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')       // cabeçalho D
-    .replace(/^\s*Remiss(õ|o)es\s+Normativas:.*$/im, '')  // cabeçalho R
-    .replace(/^\s*Coment[áa]rio:.*$/gim, '')              // linhas de comentário
-    .replace(/^\s*-\s*/gim, '')                           // marcador de lista
+    .replace(/^\s*T[íi]tulo:.*$/im, '')
+    .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')
+    .replace(/^\s*Remiss(?:ões|oes)\s+Normativas:.*$/im, '')
+    .replace(/^\s*Coment[áa]rio:.*$/gim, '')
+    .replace(/^\s*-\s*/gim, '')
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, 20);
 
-  return `site:stf.jus.br OR site:stj.jus.br OR site:jusbrasil.com.br OR site:jusbrasil.com.br ("${seed}") (ementa OR acórdão OR decisão OR DJe)`;
+  // força resultados de jurisprudência com links
+  const doms = [
+    'site:stf.jus.br',
+    'site:portal.stf.jus.br',
+    'site:jurisprudencia.stf.jus.br',
+    'site:stj.jus.br',
+    'site:scon.stj.jus.br'
+  ].join(' OR ');
+
+  const filters = '(inurl:jurisprudencia OR inurl:acordao OR inurl:acordaos OR inurl:decisao OR inurl:decisoes OR inurl:processo)';
+  const types   = '(ementa OR acórdão OR acordão OR decisão OR decisoes OR DJe OR jurisprudência)';
+
+  return `${doms} ${filters} "${seed}" ${types} -noticia -notícias -conceito -doutrina`;
 }
 };
 
