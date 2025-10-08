@@ -214,8 +214,8 @@ function genVariantsFromQuery(q){
     objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
     videos:        (t)       => `site:youtube.com aula ${t} explicação prática legislação`,
     artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
-    comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`
-  julgados:      (t, full) => {
+    comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
+    julgados:      (t, full) => {
     const seed = String(full||'').replace(/\s+/g,' ').trim().slice(0, 20);
     return `site:stf.jus.br OR site:stj.jus.br ("${seed}" OR "art. ${seed}") (ementa OR acórdão OR decisão OR DJe)`;
   }
