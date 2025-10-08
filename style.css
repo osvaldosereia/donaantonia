@@ -201,7 +201,7 @@ button.mini{
 /* Logo maior apenas no desktop */
 @media (min-width:721px){
   .brand{font-size:28px;line-height:1}
-  .home-logo{font-size:72px;line-height:1}
+  .home-logo{font-size:52px;line-height:1}
 }
 
 /* ========= IA dropdown ========== */
@@ -379,7 +379,7 @@ button.mini{
 }
 /* HOME: centro da metade superior */
 .route-home .home-hero{
-  min-height:50vh;
+  min-height:30vh;
   display:flex;
   align-items:flex-end;      /* ancora no fim da metade superior */
   justify-content:center;
