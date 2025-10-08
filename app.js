@@ -216,7 +216,7 @@ function genVariantsFromQuery(q){
     artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
     comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
     julgados: (t, full) => {
-  // extrai só o corpo e pega os 20 primeiros caracteres
+  // extrai só o corpo e pega os 40 primeiros caracteres
   const seed = String(full||'')
     .replace(/^\s*T[íi]tulo:.*$/im, '')
     .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')
