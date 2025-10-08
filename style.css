@@ -377,3 +377,41 @@ button.mini{
   width:100%;
   margin:0 auto;
 }
+/* HOME: centro da metade superior */
+.route-home .home-hero{
+  min-height:50vh;
+  display:flex;
+  align-items:flex-end;      /* ancora no fim da metade superior */
+  justify-content:center;
+  padding-bottom:28px;       /* espaço p/ dropdown */
+}
+.route-home .home-stack{
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+  width:min(680px,92vw); margin:0 auto; text-align:center;
+}
+/* Logo como texto ou img */
+.route-home .home-logo{ display:block; height:56px; width:auto; }
+.route-home .home-logo.text{ font-size:36px; line-height:1; font-weight:800; }
+@media (min-width:768px){
+  .route-home .home-logo{ height:72px; }
+  .route-home .home-logo.text{ font-size:48px; }
+}
+/* Busca centralizada e larga */
+.route-home .home-search{ width:100%; }
+.route-home .home-search input{ display:block; width:100%; margin:0 auto; }
+
+/* Fallback: se não houver .home-hero/.home-stack, force empilhamento do primeiro logo + input */
+.route-home .container > .brand + .searchbar,
+.route-home .container > .brand + form{
+  display:block;
+}
+.route-home .container > .brand{ 
+  display:block; margin:0 auto 16px; text-align:center;
+  font-size:48px; line-height:1;        /* reduz */
+}
+@media (max-width:767px){
+  .route-home .container > .brand{ font-size:36px; }
+}
+.route-home .container input[type="search"]{
+  display:block; width:min(680px,92vw); margin:0 auto;
+}
