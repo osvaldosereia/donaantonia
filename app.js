@@ -227,7 +227,7 @@ function genVariantsFromQuery(q){
     .trim()
     .slice(0, 20);
 
-  return `site:stf.jus.br OR site:stj.jus.br ("${seed}") (ementa OR acórdão OR decisão OR DJe)`;
+  return `site:stf.jus.br OR site:stj.jus.br OR site:jusbrasil.com.br OR site:jusbrasil.com.br ("${seed}") (ementa OR acórdão OR decisão OR DJe)`;
 }
 };
 
