@@ -482,21 +482,23 @@ for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto,
     else searchWrapParent.appendChild(searchWrap);
     bindAutocomplete();
   }
-  function enterHomeMode(){ document.body.classList.add('is-home'); }
-  function leaveHomeMode(){ document.body.classList.remove('is-home'); }
+  function enterHomeMode(){ document.body.classList.add('is-home','route-home'); }
+function leaveHomeMode(){ document.body.classList.remove('is-home','route-home'); }
+
 
   function renderHome(){
-    const contentEl=$('#content');
-    enterHomeMode();
-    contentEl.innerHTML=`
-      <section class="home-center" aria-label="Busca principal">
-        <div class="home-inline">
-          <div class="home-logo"><span class="b1">Meu</span><span class="b2">Jus</span></div>
-          <div class="home-search-host"></div>
-        </div>
-      </section>`;
-    moveSearchTo(contentEl.querySelector('.home-search-host'));
-  }
+  const contentEl=$('#content');
+  enterHomeMode();
+  contentEl.innerHTML=`
+    <section class="home-hero" aria-label="Busca principal">
+      <div class="home-stack">
+        <div class="home-logo"><span class="b1">Meu</span><span class="b2">Jus</span></div>
+        <div class="home-search-host"></div>
+      </div>
+    </section>`;
+  moveSearchTo(contentEl.querySelector('.home-search-host'));
+}
+
 
   /* ===== IA — dropdown (chips verticais) ===== */
   let __iaDrop=null;
