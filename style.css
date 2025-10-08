@@ -1,0 +1,348 @@
+/* =========================
+   Meujus – style.css (2025-10-07)
+   Home minimalista + Autocomplete centralizado (mobile)
+   Card único por tema, respiros e separadores entre SEÇÕES
+   ========================= */
+
+:root{
+  --ink:#0B1220;
+  --muted:#6B7A90;
+  --bg:#F3F6F9;
+  --card:#FFFFFF;
+  --surface:#E8EEF7;
+  --line:#D6DFEA;
+
+  --primary:#1F3B82;
+  --accent:#00A3FF;
+
+  --radius:12px;
+  --shadow:0 6px 20px rgba(0,0,0,.08);
+
+  --topbar-h:64px;
+}
+
+/* Reset básico */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font:14px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+body.noscroll{overflow:hidden}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+
+/* ===== Layout ===== */
+.container{max-width:960px;margin:0 auto;padding:12px 16px}
+
+/* ===== Topbar ===== */
+.topbar{
+  position:sticky;top:0;z-index:30;background:var(--card);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{display:flex;align-items:center;gap:12px;min-height:var(--topbar-h)}
+.brand{font-weight:700;letter-spacing:-.3px;display:flex;gap:4px}
+.brand .b1{color:var(--primary)} .brand .b2{color:var(--accent)}
+.hamburger{margin-left:auto;border:0;background:transparent;width:38px;height:34px;display:grid;place-items:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px}
+.hamburger span+span{margin-top:4px}
+
+/* ===== Home minimalista ===== */
+.is-home .topbar{display:none}
+.is-home #postAc,.is-home .ficha-head{display:none}
+
+.home-center{min-height:100vh;display:flex;align-items:center;justify-content:center;transform:translateY(-6vh)}
+.home-inline{display:flex;align-items:center;gap:18px}
+.home-logo{font-weight:600;font-size:50px;line-height:1;letter-spacing:-.3px;display:flex;gap:6px;white-space:nowrap}
+.home-logo .b1{color:var(--primary)} .home-logo .b2{color:var(--accent)}
+.home-search-host{width:min(560px,60vw)}
+.home-search-host .search-wrap,.home-search-host .search{width:100%}
+@media (max-width:720px){
+  .home-inline{flex-direction:column;gap:16px}
+  .home-logo{font-size:34px}
+  .home-search-host{width:90vw}
+}
+
+/* ===== Busca / Autocomplete ===== */
+.search-wrap{flex:1;display:flex;align-items:center;position:relative}
+.search{
+  width:100%;padding:10px 12px;border:1px solid var(--line);
+  border-radius:10px;background:var(--surface);outline:0;color:var(--ink)
+}
+.search::placeholder{color:var(--muted)}
+
+.suggestions{
+  position:absolute;left:0;top:calc(100% + 6px);width:min(100%, 90vw);
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  box-shadow:var(--shadow);padding:8px;z-index:75;max-height:min(70vh,560px);
+  overflow-y:auto;text-align:left
+}
+.suggestions *{text-align:left}
+.suggestions.pop{position:fixed;max-height:min(70vh,560px);z-index:80}
+.suggestions .ac-chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 4px 8px}
+.suggestions .ac-chip{
+  border:1px solid var(--line);background:var(--surface);padding:6px 10px;
+  border-radius:999px;cursor:pointer;font-size:12px;color:var(--primary)
+}
+.suggestions li{padding:8px 6px;border-radius:8px}
+.suggestions li:hover{background:var(--surface)}
+.suggestions .s1{font-weight:600}
+.suggestions .s2{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:720px){
+  .suggestions{width:90vw;left:50%;transform:translateX(-50%)}
+  .suggestions.pop{left:50%;transform:translateX(-50%);width:90vw}
+}
+
+/* ===== Cards ===== */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);margin:28px 0;
+  scroll-margin-top:calc(var(--topbar-h) + 16px);
+}
+.ubox{padding:14px 16px}
+.h1{font-size:22px;line-height:1.25;margin:14px 0 0 0;color:var(--primary)}
+.h2{font-size:18px;margin:0 0 6px 0}
+
+/* Seções – linha + respiro ENTRE seções */
+.ubox-section{padding-top:10px}
+.ubox-section + .ubox-section{
+  border-top:1px solid var(--line);
+  margin-top:18px;padding-top:18px;
+}
+.ubox-sub{font-size:14px;font-weight:700;margin:0 0 8px 0;color:var(--ink)}
+
+/* Ações (chips) */
+.actions{display:flex;justify-content:flex-start;align-items:center}
+.chip-bar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px 0}
+.btn-ios{
+  appearance:none;border:1px solid var(--line);background:var(--surface);
+  color:var(--primary);border-radius:999px;padding:8px 12px;cursor:pointer;
+  font-weight:600;font-size:13px
+}
+.btn-ios.is-small{padding:6px 10px;font-size:12px}
+.btn-ios[data-variant="primary"]{border-color:transparent;background:var(--primary);color:#fff}
+
+/* Texto e links */
+.link-arrow{position:relative;display:inline;font-weight:500;white-space:normal}
+.arrow-icon{
+  display:inline-block;padding:0 6px;margin-left:6px;border-radius:6px;
+  background:#EEF2F7;color:var(--primary);font-size:.85em;line-height:1.2;
+  vertical-align:baseline;box-shadow:none;border:none
+}
+.ref-list li + li{margin-top:10px}
+.ref-list .muted{margin-top:4px;font-size:.92em;color:var(--muted)}
+
+/* Toasts */
+#toasts{position:fixed;right:12px;bottom:12px;display:grid;gap:8px;z-index:98}
+.toast{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px 10px;opacity:0;transform:translateY(8px);transition:.18s}
+.toast.show{opacity:1;transform:none}
+
+/* Modal mínimo */
+.modal{position:fixed;inset:0;z-index:99;display:grid;place-items:center;visibility:hidden}
+.modal.open{visibility:visible}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.32)}
+.modal-panel{position:relative;width:min(720px,92vw);background:var(--card);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.modal-body{padding:14px 16px}
+
+/* Mark highlight */
+mark{background:rgba(0,163,255,.25);padding:0 .1em;border-radius:2px}
+
+/* Remoção de setas pós-busca */
+#postAc,.post-ac,.post-ac-inner,.post-ac-track,.post-ac-nav{display:none!important}
+
+/* ===== Drawer (off-canvas) ===== */
+.drawer{position:fixed;inset:0;pointer-events:none;z-index:1000}
+.drawer-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.32);display:none}
+.drawer-panel{
+  position:absolute;top:0;left:0;width:clamp(260px,78vw,320px);height:100%;
+  overflow:auto;background:#fff;box-shadow:0 10px 30px rgba(2,6,23,.18);
+  transform:translateX(-104%);transition:transform .28s ease; padding:8px 0 16px;
+}
+.drawer.open{pointer-events:auto}
+.drawer.open .drawer-backdrop{display:block;backdrop-filter:blur(2px)}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-header{
+  position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;background:#fff;border-bottom:1px solid var(--line)
+}
+.drawer-brand{font-weight:700;letter-spacing:-.3px;display:flex;gap:4px}
+.drawer-brand .b1{color:var(--primary)} .drawer-brand .b2{color:var(--accent)}
+.drawer-close{
+  appearance:none;border:1px solid var(--line);background:var(--surface);
+  color:var(--primary);border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:600;font-size:12px
+}
+.drawer .menu{margin:0;padding:12px 14px 24px;list-style:none}
+.menu-title{
+  margin:10px 0 6px;font-weight:700;color:var(--muted);font-size:12px;
+  text-transform:uppercase;letter-spacing:.08em
+}
+.divider{height:1px;background:var(--line);margin:10px 0}
+.cat-btn{
+  appearance:none;background:transparent;border:0;width:100%;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink)
+}
+.cat-btn:hover{background:var(--surface)}
+.cat-btn .caret{display:inline-block;transition:transform .18s ease}
+.cat-btn[aria-expanded="true"] .caret{transform:rotate(90deg)}
+.sublist{margin:6px 0 12px 0;padding-left:0}
+.sublist li + li{margin-top:4px}
+.sublist a.title{display:block;padding:6px 10px;border-radius:8px;color:var(--ink)}
+.sublist a.title:hover{background:var(--surface)}
+.drawer .menu > li > a.title{display:block;padding:8px 10px;border-radius:10px}
+.drawer .menu > li > a.title:hover{background:var(--surface)}
+button.mini{
+  appearance:none;border:1px solid var(--line);background:var(--surface);
+  color:var(--primary);border-radius:999px;padding:4px 8px;cursor:pointer;font-size:11px;margin-left:8px
+}
+
+/* Logo maior apenas no desktop */
+@media (min-width:721px){
+  .brand{font-size:28px;line-height:1}
+  .home-logo{font-size:72px;line-height:1}
+}
+
+/* ========= IA dropdown ========== */
+.ia-pop{
+  position:absolute;min-width:240px;background:#fff;border:1px solid var(--line);
+  border-radius:10px;box-shadow:var(--shadow);padding:6px;z-index:95
+}
+.ia-item{
+  width:100%;display:block;text-align:left;border:0;background:transparent;
+  padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600;color:var(--primary)
+}
+.ia-item:hover{background:var(--surface)}
+
+/* Chips das sugestões – rolagem horizontal contínua */
+.suggestions .ac-chips{
+  display:flex;gap:6px;margin:4px 4px 8px;
+  overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+  scrollbar-width:thin
+}
+.suggestions .ac-chips::-webkit-scrollbar{height:6px}
+.suggestions .ac-chips::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px}
+.suggestions .ac-chip{flex:0 0 auto}
+
+/* ===== Ficha: chips na linha ANTERIOR ao título (alinhados ao texto) ===== */
+.ficha-head{
+  display:grid;
+  grid-template-areas:
+    "chips"
+    "title";
+  grid-template-columns:1fr;
+  align-items:start;
+  gap:0;
+  padding:14px 16px 8px 16px; /* mesmo recuo do conteúdo do card */
+}
+.ficha-head .chip-bar{
+  grid-area:chips;
+  margin:0 0 12px 0;          /* respiro entre chips e título */
+}
+.ficha-head .h1{
+  grid-area:title;
+  margin:0;                   /* alinha início do título ao texto */
+}
+/* Alinhar chips + título com a coluna do texto do card */
+.card.ubox { padding:14px 16px; }              /* (já existe, só garantindo) */
+.ficha-head{
+  /* o card já tem padding lateral; aqui NÃO somamos outro */
+  padding:0 0 8px 0 !important;
+  display:grid;
+  grid-template-areas:
+    "chips"
+    "title";
+  grid-template-columns:1fr;
+  align-items:start;
+  gap:0;
+}
+.ficha-head .chip-bar{
+  grid-area:chips;
+  margin:0 0 12px 0;
+}
+.ficha-head .h1{
+  grid-area:title;
+  margin:0;
+}
+
+/* Autocomplete: snippet do dispositivo + divisória */
+.suggestions li{
+  padding:10px 8px;
+  border-top:1px solid var(--line);
+}
+.suggestions li:first-child{ border-top:0; }
+
+.suggestions .s1{ font-weight:600; }
+.suggestions .s3{
+  font-size:13px;
+  color:var(--ink);
+  opacity:.9;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;     /* garante 1 linha no mobile */
+  margin:2px 0 6px;
+}
+/* ===== Header do card: separadores + categoria ===== */
+.card-sep{
+  height:1px;
+  background:var(--line);
+  margin:8px 0;                 /* mesmo “respiro” dos demais divisores */
+}
+
+.card-cat{
+  font-size:12px;
+  color:var(--muted);
+  margin:0 0 8px 0;             /* espaço padrão antes do próximo bloco */
+  padding:0;                     /* alinha com o texto do card */
+}
+
+/* Garante alinhamento à esquerda igual ao corpo do card */
+.ficha-head{ padding:0 0 8px 0 !important; }
+/* 1) Esconder subtítulos das seções no card */
+.ubox-sub { display: none !important; }
+
+/* Se quiser reduzir o respiro onde tinha o subtítulo: */
+.ubox-section { padding-top: 0 !important; }
+.ubox-section + .ubox-section { margin-top: 14px !important; padding-top: 14px !important; }
+
+/* Tirar a linha LOGO ABAIXO da categoria ("Código Civil") */
+.card-cat + .card-sep { display: none !important; }
+
+/* Diminuir o respiro entre a categoria e o início do texto */
+.card-cat { margin-bottom: 1px !important; }
+
+/* (opcional) apertar um pouco o topo do card */
+.ficha-head { padding-bottom: 4px !important; }
+
+/* ===== Chips das sugestões – rolagem horizontal contínua (mobile + desktop) ===== */
+.suggestions .ac-chips{
+  display:flex;
+  gap:6px;
+  margin:4px 4px 8px;
+  flex-wrap: nowrap !important;      /* força faixa única */
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  /* opcional: fade nas bordas para um fim visual mais suave */
+  mask-image: linear-gradient(to right, transparent 0, black 12px, black calc(100% - 12px), transparent 100%);
+}
+.suggestions .ac-chip{
+  flex: 0 0 auto;                    /* impede encolher/quebrar */
+}
+
+/* Scrollbar (WebKit) */
+.suggestions .ac-chips::-webkit-scrollbar{ height:6px; }
+.suggestions .ac-chips::-webkit-scrollbar-thumb{
+  background: var(--line);
+  border-radius: 999px;
+}
+
+
+/* (opcional) menos respiro antes da 1ª seção de conteúdo */
+.card .ubox-section:first-of-type {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}

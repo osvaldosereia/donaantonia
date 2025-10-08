@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meujus</title>
+  <link rel="stylesheet" href="style.css?v=2025-10-07">
+</head>
+<body>
+  <!-- Topbar fixa -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand"><span class="b1">Meu</span><span class="b2">Jus</span></div>
+
+      <!-- Busca (movida para o centro na Home) -->
+      <div class="search-wrap" role="search">
+        <input
+          id="search"
+          class="search"
+          type="search"
+          placeholder="Buscar tema"
+          autocomplete="off"
+          aria-autocomplete="list"
+          aria-controls="suggestions"
+          aria-haspopup="listbox"
+        />
+        <ul id="suggestions" class="suggestions" role="listbox" aria-label="Sugestões" hidden></ul>
+      </div>
+
+      <button id="btnMenu" class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Drawer / menu lateral -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop" tabindex="-1"></div>
+    <nav class="drawer-panel" id="drawer-panel" aria-label="Menu lateral" tabindex="-1">
+      <div class="drawer-header">
+        <div class="drawer-brand brand"><span class="b1">Meu</span><span class="b2">Jus</span></div>
+        <button class="drawer-close" id="btnCloseMenu" aria-label="Fechar menu">Fechar</button>
+      </div>
+      <div class="drawer-content">
+        <h3 class="h2">Categorias</h3>
+        <ul class="list menu" id="menuList">
+          <!-- Seeds para indexação dinâmica (app.js lê e monta TEMAS) -->
+          <li>
+            <a class="title"
+               data-auto="1"
+               data-group="Código Civil"
+               data-path="data/codigo_civil/codigo_civil.txt">Código Civil</a>
+          </li>
+         </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Área principal -->
+  <main class="container" id="theme" aria-live="polite">
+    <div id="content" class="list-plain"></div>
+  </main>
+
+  <!-- Toasts -->
+  <div id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Modal "Sobre" -->
+  <div class="modal" id="sobreModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="sobreTitle">
+      <div class="modal-header">
+        <strong id="sobreTitle">Sobre</strong>
+        <button class="modal-close" data-close="1" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          O MeuJus organiza temas em TXT com <code># Título (T)</code> seguido de
+          <code># Dispositivos Legais (D)</code> e <code># Remissões Normativas (R)</code>.
+          As seções são separadas por <code>-----</code> e os itens por <code>- </code> (links) e
+          <code>-- </code> (comentários). Os prompts para I.A. são abertos em nova aba.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script do Drawer (toggle + close global) -->
+  <script>
+    (function(){
+      const drawer   = document.getElementById('drawer');
+      const panel    = document.getElementById('drawer-panel');
+      const openBtn  = document.getElementById('btnMenu');
+      const closeBtn = document.getElementById('btnCloseMenu');
+      const backdrop = document.getElementById('drawerBackdrop');
+
+      function open(){
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden','false');
+        openBtn.setAttribute('aria-expanded','true');
+        document.body.classList.add('noscroll');
+        panel.focus?.();
+      }
+      function close(){
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+        openBtn.setAttribute('aria-expanded','false');
+        document.body.classList.remove('noscroll');
+        openBtn.focus?.();
+      }
+
+      // Toggle no mesmo botão
+      openBtn?.addEventListener('click', (e)=>{
+        e.preventDefault();
+        drawer.classList.contains('open') ? close() : open();
+      });
+
+      closeBtn?.addEventListener('click', close);
+      backdrop?.addEventListener('click', close);
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+
+      // Modal Sobre
+      const modal = document.getElementById('sobreModal');
+      function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('noscroll'); }
+      function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('noscroll'); }
+      modal?.addEventListener('click', (e)=>{ if(e.target.dataset.close) closeModal(); });
+      window.__openSobre = openModal;
+      window.__closeSobre = closeModal;
+
+      // expõe close do drawer para o app.js
+      window.__closeDrawer = close;
+    })();
+  </script>
+
+  <!-- App -->
+  <script src="app.js"></script>
+</body>
+</html>
