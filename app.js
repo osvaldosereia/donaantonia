@@ -81,6 +81,70 @@
     return { kind:'home' };
   }
 
+/* ===== Normalização jurídica ===== */
+const DIP_ABR = new Map(Object.entries({
+  'cc':'codigo civil','cp':'codigo penal','cpc':'codigo de processo civil','cpp':'codigo de processo penal',
+  'cf88':'constituicao federal','cf/88':'constituicao federal','cdc':'codigo de defesa do consumidor',
+  'ctn':'codigo tributario nacional','clt':'consolidacao das leis do trabalho','eca':'estatuto da crianca e do adolescente',
+  'ctb':'codigo de transito brasileiro','lindb':'lei de introducao as normas do direito brasileiro',
+  'lia':'lei de improbidade administrativa','lacp':'lei da acao civil publica'
+}));
+function normBasic(s){
+  return String(s||'').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/ç/g,'c').replace(/\s+/g,' ').trim();
+}
+function normNumbers(s){
+  // 9.2.7 / 9-27 / 927. → 927 ; mantém sufixo A/B
+  return s.replace(/(?<=\b\d{1,3})[.\-](?=\d{1,3}\b)/g,'')
+          .replace(/(?<=\d)\.(?=\D|\b)/g,'');
+}
+function normOrdinals(s){
+  return s.replace(/\b(\d+)\s*[º°o]\b/g,'$1')
+          .replace(/\b§{1,2}\s*(\d+)\b/g,'par$1')
+          .replace(/\bn[º°.]?\s*(\d+)\b/g,'numero $1');
+}
+function normHyphens(s){ return s.replace(/[–—]/g,'-'); }
+function normAliases(s){
+  // art., arts., inc., al., par. único, § → formas canônicas
+  return s
+    .replace(/\barts?\.\b/g,'art')
+    .replace(/\binc\.\b/g,'inciso')
+    .replace(/\bal\.\b/g,'alinea')
+    .replace(/\bpar\.\s*unico\b/g,'paragrafo unico')
+    .replace(/§§/g,'paragrafos ').replace(/§/g,'paragrafo ');
+}
+function normDiplomaTokens(s){
+  let out = s;
+  for(const [abr,full] of DIP_ABR){
+    const rx = new RegExp(`\\b${abr.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\b`,'g');
+    out = out.replace(rx, full);
+  }
+  return out;
+}
+function normJur(s){
+  // ordem de normalização importa
+  return normBasic(normDiplomaTokens(normAliases(normOrdinals(normNumbers(normHyphens(s))))));
+}
+
+/* ===== Parser de referência jurídica no query ===== */
+function parseRef(q){
+  const n = normJur(q);
+  // art 121-a §2 inciso iv al b cc
+  const art = (n.match(/\bart\s*(\d+[a-z]?)/) || [])[1] || null;
+  const par = (n.match(/\bparagrafo\s*(\d+|unico)\b/) || [])[1] || null;
+  const inc = (n.match(/\binciso\s*([ivx]+|\d+)\b/) || [])[1] || null;
+  const ali = (n.match(/\balinea\s*([a-z])\b/) || [])[1] || null;
+  // diploma amplo
+  let dip = null;
+  for(const full of DIP_ABR.values()){
+    const rx = new RegExp(`\\b${full}\\b`,'i');
+    if(rx.test(n)){ dip = full; break; }
+  }
+  return { art, par, inc, ali, dip, norm:n };
+}
+
+   
   /* ===== Toast ===== */
   const toastsEl = $('#toasts');
   function toast(msg,type='info',ttl=2200){
@@ -253,11 +317,32 @@ for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto,
   if(acList) acList.hidden=true;
 
   function scoreFields(q,t){
-    const sT=_hitPT(t.titleN,q);
-    const sD=_hitPT(t.dispN||'',q);
-    const sR=_hitPT(t.remN||'',q);
-    return {score:1.2*sT + sD + sR};
+  const ref = parseRef(q);
+  // base: título + dispositivos + remissões
+  let s = 1.2*_hitPT(t.titleN, ref.norm) + _hitPT(t.dispN||'', ref.norm) + _hitPT(t.remN||'', ref.norm);
+
+  // boost por match de artigo explícito
+  if(ref.art){
+    const artRX = new RegExp(`\\bart\\s*${ref.art}\\b`);
+    if(artRX.test(t.titleN) || artRX.test(t.dispN||'')) s += 120;
   }
+  // boost por parágrafo/inciso/alínea
+  if(ref.par && (new RegExp(`\\b(par|§)\\s*${ref.par}\\b`).test(t.dispN||''))) s += 40;
+  if(ref.inc && (new RegExp(`\\binciso\\s*(${ref.inc})\\b`).test(t.dispN||''))) s += 35;
+  if(ref.ali && (new RegExp(`\\balinea\\s*${ref.ali}\\b`).test(t.dispN||''))) s += 30;
+
+  // diploma coerente com a categoria (group)
+  if(ref.dip){
+    const g = normJur(t.group||'');
+    if(g.includes(ref.dip)) s += 80;
+  }
+
+  // proximidade: se query tem "art" + número e ambos aparecem no título, pequeno extra
+  if(/\bart\b/.test(ref.norm) && /\d/.test(ref.norm) && /\bart\b/.test(t.titleN) && /\d/.test(t.titleN)) s += 20;
+
+  return { score: s };
+}
+
 
   function bindAutocomplete(){
     input=$('#search');
@@ -269,7 +354,7 @@ for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto,
   }
 
   function onInputAC(e){
-    const q=(e.target.value||'').trim();
+const q = normJur((e.target.value||'').trim());
     if(q.length<2 || !TEMAS.length){ acList.innerHTML=''; acList.hidden=true; closeAcDropdown(); return; }
 
     let arr=TEMAS.map(t=>({t, ...scoreFields(q,t)}))
@@ -735,9 +820,16 @@ io.observe(topSentinel);
         const parsed=chunks.map(parseTemaFromChunk).filter(Boolean);
         for(const t of parsed){
           const slug = `${slugify(group)}-${t.slug}`;
-          const dispN=t.dispN||''; const remN=t.remN||''; const body=(dispN+' '+remN).toLowerCase();
-          temas.push({ slug, title:t.title, path, group, frag:t.slug, titleN:t.titleN, dispN, remN, bodyN:t.bodyN, bodyL:body });
-        }
+const dispN = t.dispN || '';
+const remN  = t.remN  || '';
+const body  = (dispN+' '+remN).toLowerCase();
+const groupN = normJur(group||'');
+temas.push({
+  slug, title:t.title, path, group, frag:t.slug,
+  titleN: t.titleN, dispN, remN, bodyN: t.bodyN, bodyL: body,
+  groupN // usado para coerência de diploma
+});
+
         // cache com metaLine para snippets e cards
         CACHED_FILES.set(path, parsed.map(t=>({
           slug:`${slugify(group)}-${t.slug}`,
