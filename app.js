@@ -281,7 +281,7 @@ for (const it of dispositivos) it.link = mkLink(`${title} — ${it.texto}`);
 for (const it of remissoes)    it.link = googleIA(IA_PROMPTS.detalhada(it.texto, it.texto));
 
 
-    conconst dispText=dispositivos.map(x=>[x.texto,(x.comentarios||[]).join(' ')].filter(Boolean).join(' ')).join(' ');
+const dispText=dispositivos.map(x=>[x.texto,(x.comentarios||[]).join(' ')].filter(Boolean).join(' ')).join(' ');
 const remText =remissoes.map(x=>[x.texto,(x.comentarios||[]).join(' ')].filter(Boolean).join(' ')).join(' ');
 const fullRaw = [title, dispText, remText].filter(Boolean).join(' ');
 
@@ -427,7 +427,7 @@ return {
 
   const listHTML = arr.slice(0,8).map(x=>{
     const { t } = x;
-    const titleHTML = highlightTitle(t.title, q);   // usa normalizado p/ destaque
+    const titleHTML = highlightTitle(t.title, raw);   // usa normalizado p/ destaque
     const snippet   = getDispSnippet(t.slug, 60);
     return `<li role="option">
       <a href="#/tema/${t.slug}" data-q="${escapeHTML(raw)}">
