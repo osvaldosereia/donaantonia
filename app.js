@@ -215,10 +215,20 @@ function genVariantsFromQuery(q){
     videos:        (t)       => `site:youtube.com aula ${t} explicação prática legislação`,
     artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
     comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
-    julgados:      (t, full) => {
-    const seed = String(full||'').replace(/\s+/g,' ').trim().slice(0, 20);
-    return `site:stf.jus.br OR site:stj.jus.br ("${seed}" OR "art. ${seed}") (ementa OR acórdão OR decisão OR DJe)`;
-  }
+    julgados: (t, full) => {
+  // remove "Título:", nomes de seção e marcadores, pega só o corpo
+  const seed = String(full||'')
+    .replace(/^\s*T[íi]tulo:.*$/im, '')                  // linha "Título:"
+    .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')       // cabeçalho D
+    .replace(/^\s*Remiss(õ|o)es\s+Normativas:.*$/im, '')  // cabeçalho R
+    .replace(/^\s*Coment[áa]rio:.*$/gim, '')              // linhas de comentário
+    .replace(/^\s*-\s*/gim, '')                           // marcador de lista
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 20);
+
+  return `site:stf.jus.br OR site:stj.jus.br ("${seed}") (ementa OR acórdão OR decisão OR DJe)`;
+}
 };
 
   /* ===== Parser de chunk TXT ===== */
