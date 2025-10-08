@@ -818,27 +818,29 @@ io.observe(topSentinel);
         const raw=await fetchText(path);
         const chunks=splitThemesByDelim(raw);
         const parsed=chunks.map(parseTemaFromChunk).filter(Boolean);
-        for(const t of parsed){
-          const slug = `${slugify(group)}-${t.slug}`;
-const dispN = t.dispN || '';
-const remN  = t.remN  || '';
-const body  = (dispN+' '+remN).toLowerCase();
-const groupN = normJur(group||'');
-temas.push({
-  slug, title:t.title, path, group, frag:t.slug,
-  titleN: t.titleN, dispN, remN, bodyN: t.bodyN, bodyL: body,
-  groupN // usado para coerência de diploma
-});
+       for(const t of parsed){
+  const slug = `${slugify(group)}-${t.slug}`;
+  const dispN = t.dispN || '';
+  const remN  = t.remN  || '';
+  const body  = (dispN+' '+remN).toLowerCase();
+  const groupN = normJur(group||'');
+  temas.push({
+    slug, title:t.title, path, group, frag:t.slug,
+    titleN: t.titleN, dispN, remN, bodyN: t.bodyN, bodyL: body,
+    groupN
+  });
+} // <-- FECHA O for
 
-        // cache com metaLine para snippets e cards
-        CACHED_FILES.set(path, parsed.map(t=>({
-          slug:`${slugify(group)}-${t.slug}`,
-          title:t.title,
-          group,
-          metaLine: t.metaLine || '',
-          dispositivos:t.dispositivos||[],
-          remissoes:t.remissoes||[]
-        })));
+// cache com metaLine para snippets e cards
+CACHED_FILES.set(path, parsed.map(t=>({
+  slug:`${slugify(group)}-${t.slug}`,
+  title:t.title,
+  group,
+  metaLine: t.metaLine || '',
+  dispositivos:t.dispositivos||[],
+  remissoes:t.remissoes||[]
+})));
+
       }catch(e){
         console.error('Seed falhou',path,e);
         toast(`Erro ao ler ${path}`,'error',2800);
