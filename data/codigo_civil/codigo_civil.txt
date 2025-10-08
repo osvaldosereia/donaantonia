@@ -2,8 +2,87 @@
 
 
 
-
-
+# Anulação de Ato por Falta de Autorização
+- Código Civil
+# Dispositivos Legais
+- Art. 1.649. A falta de autorização, não suprida pelo juiz, quando necessária (art. 1.647), tornará anulável o ato praticado, podendo o outro cônjuge pleitear-lhe a anulação, até dois anos depois de terminada a sociedade conjugal.
+- Parágrafo único. A aprovação torna válido o ato, desde que feita por instrumento público, ou particular, autenticado.
+# Remissões Normativas
+- Vide art. 1.647 do CC.
+-- elenca os atos que nenhum dos cônjuges pode praticar sem autorização do outro, exceto no regime da separação absoluta de bens.
+-----
+# Legitimidade para Pleitear a Invalidade
+- Código Civil
+# Dispositivos Legais
+- Art. 1.650. A decretação de invalidade dos atos praticados sem outorga, sem consentimento, ou sem suprimento do juiz, só poderá ser demandada pelo cônjuge a quem cabia concedê-la, ou por seus herdeiros.
+# Remissões Normativas
+- Vide art. 226, § 5.º, da CF.
+-- estabelece que os direitos e deveres referentes à sociedade conjugal são exercidos igualmente pelo homem e pela mulher.
+- Vide arts. 1.645 e 1.646 do CC.
+-- dispõem sobre as ações de anulação ou reivindicação de bens doados ou transferidos a concubino pelo cônjuge adúltero.
+-----
+# Administração por um Cônjuge na Impossibilidade do Outro
+- Código Civil
+# Dispositivos Legais
+- Art. 1.651. Quando um dos cônjuges não puder exercer a administração dos bens que lhe incumbe, segundo o regime de bens, caberá ao outro:
+- I – gerir os bens comuns e os do consorte;
+- II – alienar os bens móveis comuns;
+- III – alienar os imóveis comuns e os móveis ou imóveis do consorte, mediante autorização judicial.
+# Remissões Normativas
+- Vide art. 226, § 5.º, da CF.
+-- estabelece que os direitos e deveres referentes à sociedade conjugal são exercidos igualmente pelo homem e pela mulher.
+-----
+# Responsabilidade pela Posse de Bens Particulares
+- Código Civil
+# Dispositivos Legais
+- Art. 1.652. O cônjuge, que estiver na posse dos bens particulares do outro, será para com este e seus herdeiros responsável:
+- I – como usufrutuário, se o rendimento for comum;
+- II – como procurador, se tiver mandato expresso ou tácito para os administrar;
+- III – como depositário, se não for usufrutuário, nem administrador.
+# Remissões Normativas
+- Vide arts. 1.400 a 1.409 do CC.
+-- dispõem sobre as obrigações do usufrutuário.
+- Vide arts. 667 a 674 do CC.
+-- dispõem sobre as obrigações do mandatário.
+- Vide arts. 627 a 652 do CC.
+-- dispõem sobre o contrato de depósito e as obrigações do depositário.
+-----
+# Forma e Eficácia do Pacto Antenupcial
+- Código Civil
+# Dispositivos Legais
+- Art. 1.653. É nulo o pacto antenupcial se não for feito por escritura pública, e ineficaz se não lhe seguir o casamento.
+# Remissões Normativas
+- Vide arts. 1.536, VII, 1.537 e 1.564, II, do CC.
+-- tratam, respectivamente, da menção à escritura do pacto antenupcial no assento de casamento, da necessidade de transcrição do pacto no registro de imóveis, e da possibilidade de anulação do casamento se houver incompetência da autoridade celebrante.
+- Vide Lei n. 6.015, de 31-12-1973, arts. 167, I, n. 12, II, n. 1, e 178, V.
+-- dispõem sobre a necessidade de registro dos pactos antenupciais no Registro de Imóveis para validade perante terceiros.
+-----
+# Pacto Antenupcial Realizado por Menor
+- Código Civil
+# Dispositivos Legais
+- Art. 1.654. A eficácia do pacto antenupcial, realizado por menor, fica condicionada à aprovação de seu representante legal, salvo as hipóteses de regime obrigatório de separação de bens.
+-----
+# Nulidade de Cláusulas Contrárias à Lei
+- Código Civil
+# Dispositivos Legais
+- Art. 1.655. É nula a convenção ou cláusula dela que contravenha disposição absoluta de lei.
+-----
+# Cláusula no Regime de Participação Final nos Aquestos
+- Código Civil
+# Dispositivos Legais
+- Art. 1.656. No pacto antenupcial, que adotar o regime de participação final nos aquestos, poder-se-á convencionar a livre disposição dos bens imóveis, desde que particulares.
+# Remissões Normativas
+- Vide arts. 1.672 a 1.686 do CC.
+-- dispõem sobre as regras do regime de participação final nos aquestos.
+-----
+# Eficácia do Pacto Perante Terceiros
+- Código Civil
+# Dispositivos Legais
+- Art. 1.657. As convenções antenupciais não terão efeito perante terceiros senão depois de registradas, em livro especial, pelo oficial do Registro de Imóveis do domicílio dos cônjuges.
+# Remissões Normativas
+- Vide arts. 167, I, n. 12, e II, n. 1, 244 e 245 da Lei n. 6.015, de 31-12-1973 (LRP).
+-- tratam do registro do pacto antenupcial no Livro n. 3 - Registro Auxiliar do cartório de imóveis do domicílio dos cônjuges e da averbação nos registros dos imóveis do casal.
+-----
 # Regime de Comunhão Parcial
 - Código Civil
 # Dispositivos Legais
