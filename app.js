@@ -215,7 +215,7 @@ function genVariantsFromQuery(q){
   videos:        (t)       => `Liste 3–5 vídeoaulas no site:youtube.com sobre o tema: ${t}`,
   artigos:       (t)       => `Liste 3–5 artigos sobre o tema ${t} (pode ser PDF). site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br`,
   atualizacao:   (t, full) => `Verifique em fontes oficiais (Planalto, LexML, Diários Oficiais) se o texto a seguir sofreu alteração nos últimos 2 anos (apenas texto legal, sem comentários ou jurisprudência). Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
-  cabimento:     (t, full) => `Você é advogado; Explique como o artigo é aplicado na prática: quando se usa, em quais situações é cabível, qual seu efeito jurídico e traga exemplo concreto de aplicação.". Tema: ${t}; Texto-base: ${full}`,
+  cabimento:     (t, full) => `Você é advogado; Comente a função, efeitos e cabimento desse artigo na prática jurídica. Tema: ${t}; Texto-base: ${full}`,
   remissoes:     (t, full) => `Liste, súmulas (incl. vinculantes), enunciados, teses, temas repetitivos e informativos relacionados ao tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
