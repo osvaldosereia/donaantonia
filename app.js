@@ -212,10 +212,11 @@ function genVariantsFromQuery(q){
     detalhada:     (t, full) => `Explique DETALHADAMENTE o texto a seguir, com transcrições essenciais, finalidade, requisitos e exemplos.\n\nCONTEÚDO:\n${full}`,
     dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
     objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-    videos:        (t)       => `site:youtube.com aula ${t} explicação prática legislação`,
-    artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
-    comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
-    cabimento:     (t, full) => `Faça uma pesquisa de hipoteses de cabimento para o tema seguir. Diga em que tipo de ação o tema é mais usado. Seja didático e exemplificativo. Tema: ${t}\n\nTEMA:\n${full}`,
+    videos:        (t)       => `Liste com link 3 vídeoaulas bem conceituadas sobre o tema a seguir no site:youtube.com. Tema: ${t}`,
+    artigos:       (t)       => `Liste com link 3 artigos sobre o tema ${t}, pode ser pdf também, site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br`,
+    atualizacao:   (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
+    cabimento:     (t, full) => `Como um advogado experiente, explique a finalidade PRÁTICA do dispositivo: quando usar, peça cabível, efeitos, requisitos, prazos, competência, pedidos essenciais, exemplos e artigos correlatos. Seja didático e exemplificativo. Tema: ${t}\n\nTEMA:\n${full}`,
+    remissoes:     (t, full) => `Auxilie um advogado pesquisando e relacionando remissões em relação ao tema a seguir. Liste com link súmulas, súmulas vinculantes, enunciados, teses, temas repetitivos, e etc. Tema: ${t}\n\nTEMA:\n${full}`,
     perguntas:     (t, full) => `Atue como um professor de Direito. Analise o tema e me respoda: Quais são as perguntas que um aluno de direito deve saber responder sobre o tema. Apresente as perguntas e as responda de forma objetiva. Tema: ${t}\n\nTEMA:\n${full}`,
     revisao:       (t, full) => `Atue como um professor de direito que está fazendo uma revisão rápida e objetiva sobre o tema. Apresente somente assertivas objetivas essenciais para prova. Tema: ${t}\n\nTEMA:\n${full}`,
      pratica:      (t, full) => `Relacione o tema com a pratica jurídica. Caso seja conveniente ao tema pesquise e apresente dicas e orientações. Tema: ${t}\n\nTEMA:\n${full}`, 
@@ -669,12 +670,13 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
       {key:'perguntas',     label:'Perguntas Essenciais'},     
       {key:'dissertativas', label:'Questões Dissertativas'},
       {key:'objetivas',     label:'Questões Objetivas'},
-      {key:'videos',        label:'Encontre Vídeos'},
-      {key:'artigos',       label:'Encontre Artigos'},
-      {key:'julgados',      label:'Buscar Jurisprudencias'},
+      {key:'videos',        label:'Vídeos'},
+      {key:'artigos',       label:'Artigos'},
+      {key:'julgados',      label:'Julgados'},
       {key:'pratica',       label:'Prática Jurídica'},
       {key:'cabimento',     label:'Cabimento'},
-      {key:'comparar',      label:'Consultar Atualização'}
+      {key:'remissao',      label:'Jurisprudência correlata'},
+      {key:'atualizacao',      label:'Consultar Atualização'}
     ];
 
     __iaDrop = document.createElement('div');
