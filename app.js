@@ -207,46 +207,42 @@ function genVariantsFromQuery(q){
   /* ===== IA helpers ===== */
   function googleIA(prompt){ return `https://www.google.com/search?udm=50&q=${encodeURIComponent(prompt)}`; }
 
-  const IA_PROMPTS = {
-    resumo:        (t, full) => `Faça um RESUMO em tópicos, com fundamentos e aplicações práticas.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-    detalhada:     (t, full) => `Explique DETALHADAMENTE o texto a seguir, com transcrições essenciais, finalidade, requisitos e exemplos.\n\nCONTEÚDO:\n${full}`,
-    dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-    objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-    videos:        (t)       => `Liste com link 3 vídeoaulas bem conceituadas sobre o tema a seguir no site:youtube.com. Tema: ${t}`,
-    artigos:       (t)       => `Liste com link 3 artigos sobre o tema ${t}, pode ser pdf também, site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br`,
-    atualizacao:   (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
-    cabimento:     (t, full) => `Como um advogado experiente, explique a finalidade PRÁTICA do dispositivo: quando usar, peça cabível, efeitos, requisitos, prazos, competência, pedidos essenciais, exemplos e artigos correlatos. Seja didático e exemplificativo. Tema: ${t}\n\nTEMA:\n${full}`,
-    remissoes:     (t, full) => `Auxilie um advogado pesquisando e relacionando remissões em relação ao tema a seguir. Liste com link súmulas, súmulas vinculantes, enunciados, teses, temas repetitivos, e etc. Tema: ${t}\n\nTEMA:\n${full}`,
-    perguntas:     (t, full) => `Atue como um professor de Direito. Analise o tema e me respoda: Quais são as perguntas que um aluno de direito deve saber responder sobre o tema. Apresente as perguntas e as responda de forma objetiva. Tema: ${t}\n\nTEMA:\n${full}`,
-    revisao:       (t, full) => `Atue como um professor de direito que está fazendo uma revisão rápida e objetiva sobre o tema. Apresente somente assertivas objetivas essenciais para prova. Tema: ${t}\n\nTEMA:\n${full}`,
-     pratica:      (t, full) => `Relacione o tema com a pratica jurídica. Caso seja conveniente ao tema pesquise e apresente dicas e orientações. Tema: ${t}\n\nTEMA:\n${full}`, 
-    julgados: (t, full) => {
-  // extrai só o corpo e pega os 40 primeiros caracteres
-  const seed = String(full||'')
-    .replace(/^\s*T[íi]tulo:.*$/im, '')
-    .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')
-    .replace(/^\s*Remiss(?:ões|oes)\s+Normativas:.*$/im, '')
-    .replace(/^\s*Coment[áa]rio:.*$/gim, '')
-    .replace(/^\s*-\s*/gim, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, 20);
-
-  // força resultados de jurisprudência com links
-  const doms = [
-    'site:stf.jus.br',
-    'site:portal.stf.jus.br',
-    'site:jurisprudencia.stf.jus.br',
-    'site:stj.jus.br',
-    'site:scon.stj.jus.br'
-  ].join(' OR ');
-
-  const filters = '(inurl:jurisprudencia OR inurl:acordao OR inurl:acordaos OR inurl:decisao OR inurl:decisoes OR inurl:processo)';
-  const types   = '(ementa OR acórdão OR acordão OR decisão OR decisoes OR DJe OR jurisprudência)';
-
-  return `${doms} ${filters} "${seed}" ${types} -noticia -notícias -conceito -doutrina`;
-}
+ const IA_PROMPTS = {
+  resumo:        (t, full) => `Faça um RESUMO em tópicos com fundamentos e aplicações práticas.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
+  detalhada:     (t, full) => `Explique DETALHADAMENTE o texto a seguir, com transcrições essenciais, finalidade, requisitos e exemplos.\n\nCONTEÚDO:\n${full}`,
+  dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
+  objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
+  videos:        (t)       => `Liste 3–5 vídeoaulas com link no site:youtube.com sobre o tema: ${t}`,
+  artigos:       (t)       => `Liste 3–5 artigos com link sobre o tema ${t} (pode ser PDF). site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br`,
+  atualizacao:   (t, full) => `Verifique em fontes oficiais (Planalto, LexML, Diários Oficiais) se o texto a seguir sofreu alteração nos últimos 2 anos (apenas texto legal, sem comentários ou jurisprudência). Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
+  cabimento:     (t, full) => `Você é advogado; identifique a PEÇA CABÍVEL e resuma finalidade, fundamentos (artigos), requisitos, competência, prazo, pedidos essenciais e observações; se faltar dado, responda "insuficiente". Tema: ${t}; Texto-base: ${full}`,
+  remissoes:     (t, full) => `Liste, com link, súmulas (incl. vinculantes), enunciados, teses, temas repetitivos e informativos relacionados ao tema. Tema: ${t}\n\nTEXTO:\n${full}`,
+  perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
+  revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
+  pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
+  julgados: (t, full) => {
+    const seed = String(full||'')
+      .replace(/^\s*T[íi]tulo:.*$/im, '')
+      .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')
+      .replace(/^\s*Remiss(?:ões|oes)\s+Normativas:.*$/im, '')
+      .replace(/^\s*Coment[áa]rio:.*$/gim, '')
+      .replace(/^\s*-\s*/gim, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 40);
+    const doms = [
+      'site:stf.jus.br',
+      'site:portal.stf.jus.br',
+      'site:jurisprudencia.stf.jus.br',
+      'site:stj.jus.br',
+      'site:scon.stj.jus.br'
+    ].join(' OR ');
+    const filters = '(inurl:jurisprudencia OR inurl:acordao OR inurl:acordaos OR inurl:decisao OR inurl:decisoes OR inurl:processo)';
+    const types   = '(ementa OR acórdão OR acordão OR decisão OR decisoes OR DJe OR jurisprudência)';
+    return `${doms} ${filters} "${seed}" ${types} -noticia -notícias -conceito -doutrina`;
+  }
 };
+
 
   /* ===== Parser de chunk TXT ===== */
   function parseTemaFromChunk(chunk){
@@ -662,22 +658,23 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
   function onDocCloseIADrop(e){ if(__iaDrop && !__iaDrop.contains(e.target)) closeIADrop(); }
 
   function openIADropdown(anchorBtn, title, fullText){
-    closeIADrop();
-        const actions = [
-      {key:'resumo',        label:'Resumo'},
-      {key:'detalhada',     label:'Detalhado'},
-      {key:'revisao',       label:'Revisão'},
-      {key:'perguntas',     label:'Perguntas Essenciais'},     
-      {key:'dissertativas', label:'Questões Dissertativas'},
-      {key:'objetivas',     label:'Questões Objetivas'},
-      {key:'videos',        label:'Vídeos'},
-      {key:'artigos',       label:'Artigos'},
-      {key:'julgados',      label:'Julgados'},
-      {key:'pratica',       label:'Prática Jurídica'},
-      {key:'cabimento',     label:'Cabimento'},
-      {key:'remissao',      label:'Jurisprudência correlata'},
-      {key:'atualizacao',      label:'Consultar Atualização'}
-    ];
+  closeIADrop();
+  const actions = [
+    {key:'resumo',        label:'Resumo'},
+    {key:'detalhada',     label:'Detalhado'},
+    {key:'revisao',       label:'Revisão'},
+    {key:'perguntas',     label:'Perguntas Essenciais'},     
+    {key:'dissertativas', label:'Questões Dissertativas'},
+    {key:'objetivas',     label:'Questões Objetivas'},
+    {key:'videos',        label:'Vídeos'},
+    {key:'artigos',       label:'Artigos'},
+    {key:'julgados',      label:'Julgados'},
+    {key:'pratica',       label:'Prática Jurídica'},
+    {key:'cabimento',     label:'Cabimento'},
+    {key:'remissoes',     label:'Jurisprudência correlata'},
+    {key:'atualizacao',   label:'Consultar Atualização'}
+  ];
+}
 
     __iaDrop = document.createElement('div');
     __iaDrop.className='ia-pop';
