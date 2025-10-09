@@ -221,22 +221,12 @@ function genVariantsFromQuery(q){
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
    julgados: (t, full) => `
-Você é pesquisador jurídico especialista em jurisprudência do STF. Encontre **5 decisões reais** do STF relacionadas ao tema e dispositivo abaixo.  
+Entende o tema apresentado e Encontre **decisões reais** de tribunais superiores relacionadas ao tema ou dispositivo abaixo.  
 Para cada julgado, apresente:
-
-- Número do processo (com link oficial)  
-- Ementa resumida  
-- Tese jurídica adotada  
-- Voto vencedor ou divergente relevante  
-- Data e relator  
-- Contexto fático resumido  
-- Indicação de vigência (se possível)
-
 Tema: ${t}  
 Texto-base / dispositivo: ${full}
 
 Priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes.  
-Use fontes oficiais: site:stf.jus.br OR site:jurisprudencia.stf.jus.br OR site:portal.stf.jus.br
 `.trim(),
 };   
 
