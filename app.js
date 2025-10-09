@@ -674,26 +674,26 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
     {key:'remissoes',     label:'Jurisprudência correlata'},
     {key:'atualizacao',   label:'Consultar Atualização'}
   ];
+
+  __iaDrop = document.createElement('div');
+  __iaDrop.className='ia-pop';
+  __iaDrop.innerHTML = actions.map(a=>`<button class="ia-item" data-k="${a.key}">${a.label}</button>`).join('');
+  document.body.appendChild(__iaDrop);
+
+  const r = anchorBtn.getBoundingClientRect();
+  __iaDrop.style.left = (r.left + window.scrollX) + 'px';
+  __iaDrop.style.top  = (r.bottom + window.scrollY + 6) + 'px';
+
+  __iaDrop.addEventListener('click', (e)=>{
+    const k = e.target.dataset.k; if(!k) return;
+    const p = (k==='videos'||k==='artigos') ? IA_PROMPTS[k](title) : IA_PROMPTS[k](title, fullText);
+    window.open(googleIA(p), '_blank', 'noopener');
+    closeIADrop();
+  });
+
+  setTimeout(()=>document.addEventListener('click', onDocCloseIADrop, true),0);
 }
 
-    __iaDrop = document.createElement('div');
-    __iaDrop.className='ia-pop';
-    __iaDrop.innerHTML = actions.map(a=>`<button class="ia-item" data-k="${a.key}">${a.label}</button>`).join('');
-    document.body.appendChild(__iaDrop);
-
-    const r = anchorBtn.getBoundingClientRect();
-    __iaDrop.style.left = (r.left + window.scrollX) + 'px';
-    __iaDrop.style.top  = (r.bottom + window.scrollY + 6) + 'px';
-
-    __iaDrop.addEventListener('click', (e)=>{
-      const k = e.target.dataset.k; if(!k) return;
-      const p = (k==='videos'||k==='artigos') ? IA_PROMPTS[k](title) : IA_PROMPTS[k](title, fullText);
-      window.open(googleIA(p), '_blank', 'noopener');
-      closeIADrop();
-    });
-
-    setTimeout(()=>document.addEventListener('click', onDocCloseIADrop, true),0);
-  }
 
   /* ===== ROLAGEM INFINITA ===== */
   function buildBundle(title,dispositivos,remissoes){
