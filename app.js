@@ -209,12 +209,13 @@ function genVariantsFromQuery(q){
 
   const IA_PROMPTS = {
     resumo:        (t, full) => `Faça um RESUMO em tópicos, com fundamentos e aplicações práticas.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-    detalhada:     (t, full) => `Explique EXCLUSIVAMENTE o texto a seguir, com transcrições essenciais, finalidade, requisitos e exemplos.\n\nCONTEÚDO:\n${full}`,
+    detalhada:     (t, full) => `Explique DETALHADAMENTE o texto a seguir, com transcrições essenciais, finalidade, requisitos e exemplos.\n\nCONTEÚDO:\n${full}`,
     dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
     objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
     videos:        (t)       => `site:youtube.com aula ${t} explicação prática legislação`,
     artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
     comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
+    pratica:      (t, full) => `Relacione o tema com a pratica jurídica. Tema: ${t}\n\nTEMA:\n${full}`, 
     julgados: (t, full) => {
   // extrai só o corpo e pega os 40 primeiros caracteres
   const seed = String(full||'')
@@ -665,7 +666,8 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
       {key:'objetivas',     label:'Questões Objetivas'},
       {key:'videos',        label:'Encontre Vídeos'},
       {key:'artigos',       label:'Encontre Artigos'},
-      {key:'julgados',      label:'Buscar Julgados STF/STJ'},
+      {key:'julgados',      label:'Buscar Jurisprudencias'},
+      {key:'pratica',       label:'Prática Jurídica'},     
       {key:'comparar',      label:'Consultar Atualização'}
     ];
 
