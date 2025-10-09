@@ -220,28 +220,24 @@ function genVariantsFromQuery(q){
   perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
-  julgados: (t, full) => {
-    const seed = String(full||'')
-      .replace(/^\s*T[íi]tulo:.*$/im, '')
-      .replace(/^\s*Dispositivos\s+Legais:.*$/im, '')
-      .replace(/^\s*Remiss(?:ões|oes)\s+Normativas:.*$/im, '')
-      .replace(/^\s*Coment[áa]rio:.*$/gim, '')
-      .replace(/^\s*-\s*/gim, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 40);
-    const doms = [
-      'site:stf.jus.br',
-      'site:portal.stf.jus.br',
-      'site:jurisprudencia.stf.jus.br',
-      'site:stj.jus.br',
-      'site:scon.stj.jus.br'
-    ].join(' OR ');
-    const filters = '(inurl:jurisprudencia OR inurl:acordao OR inurl:acordaos OR inurl:decisao OR inurl:decisoes OR inurl:processo)';
-    const types   = '(ementa OR acórdão OR acordão OR decisão OR decisoes OR DJe OR jurisprudência)';
-    return `${doms} ${filters} "${seed}" ${types} -noticia -notícias -conceito -doutrina`;
-  }
-};
+  julgados: (t, full) => `
+Você é pesquisador jurídico especialista em jurisprudência do STF. Encontre **5 decisões reais** do STF relacionadas ao tema e dispositivo abaixo.  
+Para cada julgado, apresente:
+
+- Número do processo (com link oficial)  
+- Ementa resumida  
+- Tese jurídica adotada  
+- Voto vencedor ou divergente relevante  
+- Data e relator  
+- Contexto fático resumido  
+- Indicação de vigência (se possível)
+
+Tema: ${t}  
+Texto-base / dispositivo: ${full}
+
+Priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes.  
+Use fontes oficiais: site:stf.jus.br OR site:jurisprudencia.stf.jus.br OR site:portal.stf.jus.br
+`.trim()
 
 
   /* ===== Parser de chunk TXT ===== */
