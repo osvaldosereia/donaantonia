@@ -635,3 +635,279 @@
 - § 3.º Presentes os requisitos legais, poderá ser requerida a conversão da sucessão provisória em definitiva.
 - § 4.º Regressando o ausente ou algum de seus descendentes ou ascendentes para requerer ao juiz a entrega de bens, serão citados para contestar o pedido os sucessores provisórios ou definitivos, o Ministério Público e o representante da Fazenda Pública, seguindo-se o procedimento comum.
 -----
+# Coisas Vagas - Procedimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 746. Recebendo do descobridor coisa alheia perdida, o juiz mandará lavrar o respectivo auto, do qual constará a descrição do bem e as declarações do descobridor.
+- § 1.º Recebida a coisa por autoridade policial, esta a remeterá em seguida ao juízo competente.
+- § 2.º Depositada a coisa, o juiz mandará publicar edital na rede mundial de computadores, no sítio do tribunal a que estiver vinculado e na plataforma de editais do Conselho Nacional de Justiça ou, não havendo sítio, no órgão oficial e na imprensa da comarca, para que o dono ou o legítimo possuidor a reclame, salvo se se tratar de coisa de pequeno valor e não for possível a publicação no sítio do tribunal, caso em que o edital será apenas afixado no átrio do edifício do fórum.
+- § 3.º Observar-se-á, quanto ao mais, o disposto em lei.
+# Remissões Normativas
+- Os arts. 1.233 a 1.237 do CC dispõem sobre descoberta.
+-- Regulam o procedimento civil para a coisa achada, estabelecendo o dever de restituí-la ao dono e o direito do descobridor a uma recompensa.
+- O art. 169, parágrafo único, I, do CP dispõe sobre crime de apropriação de tesouro.
+-- Tipifica o crime de apropriação indébita para quem acha tesouro em prédio alheio e se apropria da quota pertencente ao proprietário do imóvel.
+-----
+# Interdição - Legitimidade Ativa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 747. A interdição pode ser promovida:
+- I – pelo cônjuge ou companheiro;
+- II – pelos parentes ou tutores;
+- III – pelo representante da entidade em que se encontra abrigado o interditando;
+- IV – pelo Ministério Público.
+- Parágrafo único. A legitimidade deverá ser comprovada por documentação que acompanhe a petição inicial.
+# Remissões Normativas
+- Vide art. 5.º, I, da CF.
+-- Garante o princípio da isonomia, estabelecendo que homens e mulheres são iguais em direitos e obrigações.
+-----
+# Interdição - Legitimidade do Ministério Público
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 748. O Ministério Público só promoverá interdição em caso de doença mental grave:
+- I – se as pessoas designadas nos incisos I, II e III do art. 747 não existirem ou não promoverem a interdição;
+- II – se, existindo, forem incapazes as pessoas mencionadas nos incisos I e II do art. 747.
+-----
+# Interdição - Petição Inicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 749. Incumbe ao autor, na petição inicial, especificar os fatos que demonstram a incapacidade do interditando para administrar seus bens e, se for o caso, para praticar atos da vida civil, bem como o momento em que a incapacidade se revelou.
+- Parágrafo único. Justificada a urgência, o juiz pode nomear curador provisório ao interditando para a prática de determinados atos.
+# Remissões Normativas
+- Vide art. 1.767 do CC.
+-- Elenca as pessoas que estão sujeitas à curatela, como aquelas que, por causa transitória ou permanente, não podem exprimir sua vontade.
+-----
+# Interdição - Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 750. O requerente deverá juntar laudo médico para fazer prova de suas alegações ou informar a impossibilidade de fazê-lo.
+-----
+# Interdição - Entrevista
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 751. O interditando será citado para, em dia designado, comparecer perante o juiz, que o entrevistará minuciosamente acerca de sua vida, negócios, bens, vontades, preferências e laços familiares e afetivos e sobre o que mais lhe parecer necessário para convencimento quanto à sua capacidade para praticar atos da vida civil, devendo ser reduzidas a termo as perguntas e respostas.
+- § 1.º Não podendo o interditando deslocar-se, o juiz o ouvirá no local onde estiver.
+- § 2.º A entrevista poderá ser acompanhada por especialista.
+- § 3.º Durante a entrevista, é assegurado o emprego de recursos tecnológicos capazes de permitir ou de auxiliar o interditando a expressar suas vontades e preferências e a responder às perguntas formuladas.
+- § 4.º A critério do juiz, poderá ser requisitada a oitiva de parentes e de pessoas próximas.
+-----
+# Interdição - Impugnação e Defesa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 752. Dentro do prazo de 15 (quinze) dias contado da entrevista, o interditando poderá impugnar o pedido.
+- § 1.º O Ministério Público intervirá como fiscal da ordem jurídica.
+- § 2.º O interditando poderá constituir advogado, e, caso não o faça, deverá ser nomeado curador especial.
+- § 3.º Caso o interditando não constitua advogado, o seu cônjuge, companheiro ou qualquer parente sucessível poderá intervir como assistente.
+-----
+# Interdição - Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 753. Decorrido o prazo previsto no art. 752, o juiz determinará a produção de prova pericial para avaliação da capacidade do interditando para praticar atos da vida civil.
+- § 1.º A perícia pode ser realizada por equipe composta por expertos com formação multidisciplinar.
+- § 2.º O laudo pericial indicará especificadamente, se for o caso, os atos para os quais haverá necessidade de curatela.
+-----
+# Interdição - Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 754. Apresentado o laudo, produzidas as demais provas e ouvidos os interessados, o juiz proferirá sentença.
+-----
+# Interdição - Conteúdo e Publicidade da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 755. Na sentença que decretar a interdição, o juiz:
+- I – nomeará curador, que poderá ser o requerente da interdição, e fixará os limites da curatela, segundo o estado e o desenvolvimento mental do interdito;
+- II – considerará as características pessoais do interdito, observando suas potencialidades, habilidades, vontades e preferências.
+- § 1.º A curatela deve ser atribuída a quem melhor possa atender aos interesses do curatelado.
+- § 2.º Havendo, ao tempo da interdição, pessoa incapaz sob a guarda e a responsabilidade do interdito, o juiz atribuirá a curatela a quem melhor puder atender aos interesses do interdito e do incapaz.
+- § 3.º A sentença de interdição será inscrita no registro de pessoas naturais e imediatamente publicada na rede mundial de computadores, no sítio do tribunal a que estiver vinculado o juízo e na plataforma de editais do Conselho Nacional de Justiça, onde permanecerá por 6 (seis) meses, na imprensa local, 1 (uma) vez, e no órgão oficial, por 3 (três) vezes, com intervalo de 10 (dez) dias, constando do edital os nomes do interdito e do curador, a causa da interdição, os limites da curatela e, não sendo total a interdição, os atos que o interdito poderá praticar autonomamente.
+# Remissões Normativas
+- Vide art. 1.767 do CC.
+-- Elenca as pessoas que estão sujeitas à curatela, como aquelas que, por causa transitória ou permanente, não podem exprimir sua vontade.
+- Vide art. 9.º, III, do CC.
+-- Determina que a interdição por incapacidade absoluta ou relativa deve ser registrada em registro público.
+- Vide arts. 29, V, e 92 da LRP.
+-- Determinam a obrigatoriedade da inscrição da sentença de interdição no Livro "E" do Cartório de Registro Civil de Pessoas Naturais.
+-----
+# Interdição - Levantamento da Curatela
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 756. Levantar-se-á a curatela quando cessar a causa que a determinou.
+- § 1.º O pedido de levantamento da curatela poderá ser feito pelo interdito, pelo curador ou pelo Ministério Público e será apensado aos autos da interdição.
+- § 2.º O juiz nomeará perito ou equipe multidisciplinar para proceder ao exame do interdito e designará audiência de instrução e julgamento após a apresentação do laudo.
+- § 3.º Acolhido o pedido, o juiz decretará o levantamento da interdição e determinará a publicação da sentença, após o trânsito em julgado, na forma do art. 755, § 3.º, ou, não sendo possível, na imprensa local e no órgão oficial, por 3 (três) vezes, com intervalo de 10 (dez) dias, seguindo-se a averbação no registro de pessoas naturais.
+- § 4.º A interdição poderá ser levantada parcialmente quando demonstrada a capacidade do interdito para praticar alguns atos da vida civil.
+-----
+# Interdição - Extensão da Autoridade do Curador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 757. A autoridade do curador estende-se à pessoa e aos bens do incapaz que se encontrar sob a guarda e a responsabilidade do curatelado ao tempo da interdição, salvo se o juiz considerar outra solução como mais conveniente aos interesses do incapaz.
+-----
+# Interdição - Deveres do Curador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 758. O curador deverá buscar tratamento e apoio apropriados à conquista da autonomia pelo interdito.
+-----
+# Tutela e Curatela - Prestação de Compromisso
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 759. O tutor ou o curador será intimado a prestar compromisso no prazo de 5 (cinco) dias contado da:
+- I – nomeação feita em conformidade com a lei;
+- II – intimação do despacho que mandar cumprir o testamento ou o instrumento público que o houver instituído.
+- § 1.º O tutor ou o curador prestará o compromisso por termo em livro rubricado pelo juiz.
+- § 2.º Prestado o compromisso, o tutor ou o curador assume a administração dos bens do tutelado ou do interditado.
+# Remissões Normativas
+- Vide art. 32 da Lei n. 8.069, de 13-7-1990 (ECA).
+-- Em sua redação original, tratava da comunicação ao juiz sobre o acolhimento de criança ou adolescente em abrigo, ato que pode dar início a um procedimento de tutela.
+- Vide art. 37 da Lei n. 8.069, de 13-7-1990 (ECA).
+-- Assegura ao adotado o direito de conhecer sua origem biológica e ter acesso irrestrito ao processo de adoção após atingir a maioridade.
+-----
+# Tutela e Curatela - Escusa do Encargo
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 760. O tutor ou o curador poderá eximir-se do encargo apresentando escusa ao juiz no prazo de 5 (cinco) dias contado:
+- I – antes de aceitar o encargo, da intimação para prestar compromisso;
+- II – depois de entrar em exercício, do dia em que sobrevier o motivo da escusa.
+- § 1.º Não sendo requerida a escusa no prazo estabelecido neste artigo, considerar-se-á renunciado o direito de alegá-la.
+- § 2.º O juiz decidirá de plano o pedido de escusa, e, não o admitindo, exercerá o nomeado a tutela ou a curatela enquanto não for dispensado por sentença transitada em julgado.
+# Remissões Normativas
+- Vide art. 1.738 do CC.
+-- Estabelece o prazo decadencial de 10 dias para a apresentação da escusa do encargo de tutor.
+- Vide art. 1.739 do CC.
+-- Determina que o tutor deve exercer o encargo enquanto o recurso contra a não admissão da escusa não for provido.
+-----
+# Tutela e Curatela - Remoção
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 761. Incumbe ao Ministério Público ou a quem tenha legítimo interesse requerer, nos casos previstos em lei, a remoção do tutor ou do curador.
+- Parágrafo único. O tutor ou o curador será citado para contestar a arguição no prazo de 5 (cinco) dias, findo o qual observar-se-á o procedimento comum.
+# Remissões Normativas
+- Vide arts. 201, III e IV, da Lei n. 8.069, de 13-7-1990 (ECA).
+-- Atribui competência ao Ministério Público para promover e acompanhar ações de nomeação e remoção de tutores, curadores e guardiães.
+-----
+# Tutela e Curatela - Suspensão
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 762. Em caso de extrema gravidade, o juiz poderá suspender o tutor ou o curador do exercício de suas funções, nomeando substituto interino.
+-----
+# Tutela e Curatela - Exoneração do Encargo
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 763. Cessando as funções do tutor ou do curador pelo decurso do prazo em que era obrigado a servir, ser-lhe-á lícito requerer a exoneração do encargo.
+- § 1.º Caso o tutor ou o curador não requeira a exoneração do encargo dentro dos 10 (dez) dias seguintes à expiração do termo, entender-se-á reconduzido, salvo se o juiz o dispensar.
+- § 2.º Cessada a tutela ou a curatela, é indispensável a prestação de contas pelo tutor ou pelo curador, na forma da lei civil.
+-----
+# Fundações - Aprovação do Estatuto
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 764. O juiz decidirá sobre a aprovação do estatuto das fundações e de suas alterações sempre que o requeira o interessado, quando:
+- I – ela for negada previamente pelo Ministério Público ou por este forem exigidas modificações com as quais o interessado não concorde;
+- II – o interessado discordar do estatuto elaborado pelo Ministério Público.
+- § 1.º O estatuto das fundações deve observar o disposto na Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil).
+- § 2.º Antes de suprir a aprovação, o juiz poderá mandar fazer no estatuto modificações a fim de adaptá-lo ao objetivo do instituidor.
+# Remissões Normativas
+- Vide art. 67, III, do CC.
+-- Submete a alteração do estatuto da fundação à aprovação do Ministério Público, permitindo o suprimento judicial da aprovação em caso de negativa.
+- Vide arts. 62 a 69 do CC.
+-- Dispõem sobre a constituição, o estatuto, a administração, a fiscalização pelo Ministério Público e a extinção das fundações.
+-----
+# Fundações - Extinção
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 765. Qualquer interessado ou o Ministério Público promoverá em juízo a extinção da fundação quando:
+- I – se tornar ilícito o seu objeto;
+- II – for impossível a sua manutenção;
+- III – vencer o prazo de sua existência.
+# Remissões Normativas
+- O art. 69 do CC dispõe sobre a extinção da fundação.
+-- Determina as causas de extinção de uma fundação e estabelece que seu patrimônio será incorporado a outra fundação com finalidade semelhante.
+-----
+# Protestos Marítimos - Apresentação para Ratificação Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 766. Todos os protestos e os processos testemunháveis formados a bordo e lançados no livro Diário da Navegação deverão ser apresentados pelo comandante ao juiz de direito do primeiro porto, nas primeiras 24 (vinte e quatro) horas de chegada da embarcação, para sua ratificação judicial.
+-----
+# Protestos Marítimos - Petição Inicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 767. A petição inicial conterá a transcrição dos termos lançados no livro Diário da Navegação e deverá ser instruída com cópias das páginas que contenham os termos que serão ratificados, dos documentos de identificação do comandante e das testemunhas arroladas, do rol de tripulantes, do documento de registro da embarcação e, quando for o caso, do manifesto das cargas sinistradas e a qualificação de seus consignatários, traduzidos, quando for o caso, de forma livre para o português.
+-----
+# Protestos Marítimos - Oitiva do Comandante e Testemunhas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 768. A petição inicial deverá ser distribuída com urgência e encaminhada ao juiz, que ouvirá, sob compromisso a ser prestado no mesmo dia, o comandante e as testemunhas em número mínimo de 2 (duas) e máximo de 4 (quatro), que deverão comparecer ao ato independentemente de intimação.
+- § 1.º Tratando-se de estrangeiros que não dominem a língua portuguesa, o autor deverá fazer-se acompanhar por tradutor, que prestará compromisso em audiência.
+- § 2.º Caso o autor não se faça acompanhar por tradutor, o juiz deverá nomear outro que preste compromisso em audiência.
+-----
+# Protestos Marítimos - Audiência
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 769. Aberta a audiência, o juiz mandará apregoar os consignatários das cargas indicados na petição inicial e outros eventuais interessados, nomeando para os ausentes curador para o ato.
+-----
+# Protestos Marítimos - Sentença de Ratificação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 770. Inquiridos o comandante e as testemunhas, o juiz, convencido da veracidade dos termos lançados no Diário da Navegação, em audiência, ratificará por sentença o protesto ou o processo testemunhável lavrado a bordo, dispensado o relatório.
+- Parágrafo único. Independentemente do trânsito em julgado, o juiz determinará a entrega dos autos ao autor ou ao seu advogado, mediante a apresentação de traslado.
+-----
+# Processo de Execução - Disposições Gerais e Aplicação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 771. Este Livro regula o procedimento da execução fundada em título extrajudicial, e suas disposições aplicam-se, também, no que couber, aos procedimentos especiais de execução, aos atos executivos realizados no procedimento de cumprimento de sentença, bem como aos efeitos de atos ou fatos processuais a que a lei atribuir força executiva.
+- Parágrafo único. Aplicam-se subsidiariamente à execução as disposições do Livro I da Parte Especial.
+# Remissões Normativas
+- Vide arts. 783 a 785 do CPC.
+-- Definem os requisitos do título executivo (certeza, liquidez e exigibilidade), elencam os títulos executivos extrajudiciais e facultam ao credor a opção pelo processo de conhecimento.
+- Vide Súmula 196 do STJ.
+-- Determina a nomeação de curador especial ao executado revel citado por edital ou por hora certa, garantindo-lhe a defesa por meio de embargos.
+-----
+# Processo de Execução - Poderes do Juiz
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 772. O juiz pode, em qualquer momento do processo:
+- I – ordenar o comparecimento das partes;
+- II – advertir o executado de que seu procedimento constitui ato atentatório à dignidade da justiça;
+- III – determinar que sujeitos indicados pelo exequente forneçam informações em geral relacionadas ao objeto da execução, tais como documentos e dados que tenham em seu poder, assinando-lhes prazo razoável.
+-----
+# Processo de Execução - Cumprimento de Ordem de Entrega de Dados
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 773. O juiz poderá, de ofício ou a requerimento, determinar as medidas necessárias ao cumprimento da ordem de entrega de documentos e dados.
+- Parágrafo único. Quando, em decorrência do disposto neste artigo, o juízo receber dados sigilosos para os fins da execução, o juiz adotará as medidas necessárias para assegurar a confidencialidade.
+-----
+# Processo de Execução - Ato Atentatório à Dignidade da Justiça
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 774. Considera-se atentatória à dignidade da justiça a conduta comissiva ou omissiva do executado que:
+- I – frauda a execução;
+- II – se opõe maliciosamente à execução, empregando ardis e meios artificiosos;
+- III – dificulta ou embaraça a realização da penhora;
+- IV – resiste injustificadamente às ordens judiciais;
+- V – intimado, não indica ao juiz quais são e onde estão os bens sujeitos à penhora e os respectivos valores, nem exibe prova de sua propriedade e, se for o caso, certidão negativa de ônus.
+- Parágrafo único. Nos casos previstos neste artigo, o juiz fixará multa em montante não superior a vinte por cento do valor atualizado do débito em execução, a qual será revertida em proveito do exequente, exigível nos próprios autos do processo, sem prejuízo de outras sanções de natureza processual ou material.
+# Remissões Normativas
+- Vide art. 847, § 2.º, do CPC.
+-- Dispõe que a adjudicação se considera perfeita e acabada com a lavratura e assinatura do respectivo auto.
+- Vide art. 792 do CPC.
+-- Define as hipóteses em que a alienação ou oneração de bens é considerada fraude à execução, tornando o ato ineficaz em relação ao exequente.
+-----
+# Processo de Execução - Desistência
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 775. O exequente tem o direito de desistir de toda a execução ou de apenas alguma medida executiva.
+- Parágrafo único. Na desistência da execução, observar-se-á o seguinte:
+- I – serão extintos a impugnação e os embargos que versarem apenas sobre questões processuais, pagando o exequente as custas processuais e os honorários advocatícios;
+- II – nos demais casos, a extinção dependerá da concordância do impugnante ou do embargante.
+# Remissões Normativas
+- Vide art. 200, parágrafo único, do CPC.
+-- Estabelece que a desistência da ação, como ato unilateral da parte, somente produz efeitos após a devida homologação judicial.
+-----
+# Processo de Execução - Responsabilidade do Exequente
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 776. O exequente ressarcirá ao executado os danos que este sofreu, quando a sentença, transitada em julgado, declarar inexistente, no todo ou em parte, a obrigação que ensejou a execução.
+-----
+# Processo de Execução - Cobrança de Multas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 777. A cobrança de multas ou de indenizações decorrentes de litigância de má-fé ou de prática de ato atentatório à dignidade da justiça será promovida nos próprios autos do processo.
+-----
