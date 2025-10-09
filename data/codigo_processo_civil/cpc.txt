@@ -1,3 +1,4 @@
+
 # Prazo para Oposição dos Embargos de Terceiro
 - Código de Processo Civil
 # Dispositivos Legais
@@ -180,4 +181,59 @@
 # Remissões Normativas
 - Artigo acrescentado pela Lei n. 14.713, de 30-10-2023.
 -- Introduz no Código de Processo Civil a obrigatoriedade de o juiz averiguar a existência de risco de violência doméstica ou familiar no início das ações de guarda.
+-----
+# Ação Monitória - Propositura
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 700. A ação monitória pode ser proposta por aquele que afirmar, com base em prova escrita sem eficácia de título executivo, ter direito de exigir do devedor capaz:
+- I – o pagamento de quantia em dinheiro;
+- II – a entrega de coisa fungível ou infungível ou de bem móvel ou imóvel;
+- III – o adimplemento de obrigação de fazer ou de não fazer.
+- § 1.º A prova escrita pode consistir em prova oral documentada, produzida antecipadamente nos termos do art. 381.
+- § 2.º Na petição inicial, incumbe ao autor explicitar, conforme o caso:
+- I – a importância devida, instruindo-a com memória de cálculo;
+- II – o valor atual da coisa reclamada;
+- III – o conteúdo patrimonial em discussão ou o proveito econômico perseguido.
+- § 3.º O valor da causa deverá corresponder à importância prevista no § 2.º, incisos I a III.
+- § 4.º Além das hipóteses do art. 330, a petição inicial será indeferida quando não atendido o disposto no § 2.º deste artigo.
+- § 5.º Havendo dúvida quanto à idoneidade de prova documental apresentada pelo autor, o juiz intimá-lo-á para, querendo, emendar a petição inicial, adaptando-a ao procedimento comum.
+- § 6.º É admissível ação monitória em face da Fazenda Pública.
+- § 7.º Na ação monitória, admite-se citação por qualquer dos meios permitidos para o procedimento comum.
+# Remissões Normativas
+- Vide Súmulas 233, 299, 384 e 531 do STJ.
+-- Tratam da admissibilidade da ação monitória para contratos de abertura de crédito (Súmulas 233 e 384), cheque prescrito (Súmulas 299 e 531) e a desnecessidade de menção ao negócio jurídico subjacente neste último caso.
+-----
+# Ação Monitória - Mandado de Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 701. Sendo evidente o direito do autor, o juiz deferirá a expedição de mandado de pagamento, de entrega de coisa ou para execução de obrigação de fazer ou de não fazer, concedendo ao réu prazo de 15 (quinze) dias para o cumprimento e o pagamento de honorários advocatícios de cinco por cento do valor atribuído à causa.
+- § 1.º O réu será isento do pagamento de custas processuais se cumprir o mandado no prazo.
+- § 2.º Constituir-se-á de pleno direito o título executivo judicial, independentemente de qualquer formalidade, se não realizado o pagamento e não apresentados os embargos previstos no art. 702, observando-se, no que couber, o Título II do Livro I da Parte Especial.
+- § 3.º É cabível ação rescisória da decisão prevista no caput quando ocorrer a hipótese do § 2.º.
+- § 4.º Sendo a ré Fazenda Pública, não apresentados os embargos previstos no art. 702, aplicar-se-á o disposto no art. 496, observando-se, a seguir, no que couber, o Título II do Livro I da Parte Especial.
+- § 5.º Aplica-se à ação monitória, no que couber, o art. 916.
+# Remissões Normativas
+- Vide Súmula 282 do STJ.
+-- Admite a citação por edital na ação monitória.
+-----
+# Ação Monitória - Embargos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 702. Independentemente de prévia segurança do juízo, o réu poderá opor, nos próprios autos, no prazo previsto no art. 701, embargos à ação monitória.
+- § 1.º Os embargos podem se fundar em matéria passível de alegação como defesa no procedimento comum.
+- § 2.º Quando o réu alegar que o autor pleiteia quantia superior à devida, cumprir-lhe-á declarar de imediato o valor que entende correto, apresentando demonstrativo discriminado e atualizado da dívida.
+- § 3.º Não apontado o valor correto ou não apresentado o demonstrativo, os embargos serão liminarmente rejeitados, se esse for o seu único fundamento, e, se houver outro fundamento, os embargos serão processados, mas o juiz deixará de examinar a alegação de excesso.
+- § 4.º A oposição dos embargos suspende a eficácia da decisão referida no caput do art. 701 até o julgamento em primeiro grau.
+- § 5.º O autor será intimado para responder aos embargos no prazo de 15 (quinze) dias.
+- § 6.º Na ação monitória admite-se a reconvenção, sendo vedado o oferecimento de reconvenção à reconvenção.
+- § 7.º A critério do juiz, os embargos serão autuados em apartado, se parciais, constituindo-se de pleno direito o título executivo judicial em relação à parcela incontroversa.
+- § 8.º Rejeitados os embargos, constituir-se-á de pleno direito o título executivo judicial, prosseguindo-se o processo em observância ao disposto no Título II do Livro I da Parte Especial, no que for cabível.
+- § 9.º Cabe apelação contra a sentença que acolhe ou rejeita os embargos.
+- § 10. O juiz condenará o autor de ação monitória proposta indevidamente e de má-fé ao pagamento, em favor do réu, de multa de até dez por cento sobre o valor da causa.
+- § 11. O juiz condenará o réu que de má-fé opuser embargos à ação monitória ao pagamento de multa de até dez por cento sobre o valor atribuído à causa, em favor do autor.
+# Remissões Normativas
+- Vide Súmula 292 do STJ.
+-- Estabelece que a reconvenção é cabível na ação monitória, o que foi posteriormente positivado no § 6º deste artigo.
+- Vide art. 343 do CPC.
+-- Trata da reconvenção, que permite ao réu, na contestação, propor uma demanda própria contra o autor no mesmo processo.
 -----
