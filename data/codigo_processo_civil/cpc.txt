@@ -307,3 +307,331 @@
 - Aplicam-se ao regulador de avarias os arts. 156 a 158, no que couber.
 -- Equiparam o regulador de avarias ao perito judicial, estabelecendo seus deveres, responsabilidades, forma de nomeação e possibilidade de substituição.
 -----
+# Restauração de Autos - Iniciativa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 712. Verificado o desaparecimento dos autos, eletrônicos ou não, pode o juiz, de ofício, qualquer das partes ou o Ministério Público, se for o caso, promover-lhes a restauração.
+- Parágrafo único. Havendo autos suplementares, nesses prosseguirá o processo.
+# Remissões Normativas
+- Vide art. 47 da Lei n. 6.515, de 26-12-1977 (Lei do Divórcio).
+-- Determina a aplicação do rito de restauração de autos previsto no Código de Processo Civil aos processos de separação judicial.
+-----
+# Restauração de Autos - Petição Inicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 713. Na petição inicial, declarará a parte o estado do processo ao tempo do desaparecimento dos autos, oferecendo:
+- I – certidões dos atos constantes do protocolo de audiências do cartório por onde haja corrido o processo;
+- II – cópia das peças que tenha em seu poder;
+- III – qualquer outro documento que facilite a restauração.
+-----
+# Restauração de Autos - Citação e Contestação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 714. A parte contrária será citada para contestar o pedido no prazo de 5 (cinco) dias, cabendo-lhe exibir as cópias, as contrafés e as reproduções dos atos e dos documentos que estiverem em seu poder.
+- § 1.º Se a parte concordar com a restauração, lavrar-se-á o auto que, assinado pelas partes e homologado pelo juiz, suprirá o processo desaparecido.
+- § 2.º Se a parte não contestar ou se a concordância for parcial, observar-se-á o procedimento comum.
+-----
+# Restauração de Autos - Reprodução de Provas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 715. Se a perda dos autos tiver ocorrido depois da produção das provas em audiência, o juiz, se necessário, mandará repeti-las.
+- § 1.º Serão reinquiridas as mesmas testemunhas, que, em caso de impossibilidade, poderão ser substituídas de ofício ou a requerimento.
+- § 2.º Não havendo certidão ou cópia do laudo, far-se-á nova perícia, sempre que possível pelo mesmo perito.
+- § 3.º Não havendo certidão de documentos, esses serão reconstituídos mediante cópias ou, na falta dessas, pelos meios ordinários de prova.
+- § 4.º Os serventuários e os auxiliares da justiça não podem eximir-se de depor como testemunhas a respeito de atos que tenham praticado ou assistido.
+- § 5.º Se o juiz houver proferido sentença da qual ele próprio ou o escrivão possua cópia, esta será juntada aos autos e terá a mesma autoridade da original.
+-----
+# Restauração de Autos - Prosseguimento do Processo
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 716. Julgada a restauração, seguirá o processo os seus termos.
+- Parágrafo único. Aparecendo os autos originais, neles se prosseguirá, sendo-lhes apensados os autos da restauração.
+-----
+# Restauração de Autos - Desaparecimento no Tribunal
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 717. Se o desaparecimento dos autos tiver ocorrido no tribunal, o processo de restauração será distribuído, sempre que possível, ao relator do processo.
+- § 1.º A restauração far-se-á no juízo de origem quanto aos atos nele realizados.
+- § 2.º Remetidos os autos ao tribunal, nele completar-se-á a restauração e proceder-se-á ao julgamento.
+-----
+# Restauração de Autos - Responsabilidade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 718. Quem houver dado causa ao desaparecimento dos autos responderá pelas custas da restauração e pelos honorários de advogado, sem prejuízo da responsabilidade civil ou penal em que incorrer.
+# Remissões Normativas
+- Vide art. 81 do CPC.
+-- Define as sanções aplicáveis ao litigante de má-fé, incluindo o pagamento de multa, indenização, honorários e despesas processuais.
+-----
+# Jurisdição Voluntária - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 719. Quando este Código não estabelecer procedimento especial, regem os procedimentos de jurisdição voluntária as disposições constantes desta Seção.
+# Remissões Normativas
+- Vide art. 215, I, do CPC.
+-- Trata da citação pessoal da parte, ato essencial para a validade do processo.
+-----
+# Jurisdição Voluntária - Início do Procedimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 720. O procedimento terá início por provocação do interessado, do Ministério Público ou da Defensoria Pública, cabendo-lhes formular o pedido devidamente instruído com os documentos necessários e com a indicação da providência judicial.
+-----
+# Jurisdição Voluntária - Citações e Intimações
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 721. Serão citados todos os interessados, bem como intimado o Ministério Público, nos casos do art. 178, para que se manifestem, querendo, no prazo de 15 (quinze) dias.
+# Remissões Normativas
+- Vide art. 279, § 1.º, do CPC.
+-- Estabelece a nulidade dos atos processuais praticados sem a intimação do Ministério Público quando sua intervenção era obrigatória.
+-----
+# Jurisdição Voluntária - Oitiva da Fazenda Pública
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 722. A Fazenda Pública será sempre ouvida nos casos em que tiver interesse.
+-----
+# Jurisdição Voluntária - Decisão Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 723. O juiz decidirá o pedido no prazo de 10 (dez) dias.
+- Parágrafo único. O juiz não é obrigado a observar critério de legalidade estrita, podendo adotar em cada caso a solução que considerar mais conveniente ou oportuna.
+-----
+# Jurisdição Voluntária - Recurso Cabível
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 724. Da sentença caberá apelação.
+-----
+# Jurisdição Voluntária - Hipóteses de Cabimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 725. Processar-se-á na forma estabelecida nesta Seção o pedido de:
+- I – emancipação;
+- II – sub-rogação;
+- III – alienação, arrendamento ou oneração de bens de crianças ou adolescentes, de órfãos e de interditos;
+- IV – alienação, locação e administração da coisa comum;
+- V – alienação de quinhão em coisa comum;
+- VI – extinção de usufruto, quando não decorrer da morte do usufrutuário, do termo da sua duração ou da consolidação, e de fideicomisso, quando decorrer de renúncia ou quando ocorrer antes do evento que caracterizar a condição resolutória;
+- VII – expedição de alvará judicial;
+- VIII – homologação de autocomposição extrajudicial, de qualquer natureza ou valor.
+- Parágrafo único. As normas desta Seção aplicam-se, no que couber, aos procedimentos regulados nas seções seguintes.
+# Remissões Normativas
+- Vide arts. 5.º, parágrafo único, I, e 9.º, II, do CC.
+-- O art. 5º trata das hipóteses de cessação da incapacidade civil pela emancipação, e o art. 9º exige que a emancipação seja registrada em registro público.
+- Vide arts. 89 e s. da LRP.
+-- Dispõem sobre o registro da emancipação no Cartório de Registro Civil de Pessoas Naturais.
+-----
+# Notificação e Interpelação - Finalidade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 726. Quem tiver interesse em manifestar formalmente sua vontade a outrem sobre assunto juridicamente relevante poderá notificar pessoas participantes da mesma relação jurídica para dar-lhes ciência de seu propósito.
+- § 1.º Se a pretensão for a de dar conhecimento geral ao público, mediante edital, o juiz só a deferirá se a tiver por fundada e necessária ao resguardo de direito.
+- § 2.º Aplica-se o disposto nesta Seção, no que couber, ao protesto judicial.
+-----
+# Notificação e Interpelação - Interpelação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 727. Também poderá o interessado interpelar o requerido, no caso do art. 726, para que faça ou deixe de fazer o que o requerente entenda ser de seu direito.
+-----
+# Notificação e Interpelação - Oitiva Prévia do Requerido
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 728. O requerido será previamente ouvido antes do deferimento da notificação ou do respectivo edital:
+- I – se houver suspeita de que o requerente, por meio da notificação ou do edital, pretende alcançar fim ilícito;
+- II – se tiver sido requerida a averbação da notificação em registro público.
+-----
+# Notificação e Interpelação - Entrega dos Autos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 729. Deferida e realizada a notificação ou interpelação, os autos serão entregues ao requerente.
+-----
+# Alienação Judicial - Procedimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 730. Nos casos expressos em lei, não havendo acordo entre os interessados sobre o modo como se deve realizar a alienação do bem, o juiz, de ofício ou a requerimento dos interessados ou do depositário, mandará aliená-lo em leilão, observando-se o disposto na Seção I deste Capítulo e, no que couber, o disposto nos arts. 879 a 903.
+# Remissões Normativas
+- Vide Decreto-lei n. 911, de 1.º-10-1969, sobre alienação fiduciária.
+-- Estabelece normas de processo sobre a alienação fiduciária em garantia, tratando especialmente da ação de busca e apreensão em caso de inadimplemento.
+-----
+# Divórcio e Separação Consensuais - Homologação Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 731. A homologação do divórcio ou da separação consensuais, observados os requisitos legais, poderá ser requerida em petição assinada por ambos os cônjuges, da qual constarão:
+- I – as disposições relativas à descrição e à partilha dos bens comuns;
+- II – as disposições relativas à pensão alimentícia entre os cônjuges;
+- III – o acordo relativo à guarda dos filhos incapazes e ao regime de visitas; e
+- IV – o valor da contribuição para criar e educar os filhos.
+- Parágrafo único. Se os cônjuges não acordarem sobre a partilha dos bens, far-se-á esta depois de homologado o divórcio, na forma estabelecida nos arts. 647 a 658.
+# Remissões Normativas
+- A Emenda Constitucional n. 66, de 13-7-2010, instituiu o divórcio direto.
+-- Altera a Constituição Federal para suprimir o requisito de prévia separação judicial ou de fato para a concessão do divórcio.
+- Vide art. 5.º, I, da CF.
+-- Garante o princípio da isonomia, estabelecendo que homens e mulheres são iguais em direitos e obrigações.
+- Vide art. 4.º da Lei n. 6.515, de 26-12-1977 (Lei do Divórcio).
+-- Dispõe sobre os requisitos da petição inicial da separação consensual.
+- Vide arts. 1.694 e s. do CC.
+-- Regulam o direito a alimentos entre parentes, cônjuges e companheiros, com base no binômio necessidade-possibilidade.
+- Vide art. 15 da Lei n. 6.515, de 26-12-1977 (Lei do Divórcio).
+-- Trata do acordo sobre a guarda dos filhos menores no âmbito da separação consensual.
+- Vide arts. 1.583 e s. do CC (guarda dos filhos).
+-- Dispõem sobre a guarda unilateral e a compartilhada, estabelecendo os direitos e deveres dos genitores.
+-----
+# Extinção Consensual de União Estável - Homologação Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 732. As disposições relativas ao processo de homologação judicial de divórcio ou de separação consensuais aplicam-se, no que couber, ao processo de homologação da extinção consensual de união estável.
+# Remissões Normativas
+- União estável: arts. 1.723 e s. do CC.
+-- Definem a união estável como entidade familiar e regulam os direitos e deveres dos companheiros.
+-----
+# Divórcio, Separação e Extinção Consensual - Via Extrajudicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 733. O divórcio consensual, a separação consensual e a extinção consensual de união estável, não havendo nascituro ou filhos incapazes e observados os requisitos legais, poderão ser realizados por escritura pública, da qual constarão as disposições de que trata o art. 731.
+- § 1.º A escritura não depende de homologação judicial e constitui título hábil para qualquer ato de registro, bem como para levantamento de importância depositada em instituições financeiras.
+- § 2.º O tabelião somente lavrará a escritura se os interessados estiverem assistidos por advogado ou por defensor público, cuja qualificação e assinatura constarão do ato notarial.
+# Remissões Normativas
+- A Emenda Constitucional n. 66, de 13-7-2010, instituiu o divórcio direto.
+-- Altera a Constituição Federal para suprimir o requisito de prévia separação judicial ou de fato para a concessão do divórcio.
+- Vide Resolução n. 35, de 24-4-2007, do CNJ.
+-- Disciplina a aplicação da Lei n. 11.441/2007 pelos serviços notariais e de registro, uniformizando os procedimentos de inventário, partilha, separação e divórcio extrajudiciais.
+- O Provimento OAB n. 118, de 7-5-2007, disciplina as atividades profissionais dos advogados em escrituras públicas de inventários, partilhas e divórcios.
+-- Orienta a atuação e a responsabilidade profissional do advogado nos atos notariais de inventário, partilha, separação e divórcio.
+-----
+# Alteração do Regime de Bens - Procedimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 734. A alteração do regime de bens do casamento, observados os requisitos legais, poderá ser requerida, motivadamente, em petição assinada por ambos os cônjuges, na qual serão expostas as razões que justificam a alteração, ressalvados os direitos de terceiros.
+- § 1.º Ao receber a petição inicial, o juiz determinará a intimação do Ministério Público e a publicação de edital que divulgue a pretendida alteração de bens, somente podendo decidir depois de decorrido o prazo de 30 (trinta) dias da publicação do edital.
+- § 2.º Os cônjuges, na petição inicial ou em petição avulsa, podem propor ao juiz meio alternativo de divulgação da alteração do regime de bens, a fim de resguardar direitos de terceiros.
+- § 3.º Após o trânsito em julgado da sentença, serão expedidos mandados de averbação aos cartórios de registro civil e de imóveis e, caso qualquer dos cônjuges seja empresário, ao Registro Público de Empresas Mercantis e Atividades Afins.
+# Remissões Normativas
+- Vide art. 1.639, § 2.º, do CC.
+-- Admite a alteração do regime de bens do casamento mediante autorização judicial em pedido motivado de ambos os cônjuges, ressalvados os direitos de terceiros.
+-----
+# Testamento Cerrado - Procedimento de Abertura
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 735. Recebendo testamento cerrado, o juiz, se não achar vício externo que o torne suspeito de nulidade ou falsidade, o abrirá e mandará que o escrivão o leia em presença do apresentante.
+- § 1.º Do termo de abertura constarão o nome do apresentante e como ele obteve o testamento, a data e o lugar do falecimento do testador, com as respectivas provas, e qualquer circunstância digna de nota.
+- § 2.º Depois de ouvido o Ministério Público, não havendo dúvidas a serem esclarecidas, o juiz mandará registrar, arquivar e cumprir o testamento.
+- § 3.º Feito o registro, será intimado o testamenteiro para assinar o termo da testamentária.
+- § 4.º Se não houver testamenteiro nomeado ou se ele estiver ausente ou não aceitar o encargo, o juiz nomeará testamenteiro dativo, observando-se a preferência legal.
+- § 5.º O testamenteiro deverá cumprir as disposições testamentárias e prestar contas em juízo do que recebeu e despendeu, observando-se o disposto em lei.
+# Remissões Normativas
+- Vide art. 214, I, do CPC.
+-- Trata da citação pessoal, ato formal de comunicação processual.
+- Os arts. 1.868 a 1.875 do CC dispõem sobre o testamento cerrado.
+-- Regulam os requisitos e as formalidades para a validade do testamento cerrado, desde sua elaboração pelo testador até sua aprovação pelo tabelião.
+- Vide art. 1.980 do CC.
+-- Estabelece a obrigação do testamenteiro de prestar contas de sua administração, mantendo sua responsabilidade durante a execução do testamento.
+-----
+# Testamento Público - Procedimento de Cumprimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 736. Qualquer interessado, exibindo o traslado ou a certidão de testamento público, poderá requerer ao juiz que ordene o seu cumprimento, observando-se, no que couber, o disposto nos parágrafos do art. 735.
+-----
+# Testamento Particular - Procedimento de Publicação e Confirmação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 737. A publicação do testamento particular poderá ser requerida, depois da morte do testador, pelo herdeiro, pelo legatário ou pelo testamenteiro, bem como pelo terceiro detentor do testamento, se impossibilitado de entregá-lo a algum dos outros legitimados para requerê-la.
+- § 1.º Serão intimados os herdeiros que não tiverem requerido a publicação do testamento.
+- § 2.º Verificando a presença dos requisitos da lei, ouvido o Ministério Público, o juiz confirmará o testamento.
+- § 3.º Aplica-se o disposto neste artigo ao codicilo e aos testamentos marítimo, aeronáutico, militar e nuncupativo.
+- § 4.º Observar-se-á, no cumprimento do testamento, o disposto nos parágrafos do art. 735.
+# Remissões Normativas
+- O art. 1.878 do CC dispõe que, morto o testador, publicar-se-á em juízo o testamento, com citação dos herdeiros legítimos.
+-- Determina o procedimento para a publicação judicial do testamento particular após a morte do testador, exigindo a citação dos herdeiros legítimos.
+-----
+# Herança Jacente - Arrecadação de Bens
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 738. Nos casos em que a lei considere jacente a herança, o juiz em cuja comarca tiver domicílio o falecido procederá imediatamente à arrecadação dos respectivos bens.
+# Remissões Normativas
+- Os arts. 1.819 a 1.823 do CC tratam da herança jacente.
+-- Definem a herança jacente como aquela cujos herdeiros não são conhecidos e regulam a arrecadação dos bens e a nomeação de um curador.
+-----
+# Herança Jacente - Curador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 739. A herança jacente ficará sob a guarda, a conservação e a administração de um curador até a respectiva entrega ao sucessor legalmente habilitado ou até a declaração de vacância.
+- § 1.º Incumbe ao curador:
+- I – representar a herança em juízo ou fora dele, com intervenção do Ministério Público;
+- II – ter em boa guarda e conservação os bens arrecadados e promover a arrecadação de outros porventura existentes;
+- III – executar as medidas conservatórias dos direitos da herança;
+- IV – apresentar mensalmente ao juiz balancete da receita e da despesa;
+- V – prestar contas ao final de sua gestão.
+- § 2.º Aplica-se ao curador o disposto nos arts. 159 a 161.
+# Remissões Normativas
+- Vide art. 75, VI, do CPC.
+-- Estabelece que a herança jacente ou vacante será representada em juízo, ativa e passivamente, por seu curador.
+- Vide art. 739 do CPC.
+-- Refere-se ao próprio artigo, que detalha as incumbências do curador da herança jacente, como a representação em juízo e a administração dos bens.
+- Vide arts. 159 a 161.
+-- Tratam dos deveres do depositário e do administrador, sua responsabilidade civil por prejuízos e o direito à remuneração e ao ressarcimento de despesas.
+-----
+# Herança Jacente - Auto de Arrolamento e Descrição
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 740. O juiz ordenará que o oficial de justiça, acompanhado do escrivão ou do chefe de secretaria e do curador, arrole os bens e descreva-os em auto circunstanciado.
+- § 1.º Não podendo comparecer ao local, o juiz requisitará à autoridade policial que proceda à arrecadação e ao arrolamento dos bens, com 2 (duas) testemunhas, que assistirão às diligências.
+- § 2.º Não estando ainda nomeado o curador, o juiz designará depositário e lhe entregará os bens, mediante simples termo nos autos, depois de compromissado.
+- § 3.º Durante a arrecadação, o juiz ou a autoridade policial inquirirá os moradores da casa e da vizinhança sobre a qualificação do falecido, o paradeiro de seus sucessores e a existência de outros bens, lavrando-se de tudo auto de inquirição e informação.
+- § 4.º O juiz examinará reservadamente os papéis, as cartas missivas e os livros domésticos e, verificando que não apresentam interesse, mandará empacotá-los e lacrá-los para serem assim entregues aos sucessores do falecido ou queimados quando os bens forem declarados vacantes.
+- § 5.º Se constar ao juiz a existência de bens em outra comarca, mandará expedir carta precatória a fim de serem arrecadados.
+- § 6.º Não se fará a arrecadação, ou essa será suspensa, quando, iniciada, apresentarem-se para reclamar os bens o cônjuge ou companheiro, o herdeiro ou o testamenteiro notoriamente reconhecido e não houver oposição motivada do curador, de qualquer interessado, do Ministério Público ou do representante da Fazenda Pública.
+-----
+# Herança Jacente - Edital de Convocação de Sucessores
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 741. Ultimada a arrecadação, o juiz mandará expedir edital, que será publicado na rede mundial de computadores, no sítio do tribunal a que estiver vinculado o juízo e na plataforma de editais do Conselho Nacional de Justiça, onde permanecerá por 3 (três) meses, ou, não havendo sítio, no órgão oficial e na imprensa da comarca, por 3 (três) vezes com intervalos de 1 (um) mês, para que os sucessores do falecido venham a habilitar-se no prazo de 6 (seis) meses contado da primeira publicação.
+- § 1.º Verificada a existência de sucessor ou de testamenteiro em lugar certo, far-se-á a sua citação, sem prejuízo do edital.
+- § 2.º Quando o falecido for estrangeiro, será também comunicado o fato à autoridade consular.
+- § 3.º Julgada a habilitação do herdeiro, reconhecida a qualidade do testamenteiro ou provada a identidade do cônjuge ou companheiro, a arrecadação converter-se-á em inventário.
+- § 4.º Os credores da herança poderão habilitar-se como nos inventários ou propor a ação de cobrança.
+-----
+# Herança Jacente - Alienação de Bens
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 742. O juiz poderá autorizar a alienação:
+- I – de bens móveis, se forem de conservação difícil ou dispendiosa;
+- II – de semoventes, quando não empregados na exploração de alguma indústria;
+- III – de títulos e papéis de crédito, havendo fundado receio de depreciação;
+- IV – de ações de sociedade quando, reclamada a integralização, não dispuser a herança de dinheiro para o pagamento;
+- V – de bens imóveis:
+- a) se ameaçarem ruína, não convindo a reparação;
+- b) se estiverem hipotecados e vencer-se a dívida, não havendo dinheiro para o pagamento.
+- § 1.º Não se procederá, entretanto, à venda se a Fazenda Pública ou o habilitando adiantar a importância para as despesas.
+- § 2.º Os bens com valor de afeição, como retratos, objetos de uso pessoal, livros e obras de arte, só serão alienados depois de declarada a vacância da herança.
+# Remissões Normativas
+- Vide art. 730 do CPC.
+-- Estabelece que, na falta de acordo entre os interessados, a alienação judicial de bens será realizada por meio de leilão.
+-----
+# Herança Vacante - Declaração
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 743. Passado 1 (um) ano da primeira publicação do edital e não havendo herdeiro habilitado nem habilitação pendente, será a herança declarada vacante.
+- § 1.º Pendendo habilitação, a vacância será declarada pela mesma sentença que a julgar improcedente, aguardando-se, no caso de serem diversas as habilitações, o julgamento da última.
+- § 2.º Transitada em julgado a sentença que declarou a vacância, o cônjuge, o companheiro, os herdeiros e os credores só poderão reclamar o seu direito por ação direta.
+# Remissões Normativas
+- Vide arts. 1.822 e 1.823 do CC.
+-- O art. 1.822 trata da transferência dos bens da herança vacante ao poder público, e o art. 1.823 determina a declaração de vacância em caso de renúncia de todos os herdeiros.
+-----
+# Ausência - Arrecadação de Bens e Nomeação de Curador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 744. Declarada a ausência nos casos previstos em lei, o juiz mandará arrecadar os bens do ausente e nomear-lhes-á curador na forma estabelecida na Seção VI, observando-se o disposto em lei.
+# Remissões Normativas
+- Vide art. 71 do CPC.
+-- Estabelece que o incapaz será representado ou assistido em juízo por seus pais ou por curador.
+- O art. 22 do CC trata da curadoria dos bens dos ausentes.
+-- Dispõe sobre a declaração de ausência e a nomeação de curador para administrar os bens da pessoa desaparecida que não deixou representante.
+- A Lei n. 9.140, de 4-12-1995, reconhece como mortas pessoas desaparecidas em razão de participação, ou acusação de participação, em atividades políticas, no período de 2-9-1961 a 5-10-1988.
+-- Reconhece como falecidas as pessoas desaparecidas por motivação política no período de 1961 a 1988, permitindo o assento de óbito.
+-----
+# Ausência - Convocação, Sucessão Provisória e Definitiva
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 745. Feita a arrecadação, o juiz mandará publicar editais na rede mundial de computadores, no sítio do tribunal a que estiver vinculado e na plataforma de editais do Conselho Nacional de Justiça, onde permanecerá por 1 (um) ano, ou, não havendo sítio, no órgão oficial e na imprensa da comarca, durante 1 (um) ano, reproduzida de 2 (dois) em 2 (dois) meses, anunciando a arrecadação e chamando o ausente a entrar na posse de seus bens.
+- § 1.º Findo o prazo previsto no edital, poderão os interessados requerer a abertura da sucessão provisória, observando-se o disposto em lei.
+- § 2.º O interessado, ao requerer a abertura da sucessão provisória, pedirá a citação pessoal dos herdeiros presentes e do curador e, por editais, a dos ausentes para requererem habilitação, na forma dos arts. 689 a 692.
+- § 3.º Presentes os requisitos legais, poderá ser requerida a conversão da sucessão provisória em definitiva.
+- § 4.º Regressando o ausente ou algum de seus descendentes ou ascendentes para requerer ao juiz a entrega de bens, serão citados para contestar o pedido os sucessores provisórios ou definitivos, o Ministério Público e o representante da Fazenda Pública, seguindo-se o procedimento comum.
+-----
