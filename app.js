@@ -215,7 +215,7 @@ function genVariantsFromQuery(q){
     videos:        (t)       => `site:youtube.com aula ${t} explicação prática legislação`,
     artigos:       (t)       => `artigos doutrina ${t} pdf site:.jus.br OR site:.gov.br OR site:.edu.br`,
     comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
-    pratica:      (t, full) => `Relacione o tema com a pratica jurídica. Tema: ${t}\n\nTEMA:\n${full}`, 
+    pratica:      (t, full) => `Relacione o tema com a pratica jurídica. Caso seja conveniente ao tema pesquise e apresente dicas e orientações. Tema: ${t}\n\nTEMA:\n${full}`, 
     julgados: (t, full) => {
   // extrai só o corpo e pega os 40 primeiros caracteres
   const seed = String(full||'')
