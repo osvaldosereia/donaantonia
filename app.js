@@ -238,7 +238,6 @@ Texto-base / dispositivo: ${full}
 Priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes.  
 Use fontes oficiais: site:stf.jus.br OR site:jurisprudencia.stf.jus.br OR site:portal.stf.jus.br
 `.trim(),
-}  
 };   
 
   /* ===== Parser de chunk TXT ===== */
