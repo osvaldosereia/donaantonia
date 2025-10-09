@@ -237,3 +237,73 @@
 - Vide art. 343 do CPC.
 -- Trata da reconvenção, que permite ao réu, na contestação, propor uma demanda própria contra o autor no mesmo processo.
 -----
+# Penhor Legal - Requerimento de Homologação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 703. Tomado o penhor legal nos casos previstos em lei, requererá o credor, ato contínuo, a homologação.
+- § 1.º Na petição inicial, instruída com o contrato de locação ou a conta pormenorizada das despesas, a tabela dos preços e a relação dos objetos retidos, o credor pedirá a citação do devedor para pagar ou contestar na audiência preliminar que for designada.
+- § 2.º A homologação do penhor legal poderá ser promovida pela via extrajudicial mediante requerimento, que conterá os requisitos previstos no § 1.º deste artigo, do credor a notário de sua livre escolha.
+- § 3.º Recebido o requerimento, o notário promoverá a notificação extrajudicial do devedor para, no prazo de 5 (cinco) dias, pagar o débito ou impugnar sua cobrança, alegando por escrito uma das causas previstas no art. 704, hipótese em que o procedimento será encaminhado ao juízo competente para decisão.
+- § 4.º Transcorrido o prazo sem manifestação do devedor, o notário formalizará a homologação do penhor legal por escritura pública.
+-----
+# Penhor Legal - Matérias de Defesa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 704. A defesa só pode consistir em:
+- I – nulidade do processo;
+- II – extinção da obrigação;
+- III – não estar a dívida compreendida entre as previstas em lei ou não estarem os bens sujeitos a penhor legal;
+- IV – alegação de haver sido ofertada caução idônea, rejeitada pelo credor.
+-----
+# Penhor Legal - Procedimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 705. A partir da audiência preliminar, observar-se-á o procedimento comum.
+-----
+# Penhor Legal - Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 706. Homologado judicialmente o penhor legal, consolidar-se-á a posse do autor sobre o objeto.
+- § 1.º Negada a homologação, o objeto será entregue ao réu, ressalvado ao autor o direito de cobrar a dívida pelo procedimento comum, salvo se acolhida a alegação de extinção da obrigação.
+- § 2.º Contra a sentença caberá apelação, e, na pendência de recurso, poderá o relator ordenar que a coisa permaneça depositada ou em poder do autor.
+-----
+# Regulação de Avaria Grossa - Nomeação do Regulador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 707. Quando inexistir consenso acerca da nomeação de um regulador de avarias, o juiz de direito da comarca do primeiro porto onde o navio houver chegado, provocado por qualquer parte interessada, nomeará um de notório conhecimento.
+# Remissões Normativas
+- Vide art. 783 do CCom.
+-- Dispõe sobre a nomeação judicial do regulador de avarias, a requerimento de qualquer das partes, caso não haja consenso.
+-----
+# Regulação de Avaria Grossa - Atribuições Iniciais do Regulador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 708. O regulador declarará justificadamente se os danos são passíveis de rateio na forma de avaria grossa e exigirá das partes envolvidas a apresentação de garantias idôneas para que possam ser liberadas as cargas aos consignatários.
+- § 1.º A parte que não concordar com o regulador quanto à declaração de abertura da avaria grossa deverá justificar suas razões ao juiz, que decidirá no prazo de 10 (dez) dias.
+- § 2.º Se o consignatário não apresentar garantia idônea a critério do regulador, este fixará o valor da contribuição provisória com base nos fatos narrados e nos documentos que instruírem a petição inicial, que deverá ser caucionado sob a forma de depósito judicial ou de garantia bancária.
+- § 3.º Recusando-se o consignatário a prestar caução, o regulador requererá ao juiz a alienação judicial de sua carga na forma dos arts. 879 a 903.
+- § 4.º É permitido o levantamento, por alvará, das quantias necessárias ao pagamento das despesas da alienação a serem arcadas pelo consignatário, mantendo-se o saldo remanescente em depósito judicial até o encerramento da regulação.
+# Remissões Normativas
+- Vide art. 784 do CCom.
+-- Estabelece que o regulador nomeado deve declarar se os danos se qualificam ou não como avaria grossa.
+-----
+# Regulação de Avaria Grossa - Apresentação de Documentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 709. As partes deverão apresentar nos autos os documentos necessários à regulação da avaria grossa em prazo razoável a ser fixado pelo regulador.
+-----
+# Regulação de Avaria Grossa - Apresentação e Homologação do Regulamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 710. O regulador apresentará o regulamento da avaria grossa no prazo de até 12 (doze) meses, contado da data da entrega dos documentos nos autos pelas partes, podendo o prazo ser estendido a critério do juiz.
+- § 1.º Oferecido o regulamento da avaria grossa, dele terão vista as partes pelo prazo comum de 15 (quinze) dias, e, não havendo impugnação, o regulamento será homologado por sentença.
+- § 2.º Havendo impugnação ao regulamento, o juiz decidirá no prazo de 10 (dez) dias, após a oitiva do regulador.
+-----
+# Regulação de Avaria Grossa - Deveres do Regulador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 711. Aplicam-se ao regulador de avarias os arts. 156 a 158, no que couber.
+# Remissões Normativas
+- Aplicam-se ao regulador de avarias os arts. 156 a 158, no que couber.
+-- Equiparam o regulador de avarias ao perito judicial, estabelecendo seus deveres, responsabilidades, forma de nomeação e possibilidade de substituição.
+-----
