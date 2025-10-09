@@ -217,7 +217,7 @@ function genVariantsFromQuery(q){
     comparar:      (t, full) => `Consulte sites oficiais e indentifique se o texto da lei a seguir sofreu alteração nos últimos 2 anos (somente o texto da lei, não considere comentários e não considere entendimentos jurisprudenciais) . Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
     cabimento:     (t, full) => `Faça uma pesquisa de hipoteses de cabimento para o tema seguir. Diga em que tipo de ação o tema é mais usado. Seja didático e exemplificativo. Tema: ${t}\n\nTEMA:\n${full}`,
     perguntas:     (t, full) => `Atue como um professor de Direito. Analise o tema e me respoda: Quais são as perguntas que um aluno de direito deve saber responder sobre o tema. Apresente as perguntas e as responda de forma objetiva. Tema: ${t}\n\nTEMA:\n${full}`,
-    Revisão:       (t, full) => `Atue como um professor de direito que está fazendo uma revisão rápida e objetiva sobre o tema. Apresente somente assertivas objetivas essenciais para prova. Tema: ${t}\n\nTEMA:\n${full}`,
+    revisao:       (t, full) => `Atue como um professor de direito que está fazendo uma revisão rápida e objetiva sobre o tema. Apresente somente assertivas objetivas essenciais para prova. Tema: ${t}\n\nTEMA:\n${full}`,
      pratica:      (t, full) => `Relacione o tema com a pratica jurídica. Caso seja conveniente ao tema pesquise e apresente dicas e orientações. Tema: ${t}\n\nTEMA:\n${full}`, 
     julgados: (t, full) => {
   // extrai só o corpo e pega os 40 primeiros caracteres
@@ -665,7 +665,7 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
         const actions = [
       {key:'resumo',        label:'Resumo'},
       {key:'detalhada',     label:'Detalhado'},
-      {key:'revisão',       label:'Revisão'},
+      {key:'revisao',       label:'Revisão'},
       {key:'perguntas',     label:'Perguntas Essenciais'},     
       {key:'dissertativas', label:'Questões Dissertativas'},
       {key:'objetivas',     label:'Questões Objetivas'},
