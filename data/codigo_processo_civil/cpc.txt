@@ -1,5 +1,4 @@
-
-# Embargos de Terceiro
+# Prazo para Oposição dos Embargos de Terceiro
 - Código de Processo Civil
 # Dispositivos Legais
 - Art. 675. Os embargos podem ser opostos a qualquer tempo no processo de conhecimento enquanto não transitada em julgado a sentença e, no cumprimento de sentença ou no processo de execução, até 5 (cinco) dias depois da adjudicação, da alienação por iniciativa particular ou da arrematação, mas sempre antes da assinatura da respectiva carta.
@@ -8,7 +7,7 @@
 - Vide art. 214, I, do CPC.
 -- trata da intimação do Ministério Público nos processos que envolvam interesse público ou social.
 -----
-# Embargos de Terceiro
+# Competência nos Embargos de Terceiro
 - Código de Processo Civil
 # Dispositivos Legais
 - Art. 676. Os embargos serão distribuídos por dependência ao juízo que ordenou a constrição e autuados em apartado.
@@ -17,7 +16,7 @@
 - Vide art. 914, § 2.º, do CPC.
 -- estabelece que na execução por carta, os embargos à execução serão oferecidos no juízo deprecante ou no juízo deprecado, mas a competência para julgá-los é do juízo deprecante, salvo exceções.
 -----
-# Embargos de Terceiro
+# Petição Inicial dos Embargos de Terceiro
 - Código de Processo Civil
 # Dispositivos Legais
 - Art. 677. Na petição inicial, o embargante fará a prova sumária de sua posse ou de seu domínio e da qualidade de terceiro, oferecendo documentos e rol de testemunhas.
