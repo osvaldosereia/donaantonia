@@ -76,3 +76,108 @@
 # Dispositivos Legais
 - Art. 686. Cabendo ao juiz decidir simultaneamente a ação originária e a oposição, desta conhecerá em primeiro lugar.
 -----
+# Habilitação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 687. A habilitação ocorre quando, por falecimento de qualquer das partes, os interessados houverem de suceder-lhe no processo.
+-----
+# Habilitação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 688. A habilitação pode ser requerida:
+- I – pela parte, em relação aos sucessores do falecido;
+- II – pelos sucessores do falecido, em relação à parte.
+-----
+# Habilitação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 689. Proceder-se-á à habilitação nos autos do processo principal, na instância em que estiver, suspendendo-se, a partir de então, o processo.
+-----
+# Habilitação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 690. Recebida a petição, o juiz ordenará a citação dos requeridos para se pronunciarem no prazo de 5 (cinco) dias.
+- Parágrafo único. A citação será pessoal, se a parte não tiver procurador constituído nos autos.
+-----
+# Habilitação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 691. O juiz decidirá o pedido de habilitação imediatamente, salvo se este for impugnado e houver necessidade de dilação probatória diversa da documental, caso em que determinará que o pedido seja autuado em apartado e disporá sobre a instrução.
+-----
+# Habilitação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 692. Transitada em julgado a sentença de habilitação, o processo principal retomará o seu curso, e cópia da sentença será juntada aos autos respectivos.
+-----
+# Ações de Família - Âmbito de Aplicação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 693. As normas deste Capítulo aplicam-se aos processos contenciosos de divórcio, separação, reconhecimento e extinção de união estável, guarda, visitação e filiação.
+- Parágrafo único. A ação de alimentos e a que versar sobre interesse de criança ou de adolescente observarão o procedimento previsto em legislação específica, aplicando-se, no que couber, as disposições deste Capítulo.
+# Remissões Normativas
+- A Emenda Constitucional n. 66, de 13-7-2010, instituiu o divórcio direto.
+-- Altera o art. 226, § 6º, da Constituição Federal, para dispor sobre a dissolubilidade do casamento civil pelo divórcio, suprimindo o requisito de prévia separação judicial ou de fato.
+- Lei do Divórcio: Lei n. 6.515, de 26-12-1977.
+-- Regula os casos de dissolução da sociedade conjugal e do casamento, seus efeitos e respectivos processos.
+- União estável: Leis n. 8.971, de 29-12-1994, e 9.278, de 10-5-1996.
+-- A Lei 8.971/94 regula o direito dos companheiros a alimentos e à sucessão e a Lei 9.278/96 regula o § 3º do art. 226 da Constituição Federal, reconhecendo a união estável como entidade familiar.
+- Vide arts. 1.583 e s. do CC (guarda dos filhos).
+-- Trata da guarda unilateral e compartilhada, visando a responsabilização conjunta e o exercício de direitos e deveres dos pais que não vivem sob o mesmo teto.
+- Vide Lei n. 12.318, de 26-8-2010 (alienação parental).
+-- Dispõe sobre a alienação parental, conceituando-a como a interferência na formação psicológica da criança ou do adolescente promovida ou induzida por um dos genitores para que repudie o outro.
+- Vide Lei n. 5.478, de 25-7-1968.
+-- Dispõe sobre a Ação de Alimentos e estabelece um rito processual especial e mais célere para a matéria.
+-----
+# Ações de Família - Solução Consensual
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 694. Nas ações de família, todos os esforços serão empreendidos para a solução consensual da controvérsia, devendo o juiz dispor do auxílio de profissionais de outras áreas de conhecimento para a mediação e conciliação.
+- Parágrafo único. A requerimento das partes, o juiz pode determinar a suspensão do processo enquanto os litigantes se submetem a mediação extrajudicial ou a atendimento multidisciplinar.
+-----
+# Ações de Família - Citação para Audiência
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 695. Recebida a petição inicial e, se for o caso, tomadas as providências referentes à tutela provisória, o juiz ordenará a citação do réu para comparecer à audiência de mediação e conciliação, observado o disposto no art. 694.
+- § 1.º O mandado de citação conterá apenas os dados necessários à audiência e deverá estar desacompanhado de cópia da petição inicial, assegurado ao réu o direito de examinar seu conteúdo a qualquer tempo.
+- § 2.º A citação ocorrerá com antecedência mínima de 15 (quinze) dias da data designada para a audiência.
+- § 3.º A citação será feita na pessoa do réu.
+- § 4.º Na audiência, as partes deverão estar acompanhadas de seus advogados ou de defensores públicos.
+# Remissões Normativas
+- Vide art. 699-A do CPC.
+-- Determina que, em ações de guarda, o juiz indague as partes e o MP sobre risco de violência doméstica antes da audiência de mediação.
+-----
+# Ações de Família - Sessões de Mediação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 696. A audiência de mediação e conciliação poderá dividir-se em tantas sessões quantas sejam necessárias para viabilizar a solução consensual, sem prejuízo de providências jurisdicionais para evitar o perecimento do direito.
+-----
+# Ações de Família - Conversão para Procedimento Comum
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 697. Não realizado o acordo, passarão a incidir, a partir de então, as normas do procedimento comum, observado o art. 335.
+-----
+# Ações de Família - Intervenção do Ministério Público
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 698. Nas ações de família, o Ministério Público somente intervirá quando houver interesse de incapaz e deverá ser ouvido previamente à homologação de acordo.
+- Parágrafo único. O Ministério Público intervirá, quando não for parte, nas ações de família em que figure como parte vítima de violência doméstica e familiar, nos termos da Lei n. 11.340, de 7 de agosto de 2006 (Lei Maria da Penha).
+# Remissões Normativas
+- Parágrafo único acrescentado pela Lei n. 13.894, de 29-10-2019.
+-- Altera o CPC para estabelecer a intervenção obrigatória do Ministério Público nas ações de família em que figure como parte vítima de violência doméstica e familiar.
+-----
+# Ações de Família - Abuso e Alienação Parental
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 699. Quando o processo envolver discussão sobre fato relacionado a abuso ou a alienação parental, o juiz, ao tomar o depoimento do incapaz, deverá estar acompanhado por especialista.
+# Remissões Normativas
+- Vide Lei n. 12.318, de 26-8-2010 (alienação parental).
+-- Dispõe sobre a alienação parental, conceituando-a como a interferência na formação psicológica da criança ou do adolescente promovida ou induzida por um dos genitores para que repudie o outro.
+-----
+# Ações de Família - Risco de Violência Doméstica
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 699-A. Nas ações de guarda, antes de iniciada a audiência de mediação e conciliação de que trata o art. 695 deste Código, o juiz indagará às partes e ao Ministério Público se há risco de violência doméstica ou familiar, fixando o prazo de 5 (cinco) dias para a apresentação de prova ou de indícios pertinentes.
+# Remissões Normativas
+- Artigo acrescentado pela Lei n. 14.713, de 30-10-2023.
+-- Introduz no Código de Processo Civil a obrigatoriedade de o juiz averiguar a existência de risco de violência doméstica ou familiar no início das ações de guarda.
+-----
