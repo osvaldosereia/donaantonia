@@ -220,7 +220,7 @@ function genVariantsFromQuery(q){
   perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
-  julgados: (t, full) => `
+   julgados: (t, full) => `
 Você é pesquisador jurídico especialista em jurisprudência do STF. Encontre **5 decisões reais** do STF relacionadas ao tema e dispositivo abaixo.  
 Para cada julgado, apresente:
 
@@ -237,7 +237,9 @@ Texto-base / dispositivo: ${full}
 
 Priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes.  
 Use fontes oficiais: site:stf.jus.br OR site:jurisprudencia.stf.jus.br OR site:portal.stf.jus.br
-`.trim()
+`.trim(),
+}; // ← esta vírgula e chave fecham o IA_PROMPTS corretamente
+
 
 
   /* ===== Parser de chunk TXT ===== */
