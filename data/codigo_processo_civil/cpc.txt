@@ -2534,3 +2534,131 @@
 - Vide arts. 221 e 314 do CPC.
 -- tratam da suspensão dos prazos processuais e da vedação da prática de atos processuais durante a suspensão do processo, ressalvadas as medidas urgentes.
 -----
+# Extinção da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 924. Extingue-se a execução quando:
+- I – a petição inicial for indeferida;
+- II – a obrigação for satisfeita;
+- III – o executado obtiver, por qualquer outro meio, a extinção total da dívida;
+- IV – o exequente renunciar ao crédito;
+- V – ocorrer a prescrição intercorrente.
+# Remissões Normativas
+- Vide art. 807 do CPC.
+-- trata da execução para entrega de coisa certa e da conversão em execução por quantia certa se a obrigação for satisfeita.
+- Vide arts. 385 a 388 e 840 a 850 do CC.
+-- tratam, respectivamente, da remissão (perdão) das dívidas e da transação (acordo) como formas de extinção das obrigações.
+- Vide art. 171 do CTN.
+-- autoriza que a lei faculte a transação para a extinção de crédito tributário.
+- A Lei n. 9.469, de 10-7-1997.
+-- dispõe sobre a transação em causas de interesse da União e suas entidades.
+- Vide art. 1.056 do CPC.
+-- estabelece regra de transição sobre a prescrição intercorrente em processos anteriores à vigência do Código.
+- Vide art. 2.º da Instrução Normativa n. 39, de 15-3-2016.
+-- confirma a aplicabilidade do instituto da prescrição intercorrente ao Processo do Trabalho.
+-----
+# Efeitos da Extinção da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 925. A extinção só produz efeito quando declarada por sentença.
+-----
+# Dever de Uniformização da Jurisprudência
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 926. Os tribunais devem uniformizar sua jurisprudência e mantê-la estável, íntegra e coerente.
+- § 1.º Na forma estabelecida e segundo os pressupostos fixados no regimento interno, os tribunais editarão enunciados de súmula correspondentes a sua jurisprudência dominante.
+- § 2.º Ao editar enunciados de súmula, os tribunais devem ater-se às circunstâncias fáticas dos precedentes que motivaram sua criação.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39, de 15-3-2016.
+-- confirma a aplicabilidade dos preceitos sobre uniformização de jurisprudência ao Processo do Trabalho.
+- Vide art. 18 da Instrução Normativa n. 41, de 21-6-2018.
+-- dispõe que a Súmula n. 214 do TST deverá ser aplicada em conformidade com a tese fixada no julgamento do Incidente de Recurso de Revista Repetitivo n. 563-34.2013.5.12.0051.
+-----
+# Sistema de Precedentes Obrigatórios
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 927. Os juízes e os tribunais observarão:
+- I – as decisões do Supremo Tribunal Federal em controle concentrado de constitucionalidade;
+- II – os enunciados de súmula vinculante;
+- III – os acórdãos em incidente de assunção de competência ou de resolução de demandas repetitivas e em julgamento de recursos extraordinário e especial repetitivos;
+- IV – os enunciados das súmulas do Supremo Tribunal Federal em matéria constitucional e do Superior Tribunal de Justiça em matéria infraconstitucional;
+- V – a orientação do plenário ou do órgão especial aos quais estiverem vinculados.
+- § 1.º Os juízes e os tribunais observarão o disposto no art. 10 e no art. 489, § 1.º, quando decidirem com fundamento neste artigo.
+- § 2.º A alteração de tese jurídica adotada em enunciado de súmula ou em julgamento de casos repetitivos poderá ser precedida de audiências públicas e da participação de pessoas, órgãos ou entidades que possam contribuir para a rediscussão da tese.
+- § 3.º Na hipótese de alteração de jurisprudência dominante do Supremo Tribunal Federal e dos tribunais superiores ou daquela oriunda de julgamento de casos repetitivos, pode haver modulação dos efeitos da alteração no interesse social e no da segurança jurídica.
+- § 4.º A modificação de enunciado de súmula, de jurisprudência pacificada ou de tese adotada em julgamento de casos repetitivos observará a necessidade de fundamentação adequada e específica, considerando os princípios da segurança jurídica, da proteção da confiança e da isonomia.
+- § 5.º Os tribunais darão publicidade a seus precedentes, organizando-os por questão jurídica decidida e divulgando-os, preferencialmente, na rede mundial de computadores.
+# Remissões Normativas
+- Vide art. 15, I, da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece a aplicação do sistema de precedentes do CPC ao Processo do Trabalho, inclusive em relação às Súmulas do TST.
+- Vide arts. 102, I, a, e 103 da CF.
+-- tratam da competência do STF para processar e julgar a ação direta de inconstitucionalidade e a ação declaratória de constitucionalidade.
+- Vide art. 103-A da CF.
+-- trata da súmula vinculante, de observância obrigatória pelos demais órgãos do Poder Judiciário e pela administração pública.
+- Vide arts. 1.036 a 1.041 do CPC.
+-- disciplinam o julgamento dos recursos extraordinário e especial repetitivos.
+-----
+# Julgamento de Casos Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 928. Para os fins deste Código, considera-se julgamento de casos repetitivos a decisão proferida em:
+- I – incidente de resolução de demandas repetitivas;
+- II – recursos especial e extraordinário repetitivos.
+- Parágrafo único. O julgamento de casos repetitivos tem por objeto questão de direito material ou processual.
+# Remissões Normativas
+- Vide arts. 976 a 987 do CPC.
+-- disciplinam o Incidente de Resolução de Demandas Repetitivas (IRDR).
+- Vide arts. 1.036 a 1.041 do CPC.
+-- disciplinam o julgamento dos recursos extraordinário e especial repetitivos.
+-----
+# Protocolo e Distribuição no Tribunal
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 929. Os autos serão registrados no protocolo do tribunal no dia de sua entrada, cabendo à secretaria ordená-los, com imediata distribuição.
+- Parágrafo único. A critério do tribunal, os serviços de protocolo poderão ser descentralizados, mediante delegação a ofícios de justiça de primeiro grau.
+-----
+# Regras de Distribuição e Prevenção
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 930. Far-se-á a distribuição de acordo com o regimento interno do tribunal, observando-se a alternatividade, o sorteio eletrônico e a publicidade.
+- Parágrafo único. O primeiro recurso protocolado no tribunal tornará prevento o relator para eventual recurso subsequente interposto no mesmo processo ou em processo conexo.
+-----
+# Conclusão ao Relator
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 931. Distribuídos, os autos serão imediatamente conclusos ao relator, que, em 30 (trinta) dias, depois de elaborar o voto, restituí-los-á, com relatório, à secretaria.
+-----
+# Incumbências do Relator
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 932. Incumbe ao relator:
+- I – dirigir e ordenar o processo no tribunal, inclusive em relação à produção de prova, bem como, quando for o caso, homologar autocomposição das partes;
+- II – apreciar o pedido de tutela provisória nos recursos e nos processos de competência originária do tribunal;
+- III – não conhecer de recurso inadmissível, prejudicado ou que não tenha impugnado especificamente os fundamentos da decisão recorrida;
+- IV – negar provimento a recurso que for contrário a:
+- a) súmula do Supremo Tribunal Federal, do Superior Tribunal de Justiça ou do próprio tribunal;
+- b) acórdão proferido pelo Supremo Tribunal Federal ou pelo Superior Tribunal de Justiça em julgamento de recursos repetitivos;
+- c) entendimento firmado em incidente de resolução de demandas repetitivas ou de assunção de competência;
+- V – depois de facultada a apresentação de contrarrazões, dar provimento ao recurso se a decisão recorrida for contrária a:
+- a) súmula do Supremo Tribunal Federal, do Superior Tribunal de Justiça ou do próprio tribunal;
+- b) acórdão proferido pelo Supremo Tribunal Federal ou pelo Superior Tribunal de Justiça em julgamento de recursos repetitivos;
+- c) entendimento firmado em incidente de resolução de demandas repetitivas ou de assunção de competência;
+- VI – decidir o incidente de desconsideração da personalidade jurídica, quando este for instaurado originariamente perante o tribunal;
+- VII – determinar a intimação do Ministério Público, quando for o caso;
+- VIII – exercer outras atribuições estabelecidas no regimento interno do tribunal.
+- Parágrafo único. Antes de considerar inadmissível o recurso, o relator concederá o prazo de 5 (cinco) dias ao recorrente para que seja sanado vício ou complementada a documentação exigível.
+# Remissões Normativas
+- Vide Súmula 316 do STJ.
+-- trata de matéria de execução penal, estabelecendo que a anotação de falta grave não interrompe o prazo para obtenção de livramento condicional.
+- Vide arts. 1.036 a 1.041 do CPC.
+-- disciplinam o julgamento dos recursos extraordinário e especial repetitivos.
+- Vide arts. 976 a 987 do CPC.
+-- disciplinam o Incidente de Resolução de Demandas Repetitivas (IRDR).
+- Vide art. 50 do CC.
+-- trata dos requisitos para a desconsideração da personalidade jurídica, como o abuso da personalidade, caracterizado pelo desvio de finalidade ou pela confusão patrimonial.
+- Vide art. 10 da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece a aplicabilidade do parágrafo único deste artigo ao Processo do Trabalho, permitindo a correção de vícios em recursos.
+- Vide Súmula 385 do TST.
+-- trata dos efeitos da revelia, estabelecendo que a confissão quanto à matéria de fato não se aplica quando, havendo pluralidade de réus, algum deles contestar a ação.
+-----
+
