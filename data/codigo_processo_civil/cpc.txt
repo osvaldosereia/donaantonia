@@ -2905,3 +2905,580 @@
 # Dispositivos Legais
 - Art. 959. O regimento interno do tribunal regulará o processo e o julgamento do conflito de atribuições entre autoridade judiciária e autoridade administrativa.
 -----
+# Ação de Homologação de Decisão Estrangeira
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 960. A homologação de decisão estrangeira será requerida por ação de homologação de decisão estrangeira, salvo disposição especial em sentido contrário prevista em tratado.
+- § 1.º A decisão interlocutória estrangeira poderá ser executada no Brasil por meio de carta rogatória.
+- § 2.º A homologação obedecerá ao que dispuserem os tratados em vigor no Brasil e o Regimento Interno do Superior Tribunal de Justiça.
+- § 3.º A homologação de decisão arbitral estrangeira obedecerá ao disposto em tratado e em lei, aplicando-se, subsidiariamente, as disposições deste Capítulo.
+# Remissões Normativas
+- A EC n. 45, de 8-12-2004, que alterou o art. 105, I, i, da CF.
+-- transferiu a competência para a homologação de sentenças estrangeiras e a concessão de exequatur às cartas rogatórias do Supremo Tribunal Federal para o Superior Tribunal de Justiça.
+-----
+# Eficácia da Decisão Estrangeira no Brasil
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 961. A decisão estrangeira somente terá eficácia no Brasil após a homologação de sentença estrangeira ou a concessão do exequatur às cartas rogatórias, salvo disposição em sentido contrário de lei ou tratado.
+- § 1.º É passível de homologação a decisão judicial definitiva, bem como a decisão não judicial que, pela lei brasileira, teria natureza jurisdicional.
+- § 2.º A decisão estrangeira poderá ser homologada parcialmente.
+- § 3.º A autoridade judiciária brasileira poderá deferir pedidos de urgência e realizar atos de execução provisória no processo de homologação de decisão estrangeira.
+- § 4.º Haverá homologação de decisão estrangeira para fins de execução fiscal quando prevista em tratado ou em promessa de reciprocidade apresentada à autoridade brasileira.
+- § 5.º A sentença estrangeira de divórcio consensual produz efeitos no Brasil, independentemente de homologação pelo Superior Tribunal de Justiça.
+- § 6.º Na hipótese do § 5.º, competirá a qualquer juiz examinar a validade da decisão, em caráter principal ou incidental, quando essa questão for suscitada em processo de sua competência.
+-----
+# Execução de Medida de Urgência Estrangeira
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 962. É passível de execução a decisão estrangeira concessiva de medida de urgência.
+- § 1.º A execução no Brasil de decisão interlocutória estrangeira concessiva de medida de urgência dar-se-á por carta rogatória.
+- § 2.º A medida de urgência concedida sem audiência do réu poderá ser executada, desde que garantido o contraditório em momento posterior.
+- § 3.º O juízo sobre a urgência da medida compete exclusivamente à autoridade jurisdicional prolatora da decisão estrangeira.
+- § 4.º Quando dispensada a homologação para que a sentença estrangeira produza efeitos no Brasil, a decisão concessiva de medida de urgência dependerá, para produzir efeitos, de ter sua validade expressamente reconhecida pelo juiz competente para dar-lhe cumprimento, dispensada a homologação pelo Superior Tribunal de Justiça.
+-----
+# Requisitos para Homologação da Decisão Estrangeira
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 963. Constituem requisitos indispensáveis à homologação da decisão:
+- I – ser proferida por autoridade competente;
+- II – ser precedida de citação regular, ainda que verificada a revelia;
+- III – ser eficaz no país em que foi proferida;
+- IV – não ofender a coisa julgada brasileira;
+- V – estar acompanhada de tradução oficial, salvo disposição que a dispense prevista em tratado;
+- VI – não conter manifesta ofensa à ordem pública.
+- Parágrafo único. Para a concessão do exequatur às cartas rogatórias, observar-se-ão os pressupostos previstos no caput deste artigo e no art. 962, § 2.º.
+# Remissões Normativas
+- Vide art. 15, a, da LINDB.
+-- estabelece como requisito que a decisão tenha sido proferida por juiz competente.
+- Vide art. 15, b, da LINDB.
+-- estabelece como requisito que as partes tenham sido citadas ou que se tenha legalmente verificado a revelia.
+- Vide art. 15, c, da LINDB.
+-- estabelece como requisito que a decisão tenha passado em julgado e estar revestida das formalidades para execução no lugar em que foi proferida.
+- Vide art. 15, d, da LINDB.
+-- estabelece como requisito que a decisão esteja traduzida por intérprete autorizado.
+- Vide art. 17 da LINDB.
+-- estabelece que as leis, atos e sentenças de outro país, bem como quaisquer declarações de vontade, não terão eficácia no Brasil, quando ofenderem a soberania nacional, a ordem pública e os bons costumes.
+-----
+# Competência Exclusiva da Autoridade Judiciária Brasileira
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 964. Não será homologada a decisão estrangeira na hipótese de competência exclusiva da autoridade judiciária brasileira.
+- Parágrafo único. O dispositivo também se aplica à concessão do exequatur à carta rogatória.
+-----
+# Cumprimento da Decisão Estrangeira
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 965. O cumprimento de decisão estrangeira far-se-á perante o juízo federal competente, a requerimento da parte, conforme as normas estabelecidas para o cumprimento de decisão nacional.
+- Parágrafo único. O pedido de execução deverá ser instruído com cópia autenticada da decisão homologatória ou do exequatur, conforme o caso.
+# Remissões Normativas
+- Vide art. 109, X, da CF.
+-- estabelece a competência dos juízes federais para executar, de ofício, as sentenças estrangeiras após a homologação e as cartas rogatórias após o exequatur.
+- Vide art. 221, III, da LRP.
+-- estabelece que somente serão admitidos a registro no Registro de Imóveis as cartas de arrematação, adjudicação e sentenças estrangeiras com prova da homologação.
+-----
+# Hipóteses de Cabimento da Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 966. A decisão de mérito, transitada em julgado, pode ser rescindida quando:
+- I – se verificar que foi proferida por força de prevaricação, concussão ou corrupção do juiz;
+- II – for proferida por juiz impedido ou por juízo absolutamente incompetente;
+- III – resultar de dolo ou coação da parte vencedora em detrimento da parte vencida ou, ainda, de simulação ou colusão entre as partes, a fim de fraudar a lei;
+- IV – ofender a coisa julgada;
+- V – violar manifestamente norma jurídica;
+- VI – for fundada em prova cuja falsidade tenha sido apurada em processo criminal ou venha a ser demonstrada na própria ação rescisória;
+- VII – obtiver o autor, posteriormente ao trânsito em julgado, prova nova cuja existência ignorava ou de que não pôde fazer uso, capaz, por si só, de lhe assegurar pronunciamento favorável;
+- VIII – for fundada em erro de fato verificável do exame dos autos.
+- § 1.º Há erro de fato quando a decisão rescindenda admitir fato inexistente ou quando considerar inexistente fato efetivamente ocorrido, sendo indispensável, em ambos os casos, que o fato não represente ponto controvertido sobre o qual o juiz deveria ter se pronunciado.
+- § 2.º Nas hipóteses previstas nos incisos do caput, será rescindível a decisão transitada em julgado que, embora não seja de mérito, impeça:
+- I – nova propositura da demanda; ou
+- II – admissibilidade do recurso correspondente.
+- § 3.º A ação rescisória pode ter por objeto apenas 1 (um) capítulo da decisão.
+- § 4.º Os atos de disposição de direitos, praticados pelas partes ou por outros participantes do processo e homologados pelo juízo, bem como os atos homologatórios praticados no curso da execução, estão sujeitos à anulação, nos termos da lei.
+- § 5.º Cabe ação rescisória, com fundamento no inciso V do caput deste artigo, contra decisão baseada em enunciado de súmula ou acórdão proferido em julgamento de casos repetitivos que não tenha considerado a existência de distinção entre a questão discutida no processo e o padrão decisório que lhe deu fundamento. (acrescentado pela Lei n. 13.256, de 4-2-2016)
+- § 6.º Quando a ação rescisória fundar-se na hipótese do § 5.º deste artigo, caberá ao autor, sob pena de inépcia, demonstrar, fundamentadamente, tratar-se de situação particularizada por hipótese fática distinta ou de questão jurídica não examinada, a impor outra solução jurídica. (acrescentado pela Lei n. 13.256, de 4-2-2016)
+# Remissões Normativas
+- Vide arts. 316, 317 e 319 do CP.
+-- tipificam, respectivamente, os crimes de concussão, corrupção passiva e prevaricação.
+- Vide arts. 145 a 150, 171, II, 178, II, 1.909 do CC.
+-- tratam de vícios de consentimento como coação, dolo, e da anulação de negócios jurídicos e testamentos.
+- Vide arts. 502 e s. do CPC.
+-- dispõem sobre a autoridade e os limites da coisa julgada.
+- Vide Súmula 343 do STF.
+-- estabelece que não cabe ação rescisória por ofensa a literal disposição de lei, quando a decisão se baseia em texto legal de interpretação controvertida nos tribunais.
+- Vide Súmula 402 do TST.
+-- estabelece que documento novo para fins de ação rescisória é aquele cronologicamente velho, já existente ao tempo da decisão rescindenda, mas ignorado pelo interessado ou de impossível utilização à época.
+-----
+# Legitimidade Ativa para a Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 967. Têm legitimidade para propor a ação rescisória:
+- I – quem foi parte no processo ou o seu sucessor a título universal ou singular;
+- II – o terceiro juridicamente interessado;
+- III – o Ministério Público:
+- a) se não foi ouvido no processo em que lhe era obrigatória a intervenção;
+- b) quando a decisão rescindenda é o efeito de simulação ou de colusão das partes, a fim de fraudar a lei;
+- c) em outros casos em que se imponha sua atuação;
+- IV – aquele que não foi ouvido no processo em que lhe era obrigatória a intervenção.
+- Parágrafo único. Nas hipóteses do art. 178, o Ministério Público será intimado para intervir como fiscal da ordem jurídica quando não for parte.
+-----
+# Petição Inicial da Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 968. A petição inicial será elaborada com observância dos requisitos essenciais do art. 319, devendo o autor:
+- I – cumular ao pedido de rescisão, se for o caso, o de novo julgamento do processo;
+- II – depositar a importância de cinco por cento sobre o valor da causa, que se converterá em multa caso a ação seja, por unanimidade de votos, declarada inadmissível ou improcedente.
+- § 1.º Não se aplica o disposto no inciso II à União, aos Estados, ao Distrito Federal, aos Municípios, às suas respectivas autarquias e fundações de direito público, ao Ministério Público, à Defensoria Pública e aos que tenham obtido o benefício de gratuidade da justiça.
+- § 2.º O depósito previsto no inciso II do caput deste artigo não será superior a 1.000 (mil) salários mínimos.
+- § 3.º Além dos casos previstos no art. 330, a petição inicial será indeferida quando não efetuado o depósito exigido pelo inciso II do caput deste artigo.
+- § 4.º Aplica-se à ação rescisória o disposto no art. 332.
+- § 5.º Reconhecida a incompetência do tribunal para julgar a ação rescisória, o autor será intimado para emendar a petição inicial, a fim de adequar o objeto da ação rescisória, quando a decisão apontada como rescindenda:
+- I – não tiver apreciado o mérito e não se enquadrar na situação prevista no § 2.º do art. 966;
+- II – tiver sido substituída por decisão posterior.
+- § 6.º Na hipótese do § 5.º, após a emenda da petição inicial, será permitido ao réu complementar os fundamentos de defesa, e, em seguida, os autos serão remetidos ao tribunal competente.
+-----
+# Efeitos da Propositura da Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 969. A propositura da ação rescisória não impede o cumprimento da decisão rescindenda, ressalvada a concessão de tutela provisória.
+-----
+# Citação e Resposta do Réu
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 970. O relator ordenará a citação do réu, designando-lhe prazo nunca inferior a 15 (quinze) dias nem superior a 30 (trinta) dias para, querendo, apresentar resposta, ao fim do qual, com ou sem contestação, observar-se-á, no que couber, o procedimento comum.
+-----
+# Distribuição do Relatório
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 971. Na ação rescisória, devolvidos os autos pelo relator, a secretaria do tribunal expedirá cópias do relatório e as distribuirá entre os juízes que compuserem o órgão competente para o julgamento.
+- Parágrafo único. A escolha de relator recairá, sempre que possível, em juiz que não haja participado do julgamento rescindendo.
+-----
+# Produção de Prova na Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 972. Se os fatos alegados pelas partes dependerem de prova, o relator poderá delegar a competência ao órgão que proferiu a decisão rescindenda, fixando prazo de 1 (um) a 3 (três) meses para a devolução dos autos.
+-----
+# Razões Finais e Julgamento da Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 973. Concluída a instrução, será aberta vista ao autor e ao réu para razões finais, sucessivamente, pelo prazo de 10 (dez) dias.
+- Parágrafo único. Em seguida, os autos serão conclusos ao relator, procedendo-se ao julgamento pelo órgão competente.
+# Remissões Normativas
+- Vide Súmula 252 do STF.
+-- estabelece que os juízes que participaram do julgamento rescindendo não estão impedidos de atuar na ação rescisória.
+- Vide Súmulas 249 e 515 do STF.
+-- tratam da competência do STF para julgar ação rescisória de seus julgados.
+-----
+# Procedência da Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 974. Julgando procedente o pedido, o tribunal rescindirá a decisão, proferirá, se for o caso, novo julgamento e determinará a restituição do depósito a que se refere o inciso II do art. 968.
+- Parágrafo único. Considerando, por unanimidade, inadmissível ou improcedente o pedido, o tribunal determinará a reversão, em favor do réu, da importância do depósito, sem prejuízo do disposto no § 2.º do art. 82.
+-----
+# Prazo Decadencial da Ação Rescisória
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 975. O direito à rescisão se extingue em 2 (dois) anos contados do trânsito em julgado da última decisão proferida no processo.
+- § 1.º Prorroga-se até o primeiro dia útil immediately subsequente o prazo a que se refere o caput, quando expirar durante férias forenses, recesso, feriados ou em dia em que não houver expediente forense.
+- § 2.º Se fundada a ação no inciso VII do art. 966, o termo inicial do prazo será a data de descoberta da prova nova, observado o prazo máximo de 5 (cinco) anos, contado do trânsito em julgado da última decisão proferida no processo.
+- § 3.º Nas hipóteses de simulação ou de colusão das partes, o prazo começa a contar, para o terceiro prejudicado e para o Ministério Público, que não interveio no processo, a partir do momento em que têm ciência da simulação ou da colusão.
+-----
+# Incidente de Resolução de Demandas Repetitivas (IRDR)
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 976. É cabível a instauração do incidente de resolução de demandas repetitivas quando houver, simultaneamente:
+- I – efetiva repetição de processos que contenham controvérsia sobre a mesma questão unicamente de direito;
+- II – risco de ofensa à isonomia e à segurança jurídica.
+- § 1.º A desistência ou o abandono do processo não impede o exame de mérito do incidente.
+- § 2.º Se não for o requerente, o Ministério Público intervirá obrigatoriamente no incidente e deverá assumir sua titularidade em caso de desistência ou de abandono.
+- § 3.º A inadmissão do incidente de resolução de demandas repetitivas por ausência de qualquer de seus pressupostos de admissibilidade não impede que, uma vez satisfeito o requisito, seja o incidente novamente suscitado.
+- § 4.º É incabível o incidente de resolução de demandas repetitivas quando um dos tribunais superiores, no âmbito de sua respectiva competência, já tiver afetado recurso para definição de tese sobre questão de direito material ou processual repetitiva.
+- § 5.º Não serão exigidas custas processuais no incidente de resolução de demandas repetitivas.
+# Remissões Normativas
+- Vide art. 8.º da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece a aplicabilidade do Incidente de Resolução de Demandas Repetitivas (IRDR) ao Processo do Trabalho.
+-----
+# Pedido de Instauração do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 977. O pedido de instauração do incidente será dirigido ao presidente de tribunal:
+- I – pelo juiz ou relator, por ofício;
+- II – pelas partes, por petição;
+- III – pelo Ministério Público ou pela Defensoria Pública, por petição.
+- Parágrafo único. O ofício ou a petição será instruído com os documentos necessários à demonstração do preenchimento dos pressupostos para a instauração do incidente.
+-----
+# Órgão Competente para Julgamento do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 978. O julgamento do incidente caberá ao órgão indicado pelo regimento interno dentre aqueles responsáveis pela uniformização de jurisprudência do tribunal.
+- Parágrafo único. O órgão colegiado incumbido de julgar o incidente e de fixar a tese jurídica julgará igualmente o recurso, a remessa necessária ou o processo de competência originária de onde se originou o incidente.
+-----
+# Divulgação e Publicidade do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 979. A instauração e o julgamento do incidente serão sucedidos da mais ampla e específica divulgação e publicidade, por meio de registro eletrônico no Conselho Nacional de Justiça.
+- § 1.º Os tribunais manterão banco eletrônico de dados atualizados com informações específicas sobre questões de direito submetidas ao incidente, comunicando-o imediatamente ao Conselho Nacional de Justiça para inclusão no cadastro.
+- § 2.º Para possibilitar a identificação dos processos abrangidos pela decisão do incidente, o registro eletrônico das teses jurídicas constantes do cadastro conterá, no mínimo, os fundamentos determinantes da decisão e os dispositivos normativos a ela relacionados.
+- § 3.º Aplica-se o disposto neste artigo ao julgamento de recursos repetitivos e da repercussão geral em recurso extraordinário.
+-----
+# Prazo e Preferência de Julgamento do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 980. O incidente será julgado no prazo de 1 (um) ano e terá preferência sobre os demais feitos, ressalvados os que envolvam réu preso e os pedidos de habeas corpus.
+- Parágrafo único. Superado o prazo previsto no caput, cessa a suspensão dos processos prevista no art. 982, salvo decisão fundamentada do relator em sentido contrário.
+-----
+# Juízo de Admissibilidade do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 981. Após a distribuição, o órgão colegiado competente para julgar o incidente procederá ao seu juízo de admissibilidade, considerando a presença dos pressupostos do art. 976.
+-----
+# Efeitos da Admissão do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 982. Admitido o incidente, o relator:
+- I – suspenderá os processos pendentes, individuais ou coletivos, que tramitam no Estado ou na região, conforme o caso;
+- II – poderá requisitar informações a órgãos em cujo juízo tramita processo no qual se discute o objeto do incidente, que as prestarão no prazo de 15 (quinze) dias;
+- III – intimará o Ministério Público para, querendo, manifestar-se no prazo de 15 (quinze) dias.
+- § 1.º A suspensão será comunicada aos órgãos jurisdicionais competentes.
+- § 2.º Durante a suspensão, o pedido de tutela de urgência deverá ser dirigido ao juízo onde tramita o processo suspenso.
+- § 3.º Visando à garantia da segurança jurídica, qualquer legitimado mencionado no art. 977, incisos II e III, poderá requerer, ao tribunal competente para conhecer do recurso extraordinário ou especial, a suspensão de todos os processos individuais ou coletivos em curso no território nacional que versem sobre a questão objeto do incidente já instaurado.
+- § 4.º Independentemente dos limites da competência territorial, a parte no processo em curso no qual se discuta a mesma questão objeto do incidente é legitimada para requerer a providência prevista no § 3.º deste artigo.
+- § 5.º Cessa a suspensão a que se refere o inciso I do caput deste artigo se não for interposto recurso especial ou recurso extraordinário contra a decisão proferida no incidente.
+-----
+# Instrução do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 983. O relator ouvirá as partes e os demais interessados, inclusive pessoas, órgãos e entidades com interesse na controvérsia, que, no prazo comum de 15 (quinze) dias, poderão requerer a juntada de documentos, bem como as diligências necessárias para a elucidação da questão de direito controvertida, e, em seguida, manifestar-se-á o Ministério Público, no mesmo prazo.
+- § 1.º Para instruir o incidente, o relator poderá designar data para, em audiência pública, ouvir depoimentos de pessoas com experiência e conhecimento na matéria.
+- § 2.º Concluídas as diligências, o relator solicitará dia para o julgamento do incidente.
+-----
+# Ordem de Julgamento do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 984. No julgamento do incidente, observar-se-á a seguinte ordem:
+- I – o relator fará a exposição do objeto do incidente;
+- II – poderão sustentar suas razões, sucessivamente:
+- a) o autor e o réu do processo originário e o Ministério Público, pelo prazo de 30 (trinta) minutos;
+- b) os demais interessados, no prazo de 30 (trinta) minutos, divididos entre todos, sendo exigida inscrição com 2 (dois) dias de antecedência.
+- § 1.º Considerando o número de inscritos, o prazo poderá ser ampliado.
+- § 2.º O conteúdo do acórdão abrangerá a análise de todos os fundamentos suscitados concernentes à tese jurídica discutida, sejam favoráveis ou contrários.
+-----
+# Aplicação da Tese Jurídica do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 985. Julgado o incidente, a tese jurídica será aplicada:
+- I – a todos os processos individuais ou coletivos que versem sobre idêntica questão de direito e que tramitem na área de jurisdição do respectivo tribunal, inclusive àqueles que tramitem nos juizados especiais do respectivo Estado ou região;
+- II – aos casos futuros que versem idêntica questão de direito e que venham a tramitar no território de competência do tribunal, salvo revisão na forma do art. 986.
+- § 1.º Não observada a tese adotada no incidente, caberá reclamação.
+- § 2.º Se o incidente tiver por objeto questão relativa a prestação de serviço concedido, permitido ou autorizado, o resultado do julgamento será comunicado ao órgão, ao ente ou à agência reguladora competente para fiscalização da efetiva aplicação, por parte dos entes sujeitos a regulação, da tese adotada.
+# Remissões Normativas
+- ADI n. 5.492
+-- o STF declarou a constitucionalidade do § 2.º deste artigo, que determina a comunicação da tese firmada à agência reguladora competente.
+-----
+# Revisão da Tese do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 986. A revisão da tese jurídica firmada no incidente far-se-á pelo mesmo tribunal, de ofício ou mediante requerimento dos legitimados mencionados no art. 977, inciso III.
+-----
+# Recursos contra a Decisão do IRDR
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 987. Do julgamento do mérito do incidente caberá recurso extraordinário ou especial, conforme o caso.
+- § 1.º O recurso tem efeito suspensivo, presumindo-se a repercussão geral de questão constitucional eventualmente discutida.
+- § 2.º Apreciado o mérito do recurso, a tese jurídica adotada pelo Supremo Tribunal Federal ou pelo Superior Tribunal de Justiça será aplicada no território nacional a todos os processos individuais ou coletivos que versem sobre idêntica questão de direito.
+-----
+# Hipóteses de Cabimento da Reclamação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 988. Caberá reclamação da parte interessada ou do Ministério Público para:
+- I – preservar a competência do tribunal;
+- II – garantir a autoridade das decisões do tribunal;
+- III – garantir a observância de enunciado de súmula vinculante e de decisão do Supremo Tribunal Federal em controle concentrado de constitucionalidade; (redação pela Lei n. 13.256, de 4-2-2016)
+- IV – garantir a observância de acórdão proferido em julgamento de incidente de resolução de demandas repetitivas ou de incidente de assunção de competência; (redação pela Lei n. 13.256, de 4-2-2016)
+- § 1.º A reclamação pode ser proposta perante qualquer tribunal, e seu julgamento compete ao órgão jurisdicional cuja competência se busca preservar ou cuja autoridade se pretenda garantir.
+- § 2.º A reclamação deverá ser instruída com prova documental e dirigida ao presidente do tribunal.
+- § 3.º Assim que recebida, a reclamação será autuada e distribuída ao relator do processo principal, sempre que possível.
+- § 4.º As hipóteses dos incisos III e IV compreendem a aplicação indevida da tese jurídica e sua não aplicação aos casos que a ela correspondam.
+- § 5.º É inadmissível a reclamação: (redação pela Lei n. 13.256, de 4-2-2016)
+- I – proposta após o trânsito em julgado da decisão reclamada; (acrescentado pela Lei n. 13.256, de 4-2-2016)
+- II – proposta para garantir a observância de acórdão de recurso extraordinário com repercussão geral reconhecida ou de acórdão proferido em julgamento de recursos extraordinário ou especial repetitivos, quando não esgotadas as instâncias ordinárias. (acrescentado pela Lei n. 13.256, de 4-2-2016)
+- § 6.º A inadmissibilidade ou o julgamento do recurso interposto contra a decisão proferida pelo órgão reclamado não prejudica a reclamação.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39, de 15-3-2016.
+-- confirma a aplicabilidade da reclamação por inobservância de tese de IRDR ou de assunção de competência ao Processo do Trabalho.
+- Vide art. 105, I, f, da CF.
+-- estabelece a competência do Superior Tribunal de Justiça para julgar, originariamente, a reclamação para a preservação de sua competência e garantia da autoridade de suas decisões.
+- Vide art. 102, I, a, da CF.
+-- estabelece a competência do Supremo Tribunal Federal para processar e julgar, originariamente, a ação direta de inconstitucionalidade.
+- Vide art. 103-A da CF.
+-- trata da súmula vinculante, cujo desrespeito autoriza o cabimento de reclamação ao STF.
+-----
+# Despacho Inicial da Reclamação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 989. Ao despachar a reclamação, o relator:
+- I – requisitará informações da autoridade a quem for imputada a prática do ato impugnado, que as prestará no prazo de 10 (dez) dias;
+- II – se necessário, ordenará a suspensão do processo ou do ato impugnado para evitar dano irreparável;
+- III – determinará a citação do beneficiário da decisão impugnada, que terá prazo de 15 (quinze) dias para apresentar a sua contestação.
+-----
+# Impugnação por Interessado na Reclamação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 990. Qualquer interessado poderá impugnar o pedido do reclamante.
+-----
+# Intervenção do Ministério Público na Reclamação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 991. Na reclamação que não houver formulado, o Ministério Público terá vista do processo por 5 (cinco) dias, após o decurso do prazo para informações e para o oferecimento da contestação pelo beneficiário do ato impugnado.
+-----
+# Julgamento da Reclamação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 992. Julgando procedente a reclamação, o tribunal cassará a decisão exorbitante de seu julgado ou determinará medida adequada à solução da controvérsia.
+-----
+# Cumprimento da Decisão na Reclamação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 993. O presidente do tribunal determinará o imediato cumprimento da decisão, lavrando-se o acórdão posteriormente.
+-----
+# Rol de Recursos Cabíveis
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 994. São cabíveis os seguintes recursos:
+- I – apelação;
+- II – agravo de instrumento;
+- III – agravo interno;
+- IV – embargos de declaração;
+- V – recurso ordinário;
+- VI – recurso especial;
+- VII – recurso extraordinário;
+- VIII – agravo em recurso especial ou extraordinário;
+- IX – embargos de divergência.
+# Remissões Normativas
+- Vide arts. 1.009 a 1.014 do CPC.
+-- dispõem sobre o recurso de apelação.
+- Vide arts. 1.015 a 1.020 do CPC.
+-- dispõem sobre o agravo de instrumento.
+- Vide art. 1.021 do CPC.
+-- dispõe sobre o agravo interno.
+- Vide arts. 1.022 a 1.026 do CPC.
+-- dispõem sobre os embargos de declaração.
+- Vide arts. 1.027 e 1.028 do CPC.
+-- dispõem sobre o recurso ordinário.
+- Vide art. 105, III, da CF.
+-- estabelece a competência do Superior Tribunal de Justiça para julgar, em recurso especial, as causas decididas em única ou última instância.
+- Vide arts. 1.029 a 1.042 do CPC.
+-- dispõem sobre os recursos especial e extraordinário.
+- Vide art. 1.042 do CPC.
+-- dispõe sobre o agravo em recurso especial ou extraordinário.
+- Vide arts. 1.043 e 1.044 do CPC.
+-- dispõem sobre os embargos de divergência.
+-----
+# Efeito Suspensivo dos Recursos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 995. Os recursos não impedem a eficácia da decisão, salvo disposição legal ou decisão judicial em sentido diverso.
+- Parágrafo único. A eficácia da decisão recorrida poderá ser suspensa por decisão do relator, se da imediata produção de seus efeitos houver risco de dano grave, de difícil ou impossível reparação, e ficar demonstrada a probabilidade de provimento do recurso.
+# Remissões Normativas
+- Vide art. 1.030 do CPC.
+-- trata do juízo de admissibilidade dos recursos especial e extraordinário realizado pelo presidente ou vice-presidente do tribunal de origem.
+-----
+# Legitimidade Recursal
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 996. O recurso pode ser interposto pela parte vencida, pelo terceiro prejudicado e pelo Ministério Público, como parte ou como fiscal da ordem jurídica.
+- Parágrafo único. Cumpre ao terceiro demonstrar a possibilidade de a decisão sobre a relação jurídica submetida à apreciação judicial atingir direito de que se afirme titular ou que possa discutir em juízo como substituto processual.
+# Remissões Normativas
+- Vide arts. 177 a 181 do CPC.
+-- tratam da atuação do Ministério Público no processo civil.
+- Vide Súmulas 99, 202 e 226 do STJ.
+-- tratam, respectivamente, da legitimidade do MP para recorrer; da não sujeição da impetração de mandado de segurança por terceiro à interposição de recurso; e da legitimidade do MP para recorrer em ação de acidente de trabalho.
+-----
+# Recurso Adesivo
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 997. Cada parte interporá o recurso independentemente, no prazo e com observância das exigências legais.
+- § 1.º Sendo vencidos autor e réu, ao recurso interposto por qualquer deles poderá aderir o outro.
+- § 2.º O recurso adesivo fica subordinado ao recurso independente, sendo-lhe aplicáveis as mesmas regras deste quanto aos requisitos de admissibilidade e julgamento no tribunal, salvo disposição legal diversa, observado, ainda, o seguinte:
+- I – será dirigido ao órgão perante o qual o recurso independente fora interposto, no prazo de que a parte dispõe para responder;
+- II – será admissível na apelação, no recurso extraordinário e no recurso especial;
+- III – não será conhecido, se houver desistência do recurso principal ou se for ele considerado inadmissível.
+-----
+# Desistência do Recurso
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 998. O recorrente poderá, a qualquer tempo, sem a anuência do recorrido ou dos litisconsortes, desistir do recurso.
+- Parágrafo único. A desistência do recurso não impede a análise de questão cuja repercussão geral já tenha sido reconhecida e daquela objeto de julgamento de recursos extraordinários ou especiais repetitivos.
+-----
+# Renúncia ao Direito de Recorrer
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 999. A renúncia ao direito de recorrer independe da aceitação da outra parte.
+-----
+# Aceitação da Decisão e Preclusão Lógica
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.000. A parte que aceitar expressa ou tacitamente a decisão não poderá recorrer.
+- Parágrafo único. Considera-se aceitação tácita a prática, sem nenhuma reserva, de ato incompatível com a vontade de recorrer.
+-----
+# Irrecorribilidade dos Despachos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.001. Dos despachos não cabe recurso.
+# Remissões Normativas
+- Vide arts. 1.022 e s. do CPC.
+-- dispõem sobre os embargos de declaração, cabíveis contra qualquer decisão judicial para sanar obscuridade, contradição, omissão ou erro material.
+-----
+# Impugnação Parcial da Decisão
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.002. A decisão pode ser impugnada no todo ou em parte.
+-----
+# Prazo dos Recursos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.003. O prazo para interposição de recurso conta-se da data em que os advogados, a sociedade de advogados, a Advocacia Pública, a Defensoria Pública ou o Ministério Público são intimados da decisão.
+- § 1.º Os sujeitos previstos no caput considerar-se-ão intimados em audiência quando nesta for proferida a decisão.
+- § 2.º Aplica-se o disposto no art. 231, incisos I a VI, ao prazo de interposição de recurso pelo réu contra decisão proferida anteriormente à citação.
+- § 3.º No prazo para interposição de recurso, a petição será protocolada em cartório ou conforme as normas de organização judiciária, ressalvado o disposto em regra especial.
+- § 4.º Para aferição da tempestividade do recurso remetido pelo correio, será considerada como data de interposição a data de postagem.
+- § 5.º Excetuados os embargos de declaração, o prazo para interpor os recursos e para responder-lhes é de 15 (quinze) dias.
+- § 6.º O recorrente comprovará a ocorrência de feriado local no ato de interposição do recurso, e, se não o fizer, o tribunal determinará a correção do vício formal, ou poderá desconsiderá-lo caso a informação já conste do processo eletrônico. (redação pela Lei n. 14.939, de 30-7-2024)
+# Remissões Normativas
+- Vide Súmula 25 do STJ.
+-- (Cancelada) tratava da revogação da Lei de Imprensa pela Constituição de 1988.
+- Vide Súmula 385 do TST.
+-- estabelece que incumbe à parte o ônus de provar a existência de feriado local que altere o prazo recursal.
+-----
+# Restituição do Prazo Recursal
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.004. Se, durante o prazo para a interposição do recurso, sobrevier o falecimento da parte ou de seu advogado ou ocorrer motivo de força maior que suspenda o curso do processo, será tal prazo restituído em proveito da parte, do herdeiro ou do sucessor, contra quem começará a correr novamente depois da intimação.
+# Remissões Normativas
+- Vide art. 222 do CPC.
+-- dispõe sobre a restituição do prazo à parte que provar a ocorrência de justa causa que a impediu de praticar o ato processual.
+-----
+# Extensão Subjetiva do Recurso
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.005. O recurso interposto por um dos litisconsortes a todos aproveita, salvo se distintos ou opostos os seus interesses.
+- Parágrafo único. Havendo solidariedade passiva, o recurso interposto por um devedor aproveitará aos outros quando as defesas opostas ao credor lhes forem comuns.
+# Remissões Normativas
+- Vide arts. 113 a 118 do CPC.
+-- dispõem sobre o litisconsórcio (pluralidade de partes em um dos polos da ação).
+-----
+# Baixa dos Autos após Trânsito em Julgado
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.006. Certificado o trânsito em julgado, com menção expressa da data de sua ocorrência, o escrivão ou o chefe de secretaria, independentemente de despacho, providenciará a baixa dos autos ao juízo de origem, no prazo de 5 (cinco) dias.
+-----
+# Preparo do Recurso e Deserção
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.007. No ato de interposição do recurso, o recorrente comprovará, quando exigido pela legislação pertinente, o respectivo preparo, inclusive porte de remessa e de retorno, sob pena de deserção.
+- § 1.º São dispensados de preparo, inclusive porte de remessa e de retorno, os recursos interpostos pelo Ministério Público, pela União, pelo Distrito Federal, pelos Estados, pelos Municípios, e respectivas autarquias, e pelos que gozam de isenção legal.
+- § 2.º A insuficiência no valor do preparo, inclusive porte de remessa e de retorno, implicará deserção se o recorrente, intimado na pessoa de seu advogado, não vier a supri-lo no prazo de 5 (cinco) dias.
+- § 3.º É dispensado o recolhimento do porte de remessa e de retorno no processo em autos eletrônicos.
+- § 4.º O recorrente que não comprovar, no ato de interposição do recurso, o recolhimento do preparo, inclusive porte de remessa e de retorno, será intimado, na pessoa de seu advogado, para realizar o recolhimento em dobro, sob pena de deserção.
+- § 5.º É vedada a complementação se houver insuficiência parcial do preparo, inclusive porte de remessa e de retorno, no recolhimento realizado na forma do § 4.º.
+- § 6.º Provando o recorrente justo impedimento, o relator relevará a pena de deserção, por decisão irrecorrível, fixando-lhe prazo de 5 (cinco) dias para efetuar o preparo.
+- § 7.º O equívoco no preenchimento da guia de custas não implicará a aplicação da pena de deserção, cabendo ao relator, na hipótese de dúvida quanto ao recolhimento, intimar o recorrente para sanar o vício no prazo de 5 (cinco) dias.
+# Remissões Normativas
+- Vide art. 42 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre o preparo do recurso no âmbito dos Juizados Especiais Cíveis.
+- Vide Súmula 187 do STJ.
+-- estabelece que é deserto o recurso ao STJ quando o recorrente não recolhe, na origem, as despesas de remessa e retorno.
+- Vide art. 10 da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece a aplicabilidade ao Processo do Trabalho da regra que permite sanar vícios no preparo recursal.
+- Vide OJ 140 da SDI-1.
+-- considera deserto o recurso cujo preparo foi efetuado em guia incorreta, salvo se houver dúvida objetiva quanto ao preenchimento.
+-----
+# Efeito Substitutivo do Recurso
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.008. O julgamento proferido pelo tribunal substituirá a decisão impugnada no que tiver sido objeto de recurso.
+-----
+# Hipóteses de Cabimento do Agravo de Instrumento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.015. Cabe agravo de instrumento contra as decisões interlocutórias que versarem sobre:
+- I – tutelas provisórias;
+- II – mérito do processo;
+- III – rejeição da alegação de convenção de arbitragem;
+- IV – incidente de desconsideração da personalidade jurídica;
+- V – rejeição do pedido de gratuidade da justiça ou acolhimento do pedido de sua revogação;
+- VI – exibição ou posse de documento ou coisa;
+- VII – exclusão de litisconsorte;
+- VIII – rejeição do pedido de limitação do litisconsórcio;
+- IX – admissão ou inadmissão de intervenção de terceiros;
+- X – concessão, modificação ou revogação do efeito suspensivo aos embargos à execução;
+- XI – redistribuição do ônus da prova nos termos do art. 373, § 1.º;
+- XII – (Vetado.)
+- XIII – outros casos expressamente referidos em lei.
+- Parágrafo único. Também caberá agravo de instrumento contra decisões interlocutórias proferidas na fase de liquidação de sentença ou de cumprimento de sentença, no processo de execução e no processo de inventário.
+# Remissões Normativas
+- Vide art. 203 do CPC.
+-- define o que são despachos, decisões interlocutórias e sentenças.
+- Vide Súmula 255 do STJ.
+-- (Superada) tratava do cabimento de embargos infringentes, recurso extinto pelo CPC/2015, contra acórdão em agravo regimental.
+-----
+# Requisitos da Petição do Agravo de Instrumento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.016. O agravo de instrumento será dirigido diretamente ao tribunal competente, por meio de petição com os seguintes requisitos:
+- I – os nomes das partes;
+- II – a exposição do fato e do direito;
+- III – as razões do pedido de reforma ou de invalidação da decisão e o próprio pedido;
+- IV – o nome e o endereço completo dos advogados constantes do processo.
+# Remissões Normativas
+- A Resolução n. 4, de 30-11-2006, do STJ.
+-- dispõe sobre o não conhecimento de agravo de instrumento manifestamente inadmissível pelo relator.
+- Vide Súmula 182 do STJ.
+-- estabelece que é inviável o agravo que não ataca especificamente os fundamentos da decisão agravada.
+-----
+# Instrução do Agravo de Instrumento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.017. A petição de agravo de instrumento será instruída:
+- I – obrigatoriamente, com cópias da petição inicial, da contestação, da petição que ensejou a decisão agravada, da própria decisão agravada, da certidão da respectiva intimação ou outro documento oficial que comprove a tempestividade e das procurações outorgadas aos advogados do agravante e do agravado;
+- II – com declaração de inexistência de qualquer dos documentos referidos no inciso I, feita pelo advogado do agravante, sob pena de sua responsabilidade pessoal;
+- III – facultativamente, com outras peças que o agravante reputar úteis.
+- § 1.º Acompanhará a petição o comprovante do pagamento das respectivas custas e do porte de retorno, quando devidos, conforme tabela publicada pelos tribunais.
+- § 2.º No prazo do recurso, o agravo será interposto por:
+- I – protocolo realizado diretamente no tribunal competente para julgá-lo;
+- II – protocolo realizado na própria comarca, seção ou subseção judiciárias;
+- III – postagem, sob registro, com aviso de recebimento;
+- IV – transmissão de dados tipo fac-símile, nos termos da lei;
+- V – outra forma prevista em lei.
+- § 3.º Na falta da cópia de qualquer peça ou no caso de algum outro vício que comprometa a admissibilidade do agravo de instrumento, deve o relator aplicar o disposto no art. 932, parágrafo único.
+- § 4.º Se o recurso for interposto por sistema de transmissão de dados tipo fac-símile ou similar, as peças devem ser juntadas no momento de protocolo da petição original.
+- § 5.º Sendo eletrônicos os autos do processo, dispensam-se as peças referidas nos incisos I e II do caput, facultando-se ao agravante anexar outros documentos que entender úteis para a compreensão da controvérsia.
+# Remissões Normativas
+- Vide Súmulas 288 e 639 do STF.
+-- tratam do não conhecimento do agravo por deficiência na sua instrução, especialmente quanto às peças necessárias para a correta compreensão da controvérsia e aferição da tempestividade.
+- Vide art. 1.003 do CPC.
+-- dispõe sobre a contagem do prazo para a interposição de recursos.
+-----
+# Comunicação ao Juízo de Primeira Instância
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.018. O agravante poderá requerer a juntada, aos autos do processo, de cópia da petição do agravo de instrumento, do comprovante de sua interposição e da relação dos documentos que instruíram o recurso.
+- § 1.º Se o juiz comunicar que reformou inteiramente a decisão, o relator considerará prejudicado o agravo de instrumento.
+- § 2.º Não sendo eletrônicos os autos, o agravante tomará a providência prevista no caput, no prazo de 3 (três) dias a contar da interposição do agravo de instrumento.
+- § 3.º O descumprimento da exigência de que trata o § 2.º, desde que arguido e provado pelo agravado, importa inadmissibilidade do agravo de instrumento.
+-----
+# Procedimento do Agravo de Instrumento no Tribunal
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.019. Recebido o agravo de instrumento no tribunal e distribuído imediatamente, se não for o caso de aplicação do art. 932, incisos III e IV, o relator, no prazo de 5 (cinco) dias:
+- I – poderá atribuir efeito suspensivo ao recurso ou deferir, em antecipação de tutela, total ou parcialmente, a pretensão recursal, comunicando ao juiz sua decisão;
+- II – ordenará a intimação do agravado pessoalmente, por carta com aviso de recebimento, quando não tiver procurador constituído, ou pelo Diário da Justiça ou por carta com aviso de recebimento dirigida ao seu advogado, para que responda no prazo de 15 (quinze) dias, facultando-lhe juntar a documentação que entender necessária ao julgamento do recurso;
+- III – determinará a intimação do Ministério Público, preferencialmente por meio eletrônico, quando for o caso de sua intervenção, para que se manifeste no prazo de 15 (quinze) dias.
+-----
+# Prazo para Julgamento do Agravo de Instrumento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.020. O relator solicitará dia para julgamento em prazo não superior a 1 (um) mês da intimação do agravado.
+# Remissões Normativas
+- Vide Súmula 640 do STF.
+-- trata do cabimento de recurso extraordinário contra decisão de juiz de primeiro grau ou turma recursal em causas de alçada.
+-----
