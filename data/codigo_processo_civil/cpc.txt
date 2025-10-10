@@ -2486,3 +2486,51 @@
 - § 4.º A concessão de efeito suspensivo aos embargos oferecidos por um dos executados não suspenderá a execução contra os que não embargaram quando o respectivo fundamento disser respeito exclusivamente ao embargante.
 - § 5.º A concessão de efeito suspensivo não impedirá a efetivação dos atos de substituição, de reforço ou de redução da penhora e de avaliação dos bens.
 -----
+# Procedimento dos Embargos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 920. Recebidos os embargos:
+- I – o exequente será ouvido no prazo de 15 (quinze) dias;
+- II – a seguir, o juiz julgará immediately o pedido ou designará audiência;
+- III – encerrada a instrução, o juiz proferirá sentença.
+# Remissões Normativas
+- Vide art. 17 da LEF.
+-- trata do recebimento dos embargos na execução fiscal e da oitiva da Fazenda Pública.
+-----
+# Suspensão da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 921. Suspende-se a execução:
+- I – nas hipóteses dos arts. 313 e 315, no que couber;
+- II – no todo ou em parte, quando recebidos com efeito suspensivo os embargos à execução;
+- III – quando não for localizado o executado ou bens penhoráveis; (redação pela Lei n. 14.195, de 26-8-2021)
+- IV – se a alienação dos bens penhorados não se realizar por falta de licitantes e o exequente, em 15 (quinze) dias, não requerer a adjudicação nem indicar outros bens penhoráveis;
+- V – quando concedido o parcelamento de que trata o art. 916.
+- § 1.º Na hipótese do inciso III, o juiz suspenderá a execução pelo prazo de 1 (um) ano, durante o qual se suspenderá a prescrição.
+- § 2.º Decorrido o prazo máximo de 1 (um) ano sem que seja localizado o executado ou que sejam encontrados bens penhoráveis, o juiz ordenará o arquivamento dos autos.
+- § 3.º Os autos serão desarquivados para prosseguimento da execução se a qualquer tempo forem encontrados bens penhoráveis.
+- § 4.º O termo inicial da prescrição no curso do processo será a ciência da primeira tentativa infrutífera de localização do devedor ou de bens penhoráveis, e será suspensa, por uma única vez, pelo prazo máximo previsto no § 1.º deste artigo. (redação pela Lei n. 14.195, de 26-8-2021)
+- § 4.º-A. A efetiva citação, intimação do devedor ou constrição de bens penhoráveis interrompe o prazo de prescrição, que não corre pelo tempo necessário à citação e à intimação do devedor, bem como para as formalidades da constrição patrimonial, se necessária, desde que o credor cumpra os prazos previstos na lei processual ou fixados pelo juiz. (acrescentado pela Lei n. 14.195, de 26-8-2021)
+- § 5.º O juiz, depois de ouvidas as partes, no prazo de 15 (quinze) dias, poderá, de ofício, reconhecer a prescrição no curso do processo e extingui-lo, sem ônus para as partes. (redação pela Lei n. 14.195, de 26-8-2021)
+- § 6.º A alegação de nulidade quanto ao procedimento previsto neste artigo somente será conhecida caso demonstrada a ocorrência de efetivo prejuízo, que será presumido apenas em caso de inexistência da intimação de que trata o § 4.º deste artigo. (acrescentado pela Lei n. 14.195, de 26-8-2021)
+- § 7.º Aplica-se o disposto neste artigo ao cumprimento de sentença de que trata o art. 523 deste Código. (acrescentado pela Lei n. 14.195, de 26-8-2021)
+# Remissões Normativas
+- Vide art. 40 da LEF.
+-- trata da suspensão da execução fiscal e do arquivamento dos autos quando não localizado o devedor ou bens penhoráveis.
+- Vide Súmula 314 do STJ.
+-- estabelece que, na execução fiscal, o prazo de um ano de suspensão do processo e o início do prazo prescricional intercorrente independem de despacho do juiz.
+-----
+# Suspensão por Convenção das Partes
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 922. Convindo as partes, o juiz declarará suspensa a execução durante o prazo concedido pelo exequente para que o executado cumpra voluntariamente a obrigação.
+- Parágrafo único. Findo o prazo sem cumprimento da obrigação, o processo retomará o seu curso.
+-----
+# Atos Processuais durante a Suspensão
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 923. Suspensa a execução, não serão praticados atos processuais, podendo o juiz, entretanto, salvo no caso de arguição de impedimento ou de suspeição, ordenar providências urgentes.
+# Remissões Normativas
+- Vide arts. 221 e 314 do CPC.
+-- tratam da suspensão dos prazos processuais e da vedação da prática de atos processuais durante a suspensão do processo, ressalvadas as medidas urgentes.
+-----
