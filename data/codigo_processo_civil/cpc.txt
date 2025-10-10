@@ -3482,3 +3482,519 @@
 - Vide Súmula 640 do STF.
 -- trata do cabimento de recurso extraordinário contra decisão de juiz de primeiro grau ou turma recursal em causas de alçada.
 -----
+# Agravo Interno
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.021. Contra decisão proferida pelo relator caberá agravo interno para o respectivo órgão colegiado, observadas, quanto ao processamento, as regras do regimento interno do tribunal.
+- A Resolução n. 450, de 3-12-2010, do STF, criou a classe processual “Recurso Extraordinário com Agravo – ARE”, para o processamento de agravo interposto contra decisão que não admite recurso extraordinário ao STF, em razão da alteração feita pela Lei n. 12.322, de 9-9-2010, que extinguiu o Agravo de Instrumento (AI) aplicado nesses casos.
+- A Resolução n. 451, de 3-12-2010, do STF, dispõe sobre a aplicação da Lei n. 12.322, de 9-9-2010, para os Recursos Extraordinários e Agravos sobre matéria penal e processual penal.
+- A Resolução n. 7, de 9-12-2010, do STJ, criou a classe processual de “Agravo em Recurso Especial – AREsp”, para o processamento de agravo interposto contra decisão que inadmite recurso especial.
+- § 1.º Na petição de agravo interno, o recorrente impugnará especificadamente os fundamentos da decisão agravada.
+- § 2.º O agravo será dirigido ao relator, que intimará o agravado para manifestar-se sobre o recurso no prazo de 15 (quinze) dias, ao final do qual, não havendo retratação, o relator levá-lo-á a julgamento pelo órgão colegiado, com inclusão em pauta.
+- § 3.º É vedado ao relator limitar-se à reprodução dos fundamentos da decisão agravada para julgar improcedente o agravo interno.
+- § 4.º Quando o agravo interno for declarado manifestamente inadmissível ou improcedente em votação unânime, o órgão colegiado, em decisão fundamentada, condenará o agravante a pagar ao agravado multa fixada entre um e cinco por cento do valor atualizado da causa.
+- § 5.º A interposição de qualquer outro recurso está condicionada ao depósito prévio do valor da multa prevista no § 4.º, à exceção da Fazenda Pública e do beneficiário de gratuidade da justiça, que farão o pagamento ao final.
+-----
+# Embargos de Declaração
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.022. Cabem embargos de declaração contra qualquer decisão judicial para:
+- I – esclarecer obscuridade ou eliminar contradição;
+- II – suprir omissão de ponto ou questão sobre o qual devia se pronunciar o juiz de ofício ou a requerimento;
+- III – corrigir erro material.
+- Parágrafo único. Considera-se omissa a decisão que:
+- I – deixe de se manifestar sobre tese firmada em julgamento de casos repetitivos ou em incidente de assunção de competência aplicável ao caso sob julgamento;
+- II – incorra em qualquer das condutas descritas no art. 489, § 1.º.
+# Remissões Normativas
+- Vide Súmula 98 do STJ.
+-- trata da possibilidade de oposição de embargos de declaração com finalidade de prequestionamento.
+- Vide art. 494, II, do CPC.
+-- dispõe sobre a alteração da sentença por meio de embargos de declaração.
+- Vide Súmula 211 do STJ.
+-- estabelece que é inadmissível recurso especial quanto à questão que, a despeito da oposição de embargos declaratórios, não foi apreciada pelo Tribunal a quo.
+-----
+# Embargos de Declaração
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.023. Os embargos serão opostos, no prazo de 5 (cinco) dias, em petição dirigida ao juiz, com indicação do erro, obscuridade, contradição ou omissão, e não se sujeitam a preparo.
+- § 1.º Aplica-se aos embargos de declaração o art. 229.
+- § 2.º O juiz intimará o embargado para, querendo, manifestar-se, no prazo de 5 (cinco) dias, sobre os embargos opostos, caso seu eventual acolhimento implique a modificação da decisão embargada.
+# Remissões Normativas
+- Vide art. 229 do CPC.
+-- trata da contagem de prazo em dobro para litisconsortes com diferentes procuradores, de escritórios de advocacia distintos, para todas as suas manifestações, em qualquer juízo ou tribunal, independentemente de requerimento.
+-----
+# Embargos de Declaração
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.024. O juiz julgará os embargos em 5 (cinco) dias.
+- § 1.º Nos tribunais, o relator apresentará os embargos em mesa na sessão subsequente, proferindo voto, e, não havendo julgamento nessa sessão, será o recurso incluído em pauta automaticamente.
+- § 2.º Quando os embargos de declaração forem opostos contra decisão de relator ou outra decisão unipessoal proferida em tribunal, o órgão prolator da decisão embargada decidi-los-á monocraticamente.
+- § 3.º O órgão julgador conhecerá dos embargos de declaração como agravo interno se entender ser este o recurso cabível, desde que determine previamente a intimação do recorrente para, no prazo de 5 (cinco) dias, complementar as razões recursais, de modo a ajustá-las às exigências do art. 1.021, § 1.º.
+- § 4.º Caso o acolhimento dos embargos de declaração implique modificação da decisão embargada, o embargado que já tiver interposto outro recurso contra a decisão originária tem o direito de complementar ou alterar suas razões, nos exatos limites da modificação, no prazo de 15 (quinze) dias, contado da intimação da decisão dos embargos de declaração.
+- § 5.º Se os embargos de declaração forem rejeitados ou não alterarem a conclusão do julgamento anterior, o recurso interposto pela outra parte antes da publicação do julgamento dos embargos de declaração será processado e julgado independentemente de ratificação.
+# Remissões Normativas
+- Vide Súmula 579 do STJ.
+-- estabelece que não é necessário ratificar o recurso especial interposto na pendência do julgamento dos embargos de declaração, quando inalterado o resultado anterior.
+-----
+# Embargos de Declaração
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.025. Consideram-se incluídos no acórdão os elementos que o embargante suscitou, para fins de prequestionamento, ainda que os embargos de declaração sejam inadmitidos ou rejeitados, caso o tribunal superior considere existentes erro, omissão, contradição ou obscuridade.
+# Remissões Normativas
+- Vide art. 9.º, parágrafo único, da Instrução Normativa n. 39, de 15-3-2016.
+-- trata da aplicação do art. 1.025 do CPC ao Processo do Trabalho, estabelecendo o prequestionamento ficto.
+-----
+# Embargos de Declaração
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.026. Os embargos de declaração não possuem efeito suspensivo e interrompem o prazo para a interposição de recurso.
+- § 1.º A eficácia da decisão monocrática ou colegiada poderá ser suspensa pelo respectivo juiz ou relator se demonstrada a probabilidade de provimento do recurso ou, sendo relevante a fundamentação, se houver risco de dano grave ou de difícil reparação.
+- § 2.º Quando manifestamente protelatórios os embargos de declaração, o juiz ou o tribunal, em decisão fundamentada, condenará o embargante a pagar ao embargado multa não excedente a dois por cento sobre o valor atualizado da causa.
+- § 3.º Na reiteração de embargos de declaração manifestamente protelatórios, a multa será elevada a até dez por cento sobre o valor atualizado da causa, e a interposição de qualquer recurso ficará condicionada ao depósito prévio do valor da multa, à exceção da Fazenda Pública e do beneficiário de gratuidade da justiça, que a recolherão ao final.
+- § 4.º Não serão admitidos novos embargos de declaração se os 2 (dois) anteriores houverem sido considerados protelatórios.
+-----
+# Recurso Ordinário
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.027. Serão julgados em recurso ordinário:
+- I – pelo Supremo Tribunal Federal, os mandados de segurança, os habeas data e os mandados de injunção decididos em única instância pelos tribunais superiores, quando denegatória a decisão;
+- II – pelo Superior Tribunal de Justiça:
+- a) os mandados de segurança decididos em única instância pelos tribunais regionais federais ou pelos tribunais de justiça dos Estados e do Distrito Federal e Territórios, quando denegatória a decisão;
+- b) os processos em que forem partes, de um lado, Estado estrangeiro ou organismo internacional e, de outro, Município ou pessoa residente ou domiciliada no País.
+- § 1.º Nos processos referidos no inciso II, alínea b, contra as decisões interlocutórias caberá agravo de instrumento dirigido ao Superior Tribunal de Justiça, nas hipóteses do art. 1.015.
+- § 2.º Aplica-se ao recurso ordinário o disposto nos arts. 1.013, § 3.º, e 1.029, § 5.º.
+# Remissões Normativas
+- Vide CF, arts. 101 a 105.
+-- tratam da organização, composição e competência do Supremo Tribunal Federal e do Superior Tribunal de Justiça.
+- Vide art. 102, II, da CF.
+-- estabelece as hipóteses de competência recursal ordinária do Supremo Tribunal Federal.
+- Vide art. 105, II, da CF.
+-- define as hipóteses de competência recursal ordinária do Superior Tribunal de Justiça.
+- Vide arts. 1.013, § 3.º, e 1.029, § 5.º, do CPC.
+-- tratam, respectivamente, da teoria da causa madura no recurso de apelação e da possibilidade de o tribunal superior desconsiderar vício formal de recurso tempestivo.
+-----
+# Recurso Ordinário
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.028. Ao recurso mencionado no art. 1.027, inciso II, alínea b, aplicam-se, quanto aos requisitos de admissibilidade e ao procedimento, as disposições relativas à apelação e o Regimento Interno do Superior Tribunal de Justiça.
+- § 1.º Na hipótese do art. 1.027, § 1.º, aplicam-se as disposições relativas ao agravo de instrumento e o Regimento Interno do Superior Tribunal de Justiça.
+- § 2.º O recurso previsto no art. 1.027, incisos I e II, alínea a, deve ser interposto perante o tribunal de origem, cabendo ao seu presidente ou vice-presidente determinar a intimação do recorrido para, em 15 (quinze) dias, apresentar as contrarrazões.
+- § 3.º Findo o prazo referido no § 2.º, os autos serão remetidos ao respectivo tribunal superior, independentemente de juízo de admissibilidade.
+-----
+# Recurso Extraordinário e Recurso Especial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.029. O recurso extraordinário e o recurso especial, nos casos previstos na Constituição Federal, serão interpostos perante o presidente ou o vice-presidente do tribunal recorrido, em petições distintas que conterão:
+- I – a exposição do fato e do direito;
+- II – a demonstração do cabimento do recurso interposto;
+- III – as razões do pedido de reforma ou de invalidação da decisão recorrida.
+- § 1.º Quando o recurso fundar-se em dissídio jurisprudencial, o recorrente fará a prova da divergência com a certidão, cópia ou citação do repositório de jurisprudência, oficial ou credenciado, inclusive em mídia eletrônica, em que houver sido publicado o acórdão divergente, ou ainda com a reprodução de julgado disponível na rede mundial de computadores, com indicação da respectiva fonte, devendo-se, em qualquer caso, mencionar as circunstâncias que identifiquem ou assemelhem os casos confrontados.
+- § 2.º (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- § 3.º O Supremo Tribunal Federal ou o Superior Tribunal de Justiça poderá desconsiderar vício formal de recurso tempestivo ou determinar sua correção, desde que não o repute grave.
+- § 4.º Quando, por ocasião do processamento do incidente de resolução de demandas repetitivas, o presidente do Supremo Tribunal Federal ou do Superior Tribunal de Justiça receber requerimento de suspensão de processos em que se discuta questão federal constitucional ou infraconstitucional, poderá, considerando razões de segurança jurídica ou de excepcional interesse social, estender a suspensão a todo o território nacional, até ulterior decisão do recurso extraordinário ou do recurso especial a ser interposto.
+- § 5.º O pedido de concessão de efeito suspensivo a recurso extraordinário ou a recurso especial poderá ser formulado por requerimento dirigido:
+- I – ao tribunal superior respectivo, no período compreendido entre a publicação da decisão de admissão do recurso e sua distribuição, ficando o relator designado para seu exame prevento para julgá-lo;
+- Inciso I com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- II – ao relator, se já distribuído o recurso;
+- III – ao presidente ou ao vice-presidente do tribunal recorrido, no período compreendido entre a interposição do recurso e a publicação da decisão de admissão do recurso, assim como no caso de o recurso ter sido sobrestado, nos termos do art. 1.037.
+- Inciso III com redação determinada pela Lei n. 13.256, de 4-2-2016.
+# Remissões Normativas
+- Vide arts. 102, III, e § 3.º, e 105, III, da CF.
+-- estabelecem as hipóteses de cabimento do recurso extraordinário e do recurso especial, e o requisito da repercussão geral para o primeiro.
+- Vide Súmula 414 do TST.
+-- define que a concessão de liminar ou a homologação de acordo constituem atos que confirmam a tutela provisória, não havendo interesse de recorrer contra a decisão que a deferiu.
+-----
+# Juízo de Admissibilidade dos Recursos Excepcionais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.030. Recebida a petição do recurso pela secretaria do tribunal, o recorrido será intimado para apresentar contrarrazões no prazo de 15 (quinze) dias, findo o qual os autos serão conclusos ao presidente ou ao vice-presidente do tribunal recorrido, que deverá:
+- Caput com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- I – negar seguimento:
+- Inciso I, caput, acrescentado pela Lei n. 13.256, de 4-2-2016.
+- a) a recurso extraordinário que discuta questão constitucional à qual o Supremo Tribunal Federal não tenha reconhecido a existência de repercussão geral ou a recurso extraordinário interposto contra acórdão que esteja em conformidade com entendimento do Supremo Tribunal Federal exarado no regime de repercussão geral;
+- Alínea a acrescentada pela Lei n. 13.256, de 4-2-2016.
+- b) a recurso extraordinário ou a recurso especial interposto contra acórdão que esteja em conformidade com entendimento do Supremo Tribunal Federal ou do Superior Tribunal de Justiça, respectivamente, exarado no regime de julgamento de recursos repetitivos;
+- Alínea b acrescentada pela Lei n. 13.256, de 4-2-2016.
+- II – encaminhar o processo ao órgão julgador para realização do juízo de retratação, se o acórdão recorrido divergir do entendimento do Supremo Tribunal Federal ou do Superior Tribunal de Justiça exarado, conforme o caso, nos regimes de repercussão geral ou de recursos repetitivos;
+- Inciso II acrescentado pela Lei n. 13.256, de 4-2-2016.
+- III – sobrestar o recurso que versar sobre controvérsia de caráter repetitivo ainda não decidida pelo Supremo Tribunal Federal ou pelo Superior Tribunal de Justiça, conforme se trate de matéria constitucional ou infraconstitucional;
+- Inciso III acrescentado pela Lei n. 13.256, de 4-2-2016.
+- IV – selecionar o recurso como representativo de controvérsia constitucional ou infraconstitucional, nos termos do § 6.º do art. 1.036;
+- Inciso IV acrescentado pela Lei n. 13.256, de 4-2-2016.
+- V – realizar o juízo de admissibilidade e, se positivo, remeter o feito ao Supremo Tribunal Federal ou ao Superior Tribunal de Justiça, desde que:
+- Inciso V, caput, acrescentado pela Lei n. 13.256, de 4-2-2016.
+- a) o recurso ainda não tenha sido submetido ao regime de repercussão geral ou de julgamento de recursos repetitivos;
+- Alínea a acrescentada pela Lei n. 13.256, de 4-2-2016.
+- b) o recurso tenha sido selecionado como representativo da controvérsia; ou
+- Alínea b acrescentada pela Lei n. 13.256, de 4-2-2016.
+- c) o tribunal recorrido tenha refutado o juízo de retratação.
+- Alínea c acrescentada pela Lei n. 13.256, de 4-2-2016.
+- § 1.º Da decisão de inadmissibilidade proferida com fundamento no inciso V caberá agravo ao tribunal superior, nos termos do art. 1.042.
+- § 1.º acrescentado pela Lei n. 13.256, de 4-2-2016.
+- § 2.º Da decisão proferida com fundamento nos incisos I e III caberá agravo interno, nos termos do art. 1.021.
+- § 2.º acrescentado pela Lei n. 13.256, de 4-2-2016.
+# Remissões Normativas
+- Vide Súmula 216 do STJ.
+-- afirma que a tempestividade de recurso interposto no Superior Tribunal de Justiça é aferida pelo registro no protocolo da secretaria e não pela data da entrega na agência dos Correios.
+-----
+# Processamento de RE e REsp Interpostos Conjuntamente
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.031. Na hipótese de interposição conjunta de recurso extraordinário e recurso especial, os autos serão remetidos ao Superior Tribunal de Justiça.
+- § 1.º Concluído o julgamento do recurso especial, os autos serão remetidos ao Supremo Tribunal Federal para apreciação do recurso extraordinário, se este não estiver prejudicado.
+- § 2.º Se o relator do recurso especial considerar prejudicial o recurso extraordinário, em decisão irrecorrível, sobrestará o julgamento e remeterá os autos ao Supremo Tribunal Federal.
+- § 3.º Na hipótese do § 2.º, se o relator do recurso extraordinário, em decisão irrecorrível, rejeitar a prejudicialidade, devolverá os autos ao Superior Tribunal de Justiça para o julgamento do recurso especial.
+-----
+# Análise de Questão Constitucional no REsp
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.032. Se o relator, no Superior Tribunal de Justiça, entender que o recurso especial versa sobre questão constitucional, deverá conceder prazo de 15 (quinze) dias para que o recorrente demonstre a existência de repercussão geral e se manifeste sobre a questão constitucional.
+- Parágrafo único. Cumprida a diligência de que trata o caput, o relator remeterá o recurso ao Supremo Tribunal Federal, que, em juízo de admissibilidade, poderá devolvê-lo ao Superior Tribunal de Justiça.
+-----
+# Ofensa Reflexa à Constituição
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.033. Se o Supremo Tribunal Federal considerar como reflexa a ofensa à Constituição afirmada no recurso extraordinário, por pressupor a revisão da interpretação de lei federal ou de tratado, remetê-lo-á ao Superior Tribunal de Justiça para julgamento como recurso especial.
+-----
+# Julgamento dos Recursos Excepcionais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.034. Admitido o recurso extraordinário ou o recurso especial, o Supremo Tribunal Federal ou o Superior Tribunal de Justiça julgará o processo, aplicando o direito.
+- Parágrafo único. Admitido o recurso extraordinário ou o recurso especial por um fundamento, devolve-se ao tribunal superior o conhecimento dos demais fundamentos para a solução do capítulo impugnado.
+# Remissões Normativas
+- Vide art. 12 da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece que a regra do parágrafo único do art. 1.034 do CPC se aplica ao Recurso de Revista.
+-----
+# Repercussão Geral no Recurso Extraordinário
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.035. O Supremo Tribunal Federal, em decisão irrecorrível, não conhecerá do recurso extraordinário quando a questão constitucional nele versada não tiver repercussão geral, nos termos deste artigo.
+- § 1.º Para efeito de repercussão geral, será considerada a existência ou não de questões relevantes do ponto de vista econômico, político, social ou jurídico que ultrapassem os interesses subjetivos do processo.
+- § 2.º O recorrente deverá demonstrar a existência de repercussão geral para apreciação exclusiva pelo Supremo Tribunal Federal.
+- § 3.º Haverá repercussão geral sempre que o recurso impugnar acórdão que:
+- I – contrarie súmula ou jurisprudência dominante do Supremo Tribunal Federal;
+- II – (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- III – tenha reconhecido a inconstitucionalidade de tratado ou de lei federal, nos termos do art. 97 da Constituição Federal.
+- § 4.º O relator poderá admitir, na análise da repercussão geral, a manifestação de terceiros, subscrita por procurador habilitado, nos termos do Regimento Interno do Supremo Tribunal Federal.
+- § 5.º Reconhecida a repercussão geral, o relator no Supremo Tribunal Federal determinará a suspensão do processamento de todos os processos pendentes, individuais ou coletivos, que versem sobre a questão e tramitem no território nacional.
+- § 6.º O interessado pode requerer, ao presidente ou ao vice-presidente do tribunal de origem, que exclua da decisão de sobrestamento e inadmita o recurso extraordinário que tenha sido interposto intempestivamente, tendo o recorrente o prazo de 5 (cinco) dias para manifestar-se sobre esse requerimento.
+- § 7.º Da decisão que indeferir o requerimento referido no § 6.º ou que aplicar entendimento firmado em regime de repercussão geral ou em julgamento de recursos repetitivos caberá agravo interno.
+- § 7.º com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- § 8.º Negada a repercussão geral, o presidente ou o vice-presidente do tribunal de origem negará seguimento aos recursos extraordinários sobrestados na origem que versem sobre matéria idêntica.
+- § 9.º O recurso que tiver a repercussão geral reconhecida deverá ser julgado no prazo de 1 (um) ano e terá preferência sobre os demais feitos, ressalvados os que envolvam réu preso e os pedidos de habeas corpus.
+- § 10. (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- § 11. A súmula da decisão sobre a repercussão geral constará de ata, que será publicada no diário oficial e valerá como acórdão.
+-----
+# Julgamento dos Recursos Extraordinário e Especial Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.036. Sempre que houver multiplicidade de recursos extraordinários ou especiais com fundamento em idêntica questão de direito, haverá afetação para julgamento de acordo com as disposições desta Subseção, observado o disposto no Regimento Interno do Supremo Tribunal Federal e no do Superior Tribunal de Justiça.
+- § 1.º O presidente ou o vice-presidente de tribunal de justiça ou de tribunal regional federal selecionará 2 (dois) ou mais recursos representativos da controvérsia, que serão encaminhados ao Supremo Tribunal Federal ou ao Superior Tribunal de Justiça para fins de afetação, determinando a suspensão do trâmite de todos os processos pendentes, individuais ou coletivos, que tramitem no Estado ou na região, conforme o caso.
+- § 2.º O interessado pode requerer, ao presidente ou ao vice-presidente, que exclua da decisão de sobrestamento e inadmita o recurso especial ou o recurso extraordinário que tenha sido interposto intempestivamente, tendo o recorrente o prazo de 5 (cinco) dias para manifestar-se sobre esse requerimento.
+- § 3.º Da decisão que indeferir o requerimento referido no § 2.º caberá apenas agravo interno.
+- § 3.º com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- § 4.º A escolha feita pelo presidente ou vice-presidente do tribunal de justiça ou do tribunal regional federal não vinculará o relator no tribunal superior, que poderá selecionar outros recursos representativos da controvérsia.
+- § 5.º O relator em tribunal superior também poderá selecionar 2 (dois) ou mais recursos representativos da controvérsia para julgamento da questão de direito independentemente da iniciativa do presidente ou do vice-presidente do tribunal de origem.
+- § 6.º Somente podem ser selecionados recursos admissíveis que contenham abrangente argumentação e discussão a respeito da questão a ser decidida.
+-----
+# Julgamento dos Recursos Extraordinário e Especial Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.037. Selecionados os recursos, o relator, no tribunal superior, constatando a presença do pressuposto do caput do art. 1.036, proferirá decisão de afetação, na qual:
+- I – identificará com precisão a questão a ser submetida a julgamento;
+- II – determinará a suspensão do processamento de todos os processos pendentes, individuais ou coletivos, que versem sobre a questão e tramitem no território nacional;
+- III – poderá requisitar aos presidentes ou aos vice-presidentes dos tribunais de justiça ou dos tribunais regionais federais a remessa de um recurso representativo da controvérsia.
+- § 1.º Se, após receber os recursos selecionados pelo presidente ou pelo vice-presidente de tribunal de justiça ou de tribunal regional federal, não se proceder à afetação, o relator, no tribunal superior, comunicará o fato ao presidente ou ao vice-presidente que os houver enviado, para que seja revogada a decisão de suspensão referida no art. 1.036, § 1.º.
+- § 2.º (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- § 3.º Havendo mais de uma afetação, será prevento o relator que primeiro tiver proferido a decisão a que se refere o inciso I do caput.
+- § 4.º Os recursos afetados deverão ser julgados no prazo de 1 (um) ano e terão preferência sobre os demais feitos, ressalvados os que envolvam réu preso e os pedidos de habeas corpus.
+- § 5.º (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- § 6.º Ocorrendo a hipótese do § 5.º, é permitido a outro relator do respectivo tribunal superior afetar 2 (dois) ou mais recursos representativos da controvérsia na forma do art. 1.036.
+- § 7.º Quando os recursos requisitados na forma do inciso III do caput contiverem outras questões além daquela que é objeto da afetação, caberá ao tribunal decidir esta em primeiro lugar e depois as demais, em acórdão específico para cada processo.
+- § 8.º As partes deverão ser intimadas da decisão de suspensão de seu processo, a ser proferida pelo respectivo juiz ou relator quando informado da decisão a que se refere o inciso II do caput.
+- § 9.º Demonstrando distinção entre a questão a ser decidida no processo e aquela a ser julgada no recurso especial ou extraordinário afetado, a parte poderá requerer o prosseguimento do seu processo.
+- § 10. O requerimento a que se refere o § 9.º será dirigido:
+- I – ao juiz, se o processo sobrestado estiver em primeiro grau;
+- II – ao relator, se o processo sobrestado estiver no tribunal de origem;
+- III – ao relator do acórdão recorrido, if for sobrestado recurso especial ou recurso extraordinário no tribunal de origem;
+- IV – ao relator, no tribunal superior, de recurso especial ou de recurso extraordinário cujo processamento houver sido sobrestado.
+- § 11. A outra parte deverá ser ouvida sobre o requerimento a que se refere o § 9.º, no prazo de 5 (cinco) dias.
+- § 12. Reconhecida a distinção no caso:
+- I – dos incisos I, II e IV do § 10, o próprio juiz ou relator dará prosseguimento ao processo;
+- II – do inciso III do § 10, o relator comunicará a decisão ao presidente ou ao vice-presidente que houver determinado o sobrestamento, para que o recurso especial ou o recurso extraordinário seja encaminhado ao respectivo tribunal superior, na forma do art. 1.030, parágrafo único.
+- Prejudicada a referência ao art. 1.030, parágrafo único, modificado pela Lei n. 13.256, de 4-2-2016.
+- § 13. Da decisão que resolver o requerimento a que se refere o § 9.º caberá:
+- I – agravo de instrumento, se o processo estiver em primeiro grau;
+- II – agravo interno, se a decisão for de relator.
+-----
+# Julgamento dos Recursos Extraordinário e Especial Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.038. O relator poderá:
+- I – solicitar ou admitir manifestação de pessoas, órgãos ou entidades com interesse na controvérsia, considerando a relevância da matéria e consoante dispuser o regimento interno;
+- O Provimento n. 128, de 8-12-2008, estabelece parâmetros de atuação do Conselho Federal da OAB para manifestação em recursos repetitivos.
+- II – fixar data para, em audiência pública, ouvir depoimentos de pessoas com experiência e conhecimento na matéria, com a finalidade de instruir o procedimento;
+- III – requisitar informações aos tribunais inferiores a respeito da controvérsia e, cumprida a diligência, intimará o Ministério Público para manifestar-se.
+- § 1.º No caso do inciso III, os prazos respectivos são de 15 (quinze) dias, e os atos serão praticados, sempre que possível, por meio eletrônico.
+- § 2.º Transcorrido o prazo para o Ministério Público e remetida cópia do relatório aos demais ministros, haverá inclusão em pauta, devendo ocorrer o julgamento com preferência sobre os demais feitos, ressalvados os que envolvam réu preso e os pedidos de habeas corpus.
+- § 3.º O conteúdo do acórdão abrangerá a análise dos fundamentos relevantes da tese jurídica discutida.
+- § 3.º com redação determinada pela Lei n. 13.256, de 4-2-2016.
+# Remissões Normativas
+- Vide art. 138 do CPC.
+-- trata da intervenção do amicus curiae, que permite ao juiz ou relator, por decisão irrecorrível, solicitar ou admitir a participação de pessoa, órgão ou entidade com representatividade e interesse na causa.
+-----
+# Julgamento dos Recursos Extraordinário e Especial Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.039. Decididos os recursos afetados, os órgãos colegiados declararão prejudicados os demais recursos versando sobre idêntica controvérsia ou os decidirão aplicando a tese firmada.
+- Parágrafo único. Negada a existência de repercussão geral no recurso extraordinário afetado, serão considerados automaticamente inadmitidos os recursos extraordinários cujo processamento tenha sido sobrestado.
+-----
+# Julgamento dos Recursos Extraordinário e Especial Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.040. Publicado o acórdão paradigma:
+- I – o presidente ou o vice-presidente do tribunal de origem negará seguimento aos recursos especiais ou extraordinários sobrestados na origem, se o acórdão recorrido coincidir com a orientação do tribunal superior;
+- II – o órgão que proferiu o acórdão recorrido, na origem, reexaminará o processo de competência originária, a remessa necessária ou o recurso anteriormente julgado, se o acórdão recorrido contrariar a orientação do tribunal superior;
+- III – os processos suspensos em primeiro e segundo graus de jurisdição retomarão o curso para julgamento e aplicação da tese firmada pelo tribunal superior;
+- IV – se os recursos versarem sobre questão relativa a prestação de serviço público objeto de concessão, permissão ou autorização, o resultado do julgamento será comunicado ao órgão, ao ente ou à agência reguladora competente para fiscalização da efetiva aplicação, por parte dos entes sujeitos a regulação, da tese adotada.
+- O STF, nas sessões virtuais de 14-4-2023 a 24-4-2023 (DOU de 4-5-2023), julgou parcialmente procedente a ADI n. 5.492 para declarar constitucional este inciso IV.
+- § 1.º A parte poderá desistir da ação em curso no primeiro grau de jurisdição, antes de proferida a sentença, se a questão nela discutida for idêntica à resolvida pelo recurso representativo da controvérsia.
+- § 2.º Se a desistência ocorrer antes de oferecida contestação, a parte ficará isenta do pagamento de custas e de honorários de sucumbência.
+- § 3.º A desistência apresentada nos termos do § 1.º independe de consentimento do réu, ainda que apresentada contestação.
+-----
+# Julgamento dos Recursos Extraordinário e Especial Repetitivos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.041. Mantido o acórdão divergente pelo tribunal de origem, o recurso especial ou extraordinário será remetido ao respectivo tribunal superior, na forma do art. 1.036, § 1.º.
+- § 1.º Realizado o juízo de retratação, com alteração do acórdão divergente, o tribunal de origem, se for o caso, decidirá as demais questões ainda não decididas cujo enfrentamento se tornou necessário em decorrência da alteração.
+- § 2.º Quando ocorrer a hipótese do inciso II do caput do art. 1.040 e o recurso versar sobre outras questões, caberá ao presidente ou ao vice-presidente do tribunal recorrido, depois do reexame pelo órgão de origem e independentemente de ratificação do recurso, sendo positivo o juízo de admissibilidade, determinar a remessa do recurso ao tribunal superior para julgamento das demais questões.
+- § 2.º com redação determinada pela Lei n. 13.256, de 4-2-2016.
+-----
+# Do Agravo em Recurso Especial e em Recurso Extraordinário
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.042. Cabe agravo contra decisão do presidente ou do vice-presidente do tribunal recorrido que inadmitir recurso extraordinário ou recurso especial, salvo quando fundada na aplicação de entendimento firmado em regime de repercussão geral ou em julgamento de recursos repetitivos.
+- Caput com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- A Resolução n. 450, de 3-12-2010, do STF, criou a classe processual “Recurso Extraordinário com Agravo – ARE”, para o processamento de agravo interposto contra decisão que não admite recurso extraordinário ao STF, em razão da alteração feita pela Lei n. 12.322, de 9-9-2010, que extinguiu o Agravo de Instrumento (AI) aplicado nesses casos.
+- A Resolução n. 451, de 3-12-2010, do STF, dispõe sobre a aplicação da Lei n. 12.322, de 9-9-2010, para os Recursos Extraordinários e Agravos sobre matéria penal e processual penal.
+- A Resolução n. 7, de 9-12-2010, do STJ, criou a classe processual de “Agravo em Recurso Especial – AREsp”, para o processamento de agravo interposto contra decisão que inadmite recurso especial.
+- I a III – (Revogados pela Lei n. 13.256, de 4-2-2016.)
+- § 1.º (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- § 2.º A petição de agravo será dirigida ao presidente ou ao vice-presidente do tribunal de origem e independe do pagamento de custas e despesas postais, aplicando-se a ela o regime de repercussão geral e de recursos repetitivos, inclusive quanto à possibilidade de sobrestamento e do juízo de retratação.
+- § 2.º com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- § 3.º O agravado será intimado, de imediato, para oferecer resposta no prazo de 15 (quinze) dias.
+- § 4.º Após o prazo de resposta, não havendo retratação, o agravo será remetido ao tribunal superior competente.
+- § 5.º O agravo poderá ser julgado, conforme o caso, conjuntamente com o recurso especial ou extraordinário, assegurada, neste caso, sustentação oral, observando-se, ainda, o disposto no regimento interno do tribunal respectivo.
+- § 6.º Na hipótese de interposição conjunta de recursos extraordinário e especial, o agravante deverá interpor um agravo para cada recurso não admitido.
+- § 7.º Havendo apenas um agravo, o recurso será remetido ao tribunal competente, e, havendo interposição conjunta, os autos serão remetidos ao Superior Tribunal de Justiça.
+- § 8.º Concluído o julgamento do agravo pelo Superior Tribunal de Justiça e, se for o caso, do recurso especial, independentemente de pedido, os autos serão remetidos ao Supremo Tribunal Federal para apreciação do agravo a ele dirigido, salvo se estiver prejudicado.
+-----
+# Embargos de Divergência
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.043. É embargável o acórdão de órgão fracionário que:
+- I – em recurso extraordinário ou em recurso especial, divergir do julgamento de qualquer outro órgão do mesmo tribunal, sendo os acórdãos, embargado e paradigma, de mérito;
+- II – (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- III – em recurso extraordinário ou em recurso especial, divergir do julgamento de qualquer outro órgão do mesmo tribunal, sendo um acórdão de mérito e outro que não tenha conhecido do recurso, embora tenha apreciado a controvérsia;
+- IV – (Revogado pela Lei n. 13.256, de 4-2-2016.)
+- § 1.º Poderão ser confrontadas teses jurídicas contidas em julgamentos de recursos e de ações de competência originária.
+- § 2.º A divergência que autoriza a interposição de embargos de divergência pode verificar-se na aplicação do direito material ou do direito processual.
+- § 3.º Cabem embargos de divergência quando o acórdão paradigma for da mesma turma que proferiu a decisão embargada, desde que sua composição tenha sofrido alteração em mais da metade de seus membros.
+- § 4.º O recorrente provará a divergência com certidão, cópia ou citação de repositório oficial ou credenciado de jurisprudência, inclusive em mídia eletrônica, onde foi publicado o acórdão divergente, ou com a reprodução de julgado disponível na rede mundial de computadores, indicando a respectiva fonte, e mencionará as circunstâncias que identificam ou assemelham os casos confrontados.
+- § 5.º (Revogado pela Lei n. 13.256, de 4-2-2016.)
+# Remissões Normativas
+- Vide art. 2.º da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece que as normas do CPC sobre o processo de conhecimento são aplicáveis ao Processo do Trabalho de forma supletiva e subsidiária.
+-----
+# Embargos de Divergência
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.044. No recurso de embargos de divergência, será observado o procedimento estabelecido no regimento interno do respectivo tribunal superior.
+- Sobre embargos de divergência: arts. 330 e s. do RISTF e 266 e 267 do RISTJ.
+- § 1.º A interposição de embargos de divergência no Superior Tribunal de Justiça interrompe o prazo para interposição de recurso extraordinário por qualquer das partes.
+- § 2.º Se os embargos de divergência forem desprovidos ou não alterarem a conclusão do julgamento anterior, o recurso extraordinário interposto pela outra parte antes da publicação do julgamento dos embargos de divergência será processado e julgado independentemente de ratificação.
+# Remissões Normativas
+- Vide art. 2.º da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece que as normas do CPC sobre o processo de conhecimento são aplicáveis ao Processo do Trabalho de forma supletiva e subsidiária.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.045. Este Código entra em vigor após decorrido 1 (um) ano da data de sua publicação oficial.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.046. Ao entrar em vigor este Código, suas disposições se aplicarão desde logo aos processos pendentes, ficando revogada a Lei n. 5.869, de 11 de janeiro de 1973.
+- § 1.º As disposições da Lei n. 5.869, de 11 de janeiro de 1973, relativas ao procedimento sumário e aos procedimentos especiais que forem revogadas aplicar-se-ão às ações propostas e não sentenciadas até o início da vigência deste Código.
+- § 2.º Permanecem em vigor as disposições especiais dos procedimentos regulados em outras leis, aos quais se aplicará supletivamente este Código.
+- § 3.º Os processos mencionados no art. 1.218 da Lei n. 5.869, de 11 de janeiro de 1973, cujo procedimento ainda não tenha sido incorporado por lei submetem-se ao procedimento comum previsto neste Código.
+- § 4.º As remissões a disposições do Código de Processo Civil revogado, existentes em outras leis, passam a referir-se às que lhes são correspondentes neste Código.
+- § 5.º A primeira lista de processos para julgamento em ordem cronológica observará a antiguidade da distribuição entre os já conclusos na data da entrada em vigor deste Código.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.047. As disposições de direito probatório adotadas neste Código aplicam-se apenas às provas requeridas ou determinadas de ofício a partir da data de início de sua vigência.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.048. Terão prioridade de tramitação, em qualquer juízo ou tribunal, os procedimentos judiciais:
+- I – em que figure como parte ou interessado pessoa com idade igual ou superior a 60 (sessenta) anos ou portadora de doença grave, assim compreendida qualquer das enumeradas no art. 6.º, inciso XIV, da Lei n. 7.713, de 22 de dezembro de 1988;
+- II – regulados pela Lei n. 8.069, de 13 de julho de 1990 (Estatuto da Criança e do Adolescente);
+- III – em que figure como parte a vítima de violência doméstica e familiar, nos termos da Lei n. 11.340, de 7 de agosto de 2006 (Lei Maria da Penha);
+- Inciso III acrescentado pela Lei n. 13.894, de 29-10-2019.
+- IV – em que se discuta a aplicação do disposto nas normas gerais de licitação e contratação a que se refere o inciso XXVII do caput do art. 22 da Constituição Federal.
+- Inciso IV acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- § 1.º A pessoa interessada na obtenção do benefício, juntando prova de sua condição, deverá requerê-lo à autoridade judiciária competente para decidir o feito, que determinará ao cartório do juízo as providências a serem cumpridas.
+- § 2.º Deferida a prioridade, os autos receberão identificação própria que evidencie o regime de tramitação prioritária.
+- § 3.º Concedida a prioridade, essa não cessará com a morte do beneficiado, estendendo-se em favor do cônjuge supérstite ou do companheiro em união estável.
+- § 4.º A tramitação prioritária independe de deferimento pelo órgão jurisdicional e deverá ser imediatamente concedida diante da prova da condição de beneficiário.
+# Remissões Normativas
+- Vide art. 71 da Lei n. 10.741, de 1.º-10-2003 (Estatuto da Pessoa Idosa).
+-- assegura a prioridade na tramitação dos processos e procedimentos e na execução dos atos e diligências judiciais em que figure como parte ou interveniente pessoa com idade igual ou superior a 60 anos.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.049. Sempre que a lei remeter a procedimento previsto na lei processual sem especificá-lo, será observado o procedimento comum previsto neste Código.
+- Parágrafo único. Na hipótese de a lei remeter ao procedimento sumário, será observado o procedimento comum previsto neste Código, com as modificações previstas na própria lei especial, se houver.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.050. A União, os Estados, o Distrito Federal, os Municípios, suas respectivas entidades da administração indireta, o Ministério Público, a Defensoria Pública e a Advocacia Pública, no prazo de 30 (trinta) dias a contar da data da entrada em vigor deste Código, deverão se cadastrar perante a administração do tribunal no qual atuem para cumprimento do disposto nos arts. 246, § 2.º, e 270, parágrafo único.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.051. As empresas públicas e privadas devem cumprir o disposto no art. 246, § 1.º, no prazo de 30 (trinta) dias, a contar da data de inscrição do ato constitutivo da pessoa jurídica, perante o juízo onde tenham sede ou filial.
+- Parágrafo único. O disposto no caput não se aplica às microempresas e às empresas de pequeno porte.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.052. Até a edição de lei específica, as execuções contra devedor insolvente, em curso ou que venham a ser propostas, permanecem reguladas pelo Livro II, Título IV, da Lei n. 5.869, de 11 de janeiro de 1973.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.053. Os atos processuais praticados por meio eletrônico até a transição definitiva para certificação digital ficam convalidados, ainda que não tenham observado os requisitos mínimos estabelecidos por este Código, desde que tenham atingido sua finalidade e não tenha havido prejuízo à defesa de qualquer das partes.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.054. O disposto no art. 503, § 1.º, somente se aplica aos processos iniciados após a vigência deste Código, aplicando-se aos anteriores o disposto nos arts. 5.º, 325 e 470 da Lei n. 5.869, de 11 de janeiro de 1973.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.055. (Vetado.)
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.056. Considerar-se-á como termo inicial do prazo da prescrição prevista no art. 924, inciso V, inclusive para as execuções em curso, a data de vigência deste Código.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.057. O disposto no art. 525, §§ 14 e 15, e no art. 535, §§ 7.º e 8.º, aplica-se às decisões transitadas em julgado após a entrada em vigor deste Código, e, às decisões transitadas em julgado anteriormente, aplica-se o disposto no art. 475-L, § 1.º, e no art. 741, parágrafo único, da Lei n. 5.869, de 11 de janeiro de 1973.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.058. Em todos os casos em que houver recolhimento de importância em dinheiro, esta será depositada em nome da parte ou do interessado, em conta especial movimentada por ordem do juiz, nos termos do art. 840, inciso I.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.059. À tutela provisória requerida contra a Fazenda Pública aplica-se o disposto nos arts. 1.º a 4.º da Lei n. 8.437, de 30 de junho de 1992, e no art. 7.º, § 2.º, da Lei n. 12.016, de 7 de agosto de 2009.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.060. O inciso II do art. 14 da Lei n. 9.289, de 4 de julho de 1996, passa a vigorar com a seguinte redação:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.061. O § 3.º do art. 33 da Lei n. 9.307, de 23 de setembro de 1996 (Lei de Arbitragem), passa a vigorar com a seguinte redação:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.062. O incidente de desconsideração da personalidade jurídica aplica-se ao processo de competência dos juizados especiais.
+# Remissões Normativas
+- Vide arts. 133 a 137 do CPC.
+-- dispõem sobre o Incidente de Desconsideração da Personalidade Jurídica, seu cabimento, instauração e procedimento.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.063. Os juizados especiais cíveis previstos na Lei n. 9.099, de 26 de setembro de 1995, continuam competentes para o processamento e o julgamento das causas previstas no inciso II do art. 275 da Lei n. 5.869, de 11 de janeiro de 1973.
+- Artigo com redação determinada pela Lei n. 14.976, de 18-9-2024.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.064. O caput do art. 48 da Lei n. 9.099, de 26 de setembro de 1995, passa a vigorar com a seguinte redação:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.065. O art. 50 da Lei n. 9.099, de 26 de setembro de 1995, passa a vigorar com a seguinte redação:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.066. O art. 83 da Lei n. 9.099, de 26 de setembro de 1995, passam a vigorar com a seguinte redação:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.067. O art. 275 da Lei n. 4.737, de 15 de julho de 1965 (Código Eleitoral), passa a vigorar com a seguinte redação:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.068. O art. 274 e o caput do art. 2.027 da Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil), passam a vigorar com a seguinte redação:
+- Alterações já processadas no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.069. O Conselho Nacional de Justiça promoverá, periodicamente, pesquisas estatísticas para avaliação da efetividade das normas previstas neste Código.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.070. É de 15 (quinze) dias o prazo para a interposição de qualquer agravo, previsto em lei ou em regimento interno de tribunal, contra decisão de relator ou outra decisão unipessoal proferida em tribunal.
+# Remissões Normativas
+- Vide art. 2.º da Instrução Normativa n. 39, de 15-3-2016.
+-- estabelece que as normas do CPC sobre o processo de conhecimento são aplicáveis ao Processo do Trabalho de forma supletiva e subsidiária.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.071. O Capítulo III do Título V da Lei n. 6.015, de 31 de dezembro de 1973 (Lei de Registros Públicos), passa a vigorar acrescida do seguinte art. 216-A:
+- Alteração já processada no diploma modificado.
+-----
+# Disposições Finais e Transitórias
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 1.072. Revogam-se:
+- I – o art. 22 do Decreto-lei n. 25, de 30 de novembro de 1937;
+- II – os arts. 227, caput, 229, 230, 456, 1.482, 1.483 e 1.768 a 1.773 da Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil);
+- III – os arts. 2.º, 3.º, 4.º, 6.º, 7.º, 11, 12 e 17 da Lei n. 1.060, de 5 de fevereiro de 1950;
+- IV – os arts. 13 a 18, 26 a 29 e 38 da Lei n. 8.038, de 28 de maio de 1990;
+- V – os arts. 16 a 18 da Lei n. 5.478, de 25 de julho de 1968; e
+- VI – o art. 98, § 4.º, da Lei n. 12.529, de 30 de novembro de 2011.
+-----
