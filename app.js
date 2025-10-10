@@ -221,7 +221,7 @@ function genVariantsFromQuery(q){
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
    julgados: (t, full) => `
-Entende o tema apresentado e Encontre **decisões reais** de tribunais superiores relacionadas ao tema ou dispositivo abaixo.  
+Entenda o tema apresentado e Encontre **decisões reais** de tribunais superiores relacionadas ao tema ou dispositivo abaixo. Inicie sua busca pelo site site: jurisprudencia.jt.jus.br/jurisprudencia-nacional/home 
 Para cada julgado, apresente:
 Tema: ${t}  
 Texto-base / dispositivo: ${full}
