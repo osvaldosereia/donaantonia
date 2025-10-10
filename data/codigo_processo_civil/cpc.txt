@@ -911,3 +911,433 @@
 # Dispositivos Legais
 - Art. 777. A cobrança de multas ou de indenizações decorrentes de litigância de má-fé ou de prática de ato atentatório à dignidade da justiça será promovida nos próprios autos do processo.
 -----
+# Legitimidade Ativa na Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 778. Pode promover a execução forçada o credor a quem a lei confere título executivo.
+- § 1.º Podem promover a execução forçada ou nela prosseguir, em sucessão ao exequente originário:
+- I – o Ministério Público, nos casos previstos em lei;
+- II – o espólio, os herdeiros ou os sucessores do credor, sempre que, por morte deste, lhes for transmitido o direito resultante do título executivo;
+- III – o cessionário, quando o direito resultante do título executivo lhe for transferido por ato entre vivos;
+- IV – o sub-rogado, nos casos de sub-rogação legal ou convencional.
+- § 2.º A sucessão prevista no § 1.º independe de consentimento do executado.
+# Remissões Normativas
+- Vide arts. 783 a 785 do CPC.
+-- trata dos requisitos do título executivo e do rol de títulos executivos extrajudiciais.
+- Vide art. 109, § 1.º, do CPC.
+-- trata da sucessão processual voluntária por ato entre vivos, exigindo consentimento da parte contrária.
+- Vide art. 857 do CPC.
+-- dispõe sobre a sub-rogação do exequente nos direitos do executado quando há penhora de direito ou ação.
+- Vide arts. 346 a 351 do CC.
+-- definem os casos e efeitos da sub-rogação legal e convencional no direito civil.
+-----
+# Legitimidade Passiva na Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 779. A execução pode ser promovida contra:
+- I – o devedor, reconhecido como tal no título executivo;
+- II – o espólio, os herdeiros ou os sucessores do devedor;
+- III – o novo devedor que assumiu, com o consentimento do credor, a obrigação resultante do título executivo;
+- IV – o fiador do débito constante em título extrajudicial;
+- V – o responsável titular do bem vinculado por garantia real ao pagamento do débito;
+- VI – o responsável tributário, assim definido em lei.
+# Remissões Normativas
+- Vide art. 109, § 1.º, do CPC.
+-- trata da sucessão processual voluntária por ato entre vivos, exigindo consentimento da parte contrária.
+- Vide art. 794, caput e § 1.º, do CPC.
+-- estabelece o benefício de ordem em favor do fiador na execução.
+- Vide Súmula 268 do STJ.
+-- estabelece que o fiador que não participou da ação de despejo não pode ser responsabilizado na fase de execução.
+-----
+# Cumulação de Execuções
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 780. O exequente pode cumular várias execuções, ainda que fundadas em títulos diferentes, quando o executado for o mesmo e desde que para todas elas seja competente o mesmo juízo e idêntico o procedimento.
+-----
+# Competência na Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 781. A execução fundada em título extrajudicial será processada perante o juízo competente, observando-se o seguinte:
+- I – a execução poderá ser proposta no foro de domicílio do executado, de eleição constante do título ou, ainda, de situação dos bens a ela sujeitos;
+- II – tendo mais de um domicílio, o executado poderá ser demandado no foro de qualquer deles;
+- III – sendo incerto ou desconhecido o domicílio do executado, a execução poderá ser proposta no lugar onde for encontrado ou no foro de domicílio do exequente;
+- IV – havendo mais de um devedor, com diferentes domicílios, a execução será proposta no foro de qualquer deles, à escolha do exequente;
+- V – a execução poderá ser proposta no foro do lugar em que se praticou o ato ou em que ocorreu o fato que deu origem ao título, mesmo que nele não mais resida o executado.
+-----
+# Atos Executivos e Cadastro de Inadimplentes
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 782. Não dispondo a lei de modo diverso, o juiz determinará os atos executivos, e o oficial de justiça os cumprirá.
+- § 1.º O oficial de justiça poderá cumprir os atos executivos determinados pelo juiz também nas comarcas contíguas, de fácil comunicação, e nas que se situem na mesma região metropolitana.
+- § 2.º Sempre que, para efetivar a execução, for necessário o emprego de força policial, o juiz a requisitará.
+- § 3.º A requerimento da parte, o juiz pode determinar a inclusão do nome do executado em cadastros de inadimplentes.
+- § 4.º A inscrição será cancelada imediatamente se for efetuado o pagamento, se for garantida a execução ou se a execução for extinta por qualquer outro motivo.
+- § 5.º O disposto nos §§ 3.º e 4.º aplica-se à execução definitiva de título judicial.
+# Remissões Normativas
+- Vide art. 17 da Instrução Normativa n. 39, de 15-3-2016.
+-- confirma a aplicabilidade dos §§ 3º a 5º do art. 782 do CPC ao Processo do Trabalho.
+-----
+# Requisitos da Obrigação no Título Executivo
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 783. A execução para cobrança de crédito fundar-se-á sempre em título de obrigação certa, líquida e exigível.
+-----
+# Títulos Executivos Extrajudiciais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 784. São títulos executivos extrajudiciais:
+- I – a letra de câmbio, a nota promissória, a duplicata, a debênture e o cheque;
+- II – a escritura pública ou outro documento público assinado pelo devedor;
+- III – o documento particular assinado pelo devedor e por 2 (duas) testemunhas;
+- IV – o instrumento de transação referendado pelo Ministério Público, pela Defensoria Pública, pela Advocacia Pública, pelos advogados dos transatores ou por conciliador ou mediador credenciado por tribunal;
+- V – o contrato garantido por hipoteca, penhor, anticrese ou outro direito real de garantia e aquele garantido por caução;
+- VI – o contrato de seguro de vida em caso de morte;
+- VII – o crédito decorrente de foro e laudêmio;
+- VIII – o crédito, documentalmente comprovado, decorrente de aluguel de imóvel, bem como de encargos acessórios, tais como taxas e despesas de condomínio;
+- IX – a certidão de dívida ativa da Fazenda Pública da União, dos Estados, do Distrito Federal e dos Municípios, correspondente aos créditos inscritos na forma da lei;
+- X – o crédito referente às contribuições ordinárias ou extraordinárias de condomínio edilício, previstas na respectiva convenção ou aprovadas em assembleia geral, desde que documentalmente comprovadas;
+- XI – a certidão expedida por serventia notarial ou de registro relativa a valores de emolumentos e demais despesas devidas pelos atos por ela praticados, fixados nas tabelas estabelecidas em lei;
+- XI-A – o contrato de contragarantia ou qualquer outro instrumento que materialize o direito de ressarcimento da seguradora contra tomadores de seguro-garantia e seus garantidores; (acrescentado pela Lei n. 14.711, de 30-10-2023)
+- XII – todos os demais títulos aos quais, por disposição expressa, a lei atribuir força executiva.
+- § 1.º A propositura de qualquer ação relativa a débito constante de título executivo não inibe o credor de promover-lhe a execução.
+- § 2.º Os títulos executivos extrajudiciais oriundos de país estrangeiro não dependem de homologação para serem executados.
+- § 3.º O título estrangeiro só terá eficácia executiva quando satisfeitos os requisitos de formação exigidos pela lei do lugar de sua celebração e quando o Brasil for indicado como o lugar de cumprimento da obrigação.
+- § 4.º Nos títulos executivos constituídos ou atestados por meio eletrônico, é admitida qualquer modalidade de assinatura eletrônica prevista em lei, dispensada a assinatura de testemunhas quando sua integridade for conferida por provedor de assinatura. (acrescentado pela Lei n. 14.620, de 13-7-2023)
+# Remissões Normativas
+- Decreto n. 2.044, de 31-12-1908
+-- institui definições e normas sobre a letra de câmbio e a nota promissória.
+- Lei n. 7.357, de 2-9-1985
+-- dispõe sobre o cheque.
+- Decreto-lei n. 167, de 14-2-1967
+-- dispõe sobre os títulos de crédito rural.
+- Decreto n. 57.595, de 7-1-1966
+-- promulga as Convenções para adoção de uma lei uniforme em matéria de cheques.
+- Decreto n. 57.663, de 24-1-1966
+-- promulga as Convenções para adoção de uma lei uniforme em matéria de letras de câmbio e notas promissórias.
+- Lei n. 5.474, de 18-7-1968
+-- dispõe sobre as duplicatas.
+- Decreto-lei n. 413, de 9-1-1969
+-- dispõe sobre títulos de crédito industrial.
+- Vide Súmula 258 do STJ.
+-- estabelece que a nota promissória vinculada a contrato de abertura de crédito não é título executivo autônomo.
+- Vide arts. 215 e 221 do CC.
+-- tratam da força probante da escritura pública e dos documentos particulares.
+- Decreto-lei n. 1.042, de 21-10-1969
+-- dispõe sobre a exigência de escritura pública para confissão de dívida.
+- Vide Súmula 300 do STJ.
+-- consolida o entendimento de que o instrumento de confissão de dívida é título executivo extrajudicial.
+- Vide art. 57, parágrafo único, da Lei n. 9.099, de 26-9-1995.
+-- trata da homologação de acordo extrajudicial no âmbito dos Juizados Especiais, que valerá como título executivo judicial.
+- Vide art. 13 da Lei n. 10.741, de 1.º-10-2003.
+-- prevê que a transação de alimentos referendada pelo Ministério Público ou Defensoria constitui título executivo extrajudicial.
+- Vide arts. 789 a 802 do CC.
+-- regulamenta o contrato de seguro de pessoa.
+- Lei n. 4.591, de 16-12-1964
+-- dispõe sobre o condomínio em edificações e as incorporações imobiliárias.
+- Vide Lei n. 6.830, de 22-9-1980 (LEF).
+-- dispõe sobre a cobrança judicial da Dívida Ativa da Fazenda Pública.
+- Portaria Interministerial n. 1, de 23-8-2013, do BACEN e da AGU
+-- dispõe sobre o protesto extrajudicial das Certidões de Dívida Ativa do Banco Central.
+- Vide arts. 1.331 a 1.358 do CC.
+-- regulamenta o condomínio edilício no Código Civil.
+- Vide art. 24 da Lei n. 8.906, de 4-7-1994 (EAOAB).
+-- atribui força de título executivo ao contrato escrito de honorários advocatícios.
+- Vide art. 211 da Lei n. 8.069, de 13-7-1990 (ECA).
+-- artigo revogado que previa o Termo de Ajustamento de Conduta (TAC) como título executivo extrajudicial.
+- Vide art. 142 da Lei n. 11.101, de 9-2-2005.
+-- trata das modalidades de alienação de ativos do falido no processo de falência.
+- Vide Súmula 233 do STJ.
+-- estabelece que o contrato de abertura de crédito, ainda que com extrato, não constitui título executivo.
+-----
+# Opção pelo Processo de Conhecimento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 785. A existência de título executivo extrajudicial não impede a parte de optar pelo processo de conhecimento, a fim de obter título executivo judicial.
+-----
+# Cabimento da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 786. A execução pode ser instaurada caso o devedor não satisfaça a obrigação certa, líquida e exigível consubstanciada em título executivo.
+- Parágrafo único. A necessidade de simples operações aritméticas para apurar o crédito exequendo não retira a liquidez da obrigação constante do título.
+-----
+# Execução de Obrigação com Contraprestação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 787. Se o devedor não for obrigado a satisfazer sua prestação senão mediante a contraprestação do credor, este deverá provar que a adimpliu ao requerer a execução, sob pena de extinção do processo.
+- Parágrafo único. O executado poderá eximir-se da obrigação, depositando em juízo a prestação ou a coisa, caso em que o juiz não permitirá que o credor a receba sem cumprir a contraprestação que lhe tocar.
+# Remissões Normativas
+- Vide arts. 799 e 917, § 2.º, IV, do CPC.
+-- tratam de incumbências do exequente e da possibilidade de alegar o inadimplemento do credor como matéria de defesa nos embargos à execução.
+-----
+# Cumprimento da Obrigação pelo Devedor
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 788. O credor não poderá iniciar a execução ou nela prosseguir se o devedor cumprir a obrigação, mas poderá recusar o recebimento da prestação se ela não corresponder ao direito ou à obrigação estabelecidos no título executivo, caso em que poderá requerer a execução forçada, ressalvado ao devedor o direito de embargá-la.
+# Remissões Normativas
+- O art. 313 do CC dispõe que o credor não é obrigado a receber prestação diversa da que lhe é devida, ainda que mais valiosa.
+-- estabelece o princípio da identidade do pagamento, segundo o qual o credor não pode ser compelido a aceitar prestação diferente da pactuada.
+-----
+# Responsabilidade Patrimonial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 789. O devedor responde com todos os seus bens presentes e futuros para o cumprimento de suas obrigações, salvo as restrições estabelecidas em lei.
+# Remissões Normativas
+- Vide art. 824 do CPC.
+-- estabelece que a execução por quantia certa se realiza pela expropriação de bens do executado.
+-----
+# Bens Sujeitos à Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 790. São sujeitos à execução os bens:
+- I – do sucessor a título singular, tratando-se de execução fundada em direito real ou obrigação reipersecutória;
+- II – do sócio, nos termos da lei;
+- III – do devedor, ainda que em poder de terceiros;
+- IV – do cônjuge ou companheiro, nos casos em que seus bens próprios ou de sua meação respondem pela dívida;
+- V – alienados ou gravados com ônus real em fraude à execução;
+- VI – cuja alienação ou gravação com ônus real tenha sido anulada em razão do reconhecimento, em ação autônoma, de fraude contra credores;
+- VII – do responsável, nos casos de desconsideração da personalidade jurídica.
+# Remissões Normativas
+- Vide art. 795 do CPC.
+-- trata da responsabilidade patrimonial dos sócios e do benefício de ordem.
+-----
+# Execução Envolvendo Direito de Superfície
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 791. Se a execução tiver por objeto obrigação de que seja sujeito passivo o proprietário de terreno submetido ao regime do direito de superfície, ou o superficiário, responderá pela dívida, exclusivamente, o direito real do qual é titular o executado, recaindo a penhora ou outros atos de constrição exclusivamente sobre o terreno, no primeiro caso, ou sobre a construção ou a plantação, no segundo caso.
+- § 1.º Os atos de constrição a que se refere o caput serão averbados separadamente na matrícula do imóvel, com a identificação do executado, do valor do crédito e do objeto sobre o qual recai o gravame, devendo o oficial destacar o bem que responde pela dívida, se o terreno, a construção ou a plantação, de modo a assegurar a publicidade da responsabilidade patrimonial de cada um deles pelas dívidas e pelas obrigações que a eles estão vinculadas.
+- § 2.º Aplica-se, no que couber, o disposto neste artigo à enfiteuse, à concessão de uso especial para fins de moradia e à concessão de direito real de uso.
+# Remissões Normativas
+- Vide arts. 1.510-A a 1.510-E do CC.
+-- regulamentam o direito real de laje no Código Civil.
+- Vide arts. 1.369 a 1.377 do CC.
+-- regulamentam o direito de superfície no Código Civil.
+- Vide arts. 21 a 24 da Lei n. 10.257, de 10-7-2001 (Estatuto da Cidade).
+-- tratam do direito de superfície no Estatuto da Cidade.
+- Medida Provisória n. 2.220, de 4-9-2001.
+-- dispõe sobre a concessão de uso especial para fins de moradia.
+-----
+# Fraude à Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 792. A alienação ou a oneração de bem é considerada fraude à execução:
+- I – quando sobre o bem pender ação fundada em direito real ou com pretensão reipersecutória, desde que a pendência do processo tenha sido averbada no respectivo registro público, se houver;
+- II – quando tiver sido averbada, no registro do bem, a pendência do processo de execução, na forma do art. 828;
+- III – quando tiver sido averbado, no registro do bem, hipoteca judiciária ou outro ato de constrição judicial originário do processo onde foi arguida a fraude;
+- IV – quando, ao tempo da alienação ou da oneração, tramitava contra o devedor ação capaz de reduzi-lo à insolvência;
+- V – nos demais casos expressos em lei.
+- § 1.º A alienação em fraude à execução é ineficaz em relação ao exequente.
+- § 2.º No caso de aquisição de bem não sujeito a registro, o terceiro adquirente tem o ônus de provar que adotou as cautelas necessárias para a aquisição, mediante a exibição das certidões pertinentes, obtidas no domicílio do vendedor e no local onde se encontra o bem.
+- § 3.º Nos casos de desconsideração da personalidade jurídica, a fraude à execução verifica-se a partir da citação da parte cuja personalidade se pretende desconsiderar.
+- § 4.º Antes de declarar a fraude à execução, o juiz deverá intimar o terceiro adquirente, que, se quiser, poderá opor embargos de terceiro, no prazo de 15 (quinze) dias.
+# Remissões Normativas
+- Vide arts. 828, § 4.º, e 856, § 3.º, do CPC.
+-- tratam da presunção de fraude à execução em casos de averbação premonitória e penhora de créditos.
+- Vide Súmula 375 do STJ.
+-- estabelece que o reconhecimento da fraude à execução depende do registro da penhora ou da prova de má-fé do terceiro.
+- Vide arts. 774, I, 828, § 4.º, e 856, § 3.º, do CPC.
+-- tipifica a fraude à execução como ato atentatório à dignidade da justiça e trata de presunções de fraude.
+- Vide arts. 133 a 137 do CPC.
+-- regulamentam o incidente de desconsideração da personalidade jurídica.
+- Vide art. 50 do CC.
+-- trata dos requisitos para a desconsideração da personalidade jurídica no Código Civil.
+- Vide art. 28 do CDC.
+-- trata da desconsideração da personalidade jurídica nas relações de consumo.
+-----
+# Execução e Direito de Retenção
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 793. O exequente que estiver, por direito de retenção, na posse de coisa pertencente ao devedor não poderá promover a execução sobre outros bens senão depois de excutida a coisa que se achar em seu poder.
+-----
+# Benefício de Ordem do Fiador
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 794. O fiador, quando executado, tem o direito de exigir que primeiro sejam executados os bens do devedor situados na mesma comarca, livres e desembargados, indicando-os pormenorizadamente à penhora.
+- § 1.º Os bens do fiador ficarão sujeitos à execução se os do devedor, situados na mesma comarca que os seus, forem insuficientes à satisfação do direito do credor.
+- § 2.º O fiador que pagar a dívida poderá executar o afiançado nos autos do mesmo processo.
+- § 3.º O disposto no caput não se aplica se o fiador houver renunciado ao benefício de ordem.
+# Remissões Normativas
+- Vide art. 827 do CC.
+-- estabelece o benefício de ordem no contrato de fiança, conforme o Código Civil.
+-----
+# Responsabilidade Patrimonial dos Sócios
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 795. Os bens particulares dos sócios não respondem pelas dívidas da sociedade, senão nos casos previstos em lei.
+- § 1.º O sócio réu, quando responsável pelo pagamento da dívida da sociedade, tem o direito de exigir que primeiro sejam excutidos os bens da sociedade.
+- § 2.º Incumbe ao sócio que alegar o benefício do § 1.º nomear quantos bens da sociedade situados na mesma comarca, livres e desembargados, bastem para pagar o débito.
+- § 3.º O sócio que pagar a dívida poderá executar a sociedade nos autos do mesmo processo.
+- § 4.º Para a desconsideração da personalidade jurídica é obrigatória a observância do incidente previsto neste Código.
+# Remissões Normativas
+- Vide art. 790, II, do CPC.
+-- indica os bens do sócio como sujeitos à execução, nos termos da lei.
+- Vide arts. 133 a 137 do CPC.
+-- regulamentam o incidente de desconsideração da personalidade jurídica.
+-----
+# Responsabilidade Patrimonial do Espólio e Herdeiros
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 796. O espólio responde pelas dívidas do falecido, mas, feita a partilha, cada herdeiro responde por elas dentro das forças da herança e na proporção da parte que lhe coube.
+-----
+# Interesse e Preferência na Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 797. Ressalvado o caso de insolvência do devedor, em que tem lugar o concurso universal, realiza-se a execução no interesse do exequente que adquire, pela penhora, o direito de preferência sobre os bens penhorados.
+- Parágrafo único. Recaindo mais de uma penhora sobre o mesmo bem, cada exequente conservará o seu título de preferência.
+# Remissões Normativas
+- O art. 187, parágrafo único, do CTN estabelece a ordem de preferência entre as pessoas jurídicas de direito público.
+-- estabelece a ordem de preferência dos créditos tributários entre os entes da Federação.
+- Vide arts. 908 e 909 do CPC.
+-- tratam do concurso de credores e da ordem de pagamento no caso de pluralidade de penhoras sobre o mesmo bem.
+-----
+# Requisitos da Petição Inicial da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 798. Ao propor a execução, incumbe ao exequente:
+- I – instruir a petição inicial com:
+- a) o título executivo extrajudicial;
+- b) o demonstrativo do débito atualizado até a data de propositura da ação, quando se tratar de execução por quantia certa;
+- c) a prova de que se verificou a condição ou ocorreu o termo, se for o caso;
+- d) a prova, se for o caso, de que adimpliu a contraprestação que lhe corresponde ou que lhe assegura o cumprimento, se o executado não for obrigado a satisfazer a sua prestação senão mediante a contraprestação do exequente;
+- II – indicar:
+- a) a espécie de execução de sua preferência, quando por mais de um modo puder ser realizada;
+- b) os nomes completos do exequente e do executado e seus números de inscrição no Cadastro de Pessoas Físicas ou no Cadastro Nacional da Pessoa Jurídica;
+- c) os bens suscetíveis de penhora, sempre que possível.
+- Parágrafo único. O demonstrativo do débito deverá conter:
+- I – o índice de correção monetária adotado;
+- II – a taxa de juros aplicada;
+- III – os termos inicial e final de incidência do índice de correção monetária e da taxa de juros utilizados;
+- IV – a periodicidade da capitalização dos juros, se for o caso;
+- V – a especificação de desconto obrigatório realizado.
+# Remissões Normativas
+- Vide art. 917, § 2.º, V, do CPC.
+-- trata das matérias que podem ser alegadas pelo executado em sede de embargos à execução.
+- Vide art. 787 do CPC.
+-- estabelece a necessidade de o exequente provar o cumprimento da contraprestação que lhe cabia.
+- Vide art. 805 do CPC.
+-- dispõe sobre o princípio da menor onerosidade da execução para o devedor.
+-----
+# Outras Incumbências do Exequente
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 799. Incumbe ainda ao exequente:
+- I – requerer a intimação do credor pignoratício, hipotecário, anticrético ou fiduciário, quando a penhora recair sobre bens gravados por penhor, hipoteca, anticrese ou alienação fiduciária;
+- II – requerer a intimação do titular de usufruto, uso ou habitação, quando a penhora recair sobre bem gravado por usufruto, uso ou habitação;
+- III – requerer a intimação do promitente comprador, quando a penhora recair sobre bem em relação ao qual haja promessa de compra e venda registrada;
+- IV – requerer a intimação do promitente vendedor, quando a penhora recair sobre direito aquisitivo derivado de promessa de compra e venda registrada;
+- V – requerer a intimação do superficiário, enfiteuta ou concessionário, em caso de direito de superfície, enfiteuse, concessão de uso especial para fins de moradia ou concessão de direito real de uso, quando a penhora recair sobre imóvel submetido ao regime do direito de superfície, enfiteuse ou concessão;
+- VI – requerer a intimação do proprietário de terreno com regime de direito de superfície, enfiteuse, concessão de uso especial para fins de moradia ou concessão de direito real de uso, quando a penhora recair sobre direitos do superficiário, do enfiteuta ou do concessionário;
+- VII – requerer a intimação da sociedade, no caso de penhora de quota social ou de ação de sociedade anônima fechada, para o fim previsto no art. 876, § 7.º;
+- VIII – pleitear, se for o caso, medidas urgentes;
+- IX – proceder à averbação em registro público do ato de propositura da execução e dos atos de constrição realizados, para conhecimento de terceiros;
+- X – requerer a intimação do titular da construção-base, bem como, se for o caso, do titular de lajes anteriores, quando a penhora recair sobre o direito real de laje; (acrescentado pela Lei n. 13.465, de 11-7-2017)
+- XI – requerer a intimação do titular das lajes, quando a penhora recair sobre a construção-base. (acrescentado pela Lei n. 13.465, de 11-7-2017)
+# Remissões Normativas
+- Vide art. 804 do CPC.
+-- trata da ineficácia da alienação do bem caso não seja intimado o credor com garantia real ou outro direito real sobre o bem.
+-----
+# Execução de Obrigações Alternativas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 800. Nas obrigações alternativas, quando a escolha couber ao devedor, esse será citado para exercer a opção e realizar a prestação dentro de 10 (dez) dias, se outro prazo não lhe foi determinado em lei ou em contrato.
+- § 1.º Devolver-se-á ao credor a opção, se o devedor não a exercer no prazo determinado.
+- § 2.º A escolha será indicada na petição inicial da execução quando couber ao credor exercê-la.
+# Remissões Normativas
+- Os arts. 252 a 256 do CC dispõem sobre obrigações alternativas.
+-- regulamentam o cumprimento das obrigações alternativas no Código Civil.
+-----
+# Emenda da Petição Inicial da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 801. Verificando que a petição inicial está incompleta ou que não está acompanhada dos documentos indispensáveis à propositura da execução, o juiz determinará que o exequente a corrija, no prazo de 15 (quinze) dias, sob pena de indeferimento.
+-----
+# Interrupção da Prescrição na Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 802. Na execução, o despacho que ordena a citação, desde que realizada em observância ao disposto no § 2.º do art. 240, interrompe a prescrição, ainda que proferido por juízo incompetente.
+- Parágrafo único. A interrupção da prescrição retroagirá à data de propositura da ação.
+# Remissões Normativas
+- Vide Súmula 150 do STF.
+-- estabelece que a pretensão executória prescreve no mesmo prazo da pretensão de conhecimento (ação).
+-----
+# Nulidade da Execução
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 803. É nula a execução se:
+- I – o título executivo extrajudicial não corresponder a obrigação certa, líquida e exigível;
+- II – o executado não for regularmente citado;
+- III – for instaurada antes de se verificar a condição ou de ocorrer o termo.
+- Parágrafo único. A nulidade de que cuida este artigo será pronunciada pelo juiz, de ofício ou a requerimento da parte, independentemente de embargos à execução.
+-----
+# Ineficácia da Alienação por Falta de Intimação
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 804. A alienação de bem gravado por penhor, hipoteca ou anticrese será ineficaz em relação ao credor pignoratício, hipotecário ou anticrético não intimado.
+- § 1.º A alienação de bem objeto de promessa de compra e venda ou de cessão registrada será ineficaz em relação ao promitente comprador ou ao cessionário não intimado.
+- § 2.º A alienação de bem sobre o qual tenha sido instituído direito de superfície, seja do solo, da plantação ou da construção, será ineficaz em relação ao concedente ou ao concessionário não intimado.
+- § 3.º A alienação de direito aquisitivo de bem objeto de promessa de venda, de promessa de cessão ou de alienação fiduciária será ineficaz em relação ao promitente vendedor, ao promitente cedente ou ao proprietário fiduciário não intimado.
+- § 4.º A alienação de imóvel sobre o qual tenha sido instituída enfiteuse, concessão de uso especial para fins de moradia ou concessão de direito real de uso será ineficaz em relação ao enfiteuta ou ao concessionário não intimado.
+- § 5.º A alienação de direitos do enfiteuta, do concessionário de direito real de uso ou do concessionário de uso especial para fins de moradia será ineficaz em relação ao proprietário do respectivo imóvel não intimado.
+- § 6.º A alienação de bem sobre o qual tenha sido instituído usufruto, uso ou habitação será ineficaz em relação ao titular desses direitos reais não intimado.
+# Remissões Normativas
+- Vide arts. 1.510-A a 1.510-E do CC.
+-- regulamentam o direito real de laje no Código Civil.
+- Vide art. 799, I, do CPC.
+-- impõe ao exequente o dever de requerer a intimação dos credores com garantia real sobre o bem penhorado.
+- Vide arts. 1.369 a 1.377 do CC.
+-- regulamentam o direito de superfície no Código Civil.
+- Vide arts. 21 a 24 da Lei n. 10.257, de 10-7-2001 (Estatuto da Cidade).
+-- tratam do direito de superfície no Estatuto da Cidade.
+- Medida Provisória n. 2.220, de 4-9-2001.
+-- dispõe sobre a concessão de uso especial para fins de moradia.
+-----
+# Princípio da Menor Onerosidade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 805. Quando por vários meios o exequente puder promover a execução, o juiz mandará que se faça pelo modo menos gravoso para o executado.
+- Parágrafo único. Ao executado que alegar ser a medida executiva mais gravosa incumbe indicar outros meios mais eficazes e menos onerosos, sob pena de manutenção dos atos executivos já determinados.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39, de 15-3-2016.
+-- confirma a aplicabilidade do princípio da menor onerosidade ao Processo do Trabalho.
+- Vide arts. 798, II, a, 847 e 867 do CPC.
+-- tratam da escolha do meio de execução, da substituição da penhora e do usufruto de empresa como meios executivos.
+- Vide Súmula 417 do STJ.
+-- estabelecia, sob a égide do CPC/73, que a preferência pela penhora de dinheiro não era absoluta, devendo ser observada a menor onerosidade para o devedor.
+-----
+# Execução para Entrega de Coisa Incerta - Citação e Escolha
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 811. Quando a execução recair sobre coisa determinada pelo gênero e pela quantidade, o executado será citado para entregá-la individualizada, se lhe couber a escolha.
+- Parágrafo único. Se a escolha couber ao exequente, esse deverá indicá-la na petição inicial.
+# Remissões Normativas
+- Vide arts. 243 e 246 do CC.
+-- definem a obrigação de dar coisa incerta e tratam dos seus efeitos antes da escolha (concentração do débito).
+-----
+# Impugnação da Escolha da Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 812. Qualquer das partes poderá, no prazo de 15 (quinze) dias, impugnar a escolha feita pela outra, e o juiz decidirá de plano ou, se necessário, ouvindo perito de sua nomeação.
+-----
+# Aplicação Subsidiária das Regras da Entrega de Coisa Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 813. Aplicar-se-ão à execução para entrega de coisa incerta, no que couber, as disposições da Seção I deste Capítulo.
+-----
+# Execução para Entrega de Coisa Incerta - Citação e Escolha
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 811. Quando a execução recair sobre coisa determinada pelo gênero e pela quantidade, o executado será citado para entregá-la individualizada, se lhe couber a escolha.
+- Parágrafo único. Se a escolha couber ao exequente, esse deverá indicá-la na petição inicial.
+# Remissões Normativas
+- Vide arts. 243 e 246 do CC.
+-- definem a obrigação de dar coisa incerta e tratam dos seus efeitos antes da escolha (concentração do débito).
+-----
+# Impugnação da Escolha da Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 812. Qualquer das partes poderá, no prazo de 15 (quinze) dias, impugnar a escolha feita pela outra, e o juiz decidirá de plano ou, se necessário, ouvindo perito de sua nomeação.
+-----
+# Aplicação Subsidiária das Regras da Entrega de Coisa Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 813. Aplicar-se-ão à execução para entrega de coisa incerta, no que couber, as disposições da Seção I deste Capítulo.
+-----
