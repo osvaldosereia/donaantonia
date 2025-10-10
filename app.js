@@ -213,21 +213,15 @@ function genVariantsFromQuery(q){
   dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
   objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
   videos:        (t)       => `Liste 3–5 vídeoaulas no site:youtube.com sobre o tema: ${t}`,
-  artigos:       (t)       => `Liste 3–5 artigos sobre o tema ${t} (pode ser PDF). site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br`,
+  artigos:       (t)       => `Liste 3–5 artigos sobre o tema ${t} (podem ser PDF). site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br OR site:usp.br OR site:ufrj.br OR site:ufmg.br OR site:ufrgs.br OR site:unb.br (principais faculdades de Direito do Brasil: USP, UFRJ, UFMG, UFRGS e UnB)`,
   atualizacao:   (t, full) => `Verifique em fontes oficiais (Planalto, LexML, Diários Oficiais) se o texto a seguir sofreu alteração nos últimos 2 anos (apenas texto legal, sem comentários ou jurisprudência). Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
   cabimento:     (t, full) => `Você é advogado; Comente a função, efeitos e cabimento desse artigo na prática jurídica. Tema: ${t}; Texto-base: ${full}`,
   remissoes:     (t, full) => `Liste, súmulas (incl. vinculantes), enunciados, teses, temas repetitivos e informativos relacionados ao tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
-   julgados: (t, full) => `
-Entenda o tema apresentado e Encontre **decisões reais** de tribunais superiores relacionadas ao tema ou dispositivo abaixo. Inicie sua busca pelo site site: jurisprudencia.jt.jus.br/jurisprudencia-nacional/home 
-Para cada julgado, apresente:
-Tema: ${t}  
-Texto-base / dispositivo: ${full}
+  julgados:      (t, full) => `Entenda o tema apresentado e encontre decisões reais de tribunais superiores relacionadas ao tema ou dispositivo abaixo. Inicie sua busca pelo site jurisprudencia.jt.jus.br/jurisprudencia-nacional/home e priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes. Tema: ${t} Texto-base / dispositivo: ${full}`.trim(),
 
-Priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes.  
-`.trim(),
 };   
 
   /* ===== Parser de chunk TXT ===== */
