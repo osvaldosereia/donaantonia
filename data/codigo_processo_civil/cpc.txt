@@ -4,10 +4,1465 @@
 
 
 
-
-
-
-
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 472. O juiz poderá dispensar prova pericial quando as partes, na inicial e na contestação, apresentarem, sobre as questões de fato, pareceres técnicos ou documentos elucidativos que considerar suficientes.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 473. O laudo pericial deverá conter:
+- I – a exposição do objeto da perícia;
+- II – a análise técnica ou científica realizada pelo perito;
+- III – a indicação do método utilizado, esclarecendo-o e demonstrando ser predominantemente aceito pelos especialistas da área do conhecimento da qual se originou;
+- IV – resposta conclusiva a todos os quesitos apresentados pelo juiz, pelas partes e pelo órgão do Ministério Público.
+- § 1.º No laudo, o perito deve apresentar sua fundamentação em linguagem simples e com coerência lógica, indicando como alcançou suas conclusões.
+- § 2.º É vedado ao perito ultrapassar os limites de sua designação, bem como emitir opiniões pessoais que excedam o exame técnico ou científico do objeto da perícia.
+- § 3.º Para o desempenho de sua função, o perito e os assistentes técnicos podem valer-se de todos os meios necessários, ouvindo testemunhas, obtendo informações, solicitando documentos que estejam em poder da parte, de terceiros ou em repartições públicas, bem como instruir o laudo com planilhas, mapas, plantas, desenhos, fotografias ou outros elementos necessários ao esclarecimento do objeto da perícia.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 474. As partes terão ciência da data e do local designados pelo juiz ou indicados pelo perito para ter início a produção da prova.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 475. Tratando-se de perícia complexa que abranja mais de uma área de conhecimento especializado, o juiz poderá nomear mais de um perito, e a parte, indicar mais de um assistente técnico.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 476. Se o perito, por motivo justificado, não puder apresentar o laudo dentro do prazo, o juiz poderá conceder-lhe, por uma vez, prorrogação pela metade do prazo originalmente fixado.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 477. O perito protocolará o laudo em juízo, no prazo fixado pelo juiz, pelo menos 20 (vinte) dias antes da audiência de instrução e julgamento.
+- § 1.º As partes serão intimadas para, querendo, manifestar-se sobre o laudo do perito do juízo no prazo comum de 15 (quinze) dias, podendo o assistente técnico de cada uma das partes, em igual prazo, apresentar seu respectivo parecer.
+- § 2.º O perito do juízo tem o dever de, no prazo de 15 (quinze) dias, esclarecer ponto:
+- I – sobre o qual exista divergência ou dúvida de qualquer das partes, do juiz ou do órgão do Ministério Público;
+- II – divergente apresentado no parecer do assistente técnico da parte.
+- § 3.º Se ainda houver necessidade de esclarecimentos, a parte requererá ao juiz que mande intimar o perito ou o assistente técnico a comparecer à audiência de instrução e julgamento, formulando, desde logo, as perguntas, sob forma de quesitos.
+- § 4.º O perito ou o assistente técnico será intimado por meio eletrônico, com pelo menos 10 (dez) dias de antecedência da audiência.
+# Remissões Normativas
+- Vide art. 361, I, do CPC.
+-- estabelece que as provas orais serão produzidas em audiência, ouvindo-se nesta ordem, preferencialmente, o perito e os assistentes técnicos, quando houver requerimento para seus esclarecimentos.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 478. Quando o exame tiver por objeto a autenticidade ou a falsidade de documento ou for de natureza médico-legal, o perito será escolhido, de preferência, entre os técnicos dos estabelecimentos oficiais especializados, a cujos diretores o juiz autorizará a remessa dos autos, bem como do material sujeito a exame.
+- § 1.º Nas hipóteses de gratuidade de justiça, os órgãos e as repartições oficiais deverão cumprir a determinação judicial com preferência, no prazo estabelecido.
+- § 2.º A prorrogação do prazo referido no § 1.º pode ser requerida motivadamente.
+- § 3.º Quando o exame tiver por objeto a autenticidade da letra e da firma, o perito poderá requisitar, para efeito de comparação, documentos existentes em repartições públicas e, na falta destes, poderá requerer ao juiz que a pessoa a quem se atribuir a autoria do documento lance em folha de papel, por cópia ou sob ditado, dizeres diferentes, para fins de comparação.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 479. O juiz apreciará a prova pericial de acordo com o disposto no art. 371, indicando na sentença os motivos que o levaram a considerar ou a deixar de considerar as conclusões do laudo, levando em conta o método utilizado pelo perito.
+# Remissões Normativas
+- Vide art. 371 do CPC.
+-- trata do princípio do livre convencimento motivado, segundo o qual o juiz apreciará livremente a prova, atendendo aos fatos e circunstâncias constantes dos autos, e deverá indicar na decisão as razões da formação de seu convencimento.
+-----
+# Da Prova Pericial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 480. O juiz determinará, de ofício ou a requerimento da parte, a realização de nova perícia quando a matéria não estiver suficientemente esclarecida.
+- § 1.º A segunda perícia tem por objeto os mesmos fatos sobre os quais recaiu a primeira e destina-se a corrigir eventual omissão ou inexatidão dos resultados a que esta conduziu.
+- § 2.º A segunda perícia rege-se pelas disposições estabelecidas para a primeira.
+- § 3.º A segunda perícia não substitui a primeira, cabendo ao juiz apreciar o valor de uma e de outra.
+-----
+# Da Inspeção Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 481. O juiz, de ofício ou a requerimento da parte, pode, em qualquer fase do processo, inspecionar pessoas ou coisas, a fim de se esclarecer sobre fato que interesse à decisão da causa.
+# Remissões Normativas
+- Vide art. 35, parágrafo único, da Lei n. 9.099/1995 (Juizados Especiais).
+-- dispõe que, se o juiz leigo que presidiu a instrução não puder proferir a sentença, outro juiz poderá fazê-lo, com base nas provas dos autos, admitida a inspeção judicial se necessário.
+-----
+# Da Inspeção Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 482. Ao realizar a inspeção, o juiz poderá ser assistido por um ou mais peritos.
+-----
+# Da Inspeção Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 483. O juiz irá ao local onde se encontre a pessoa ou a coisa quando:
+- I – julgar necessário para a melhor verificação ou interpretação dos fatos que deva observar;
+- II – a coisa não puder ser apresentada em juízo sem consideráveis despesas ou graves dificuldades;
+- III – determinar a reconstituição dos fatos.
+- Parágrafo único. As partes têm sempre direito a assistir à inspeção, prestando esclarecimentos e fazendo observações que considerem de interesse para a causa.
+-----
+# Da Inspeção Judicial
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 484. Concluída a diligência, o juiz mandará lavrar auto circunstanciado, mencionando nele tudo quanto for útil ao julgamento da causa.
+- Parágrafo único. O auto poderá ser instruído com desenho, gráfico ou fotografia.
+-----
+# Da Sentença e da Coisa Julgada - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 485. O juiz não resolverá o mérito quando:
+- I – indeferir a petição inicial;
+- II – o processo ficar parado durante mais de 1 (um) ano por negligência das partes;
+- III – por não promover os atos e as diligências que lhe incumbir, o autor abandonar a causa por mais de 30 (trinta) dias;
+- IV – verificar a ausência de pressupostos de constituição e de desenvolvimento válido e regular do processo;
+- V – reconhecer a existência de perempção, de litispendência ou de coisa julgada;
+- VI – verificar ausência de legitimidade ou de interesse processual;
+- VII – acolher a alegação de existência de convenção de arbitragem ou quando o juízo arbitral reconhecer sua competência;
+- VIII – homologar a desistência da ação;
+- IX – em caso de morte da parte, a ação for considerada intransmissível por disposição legal; e
+- X – nos demais casos prescritos neste Código.
+- § 1.º Nas hipóteses descritas nos incisos II e III, a parte será intimada pessoalmente para suprir a falta no prazo de 5 (cinco) dias.
+- § 2.º No caso do § 1.º, quanto ao inciso II, as partes pagarão proporcionalmente as custas, e, quanto ao inciso III, o autor será condenado ao pagamento das despesas e dos honorários de advogado.
+- § 3.º O juiz conhecerá de ofício da matéria constante dos incisos IV, V, VI e IX, em qualquer tempo e grau de jurisdição, enquanto não ocorrer o trânsito em julgado.
+- § 4.º Oferecida a contestação, o autor não poderá, sem o consentimento do réu, desistir da ação.
+- § 5.º A desistência da ação pode ser apresentada até a sentença.
+- § 6.º Oferecida a contestação, a extinção do processo por abandono da causa pelo autor depende de requerimento do réu.
+- § 7.º Interposta a apelação em qualquer dos casos de que tratam os incisos deste artigo, o juiz terá 5 (cinco) dias para retratar-se.
+# Remissões Normativas
+- Vide art. 203, § 1.º, do CPC.
+-- define a sentença como o pronunciamento por meio do qual o juiz, com fundamento nos arts. 485 e 487, põe fim à fase cognitiva do procedimento comum, bem como extingue a execução.
+- Vide art. 330 do CPC.
+-- estabelece as hipóteses em que a petição inicial será indeferida.
+- Vide Súmula 631 do STF.
+-- trata da extinção do processo de mandado de segurança por inércia do impetrante, exigindo sua prévia intimação pessoal.
+- Vide Súmula 240 do STJ.
+-- condiciona a extinção do processo por abandono da causa pelo autor ao requerimento do réu.
+- Vide art. 5.º, XXXVI, da CF.
+-- estabelece que a lei não prejudicará o direito adquirido, o ato jurídico perfeito e a coisa julgada.
+- Vide arts. 337, V, e 486 do CPC.
+-- tratam, respectivamente, da alegação de perempção, litispendência ou coisa julgada como preliminar de contestação e da possibilidade de repropositura da ação após sentença terminativa.
+- Vide arts. 3.º a 12 da Lei n. 9.307/1996 (Lei de Arbitragem).
+-- dispõem sobre a convenção de arbitragem e seus efeitos, como a cláusula compromissória e o compromisso arbitral.
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+-----
+# Da Sentença e da Coisa Julgada - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 486. O pronunciamento judicial que não resolve o mérito não obsta a que a parte proponha de novo a ação.
+- § 1.º No caso de extinção em razão de litispendência e nos casos dos incisos I, IV, VI e VII do art. 485, a propositura da nova ação depende da correção do vício que levou à sentença sem resolução do mérito.
+- § 2.º A petição inicial, todavia, não será despachada sem a prova do pagamento ou do depósito das custas e dos honorários de advogado.
+- § 3.º Se o autor der causa, por 3 (três) vezes, a sentença fundada em abandono da causa, não poderá propor nova ação contra o réu com o mesmo objeto, ficando-lhe ressalvada, entretanto, a possibilidade de alegar em defesa o seu direito.
+-----
+# Da Sentença e da Coisa Julgada - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 487. Haverá resolução de mérito quando o juiz:
+- I – acolher ou rejeitar o pedido formulado na ação ou na reconvenção;
+- II – decidir, de ofício ou a requerimento, sobre a ocorrência de decadência ou prescrição;
+- III – homologar:
+- a) o reconhecimento da procedência do pedido formulado na ação ou na reconvenção;
+- b) a transação;
+- c) a renúncia à pretensão formulada na ação ou na reconvenção.
+- Parágrafo único. Ressalvada a hipótese do § 1.º do art. 332, a prescrição e a decadência não serão reconhecidas sem que antes seja dada às partes oportunidade de manifestar-se.
+# Remissões Normativas
+- Vide art. 203, § 1.º, do CPC.
+-- define a sentença como o pronunciamento que põe fim à fase cognitiva do procedimento comum com fundamento nos arts. 485 (sem mérito) e 487 (com mérito).
+- Vide art. 354 do CPC.
+-- trata da possibilidade de o juiz proferir decisão parcial de mérito, reconhecendo a ocorrência de decadência ou prescrição.
+- Vide art. 332, § 1.º, do CPC.
+-- dispensa a citação e permite o julgamento liminar de improcedência do pedido que contrariar enunciado de súmula, acórdão em recursos repetitivos, entendimento em IRDR ou IAC, ou súmula de tribunal local.
+-----
+# Da Sentença e da Coisa Julgada - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 488. Desde que possível, o juiz resolverá o mérito sempre que a decisão for favorável à parte a quem aproveitaria eventual pronunciamento nos termos do art. 485.
+-----
+# Elementos e Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 489. São elementos essenciais da sentença:
+- I – o relatório, que conterá os nomes das partes, a identificação do caso, com a suma do pedido e da contestação, e o registro das principais ocorrências havidas no andamento do processo;
+- II – os fundamentos, em que o juiz analisará as questões de fato e de direito;
+- III – o dispositivo, em que o juiz resolverá as questões principais que as partes lhe submeterem.
+- § 1.º Não se considera fundamentada qualquer decisão judicial, seja ela interlocutória, sentença ou acórdão, que:
+- I – se limitar à indicação, à reprodução ou à paráfrase de ato normativo, sem explicar sua relação com a causa ou a questão decidida;
+- II – empregar conceitos jurídicos indeterminados, sem explicar o motivo concreto de sua incidência no caso;
+- III – invocar motivos que se prestariam a justificar qualquer outra decisão;
+- IV – não enfrentar todos os argumentos deduzidos no processo capazes de, em tese, infirmar a conclusão adotada pelo julgador;
+- V – se limitar a invocar precedente ou enunciado de súmula, sem identificar seus fundamentos determinantes nem demonstrar que o caso sob julgamento se ajusta àqueles fundamentos;
+- VI – deixar de seguir enunciado de súmula, jurisprudência ou precedente invocado pela parte, sem demonstrar a existência de distinção no caso em julgamento ou a superação do entendimento.
+- § 2.º No caso de colisão entre normas, o juiz deve justificar o objeto e os critérios gerais da ponderação efetuada, enunciando as razões que autorizam a interferência na norma afastada e as premissas fáticas que fundamentam a conclusão.
+- § 3.º A decisão judicial deve ser interpretada a partir da conjugação de todos os seus elementos e em conformidade com o princípio da boa-fé.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+- Vide art. 140 do CPC.
+-- dispõe que o juiz não se exime de decidir alegando lacuna ou obscuridade do ordenamento jurídico.
+- Vide art. 15 da Instrução Normativa n. 39/2016 do TST.
+-- trata da aplicação do dever de fundamentação analítica das decisões judiciais, conforme o §1º do art. 489, ao Processo do Trabalho.
+-----
+# Elementos e Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 490. O juiz resolverá o mérito acolhendo ou rejeitando, no todo ou em parte, os pedidos formulados pelas partes.
+# Remissões Normativas
+- Vide arts. 1.009 e seguintes do CPC.
+-- tratam do recurso de apelação, cabível contra a sentença.
+-----
+# Elementos e Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 491. Na ação relativa à obrigação de pagar quantia, ainda que formulado pedido genérico, a decisão definirá desde logo a extensão da obrigação, o índice de correção monetária, a taxa de juros, o termo inicial de ambos e a periodicidade da capitalização dos juros, se for o caso, salvo quando:
+- I – não for possível determinar, de modo definitivo, o montante devido;
+- II – a apuração do valor devido depender da produção de prova de realização demorada ou excessivamente dispendiosa, assim reconhecida na sentença.
+- § 1.º Nos casos previstos neste artigo, seguir-se-á a apuração do valor devido por liquidação.
+- § 2.º O disposto no caput também se aplica quando o acórdão alterar a sentença.
+-----
+# Elementos e Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 492. É vedado ao juiz proferir decisão de natureza diversa da pedida, bem como condenar a parte em quantidade superior ou em objeto diverso do que lhe foi demandado.
+- Parágrafo único. A decisão deve ser certa, ainda que resolva relação jurídica condicional.
+# Remissões Normativas
+- Vide art. 141 do CPC.
+-- estabelece o princípio da congruência ou adstrição, determinando que o juiz decidirá o mérito nos limites propostos pelas partes.
+-----
+# Elementos e Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 493. Se, depois da propositura da ação, algum fato constitutivo, modificativo ou extintivo do direito influir no julgamento do mérito, caberá ao juiz tomá-lo em consideração, de ofício ou a requerimento da parte, no momento de proferir a decisão.
+- Parágrafo único. Se constatar de ofício o fato novo, o juiz ouvirá as partes sobre ele antes de decidir.
+-----
+# Elementos e Efeitos da Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 494. Publicada a sentença, o juiz só poderá alterá-la:
+- I – para corrigir-lhe, de ofício ou a requerimento da parte, inexatidões materiais ou erros de cálculo;
+- II – por meio de embargos de declaração.
+# Remissões Normativas
+- Vide arts. 505 e 656 do CPC.
+-- tratam, respectivamente, da impossibilidade de o juiz decidir novamente questões já decididas (coisa julgada) e da possibilidade de emendar a partilha por erro de fato.
+- Vide arts. 1.022 a 1.026 do CPC.
+-- regulam o cabimento, o procedimento e os efeitos dos embargos de declaração.
+-----
+# Da Hipoteca Judiciária
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 495. A decisão que condenar o réu ao pagamento de prestação consistente em dinheiro e a que determinar a conversão de prestação de fazer, de não fazer ou de dar coisa em prestação pecuniária valerão como título constitutivo de hipoteca judiciária.
+- § 1.º A decisão produz a hipoteca judiciária:
+- I – embora a condenação seja genérica;
+- II – ainda que o credor possa promover o cumprimento provisório da sentença ou esteja pendente arresto sobre bem do devedor;
+- III – mesmo que impugnada por recurso dotado de efeito suspensivo.
+- § 2.º A hipoteca judiciária poderá ser realizada mediante apresentação de cópia da sentença perante o cartório de registro imobiliário, independentemente de ordem judicial, de declaração expressa do juiz ou de demonstração de urgência.
+- § 3.º No prazo de até 15 (quinze) dias da data de realização da hipoteca, a parte informá-la-á ao juízo da causa, que determinará a intimação da outra parte para que tome ciência do ato.
+- § 4.º A hipoteca judiciária, uma vez constituída, implicará, para o credor hipotecário, o direito de preferência, quanto ao pagamento, em relação a outros credores, observada a prioridade no registro.
+- § 5.º Sobrevindo a reforma ou a invalidação da decisão que impôs o pagamento de quantia, a parte responderá, independentemente de culpa, pelos danos que a outra parte tiver sofrido em razão da constituição da garantia, devendo o valor da indenização ser liquidado e executado nos próprios autos.
+# Remissões Normativas
+- Vide art. 17 da Instrução Normativa n. 39/2016 do TST.
+-- estabelece a inaplicabilidade da hipoteca judiciária ao processo do trabalho.
+- Vide art. 1.489 do CC.
+-- define o direito do credor sobre a coisa dada em hipoteca e a preferência no pagamento em relação a outros credores.
+-----
+# Da Remessa Necessária
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 496. Está sujeita ao duplo grau de jurisdição, não produzindo efeito senão depois de confirmada pelo tribunal, a sentença:
+- I – proferida contra a União, os Estados, o Distrito Federal, os Municípios e suas respectivas autarquias e fundações de direito público;
+- II – que julgar procedentes, no todo ou em parte, os embargos à execução fiscal.
+- § 1.º Nos casos previstos neste artigo, não interposta a apelação no prazo legal, o juiz ordenará a remessa dos autos ao tribunal, e, se não o fizer, o presidente do respectivo tribunal avocá-los-á.
+- § 2.º Em qualquer dos casos referidos no § 1.º, o tribunal julgará a remessa necessária.
+- § 3.º Não se aplica o disposto neste artigo quando a condenação ou o proveito econômico obtido na causa for de valor certo e líquido inferior a:
+- I – 1.000 (mil) salários mínimos para a União e as respectivas autarquias e fundações de direito público;
+- II – 500 (quinhentos) salários mínimos para os Estados, o Distrito Federal, as respectivas autarquias e fundações de direito público e os Municípios que constituam capitais dos Estados;
+- III – 100 (cem) salários mínimos para todos os demais Municípios e respectivas autarquias e fundações de direito público.
+- § 4.º Também não se aplica o disposto neste artigo quando a sentença estiver fundada em:
+- I – súmula de tribunal superior;
+- II – acórdão proferido pelo Supremo Tribunal Federal ou pelo Superior Tribunal de Justiça em julgamento de recursos repetitivos;
+- III – entendimento firmado em incidente de resolução de demandas repetitivas ou de assunção de competência;
+- IV – entendimento coincidente com orientação vinculante firmada no âmbito administrativo do próprio ente público, consolidada em manifestação, parecer ou súmula administrativa.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+- Vide Súmula 303 do TST.
+-- dispõe sobre as hipóteses de não cabimento da remessa necessária na Justiça do Trabalho.
+- Vide Súmula 45 do STJ.
+-- estabelece que, no reexame necessário, é defeso ao Tribunal agravar a condenação imposta à Fazenda Pública.
+- Vide Lei n. 6.830/1980.
+-- dispõe sobre a cobrança judicial da Dívida Ativa da Fazenda Pública, tratando do rito da execução fiscal.
+- Vide arts. 1.036 a 1.041 do CPC.
+-- regulam o julgamento dos recursos extraordinário e especial repetitivos.
+-----
+# Ações de Fazer, Não Fazer e Entregar Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 497. Na ação que tenha por objeto a prestação de fazer ou de não fazer, o juiz, se procedente o pedido, concederá a tutela específica ou determinará providências que assegurem a obtenção de tutela pelo resultado prático equivalente.
+- Parágrafo único. Para a concessão da tutela específica destinada a inibir a prática, a reiteração ou a continuação de um ilícito, ou a sua remoção, é irrelevante a demonstração da ocorrência de dano ou da existência de culpa ou dolo.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+- Vide Lei n. 9.494/1997.
+-- disciplina a aplicação da tutela antecipada contra a Fazenda Pública, estabelecendo restrições.
+- Vide art. 513 do CPC.
+-- dispõe sobre as regras gerais do cumprimento de sentença.
+- Vide art. 84 do CDC.
+-- trata das ações que tenham por objeto o cumprimento da obrigação de fazer ou não fazer no âmbito das relações de consumo, prevendo a tutela específica.
+- Vide art. 213 do ECA.
+-- regula a aplicação de multa em ações que visam ao cumprimento de obrigação de fazer ou não fazer para proteger interesses de crianças e adolescentes.
+- Vide art. 52, V, da Lei n. 9.099/1995.
+-- dispõe sobre a execução das obrigações de fazer no âmbito dos Juizados Especiais Cíveis.
+-----
+# Ações de Fazer, Não Fazer e Entregar Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 498. Na ação que tenha por objeto a entrega de coisa, o juiz, ao conceder a tutela específica, fixará o prazo para o cumprimento da obrigação.
+- Parágrafo único. Tratando-se de entrega de coisa determinada pelo gênero e pela quantidade, o autor individualizá-la-á na petição inicial, se lhe couber a escolha, ou, se a escolha couber ao réu, este a entregará individualizada, no prazo fixado pelo juiz.
+-----
+# Ações de Fazer, Não Fazer e Entregar Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 499. A obrigação somente será convertida em perdas e danos se o autor o requerer ou se impossível a tutela específica ou a obtenção de tutela pelo resultado prático equivalente.
+- Parágrafo único. Nas hipóteses de responsabilidade contratual previstas nos arts. 441, 618 e 757 da Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil), e de responsabilidade subsidiária e solidária, se requerida a conversão da obrigação em perdas e danos, o juiz concederá, primeiramente, a faculdade para o cumprimento da tutela específica.
+- Parágrafo único acrescentado pela Lei n. 14.833, de 27-3-2024.
+# Remissões Normativas
+- Vide arts. 441, 618 e 757 do CC.
+-- tratam, respectivamente, da responsabilidade por vícios redibitórios, da responsabilidade do empreiteiro pela solidez e segurança da obra, e da obrigação do segurador no contrato de seguro.
+-----
+# Ações de Fazer, Não Fazer e Entregar Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 500. A indenização por perdas e danos dar-se-á sem prejuízo da multa fixada periodicamente para compelir o réu ao cumprimento específico da obrigação.
+-----
+# Ações de Fazer, Não Fazer e Entregar Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 501. Na ação que tenha por objeto a emissão de declaração de vontade, a sentença que julgar procedente o pedido, uma vez transitada em julgado, produzirá todos os efeitos da declaração não emitida.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 502. Denomina-se coisa julgada material a autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso.
+# Remissões Normativas
+- Vide art. 5.º, XXXVI, da CF.
+-- estabelece que a lei não prejudicará o direito adquirido, o ato jurídico perfeito e a coisa julgada.
+- Vide art. 337, § 1.º, do CPC.
+-- define litispendência e coisa julgada para fins de preliminar de contestação.
+- Vide art. 6.º, caput e § 1.º, da LINDB.
+-- define ato jurídico perfeito, direito adquirido e coisa julgada, resguardando-os de nova lei.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 503. A decisão que julgar total ou parcialmente o mérito tem força de lei nos limites da questão principal expressamente decidida.
+- § 1.º O disposto no caput aplica-se à resolução de questão prejudicial, decidida expressa e incidentemente no processo, se:
+- I – dessa resolução depender o julgamento do mérito;
+- II – a seu respeito tiver havido contraditório prévio e efetivo, não se aplicando no caso de revelia;
+- III – o juízo tiver competência em razão da matéria e da pessoa para resolvê-la como questão principal.
+- § 2.º A hipótese do § 1.º não se aplica se no processo houver restrições probatórias ou limitações à cognição que impeçam o aprofundamento da análise da questão prejudicial.
+# Remissões Normativas
+- Vide art. 1.054 do CPC.
+-- dispõe que a regra do §1º deste artigo, sobre a coisa julgada da questão prejudicial, só se aplica a processos iniciados após a vigência do Código.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 504. Não fazem coisa julgada:
+- I – os motivos, ainda que importantes para determinar o alcance da parte dispositiva da sentença;
+- II – a verdade dos fatos, estabelecida como fundamento da sentença.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 505. Nenhum juiz decidirá novamente as questões já decididas relativas à mesma lide, salvo:
+- I – se, tratando-se de relação jurídica de trato continuado, sobreveio modificação no estado de fato ou de direito, caso em que poderá a parte pedir a revisão do que foi estatuído na sentença;
+- II – nos demais casos prescritos em lei.
+# Remissões Normativas
+- Vide art. 15 da Lei n. 5.478/1968 (Lei de Alimentos).
+-- estabelece que a decisão judicial sobre alimentos não transita em julgado, podendo ser revista a qualquer tempo em face da modificação da situação financeira dos interessados.
+- Vide arts. 493 e 494 do CPC.
+-- tratam, respectivamente, do dever do juiz de levar em conta fato constitutivo, modificativo ou extintivo do direito superveniente à propositura da ação, e da possibilidade de alteração da sentença para corrigir inexatidões ou por meio de embargos de declaração.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 506. A sentença faz coisa julgada às partes entre as quais é dada, não prejudicando terceiros.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 507. É vedado à parte discutir no curso do processo as questões já decididas a cujo respeito se operou a preclusão.
+-----
+# Da Coisa Julgada
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 508. Transitada em julgado a decisão de mérito, considerar-se-ão deduzidas e repelidas todas as alegações e as defesas que a parte poderia opor tanto ao acolhimento quanto à rejeição do pedido.
+-----
+# Da Liquidação de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 509. Quando a sentença condenar ao pagamento de quantia ilíquida, proceder-se-á à sua liquidação, a requerimento do credor ou do devedor:
+- I – por arbitramento, quando determinado pela sentença, convencionado pelas partes ou exigido pela natureza do objeto da liquidação;
+- II – pelo procedimento comum, quando houver necessidade de alegar e provar fato novo.
+- § 1.º Quando na sentença houver uma parte líquida e outra ilíquida, ao credor é lícito promover simultaneamente a execução daquela e, em autos apartados, a liquidação desta.
+- § 2.º Quando a apuração do valor depender apenas de cálculo aritmético, o credor poderá promover, desde logo, o cumprimento da sentença.
+- § 3.º O Conselho Nacional de Justiça desenvolverá e colocará à disposição dos interessados programa de atualização financeira.
+- § 4.º Na liquidação é vedado discutir de novo a lide ou modificar a sentença que a julgou.
+# Remissões Normativas
+- Vide arts. 778 e seguintes do CPC.
+-- tratam da legitimidade para promover a execução ou nela prosseguir.
+-----
+# Da Liquidação de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 510. Na liquidação por arbitramento, o juiz intimará as partes para a apresentação de pareceres ou documentos elucidativos, no prazo que fixar, e, caso não possa decidir de plano, nomeará perito, observando-se, no que couber, o procedimento da prova pericial.
+-----
+# Da Liquidação de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 511. Na liquidação pelo procedimento comum, o juiz determinará a intimação do requerido, na pessoa de seu advogado ou da sociedade de advogados a que estiver vinculado, para, querendo, apresentar contestação no prazo de 15 (quinze) dias, observando-se, a seguir, no que couber, o disposto no Livro I da Parte Especial deste Código.
+-----
+# Da Liquidação de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 512. A liquidação poderá ser realizada na pendência de recurso, processando-se em autos apartados no juízo de origem, cumprindo ao liquidante instruir o pedido com cópias das peças processuais pertinentes.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 513. O cumprimento da sentença será feito segundo as regras deste Título, observando-se, no que couber e conforme a natureza da obrigação, o disposto no Livro II da Parte Especial deste Código.
+- § 1.º O cumprimento da sentença que reconhece o dever de pagar quantia, provisório ou definitivo, far-se-á a requerimento do exequente.
+- § 2.º O devedor será intimado para cumprir a sentença:
+- I – pelo Diário da Justiça, na pessoa de seu advogado constituído nos autos;
+- II – por carta com aviso de recebimento, quando representado pela Defensoria Pública ou quando não tiver procurador constituído nos autos, ressalvada a hipótese do inciso IV;
+- III – por meio eletrônico, quando, no caso do § 1.º do art. 246, não tiver procurador constituído nos autos;
+- IV – por edital, quando, citado na forma do art. 256, tiver sido revel na fase de conhecimento.
+- § 3.º Na hipótese do § 2.º, incisos II e III, considera-se realizada a intimação quando o devedor houver mudado de endereço sem prévia comunicação ao juízo, observado o disposto no parágrafo único do art. 274.
+- § 4.º Se o requerimento a que alude o § 1.º for formulado após 1 (um) ano do trânsito em julgado da sentença, a intimação será feita na pessoa do devedor, por meio de carta com aviso de recebimento encaminhada ao endereço constante dos autos, observado o disposto no parágrafo único do art. 274 e no § 3.º deste artigo.
+- § 5.º O cumprimento da sentença não poderá ser promovido em face do fiador, do coobrigado ou do corresponsável que não tiver participado da fase de conhecimento.
+# Remissões Normativas
+- Vide art. 246, § 1.º, do CPC.
+-- trata da citação por meio eletrônico e do cadastro obrigatório de empresas públicas e privadas para este fim.
+- Vide art. 256 do CPC.
+-- estabelece as hipóteses em que a citação será feita por edital.
+- Vide art. 274, parágrafo único, do CPC.
+-- presume válidas as intimações dirigidas ao endereço constante dos autos, ainda que não recebidas pessoalmente pelo interessado, se a modificação temporária ou definitiva não tiver sido devidamente comunicada ao juízo.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 514. Quando o juiz decidir relação jurídica sujeita a condição ou termo, o cumprimento da sentença dependerá de demonstração de que se realizou a condição ou de que ocorreu o termo.
+# Remissões Normativas
+- Vide arts. 798 e 803, III, do CPC.
+-- dispõem, respectivamente, sobre os requisitos para propor a execução, incluindo a prova do implemento da condição ou termo, e sobre a nulidade da execução se não for demonstrada tal ocorrência.
+- Vide arts. 121 a 137 do CC.
+-- tratam da condição, do termo e do encargo como elementos acidentais dos negócios jurídicos.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 515. São títulos executivos judiciais, cujo cumprimento dar-se-á de acordo com os artigos previstos neste Título:
+- I – as decisões proferidas no processo civil que reconheçam a exigibilidade de obrigação de pagar quantia, de fazer, de não fazer ou de entregar coisa;
+- II – a decisão homologatória de autocomposição judicial;
+- III – a decisão homologatória de autocomposição extrajudicial de qualquer natureza;
+- IV – o formal e a certidão de partilha, exclusivamente em relação ao inventariante, aos herdeiros e aos sucessores a título singular ou universal;
+- V – o crédito de auxiliar da justiça, quando as custas, emolumentos ou honorários tiverem sido aprovados por decisão judicial;
+- VI – a sentença penal condenatória transitada em julgado;
+- A Lei n. 7.210, de 11-7-1984, dispõe sobre pena de multa em seus arts. 164 a 170.
+- VII – a sentença arbitral;
+- VIII – a sentença estrangeira homologada pelo Superior Tribunal de Justiça;
+- IX – a decisão interlocutória estrangeira, após a concessão do exequatur à carta rogatória pelo Superior Tribunal de Justiça;
+- X – (Vetado.)
+- § 1.º Nos casos dos incisos VI a IX, o devedor será citado no juízo cível para o cumprimento da sentença ou para a liquidação no prazo de 15 (quinze) dias.
+- § 2.º A autocomposição judicial pode envolver sujeito estranho ao processo e versar sobre relação jurídica que não tenha sido deduzida em juízo.
+# Remissões Normativas
+- Vide art. 24 da Lei n. 8.906/1994 (Estatuto da Advocacia).
+-- dispõe que a decisão judicial que fixar ou arbitrar honorários e o contrato escrito que os estipular são títulos executivos.
+- Vide arts. 22, parágrafo único, e 74 da Lei n. 9.099/1995 (Lei dos Juizados Especiais).
+-- tratam, respectivamente, da inexigibilidade de título executivo judicial em certas sentenças dos juizados especiais e da composição dos danos civis na esfera criminal como título executivo.
+- Vide art. 57 da Lei n. 9.099/1995.
+-- estabelece que o acordo extrajudicial, de qualquer natureza, poderá ser homologado pelo Juízo competente, independentemente de termo, valendo a sentença como título executivo judicial.
+- Vide art. 655 do CPC.
+-- descreve as peças que devem constar no formal de partilha.
+- Vide arts. 164 a 170 da Lei n. 7.210/1984 (Lei de Execução Penal).
+-- regulam a execução da pena de multa, determinando que, transitada em julgado a sentença, a multa será considerada dívida de valor.
+- Vide art. 31 da Lei n. 9.307/1996 (Lei de Arbitragem).
+-- estabelece que a sentença arbitral produz, entre as partes e seus sucessores, os mesmos efeitos da sentença proferida pelo Poder Judiciário e, sendo condenatória, constitui título executivo.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 516. O cumprimento da sentença efetuar-se-á perante:
+- I – os tribunais, nas causas de sua competência originária;
+- II – o juízo que decidiu a causa no primeiro grau de jurisdição;
+- III – o juízo cível competente, quando se tratar de sentença penal condenatória, de sentença arbitral, de sentença estrangeira ou de acórdão proferido pelo Tribunal Marítimo.
+- Parágrafo único. Nas hipóteses dos incisos II e III, o exequente poderá optar pelo juízo do atual domicílio do executado, pelo juízo do local onde se encontrem os bens sujeitos à execução ou pelo juízo do local onde deva ser executada a obrigação de fazer ou de não fazer, casos em que a remessa dos autos do processo será solicitada ao juízo de origem.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 517. A decisão judicial transitada em julgado poderá ser levada a protesto, nos termos da lei, depois de transcorrido o prazo para pagamento voluntário previsto no art. 523.
+- § 1.º Para efetivar o protesto, incumbe ao exequente apresentar certidão de teor da decisão.
+- § 2.º A certidão de teor da decisão deverá ser fornecida no prazo de 3 (três) dias e indicará o nome e a qualificação do exequente e do executado, o número do processo, o valor da dívida e a data de decurso do prazo para pagamento voluntário.
+- § 3.º O executado que tiver proposto ação rescisória para impugnar a decisão exequenda pode requerer, a suas expensas e sob sua responsabilidade, a anotação da propositura da ação à margem do título protestado.
+- § 4.º A requerimento do executado, o protesto será cancelado por determinação do juiz, mediante ofício a ser expedido ao cartório, no prazo de 3 (três) dias, contado da data de protocolo do requerimento, desde que comprovada a satisfação integral da obrigação.
+# Remissões Normativas
+- Vide art. 17 da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que a decisão judicial transitada em julgado poderá ser levada a protesto no âmbito do Processo do Trabalho.
+- Vide art. 523 do CPC.
+-- fixa o prazo de 15 dias para o pagamento voluntário do débito em cumprimento definitivo de sentença, sob pena de multa e honorários.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 518. Todas as questões relativas à validade do procedimento de cumprimento da sentença e dos atos executivos subsequentes poderão ser arguidas pelo executado nos próprios autos e nestes serão decididas pelo juiz.
+-----
+# Cumprimento de Sentença - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 519. Aplicam-se as disposições relativas ao cumprimento da sentença, provisório ou definitivo, e à liquidação, no que couber, às decisões que concederem tutela provisória.
+-----
+# Cumprimento Provisório de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 520. O cumprimento provisório da sentença impugnada por recurso desprovido de efeito suspensivo será realizado da mesma forma que o cumprimento definitivo, sujeitando-se ao seguinte regime:
+- I – corre por iniciativa e responsabilidade do exequente, que se obriga, se a sentença for reformada, a reparar os danos que o executado haja sofrido;
+- II – fica sem efeito, sobrevindo decisão que modifique ou anule a sentença objeto da execução, restituindo-se as partes ao estado anterior e liquidando-se eventuais prejuízos nos mesmos autos;
+- III – se a sentença objeto de cumprimento provisório for modificada ou anulada apenas em parte, somente nesta ficará sem efeito a execução;
+- IV – o levantamento de depósito em dinheiro e a prática de atos que importem transferência de posse ou alienação de propriedade ou de outro direito real, ou dos quais possa resultar grave dano ao executado, dependem de caução suficiente e idônea, arbitrada de plano pelo juiz e prestada nos próprios autos.
+- § 1.º No cumprimento provisório da sentença, o executado poderá apresentar impugnação, se quiser, nos termos do art. 525.
+- § 2.º A multa e os honorários a que se refere o § 1.º do art. 523 são devidos no cumprimento provisório de sentença condenatória ao pagamento de quantia certa.
+- § 3.º Se o executado comparecer tempestivamente e depositar o valor, com a finalidade de isentar-se da multa, o ato não será havido como incompatível com o recurso por ele interposto.
+- § 4.º A restituição ao estado anterior a que se refere o inciso II não implica o desfazimento da transferência de posse ou da alienação de propriedade ou de outro direito real eventualmente já realizada, ressalvado, sempre, o direito à reparação dos prejuízos causados ao executado.
+- § 5.º Ao cumprimento provisório de sentença que reconheça obrigação de fazer, de não fazer ou de dar coisa aplica-se, no que couber, o disposto neste Capítulo.
+# Remissões Normativas
+- Vide arts. 566 e seguintes do CPC.
+-- tratam do procedimento comum, não tendo relação direta com a execução. A remissão pretendida provavelmente seria aos arts. 771 e seguintes, que tratam das disposições gerais da execução.
+- Vide art. 525 do CPC.
+-- dispõe sobre a impugnação ao cumprimento definitivo da sentença, aplicável também ao cumprimento provisório.
+- Vide art. 523, § 1.º, do CPC.
+-- estabelece a incidência de multa e honorários de 10% em caso de não pagamento voluntário do débito no prazo legal.
+-----
+# Cumprimento Provisório de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 521. A caução prevista no inciso IV do art. 520 poderá ser dispensada nos casos em que:
+- I – o crédito for de natureza alimentar, independentemente de sua origem;
+- II – o credor demonstrar situação de necessidade;
+- III – pender o agravo do art. 1.042;
+- Inciso III com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- IV – a sentença a ser provisoriamente cumprida estiver em consonância com súmula da jurisprudência do Supremo Tribunal Federal ou do Superior Tribunal de Justiça ou em conformidade com acórdão proferido no julgamento de casos repetitivos.
+- Parágrafo único. A exigência de caução será mantida quando da dispensa possa resultar manifesto risco de grave dano de difícil ou incerta reparação.
+# Remissões Normativas
+- Vide art. 1.042 do CPC.
+-- trata do cabimento de agravo contra decisão do presidente ou vice-presidente do tribunal recorrido que inadmitir recurso extraordinário ou especial.
+-----
+# Cumprimento Provisório de Sentença
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 522. O cumprimento provisório da sentença será requerido por petição dirigida ao juízo competente.
+- Parágrafo único. Não sendo eletrônicos os autos, a petição será acompanhada de cópias das seguintes peças do processo, cuja autenticidade poderá ser certificada pelo próprio advogado, sob sua responsabilidade pessoal:
+- I – decisão exequenda;
+- II – certidão de interposição do recurso não dotado de efeito suspensivo;
+- III – procurações outorgadas pelas partes;
+- IV – decisão de habilitação, se for o caso;
+- V – facultativamente, outras peças processuais consideradas necessárias para demonstrar a existência do crédito.
+-----
+# Cumprimento Definitivo de Sentença - Obrigação de Pagar Quantia Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 523. No caso de condenação em quantia certa, ou já fixada em liquidação, e no caso de decisão sobre parcela incontroversa, o cumprimento definitivo da sentença far-se-á a requerimento do exequente, sendo o executado intimado para pagar o débito, no prazo de 15 (quinze) dias, acrescido de custas, se houver.
+- § 1.º Não ocorrendo pagamento voluntário no prazo do caput, o débito será acrescido de multa de dez por cento e, também, de honorários de advogado de dez por cento.
+- § 2.º Efetuado o pagamento parcial no prazo previsto no caput, a multa e os honorários previstos no § 1.º incidirão sobre o restante.
+- § 3.º Não efetuado tempestivamente o pagamento voluntário, será expedido, desde logo, mandado de penhora e avaliação, seguindo-se os atos de expropriação.
+# Remissões Normativas
+- Vide art. 880 da CLT.
+-- trata do mandado de citação, penhora e avaliação na execução trabalhista, determinando ao executado o pagamento em 48 horas ou a garantia da execução, sob pena de penhora.
+- Vide arts. 824 e seguintes do CPC.
+-- dispõem sobre a execução por quantia certa, que visa expropriar bens do executado para satisfazer o direito do exequente.
+- Vide arts. 870 e seguintes do CPC.
+-- regulam o procedimento de avaliação dos bens penhorados, a ser realizada por oficial de justiça ou, se necessário, por avaliador nomeado pelo juiz.
+-----
+# Cumprimento Definitivo de Sentença - Obrigação de Pagar Quantia Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 524. O requerimento previsto no art. 523 será instruído com demonstrativo discriminado e atualizado do crédito, devendo a petição conter:
+- I – o nome completo, o número de inscrição no Cadastro de Pessoas Físicas ou no Cadastro Nacional da Pessoa Jurídica do exequente e do executado, observado o disposto no art. 319, §§ 1.º a 3.º;
+- II – o índice de correção monetária adotado;
+- III – os juros aplicados e as respectivas taxas;
+- IV – o termo inicial e o termo final dos juros e da correção monetária utilizados;
+- V – a periodicidade da capitalização dos juros, se for o caso;
+- VI – especificação dos eventuais descontos obrigatórios realizados;
+- VII – indicação dos bens passíveis de penhora, sempre que possível.
+- § 1.º Quando o valor apontado no demonstrativo aparentemente exceder os limites da condenação, a execução será iniciada pelo valor pretendido, mas a penhora terá por base a importância que o juiz entender adequada.
+- § 2.º Para a verificação dos cálculos, o juiz poderá valer-se de contabilista do juízo, que terá o prazo máximo de 30 (trinta) dias para efetuá-la, exceto se outro lhe for determinado.
+- § 3.º Quando a elaboração do demonstrativo depender de dados em poder de terceiros ou do executado, o juiz poderá requisitá-los, sob cominação do crime de desobediência.
+- § 4.º Quando a complementação do demonstrativo depender de dados adicionais em poder do executado, o juiz poderá, a requerimento do exequente, requisitá-los, fixando prazo de até 30 (trinta) dias para o cumprimento da diligência.
+- § 5.º Se os dados adicionais a que se refere o § 4.º não forem apresentados pelo executado, sem justificativa, no prazo designado, reputar-se-ão corretos os cálculos apresentados pelo exequente apenas com base nos dados de que dispõe.
+# Remissões Normativas
+- Vide art. 319, §§ 1.º a 3.º, do CPC.
+-- trata dos requisitos da petição inicial, especificamente sobre a possibilidade de o juiz auxiliar na obtenção de informações de qualificação do réu.
+-----
+# Cumprimento Definitivo de Sentença - Obrigação de Pagar Quantia Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 525. Transcorrido o prazo previsto no art. 523 sem o pagamento voluntário, inicia-se o prazo de 15 (quinze) dias para que o executado, independentemente de penhora ou nova intimação, apresente, nos próprios autos, sua impugnação.
+- § 1.º Na impugnação, o executado poderá alegar:
+- I – falta ou nulidade da citação se, na fase de conhecimento, o processo correu à revelia;
+- II – ilegitimidade de parte;
+- III – inexequibilidade do título ou inexigibilidade da obrigação;
+- IV – penhora incorreta ou avaliação errônea;
+- V – excesso de execução ou cumulação indevida de execuções;
+- VI – incompetência absoluta ou relativa do juízo da execução;
+- VII – qualquer causa modificativa ou extintiva da obrigação, como pagamento, novação, compensação, transação ou prescrição, desde que supervenientes à sentença.
+- § 2.º A alegação de impedimento ou suspeição observará o disposto nos arts. 146 e 148.
+- § 3.º Aplica-se à impugnação o disposto no art. 229.
+- § 4.º Quando o executado alegar que o exequente, em excesso de execução, pleiteia quantia superior à resultante da sentença, cumprir-lhe-á declarar de imediato o valor que entende correto, apresentando demonstrativo discriminado e atualizado de seu cálculo.
+- § 5.º Na hipótese do § 4.º, não apontado o valor correto ou não apresentado o demonstrativo, a impugnação será liminarmente rejeitada, se o excesso de execução for o seu único fundamento, ou, se houver outro, a impugnação será processada, mas o juiz não examinará a alegação de excesso de execução.
+- § 6.º A apresentação de impugnação não impede a prática dos atos executivos, inclusive os de expropriação, podendo o juiz, a requerimento do executado e desde que garantido o juízo com penhora, caução ou depósito suficientes, atribuir-lhe efeito suspensivo, se seus fundamentos forem relevantes e se o prosseguimento da execução for manifestamente suscetível de causar ao executado grave dano de difícil ou incerta reparação.
+- § 7.º A concessão de efeito suspensivo a que se refere o § 6.º não impedirá a efetivação dos atos de substituição, de reforço ou de redução da penhora e de avaliação dos bens.
+- § 8.º Quando o efeito suspensivo atribuído à impugnação disser respeito apenas a parte do objeto da execução, esta prosseguirá quanto à parte restante.
+- § 9.º A concessão de efeito suspensivo à impugnação deduzida por um dos executados não suspenderá a execução contra os que não impugnaram, quando o respectivo fundamento disser respeito exclusivamente ao impugnante.
+- § 10. Ainda que atribuído efeito suspensivo à impugnação, é lícito ao exequente requerer o prosseguimento da execução, oferecendo e prestando, nos próprios autos, caução suficiente e idônea a ser arbitrada pelo juiz.
+- § 11. As questões relativas a fato superveniente ao término do prazo para apresentação da impugnação, assim como aquelas relativas à validade e à adequação da penhora, da avaliação e dos atos executivos subsequentes, podem ser arguidas por simples petição, tendo o executado, em qualquer dos casos, o prazo de 15 (quinze) dias para formular esta arguição, contado da comprovada ciência do fato ou da intimação do ato.
+- § 12. Para efeito do disposto no inciso III do § 1.º deste artigo, considera-se também inexigível a obrigação reconhecida em título executivo judicial fundado em lei ou ato normativo considerado inconstitucional pelo Supremo Tribunal Federal, ou fundado em aplicação ou interpretação da lei ou do ato normativo tido pelo Supremo Tribunal Federal como incompatível com a Constituição Federal, em controle de constitucionalidade concentrado ou difuso.
+- § 13. No caso do § 12, os efeitos da decisão do Supremo Tribunal Federal poderão ser modulados no tempo, em atenção à segurança jurídica.
+- § 14. A decisão do Supremo Tribunal Federal referida no § 12 deve ser anterior ao trânsito em julgado da decisão exequenda.
+- § 15. Se a decisão referida no § 12 for proferida após o trânsito em julgado da decisão exequenda, caberá ação rescisória, cujo prazo será contado do trânsito em julgado da decisão proferida pelo Supremo Tribunal Federal.
+# Remissões Normativas
+- Vide art. 917, § 2.º, do CPC.
+-- trata do excesso de execução nos embargos à execução, exigindo que o executado declare o valor que entende correto, sob pena de rejeição da alegação.
+- Vide arts. 146 e 148 do CPC.
+-- dispõem sobre o procedimento para arguição do impedimento ou da suspeição do juiz.
+- Vide art. 229 do CPC.
+-- trata da contagem de prazo em dobro para litisconsortes com diferentes procuradores, de escritórios de advocacia distintos.
+- Vide arts. 831 e seguintes do CPC.
+-- dispõem sobre a penhora de bens para garantia da execução, sua formalização e os bens que podem ser objeto de constrição.
+- Vide art. 27 da Lei n. 9.868/1999.
+-- trata da modulação dos efeitos da decisão em Ação Direta de Inconstitucionalidade (ADI) e Ação Declaratória de Constitucionalidade (ADC).
+- Vide art. 1.057 do CPC.
+-- dispõe sobre a aplicação das regras de inexigibilidade da obrigação e de ação rescisória (previstas nos §§ 12 a 15) a decisões transitadas em julgado antes e depois da vigência do Código.
+-----
+# Cumprimento de Sentença - Obrigação de Pagar Quantia Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 526. É lícito ao réu, antes de ser intimado para o cumprimento da sentença, comparecer em juízo e oferecer em pagamento o valor que entender devido, apresentando memória discriminada do cálculo.
+- § 1.º O autor será ouvido no prazo de 5 (cinco) dias, podendo impugnar o valor depositado, sem prejuízo do levantamento do depósito a título de parcela incontroversa.
+- § 2.º Concluindo o juiz pela insuficiência do depósito, sobre a diferença incidirão multa de dez por cento e honorários advocatícios, também fixados em dez por cento, seguindo-se a execução com penhora e atos subsequentes.
+- § 3.º Se o autor não se opuser, o juiz declarará satisfeita a obrigação e extinguirá o processo.
+-----
+# Cumprimento de Sentença - Obrigação de Pagar Quantia Certa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 527. Aplicam-se as disposições deste Capítulo ao cumprimento provisório da sentença, no que couber.
+-----
+# Cumprimento de Sentença - Obrigação de Prestar Alimentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 528. No cumprimento de sentença que condene ao pagamento de prestação alimentícia ou de decisão interlocutória que fixe alimentos, o juiz, a requerimento do exequente, mandará intimar o executado pessoalmente para, em 3 (três) dias, pagar o débito, provar que o fez ou justificar a impossibilidade de efetuá-lo.
+- § 1.º Caso o executado, no prazo referido no caput, não efetue o pagamento, não prove que o efetuou ou não apresente justificativa da impossibilidade de efetuá-lo, o juiz mandará protestar o pronunciamento judicial, aplicando-se, no que couber, o disposto no art. 517.
+- § 2.º Somente a comprovação de fato que gere a impossibilidade absoluta de pagar justificará o inadimplemento.
+- § 3.º Se o executado não pagar ou se a justificativa apresentada não for aceita, o juiz, além de mandar protestar o pronunciamento judicial na forma do § 1.º, decretar-lhe-á a prisão pelo prazo de 1 (um) a 3 (três) meses.
+- § 4.º A prisão será cumprida em regime fechado, devendo o preso ficar separado dos presos comuns.
+- § 5.º O cumprimento da pena não exime o executado do pagamento das prestações vencidas e vincendas.
+- § 6.º Paga a prestação alimentícia, o juiz suspenderá o cumprimento da ordem de prisão.
+- § 7.º O débito alimentar que autoriza a prisão civil do alimentante é o que compreende até as 3 (três) prestações anteriores ao ajuizamento da execução e as que se vencerem no curso do processo.
+- § 8.º O exequente pode optar por promover o cumprimento da sentença ou decisão desde logo, nos termos do disposto neste Livro, Título II, Capítulo III, caso em que não será admissível a prisão do executado, e, recaindo a penhora em dinheiro, a concessão de efeito suspensivo à impugnação não obsta a que o exequente levante mensalmente a importância da prestação.
+- § 9.º Além das opções previstas no art. 516, parágrafo único, o exequente pode promover o cumprimento da sentença ou decisão que condena ao pagamento de prestação alimentícia no juízo de seu domicílio.
+# Remissões Normativas
+- Vide Lei n. 5.478/1968 (Lei de Alimentos).
+-- dispõe sobre a ação de alimentos e estabelece rito processual especial.
+- Vide Lei n. 11.804/2008 (alimentos gravídicos).
+-- disciplina o direito a alimentos da mulher gestante e a forma como será exercido.
+- Vide art. 5.º, LXVII, da CF.
+-- estabelece que não haverá prisão civil por dívida, salvo a do responsável pelo inadimplemento voluntário e inescusável de obrigação alimentícia.
+- Vide Súmula 309 do STJ.
+-- define que o débito alimentar que autoriza a prisão civil do alimentante é o que compreende as três prestações anteriores ao ajuizamento da execução e as que se vencerem no curso do processo.
+- Vide art. 19 da Lei n. 5.478/1968.
+-- trata do rito da execução de sentença de alimentos, prevendo a prisão do devedor.
+- Vide art. 15 da Lei n. 14.010/2020.
+-- determinou, em caráter emergencial durante a pandemia de Covid-19, o cumprimento da prisão por dívida alimentícia exclusivamente na modalidade domiciliar.
+- Vide art. 517 do CPC.
+-- dispõe sobre a possibilidade de a decisão judicial transitada em julgado ser levada a protesto.
+-----
+# Cumprimento de Sentença - Obrigação de Prestar Alimentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 529. Quando o executado for funcionário público, militar, diretor ou gerente de empresa ou empregado sujeito à legislação do trabalho, o exequente poderá requerer o desconto em folha de pagamento da importância da prestação alimentícia.
+- O art. 115, IV, da Lei n. 8.213, de 24-7-1991 (Previdência Social), dispõe que a pensão de alimentos decretada em separação judicial pode ser descontada dos benefícios.
+- O art. 462, caput, da CLT dispõe que ao empregador é vedado efetuar qualquer desconto nos salários do empregado, salvo quando este resultar de adiantamentos, de dispositivos de lei ou de contrato coletivo.
+- § 1.º Ao proferir a decisão, o juiz oficiará à autoridade, à empresa ou ao empregador, determinando, sob pena de crime de desobediência, o desconto a partir da primeira remuneração posterior do executado, a contar do protocolo do ofício.
+- § 2.º O ofício conterá o nome e o número de inscrição no Cadastro de Pessoas Físicas do exequente e do executado, a importância a ser descontada mensalmente, o tempo de sua duração e a conta na qual deve ser feito o depósito.
+- § 3.º Sem prejuízo do pagamento dos alimentos vincendos, o débito objeto de execução pode ser descontado dos rendimentos ou rendas do executado, de forma parcelada, nos termos do caput deste artigo, contanto que, somado à parcela devida, não ultrapasse cinquenta por cento de seus ganhos líquidos.
+# Remissões Normativas
+- Vide art. 833, IV, do CPC.
+-- trata da impenhorabilidade dos vencimentos, subsídios, soldos, salários e outras remunerações, excetuando-se a hipótese de pagamento de prestação alimentícia.
+- Vide art. 1.701, parágrafo único, do CC.
+-- estabelece que, em caso de união estável, o companheiro que dela necessitar poderá pedir alimentos ao outro. (Nota: A remissão mais precisa seria ao art. 1.694, mas o texto indica o art. 1.701, que trata de alimentos entre cônjuges).
+- Vide art. 22, parágrafo único, da Lei n. 5.478/1968.
+-- tipifica como crime contra a administração da justiça a conduta daquele que auxilia o devedor a se eximir do pagamento da pensão alimentícia.
+- Vide art. 115, IV, da Lei n. 8.213/1991.
+-- autoriza o desconto de pensão alimentícia dos benefícios previdenciários.
+- Vide art. 462, caput, da CLT.
+-- veda descontos salariais, exceto os resultantes de adiantamentos, de dispositivos de lei ou de contrato coletivo, sendo o desconto de pensão alimentícia uma exceção legal.
+-----
+# Cumprimento de Sentença - Obrigação de Prestar Alimentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 530. Não cumprida a obrigação, observar-se-á o disposto nos arts. 831 e seguintes.
+# Remissões Normativas
+- Vide arts. 831 e seguintes do CPC.
+-- tratam da penhora, avaliação e expropriação de bens no processo de execução.
+-----
+# Cumprimento de Sentença - Obrigação de Prestar Alimentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 531. O disposto neste Capítulo aplica-se aos alimentos definitivos ou provisórios.
+- § 1.º A execução dos alimentos provisórios, bem como a dos alimentos fixados em sentença ainda não transitada em julgado, se processa em autos apartados.
+- § 2.º O cumprimento definitivo da obrigação de prestar alimentos será processado nos mesmos autos em que tenha sido proferida a sentença.
+-----
+# Cumprimento de Sentença - Obrigação de Prestar Alimentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 532. Verificada a conduta procrastinatória do executado, o juiz deverá, se for o caso, dar ciência ao Ministério Público dos indícios da prática do crime de abandono material.
+-----
+# Cumprimento de Sentença - Obrigação de Prestar Alimentos
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 533. Quando a indenização por ato ilícito incluir prestação de alimentos, caberá ao executado, a requerimento do exequente, constituir capital cuja renda assegure o pagamento do valor mensal da pensão.
+- § 1.º O capital a que se refere o caput, representado por imóveis ou por direitos reais sobre imóveis suscetíveis de alienação, títulos da dívida pública ou aplicações financeiras em banco oficial, será inalienável e impenhorável enquanto durar a obrigação do executado, além de constituir-se em patrimônio de afetação.
+- § 2.º O juiz poderá substituir a constituição do capital pela inclusão do exequente em folha de pagamento de pessoa jurídica de notória capacidade econômica ou, a requerimento do executado, por fiança bancária ou garantia real, em valor a ser arbitrado de imediato pelo juiz.
+- § 3.º Se sobrevier modificação nas condições econômicas, poderá a parte requerer, conforme as circunstâncias, redução ou aumento da prestação.
+- § 4.º A prestação alimentícia poderá ser fixada tomando por base o salário mínimo.
+- § 5.º Finda a obrigação de prestar alimentos, o juiz mandará liberar o capital, cessar o desconto em folha ou cancelar as garantias prestadas.
+# Remissões Normativas
+- Vide art. 1.694 do CC.
+-- dispõe sobre o direito de parentes, cônjuges ou companheiros pedirem uns aos outros os alimentos de que necessitem para viver de modo compatível com a sua condição social, fixados na proporção das necessidades do reclamante e dos recursos da pessoa obrigada.
+-----
+# Cumprimento de Sentença contra a Fazenda Pública
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 534. No cumprimento de sentença que impuser à Fazenda Pública o dever de pagar quantia certa, o exequente apresentará demonstrativo discriminado e atualizado do crédito contendo:
+- I – o nome completo e o número de inscrição no Cadastro de Pessoas Físicas ou no Cadastro Nacional da Pessoa Jurídica do exequente;
+- II – o índice de correção monetária adotado;
+- III – os juros aplicados e as respectivas taxas;
+- IV – o termo inicial e o termo final dos juros e da correção monetária utilizados;
+- V – a periodicidade da capitalização dos juros, se for o caso;
+- VI – a especificação dos eventuais descontos obrigatórios realizados.
+- § 1.º Havendo pluralidade de exequentes, cada um deverá apresentar o seu próprio demonstrativo, aplicando-se à hipótese, se for o caso, o disposto nos §§ 1.º e 2.º do art. 113.
+- § 2.º A multa prevista no § 1.º do art. 523 não se aplica à Fazenda Pública.
+# Remissões Normativas
+- Vide art. 113, §§ 1.º e 2.º, do CPC.
+-- trata do litisconsórcio multitudinário, facultando ao juiz limitar o número de litigantes quando comprometer a rápida solução do litígio ou dificultar a defesa.
+- Vide art. 523, § 1.º, do CPC.
+-- estabelece a multa de dez por cento e honorários advocatícios, também de dez por cento, sobre o débito exequendo, em caso de não pagamento voluntário no prazo de 15 dias.
+-----
+# Cumprimento de Sentença contra a Fazenda Pública
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 535. A Fazenda Pública será intimada na pessoa de seu representante judicial, por carga, remessa ou meio eletrônico, para, querendo, no prazo de 30 (trinta) dias e nos próprios autos, impugnar a execução, podendo arguir:
+- I – falta ou nulidade da citação se, na fase de conhecimento, o processo correu à revelia;
+- II – ilegitimidade de parte;
+- III – inexequibilidade do título ou inexigibilidade da obrigação;
+- IV – excesso de execução ou cumulação indevida de execuções;
+- V – incompetência absoluta ou relativa do juízo da execução;
+- VI – qualquer causa modificativa ou extintiva da obrigação, como pagamento, novação, compensação, transação ou prescrição, desde que supervenientes ao trânsito em julgado da sentença.
+- § 1.º A alegação de impedimento ou suspeição observará o disposto nos arts. 146 e 148.
+- § 2.º Quando se alegar que o exequente, em excesso de execução, pleiteia quantia superior à resultante do título, cumprirá à executada declarar de imediato o valor que entende correto, sob pena de não conhecimento da arguição.
+- § 3.º Não impugnada a execução ou rejeitadas as arguições da executada:
+- I – expedir-se-á, por intermédio do presidente do tribunal competente, precatório em favor do exequente, observando-se o disposto na Constituição Federal;
+- II – por ordem do juiz, dirigida à autoridade na pessoa de quem o ente público foi citado para o processo, o pagamento de obrigação de pequeno valor será realizado no prazo de 2 (dois) meses contado da entrega da requisição, mediante depósito na agência de banco oficial mais próxima da residência do exequente.
+- O STF julgou parcialmente procedente a ADI n. 5.534, nas sessões virtuais de 11-12-2020 a 18-12-2020 (DOU de 8-1-2021), para declarar a constitucionalidade deste inciso II.
+- O STF, nas sessões virtuais de 14-4-2023 a 24-4-2023 (DOU de 4-5-2023), julgou parcialmente procedente a ADI n. 5.492 para declarar inconstitucional a expressão “de banco oficial”, constante neste inciso II, e “conferir interpretação conforme ao dispositivo para que se entenda que a ‘agência’ nele referida pode ser de instituição financeira pública ou privada. Para dar cumprimento ao disposto na norma, poderá a administração do tribunal contratar banco oficial ou, caso assim opte, banco privado, hipótese em que serão observadas a realidade do caso concreto, os regramentos legais e princípios constitucionais aplicáveis e as normas do procedimento licitatório, visando à escolha da proposta mais adequada para a administração de tais recursos”.
+- § 4.º Tratando-se de impugnação parcial, a parte não questionada pela executada será, desde logo, objeto de cumprimento.
+- O STF julgou parcialmente procedente a ADI n. 5.534, nas sessões virtuais de 11-12-2020 a 18-12-2020 (DOU de 8-1-2021), para conferir interpretação conforme à Constituição a este § 4.º, “no sentido de que, para efeito de determinação do regime de pagamento do valor incontroverso, deve ser observado o valor total da condenação”.
+- § 5.º Para efeito do disposto no inciso III do caput deste artigo, considera-se também inexigível a obrigação reconhecida em título executivo judicial fundado em lei ou ato normativo considerado inconstitucional pelo Supremo Tribunal Federal, ou fundado em aplicação ou interpretação da lei ou do ato normativo tido pelo Supremo Tribunal Federal como incompatível com a Constituição Federal, em controle de constitucionalidade concentrado ou difuso.
+- § 6.º No caso do § 5.º, os efeitos da decisão do Supremo Tribunal Federal poderão ser modulados no tempo, de modo a favorecer a segurança jurídica.
+- § 7.º A decisão do Supremo Tribunal Federal referida no § 5.º deve ter sido proferida antes do trânsito em julgado da decisão exequenda.
+- § 8.º Se a decisão referida no § 5.º for proferida após o trânsito em julgado da decisão exequenda, caberá ação rescisória, cujo prazo será contado do trânsito em julgado da decisão proferida pelo Supremo Tribunal Federal.
+# Remissões Normativas
+- Vide arts. 146 e 148 do CPC.
+-- tratam do procedimento para arguição do impedimento ou da suspeição do juiz.
+- Vide Súmula 487 do STJ.
+-- dispõe que o parágrafo único do art. 741 do CPC/1973 (correspondente ao § 5º deste artigo) também se aplica às sentenças anteriores à sua vigência.
+- Vide art. 27 da Lei n. 9.868/1999.
+-- trata da modulação dos efeitos da decisão em Ação Direta de Inconstitucionalidade (ADI) e Ação Declaratória de Constitucionalidade (ADC).
+- Vide art. 1.057 do CPC.
+-- dispõe sobre a aplicação das regras de inexigibilidade da obrigação e de ação rescisória (previstas nos §§ 5º a 8º) a decisões transitadas em julgado antes e depois da vigência do Código.
+-----
+# Cumprimento de Sentença - Obrigação de Fazer ou Não Fazer
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 536. No cumprimento de sentença que reconheça a exigibilidade de obrigação de fazer ou de não fazer, o juiz poderá, de ofício ou a requerimento, para a efetivação da tutela específica ou a obtenção de tutela pelo resultado prático equivalente, determinar as medidas necessárias à satisfação do exequente.
+- § 1.º Para atender ao disposto no caput, o juiz poderá determinar, entre outras medidas, a imposição de multa, a busca e apreensão, a remoção de pessoas e coisas, o desfazimento de obras e o impedimento de atividade nociva, podendo, caso necessário, requisitar o auxílio de força policial.
+- § 2.º O mandado de busca e apreensão de pessoas e coisas será cumprido por 2 (dois) oficiais de justiça, observando-se o disposto no art. 846, §§ 1.º a 4.º, if houver necessidade de arrombamento.
+- § 3.º O executado incidirá nas penas de litigância de má-fé quando injustificadamente descumprir a ordem judicial, sem prejuízo de sua responsabilização por crime de desobediência.
+- § 4.º No cumprimento de sentença que reconheça a exigibilidade de obrigação de fazer ou de não fazer, aplica-se o art. 525, no que couber.
+- § 5.º O disposto neste artigo aplica-se, no que couber, ao cumprimento de sentença que reconheça deveres de fazer e de não fazer de natureza não obrigacional.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+- Vide arts. 814 a 823 do CPC.
+-- tratam da execução das obrigações de fazer ou de não fazer fundada em título executivo extrajudicial.
+- Vide Lei n. 9.494/1997.
+-- disciplina a aplicação da tutela antecipada contra a Fazenda Pública, estabelecendo restrições.
+- Vide art. 519 do CPC.
+-- dispõe que as questões relativas à validade do procedimento de cumprimento da sentença e dos atos executivos subsequentes podem ser arguidas por simples petição.
+-----
+# Cumprimento de Sentença - Obrigação de Fazer ou Não Fazer
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 537. A multa independe de requerimento da parte e poderá ser aplicada na fase de conhecimento, em tutela provisória ou na sentença, ou na fase de execução, desde que seja suficiente e compatível com a obrigação e que se determine prazo razoável para cumprimento do preceito.
+- § 1.º O juiz poderá, de ofício ou a requerimento, modificar o valor ou a periodicidade da multa vincenda ou excluí-la, caso verifique que:
+- I – se tornou insuficiente ou excessiva;
+- II – o obrigado demonstrou cumprimento parcial superveniente da obrigação ou justa causa para o descumprimento.
+- § 2.º O valor da multa será devido ao exequente.
+- § 3.º A decisão que fixa a multa é passível de cumprimento provisório, devendo ser depositada em juízo, permitido o levantamento do valor após o trânsito em julgado da sentença favorável à parte.
+- § 3.º com redação determinada pela Lei n. 13.256, de 4-2-2016.
+- § 4.º A multa será devida desde o dia em que se configurar o descumprimento da decisão e incidirá enquanto não for cumprida a decisão que a tiver cominado.
+- § 5.º O disposto neste artigo aplica-se, no que couber, ao cumprimento de sentença que reconheça deveres de fazer e de não fazer de natureza não obrigacional.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+-----
+# Cumprimento de Sentença - Obrigação de Entregar Coisa
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 538. Não cumprida a obrigação de entregar coisa no prazo estabelecido na sentença, será expedido mandado de busca e apreensão ou de imissão na posse em favor do credor, conforme se tratar de coisa móvel ou imóvel.
+- § 1.º A existência de benfeitorias deve ser alegada na fase de conhecimento, em contestação, de forma discriminada e com atribuição, sempre que possível e justificadamente, do respectivo valor.
+- § 2.º O direito de retenção por benfeitorias deve ser exercido na contestação, na fase de conhecimento.
+- § 3.º Aplicam-se ao procedimento previsto neste artigo, no que couber, as disposições sobre o cumprimento de obrigação de fazer ou de não fazer.
+# Remissões Normativas
+- Vide art. 3.º da Instrução Normativa n. 39/2016 do TST.
+-- estabelece que o Código de Processo Civil de 2015 é aplicável ao Processo do Trabalho de forma supletiva e subsidiária.
+- Vide arts. 806 a 813 do CPC.
+-- tratam da execução para entrega de coisa fundada em título executivo extrajudicial.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 539. Nos casos previstos em lei, poderá o devedor ou terceiro requerer, com efeito de pagamento, a consignação da quantia ou da coisa devida.
+- § 1.º Tratando-se de obrigação em dinheiro, poderá o valor ser depositado em estabelecimento bancário, oficial onde houver, situado no lugar do pagamento, cientificando-se o credor por carta com aviso de recebimento, assinado o prazo de 10 (dez) dias para a manifestação de recusa.
+- § 2.º Decorrido o prazo do § 1.º, contado do retorno do aviso de recebimento, sem a manifestação de recusa, considerar-se-á o devedor liberado da obrigação, ficando à disposição do credor a quantia depositada.
+- § 3.º Ocorrendo a recusa, manifestada por escrito ao estabelecimento bancário, poderá ser proposta, dentro de 1 (um) mês, a ação de consignação, instruindo-se a inicial com a prova do depósito e da recusa.
+- § 4.º Não proposta a ação no prazo do § 3.º, ficará sem efeito o depósito, podendo levantá-lo o depositante.
+# Remissões Normativas
+- Vide art. 67 da Lei n. 8.245/1991 (Lei de Locação).
+-- trata especificamente da ação de consignação de aluguel e acessórios da locação.
+- Vide arts. 334 a 345 do CC.
+-- dispõem sobre o pagamento em consignação como forma de extinção da obrigação, suas hipóteses e requisitos.
+- Vide art. 542, I, do CPC.
+-- estabelece que, na petição inicial da ação de consignação, o autor requererá o depósito da quantia ou coisa devida.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 540. Requerer-se-á a consignação no lugar do pagamento, cessando para o devedor, à data do depósito, os juros e os riscos, salvo se a demanda for julgada improcedente.
+# Remissões Normativas
+- Vide art. 53, III, d, do CPC.
+-- define como competente o foro do lugar do pagamento para a ação em que se pede o cumprimento da obrigação.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 541. Tratando-se de prestações sucessivas, consignada uma delas, pode o devedor continuar a depositar, no mesmo processo e sem mais formalidades, as que se forem vencendo, desde que o faça em até 5 (cinco) dias contados da data do respectivo vencimento.
+# Remissões Normativas
+- Vide art. 323 do CPC.
+-- estabelece que, em obrigações de trato sucessivo, consideram-se incluídas no pedido as prestações vencidas e vincendas no curso do processo.
+- Vide art. 67, III, da Lei n. 8.245/1991 (Lei de Locação).
+-- permite que os aluguéis que se vencerem durante a tramitação da ação de consignação sejam depositados nos respectivos vencimentos.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 542. Na petição inicial, o autor requererá:
+- I – o depósito da quantia ou da coisa devida, a ser efetivado no prazo de 5 (cinco) dias contados do deferimento, ressalvada a hipótese do art. 539, § 3.º;
+- II – a citação do réu para levantar o depósito ou oferecer contestação.
+- Parágrafo único. Não realizado o depósito no prazo do inciso I, o processo será extinto sem resolução do mérito.
+# Remissões Normativas
+- Vide art. 292, § 1.º, do CPC.
+-- dispõe que o valor da causa constará da petição inicial ou da reconvenção e será sempre certo, ainda que o pedido seja genérico.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 543. Se o objeto da prestação for coisa indeterminada e a escolha couber ao credor, será este citado para exercer o direito dentro de 5 (cinco) dias, se outro prazo não constar de lei ou do contrato, ou para aceitar que o devedor a faça, devendo o juiz, ao despachar a petição inicial, fixar lugar, dia e hora em que se fará a entrega, sob pena de depósito.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 544. Na contestação, o réu poderá alegar que:
+- I – não houve recusa ou mora em receber a quantia ou a coisa devida;
+- II – foi justa a recusa;
+- III – o depósito não se efetuou no prazo ou no lugar do pagamento;
+- IV – o depósito não é integral.
+- Parágrafo único. No caso do inciso IV, a alegação somente será admissível se o réu indicar o montante que entende devido.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 545. Alegada a insuficiência do depósito, é lícito ao autor completá-lo, em 10 (dez) dias, salvo se corresponder a prestação cujo inadimplemento acarrete a rescisão do contrato.
+- § 1.º No caso do caput, poderá o réu levantar, desde logo, a quantia ou a coisa depositada, com a consequente liberação parcial do autor, prosseguindo o processo quanto à parcela controvertida.
+- § 2.º A sentença que concluir pela insuficiência do depósito determinará, sempre que possível, o montante devido e valerá como título executivo, facultado ao credor promover-lhe o cumprimento nos mesmos autos, após liquidação, se necessária.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 546. Julgado procedente o pedido, o juiz declarará extinta a obrigação e condenará o réu ao pagamento de custas e honorários advocatícios.
+- Parágrafo único. Proceder-se-á do mesmo modo se o credor receber e der quitação.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 547. Se ocorrer dúvida sobre quem deva legitimamente receber o pagamento, o autor requererá o depósito e a citação dos possíveis titulares do crédito para provarem o seu direito.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 548. No caso do art. 547:
+- I – não comparecendo pretendente algum, converter-se-á o depósito em arrecadação de coisas vagas;
+- II – comparecendo apenas um, o juiz decidirá de plano;
+- III – comparecendo mais de um, o juiz declarará efetuado o depósito e extinta a obrigação, continuando o processo a correr unicamente entre os presuntivos credores, observado o procedimento comum.
+-----
+# Ação de Consignação em Pagamento
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 549. Aplica-se o procedimento estabelecido neste Capítulo, no que couber, ao resgate do aforamento.
+-----
+# Ação de Exigir Contas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 550. Aquele que afirmar ser titular do direito de exigir contas requererá a citação do réu para que as preste ou ofereça contestação no prazo de 15 (quinze) dias.
+- § 1.º Na petição inicial, o autor especificará, detalhadamente, as razões pelas quais exige as contas, instruindo-a com documentos comprobatórios dessa necessidade, se existirem.
+- § 2.º Prestadas as contas, o autor terá 15 (quinze) dias para se manifestar, prosseguindo-se o processo na forma do Capítulo X do Título I deste Livro.
+- § 3.º A impugnação das contas apresentadas pelo réu deverá ser fundamentada e específica, com referência expressa ao lançamento questionado.
+- § 4.º Se o réu não contestar o pedido, observar-se-á o disposto no art. 355.
+- § 5.º A decisão que julgar procedente o pedido condenará o réu a prestar as contas no prazo de 15 (quinze) dias, sob pena de não lhe ser lícito impugnar as que o autor apresentar.
+- § 6.º Se o réu apresentar as contas no prazo previsto no § 5.º, seguir-se-á o procedimento do § 2.º, caso contrário, o autor apresentá-las-á no prazo de 15 (quinze) dias, podendo o juiz determinar a realização de exame pericial, se necessário.
+# Remissões Normativas
+- Vide art. 355 do CPC.
+-- trata do julgamento antecipado do mérito, que ocorre quando não há necessidade de produção de outras provas ou quando o réu é revel e não há requerimento de prova.
+-----
+# Ação de Exigir Contas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 551. As contas do réu serão apresentadas na forma adequada, especificando-se as receitas, a aplicação das despesas e os investimentos, se houver.
+- § 1.º Havendo impugnação específica e fundamentada pelo autor, o juiz estabelecerá prazo razoável para que o réu apresente os documentos justificativos dos lançamentos individualmente impugnados.
+- § 2.º As contas do autor, para os fins do art. 550, § 5.º, serão apresentadas na forma adequada, já instruídas com os documentos justificativos, especificando-se as receitas, a aplicação das despesas e os investimentos, se houver, bem como o respectivo saldo.
+-----
+# Ação de Exigir Contas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 552. A sentença apurará o saldo e constituirá título executivo judicial.
+-----
+# Ação de Exigir Contas
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 553. As contas do inventariante, do tutor, do curador, do depositário e de qualquer outro administrador serão prestadas em apenso aos autos do processo em que tiver sido nomeado.
+- Parágrafo único. Se qualquer dos referidos no caput for condenado a pagar o saldo e não o fizer no prazo legal, o juiz poderá destituí-lo, sequestrar os bens sob sua guarda, glosar o prêmio ou a gratificação a que teria direito e determinar as medidas executivas necessárias à recomposição do prejuízo.
+-----
+# Ações Possessórias - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 554. A propositura de uma ação possessória em vez de outra não obstará a que o juiz conheça do pedido e outorgue a proteção legal correspondente àquela cujos pressupostos estejam provados.
+- § 1.º No caso de ação possessória em que figure no polo passivo grande número de pessoas, serão feitas a citação pessoal dos ocupantes que forem encontrados no local e a citação por edital dos demais, determinando-se, ainda, a intimação do Ministério Público e, se envolver pessoas em situação de hipossuficiência econômica, da Defensoria Pública.
+- § 2.º Para fim da citação pessoal prevista no § 1.º, o oficial de justiça procurará os ocupantes no local por uma vez, citando-se por edital os que não forem encontrados.
+- § 3.º O juiz deverá determinar que se dê ampla publicidade da existência da ação prevista no § 1.º e dos respectivos prazos processuais, podendo, para tanto, valer-se de anúncios em jornal ou rádio locais, da publicação de cartazes na região do conflito e de outros meios.
+# Remissões Normativas
+- Vide arts. 47, § 1.º, e 73, § 2.º, do CPC.
+-- dispõem, respectivamente, sobre a eficácia da sentença em litisconsórcio unitário, que depende da citação de todos os litisconsortes, e a desnecessidade de consentimento do cônjuge para ações possessórias, salvo em caso de composse ou ato praticado por ambos.
+-----
+# Ações Possessórias - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 555. É lícito ao autor cumular ao pedido possessório o de:
+- I – condenação em perdas e danos;
+- II – indenização dos frutos.
+- Parágrafo único. Pode o autor requerer, ainda, imposição de medida necessária e adequada para:
+- I – evitar nova turbação ou esbulho;
+- II – cumprir-se a tutela provisória ou final.
+# Remissões Normativas
+- Vide arts. 402 e seguintes do CC.
+-- tratam das perdas e danos devidos ao credor, abrangendo o que ele efetivamente perdeu (danos emergentes) e o que razoavelmente deixou de lucrar (lucros cessantes).
+-----
+# Ações Possessórias - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 556. É lícito ao réu, na contestação, alegando que foi o ofendido em sua posse, demandar a proteção possessória e a indenização pelos prejuízos resultantes da turbação ou do esbulho cometido pelo autor.
+-----
+# Ações Possessórias - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 557. Na pendência de ação possessória é vedado, tanto ao autor quanto ao réu, propor ação de reconhecimento do domínio, exceto se a pretensão for deduzida em face de terceira pessoa.
+- O art. 1.210, § 2.º, do CC dispõe que não obsta à manutenção ou reintegração na posse a alegação de propriedade ou de outro direito sobre a coisa.
+- Parágrafo único. Não obsta à manutenção ou à reintegração de posse a alegação de propriedade ou de outro direito sobre a coisa.
+# Remissões Normativas
+- Vide Súmula 487 do STF.
+-- estabelece que será deferida a posse a quem, evidentemente, tiver o domínio, se com base neste for ela disputada.
+- Vide Súmula 637 do STJ.
+-- define que o ente público detém legitimidade e interesse para intervir, incidentalmente, na ação possessória entre particulares, podendo deduzir a exceção de domínio.
+- Vide art. 1.210, § 2.º, do CC.
+-- separa o juízo possessório do petitório, estabelecendo que a alegação de propriedade não impede a tutela da posse.
+-----
+# Ações Possessórias - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 558. Regem o procedimento de manutenção e de reintegração de posse as normas da Seção II deste Capítulo quando a ação for proposta dentro de ano e dia da turbação ou do esbulho afirmado na petição inicial.
+- Parágrafo único. Passado o prazo referido no caput, será comum o procedimento, não perdendo, contudo, o caráter possessório.
+-----
+# Ações Possessórias - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 559. Se o réu provar, em qualquer tempo, que o autor provisoriamente mantido ou reintegrado na posse carece de idoneidade financeira para, no caso de sucumbência, responder por perdas e danos, o juiz designar-lhe-á o prazo de 5 (cinco) dias para requerer caução, real ou fidejussória, sob pena de ser depositada a coisa litigiosa, ressalvada a impossibilidade da parte economicamente hipossuficiente.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 560. O possuidor tem direito a ser mantido na posse em caso de turbação e reintegrado em caso de esbulho.
+- Usucapião: arts. 183 da CF e 1.238 a 1.244 e 1.379 do CC.
+# Remissões Normativas
+- Vide arts. 47 e 73 do CPC.
+-- dispõem, respectivamente, sobre o litisconsórcio necessário e a necessidade do consentimento do cônjuge para propor ação que verse sobre direito real imobiliário.
+- Vide art. 1.210, caput, do CC.
+-- assegura ao possuidor o direito de ser mantido na posse em caso de turbação, restituído no de esbulho, e segurado de violência iminente, se tiver justo receio de ser molestado.
+- Vide arts. 183 da CF e 1.238 a 1.244 e 1.379 do CC.
+-- tratam das diversas modalidades de usucapião (constitucional urbana, extraordinária, ordinária, especial rural e de servidão), modo de aquisição da propriedade pela posse prolongada.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 561. Incumbe ao autor provar:
+- I – a sua posse;
+- II – a turbação ou o esbulho praticado pelo réu;
+- III – a data da turbação ou do esbulho;
+- IV – a continuação da posse, embora turbada, na ação de manutenção, ou a perda da posse, na ação de reintegração.
+# Remissões Normativas
+- Vide art. 373, I, do CPC.
+-- estabelece que o ônus da prova incumbe ao autor, quanto ao fato constitutivo de seu direito.
+- Vide art. 1.224 do CC.
+-- define que a posse de coisas móveis só se perde quando cessa o poder sobre o bem, ainda que o possuidor ignore onde ele se encontra.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 562. Estando a petição inicial devidamente instruída, o juiz deferirá, sem ouvir o réu, a expedição do mandado liminar de manutenção ou de reintegração, caso contrário, determinará que o autor justifique previamente o alegado, citando-se o réu para comparecer à audiência que for designada.
+- Parágrafo único. Contra as pessoas jurídicas de direito público não será deferida a manutenção ou a reintegração liminar sem prévia audiência dos respectivos representantes judiciais.
+# Remissões Normativas
+- Vide Súmula 262 do STF.
+-- define a competência da Justiça Estadual para julgar crime de estelionato relacionado a guias previdenciárias, sem relação com o tema do artigo.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 563. Considerada suficiente a justificação, o juiz fará logo expedir mandado de manutenção ou de reintegração.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 564. Concedido ou não o mandado liminar de manutenção ou de reintegração, o autor promoverá, nos 5 (cinco) dias subsequentes, a citação do réu para, querendo, contestar a ação no prazo de 15 (quinze) dias.
+- Parágrafo único. Quando for ordenada a justificação prévia, o prazo para contestar será contado da intimação da decisão que deferir ou não a medida liminar.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 565. No litígio coletivo pela posse de imóvel, quando o esbulho ou a turbação afirmado na petição inicial houver ocorrido há mais de ano e dia, o juiz, antes de apreciar o pedido de concessão da medida liminar, deverá designar audiência de mediação, a realizar-se em até 30 (trinta) dias, que observará o disposto nos §§ 2.º e 4.º.
+- § 1.º Concedida a liminar, se essa não for executada no prazo de 1 (um) ano, a contar da data de distribuição, caberá ao juiz designar audiência de mediação, nos termos dos §§ 2.º a 4.º deste artigo.
+- § 2.º O Ministério Público será intimado para comparecer à audiência, e a Defensoria Pública será intimada sempre que houver parte beneficiária de gratuidade da justiça.
+- § 3.º O juiz poderá comparecer à área objeto do litígio quando sua presença se fizer necessária à efetivação da tutela jurisdicional.
+- § 4.º Os órgãos responsáveis pela política agrária e pela política urbana da União, de Estado ou do Distrito Federal e de Município onde se situe a área objeto do litígio poderão ser intimados para a audiência, a fim de se manifestarem sobre seu interesse no processo e sobre a existência de possibilidade de solução para o conflito possessório.
+- § 5.º Aplica-se o disposto neste artigo ao litígio sobre propriedade de imóvel.
+-----
+# Da Manutenção e da Reintegração de Posse
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 566. Aplica-se, quanto ao mais, o procedimento comum.
+-----
+# Do Interdito Proibitório
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 567. O possuidor direto ou indireto que tenha justo receio de ser molestado na posse poderá requerer ao juiz que o segure da turbação ou esbulho iminente, mediante mandado proibitório em que se comine ao réu determinada pena pecuniária caso transgrida o preceito.
+# Remissões Normativas
+- Vide arts. 47 e 73 do CPC.
+-- dispõem, respectivamente, sobre o litisconsórcio necessário e a necessidade do consentimento do cônjuge para propor ação que verse sobre direito real imobiliário.
+-----
+# Do Interdito Proibitório
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 568. Aplica-se ao interdito proibitório o disposto na Seção II deste Capítulo.
+-----
+# Ação de Divisão e Demarcação - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 569. Cabe:
+- I – ao proprietário a ação de demarcação, para obrigar o seu confinante a estremar os respectivos prédios, fixando-se novos limites entre eles ou aviventando-se os já apagados;
+- II – ao condômino a ação de divisão, para obrigar os demais consortes a estremar os quinhões.
+- A Lei n. 6.383, de 7-12-1976, dispõe sobre ações discriminatórias de terras públicas.
+# Remissões Normativas
+- Vide arts. 1.297, caput, e 1.298 do CC.
+-- tratam do direito do proprietário de cercar, murar, valar ou tapar seu prédio, e da presunção de que os marcos divisórios pertencem a ambos os proprietários confinantes.
+- Vide arts. 47 e 73 do CPC.
+-- dispõem, respectivamente, sobre o litisconsórcio necessário e a necessidade do consentimento do cônjuge para propor ação que verse sobre direito real imobiliário.
+- Vide art. 1.320 do CC.
+-- estabelece o direito de qualquer condômino de exigir, a todo tempo, a divisão da coisa comum.
+- Vide Lei n. 6.383/1976.
+-- regula o processo discriminatório de terras devolutas da União.
+-----
+# Ação de Divisão e Demarcação - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 570. É lícita a cumulação dessas ações, caso em que deverá processar-se primeiramente a demarcação total ou parcial da coisa comum, citando-se os confinantes e os condôminos.
+-----
+# Ação de Divisão e Demarcação - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 571. A demarcação e a divisão poderão ser realizadas por escritura pública, desde que maiores, capazes e concordes todos os interessados, observando-se, no que couber, os dispositivos deste Capítulo.
+-----
+# Ação de Divisão e Demarcação - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 572. Fixados os marcos da linha de demarcação, os confinantes considerar-se-ão terceiros quanto ao processo divisório, ficando-lhes, porém, ressalvado o direito de vindicar os terrenos de que se julguem despojados por invasão das linhas limítrofes constitutivas do perímetro ou de reclamar indenização correspondente ao seu valor.
+- § 1.º No caso do caput, serão citados para a ação todos os condôminos, se a sentença homologatória da divisão ainda não houver transitado em julgado, e todos os quinhoeiros dos terrenos vindicados, se a ação for proposta posteriormente.
+- § 2.º Neste último caso, a sentença que julga procedente a ação, condenando a restituir os terrenos ou a pagar a indenização, valerá como título executivo em favor dos quinhoeiros para haverem dos outros condôminos que forem parte na divisão ou de seus sucessores a título universal, na proporção que lhes tocar, a composição pecuniária do desfalque sofrido.
+-----
+# Ação de Divisão e Demarcação - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 573. Tratando-se de imóvel georreferenciado, com averbação no registro de imóveis, pode o juiz dispensar a realização de prova pericial.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 574. Na petição inicial, instruída com os títulos da propriedade, designar-se-á o imóvel pela situação e pela denominação, descrever-se-ão os limites por constituir, aviventar ou renovar e nomear-se-ão todos os confinantes da linha demarcanda.
+# Remissões Normativas
+- Vide arts. 47 e 73 do CPC.
+-- dispõem, respectivamente, sobre o litisconsórcio necessário e a necessidade do consentimento do cônjuge para propor ação que verse sobre direito real imobiliário.
+- Vide art. 292, IV, do CPC.
+-- estabelece que o valor da causa na ação de demarcação será o valor de avaliação da área ou do bem objeto do pedido.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 575. Qualquer condômino é parte legítima para promover a demarcação do imóvel comum, requerendo a intimação dos demais para, querendo, intervir no processo.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 576. A citação dos réus será feita por correio, observado o disposto no art. 247.
+- Parágrafo único. Será publicado edital, nos termos do inciso III do art. 259.
+# Remissões Normativas
+- Vide art. 589 do CPC.
+-- determina que, na ação de divisão, as citações seguirão o rito da ação de demarcação previsto neste artigo.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 577. Feitas as citações, terão os réus o prazo comum de 15 (quinze) dias para contestar.
+# Remissões Normativas
+- Vide art. 589 do CPC.
+-- remete ao procedimento da ação de demarcação, incluindo o prazo de contestação aqui estabelecido.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 578. Após o prazo de resposta do réu, observar-se-á o procedimento comum.
+# Remissões Normativas
+- Vide art. 589 do CPC.
+-- aplica o rito do procedimento comum à ação de divisão após a fase de citação, conforme a regra da demarcação aqui prevista.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 579. Antes de proferir a sentença, o juiz nomeará um ou mais peritos para levantar o traçado da linha demarcanda.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 580. Concluídos os estudos, os peritos apresentarão minucioso laudo sobre o traçado da linha demarcanda, considerando os títulos, os marcos, os rumos, a fama da vizinhança, as informações de antigos moradores do lugar e outros elementos que coligirem.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 581. A sentença que julgar procedente o pedido determinará o traçado da linha demarcanda.
+- Parágrafo único. A sentença proferida na ação demarcatória determinará a restituição da área invadida, se houver, declarando o domínio ou a posse do prejudicado, ou ambos.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 582. Transitada em julgado a sentença, o perito efetuará a demarcação e colocará os marcos necessários.
+- Parágrafo único. Todas as operações serão consignadas em planta e memorial descritivo com as referências convenientes para a identificação, em qualquer tempo, dos pontos assinalados, observada a legislação especial que dispõe sobre a identificação do imóvel rural.
+- A Lei n. 6.383, de 7-12-1976, dispõe sobre ação discriminatória, art. 22, parágrafo único.
+# Remissões Normativas
+- Vide art. 584 do CPC.
+-- estabelece a obrigatoriedade da colocação de marcos na estação inicial e nos vértices dos ângulos da linha demarcada.
+- Vide art. 22, parágrafo único, da Lei n. 6.383/1976.
+-- trata do memorial e planta no processo discriminatório de terras devolutas.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 583. As plantas serão acompanhadas das cadernetas de operações de campo e do memorial descritivo, que conterá:
+- I – o ponto de partida, os rumos seguidos e a aviventação dos antigos com os respectivos cálculos;
+- II – os acidentes encontrados, as cercas, os valos, os marcos antigos, os córregos, os rios, as lagoas e outros;
+- III – a indicação minuciosa dos novos marcos cravados, dos antigos aproveitados, das culturas existentes e da sua produção anual;
+- IV – a composição geológica dos terrenos, bem como a qualidade e a extensão dos campos, das matas e das capoeiras;
+- V – as vias de comunicação;
+- VI – as distâncias a pontos de referência, tais como rodovias federais e estaduais, ferrovias, portos, aglomerações urbanas e polos comerciais;
+- VII – a indicação de tudo o mais que for útil para o levantamento da linha ou para a identificação da linha já levantada.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 584. É obrigatória a colocação de marcos tanto na estação inicial, dita marco primordial, quanto nos vértices dos ângulos, salvo se algum desses últimos pontos for assinalado por acidentes naturais de difícil remoção ou destruição.
+# Remissões Normativas
+- Vide art. 596 do CPC.
+-- determina que o perito, na fase de divisão, proceda à demarcação dos quinhões, observando as regras deste artigo.
+- Vide art. 582 do CPC.
+-- estabelece que, após o trânsito em julgado da sentença, o perito efetuará a demarcação.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 585. A linha será percorrida pelos peritos, que examinarão os marcos e os rumos, consignando em relatório escrito a exatidão do memorial e da planta apresentados pelo agrimensor ou as divergências porventura encontradas.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 586. Juntado aos autos o relatório dos peritos, o juiz determinará que as partes se manifestem sobre ele no prazo comum de 15 (quinze) dias.
+- Parágrafo único. Executadas as correções e as retificações que o juiz determinar, lavrar-se-á, em seguida, o auto de demarcação em que os limites demarcandos serão minuciosamente descritos de acordo com o memorial e a planta.
+-----
+# Ação de Demarcação de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 587. Assinado o auto pelo juiz e pelos peritos, será proferida a sentença homologatória da demarcação.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 588. A petição inicial será instruída com os títulos de domínio do promovente e conterá:
+- I – a indicação da origem da comunhão e a denominação, a situação, os limites e as características do imóvel;
+- II – o nome, o estado civil, a profissão e a residência de todos os condôminos, especificando-se os estabelecidos no imóvel com benfeitorias e culturas;
+- III – as benfeitorias comuns.
+# Remissões Normativas
+- Vide arts. 47 e 73 do CPC e arts. 1.320 a 1.322 do CC.
+-- tratam, respectivamente, do litisconsórcio passivo necessário, da necessidade de consentimento do cônjuge para propor ações reais imobiliárias e do direito do condômino de exigir a divisão da coisa comum.
+- Vide art. 292, IV, do CPC.
+-- estabelece que o valor da causa na ação de divisão será o valor de avaliação da área ou do bem objeto do pedido.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 589. Feitas as citações como preceitua o art. 576, prosseguir-se-á na forma dos arts. 577 e 578.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 590. O juiz nomeará um ou mais peritos para promover a medição do imóvel e as operações de divisão, observada a legislação especial que dispõe sobre a identificação do imóvel rural.
+- Parágrafo único. O perito deverá indicar as vias de comunicação existentes, as construções e as benfeitorias, com a indicação dos seus valores e dos respectivos proprietários e ocupantes, as águas principais que banham o imóvel e quaisquer outras informações que possam concorrer para facilitar a partilha.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 591. Todos os condôminos serão intimados a apresentar, dentro de 10 (dez) dias, os seus títulos, se ainda não o tiverem feito, e a formular os seus pedidos sobre a constituição dos quinhões.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 592. O juiz ouvirá as partes no prazo comum de 15 (quinze) dias.
+- § 1.º Não havendo impugnação, o juiz determinará a divisão geodésica do imóvel.
+- § 2.º Havendo impugnação, o juiz proferirá, no prazo de 10 (dez) dias, decisão sobre os pedidos e os títulos que devam ser atendidos na formação dos quinhões.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 593. Se qualquer linha do perímetro atingir benfeitorias permanentes dos confinantes feitas há mais de 1 (um) ano, serão elas respeitadas, bem como os terrenos onde estiverem, os quais não se computarão na área dividenda.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 594. Os confinantes do imóvel dividendo podem demandar a restituição dos terrenos que lhes tenham sido usurpados.
+- § 1.º Serão citados para a ação todos os condôminos, se a sentença homologatória da divisão ainda não houver transitado em julgado, e todos os quinhoeiros dos terrenos vindicados, se a ação for proposta posteriormente.
+- § 2.º Nesse último caso terão os quinhoeiros o direito, pela mesma sentença que os obrigar à restituição, a haver dos outros condôminos do processo divisório ou de seus sucessores a título universal a composição pecuniária proporcional ao desfalque sofrido.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 595. Os peritos proporão, em laudo fundamentado, a forma da divisão, devendo consultar, quanto possível, a comodidade das partes, respeitar, para adjudicação a cada condômino, a preferência dos terrenos contíguos às suas residências e benfeitorias e evitar o retalhamento dos quinhões em glebas separadas.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 596. Ouvidas as partes, no prazo comum de 15 (quinze) dias, sobre o cálculo e o plano da divisão, o juiz deliberará a partilha.
+- Parágrafo único. Em cumprimento dessa decisão, o perito procederá à demarcação dos quinhões, observando, além do disposto nos arts. 584 e 585, as seguintes regras:
+- I – as benfeitorias comuns que não comportarem divisão cômoda serão adjudicadas a um dos condôminos mediante compensação;
+- II – instituir-se-ão as servidões que forem indispensáveis em favor de uns quinhões sobre os outros, incluindo o respectivo valor no orçamento para que, não se tratando de servidões naturais, seja compensado o condômino aquinhoado com o prédio serviente;
+- III – as benfeitorias particulares dos condôminos que excederem à área a que têm direito serão adjudicadas ao quinhoeiro vizinho mediante reposição;
+- IV – se outra coisa não acordarem as partes, as compensações e as reposições serão feitas em dinheiro.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 597. Terminados os trabalhos e desenhados na planta os quinhões e as servidões aparentes, o perito organizará o memorial descritivo.
+- § 1.º Cumprido o disposto no art. 586, o escrivão, em seguida, lavrará o auto de divisão, acompanhado de uma folha de pagamento para cada condômino.
+- § 2.º Assinado o auto pelo juiz e pelo perito, será proferida sentença homologatória da divisão.
+- § 3.º O auto conterá:
+- I – a confinação e a extensão superficial do imóvel;
+- II – a classificação das terras com o cálculo das áreas de cada consorte e com a respectiva avaliação ou, quando a homogeneidade das terras não determinar diversidade de valores, a avaliação do imóvel na sua integridade;
+- III – o valor e a quantidade geométrica que couber a cada condômino, declarando-se as reduções e as compensações resultantes da diversidade de valores das glebas componentes de cada quinhão.
+- § 4.º Cada folha de pagamento conterá:
+- I – a descrição das linhas divisórias do quinhão, mencionadas as confinantes;
+- II – a relação das benfeitorias e das culturas do próprio quinhoeiro e das que lhe foram adjudicadas por serem comuns ou mediante compensação;
+- III – a declaração das servidões instituídas, especificados os lugares, a extensão e o modo de exercício.
+# Remissões Normativas
+- Vide art. 89 do CPC.
+-- dispõe que as sentenças proferidas em ações fundadas em direito real imobiliário devem ser registradas no cartório de registro de imóveis.
+-----
+# Ação de Divisão de Terras Particulares
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 598. Aplica-se às divisões o disposto nos arts. 575 a 578.
+# Remissões Normativas
+- Vide arts. 575 a 578 do CPC.
+-- tratam do procedimento da demarcação, incluindo a nomeação de peritos, a elaboração de laudos e a sentença que determina o traçado da linha demarcanda.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 599. A ação de dissolução parcial de sociedade pode ter por objeto:
+- I – a resolução da sociedade empresária contratual ou simples em relação ao sócio falecido, excluído ou que exerceu o direito de retirada ou recesso; e
+- II – a apuração dos haveres do sócio falecido, excluído ou que exerceu o direito de retirada ou recesso; ou
+- III – somente a resolução ou a apuração de haveres.
+- § 1.º A petição inicial será necessariamente instruída com o contrato social consolidado.
+- § 2.º A ação de dissolução parcial de sociedade pode ter também por objeto a sociedade anônima de capital fechado quando demonstrado, por acionista ou acionistas que representem cinco por cento ou mais do capital social, que não pode preencher o seu fim.
+# Remissões Normativas
+- Vide arts. 997 e seguintes do CC.
+-- tratam da constituição das sociedades simples e das cláusulas essenciais que devem constar no contrato social.
+- Vide art. 206, II, b, da LSA (Lei das Sociedades por Ações).
+-- prevê a dissolução judicial da companhia quando provado que não pode preencher o seu fim, em ação proposta por acionistas que representem 5% ou mais do capital social.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 600. A ação pode ser proposta:
+- I – pelo espólio do sócio falecido, quando a totalidade dos sucessores não ingressar na sociedade;
+- II – pelos sucessores, após concluída a partilha do sócio falecido;
+- III – pela sociedade, se os sócios sobreviventes não admitirem o ingresso do espólio ou dos sucessores do falecido na sociedade, quando esse direito decorrer do contrato social;
+- IV – pelo sócio que exerceu o direito de retirada ou recesso, se não tiver sido providenciada, pelos demais sócios, a alteração contratual consensual formalizando o desligamento, depois de transcorridos 10 (dez) dias do exercício do direito;
+- V – pela sociedade, nos casos em que a lei não autoriza a exclusão extrajudicial; ou
+- VI – pelo sócio excluído.
+- Parágrafo único. O cônjuge ou companheiro do sócio cujo casamento, união estável ou convivência terminou poderá requerer a apuração de seus haveres na sociedade, que serão pagos à conta da quota social titulada por este sócio.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 601. Os sócios e a sociedade serão citados para, no prazo de 15 (quinze) dias, concordar com o pedido ou apresentar contestação.
+- Parágrafo único. A sociedade não será citada se todos os seus sócios o forem, mas ficará sujeita aos efeitos da decisão e à coisa julgada.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 602. A sociedade poderá formular pedido de indenização compensável com o valor dos haveres a apurar.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 603. Havendo manifestação expressa e unânime pela concordância da dissolução, o juiz a decretará, passando-se imediatamente à fase de liquidação.
+- § 1.º Na hipótese prevista no caput, não haverá condenação em honorários advocatícios de nenhuma das partes, e as custas serão rateadas segundo a participação das partes no capital social.
+- § 2.º Havendo contestação, observar-se-á o procedimento comum, mas a liquidação da sentença seguirá o disposto neste Capítulo.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 604. Para apuração dos haveres, o juiz:
+- I – fixará a data da resolução da sociedade;
+- II – definirá o critério de apuração dos haveres à vista do disposto no contrato social; e
+- III – nomeará o perito.
+- § 1.º O juiz determinará à sociedade ou aos sócios que nela permanecerem que depositem em juízo a parte incontroversa dos haveres devidos.
+- § 2.º O depósito poderá ser, desde logo, levantado pelo ex-sócio, pelo espólio ou pelos sucessores.
+- § 3.º Se o contrato social estabelecer o pagamento dos haveres, será observado o que nele se dispôs no depósito judicial da parte incontroversa.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 605. A data da resolução da sociedade será:
+- I – no caso de falecimento do sócio, a do óbito;
+- II – na retirada imotivada, o sexagésimo dia seguinte ao do recebimento, pela sociedade, da notificação do sócio retirante;
+- III – no recesso, o dia do recebimento, pela sociedade, da notificação do sócio dissidente;
+- IV – na retirada por justa causa de sociedade por prazo determinado e na exclusão judicial de sócio, a do trânsito em julgado da decisão que dissolver a sociedade; e
+- V – na exclusão extrajudicial, a data da assembleia ou da reunião de sócios que a tiver deliberado.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 606. Em caso de omissão do contrato social, o juiz definirá, como critério de apuração de haveres, o valor patrimonial apurado em balanço de determinação, tomando-se por referência a data da resolução e avaliando-se bens e direitos do ativo, tangíveis e intangíveis, a preço de saída, além do passivo também a ser apurado de igual forma.
+- Parágrafo único. Em todos os casos em que seja necessária a realização de perícia, a nomeação do perito recairá preferencialmente sobre especialista em avaliação de sociedades.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 607. A data da resolução e o critério de apuração de haveres podem ser revistos pelo juiz, a pedido da parte, a qualquer tempo antes do início da perícia.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 608. Até a data da resolução, integram o valor devido ao ex-sócio, ao espólio ou aos sucessores a participação nos lucros ou os juros sobre o capital próprio declarados pela sociedade e, se for o caso, a remuneração como administrador.
+- Parágrafo único. Após a data da resolução, o ex-sócio, o espólio ou os sucessores terão direito apenas à correção monetária dos valores apurados e aos juros contratuais ou legais.
+-----
+# Ação de Dissolução Parcial de Sociedade
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 609. Uma vez apurados, os haveres do sócio retirante serão pagos conforme disciplinar o contrato social e, no silêncio deste, nos termos do § 2.º do art. 1.031 da Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil).
+# Remissões Normativas
+- Vide art. 1.031, § 2.º, do CC.
+-- estabelece que, salvo disposição contratual em contrário, a quota liquidada do sócio retirante será paga em dinheiro, no prazo de noventa dias, a partir da liquidação.
+-----
+# Inventário e Partilha - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 610. Havendo testamento ou interessado incapaz, proceder-se-á ao inventário judicial.
+- § 1.º Se todos forem capazes e concordes, o inventário e a partilha poderão ser feitos por escritura pública, a qual constituirá documento hábil para qualquer ato de registro, bem como para levantamento de importância depositada em instituições financeiras.
+- § 2.º O tabelião somente lavrará a escritura pública se todas as partes interessadas estiverem assistidas por advogado ou por defensor público, cuja qualificação e assinatura constarão do ato notarial.
+- A Lei n. 6.858, de 24-11-1980, dispõe sobre pagamento a dependentes ou sucessores de valores não recebidos em vida, art. 1.º, caput.
+- Dispõe o art. 112 da Lei n. 8.213, de 24-7-1991 (benefícios da Previdência Social): “O valor não recebido em vida pelo segurado só será pago aos seus dependentes habilitados à pensão por morte ou, na falta deles, aos sucessores na forma da lei civil, independentemente de inventário ou arrolamento”.
+- O Provimento OAB n. 118, de 7-5-2007, disciplina as atividades profissionais dos advogados em escrituras públicas de inventários, partilhas, separações e divórcios.
+# Remissões Normativas
+- Vide Resolução n. 35, de 24-4-2007, do CNJ.
+-- dispõe sobre a aplicação da Lei n.º 11.441/2007 pelos serviços notariais e de registro, disciplinando a realização de inventário, partilha, separação e divórcio por via administrativa (extrajudicial).
+- Vide art. 5.º, XXVII, XXX e XXXI, da CF.
+-- trata de direitos fundamentais, incluindo os direitos de propriedade, de herança e a proteção da sucessão de bens de estrangeiros situados no País.
+- Vide arts. 2.015 e 2.016 do CC.
+-- dispõem, respectivamente, sobre a partilha amigável por escritura pública ou termo nos autos e sobre a partilha judicial quando houver divergência entre herdeiros ou algum deles for incapaz.
+- Vide Lei n. 6.858/1980.
+-- trata do pagamento, aos dependentes habilitados ou sucessores, de valores devidos pelos empregadores aos empregados e de saldos de contas de FGTS e PIS-PASEP, não recebidos em vida pelos titulares.
+- Vide art. 112 da Lei n. 8.213/1991.
+-- dispensa o inventário ou arrolamento para o pagamento de valores de benefícios previdenciários não recebidos em vida pelo segurado.
+- Vide Provimento OAB n. 118/2007.
+-- regula a atuação profissional do advogado nos atos extrajudiciais de inventário, partilha, separação e divórcio.
+-----
+# Inventário e Partilha - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 611. O processo de inventário e de partilha deve ser instaurado dentro de 2 (dois) meses, a contar da abertura da sucessão, ultimando-se nos 12 (doze) meses subsequentes, podendo o juiz prorrogar esses prazos, de ofício ou a requerimento de parte.
+# Remissões Normativas
+- Vide art. 1.796 do CC.
+-- estabelece o prazo de trinta dias para a instauração do inventário, a contar da abertura da sucessão (dispositivo revogado tacitamente pelo art. 611 do CPC).
+- Vide Súmula 542 do STF.
+-- afirma que não é inconstitucional a multa fiscal instituída por lei como sanção pelo retardamento do início do processo de inventário.
+- Vide art. 16 da Lei n. 14.010/2020.
+-- estabeleceu o termo inicial do prazo de 2 meses para a abertura de inventários para as sucessões abertas a partir de 1º de fevereiro de 2020, que seria 30 de outubro de 2020.
+- Vide arts. 1.991 e seguintes do CC.
+-- tratam do inventário e da partilha, estabelecendo que a administração da herança compete ao inventariante.
+- Vide art. 48 do CPC.
+-- define o foro de domicílio do autor da herança, no Brasil, como o competente para o inventário, a partilha e outras ações sucessórias.
+-----
+# Inventário e Partilha - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 612. O juiz decidirá todas as questões de direito desde que os fatos relevantes estejam provados por documento, só remetendo para as vias ordinárias as questões que dependerem de outras provas.
+-----
+# Inventário e Partilha - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 613. Até que o inventariante preste o compromisso, continuará o espólio na posse do administrador provisório.
+-----
+# Inventário e Partilha - Disposições Gerais
+- Código de Processo Civil
+# Dispositivos Legais
+- Art. 614. O administrador provisório representa ativa e passivamente o espólio, é obrigado a trazer ao acervo os frutos que desde a abertura da sucessão percebeu, tem direito ao reembolso das despesas necessárias e úteis que fez e responde pelo dano a que, por dolo ou culpa, der causa.
+-----
 # Da Legitimidade para Requerer o Inventário
 - Código de Processo Civil
 # Dispositivos Legais
