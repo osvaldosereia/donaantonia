@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 2,
+  "categories": [
+    "Preâmbulo",
+    "Preliminares/Processo",
+    "Fatos do Contrato",
+    "Jornada",
+    "Salário e Diferenças",
+    "Adicionais (Noturno/Insalubridade/Periculosidade)",
+    "FGTS e Rescisão",
+    "Estabilidades",
+    "Vínculo/Reconhecimento",
+    "Responsabilidade/Legitimidade",
+    "Danos (Moral/Material)",
+    "Pedidos/Conclusão"
+  ],
+  "blocks": [
+    {
+      "id": "preambulo_enderec_qualif",
+      "categoria": "Preâmbulo",
+      "titulo": "Preâmbulo – Endereçamento/Qualificação",
+      "resumo": "Endereçamento à Vara, qualificação das partes e objeto/rito.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"vara","label":"Vara do Trabalho","type":"text","required":true},
+        {"name":"cidade","label":"Cidade/UF","type":"text","required":true},
+        {"name":"partes","label":"Resumo das Partes","type":"textarea"}
+      ],
+      "objetivo": "Abrir a peça e qualificar as partes com rito indicado.",
+      "parametros": "vara={{vara}}; cidade={{cidade}}; partes={{partes}}",
+      "teses": "—",
+      "children": []
+    },
+
+    {
+      "id": "preliminar_jg",
+      "categoria": "Preliminares/Processo",
+      "titulo": "Preliminar – Justiça Gratuita",
+      "resumo": "Requerimento de justiça gratuita por hipossuficiência.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"fundamento","label":"Fundamento (opcional)","type":"textarea"}
+      ],
+      "objetivo": "Pedir justiça gratuita com base legal.",
+      "parametros": "fundamento={{fundamento}}",
+      "teses": "hipossuficiencia",
+      "children": []
+    },
+
+    {
+      "id": "fatos_contrato",
+      "categoria": "Fatos do Contrato",
+      "titulo": "Fatos – Contrato, Função e Condições",
+      "resumo": "Linha do tempo do vínculo, função e condições de trabalho.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"jornada_contratual","label":"Jornada Contratual","type":"text"},
+        {"name":"beneficios","label":"Benefícios (VR/VA/Plano)","type":"text"}
+      ],
+      "objetivo": "Descrever vínculo, função e condições.",
+      "parametros": "jornada={{jornada_contratual}}; beneficios={{beneficios}}",
+      "teses": "—",
+      "children": []
+    },
+
+    {
+      "id": "jornada_he",
+      "categoria": "Jornada",
+      "titulo": "Jornada – Horas Extras e Intervalos",
+      "resumo": "Sobrejornada, intrajornada/interjornada, DSR/feriados.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"jornada_real","label":"Jornada Real","type":"textarea"},
+        {"name":"he_semana","label":"Horas extras semanais (aprox.)","type":"number"},
+        {"name":"intrajornada_min","label":"Minutos suprimidos (intrajornada)","type":"number"}
+      ],
+      "objetivo": "Demonstrar sobrejornada e reflexos.",
+      "parametros": "jornada_real={{jornada_real}}; he={{he_semana}}; intrajornada={{intrajornada_min}}",
+      "teses": "banco_horas_invalido; ponto_britanico; supressao_intervalo",
+      "children": [
+        {
+          "id": "jornada_he_intrajornada",
+          "titulo": "Subbloco – Intervalo intrajornada",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=false"],
+          "campos": [
+            {"name":"intrajornada_min_det","label":"Minutos suprimidos (detalhe)","type":"number"}
+          ],
+          "objetivo": "Caracterizar supressão parcial do intervalo.",
+          "parametros": "intrajornada={{intrajornada_min_det}}",
+          "children": [
+            {
+              "id": "jornada_he_intrajornada_base",
+              "titulo": "Sub-subbloco – Base de cálculo",
+              "variacoes": ["mínimo","completo"],
+              "funcoes": [],
+              "campos": [
+                {"name":"base","label":"Base (salário-base, norma coletiva etc.)","type":"text"}
+              ],
+              "objetivo": "Definir base de cálculo e reflexos.",
+              "parametros": "base={{base}}"
+            }
+          ]
+        },
+        {
+          "id": "jornada_he_interjornada",
+          "titulo": "Subbloco – Intervalo interjornada (11h)",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=false"],
+          "campos": [],
+          "objetivo": "Descumprimento das 11 horas entre jornadas.",
+          "parametros": ""
+        }
+      ]
+    },
+
+    {
+      "id": "adicionais_compostos",
+      "categoria": "Adicionais (Noturno/Insalubridade/Periculosidade)",
+      "titulo": "Adicionais – Noturno, Insalubridade, Periculosidade",
+      "resumo": "Selecione os adicionais aplicáveis ao caso.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [],
+      "objetivo": "Pleitear adicionais cabíveis com base legal.",
+      "parametros": "",
+      "children": [
+        {
+          "id": "adicional_noturno",
+          "titulo": "Adicional Noturno",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=true"],
+          "campos": [
+            {"name":"frequencia","label":"Frequência (fixo/escala)","type":"text"},
+            {"name":"prorrogacao","label":"Prorrogação após 5h?","type":"text"}
+          ],
+          "objetivo": "Caracterizar trabalho noturno e diferenças.",
+          "parametros": "freq={{frequencia}}; prorrog={{prorrogacao}}"
+        },
+        {
+          "id": "adicional_insalubridade",
+          "titulo": "Adicional de Insalubridade",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=true"],
+          "campos": [
+            {"name":"agente","label":"Agente nocivo (ruído, calor, etc.)","type":"text"},
+            {"name":"grau","label":"Grau (mín/méd/máx)","type":"text"}
+          ],
+          "objetivo": "Exposição e perícia, grau devido.",
+          "parametros": "agente={{agente}}; grau={{grau}}"
+        },
+        {
+          "id": "adicional_periculosidade",
+          "titulo": "Adicional de Periculosidade",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=true"],
+          "campos": [
+            {"name":"risco","label":"Atividade de risco (inflamáveis, eletricidade…)","type":"text"},
+            {"name":"habitualidade","label":"Exposição (hab./interm.)","type":"text"}
+          ],
+          "objetivo": "Atividade perigosa e reflexos.",
+          "parametros": "risco={{risco}}; habit={{habitualidade}}"
+        }
+      ]
+    },
+
+    {
+      "id": "fgts_rescisao",
+      "categoria": "FGTS e Rescisão",
+      "titulo": "FGTS, Multas 40%, 467 e 477, Seguro-desemprego",
+      "resumo": "FGTS não recolhido; multas legais; guias SD.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"fgts_falhas","label":"Falhas de depósito (meses)","type":"textarea"},
+        {"name":"prazo_477","label":"Data limite legal art. 477","type":"text"}
+      ],
+      "objetivo": "Cobrar FGTS, multa 40%, 467/477 e SD.",
+      "parametros": "fgts={{fgts_falhas}}; prazo477={{prazo_477}}",
+      "children": []
+    },
+
+    {
+      "id": "pedidos_conclusao",
+      "categoria": "Pedidos/Conclusão",
+      "titulo": "Pedidos e Conclusão",
+      "resumo": "Pedidos itemizados, valor da causa e fecho.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"valor_causa","label":"Valor da Causa (estimado)","type":"text"},
+        {"name":"cidade_data","label":"Local/Data","type":"text"}
+      ],
+      "objetivo": "Consolidar pedidos e fecho.",
+      "parametros": "valor={{valor_causa}}; local_data={{cidade_data}}",
+      "children": []
+    }
+  ]
+}
