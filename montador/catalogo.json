@@ -6,12 +6,14 @@
     "Fatos do Contrato",
     "Jornada",
     "Salário e Diferenças",
-    "Adicionais (Noturno/Insalubridade/Periculosidade)",
+    "Adicionais",
     "FGTS e Rescisão",
-    "Estabilidades",
     "Vínculo/Reconhecimento",
     "Responsabilidade/Legitimidade",
-    "Danos (Moral/Material)",
+    "Estabilidades",
+    "Danos",
+    "Multas/Prescrição",
+    "Honorários/Encargos",
     "Pedidos/Conclusão"
   ],
   "blocks": [
@@ -19,7 +21,7 @@
       "id": "preambulo_enderec_qualif",
       "categoria": "Preâmbulo",
       "titulo": "Preâmbulo – Endereçamento/Qualificação",
-      "resumo": "Endereçamento à Vara, qualificação das partes e objeto/rito.",
+      "resumo": "Endereçamento à Vara, qualificação das partes e indicação do rito.",
       "variacoes": ["mínimo","completo","combativo"],
       "funcoes": ["juris=false","lgpd=true","formato=forense"],
       "campos": [
@@ -27,26 +29,37 @@
         {"name":"cidade","label":"Cidade/UF","type":"text","required":true},
         {"name":"partes","label":"Resumo das Partes","type":"textarea"}
       ],
-      "objetivo": "Abrir a peça e qualificar as partes com rito indicado.",
+      "objetivo": "Abrir a peça e qualificar as partes com o rito adequado.",
       "parametros": "vara={{vara}}; cidade={{cidade}}; partes={{partes}}",
-      "teses": "—",
-      "children": []
+      "teses": "—"
     },
 
     {
-      "id": "preliminar_jg",
+      "id": "preliminar_justica_gratuita",
       "categoria": "Preliminares/Processo",
       "titulo": "Preliminar – Justiça Gratuita",
-      "resumo": "Requerimento de justiça gratuita por hipossuficiência.",
+      "resumo": "Pedido de gratuidade por hipossuficiência econômica.",
       "variacoes": ["mínimo","completo","combativo"],
       "funcoes": ["juris=false","lgpd=true","formato=forense"],
-      "campos": [
-        {"name":"fundamento","label":"Fundamento (opcional)","type":"textarea"}
-      ],
-      "objetivo": "Pedir justiça gratuita com base legal.",
+      "campos": [ {"name":"fundamento","label":"Fundamento (opcional)","type":"textarea"} ],
+      "objetivo": "Obter justiça gratuita com base legal e princípios.",
       "parametros": "fundamento={{fundamento}}",
-      "teses": "hipossuficiencia",
-      "children": []
+      "teses": "hipossuficiencia"
+    },
+    {
+      "id": "preliminar_competencia",
+      "categoria": "Preliminares/Processo",
+      "titulo": "Preliminar – Competência/Valor da Causa",
+      "resumo": "Ajustes de competência (territorial/material) e valor da causa.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"competencia","label":"Competência pretendida","type":"text"},
+        {"name":"valor_causa","label":"Valor da causa (estimado)","type":"text"}
+      ],
+      "objetivo": "Ajustar competência e atribuir valor adequado.",
+      "parametros": "competencia={{competencia}}; valor={{valor_causa}}",
+      "teses": "foro_trabalhador; competencia_material"
     },
 
     {
@@ -57,13 +70,14 @@
       "variacoes": ["mínimo","completo","combativo"],
       "funcoes": ["juris=false","lgpd=true","formato=forense"],
       "campos": [
-        {"name":"jornada_contratual","label":"Jornada Contratual","type":"text"},
-        {"name":"beneficios","label":"Benefícios (VR/VA/Plano)","type":"text"}
+        {"name":"vinculo","label":"Tipo de vínculo","type":"text"},
+        {"name":"funcao","label":"Função/cargo","type":"text"},
+        {"name":"salario","label":"Salário contratual","type":"text"},
+        {"name":"beneficios","label":"Benefícios (VR/VA/Plano etc.)","type":"text"}
       ],
-      "objetivo": "Descrever vínculo, função e condições.",
-      "parametros": "jornada={{jornada_contratual}}; beneficios={{beneficios}}",
-      "teses": "—",
-      "children": []
+      "objetivo": "Contextualizar o contrato e a realidade laboral.",
+      "parametros": "vinculo={{vinculo}}; funcao={{funcao}}; salario={{salario}}; beneficios={{beneficios}}",
+      "teses": "primazia_realidade"
     },
 
     {
@@ -78,55 +92,64 @@
         {"name":"he_semana","label":"Horas extras semanais (aprox.)","type":"number"},
         {"name":"intrajornada_min","label":"Minutos suprimidos (intrajornada)","type":"number"}
       ],
-      "objetivo": "Demonstrar sobrejornada e reflexos.",
-      "parametros": "jornada_real={{jornada_real}}; he={{he_semana}}; intrajornada={{intrajornada_min}}",
+      "objetivo": "Demonstrar sobrejornada e pleitear reflexos.",
+      "parametros": "jornada={{jornada_real}}; he={{he_semana}}; intrajornada={{intrajornada_min}}",
       "teses": "banco_horas_invalido; ponto_britanico; supressao_intervalo",
       "children": [
         {
-          "id": "jornada_he_intrajornada",
+          "id": "he_intrajornada",
           "titulo": "Subbloco – Intervalo intrajornada",
           "variacoes": ["mínimo","completo"],
           "funcoes": ["juris=false"],
-          "campos": [
-            {"name":"intrajornada_min_det","label":"Minutos suprimidos (detalhe)","type":"number"}
-          ],
+          "campos": [{"name":"intrajornada_min_det","label":"Minutos suprimidos (detalhe)","type":"number"}],
           "objetivo": "Caracterizar supressão parcial do intervalo.",
           "parametros": "intrajornada={{intrajornada_min_det}}",
           "children": [
             {
-              "id": "jornada_he_intrajornada_base",
+              "id": "he_intrajornada_base",
               "titulo": "Sub-subbloco – Base de cálculo",
               "variacoes": ["mínimo","completo"],
               "funcoes": [],
-              "campos": [
-                {"name":"base","label":"Base (salário-base, norma coletiva etc.)","type":"text"}
-              ],
-              "objetivo": "Definir base de cálculo e reflexos.",
+              "campos": [{"name":"base","label":"Base (salário, norma coletiva)","type":"text"}],
+              "objetivo": "Definir base e reflexos.",
               "parametros": "base={{base}}"
             }
           ]
         },
         {
-          "id": "jornada_he_interjornada",
+          "id": "he_interjornada",
           "titulo": "Subbloco – Intervalo interjornada (11h)",
           "variacoes": ["mínimo","completo"],
           "funcoes": ["juris=false"],
           "campos": [],
-          "objetivo": "Descumprimento das 11 horas entre jornadas.",
+          "objetivo": "Descumprimento das 11h entre jornadas.",
           "parametros": ""
         }
       ]
     },
 
     {
+      "id": "salario_diferencas",
+      "categoria": "Salário e Diferenças",
+      "titulo": "Diferenças Salariais (acúmulo/desvio/equiparação)",
+      "resumo": "Teses sobre acúmulo/desvio de função e equiparação.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [{"name":"paradigma","label":"Paradigma (equiparação)","type":"text"}],
+      "objetivo": "Demonstrar diferenças e pedir reflexos.",
+      "parametros": "paradigma={{paradigma}}",
+      "teses": "equiparacao; desvio_funcao; acumulo_funcao"
+    },
+
+    {
       "id": "adicionais_compostos",
-      "categoria": "Adicionais (Noturno/Insalubridade/Periculosidade)",
-      "titulo": "Adicionais – Noturno, Insalubridade, Periculosidade",
-      "resumo": "Selecione os adicionais aplicáveis ao caso.",
+      "categoria": "Adicionais",
+      "titulo": "Adicionais – Noturno/Insalubridade/Periculosidade",
+      "resumo": "Selecione os adicionais aplicáveis.",
       "variacoes": ["mínimo","completo"],
       "funcoes": ["juris=true","lgpd=true","formato=forense"],
       "campos": [],
-      "objetivo": "Pleitear adicionais cabíveis com base legal.",
+      "objetivo": "Pleitear adicionais cabíveis.",
       "parametros": "",
       "children": [
         {
@@ -159,8 +182,8 @@
           "variacoes": ["mínimo","completo"],
           "funcoes": ["juris=true"],
           "campos": [
-            {"name":"risco","label":"Atividade de risco (inflamáveis, eletricidade…)","type":"text"},
-            {"name":"habitualidade","label":"Exposição (hab./interm.)","type":"text"}
+            {"name":"risco","label":"Atividade de risco","type":"text"},
+            {"name":"habitualidade","label":"Exposição (habitual/intermitente)","type":"text"}
           ],
           "objetivo": "Atividade perigosa e reflexos.",
           "parametros": "risco={{risco}}; habit={{habitualidade}}"
@@ -171,17 +194,115 @@
     {
       "id": "fgts_rescisao",
       "categoria": "FGTS e Rescisão",
-      "titulo": "FGTS, Multas 40%, 467 e 477, Seguro-desemprego",
-      "resumo": "FGTS não recolhido; multas legais; guias SD.",
+      "titulo": "FGTS, Multa 40%, Arts. 467/477, Seguro-desemprego",
+      "resumo": "FGTS não recolhido, multas e guias.",
       "variacoes": ["mínimo","completo"],
       "funcoes": ["juris=true","lgpd=true","formato=forense"],
       "campos": [
-        {"name":"fgts_falhas","label":"Falhas de depósito (meses)","type":"textarea"},
-        {"name":"prazo_477","label":"Data limite legal art. 477","type":"text"}
+        {"name":"falhas_fgts","label":"Falhas de depósito (meses)","type":"textarea"},
+        {"name":"prazo_477","label":"Prazo legal art. 477","type":"text"}
       ],
       "objetivo": "Cobrar FGTS, multa 40%, 467/477 e SD.",
-      "parametros": "fgts={{fgts_falhas}}; prazo477={{prazo_477}}",
-      "children": []
+      "parametros": "fgts={{falhas_fgts}}; prazo477={{prazo_477}}",
+      "teses": "multa_40; art467; art477"
+    },
+
+    {
+      "id": "vinculo_reconhecimento",
+      "categoria": "Vínculo/Reconhecimento",
+      "titulo": "Reconhecimento de Vínculo",
+      "resumo": "Terceirização ilícita, pejotização ou estágio nulo.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [{"name":"cenario","label":"Cenário (terceirização/pejotização/estágio)","type":"text"}],
+      "objetivo": "Reconhecer vínculo direto com empregadora real.",
+      "parametros": "cenario={{cenario}}",
+      "children": [
+        {
+          "id": "vinculo_terceirizacao",
+          "titulo": "Subbloco – Terceirização ilícita",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=true"],
+          "campos": [{"name":"atividade","label":"Atividade-fim/meio","type":"text"}]
+        },
+        {
+          "id": "vinculo_pejotizacao",
+          "titulo": "Subbloco – Pejotização",
+          "variacoes": ["mínimo","completo"],
+          "funcoes": ["juris=true"],
+          "campos": [{"name":"indicios","label":"Indícios (onerosidade, subordinação etc.)","type":"textarea"}]
+        }
+      ]
+    },
+
+    {
+      "id": "responsabilidade_passiva",
+      "categoria": "Responsabilidade/Legitimidade",
+      "titulo": "Legitimidade Passiva e Responsabilidade Solidária/Subsidiária",
+      "resumo": "Tomadora, grupo econômico, sucessão.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [{"name":"fundamento","label":"Fundamentação específica","type":"textarea"}],
+      "objetivo": "Fixar a responsabilidade adequada.",
+      "parametros": "fundamento={{fundamento}}",
+      "teses": "súmula331; grupo_economico; sucessao_empresarial"
+    },
+
+    {
+      "id": "estabilidades",
+      "categoria": "Estabilidades",
+      "titulo": "Estabilidades (Gestante/Acidentária/CIPA/Pré-aposentadoria)",
+      "resumo": "Selecionar estabilidade incidente e pedido principal.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [],
+      "children": [
+        {"id":"estab_gestante","titulo":"Gestante","variacoes":["mínimo","completo"],"funcoes":["juris=true"],"campos":[{"name":"comunicacao","label":"Comunicação ao empregador?","type":"text"}]},
+        {"id":"estab_acidentaria","titulo":"Acidentária (12 meses)","variacoes":["mínimo","completo"],"funcoes":["juris=true"],"campos":[{"name":"cat","label":"CAT/atestado","type":"text"}]},
+        {"id":"estab_cipa","titulo":"CIPA","variacoes":["mínimo","completo"],"funcoes":["juris=true"],"campos":[]}
+      ]
+    },
+
+    {
+      "id": "danos",
+      "categoria": "Danos",
+      "titulo": "Danos Morais/Materiais",
+      "resumo": "Narrativa do fato, nexo e pedido de reparação.",
+      "variacoes": ["mínimo","completo","combativo"],
+      "funcoes": ["juris=true","lgpd=true","formato=forense"],
+      "campos": [
+        {"name":"fato","label":"Fato danoso","type":"textarea"},
+        {"name":"nexo","label":"Nexo causal","type":"text"}
+      ],
+      "objetivo": "Fundamentar responsabilidade civil trabalhista.",
+      "parametros": "fato={{fato}}; nexo={{nexo}}",
+      "children": [
+        {"id":"danos_quantum","titulo":"Subbloco – Critérios de quantum","variacoes":["mínimo","completo"],"funcoes":["juris=true"],"campos":[{"name":"parametros","label":"Parâmetros (gravidade, capacidade, didática)","type":"text"}]}
+      ]
+    },
+
+    {
+      "id": "multas_prescricao",
+      "categoria": "Multas/Prescrição",
+      "titulo": "Prescrição Bienal/Quinquenal e Multas",
+      "resumo": "Marco prescricional e efeitos.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [{"name":"marco","label":"Marco prescricional","type":"text"}],
+      "objetivo": "Delimitar parcelas atingidas e vigentes.",
+      "parametros": "marco={{marco}}"
+    },
+
+    {
+      "id": "honorarios_sucumbencia",
+      "categoria": "Honorários/Encargos",
+      "titulo": "Honorários Advocatícios e Sucumbência",
+      "resumo": "Honorários contratuais e sucumbenciais, justiça gratuita.",
+      "variacoes": ["mínimo","completo"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "campos": [],
+      "objetivo": "Fixar honorários e ressalvas da gratuidade.",
+      "parametros": ""
     },
 
     {
@@ -190,14 +311,13 @@
       "titulo": "Pedidos e Conclusão",
       "resumo": "Pedidos itemizados, valor da causa e fecho.",
       "variacoes": ["mínimo","completo","combativo"],
-      "funcoes": ["juris=false","lgpd=true","formato=forense"],
+      "funcoes": ["juris=false","lgpd=true","formato=forense","consolidar_pedidos=true"],
       "campos": [
         {"name":"valor_causa","label":"Valor da Causa (estimado)","type":"text"},
         {"name":"cidade_data","label":"Local/Data","type":"text"}
       ],
       "objetivo": "Consolidar pedidos e fecho.",
-      "parametros": "valor={{valor_causa}}; local_data={{cidade_data}}",
-      "children": []
+      "parametros": "valor={{valor_causa}}; local_data={{cidade_data}}"
     }
   ]
 }
