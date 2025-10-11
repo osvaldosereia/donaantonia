@@ -1,24 +1,96 @@
-{
-  "schemaVersion": 1,
-  "fields": {
-    "data": {
-      "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-      "message": "Use AAAA-MM-DD"
-    },
-    "numero": {
-      "regex": "^-?\\d+(?:[\\.,]\\d+)?$",
-      "message": "Use apenas números (vírgula ou ponto para decimais)"
-    },
-    "moeda": {
-      "regex": "^\\d{1,3}(?:[\\.\\s]?\\d{3})*(?:[\\.,]\\d{2})?$",
-      "message": "Formato de moeda válido (ex.: 2.500,00)"
-    }
-  },
-  "map": {
-    "case.admissao": "data",
-    "case.saida": "data",
-    "case.salario": "moeda",
-    "blk.he_semana": "numero",
-    "blk.intrajornada_min": "numero"
+/* ===== Validações (validadores.json) ===== */
+MT.validators = MT.validators || { fields:{}, map:{} };
+
+function getValidatorByKey(key){
+  const v = MT.validators.fields?.[key];
+  if(!v) return null;
+  return { re: new RegExp(v.regex), message: v.message || 'Valor inválido' };
+}
+
+function inferKeyFromPath(path){ // ex.: "case.admissao" ou "blk.he_semana"
+  const k = MT.validators.map?.[path];
+  return k || null;
+}
+
+function decorateInvalid(el, ok, message){
+  el.classList.toggle('mt-invalid', !ok);
+  if(!ok && message){
+    el.setAttribute('data-error', message);
+    el.title = message;
+  }else{
+    el.removeAttribute('data-error');
+    el.removeAttribute('title');
   }
 }
+
+function validateInput(el, key){
+  const rule = getValidatorByKey(key);
+  if(!rule) return true; // sem regra, está ok
+  const val = (el.value||'').trim();
+  if(!val){ decorateInvalid(el, true); return true; } // vazio pode ser permitido
+  const ok = rule.re.test(val);
+  decorateInvalid(el, ok, ok ? '' : rule.message);
+  return ok;
+}
+
+/* ---- Case: aplica regras mapeadas (validadores.map) ---- */
+function wireCaseValidators(){
+  const map = {
+    'case.admissao': '#caseAdm',
+    'case.saida': '#caseSai',
+    'case.salario': '#caseSal'
+  };
+  Object.entries(map).forEach(([path,sel])=>{
+    const el = MT.qs(sel);
+    if(!el) return;
+    const key = inferKeyFromPath(path);
+    if(!key) return;
+    const handler = ()=> validateInput(el, key);
+    el.addEventListener('input', handler);
+    el.addEventListener('blur', handler);
+    handler(); // valida inicial
+  });
+}
+
+/* ---- Bloco: tenta mapear por nome do campo ---- */
+function wireBlockValidatorsForNode(node){
+  const wrap = MT.qs('#blkFields');
+  if(!wrap) return;
+  wrap.querySelectorAll('input.mt-input, textarea.mt-textarea').forEach((el)=>{
+    const name = el.getAttribute('placeholder') || el.getAttribute('data-name') || '';
+    // tenta chaves tipo "blk.nomeCampo"
+    const path = `blk.${name}`;
+    const key = inferKeyFromPath(path);
+    if(!key) return;
+    const handler = ()=> validateInput(el, key);
+    el.addEventListener('input', handler);
+    el.addEventListener('blur', handler);
+    handler();
+  });
+}
+
+/* ---- Validação global antes de exportar ---- */
+function validateDraftBeforeExport(){
+  let ok = true;
+  // valida Case
+  const caseChecks = [
+    ['case.admissao', MT.qs('#caseAdm')],
+    ['case.saida',    MT.qs('#caseSai')],
+    ['case.salario',  MT.qs('#caseSal')],
+  ];
+  caseChecks.forEach(([path,el])=>{
+    if(!el) return;
+    const key = inferKeyFromPath(path);
+    if(!key) return;
+    const pass = validateInput(el, key);
+    ok = ok && pass;
+  });
+  // pode-se expandir para campos de blocos se desejar (percorrendo o Canvas)
+  return ok;
+}
+
+/* ---- Estilo de erro mínimo ---- */
+(function injectValidationCSS(){
+  const css = `.mt-invalid{ border-color:#ef4444 !important; box-shadow:0 0 0 3px rgba(239,68,68,.15) !important }`;
+  const tag = document.createElement('style'); tag.textContent = css; document.head.appendChild(tag);
+})();
