@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "presets": [
+    {
+      "id": "inicial_basica_fgts_rescisao",
+      "label": "Inicial Básica — Rescisão + FGTS",
+      "blocks": ["preambulo_enderec_qualif","fatos_contrato","jornada_he","fgts_rescisao","pedidos_conclusao"],
+      "enabledChildren": {
+        "jornada_he": ["jornada_he_intrajornada","jornada_he_interjornada"]
+      },
+      "funcoesOverrides": { "juris": true, "lgpd": true },
+      "variacoes": { "jornada_he": "completo", "pedidos_conclusao": "completo" }
+    }
+  ]
+}
