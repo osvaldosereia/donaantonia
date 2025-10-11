@@ -10,139 +10,50 @@
      ========================= -->
 <style>
   :root{
-    /* Paleta clara */
-    --bg:#f7f8fb;
-    --surface:#ffffff;
-    --ink:#1f2937;
-    --muted:#6b7280;
-    --line:#e5e7eb;
-
-    --primary:#2563eb;
-    --primary-ink:#ffffff;
-    --accent:#10b981;
-    --warn:#f59e0b;
-    --danger:#ef4444;
-
-    /* Tipografia e raios */
-    --radius:12px;
-    --radius-sm:10px;
-
+    --bg:#f7f8fb; --surface:#ffffff; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --primary:#2563eb; --primary-ink:#ffffff; --accent:#10b981; --warn:#f59e0b; --danger:#ef4444;
+    --radius:12px; --radius-sm:10px;
     --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     --sans: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Helvetica Neue", sans-serif;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font:14px/1.45 var(--sans);
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  }
-
-  /* Layout principal */
-  .mt-app{
-    min-height:100vh;
-    display:grid;
-    grid-template-rows:auto 1fr;
-  }
-  .mt-topbar{
-    background:var(--surface);
-    border-bottom:1px solid var(--line);
-    display:flex; align-items:center; justify-content:space-between;
-    padding:10px 16px;
-    position:sticky; top:0; z-index:5;
-  }
-  .mt-topbar h1{ margin:0; font-size:16px; font-weight:700; letter-spacing:.2px }
-  .mt-actions{ display:flex; gap:8px; align-items:center }
-
-  .mt-wrap{
-    display:grid; gap:12px; padding:12px 16px;
-    grid-template-columns:300px 1fr 380px;
-  }
-
-  /* Painéis */
-  .mt-panel{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    display:flex; flex-direction:column; min-height:0;
-  }
-  .mt-head{
-    padding:12px 14px; border-bottom:1px solid var(--line);
-    display:flex; align-items:center; gap:10px
-  }
-  .mt-head h2{ margin:0; font-size:14px; font-weight:700 }
-  .mt-subhead{ color:var(--muted); font-size:12px; margin-left:auto }
-
-  .mt-body{ padding:12px 14px; overflow:auto }
-  .mt-footer{
-    padding:10px 14px;
-    border-top:1px solid var(--line);
-    display:flex; gap:8px; justify-content:flex-end; background:linear-gradient(180deg,rgba(255,255,255,.6),#fff)
-  }
-
-  /* Inputs */
-  .mt-input,.mt-select,.mt-textarea{
-    width:100%; background:#fff; color:var(--ink);
-    border:1px solid var(--line); border-radius:var(--radius-sm);
-    padding:8px 10px; outline:none;
-  }
-  .mt-input:focus,.mt-select:focus,.mt-textarea:focus{ border-color:#cbd5e1; box-shadow:0 0 0 3px rgba(37,99,235,.12) }
-  .mt-textarea{ min-height:84px; resize:vertical }
-
-  .mt-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
-  .mt-kv{ display:grid; grid-template-columns:140px 1fr; gap:10px; align-items:center; margin-bottom:8px }
-  .mt-kv label{ color:var(--muted); font-size:12px; }
-
-  /* Listagens */
-  .mt-list{ display:flex; flex-direction:column; gap:10px }
-  .mt-item{
-    border:1px solid var(--line); border-radius:var(--radius);
-    padding:10px; background:#fff;
-  }
-  .mt-title{ margin:0 0 2px 0; font-weight:700; font-size:13px }
-  .mt-sub{ margin:0 0 6px; color:var(--muted); font-size:12px }
-  .mt-tools{ display:flex; gap:6px; flex-wrap:wrap }
-
-  .mt-badge{ background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; padding:2px 8px; border-radius:999px; font-size:11px }
-
-  .mt-empty{
-    color:var(--muted);
-    text-align:center; padding:24px; border:1px dashed var(--line);
-    border-radius:var(--radius)
-  }
-
-  /* Botões */
-  .mt-btn{
-    appearance:none; cursor:pointer; border:1px solid var(--line);
-    background:#fff; color:var(--ink);
-    padding:8px 10px; border-radius:var(--radius-sm);
-  }
-  .mt-btn:hover{ background:#f8fafc }
-  .mt-btn.primary{ background:var(--primary); border-color:var(--primary); color:var(--primary-ink) }
-  .mt-btn.ghost{ background:transparent }
-  .mt-btn.danger{ border-color:#fecaca; background:#fff5f5; color:#991b1b }
-
-  /* Abas */
-  .mt-tabs{ display:flex; gap:8px; margin-bottom:10px }
-  .mt-tab{
-    padding:6px 10px; border:1px solid var(--line); border-radius:10px;
-    background:#fff; cursor:pointer; font-size:12px
-  }
-  .mt-tab.active{ background:#e0ecff; border-color:#c7d2fe }
-
-  /* Código/Preview – CLARO */
-  .mt-code{
-    white-space:pre-wrap; background:#f8fafc; color:#0f172a;
-    border:1px solid var(--line); border-radius:var(--radius);
-    padding:12px; font-family:var(--mono); font-size:12.5px
-  }
-
-  /* Responsivo */
-  @media (max-width: 1180px){
-    .mt-wrap{ grid-template-columns:1fr; grid-auto-rows:minmax(260px,auto) }
-    .mt-kv{ grid-template-columns:1fr; }
-    .mt-grid{ grid-template-columns:1fr; }
-  }
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .mt-app{min-height:100vh;display:grid;grid-template-rows:auto 1fr}
+  .mt-topbar{background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:sticky;top:0;z-index:5}
+  .mt-topbar h1{margin:0;font-size:16px;font-weight:700;letter-spacing:.2px}
+  .mt-actions{display:flex;gap:8px;align-items:center}
+  .mt-wrap{display:grid;gap:12px;padding:12px 16px;grid-template-columns:300px 1fr 380px}
+  .mt-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;min-height:0}
+  .mt-head{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .mt-head h2{margin:0;font-size:14px;font-weight:700}
+  .mt-subhead{color:var(--muted);font-size:12px;margin-left:auto}
+  .mt-body{padding:12px 14px;overflow:auto}
+  .mt-footer{padding:10px 14px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end;background:linear-gradient(180deg,rgba(255,255,255,.6),#fff)}
+  .mt-input,.mt-select,.mt-textarea{width:100%;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:var(--radius-sm);padding:8px 10px;outline:none}
+  .mt-input:focus,.mt-select:focus,.mt-textarea:focus{border-color:#cbd5e1;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  .mt-textarea{min-height:84px;resize:vertical}
+  .mt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mt-kv{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:center;margin-bottom:8px}
+  .mt-kv label{color:var(--muted);font-size:12px}
+  .mt-list{display:flex;flex-direction:column;gap:10px}
+  .mt-item{border:1px solid var(--line);border-radius:var(--radius);padding:10px;background:#fff}
+  .mt-title{margin:0 0 2px 0;font-weight:700;font-size:13px}
+  .mt-sub{margin:0 0 6px;color:var(--muted);font-size:12px}
+  .mt-tools{display:flex;gap:6px;flex-wrap:wrap}
+  .mt-badge{background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;padding:2px 8px;border-radius:999px;font-size:11px}
+  .mt-empty{color:var(--muted);text-align:center;padding:24px;border:1px dashed var(--line);border-radius:var(--radius)}
+  .mt-btn{appearance:none;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 10px;border-radius:var(--radius-sm)}
+  .mt-btn:hover{background:#f8fafc}
+  .mt-btn.primary{background:var(--primary);border-color:var(--primary);color:var(--primary-ink)}
+  .mt-btn.ghost{background:transparent}
+  .mt-btn.danger{border-color:#fecaca;background:#fff5f5;color:#991b1b}
+  .mt-tabs{display:flex;gap:8px;margin-bottom:10px}
+  .mt-tab{padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;font-size:12px}
+  .mt-tab.active{background:#e0ecff;border-color:#c7d2fe}
+  .mt-code{white-space:pre-wrap;background:#f8fafc;color:#0f172a;border:1px solid var(--line);border-radius:var(--radius);padding:12px;font-family:var(--mono);font-size:12.5px}
+  .mt-sep{height:1px;background:#e5e7eb;margin:10px -10px}
+  @media (max-width:1180px){.mt-wrap{grid-template-columns:1fr;grid-auto-rows:minmax(260px,auto)}.mt-kv{grid-template-columns:1fr}.mt-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -242,6 +153,12 @@
             <div class="mt-kv"><label>Categoria</label><input id="blkCat" class="mt-input" disabled></div>
             <div class="mt-kv"><label>Variação</label><select id="blkVar" class="mt-select"></select></div>
             <div class="mt-kv"><label>Funções</label><div id="blkFuncs" class="mt-tools"></div></div>
+
+            <div class="mt-sep"></div>
+            <div class="mt-kv" style="grid-template-columns:1fr"><label style="font-weight:700">Subblocos</label></div>
+            <div id="blkChildren" class="mt-list"></div>
+
+            <div class="mt-sep"></div>
             <div id="blkFields" class="mt-list" style="margin-top:8px"></div>
           </div>
         </div>
@@ -258,14 +175,13 @@
   </main>
 </div>
 
-<!-- IMPORT JSON oculto -->
 <input type="file" id="fileImport" accept=".json" hidden />
 
 <!-- ======================
      LÓGICA DO EDITOR (JS)
      ====================== -->
 <script>
-/* ========= Catalogo MVP (embutido) ========= */
+/* ========= Catálogo (com children) ========= */
 const MT_CATALOG = {
   schemaVersion: 1,
   categories: ["Preâmbulo","Preliminares/Processo","Fatos do Contrato","Jornada","Pedidos/Conclusão"],
@@ -327,7 +243,38 @@ const MT_CATALOG = {
       funcoes:["juris=true","lgpd=true","formato=forense"],
       objetivo:"Demonstrar sobrejornada e pleitear pagamento com reflexos.",
       parametros:"jornada_real={{jornada_real}}; he_semana={{he_semana}}; intrajornada={{intrajornada_min}}",
-      teses:"banco_horas_invalido; ponto_britanico; supressao_intervalo"
+      teses:"banco_horas_invalido; ponto_britanico; supressao_intervalo",
+      children:[
+        {
+          id:"intrajornada",
+          titulo:"Subbloco – Intervalo intrajornada",
+          variacoes:["mínimo","completo"],
+          funcoes:["juris=false"],
+          campos:[{name:"intrajornada_min_det",label:"Minutos suprimidos (detalhe)",type:"number"}],
+          objetivo:"Caracterizar supressão parcial do intervalo.",
+          parametros:"intrajornada={{intrajornada_min_det}}",
+          children:[
+            {
+              id:"base_calculo",
+              titulo:"Sub-subbloco – Base de cálculo",
+              variacoes:["mínimo","completo"],
+              funcoes:[],
+              campos:[{name:"base",label:"Base (salário, norma coletiva…)",type:"text"}],
+              objetivo:"Definir base de cálculo e reflexos.",
+              parametros:"base={{base}}"
+            }
+          ]
+        },
+        {
+          id:"interjornada",
+          titulo:"Subbloco – Intervalo interjornada (11h)",
+          variacoes:["mínimo","completo"],
+          funcoes:["juris=false"],
+          campos:[],
+          objetivo:"Descumprimento das 11h entre jornadas.",
+          parametros:""
+        }
+      ]
     },
     {
       id:"pedidos_conclusao",
@@ -350,19 +297,38 @@ const MT_CATALOG = {
 /* ========= Estado ========= */
 const MT = {
   catalog: MT_CATALOG,
-  draft: { case:{}, blocks:[], version:1 },
+  draft: { version:2, case:{ lgpd:true }, blocks:[] },
   selectedIdx: -1,
   qs: (q,el=document)=>el.querySelector(q),
   qsa:(q,el=document)=>Array.from(el.querySelectorAll(q)),
-  storageKey: 'mt:draft:v1'
+  storageKey: 'mt:draft:v2'
 };
+
+/* ========= Helpers ========= */
+function cloneNodeFromDef(def){
+  const node = {
+    cid: crypto.randomUUID(),
+    id: def.id,
+    titulo: def.titulo,
+    categoria: def.categoria,
+    variacao: (def.variacoes?.[0]) || 'mínimo',
+    funcoes: (def.funcoes||[]).slice(),
+    campos: (def.campos||[]).map(c=>({name:c.name,label:c.label,type:c.type,value:''})),
+    meta:{objetivo:def.objetivo||'', parametros:def.parametros||'', teses:def.teses||''},
+    enabled: !!def.categoria, // raiz sempre incluída
+    children: []
+  };
+  if(Array.isArray(def.children)){
+    node.children = def.children.map(ch=>{ const n=cloneNodeFromDef(ch); n.enabled=false; return n; });
+  }
+  return node;
+}
 
 /* ========= Catálogo ========= */
 function renderCatalog(filter=''){
   const list = MT.qs('#catList'); list.innerHTML='';
   const f = (filter||'').toLowerCase().trim();
 
-  // chips de categoria
   const chips = MT.qs('#catFilters'); chips.innerHTML='';
   MT.catalog.categories.forEach(cat=>{
     const b = document.createElement('button');
@@ -389,14 +355,7 @@ function renderCatalog(filter=''){
     const id = e.target?.dataset?.add; if(!id) return;
     const block = MT.catalog.blocks.find(x=>x.id===id);
     if(!block) return;
-    const clone = {
-      cid: crypto.randomUUID(),
-      id:block.id, categoria:block.categoria, titulo:block.titulo,
-      variacao:block.variacoes?.[0]||'mínimo',
-      funcoes:(block.funcoes||[]).slice(),
-      campos:(block.campos||[]).map(c=>({name:c.name,label:c.label,type:c.type,value:''})),
-      meta:{objetivo:block.objetivo||'', parametros:block.parametros||'', teses:block.teses||''}
-    };
+    const clone = cloneNodeFromDef(block);
     MT.draft.blocks.push(clone);
     saveDraft(); renderCanvas(); selectBlock(MT.draft.blocks.length-1);
   };
@@ -418,7 +377,7 @@ function renderCanvas(){
       <div style="display:flex; justify-content:space-between; align-items:center; gap:8px">
         <div>
           <div class="mt-title">${b.titulo}</div>
-          <div class="mt-sub">${b.categoria} · variação: <b>${b.variacao}</b></div>
+          <div class="mt-sub">${b.categoria||'—'} · variação: <b>${b.variacao}</b></div>
         </div>
         <div class="mt-tools">
           <button class="mt-btn" data-act="sel">Editar</button>
@@ -456,6 +415,71 @@ function bindCase(){
 /* ========= Aba: Bloco ========= */
 function selectBlock(idx){ MT.selectedIdx=idx; renderCanvas(); renderBlockPanel(); MT.qs('[data-tab="block"]').click(); }
 
+function renderChildrenEditor(node, def){
+  const wrap = MT.qs('#blkChildren'); wrap.innerHTML='';
+  if(!node.children?.length) return;
+
+  const makeRow = (n, d, level=0) => {
+    const row = document.createElement('div');
+    row.className='mt-item';
+    row.style.marginLeft = (level*12)+'px';
+    row.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+        <div>
+          <div class="mt-title">${n.titulo}</div>
+          <div class="mt-sub">variação: <b>${n.variacao}</b>${n.enabled?' · incluído':''}</div>
+        </div>
+        <div class="mt-tools">
+          <label class="mt-btn">
+            <input type="checkbox" ${n.enabled?'checked':''} data-k="en"/> Incluir
+          </label>
+          <select class="mt-select" data-k="var"></select>
+          <button class="mt-btn" data-k="edit">Campos</button>
+        </div>
+      </div>
+      <div class="mt-list" data-k="children"></div>
+    `;
+    const sel = row.querySelector('select[data-k="var"]');
+    (d.variacoes||['mínimo']).forEach(v=>{
+      const o=document.createElement('option'); o.value=v; o.textContent=v; if(v===n.variacao) o.selected=true; sel.appendChild(o);
+    });
+    sel.onchange = ()=>{ n.variacao=sel.value; saveDraft(); renderBlockPanel(); };
+
+    const chk = row.querySelector('input[data-k="en"]');
+    chk.onchange = ()=>{ n.enabled = chk.checked; saveDraft(); };
+
+    row.querySelector('button[data-k="edit"]').onclick = ()=>{
+      MT.qs('#blkFields').innerHTML='';
+      (n.campos||[]).forEach((c,i)=>{
+        const rr = document.createElement('div'); rr.className='mt-kv';
+        rr.innerHTML = `<label>${c.label||c.name}</label>`+
+          (c.type==='textarea'
+            ? `<textarea data-idx="${i}" class="mt-textarea" placeholder="${c.name}">${c.value||''}</textarea>`
+            : `<input data-idx="${i}" class="mt-input" placeholder="${c.name}" value="${c.value||''}">`);
+        MT.qs('#blkFields').appendChild(rr);
+      });
+      MT.qs('#blkFields').oninput = (e)=>{
+        const el=e.target, i=+el.dataset.idx;
+        if(Number.isFinite(i)){ n.campos[i].value = el.value; saveDraft(); }
+      };
+    };
+
+    if(n.children?.length){
+      const slot=row.querySelector('[data-k="children"]');
+      n.children.forEach(ch=>{
+        const dch = (d.children||[]).find(x=>x.id===ch.id)||{};
+        slot.appendChild(makeRow(ch, dch, level+1));
+      });
+    }
+    return row;
+  };
+
+  node.children.forEach(ch=>{
+    const d = (def.children||[]).find(x=>x.id===ch.id)||{};
+    wrap.appendChild(makeRow(ch,d,0));
+  });
+}
+
 function renderBlockPanel(){
   const empty = MT.qs('#blockPanelEmpty'), panel = MT.qs('#blockPanel');
   if(MT.selectedIdx<0){ empty.style.display='block'; panel.style.display='none'; return; }
@@ -463,7 +487,7 @@ function renderBlockPanel(){
   empty.style.display='none'; panel.style.display='block';
 
   MT.qs('#blkTitulo').value = b.titulo;
-  MT.qs('#blkCat').value   = b.categoria;
+  MT.qs('#blkCat').value   = b.categoria||'';
 
   const vSel = MT.qs('#blkVar'); vSel.innerHTML='';
   const orig = MT.catalog.blocks.find(x=>x.id===b.id);
@@ -488,6 +512,10 @@ function renderBlockPanel(){
     fWrap.appendChild(btn);
   });
 
+  // Subblocos
+  renderChildrenEditor(b, orig);
+
+  // Campos do bloco raiz
   const fld = MT.qs('#blkFields'); fld.innerHTML='';
   (b.campos||[]).forEach((c,i)=>{
     const row = document.createElement('div'); row.className='mt-kv';
@@ -525,58 +553,72 @@ Dados do Caso (globais):
 ].join('\n');
 }
 
-function blockToPrompt(b){
-  const orig = MT.catalog.blocks.find(x=>x.id===b.id) || {};
-  const map = Object.fromEntries((b.campos||[]).map(c=>[c.name, c.value||'']));
+function renderNode(node, def){
+  const map = Object.fromEntries((node.campos||[]).map(c=>[c.name, c.value||'']));
   const repl = (tpl)=> tpl ? tpl.replace(/\{\{(\w+)\}\}/g,(_,k)=> (map[k] && String(map[k]).trim()) ? String(map[k]).trim() : '[DADO A SER CONFIRMADO]') : '';
 
-  const fun = Object.fromEntries((b.funcoes||[]).map(s=>{ const [k,v]=s.split('='); return [k,v]; }));
+  const fun = Object.fromEntries((node.funcoes||[]).map(s=>{ const [k,v]=s.split('='); return [k,v]; }));
   const juris = String(fun['juris']||'false')==='true';
-  const tribunais = 'TST,TRT-XX';
-  const janela = '10';
 
-  return [
-`### BLOCO: ${b.titulo} (Categoria: ${b.categoria})
+  let out = [
+`### BLOCO: ${node.titulo}${node.categoria?` (Categoria: ${node.categoria})`:''}
 Objetivo do Bloco:
-- ${orig.objetivo||'—'}
+- ${def.objetivo||'—'}
 
 Entradas Específicas:
-- Fatos-chave: ${repl(orig.resumo||'—')}
-- Parâmetros: ${repl(orig.parametros||'—')}
-- Tese(s) pretendida(s): ${orig.teses||'—'}
+- Fatos-chave: ${repl(def.resumo||'—')}
+- Parâmetros: ${repl(def.parametros||'—')}
+- Tese(s) pretendida(s): ${def.teses||'—'}
 
 Instruções à IA:
-1) Contextualize brevemente os fatos deste bloco com o caso global.
+1) Contextualize brevemente com o caso global.
 2) Fundamente com CLT/CF/leis/Súmulas/OJs pertinentes${juris?'; inclua 2–4 precedentes colegiados recentes':''}.
 3) Explique base de cálculo e reflexos (se aplicável), sem fazer cálculos numéricos.
-4) Produza redação pronta para copiar e colar (parágrafos coesos, sem listas, salvo “Pedidos correlatos”).
-5) Mantenha tom técnico e conciso; evite repetição de outros blocos.
+4) Redação pronta para colar (parágrafos coesos).
+5) Tom técnico e conciso; evite repetição.
 
 Parâmetros Opcionais:
-- jurisprudencia: ${juris}; tribunal-alvo: ${tribunais}; janela: ${janela} anos
-- lgpd_anonimizar: ${String((MT.draft.case.lgpd??'true'))}
-- tom: sobrio; variacao: ${b.variacao}
+- jurisprudencia: ${juris}; lgpd_anonimizar: ${String(MT.draft.case.lgpd ?? 'true')}
+- variacao: ${node.variacao||'mínimo'}
 
 Saída Esperada (do bloco):
 - Título sintético
 - 1–3 parágrafos coesos
-- (se aplicável) “Pedidos correlatos” em bullets
 ${juris?'- Precedentes (links oficiais) ao final do bloco':''}`
-].join('\n');
+  ].join('\n');
+
+  if (node.children?.length){
+    node.children.forEach(ch=>{
+      if(ch.enabled){
+        const d = (def.children||[]).find(x=>x.id===ch.id)||{};
+        out += '\n\n' + renderNode(ch,d);
+      }
+    });
+  }
+  return out;
 }
 
 function buildPrompt(){
-  return [headerPrompt(), ...MT.draft.blocks.map(blockToPrompt)].join('\n\n');
+  const parts = [headerPrompt()];
+  MT.draft.blocks.forEach(b=>{
+    const def = MT.catalog.blocks.find(x=>x.id===b.id) || {};
+    parts.push(renderNode(b, def));
+  });
+  return parts.join('\n\n');
 }
 
-function renderPreview(){
-  MT.qs('#previewOut').textContent = buildPrompt();
-}
+function renderPreview(){ MT.qs('#previewOut').textContent = buildPrompt(); }
 
 /* ========= Persistência & IO ========= */
-function saveDraft(){ localStorage.setItem(MT.storageKey, JSON.stringify(MT.draft)); }
-function loadDraft(){ try{ const raw=localStorage.getItem(MT.storageKey); if(raw) MT.draft=JSON.parse(raw); }catch{} }
-
+function saveDraft(){ try{ localStorage.setItem(MT.storageKey, JSON.stringify(MT.draft)); }catch(e){} }
+function loadDraft(){
+  try{
+    const raw=localStorage.getItem(MT.storageKey);
+    MT.draft = raw ? JSON.parse(raw) : { version:2, case:{ lgpd:true }, blocks:[] };
+  }catch(e){
+    MT.draft = { version:2, case:{ lgpd:true }, blocks:[] };
+  }
+}
 function download(filename, text){
   const a=document.createElement('a');
   a.href = URL.createObjectURL(new Blob([text],{type:'text/plain'}));
@@ -584,7 +626,6 @@ function download(filename, text){
 }
 const exportTxt = ()=> download('prompt-trabalhista.txt', buildPrompt());
 const exportJson= ()=> download('montador-projeto.json', JSON.stringify(MT.draft,null,2));
-
 function importJson(file){
   const reader=new FileReader();
   reader.onload=()=>{ try{
@@ -615,7 +656,6 @@ function init(){
   renderCanvas();
   bindCase();
   bindTabs();
-
   MT.qs('#btnClear').onclick = ()=>{ if(confirm('Remover todos os blocos?')){ MT.draft.blocks=[]; MT.selectedIdx=-1; saveDraft(); renderCanvas(); renderBlockPanel(); } };
   MT.qs('#btnExportTxt').onclick = exportTxt;
   MT.qs('#btnExportJson').onclick= exportJson;
