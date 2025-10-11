@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "fields": {
+    "data": {"regex":"^\\d{4}-\\d{2}-\\d{2}$","message":"Use AAAA-MM-DD"},
+    "numero": {"regex":"^-?\\d+(,\\d+)?$","message":"Use apenas números (vírgula para decimais)"}
+  },
+  "map": {
+    "case.admissao": "data",
+    "case.saida": "data",
+    "blk.he_semana": "numero"
+  }
+}
