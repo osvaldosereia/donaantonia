@@ -1,160 +1,271 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Montador de Prompt – meujus</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Montador de Prompt — MeuJus</title>
+
+<!-- =========================
+     TEMA CLARO + DESIGN SYSTEM
+     ========================= -->
 <style>
   :root{
-    --mt-bg:#0b0c10; --mt-ink:#e6e6e6; --mt-muted:#a3a3a3;
-    --mt-card:#111319; --mt-line:#242836; --mt-accent:#6aa9ff; --mt-ok:#22c55e; --mt-warn:#f59e0b; --mt-bad:#ef4444;
+    /* Paleta clara */
+    --bg:#f7f8fb;
+    --surface:#ffffff;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+
+    --primary:#2563eb;
+    --primary-ink:#ffffff;
+    --accent:#10b981;
+    --warn:#f59e0b;
+    --danger:#ef4444;
+
+    /* Tipografia e raios */
+    --radius:12px;
+    --radius-sm:10px;
+
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Helvetica Neue", sans-serif;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0;background:var(--mt-bg);color:var(--mt-ink);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-  a{color:inherit}
-  .mt-wrap{display:grid;grid-template-columns:280px 1fr 340px;gap:12px;height:100vh;padding:12px}
-  .mt-panel{background:var(--mt-card);border:1px solid var(--mt-line);border-radius:12px;display:flex;flex-direction:column;min-height:0}
-  .mt-head{padding:10px 12px;border-bottom:1px solid var(--mt-line);display:flex;align-items:center;gap:8px}
-  .mt-head h2{margin:0;font-size:14px;font-weight:600;letter-spacing:.2px}
-  .mt-body{padding:10px 12px;overflow:auto}
-  .mt-row{display:flex;gap:8px;align-items:center}
-  .mt-input,.mt-select,.mt-textarea{width:100%;background:#0e1016;border:1px solid var(--mt-line);border-radius:10px;color:var(--mt-ink);padding:8px 10px}
-  .mt-textarea{min-height:72px;resize:vertical}
-  .mt-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--mt-line);border-radius:999px;background:#0e1016;color:var(--mt-ink);font-size:12px}
-  .mt-btn{appearance:none;border:1px solid var(--mt-line);background:#0e1016;color:var(--mt-ink);padding:8px 10px;border-radius:10px;cursor:pointer}
-  .mt-btn:hover{border-color:#2b2f42}
-  .mt-btn.accent{background:var(--mt-accent);border-color:var(--mt-accent);color:#081028}
-  .mt-btn.ghost{background:transparent}
-  .mt-btn.danger{border-color:#3a1c1c;background:#1a0c0c;color:#ffc2c2}
-  .mt-list{display:flex;flex-direction:column;gap:8px}
-  .mt-item{border:1px dashed var(--mt-line);border-radius:12px;padding:8px}
-  .mt-title{font-weight:600;margin:0 0 4px 0;font-size:13px}
-  .mt-sub{color:var(--mt-muted);font-size:12px;margin:0 0 6px}
-  .mt-tools{display:flex;gap:6px;flex-wrap:wrap}
-  .mt-toolbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-  .mt-sep{height:1px;background:var(--mt-line);margin:10px -12px}
-  .mt-pill{padding:5px 8px;border:1px solid var(--mt-line);border-radius:8px;font-size:12px}
-  .mt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .mt-empty{opacity:.7;text-align:center;padding:24px;border:1px dashed var(--mt-line);border-radius:12px}
-  .mt-badge{font-size:11px;padding:2px 6px;border-radius:6px;background:#0f1322;border:1px solid #223}
-  .mt-kv{display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center;margin-bottom:8px}
-  .mt-sticky{position:sticky;bottom:0;display:flex;gap:8px;justify-content:flex-end;padding:10px 12px;border-top:1px solid var(--mt-line);background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
-  .mt-code{white-space:pre-wrap;background:#0a0b11;border:1px solid var(--mt-line);border-radius:12px;padding:10px;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:12px}
-  .mt-tabs{display:flex;gap:6px;margin-bottom:8px}
-  .mt-tab{padding:6px 10px;border:1px solid var(--mt-line);border-radius:8px;cursor:pointer;font-size:12px;background:#0e1016}
-  .mt-tab.active{background:var(--mt-accent);border-color:var(--mt-accent);color:#081028}
-  @media(max-width:1100px){.mt-wrap{grid-template-columns:1fr;grid-auto-rows:minmax(200px,auto)}}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:14px/1.45 var(--sans);
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Layout principal */
+  .mt-app{
+    min-height:100vh;
+    display:grid;
+    grid-template-rows:auto 1fr;
+  }
+  .mt-topbar{
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 16px;
+    position:sticky; top:0; z-index:5;
+  }
+  .mt-topbar h1{ margin:0; font-size:16px; font-weight:700; letter-spacing:.2px }
+  .mt-actions{ display:flex; gap:8px; align-items:center }
+
+  .mt-wrap{
+    display:grid; gap:12px; padding:12px 16px;
+    grid-template-columns:300px 1fr 380px;
+  }
+
+  /* Painéis */
+  .mt-panel{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    display:flex; flex-direction:column; min-height:0;
+  }
+  .mt-head{
+    padding:12px 14px; border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:10px
+  }
+  .mt-head h2{ margin:0; font-size:14px; font-weight:700 }
+  .mt-subhead{ color:var(--muted); font-size:12px; margin-left:auto }
+
+  .mt-body{ padding:12px 14px; overflow:auto }
+  .mt-footer{
+    padding:10px 14px;
+    border-top:1px solid var(--line);
+    display:flex; gap:8px; justify-content:flex-end; background:linear-gradient(180deg,rgba(255,255,255,.6),#fff)
+  }
+
+  /* Inputs */
+  .mt-input,.mt-select,.mt-textarea{
+    width:100%; background:#fff; color:var(--ink);
+    border:1px solid var(--line); border-radius:var(--radius-sm);
+    padding:8px 10px; outline:none;
+  }
+  .mt-input:focus,.mt-select:focus,.mt-textarea:focus{ border-color:#cbd5e1; box-shadow:0 0 0 3px rgba(37,99,235,.12) }
+  .mt-textarea{ min-height:84px; resize:vertical }
+
+  .mt-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
+  .mt-kv{ display:grid; grid-template-columns:140px 1fr; gap:10px; align-items:center; margin-bottom:8px }
+  .mt-kv label{ color:var(--muted); font-size:12px; }
+
+  /* Listagens */
+  .mt-list{ display:flex; flex-direction:column; gap:10px }
+  .mt-item{
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:10px; background:#fff;
+  }
+  .mt-title{ margin:0 0 2px 0; font-weight:700; font-size:13px }
+  .mt-sub{ margin:0 0 6px; color:var(--muted); font-size:12px }
+  .mt-tools{ display:flex; gap:6px; flex-wrap:wrap }
+
+  .mt-badge{ background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; padding:2px 8px; border-radius:999px; font-size:11px }
+
+  .mt-empty{
+    color:var(--muted);
+    text-align:center; padding:24px; border:1px dashed var(--line);
+    border-radius:var(--radius)
+  }
+
+  /* Botões */
+  .mt-btn{
+    appearance:none; cursor:pointer; border:1px solid var(--line);
+    background:#fff; color:var(--ink);
+    padding:8px 10px; border-radius:var(--radius-sm);
+  }
+  .mt-btn:hover{ background:#f8fafc }
+  .mt-btn.primary{ background:var(--primary); border-color:var(--primary); color:var(--primary-ink) }
+  .mt-btn.ghost{ background:transparent }
+  .mt-btn.danger{ border-color:#fecaca; background:#fff5f5; color:#991b1b }
+
+  /* Abas */
+  .mt-tabs{ display:flex; gap:8px; margin-bottom:10px }
+  .mt-tab{
+    padding:6px 10px; border:1px solid var(--line); border-radius:10px;
+    background:#fff; cursor:pointer; font-size:12px
+  }
+  .mt-tab.active{ background:#e0ecff; border-color:#c7d2fe }
+
+  /* Código/Preview – CLARO */
+  .mt-code{
+    white-space:pre-wrap; background:#f8fafc; color:#0f172a;
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:12px; font-family:var(--mono); font-size:12.5px
+  }
+
+  /* Responsivo */
+  @media (max-width: 1180px){
+    .mt-wrap{ grid-template-columns:1fr; grid-auto-rows:minmax(260px,auto) }
+    .mt-kv{ grid-template-columns:1fr; }
+    .mt-grid{ grid-template-columns:1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="mt-wrap">
-  <!-- Catálogo -->
-  <section class="mt-panel" id="catalog">
-    <div class="mt-head">
-      <h2>Catálogo</h2>
-    </div>
-    <div class="mt-body">
-      <div class="mt-row" style="margin-bottom:8px">
-        <input id="catSearch" class="mt-input" placeholder="Buscar blocos...">
-      </div>
-      <div id="catFilters" class="mt-tools" style="margin-bottom:8px"></div>
-      <div id="catList" class="mt-list"></div>
-    </div>
-  </section>
+<div class="mt-app">
 
-  <!-- Canvas -->
-  <section class="mt-panel" id="canvas">
-    <div class="mt-head">
-      <h2>Canvas (ordene e edite seus blocos)</h2>
-      <span class="mt-badge" id="countBadge">0 blocos</span>
-      <div style="margin-left:auto" class="mt-toolbar">
-        <button class="mt-btn ghost" id="btnClear">Limpar</button>
-        <button class="mt-btn" id="btnImport">Importar .json</button>
-        <button class="mt-btn accent" id="btnExportJson">Salvar .json</button>
-      </div>
+  <!-- TOPBAR -->
+  <header class="mt-topbar" role="banner">
+    <h1>Montador de Prompt — Inicial Trabalhista</h1>
+    <div class="mt-actions">
+      <a class="mt-btn" href="/">Voltar ao site</a>
+      <a class="mt-btn primary" href="/montador/">Reiniciar</a>
     </div>
-    <div class="mt-body">
-      <div id="canvasList" class="mt-list"></div>
-      <div id="canvasEmpty" class="mt-empty">Nenhum bloco adicionado ainda. Use o Catálogo ao lado.</div>
-    </div>
-    <div class="mt-sticky">
-      <button class="mt-btn" id="btnPreview">Atualizar Preview</button>
-      <button class="mt-btn accent" id="btnExportTxt">Exportar .txt</button>
-    </div>
-  </section>
+  </header>
 
-  <!-- Propriedades / Preview -->
-  <section class="mt-panel" id="props">
-    <div class="mt-head">
-      <h2>Propriedades & Preview</h2>
-    </div>
-    <div class="mt-body">
-      <div class="mt-tabs">
-        <button class="mt-tab active" data-tab="case">Caso</button>
-        <button class="mt-tab" data-tab="block">Bloco</button>
-        <button class="mt-tab" data-tab="preview">Preview</button>
+  <!-- LAYOUT -->
+  <main class="mt-wrap" role="main">
+    <!-- Catálogo -->
+    <section class="mt-panel" aria-labelledby="h-cat">
+      <div class="mt-head">
+        <h2 id="h-cat">Catálogo</h2>
+        <span class="mt-subhead">Selecione e adicione ao Canvas</span>
       </div>
-
-      <!-- Caso -->
-      <div id="tab-case">
-        <div class="mt-kv"><label>Rito</label><select id="caseRito" class="mt-select">
-          <option value="sumaríssimo">sumaríssimo</option><option value="ordinário">ordinário</option></select></div>
-        <div class="mt-kv"><label>Competência</label><input id="caseComp" class="mt-input" placeholder="Ex.: Vara do Trabalho de Cuiabá/MT"></div>
-        <div class="mt-kv"><label>Categoria/CBO</label><input id="caseCat" class="mt-input" placeholder="Ex.: Bancário / 4121-10"></div>
-        <div class="mt-kv"><label>Sindicato/Data-base</label><input id="caseSind" class="mt-input" placeholder="Ex.: SEEB / 01-09"></div>
-        <div class="mt-kv"><label>Vínculo</label><input id="caseVinc" class="mt-input" placeholder="CLT, experiência, temporário..."></div>
-        <div class="mt-grid">
-          <div class="mt-kv"><label>Admissão</label><input id="caseAdm" class="mt-input" placeholder="YYYY-MM-DD"></div>
-          <div class="mt-kv"><label>Saída</label><input id="caseSai" class="mt-input" placeholder="YYYY-MM-DD"></div>
+      <div class="mt-body">
+        <div class="mt-kv">
+          <label for="catSearch">Buscar</label>
+          <input id="catSearch" class="mt-input" placeholder="Digite para filtrar por título ou categoria" />
         </div>
-        <div class="mt-grid">
-          <div class="mt-kv"><label>Função</label><input id="caseFunc" class="mt-input" placeholder="Ex.: Operador de Caixa"></div>
-          <div class="mt-kv"><label>Salário</label><input id="caseSal" class="mt-input" placeholder="Ex.: 2500"></div>
-        </div>
-        <div class="mt-kv" style="grid-template-columns:1fr">
-          <textarea id="caseObs" class="mt-textarea" placeholder="Observações globais (opcional)"></textarea>
-        </div>
-        <div class="mt-kv"><label>LGPD (anonimizar)</label>
-          <select id="caseLgpd" class="mt-select">
-            <option>true</option><option>false</option>
-          </select>
-        </div>
+        <div id="catFilters" class="mt-tools" style="margin-bottom:8px"></div>
+        <div id="catList" class="mt-list"></div>
       </div>
+    </section>
 
-      <!-- Bloco -->
-      <div id="tab-block" style="display:none">
-        <div id="blockPanelEmpty" class="mt-empty">Selecione um bloco no Canvas para editar.</div>
-        <div id="blockPanel" style="display:none">
-          <div class="mt-kv"><label>Título</label><input id="blkTitulo" class="mt-input"></div>
-          <div class="mt-kv"><label>Categoria</label><input id="blkCat" class="mt-input" disabled></div>
-          <div class="mt-kv"><label>Variação</label>
-            <select id="blkVar" class="mt-select"></select>
+    <!-- Canvas -->
+    <section class="mt-panel" aria-labelledby="h-canvas">
+      <div class="mt-head">
+        <h2 id="h-canvas">Canvas</h2>
+        <span class="mt-badge" id="countBadge">0 blocos</span>
+        <span class="mt-subhead">Ordene e edite seus blocos</span>
+      </div>
+      <div class="mt-body">
+        <div id="canvasList" class="mt-list"></div>
+        <div id="canvasEmpty" class="mt-empty">Nenhum bloco adicionado. Use o Catálogo à esquerda.</div>
+      </div>
+      <div class="mt-footer">
+        <button class="mt-btn" id="btnClear" title="Remover todos os blocos">Limpar</button>
+        <button class="mt-btn" id="btnImport" title="Importar projeto .json">Importar .json</button>
+        <button class="mt-btn" id="btnPreview" title="Atualizar preview">Atualizar Preview</button>
+        <button class="mt-btn" id="btnExportTxt" title="Exportar prompt .txt">Exportar .txt</button>
+        <button class="mt-btn primary" id="btnExportJson" title="Salvar projeto .json">Salvar .json</button>
+      </div>
+    </section>
+
+    <!-- Propriedades & Preview -->
+    <section class="mt-panel" aria-labelledby="h-props">
+      <div class="mt-head">
+        <h2 id="h-props">Propriedades & Preview</h2>
+        <span class="mt-subhead">Dados do caso, bloco e saída</span>
+      </div>
+      <div class="mt-body">
+        <div class="mt-tabs" role="tablist" aria-label="Abas de edição">
+          <button class="mt-tab active" data-tab="case" role="tab" aria-selected="true">Caso</button>
+          <button class="mt-tab" data-tab="block" role="tab">Bloco</button>
+          <button class="mt-tab" data-tab="preview" role="tab">Preview</button>
+        </div>
+
+        <!-- Aba: Caso -->
+        <div id="tab-case">
+          <div class="mt-kv"><label>Rito</label><select id="caseRito" class="mt-select">
+            <option value="sumaríssimo">sumaríssimo</option><option value="ordinário">ordinário</option></select></div>
+          <div class="mt-kv"><label>Competência</label><input id="caseComp" class="mt-input" placeholder="Ex.: Vara do Trabalho de Cuiabá/MT"></div>
+          <div class="mt-kv"><label>Categoria/CBO</label><input id="caseCat" class="mt-input" placeholder="Ex.: Bancário / 4121-10"></div>
+          <div class="mt-kv"><label>Sindicato/Data-base</label><input id="caseSind" class="mt-input" placeholder="Ex.: SEEB / 01-09"></div>
+          <div class="mt-kv"><label>Vínculo</label><input id="caseVinc" class="mt-input" placeholder="CLT, experiência, temporário..."></div>
+          <div class="mt-grid">
+            <div class="mt-kv"><label>Admissão</label><input id="caseAdm" class="mt-input" placeholder="YYYY-MM-DD"></div>
+            <div class="mt-kv"><label>Saída</label><input id="caseSai" class="mt-input" placeholder="YYYY-MM-DD"></div>
           </div>
-          <div class="mt-kv"><label>Funções</label>
-            <div id="blkFuncs" class="mt-tools"></div>
+          <div class="mt-grid">
+            <div class="mt-kv"><label>Função</label><input id="caseFunc" class="mt-input" placeholder="Ex.: Operador de Caixa"></div>
+            <div class="mt-kv"><label>Salário</label><input id="caseSal" class="mt-input" placeholder="Ex.: 2500"></div>
           </div>
-          <div id="blkFields" class="mt-list" style="margin-top:8px"></div>
+          <div class="mt-kv" style="grid-template-columns:1fr">
+            <textarea id="caseObs" class="mt-textarea" placeholder="Observações globais (opcional)"></textarea>
+          </div>
+          <div class="mt-kv"><label>LGPD (anonimizar)</label>
+            <select id="caseLgpd" class="mt-select">
+              <option>true</option><option>false</option>
+            </select>
+          </div>
         </div>
-      </div>
 
-      <!-- Preview -->
-      <div id="tab-preview" style="display:none">
-        <div class="mt-toolbar" style="margin-bottom:8px">
-          <button class="mt-btn" id="btnCopy">Copiar</button>
+        <!-- Aba: Bloco -->
+        <div id="tab-block" style="display:none">
+          <div id="blockPanelEmpty" class="mt-empty">Selecione um bloco no Canvas para editar.</div>
+          <div id="blockPanel" style="display:none">
+            <div class="mt-kv"><label>Título</label><input id="blkTitulo" class="mt-input"></div>
+            <div class="mt-kv"><label>Categoria</label><input id="blkCat" class="mt-input" disabled></div>
+            <div class="mt-kv"><label>Variação</label><select id="blkVar" class="mt-select"></select></div>
+            <div class="mt-kv"><label>Funções</label><div id="blkFuncs" class="mt-tools"></div></div>
+            <div id="blkFields" class="mt-list" style="margin-top:8px"></div>
+          </div>
         </div>
-        <div id="previewOut" class="mt-code"></div>
+
+        <!-- Aba: Preview -->
+        <div id="tab-preview" style="display:none">
+          <div class="mt-actions" style="justify-content:flex-start; margin-bottom:8px">
+            <button class="mt-btn" id="btnCopy">Copiar</button>
+          </div>
+          <div id="previewOut" class="mt-code" aria-label="Código do prompt"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </div>
 
-<input type="file" id="fileImport" accept=".json" hidden>
+<!-- IMPORT JSON oculto -->
+<input type="file" id="fileImport" accept=".json" hidden />
 
+<!-- ======================
+     LÓGICA DO EDITOR (JS)
+     ====================== -->
 <script>
-/* =======================
-   Catálogo embutido (MVP)
-   ======================= */
+/* ========= Catalogo MVP (embutido) ========= */
 const MT_CATALOG = {
   schemaVersion: 1,
   categories: ["Preâmbulo","Preliminares/Processo","Fatos do Contrato","Jornada","Pedidos/Conclusão"],
@@ -236,45 +347,44 @@ const MT_CATALOG = {
   ]
 };
 
-/* =======================
-   Estado simples (MVP)
-   ======================= */
+/* ========= Estado ========= */
 const MT = {
   catalog: MT_CATALOG,
   draft: { case:{}, blocks:[], version:1 },
   selectedIdx: -1,
   qs: (q,el=document)=>el.querySelector(q),
-  qsa: (q,el=document)=>Array.from(el.querySelectorAll(q)),
+  qsa:(q,el=document)=>Array.from(el.querySelectorAll(q)),
   storageKey: 'mt:draft:v1'
 };
 
-/* ========== UI: Catálogo ========== */
-function renderCatalog(filtersText=''){
+/* ========= Catálogo ========= */
+function renderCatalog(filter=''){
   const list = MT.qs('#catList'); list.innerHTML='';
-  const cats = new Set(MT.catalog.categories);
-  const filter = filtersText.toLowerCase().trim();
-  MT.qs('#catFilters').innerHTML='';
-  // filtros de categoria
+  const f = (filter||'').toLowerCase().trim();
+
+  // chips de categoria
+  const chips = MT.qs('#catFilters'); chips.innerHTML='';
   MT.catalog.categories.forEach(cat=>{
     const b = document.createElement('button');
-    b.className='mt-chip'; b.textContent=cat;
-    b.onclick=()=>renderCatalog(cat);
-    MT.qs('#catFilters').appendChild(b);
+    b.className='mt-btn'; b.textContent=cat;
+    b.onclick=()=> renderCatalog(cat);
+    chips.appendChild(b);
   });
-  // itens
+
   MT.catalog.blocks
-    .filter(b=>!filtersText || b.categoria===filtersText || b.titulo.toLowerCase().includes(filter))
+    .filter(b=> !filter || b.categoria===filter || b.titulo.toLowerCase().includes(f))
     .forEach(b=>{
       const it = document.createElement('div'); it.className='mt-item';
       it.innerHTML = `
-        <div class="mt-title">${b.titulo}</div>
-        <div class="mt-sub">${b.categoria} · ${b.resumo||''}</div>
+        <h3 class="mt-title">${b.titulo}</h3>
+        <p class="mt-sub">${b.categoria} · ${b.resumo||''}</p>
         <div class="mt-tools">
-          <button class="mt-btn" data-add="${b.id}">Adicionar</button>
+          <button class="mt-btn primary" data-add="${b.id}">Adicionar</button>
           <span class="mt-badge">variações: ${b.variacoes?.length||0}</span>
         </div>`;
       list.appendChild(it);
     });
+
   list.onclick = (e)=>{
     const id = e.target?.dataset?.add; if(!id) return;
     const block = MT.catalog.blocks.find(x=>x.id===id);
@@ -284,25 +394,28 @@ function renderCatalog(filtersText=''){
       id:block.id, categoria:block.categoria, titulo:block.titulo,
       variacao:block.variacoes?.[0]||'mínimo',
       funcoes:(block.funcoes||[]).slice(),
-      campos: (block.campos||[]).map(c=>({name:c.name,label:c.label,type:c.type,value:''})),
+      campos:(block.campos||[]).map(c=>({name:c.name,label:c.label,type:c.type,value:''})),
       meta:{objetivo:block.objetivo||'', parametros:block.parametros||'', teses:block.teses||''}
     };
     MT.draft.blocks.push(clone);
     saveDraft(); renderCanvas(); selectBlock(MT.draft.blocks.length-1);
   };
+
+  MT.qs('#catSearch').oninput = (e)=> renderCatalog(e.target.value);
 }
 
-/* ========== UI: Canvas ========== */
+/* ========= Canvas ========= */
 function renderCanvas(){
   const list = MT.qs('#canvasList'); list.innerHTML='';
   const empty = MT.qs('#canvasEmpty');
   MT.qs('#countBadge').textContent = `${MT.draft.blocks.length} blocos`;
   empty.style.display = MT.draft.blocks.length? 'none':'block';
+
   MT.draft.blocks.forEach((b,idx)=>{
     const el = document.createElement('div'); el.className='mt-item';
-    el.style.borderColor = (idx===MT.selectedIdx)? '#3b82f6': 'var(--mt-line)';
+    el.style.outline = (idx===MT.selectedIdx)? '2px solid rgba(37,99,235,.35)':'none';
     el.innerHTML = `
-      <div class="mt-row" style="justify-content:space-between">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px">
         <div>
           <div class="mt-title">${b.titulo}</div>
           <div class="mt-sub">${b.categoria} · variação: <b>${b.variacao}</b></div>
@@ -321,65 +434,60 @@ function renderCanvas(){
       if(act==='sel'){ selectBlock(idx); }
       if(act==='up' && idx>0){ [MT.draft.blocks[idx-1], MT.draft.blocks[idx]]=[MT.draft.blocks[idx], MT.draft.blocks[idx-1]]; saveDraft(); renderCanvas(); selectBlock(idx-1); }
       if(act==='down' && idx<MT.draft.blocks.length-1){ [MT.draft.blocks[idx+1], MT.draft.blocks[idx]]=[MT.draft.blocks[idx], MT.draft.blocks[idx+1]]; saveDraft(); renderCanvas(); selectBlock(idx+1); }
-      if(act==='dup'){ const copy = JSON.parse(JSON.stringify(MT.draft.blocks[idx])); copy.cid=crypto.randomUUID(); MT.draft.blocks.splice(idx+1,0,copy); saveDraft(); renderCanvas(); selectBlock(idx+1); }
+      if(act==='dup'){ const copy=JSON.parse(JSON.stringify(MT.draft.blocks[idx])); copy.cid=crypto.randomUUID(); MT.draft.blocks.splice(idx+1,0,copy); saveDraft(); renderCanvas(); selectBlock(idx+1); }
       if(act==='del'){ MT.draft.blocks.splice(idx,1); MT.selectedIdx=-1; saveDraft(); renderCanvas(); renderBlockPanel(); }
     };
     list.appendChild(el);
   });
 }
 
-/* ========== Propriedades do Caso ========== */
+/* ========= Aba: Caso ========= */
 function bindCase(){
-  const g = {
-    rito: '#caseRito', comp:'#caseComp', cat:'#caseCat', sind:'#caseSind',
-    vinc:'#caseVinc', adm:'#caseAdm', sai:'#caseSai', func:'#caseFunc', sal:'#caseSal',
-    obs:'#caseObs', lgpd:'#caseLgpd'
-  };
-  const set = (k,sel)=>{ MT.qs(sel).value = MT.draft.case[k]||''; };
-  set('rito',g.rito); set('comp',g.comp); set('cat',g.cat); set('sind',g.sind);
-  set('vinc',g.vinc); set('adm',g.adm); set('sai',g.sai); set('func',g.func); set('sal',g.sal);
-  set('obs',g.obs); MT.qs(g.lgpd).value = String(MT.draft.case.lgpd ?? 'true');
-  // listeners
-  const upd=(k,sel)=> MT.qs(sel).addEventListener('input',()=>{ MT.draft.case[k]=MT.qs(sel).value; saveDraft(); });
-  upd('rito',g.rito); upd('comp',g.comp); upd('cat',g.cat); upd('sind',g.sind);
-  upd('vinc',g.vinc); upd('adm',g.adm); upd('sai',g.sai); upd('func',g.func); upd('sal',g.sal);
-  upd('obs',g.obs);
-  MT.qs(g.lgpd).addEventListener('change',()=>{ MT.draft.case.lgpd = MT.qs(g.lgpd).value; saveDraft(); });
+  const g = { rito:'#caseRito', comp:'#caseComp', cat:'#caseCat', sind:'#caseSind',
+    vinc:'#caseVinc', adm:'#caseAdm', sai:'#caseSai', func:'#caseFunc', sal:'#caseSal', obs:'#caseObs', lgpd:'#caseLgpd' };
+  const set=(k,sel)=> MT.qs(sel).value = MT.draft.case[k] ?? '';
+  Object.entries(g).forEach(([k,sel])=> set(k,sel));
+  MT.qs(g.lgpd).value = String(MT.draft.case.lgpd ?? 'true');
+
+  const upd=(k,sel,ev='input')=> MT.qs(sel).addEventListener(ev,()=>{ MT.draft.case[k]=MT.qs(sel).value; saveDraft(); });
+  Object.entries(g).forEach(([k,sel])=> upd(k,sel, k==='lgpd'?'change':'input'));
 }
 
-/* ========== Painel do Bloco ========== */
-function selectBlock(idx){ MT.selectedIdx = idx; renderCanvas(); renderBlockPanel(); MT.qs('[data-tab="block"]').click(); }
+/* ========= Aba: Bloco ========= */
+function selectBlock(idx){ MT.selectedIdx=idx; renderCanvas(); renderBlockPanel(); MT.qs('[data-tab="block"]').click(); }
+
 function renderBlockPanel(){
-  const empty = MT.qs('#blockPanelEmpty'); const panel = MT.qs('#blockPanel');
+  const empty = MT.qs('#blockPanelEmpty'), panel = MT.qs('#blockPanel');
   if(MT.selectedIdx<0){ empty.style.display='block'; panel.style.display='none'; return; }
   const b = MT.draft.blocks[MT.selectedIdx];
   empty.style.display='none'; panel.style.display='block';
+
   MT.qs('#blkTitulo').value = b.titulo;
-  MT.qs('#blkCat').value = b.categoria;
-  // variacoes
+  MT.qs('#blkCat').value   = b.categoria;
+
   const vSel = MT.qs('#blkVar'); vSel.innerHTML='';
   const orig = MT.catalog.blocks.find(x=>x.id===b.id);
   (orig.variacoes||['mínimo']).forEach(v=>{
-    const o = document.createElement('option'); o.textContent=v; o.value=v; if(v===b.variacao) o.selected=true; vSel.appendChild(o);
+    const o=document.createElement('option'); o.value=v; o.textContent=v; if(v===b.variacao) o.selected=true; vSel.appendChild(o);
   });
   vSel.onchange=()=>{ b.variacao=vSel.value; saveDraft(); renderCanvas(); };
-  // funcoes
+
   const fWrap = MT.qs('#blkFuncs'); fWrap.innerHTML='';
   (orig.funcoes||[]).forEach(f=>{
     const [key,val] = f.split('=');
-    const on = (b.funcoes.find(x=>x.startsWith(key+'='))||f).split('=')[1];
-    const chip = document.createElement('button');
-    chip.className='mt-chip'; chip.textContent = `${key}=${on}`;
-    chip.onclick=()=>{
-      const cur = (b.funcoes.findIndex(x=>x.startsWith(key+'=')));
-      const next = (on==='true')?'false':'true';
+    const current = (b.funcoes.find(x=>x.startsWith(key+'='))||f).split('=')[1];
+    const btn = document.createElement('button');
+    btn.className='mt-btn'; btn.textContent = `${key}=${current}`;
+    btn.onclick=()=>{
+      const i = b.funcoes.findIndex(x=>x.startsWith(key+'='));
+      const next = (current==='true')?'false':'true';
       const pair = `${key}=${next}`;
-      if(cur>=0) b.funcoes[cur]=pair; else b.funcoes.push(pair);
+      if(i>=0) b.funcoes[i]=pair; else b.funcoes.push(pair);
       saveDraft(); renderBlockPanel();
     };
-    fWrap.appendChild(chip);
+    fWrap.appendChild(btn);
   });
-  // campos
+
   const fld = MT.qs('#blkFields'); fld.innerHTML='';
   (b.campos||[]).forEach((c,i)=>{
     const row = document.createElement('div'); row.className='mt-kv';
@@ -390,16 +498,15 @@ function renderBlockPanel(){
     fld.appendChild(row);
   });
   fld.oninput = (e)=>{
-    const el = e.target; const i = +el.dataset.idx;
+    const el=e.target, i=+el.dataset.idx;
     if(Number.isFinite(i)){ b.campos[i].value = el.value; saveDraft(); }
   };
   MT.qs('#blkTitulo').oninput = ()=>{ b.titulo = MT.qs('#blkTitulo').value; saveDraft(); renderCanvas(); };
 }
 
-/* ========== Preview e Export ========== */
+/* ========= Preview ========= */
 function headerPrompt(){
-  const C = MT.draft.case;
-  const val = (v)=> (v && String(v).trim()) ? String(v).trim() : '[DADO A SER CONFIRMADO]';
+  const C = MT.draft.case, val = (v)=> (v && String(v).trim()) ? String(v).trim() : '[DADO A SER CONFIRMADO]';
   return [
 `Você é ADVOGADO ESPECIALISTA EM DIREITO DO TRABALHO no Brasil.
 Objetivo: redigir peça processual inicial trabalhista completa, observando técnica, lei e jurisprudência.
@@ -414,19 +521,18 @@ Dados do Caso (globais):
 - Categoria/CBO: ${val(C.cat)} | Sindicato/Data-base: ${val(C.sind)}
 - Contrato: ${val(C.vinc)} | Admissão: ${val(C.adm)} | Saída: ${val(C.sai)}
 - Função: ${val(C.func)} | Salário: ${val(C.sal)}
-- Observações gerais: ${val(C.obs)}
-`].join('\n');
+- Observações gerais: ${val(C.obs)}`
+].join('\n');
 }
+
 function blockToPrompt(b){
   const orig = MT.catalog.blocks.find(x=>x.id===b.id) || {};
   const map = Object.fromEntries((b.campos||[]).map(c=>[c.name, c.value||'']));
-  const repl = (tpl)=> tpl
-    ? tpl.replace(/\{\{(\w+)\}\}/g,(_,k)=> (map[k] && String(map[k]).trim()) ? String(map[k]).trim() : '[DADO A SER CONFIRMADO]')
-    : '';
+  const repl = (tpl)=> tpl ? tpl.replace(/\{\{(\w+)\}\}/g,(_,k)=> (map[k] && String(map[k]).trim()) ? String(map[k]).trim() : '[DADO A SER CONFIRMADO]') : '';
 
   const fun = Object.fromEntries((b.funcoes||[]).map(s=>{ const [k,v]=s.split('='); return [k,v]; }));
   const juris = String(fun['juris']||'false')==='true';
-  const tribunais = 'TST,TRT-XX'; // simples (MVP); pode virar campo global
+  const tribunais = 'TST,TRT-XX';
   const janela = '10';
 
   return [
@@ -455,57 +561,54 @@ Saída Esperada (do bloco):
 - Título sintético
 - 1–3 parágrafos coesos
 - (se aplicável) “Pedidos correlatos” em bullets
-${juris?'- Precedentes (links oficiais) ao final do bloco':''}
-`
+${juris?'- Precedentes (links oficiais) ao final do bloco':''}`
 ].join('\n');
 }
+
 function buildPrompt(){
-  const parts = [headerPrompt(), ...MT.draft.blocks.map(blockToPrompt)];
-  return parts.join('\n\n');
+  return [headerPrompt(), ...MT.draft.blocks.map(blockToPrompt)].join('\n\n');
 }
+
 function renderPreview(){
   MT.qs('#previewOut').textContent = buildPrompt();
 }
 
-/* ========== Export/Import/Storage ========== */
+/* ========= Persistência & IO ========= */
 function saveDraft(){ localStorage.setItem(MT.storageKey, JSON.stringify(MT.draft)); }
-function loadDraft(){
-  try{
-    const raw = localStorage.getItem(MT.storageKey);
-    if(raw){ MT.draft = JSON.parse(raw); }
-  }catch{}
-}
+function loadDraft(){ try{ const raw=localStorage.getItem(MT.storageKey); if(raw) MT.draft=JSON.parse(raw); }catch{} }
+
 function download(filename, text){
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([text], {type:'text/plain'}));
+  const a=document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text],{type:'text/plain'}));
   a.download = filename; a.click(); URL.revokeObjectURL(a.href);
 }
-function exportTxt(){ download('prompt-trabalhista.txt', buildPrompt()); }
-function exportJson(){ download('montador-projeto.json', JSON.stringify(MT.draft,null,2)); }
+const exportTxt = ()=> download('prompt-trabalhista.txt', buildPrompt());
+const exportJson= ()=> download('montador-projeto.json', JSON.stringify(MT.draft,null,2));
+
 function importJson(file){
-  const reader = new FileReader();
-  reader.onload = ()=>{ try{
-    const obj = JSON.parse(reader.result);
+  const reader=new FileReader();
+  reader.onload=()=>{ try{
+    const obj=JSON.parse(reader.result);
     if(!obj || !Array.isArray(obj.blocks)) throw new Error('Estrutura inválida.');
-    MT.draft = obj; MT.selectedIdx=-1; saveDraft(); renderCanvas(); renderBlockPanel(); alert('Projeto importado.');
+    MT.draft=obj; MT.selectedIdx=-1; saveDraft(); renderCanvas(); renderBlockPanel(); alert('Projeto importado.');
   }catch(e){ alert('Falha ao importar: '+e.message); } };
   reader.readAsText(file);
 }
 
-/* ========== Tabs e Botões ========== */
+/* ========= Abas ========= */
 function bindTabs(){
   const tabs = MT.qsa('.mt-tab');
   tabs.forEach(t=> t.onclick = ()=>{
     tabs.forEach(x=>x.classList.remove('active')); t.classList.add('active');
-    const id = t.dataset.tab;
-    MT.qs('#tab-case').style.display = id==='case'?'block':'none';
-    MT.qs('#tab-block').style.display = id==='block'?'block':'none';
-    MT.qs('#tab-preview').style.display = id==='preview'?'block':'none';
+    const id=t.dataset.tab;
+    MT.qs('#tab-case').style.display   = id==='case'   ? 'block':'none';
+    MT.qs('#tab-block').style.display  = id==='block'  ? 'block':'none';
+    MT.qs('#tab-preview').style.display= id==='preview'? 'block':'none';
     if(id==='preview') renderPreview();
   });
 }
 
-/* ========== Bootstrap ========== */
+/* ========= Bootstrap ========= */
 function init(){
   loadDraft();
   renderCatalog();
@@ -513,14 +616,13 @@ function init(){
   bindCase();
   bindTabs();
 
-  MT.qs('#catSearch').addEventListener('input', e=> renderCatalog(e.target.value));
-  MT.qs('#btnClear').onclick = ()=>{ if(confirm('Limpar todos os blocos?')){ MT.draft.blocks=[]; MT.selectedIdx=-1; saveDraft(); renderCanvas(); renderBlockPanel(); } };
+  MT.qs('#btnClear').onclick = ()=>{ if(confirm('Remover todos os blocos?')){ MT.draft.blocks=[]; MT.selectedIdx=-1; saveDraft(); renderCanvas(); renderBlockPanel(); } };
   MT.qs('#btnExportTxt').onclick = exportTxt;
-  MT.qs('#btnExportJson').onclick = exportJson;
+  MT.qs('#btnExportJson').onclick= exportJson;
   MT.qs('#btnImport').onclick = ()=> MT.qs('#fileImport').click();
   MT.qs('#fileImport').onchange = (e)=>{ const f=e.target.files?.[0]; if(f) importJson(f); e.target.value=''; };
   MT.qs('#btnPreview').onclick = renderPreview;
-  MT.qs('#btnCopy').onclick = ()=>{ navigator.clipboard.writeText(buildPrompt()).then(()=>{ alert('Prompt copiado.'); }); };
+  MT.qs('#btnCopy').onclick = ()=> navigator.clipboard.writeText(buildPrompt()).then(()=> alert('Prompt copiado.'));
 }
 init();
 </script>
