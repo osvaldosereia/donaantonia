@@ -1,6 +1,76 @@
 
 
-
+# Atentado contra a segurança de transporte marítimo, fluvial ou aéreo
+- Código Penal
+# Dispositivos Legais
+- Art. 261. Expor a perigo embarcação ou aeronave, própria ou alheia, ou praticar qualquer ato tendente a impedir ou dificultar navegação marítima, fluvial ou aérea:
+- Pena – reclusão, de 2 (dois) a 5 (cinco) anos.
+- Sinistro em transporte marítimo, fluvial ou aéreo
+- § 1.º Se do fato resulta naufrágio, submersão ou encalhe de embarcação ou a queda ou destruição de aeronave:
+- Pena – reclusão, de 4 (quatro) a 12 (doze) anos.
+- Prática do crime com o fim de lucro
+- § 2.º Aplica-se, também, a pena de multa, se o agente pratica o crime com intuito de obter vantagem econômica, para si ou para outrem.
+- Modalidade culposa
+- § 3.º No caso de culpa, se ocorre o sinistro:
+- Pena – detenção, de 6 (seis) meses a 2 (dois) anos.
+# Remissões Normativas
+- Vide art. 263 do CP.
+-- estabelece a forma qualificada pela ocorrência de lesão corporal grave ou morte nos crimes de perigo em transporte.
+-----
+# Atentado contra a segurança de outro meio de transporte
+- Código Penal
+# Dispositivos Legais
+- Art. 262. Expor a perigo outro meio de transporte público, impedir-lhe ou dificultar-lhe o funcionamento:
+- Pena – detenção, de 1 (um) a 2 (dois) anos.
+- § 1.º Se do fato resulta desastre, a pena é de reclusão, de 2 (dois) a 5 (cinco) anos.
+- § 2.º No caso de culpa, se ocorre desastre:
+- Pena – detenção, de 3 (três) meses a 1 (um) ano.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- o art. 61 considera infrações penais de menor potencial ofensivo os crimes a que a lei comine pena máxima não superior a 2 (dois) anos, e o art. 89 trata da suspensão condicional do processo.
+- Vide art. 263 do CP.
+-- estabelece a forma qualificada pela ocorrência de lesão corporal grave ou morte nos crimes de perigo em transporte.
+-----
+# Forma qualificada
+- Código Penal
+# Dispositivos Legais
+- Art. 263. Se de qualquer dos crimes previstos nos arts. 260 a 262, no caso de desastre ou sinistro, resulta lesão corporal ou morte, aplica-se o disposto no art. 258.
+-----
+# Arremesso de projétil
+- Código Penal
+# Dispositivos Legais
+- Art. 264. Arremessar projétil contra veículo, em movimento, destinado ao transporte público por terra, por água ou pelo ar:
+- Pena – detenção, de 1 (um) a 6 (seis) meses.
+- Parágrafo único. Se do fato resulta lesão corporal, a pena é de detenção, de 6 (seis) meses a 2 (dois) anos; se resulta morte, a pena é a do art. 121, § 3.º, aumentada de um terço.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- o art. 61 considera infrações penais de menor potencial ofensivo os crimes a que a lei comine pena máxima não superior a 2 (dois) anos, e o art. 89 trata da suspensão condicional do processo.
+-----
+# Atentado contra a segurança de serviço de utilidade pública
+- Código Penal
+# Dispositivos Legais
+- Art. 265. Atentar contra a segurança ou o funcionamento de serviço de água, luz, força ou calor, ou qualquer outro de utilidade pública:
+- Pena – reclusão, de 1 (um) a 5 (cinco) anos, e multa.
+- Parágrafo único. Aumentar-se-á a pena de um terço até a metade, se o dano ocorrer em virtude de subtração de material essencial ao funcionamento dos serviços.
+-- Parágrafo único acrescentado pela Lei n. 5.346, de 3-11-1967.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- estabelece a possibilidade de suspensão condicional do processo para crimes cuja pena mínima seja igual ou inferior a um ano.
+-----
+# Interrupção ou perturbação de serviço telegráfico, telefônico, informático, telemático ou de informação de utilidade pública
+- Código Penal
+# Dispositivos Legais
+- - Rubrica com redação determinada pela Lei n. 12.737, de 30-11-2012.
+- Art. 266. Interromper ou perturbar serviço telegráfico, radiotelegráfico ou telefônico, impedir ou dificultar-lhe o restabelecimento:
+- Pena – detenção, de 1 (um) a 3 (três) anos, e multa.
+- § 1.º Incorre na mesma pena quem interrompe serviço telemático ou de informação de utilidade pública, ou impede ou dificulta-lhe o restabelecimento.
+-- § 1.º acrescentado pela Lei n. 12.737, de 30-11-2012.
+- § 2.º Aplicam-se as penas em dobro se o crime é cometido por ocasião de calamidade pública.
+- - Primitivo parágrafo único renumerado pela Lei n. 12.737, de 30-11-2012.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- estabelece a possibilidade de suspensão condicional do processo para crimes cuja pena mínima seja igual ou inferior a um ano.
+-----
 # Epidemia
 - Código Penal
 # Dispositivos Legais
