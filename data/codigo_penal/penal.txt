@@ -6,8 +6,132 @@
 
 
 
-
-
+# Peculato
+- Código Penal
+# Dispositivos Legais
+- Art. 312. Apropriar-se o funcionário público de dinheiro, valor ou qualquer outro bem móvel, público ou particular, de que tem a posse em razão do cargo, ou desviá-lo, em proveito próprio ou alheio:
+- Pena – reclusão, de 2 (dois) a 12 (doze) anos, e multa.
+- § 1.º Aplica-se a mesma pena, se o funcionário público, embora não tendo a posse do dinheiro, valor ou bem, o subtrai, ou concorre para que seja subtraído, em proveito próprio ou alheio, valendo-se de facilidade que lhe proporciona a qualidade de funcionário.
+- Peculato culposo
+- § 2.º Se o funcionário concorre culposamente para o crime de outrem:
+- Pena – detenção, de 3 (três) meses a 1 (um) ano.
+- § 3.º No caso do parágrafo anterior, a reparação do dano, se precede à sentença irrecorrível, extingue a punibilidade; se lhe é posterior, reduz de metade a pena imposta.
+# Remissões Normativas
+- Vide Súmula 599 do STJ.
+-- estabelece que o princípio da insignificância é inaplicável aos crimes contra a Administração Pública.
+- Vide art. 312 do CTB.
+-- tipifica o crime de trânsito de inovar artificiosamente, em caso de acidente automobilístico com vítima, o estado de lugar, de coisa ou de pessoa, para induzir a erro o agente policial, o perito ou o juiz.
+- Vide art. 5.º da Lei n. 7.492, de 16-6-1986.
+-- define como crime contra o sistema financeiro nacional a apropriação ou desvio de dinheiro ou bem de instituição financeira por parte de seus controladores ou administradores.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- estabelece a possibilidade de suspensão condicional do processo para crimes cuja pena mínima seja igual ou inferior a um ano.
+-----
+# Peculato mediante erro de outrem
+- Código Penal
+# Dispositivos Legais
+- Art. 313. Apropriar-se de dinheiro ou qualquer utilidade que, no exercício do cargo, recebeu por erro de outrem:
+- Pena – reclusão, de 1 (um) a 4 (quatro) anos, e multa.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- estabelece a possibilidade de suspensão condicional do processo para crimes cuja pena mínima seja igual ou inferior a um ano.
+-----
+# Inserção de dados falsos em sistema de informações
+- Código Penal
+# Dispositivos Legais
+- Art. 313-A. Inserir ou facilitar, o funcionário autorizado, a inserção de dados falsos, alterar ou excluir indevidamente dados corretos nos sistemas informatizados ou bancos de dados da Administração Pública com o fim de obter vantagem indevida para si ou para outrem ou para causar dano:
+- Pena – reclusão, de 2 (dois) a 12 (doze) anos, e multa.
+-- Artigo acrescentado pela Lei n. 9.983, de 14-7-2000.
+-----
+# Modificação ou alteração não autorizada de sistema de informações
+- Código Penal
+# Dispositivos Legais
+- Art. 313-B. Modificar ou alterar, o funcionário, sistema de informações ou programa de informática sem autorização ou solicitação de autoridade competente:
+- Pena – detenção, de 3 (três) meses a 2 (dois) anos, e multa.
+-- Caput acrescentado pela Lei n. 9.983, de 14-7-2000.
+- Parágrafo único. As penas são aumentadas de um terço até a metade se da modificação ou alteração resulta dano para a Administração Pública ou para o administrado.
+-- Parágrafo único acrescentado pela Lei n. 9.983, de 14-7-2000.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- o art. 61 considera infrações penais de menor potencial ofensivo os crimes a que a lei comine pena máxima não superior a 2 (dois) anos, e o art. 89 trata da suspensão condicional do processo.
+-----
+# Extravio, sonegação ou inutilização de livro ou documento
+- Código Penal
+# Dispositivos Legais
+- Art. 314. Extraviar livro oficial ou qualquer documento, de que tem a guarda em razão do cargo; sonegá-lo ou inutilizá-lo, total ou parcialmente:
+- Pena – reclusão, de 1 (um) a 4 (quatro) anos, se o fato não constitui crime mais grave.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- estabelece a aplicabilidade dos institutos da transação penal e da suspensão condicional do processo aos crimes de menor potencial ofensivo.
+- Vide art. 3.º, I, da Lei n. 8.137, de 27-12-1990.
+-- define como crime contra a ordem tributária a prática de extraviar, sonegar, ou inutilizar livro oficial, documento fiscal ou qualquer outro documento relativo a tributos.
+-----
+# Emprego irregular de verbas ou rendas públicas
+- Código Penal
+# Dispositivos Legais
+- Art. 315. Dar às verbas ou rendas públicas aplicação diversa da estabelecida em lei:
+- Pena – detenção, de 1 (um) a 3 (três) meses, ou multa.
+# Remissões Normativas
+- O art. 52 da Lei n. 8.080, de 19-9-1990, estabelece que, sem prejuízo de outras sanções cabíveis, constitui crime previsto neste artigo a utilização de recursos financeiros do Sistema Único de Saúde – SUS em finalidades diversas previstas nesta Lei.
+-- dispõe sobre as condições para a promoção, proteção e recuperação da saúde, a organização e o funcionamento dos serviços correspondentes e dá outras providências.
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- o art. 61 considera infrações penais de menor potencial ofensivo os crimes a que a lei comine pena máxima não superior a 2 (dois) anos, e o art. 89 trata da suspensão condicional do processo.
+- Vide art. 23 da Lei n. 7.492, de 16-6-1986.
+-- trata de crimes contra o sistema financeiro nacional, não sendo aplicável ao caso por decisão do STF no Inquérito 1.055, que firmou a competência da Justiça Comum para julgar o crime do art. 315 do CP.
+-----
+# Concussão
+- Código Penal
+# Dispositivos Legais
+- Art. 316. Exigir, para si ou para outrem, direta ou indiretamente, ainda que fora da função ou antes de assumi-la, mas em razão dela, vantagem indevida:
+- Pena – reclusão, de 2 (dois) a 12 (doze) anos, e multa.
+-- Pena com redação determinada pela Lei n. 13.964, de 24-12-2019.
+- § 1.º Se o funcionário exige tributo ou contribuição social que sabe ou deveria saber indevido, ou, quando devido, emprega na cobrança meio vexatório ou gravoso, que a lei não autoriza:
+- Pena – reclusão, de 3 (três) a 8 (oito) anos, e multa.
+-- § 1.º com redação determinada pela Lei n. 8.137, de 27-12-1990.
+- § 2.º Se o funcionário desvia, em proveito próprio ou de outrem, o que recebeu indevidamente para recolher aos cofres públicos:
+- Pena – reclusão, de 2 (dois) a 12 (doze) anos, e multa.
+# Remissões Normativas
+- Vide art. 1.º da Lei n. 9.613, de 3-3-1998.
+-- define os crimes de "lavagem" ou ocultação de bens, direitos e valores.
+- Sobre os crimes de abuso de autoridade: vide Lei n. 13.869, de 5-9-2019.
+-- dispõe sobre os crimes de abuso de autoridade.
+- Vide art. 3.º, II, da Lei n. 8.137, de 27-12-1990.
+-- define como crime contra a ordem tributária exigir, solicitar ou receber, para si ou para outrem, vantagem indevida em razão da função, para deixar de lançar ou cobrar tributo.
+-----
+# Corrupção passiva
+- Código Penal
+# Dispositivos Legais
+- Art. 317. Solicitar ou receber, para si ou para outrem, direta ou indiretamente, ainda que fora da função ou antes de assumi-la, mas em razão dela, vantagem indevida, ou aceitar promessa de tal vantagem:
+- Pena – reclusão, de 2 (dois) a 12 (doze) anos, e multa.
+-- Pena alterada pela Lei n. 10.763, de 12-11-2003.
+- § 1.º A pena é aumentada de um terço, se, em consequência da vantagem ou promessa, o funcionário retarda ou deixa de praticar qualquer ato de ofício ou o pratica infringindo dever funcional.
+- § 2.º Se o funcionário pratica, deixa de praticar ou retarda ato de ofício, com infração de dever funcional, cedendo a pedido ou influência de outrem:
+- Pena – detenção, de 3 (três) meses a 1 (um) ano, ou multa.
+# Remissões Normativas
+- Vide art. 3.º, II, da Lei n. 8.137, de 27-12-1990.
+-- define como crime contra a ordem tributária exigir, solicitar ou receber, para si ou para outrem, vantagem indevida em razão da função, para deixar de lançar ou cobrar tributo.
+- O Decreto n. 4.410, de 7-10-2002, promulga a Convenção Interamericana contra a corrupção.
+-- internaliza no ordenamento jurídico brasileiro a convenção da OEA que promove e fortalece a cooperação entre os Estados para prevenir, detectar e punir a corrupção.
+- O Decreto n. 5.687, de 31-1-2006, promulga a Convenção das Nações Unidas contra a corrupção.
+-- internaliza no ordenamento jurídico brasileiro o tratado da ONU que prevê medidas para prevenir e combater a corrupção de forma mais eficiente.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- estabelece a possibilidade de suspensão condicional do processo para crimes cuja pena mínima seja igual ou inferior a um ano.
+-----
+# Facilitação de contrabando ou descaminho
+- Código Penal
+# Dispositivos Legais
+- Art. 318. Facilitar, com infração de dever funcional, a prática de contrabando ou descaminho (art. 334):
+- Pena – reclusão, de 3 (três) a 8 (oito) anos, e multa.
+-- Pena alterada pela Lei n. 8.137, de 27-12-1990.
+# Remissões Normativas
+- Vide art. 144, § 1.º, II, da CF.
+-- estabelece a competência da Polícia Federal para prevenir e reprimir o contrabando e o descaminho.
+- Vide arts. 334 e 334-A do CP.
+-- tipificam os crimes de descaminho (iludir o pagamento de tributo na entrada ou saída de mercadoria) e contrabando (importar ou exportar mercadoria proibida).
+- Vide Súmula 560 do STF e Súmula 151 do STJ.
+-- a Súmula 560 do STF define que a extinção de punibilidade pelo pagamento do tributo não se aplica ao crime de contrabando ou descaminho, e a Súmula 151 do STJ estabelece a competência da Justiça Federal para processar e julgar tais crimes.
+- Vide Lei n. 4.729, de 14-7-1965.
+-- define o crime de sonegação fiscal.
+-----
 # Prevaricação
 - Código Penal
 # Dispositivos Legais
