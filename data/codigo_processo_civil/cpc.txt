@@ -671,7 +671,7 @@
 # Dispositivos Legais
 - Art. 499. A obrigação somente será convertida em perdas e danos se o autor o requerer ou se impossível a tutela específica ou a obtenção de tutela pelo resultado prático equivalente.
 - Parágrafo único. Nas hipóteses de responsabilidade contratual previstas nos arts. 441, 618 e 757 da Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil), e de responsabilidade subsidiária e solidária, se requerida a conversão da obrigação em perdas e danos, o juiz concederá, primeiramente, a faculdade para o cumprimento da tutela específica.
-- Parágrafo único acrescentado pela Lei n. 14.833, de 27-3-2024.
+-- Parágrafo único acrescentado pela Lei n. 14.833, de 27-3-2024.
 # Remissões Normativas
 - Vide arts. 441, 618 e 757 do CC.
 -- tratam, respectivamente, da responsabilidade por vícios redibitórios, da responsabilidade do empreiteiro pela solidez e segurança da obra, e da obrigação do segurador no contrato de seguro.
@@ -2575,7 +2575,7 @@
 - Art. 698. Nas ações de família, o Ministério Público somente intervirá quando houver interesse de incapaz e deverá ser ouvido previamente à homologação de acordo.
 - Parágrafo único. O Ministério Público intervirá, quando não for parte, nas ações de família em que figure como parte vítima de violência doméstica e familiar, nos termos da Lei n. 11.340, de 7 de agosto de 2006 (Lei Maria da Penha).
 # Remissões Normativas
-- Parágrafo único acrescentado pela Lei n. 13.894, de 29-10-2019.
+-- Parágrafo único acrescentado pela Lei n. 13.894, de 29-10-2019.
 -- Altera o CPC para estabelecer a intervenção obrigatória do Ministério Público nas ações de família em que figure como parte vítima de violência doméstica e familiar.
 -----
 # Ações de Família - Abuso e Alienação Parental
@@ -2591,7 +2591,7 @@
 # Dispositivos Legais
 - Art. 699-A. Nas ações de guarda, antes de iniciada a audiência de mediação e conciliação de que trata o art. 695 deste Código, o juiz indagará às partes e ao Ministério Público se há risco de violência doméstica ou familiar, fixando o prazo de 5 (cinco) dias para a apresentação de prova ou de indícios pertinentes.
 # Remissões Normativas
-- Artigo acrescentado pela Lei n. 14.713, de 30-10-2023.
+-- Artigo acrescentado pela Lei n. 14.713, de 30-10-2023.
 -- Introduz no Código de Processo Civil a obrigatoriedade de o juiz averiguar a existência de risco de violência doméstica ou familiar no início das ações de guarda.
 -----
 # Ação Monitória - Propositura
@@ -6022,29 +6022,29 @@
 - Art. 1.030. Recebida a petição do recurso pela secretaria do tribunal, o recorrido será intimado para apresentar contrarrazões no prazo de 15 (quinze) dias, findo o qual os autos serão conclusos ao presidente ou ao vice-presidente do tribunal recorrido, que deverá:
 - Caput com redação determinada pela Lei n. 13.256, de 4-2-2016.
 - I – negar seguimento:
-- Inciso I, caput, acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- Inciso I, caput, acrescentado pela Lei n. 13.256, de 4-2-2016.
 - a) a recurso extraordinário que discuta questão constitucional à qual o Supremo Tribunal Federal não tenha reconhecido a existência de repercussão geral ou a recurso extraordinário interposto contra acórdão que esteja em conformidade com entendimento do Supremo Tribunal Federal exarado no regime de repercussão geral;
-- Alínea a acrescentada pela Lei n. 13.256, de 4-2-2016.
-- b) a recurso extraordinário ou a recurso especial interposto contra acórdão que esteja em conformidade com entendimento do Supremo Tribunal Federal ou do Superior Tribunal de Justiça, respectivamente, exarado no regime de julgamento de recursos repetitivos;
-- Alínea b acrescentada pela Lei n. 13.256, de 4-2-2016.
+-- Alínea a acrescentada pela Lei n. 13.256, de 4-2-2016.
+-- b) a recurso extraordinário ou a recurso especial interposto contra acórdão que esteja em conformidade com entendimento do Supremo Tribunal Federal ou do Superior Tribunal de Justiça, respectivamente, exarado no regime de julgamento de recursos repetitivos;
+-- Alínea b acrescentada pela Lei n. 13.256, de 4-2-2016.
 - II – encaminhar o processo ao órgão julgador para realização do juízo de retratação, se o acórdão recorrido divergir do entendimento do Supremo Tribunal Federal ou do Superior Tribunal de Justiça exarado, conforme o caso, nos regimes de repercussão geral ou de recursos repetitivos;
-- Inciso II acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- Inciso II acrescentado pela Lei n. 13.256, de 4-2-2016.
 - III – sobrestar o recurso que versar sobre controvérsia de caráter repetitivo ainda não decidida pelo Supremo Tribunal Federal ou pelo Superior Tribunal de Justiça, conforme se trate de matéria constitucional ou infraconstitucional;
-- Inciso III acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- Inciso III acrescentado pela Lei n. 13.256, de 4-2-2016.
 - IV – selecionar o recurso como representativo de controvérsia constitucional ou infraconstitucional, nos termos do § 6.º do art. 1.036;
-- Inciso IV acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- Inciso IV acrescentado pela Lei n. 13.256, de 4-2-2016.
 - V – realizar o juízo de admissibilidade e, se positivo, remeter o feito ao Supremo Tribunal Federal ou ao Superior Tribunal de Justiça, desde que:
-- Inciso V, caput, acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- Inciso V, caput, acrescentado pela Lei n. 13.256, de 4-2-2016.
 - a) o recurso ainda não tenha sido submetido ao regime de repercussão geral ou de julgamento de recursos repetitivos;
-- Alínea a acrescentada pela Lei n. 13.256, de 4-2-2016.
+-- Alínea a acrescentada pela Lei n. 13.256, de 4-2-2016.
 - b) o recurso tenha sido selecionado como representativo da controvérsia; ou
-- Alínea b acrescentada pela Lei n. 13.256, de 4-2-2016.
+-- Alínea b acrescentada pela Lei n. 13.256, de 4-2-2016.
 - c) o tribunal recorrido tenha refutado o juízo de retratação.
-- Alínea c acrescentada pela Lei n. 13.256, de 4-2-2016.
+-- Alínea c acrescentada pela Lei n. 13.256, de 4-2-2016.
 - § 1.º Da decisão de inadmissibilidade proferida com fundamento no inciso V caberá agravo ao tribunal superior, nos termos do art. 1.042.
-- § 1.º acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- § 1.º acrescentado pela Lei n. 13.256, de 4-2-2016.
 - § 2.º Da decisão proferida com fundamento nos incisos I e III caberá agravo interno, nos termos do art. 1.021.
-- § 2.º acrescentado pela Lei n. 13.256, de 4-2-2016.
+-- § 2.º acrescentado pela Lei n. 13.256, de 4-2-2016.
 # Remissões Normativas
 - Vide Súmula 216 do STJ.
 -- afirma que a tempestividade de recurso interposto no Superior Tribunal de Justiça é aferida pelo registro no protocolo da secretaria e não pela data da entrega na agência dos Correios.
@@ -6256,9 +6256,9 @@
 - I – em que figure como parte ou interessado pessoa com idade igual ou superior a 60 (sessenta) anos ou portadora de doença grave, assim compreendida qualquer das enumeradas no art. 6.º, inciso XIV, da Lei n. 7.713, de 22 de dezembro de 1988;
 - II – regulados pela Lei n. 8.069, de 13 de julho de 1990 (Estatuto da Criança e do Adolescente);
 - III – em que figure como parte a vítima de violência doméstica e familiar, nos termos da Lei n. 11.340, de 7 de agosto de 2006 (Lei Maria da Penha);
-- Inciso III acrescentado pela Lei n. 13.894, de 29-10-2019.
+-- Inciso III acrescentado pela Lei n. 13.894, de 29-10-2019.
 - IV – em que se discuta a aplicação do disposto nas normas gerais de licitação e contratação a que se refere o inciso XXVII do caput do art. 22 da Constituição Federal.
-- Inciso IV acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-- Inciso IV acrescentado pela Lei n. 14.133, de 1.º-4-2021.
 - § 1.º A pessoa interessada na obtenção do benefício, juntando prova de sua condição, deverá requerê-lo à autoridade judiciária competente para decidir o feito, que determinará ao cartório do juízo as providências a serem cumpridas.
 - § 2.º Deferida a prioridade, os autos receberão identificação própria que evidencie o regime de tramitação prioritária.
 - § 3.º Concedida a prioridade, essa não cessará com a morte do beneficiado, estendendo-se em favor do cônjuge supérstite ou do companheiro em união estável.
