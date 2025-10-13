@@ -1,3 +1,34 @@
+
+
+
+
+
+
+
+
+
+
+# Prevaricação
+- Código Penal
+# Dispositivos Legais
+- Art. 319. Retardar ou deixar de praticar, indevidamente, ato de ofício, ou praticá-lo contra disposição expressa de lei, para satisfazer interesse ou sentimento pessoal: Pena – detenção, de 3 (três) meses a 1 (um) ano, e multa.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre os Juizados Especiais Cíveis e Criminais, definindo as infrações de menor potencial ofensivo.
+-----
+# Omissão de Vedação a Aparelho Telefônico em Presídio
+- Código Penal
+# Dispositivos Legais
+- Art. 319-A. Deixar o Diretor de Penitenciária e/ou agente público, de cumprir seu dever de vedar ao preso o acesso a aparelho telefônico, de rádio ou similar, que permita a comunicação com outros presos ou com o ambiente externo: Pena – detenção, de 3 (três) meses a 1 (um) ano.
+- Artigo acrescentado pela Lei n. 11.466, de 28-3-2007.
+# Remissões Normativas
+- Vide art. 349-A do CP.
+-- tipifica o crime de ingresso de aparelho telefônico ou similar, sem autorização legal, em estabelecimento prisional.
+- Vide art. 50, VII, da LEP.
+-- classifica como falta grave por parte do preso a posse, utilização ou fornecimento de aparelho telefônico, de rádio ou similar.
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre os Juizados Especiais Cíveis e Criminais, definindo as infrações de menor potencial ofensivo.
+-----
 # Condescendência criminosa
 - Código Penal
 # Dispositivos Legais
@@ -15,3 +46,454 @@
 - Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
 -- dispõe sobre os Juizados Especiais Cíveis e Criminais, definindo as infrações de menor potencial ofensivo.
 -----
+# Violência arbitrária
+- Código Penal
+# Dispositivos Legais
+- Art. 322. Praticar violência, no exercício de função ou a pretexto de exercê-la: Pena – detenção, de 6 (seis) meses a 3 (três) anos, além da pena correspondente à violência.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+- Sobre os crimes de abuso de autoridade: vide Lei n. 13.869, de 5-9-2019.
+-- define os crimes de abuso de autoridade cometidos por agentes públicos.
+-----
+# Abandono de função
+- Código Penal
+# Dispositivos Legais
+- Art. 323. Abandonar cargo público, fora dos casos permitidos em lei: Pena – detenção, de 15 (quinze) dias a 1 (um) mês, ou multa.
+- § 1.º Se do fato resulta prejuízo público: Pena – detenção, de 3 (três) meses a 1 (um) ano, e multa.
+- § 2.º Se o fato ocorre em lugar compreendido na faixa de fronteira: Pena – detenção, de 1 (um) a 3 (três) anos, e multa.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre os Juizados Especiais Criminais, definindo as infrações de menor potencial ofensivo e a suspensão condicional do processo.
+-----
+# Exercício funcional ilegalmente antecipado ou prolongado
+- Código Penal
+# Dispositivos Legais
+- Art. 324. Entrar no exercício de função pública antes de satisfeitas as exigências legais, ou continuar a exercê-la, sem autorização, depois de saber oficialmente que foi exonerado, removido, substituído ou suspenso: Pena – detenção, de 15 (quinze) dias a 1 (um) mês, ou multa.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre os Juizados Especiais Criminais, definindo as infrações de menor potencial ofensivo e a suspensão condicional do processo.
+-----
+# Violação de sigilo funcional
+- Código Penal
+# Dispositivos Legais
+- Art. 325. Revelar fato de que tem ciência em razão do cargo e que deva permanecer em segredo, ou facilitar-lhe a revelação: Pena – detenção, de 6 (seis) meses a 2 (dois) anos, ou multa, se o fato não constitui crime mais grave.
+- § 1.º Nas mesmas penas deste artigo incorre quem:
+- § 1.º, caput, acrescentado pela Lei n. 9.983, de 14-7-2000.
+- I – permite ou facilita, mediante atribuição, fornecimento e empréstimo de senha ou qualquer outra forma, o acesso de pessoas não autorizadas a sistemas de informações ou banco de dados da Administração Pública;
+- Inciso I acrescentado pela Lei n. 9.983, de 14-7-2000.
+- II – se utiliza, indevidamente, do acesso restrito.
+- Inciso II acrescentado pela Lei n. 9.983, de 14-7-2000.
+- § 2.º Se da ação ou omissão resulta dano à Administração Pública ou a outrem: Pena – reclusão, de 2 (dois) a 6 (seis) anos, e multa.
+- § 2.º acrescentado pela Lei n. 9.983, de 14-7-2000.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre os Juizados Especiais Criminais, definindo as infrações de menor potencial ofensivo e a suspensão condicional do processo.
+-----
+# Violação do sigilo de proposta de concorrência
+- Código Penal
+# Dispositivos Legais
+- Art. 326. Devassar o sigilo de proposta de concorrência pública, ou proporcionar a terceiro o ensejo de devassá-lo: Pena – detenção, de 3 (três) meses a 1 (um) ano, e multa.
+# Remissões Normativas
+- Sobre crimes em licitações e contratos administrativos: vide arts. 337-E a 337-P do CP.
+-- tipificam os crimes em licitações e contratos administrativos, introduzidos pela Lei nº 14.133/2021.
+-----
+# Funcionário público
+- Código Penal
+# Dispositivos Legais
+- Art. 327. Considera-se funcionário público, para os efeitos penais, quem, embora transitoriamente ou sem remuneração, exerce cargo, emprego ou função pública.
+- § 1.º Equipara-se a funcionário público quem exerce cargo, emprego ou função em entidade paraestatal, e quem trabalha para empresa prestadora de serviço contratada ou conveniada para a execução de atividade típica da Administração Pública.
+- § 1.º com redação determinada pela Lei n. 9.983, de 14-7-2000.
+- § 2.º A pena será aumentada da terça parte quando os autores dos crimes previstos neste Capítulo forem ocupantes de cargos em comissão ou de função de direção ou assessoramento de órgão da administração direta, sociedade de economia mista, empresa pública ou fundação instituída pelo poder público.
+- § 2.º acrescentado pela Lei n. 6.799, de 23-6-1980.
+# Remissões Normativas
+- Vide art. 3.º da Lei n. 8.137, de 27-12-1990.
+-- define os crimes contra a ordem tributária praticados por funcionários públicos.
+- Funcionário público estrangeiro: vide art. 337-D do CP.
+-- define o conceito de funcionário público estrangeiro para fins penais no crime de corrupção ativa em transação comercial internacional.
+-----
+# Usurpação de função pública
+- Código Penal
+# Dispositivos Legais
+- Art. 328. Usurpar o exercício de função pública: Pena – detenção, de 3 (três) meses a 2 (dois) anos, e multa.
+- Parágrafo único. Se do fato o agente aufere vantagem: Pena – reclusão, de 2 (dois) a 5 (cinco) anos, e multa.
+# Remissões Normativas
+- Vide arts. 324 e 359 do CP.
+-- tratam, respectivamente, do exercício funcional ilegalmente antecipado ou prolongado e da desobediência a decisão judicial sobre perda ou suspensão de direito.
+- Vide arts. 45 e 46 da LCP.
+-- definem as contravenções penais de fingir-se funcionário público e de usar indevidamente uniforme ou distintivo de função pública.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+-----
+# Resistência
+- Código Penal
+# Dispositivos Legais
+- Art. 329. Opor-se à execução de ato legal, mediante violência ou ameaça a funcionário competente para executá-lo ou a quem lhe esteja prestando auxílio: Pena – detenção, de 2 (dois) meses a 2 (dois) anos.
+- § 1.º Se o ato, em razão da resistência, não se executa: Pena – reclusão, de 1 (um) a 3 (três) anos.
+- § 2.º As penas deste artigo são aplicáveis sem prejuízo das correspondentes à violência.
+# Remissões Normativas
+- Vide arts. 284, 292 e 795 do CPP.
+-- tratam do emprego da força em caso de resistência, dos meios para superar a resistência à prisão e da nulidade de atos processuais.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+-----
+# Desobediência
+- Código Penal
+# Dispositivos Legais
+- Art. 330. Desobedecer a ordem legal de funcionário público: Pena – detenção, de 15 (quinze) dias a 6 (seis) meses, e multa.
+# Remissões Normativas
+- Vide arts. 163, 245 e 656 do CPP.
+-- tratam, respectivamente, da recusa de perito, de mandados de busca e apreensão e da desobediência a ordem de habeas corpus.
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõem sobre as infrações de menor potencial ofensivo e a suspensão condicional do processo.
+- Vide arts. 23, 99, III, e 104 da Lei n. 11.101, de 9-2-2005.
+-- é a Lei de Recuperação de Empresas e Falências e trata dos deveres do falido e do administrador judicial.
+-----
+# Desacato
+- Código Penal
+# Dispositivos Legais
+- Art. 331. Desacatar funcionário público no exercício da função ou em razão dela: Pena – detenção, de 6 (seis) meses a 2 (dois) anos, ou multa.
+# Remissões Normativas
+- Desacato: arts. 75 e 351 da CLT e 200 do CTN.
+-- tratam, respectivamente, de embaraço à fiscalização trabalhista, desacato a autoridade da fiscalização do trabalho e requisição de força policial por autoridade fiscal em caso de desacato.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+-----
+# Tráfico de influência
+- Código Penal
+# Dispositivos Legais
+- Rubrica com redação determinada pela Lei n. 9.127, de 16-11-1995.
+- Art. 332. Solicitar, exigir, cobrar ou obter, para si ou para outrem, vantagem ou promessa de vantagem, a pretexto de influir em ato praticado por funcionário público no exercício da função. Pena – reclusão, de 2 (dois) a 5 (cinco) anos, e multa.
+- Caput com redação determinada pela Lei n. 9.127, de 16-11-1995.
+- Parágrafo único. A pena é aumentada da metade, se o agente alega ou insinua que a vantagem é também destinada ao funcionário.
+- Parágrafo único com redação determinada pela Lei n. 9.127, de 16-11-1995.
+# Remissões Normativas
+- Vide art. 337-C do CP, sobre tráfico de influência em transação comercial internacional.
+-- trata do crime de tráfico de influência em transação comercial internacional.
+- Vide art. 357 do CP, sobre exploração de prestígio.
+-- define o crime de solicitar ou receber vantagem a pretexto de influir em agentes do sistema de justiça (juiz, jurado, perito, etc.).
+-----
+# Corrupção ativa
+- Código Penal
+# Dispositivos Legais
+- Art. 333. Oferecer ou prometer vantagem indevida a funcionário público, para determiná-lo a praticar, omitir ou retardar ato de ofício: Pena – reclusão, de 2 (dois) a 12 (doze) anos, e multa.
+- Pena alterada pela Lei n. 10.763, de 12-11-2003.
+- Parágrafo único. A pena é aumentada de um terço, se, em razão da vantagem ou promessa, o funcionário retarda ou omite ato de ofício, ou o pratica infringindo dever funcional.
+# Remissões Normativas
+- Vide art. 337-B do CP.
+-- tipifica o crime de corrupção ativa em transação comercial internacional.
+- Vide art. 6.º, 2, da Lei n. 1.079, de 10-4-1950.
+-- define como crime de responsabilidade do Presidente da República proceder de modo incompatível com a dignidade, a honra e o decoro do cargo.
+- Vide art. 299 do CE.
+-- trata do crime de corrupção eleitoral (dar, oferecer, prometer, solicitar ou receber vantagem para obter ou dar voto).
+- O Decreto n. 4.410, de 7-10-2002, promulga a Convenção Interamericana contra a corrupção.
+-- internaliza no ordenamento jurídico brasileiro a Convenção Interamericana contra a Corrupção, da OEA.
+- O Decreto n. 5.687, de 31-1-2006, promulga a Convenção das Nações Unidas contra a corrupção.
+-- internaliza no ordenamento jurídico brasileiro a Convenção das Nações Unidas contra a Corrupção.
+-----
+# Descaminho
+- Código Penal
+# Dispositivos Legais
+- Rubrica com redação determinada pela Lei n. 13.008, de 26-6-2014.
+- Art. 334. Iludir, no todo ou em parte, o pagamento de direito ou imposto devido pela entrada, pela saída ou pelo consumo de mercadoria: Pena – reclusão, de 1 (um) a 4 (quatro) anos.
+- Caput com redação determinada pela Lei n. 13.008, de 26-6-2014.
+- § 1.º Incorre na mesma pena quem:
+- § 1.º com redação determinada pela Lei n. 13.008, de 26-6-2014.
+- I – pratica navegação de cabotagem, fora dos casos permitidos em lei;
+- Inciso I acrescentado pela Lei n. 13.008, de 26-6-2014.
+- II – pratica fato assimilado, em lei especial, a descaminho;
+- Inciso II acrescentado pela Lei n. 13.008, de 26-6-2014.
+- III – vende, expõe à venda, mantém em depósito ou, de qualquer forma, utiliza em proveito próprio ou alheio, no exercício de atividade comercial ou industrial, mercadoria de procedência estrangeira que introduziu clandestinamente no País ou importou fraudulentamente ou que sabe ser produto de introdução clandestina no território nacional ou de importação fraudulenta por parte de outrem;
+- Inciso III acrescentado pela Lei n. 13.008, de 26-6-2014.
+- IV – adquire, recebe ou oculta, em proveito próprio ou alheio, no exercício de atividade comercial ou industrial, mercadoria de procedência estrangeira, desacompanhada de documentação legal ou acompanhada de documentos que sabe serem falsos.
+- Inciso IV acrescentado pela Lei n. 13.008, de 26-6-2014.
+- § 2.º Equipara-se às atividades comerciais, para os efeitos deste artigo, qualquer forma de comércio irregular ou clandestino de mercadorias estrangeiras, inclusive o exercido em residências.
+- § 2.º com redação determinada pela Lei n. 13.008, de 26-6-2014.
+- § 3.º A pena aplica-se em dobro se o crime de descaminho é praticado em transporte aéreo, marítimo ou fluvial.
+- § 3.º com redação determinada pela Lei n. 13.008, de 26-6-2014.
+# Remissões Normativas
+- Vide art. 318 do CP.
+-- tipifica o crime de facilitação de contrabando ou descaminho, praticado por funcionário público.
+- Vide art. 144, § 1.º, II, da CF.
+-- estabelece a competência da Polícia Federal para prevenir e reprimir o contrabando e o descaminho.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+- Vide art. 278-A do CTB.
+-- prevê sanção administrativa ao condutor envolvido em ocorrência de contrabando ou descaminho.
+- A Portaria n. 1.750, de 12-11-2018, da SRFB, dispõe sobre representação fiscal para fins penais referentes a crimes contra a ordem tributária, contra a previdência social e de contrabando ou descaminho, sobre representação para fins penais referente a crimes contra a Administração Pública Federal, em detrimento da Fazenda Nacional ou contra Administração Pública estrangeira, de falsidade de títulos, papéis e documentos públicos e de "lavagem" ou ocultação de bens, direitos e valores, e sobre representação referente a atos de improbidade administrativa.
+-- regulamenta a representação fiscal para fins penais no âmbito da Secretaria da Receita Federal do Brasil.
+- Vide Súmula 560 do STF.
+-- afirma que a alegação de boa-fé de terceiro não impede a apreensão de mercadorias objeto de contrabando ou descaminho.
+- Vide Súmula 151 do STJ.
+-- estabelece que a competência para processar e julgar o crime de descaminho é da Justiça Federal.
+-----
+# Impedimento, perturbação ou fraude de concorrência
+- Código Penal
+# Dispositivos Legais
+- Art. 335. Impedir, perturbar ou fraudar concorrência pública ou venda em hasta pública, promovida pela administração federal, estadual ou municipal, ou por entidade paraestatal; afastar ou procurar afastar concorrente ou licitante, por meio de violência, grave ameaça, fraude ou oferecimento de vantagem: Pena – detenção, de 6 (seis) meses a 2 (dois) anos, ou multa, além da pena correspondente à violência.
+- Parágrafo único. Incorre na mesma pena quem se abstém de concorrer ou licitar, em razão da vantagem oferecida.
+# Remissões Normativas
+- Sobre crimes em licitações e contratos administrativos: vide arts. 337-E a 337-P do CP.
+-- tipificam os crimes em licitações e contratos administrativos, conforme a nova Lei de Licitações (Lei nº 14.133/2021).
+-----
+# Inutilização de edital ou de sinal
+- Código Penal
+# Dispositivos Legais
+- Art. 336. Rasgar ou, de qualquer forma, inutilizar ou conspurcar edital afixado por ordem de funcionário público; violar ou inutilizar selo ou sinal empregado, por determinação legal ou por ordem de funcionário público, para identificar ou cerrar qualquer objeto: Pena – detenção, de 1 (um) mês a 1 (um) ano, ou multa.
+# Remissões Normativas
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre os Juizados Especiais Criminais, definindo as infrações de menor potencial ofensivo e a suspensão condicional do processo.
+-----
+# Subtração ou inutilização de livro ou documento
+- Código Penal
+# Dispositivos Legais
+- Art. 337. Subtrair, ou inutilizar, total ou parcialmente, livro oficial, processo ou documento confiado à custódia de funcionário, em razão de ofício, ou de particular em serviço público: Pena – reclusão, de 2 (dois) a 5 (cinco) anos, se o fato não constitui crime mais grave.
+-----
+# Sonegação de contribuição previdenciária
+- Código Penal
+# Dispositivos Legais
+- Art. 337-A. Suprimir ou reduzir contribuição social previdenciária e qualquer acessório, mediante as seguintes condutas:
+- Caput acrescentado pela Lei n. 9.983, de 14-7-2000.
+- I – omitir de folha de pagamento da empresa ou de documento de informações previsto pela legislação previdenciária segurados empregado, empresário, trabalhador avulso ou trabalhador autônomo ou a este equiparado que lhe prestem serviços;
+- Inciso I acrescentado pela Lei n. 9.983, de 14-7-2000.
+- II – deixar de lançar mensalmente nos títulos próprios da contabilidade da empresa as quantias descontadas dos segurados ou as devidas pelo empregador ou pelo tomador de serviços;
+- Inciso II acrescentado pela Lei n. 9.983, de 14-7-2000.
+- III – omitir, total ou parcialmente, receitas ou lucros auferidos, remunerações pagas ou creditadas e demais fatos geradores de contribuições sociais previdenciárias: Pena – reclusão, de 2 (dois) a 5 (cinco) anos, e multa.
+- Inciso III acrescentado pela Lei n. 9.983, de 14-7-2000.
+- § 1.º É extinta a punibilidade se o agente, espontaneamente, declara e confessa as contribuições, importâncias ou valores e presta as informações devidas à previdência social, na forma definida em lei ou regulamento, antes do início da ação fiscal.
+- § 1.º acrescentado pela Lei n. 9.983, de 14-7-2000.
+- § 2.º É facultado ao juiz deixar de aplicar a pena ou aplicar somente a de multa se o agente for primário e de bons antecedentes, desde que:
+- § 2.º acrescentado pela Lei n. 9.983, de 14-7-2000.
+- I – (Vetado.)
+- Inciso I acrescentado pela Lei n. 9.983, de 14-7-2000.
+- II – o valor das contribuições devidas, inclusive acessórios, seja igual ou inferior àquele estabelecido pela previdência social, administrativamente, como sendo o mínimo para o ajuizamento de suas execuções fiscais.
+- Inciso II acrescentado pela Lei n. 9.983, de 14-7-2000.
+- § 3.º Se o empregador não é pessoa jurídica e sua folha de pagamento mensal não ultrapassa R$ 1.510,00 (um mil, quinhentos e dez reais), o juiz poderá reduzir a pena de um terço até a metade ou aplicar apenas a de multa.
+- § 3.º acrescentado pela Lei n. 9.983, de 14-7-2000.
+- § 4.º O valor a que se refere o parágrafo anterior será reajustado nas mesmas datas e nos mesmos índices do reajuste dos benefícios da previdência social.
+- § 4.º acrescentado pela Lei n. 9.983, de 14-7-2000.
+# Remissões Normativas
+- Os arts. 9.º da Lei n. 10.684, de 30-5-2003, e 68 e 69 da Lei n. 11.941, de 27-5-2009, dispõem sobre a suspensão da pretensão punitiva do Estado e a extinção da punibilidade dos crimes previstos neste artigo.
+-- tratam de programas de parcelamento de débitos tributários e previdenciários (PAES e REFIS) que preveem a suspensão ou extinção da punibilidade mediante o pagamento.
+- O art. 83 da Lei n. 9.430, de 27-12-1996 (crimes contra a ordem tributária), dispõe que a representação fiscal para fins penais relativa a crimes contra a Previdência Social, previstos neste artigo, será encaminhada ao MP depois de proferida a decisão final, na esfera administrativa, sobre a exigência fiscal do crédito tributário correspondente.
+-- condiciona a representação fiscal para fins penais ao término do processo administrativo de cobrança do tributo (Súmula Vinculante 24 do STF).
+- Vide art. 5.º da Lei n. 13.254, de 13-1-2016.
+-- trata do Regime Especial de Regularização Cambial e Tributária (RERCT) e da extinção da punibilidade de crimes associados.
+- Vide Lei n. 8.137, de 27-12-1990, que define crimes contra a ordem tributária.
+-- define os crimes contra a ordem tributária, econômica e contra as relações de consumo.
+- A Portaria Interministerial n. 6, de 10-1-2025, dos Ministérios da Previdência Social e da Fazenda, estabelece que, a partir de 1.º de janeiro de 2025, o valor de que trata este parágrafo será de R$ 7.201,70 (sete mil, duzentos e um reais e setenta centavos).
+-- atualiza o valor do limite da folha de pagamento mensal para fins de aplicação do benefício penal previsto no § 3.º do artigo.
+-----
+# Corrupção ativa em transação comercial internacional
+- Código Penal
+# Dispositivos Legais
+- Art. 337-B. Prometer, oferecer ou dar, direta ou indiretamente, vantagem indevida a funcionário público estrangeiro, ou a terceira pessoa, para determiná-lo a praticar, omitir ou retardar ato de ofício relacionado à transação comercial internacional: Pena – reclusão, de 1 (um) a 8 (oito) anos, e multa.
+- Caput acrescentado pela Lei n. 10.467, de 11-6-2002.
+- Parágrafo único. A pena é aumentada de 1/3 (um terço), se, em razão da vantagem ou promessa, o funcionário público estrangeiro retarda ou omite o ato de ofício, ou o pratica infringindo dever funcional.
+- Parágrafo único acrescentado pela Lei n. 10.467, de 11-6-2002.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+- Corrupção ativa comum (funcionário público brasileiro): vide art. 333 do CP.
+-- define o crime de corrupção ativa, que consiste em oferecer ou prometer vantagem indevida a funcionário público nacional.
+- Corrupção passiva: vide art. 317 do CP.
+-- define o crime de corrupção passiva, praticado pelo funcionário público que solicita ou recebe a vantagem indevida.
+-----
+# Tráfico de influência em transação comercial internacional
+- Código Penal
+# Dispositivos Legais
+- Art. 337-C. Solicitar, exigir, cobrar ou obter, para si ou para outrem, direta ou indiretamente, vantagem ou promessa de vantagem a pretexto de influir em ato praticado por funcionário público estrangeiro no exercício de suas funções, relacionado a transação comercial internacional: Pena – reclusão, de 2 (dois) a 5 (cinco) anos, e multa.
+- Caput acrescentado pela Lei n. 10.467, de 11-6-2002.
+- Parágrafo único. A pena é aumentada da metade, se o agente alega ou insinua que a vantagem é também destinada a funcionário estrangeiro.
+- Parágrafo único acrescentado pela Lei n. 10.467, de 11-6-2002.
+# Remissões Normativas
+- Tráfico de influência comum: vide art. 332 do CP.
+-- define o crime de tráfico de influência, que consiste em solicitar vantagem a pretexto de influir em ato de funcionário público nacional.
+-----
+# Funcionário público estrangeiro
+- Código Penal
+# Dispositivos Legais
+- Art. 337-D. Considera-se funcionário público estrangeiro, para os efeitos penais, quem, ainda que transitoriamente ou sem remuneração, exerce cargo, emprego ou função pública em entidades estatais ou em representações diplomáticas de país estrangeiro.
+- Caput acrescentado pela Lei n. 10.467, de 11-6-2002.
+- Parágrafo único. Equipara-se a funcionário público estrangeiro quem exerce cargo, emprego ou função em empresas controladas, diretamente ou indiretamente, pelo Poder Público de país estrangeiro ou em organizações públicas internacionais.
+- Parágrafo único acrescentado pela Lei n. 10.467, de 11-6-2002.
+# Remissões Normativas
+- Vide art. 327 do CP.
+-- apresenta o conceito de funcionário público nacional para fins penais.
+-----
+# Contratação direta ilegal
+- Código Penal
+# Dispositivos Legais
+- Capítulo II-B DOS CRIMES EM LICITAÇÕES E CONTRATOS ADMINISTRATIVOS
+- Capítulo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- Art. 337-E. Admitir, possibilitar ou dar causa à contratação direta fora das hipóteses previstas em lei: Pena – reclusão, de 4 (quatro) a 8 (oito)anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Frustração do caráter competitivo de licitação
+- Código Penal
+# Dispositivos Legais
+- Art. 337-F. Frustrar ou fraudar, com o intuito de obter para si ou para outrem vantagem decorrente da adjudicação do objeto da licitação, o caráter competitivo do processo licitatório: Pena – reclusão, de 4 (quatro) anos a 8 (oito) anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Patrocínio de contratação indevida
+- Código Penal
+# Dispositivos Legais
+- Art. 337-G. Patrocinar, direta ou indiretamente, interesse privado perante a Administração Pública, dando causa à instauração de licitação ou à celebração de contrato cuja invalidação vier a ser decretada pelo Poder Judiciário: Pena – reclusão, de 6 (seis) meses a 3 (três) anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Modificação ou pagamento irregular em contrato administrativo
+- Código Penal
+# Dispositivos Legais
+- Art. 337-H. Admitir, possibilitar ou dar causa a qualquer modificação ou vantagem, inclusive prorrogação contratual, em favor do contratado, durante a execução dos contratos celebrados com a Administração Pública, sem autorização em lei, no edital da licitação ou nos respectivos instrumentos contratuais, ou, ainda, pagar fatura com preterição da ordem cronológica de sua exigibilidade: Pena – reclusão, de 4 (quatro) anos a 8 (oito) anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Perturbação de processo licitatório
+- Código Penal
+# Dispositivos Legais
+- Art. 337-I. Impedir, perturbar ou fraudar a realização de qualquer ato de processo licitatório: Pena – detenção, de 6 (seis) meses a 3 (três) anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Violação de sigilo em licitação
+- Código Penal
+# Dispositivos Legais
+- Art. 337-J. Devassar o sigilo de proposta apresentada em processo licitatório ou proporcionar a terceiro o ensejo de devassá-lo: Pena – detenção, de 2 (dois) anos a 3 (três) anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Afastamento de licitante
+- Código Penal
+# Dispositivos Legais
+- Art. 337-K. Afastar ou tentar afastar licitante por meio de violência, grave ameaça, fraude ou oferecimento de vantagem de qualquer tipo: Pena – reclusão, de 3 (três) anos a 5 (cinco) anos, e multa, além da pena correspondente à violência.
+- Caput acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- Parágrafo único. Incorre na mesma pena quem se abstém ou desiste de licitar em razão de vantagem oferecida.
+- Parágrafo único acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Fraude em licitação ou contrato
+- Código Penal
+# Dispositivos Legais
+- Art. 337-L. Fraudar, em prejuízo da Administração Pública, licitação ou contrato dela decorrente, mediante:
+- Caput acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- I – entrega de mercadoria ou prestação de serviços com qualidade ou em quantidade diversas das previstas no edital ou nos instrumentos contratuais;
+- Inciso I acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- II – fornecimento, como verdadeira ou perfeita, de mercadoria falsificada, deteriorada, inservível para consumo ou com prazo de validade vencido;
+- Inciso II acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- III – entrega de uma mercadoria por outra;
+- Inciso III acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- IV – alteração da substância, qualidade ou quantidade da mercadoria ou do serviço fornecido;
+- Inciso IV acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- V – qualquer meio fraudulento que torne injustamente mais onerosa para a Administração Pública a proposta ou a execução do contrato:
+- Inciso V acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- Pena – reclusão, de 4 (quatro) anos a 8 (oito) anos, e multa.
+- Pena acrescentada pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Contratação inidônea
+- Código Penal
+# Dispositivos Legais
+- Art. 337-M. Admitir à licitação empresa ou profissional declarado inidôneo: Pena – reclusão, de 1 (um) ano a 3 (três) anos, e multa.
+- Caput acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- § 1.º Celebrar contrato com empresa ou profissional declarado inidôneo: Pena – reclusão, de 3 (três) anos a 6 (seis) anos, e multa.
+- § 1.º acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- § 2.º Incide na mesma pena do caput deste artigo aquele que, declarado inidôneo, venha a participar de licitação e, na mesma pena do § 1.º deste artigo, aquele que, declarado inidôneo, venha a contratar com a Administração Pública.
+- § 2.º acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Impedimento indevido
+- Código Penal
+# Dispositivos Legais
+- Art. 337-N. Obstar, impedir ou dificultar injustamente a inscrição de qualquer interessado nos registros cadastrais ou promover indevidamente a alteração, a suspensão ou o cancelamento de registro do inscrito: Pena – reclusão, de 6 (seis) meses a 2 (dois) anos, e multa.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Omissão grave de dado ou de informação por projetista
+- Código Penal
+# Dispositivos Legais
+- Art. 337-O. Omitir, modificar ou entregar à Administração Pública levantamento cadastral ou condição de contorno em relevante dissonância com a realidade, em frustração ao caráter competitivo da licitação ou em detrimento da seleção da proposta mais vantajosa para a Administração Pública, em contratação para a elaboração de projeto básico, projeto executivo ou anteprojeto, em diálogo competitivo ou em procedimento de manifestação de interesse: Pena – reclusão, de 6 (seis) meses a 3 (três) anos, e multa.
+- Caput acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- § 1.º Consideram-se condição de contorno as informações e os levantamentos suficientes e necessários para a definição da solução de projeto e dos respectivos preços pelo licitante, incluídos sondagens, topografia, estudos de demanda, condições ambientais e demais elementos ambientais impactantes, considerados requisitos mínimos ou obrigatórios em normas técnicas que orientam a elaboração de projetos.
+- § 1.º acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+- § 2.º Se o crime é praticado com o fim de obter benefício, direto ou indireto, próprio ou de outrem, aplica-se em dobro a pena prevista no caput deste artigo.
+- § 2.º acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Pena de Multa nos Crimes em Licitações
+- Código Penal
+# Dispositivos Legais
+- Art. 337-P. A pena de multa cominada aos crimes previstos neste Capítulo seguirá a metodologia de cálculo prevista neste Código e não poderá ser inferior a 2% (dois por cento) do valor do contrato licitado ou celebrado com contratação direta.
+- Artigo acrescentado pela Lei n. 14.133, de 1.º-4-2021.
+-----
+# Reingresso de estrangeiro expulso
+- Código Penal
+# Dispositivos Legais
+- Capítulo III DOS CRIMES CONTRA A ADMINISTRAÇÃO DA JUSTIÇA
+- Art. 338. Reingressar no território nacional o estrangeiro que dele foi expulso: Pena – reclusão, de 1 (um) a 4 (quatro) anos, sem prejuízo de nova expulsão após o cumprimento da pena.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+- Expulsão: arts. 54 a 60 da Lei n. 13.445, de 24-5-2017 (Lei de Migração).
+-- regulamenta o instituto da expulsão de estrangeiro do território nacional.
+-----
+# Denunciação caluniosa
+- Código Penal
+# Dispositivos Legais
+- Art. 339. Dar causa à instauração de inquérito policial, de procedimento investigatório criminal, de processo judicial, de processo administrativo disciplinar, de inquérito civil ou de ação de improbidade administrativa contra alguém, imputando-lhe crime, infração ético-disciplinar ou ato ímprobo de que o sabe inocente: Pena – reclusão, de 2 (dois) a 8 (oito) anos, e multa.
+- Caput com redação determinada pela Lei n. 14.110, de 18-12-2020.
+- § 1.º A pena é aumentada de sexta parte, se o agente se serve de anonimato ou de nome suposto.
+- § 2.º A pena é diminuída de metade, se a imputação é de prática de contravenção.
+# Remissões Normativas
+- Vide arts. 5.º, § 3.º, e 27 do CPP.
+-- tratam, respectivamente, da verificação da procedência de informações anônimas e da ação penal privada subsidiária da pública.
+- Vide art. 19 da Lei n. 8.429, de 2-6-1992.
+-- trata da representação ao Ministério Público por crime de denunciação caluniosa no âmbito da Lei de Improbidade Administrativa.
+-----
+# Comunicação falsa de crime ou de contravenção
+- Código Penal
+# Dispositivos Legais
+- Art. 340. Provocar a ação de autoridade, comunicando-lhe a ocorrência de crime ou de contravenção que sabe não se ter verificado: Pena – detenção, de 1 (um) a 6 (seis) meses, ou multa.
+# Remissões Normativas
+- Vide arts. 5.º, § 3.º, e 27 do CPP.
+-- tratam, respectivamente, da verificação da procedência de informações anônimas e da ação penal privada subsidiária da pública.
+- Vide arts. 61 e 89 da Lei n. 9.099, de 26-9-1995.
+-- dispõem sobre as infrações de menor potencial ofensivo e a suspensão condicional do processo.
+-----
+# Autoacusação falsa
+- Código Penal
+# Dispositivos Legais
+- Art. 341. Acusar-se, perante a autoridade, de crime inexistente ou praticado por outrem: Pena – detenção, de 3 (três) meses a 2 (dois) anos, ou multa.
+# Remissões Normativas
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+-----
+# Falso testemunho ou falsa perícia
+- Código Penal
+# Dispositivos Legais
+- Art. 342. Fazer afirmação falsa, ou negar ou calar a verdade, como testemunha, perito, contador, tradutor ou intérprete em processo judicial, ou administrativo, inquérito policial, ou em juízo arbitral:
+- Caput com redação determinada pela Lei n. 10.268, de 28-8-2001.
+- Pena – reclusão, de 2 (dois) a 4 (quatro) anos, e multa.
+- Pena com redação determinada pela Lei n. 12.850, de 2-8-2013.
+- § 1.º As penas aumentam-se de um sexto a um terço, se o crime é praticado mediante suborno ou se cometido com o fim de obter prova destinada a produzir efeito em processo penal, ou em processo civil em que for parte entidade da administração pública direta ou indireta.
+- § 1.º com redação determinada pela Lei n. 10.268, de 28-8-2001.
+- § 2.º O fato deixa de ser punível se, antes da sentença no processo em que ocorreu o ilícito, o agente se retrata ou declara a verdade.
+- § 2.º com redação determinada pela Lei n. 10.268, de 28-8-2001.
+- Na redação original, constava um § 3.º, não reproduzido na lei alteradora.
+# Remissões Normativas
+- Vide arts. 222 a 225 e 275 a 281 do CPP.
+-- regulamentam a produção da prova testemunhal e pericial no processo penal.
+- Vide art. 89 da Lei n. 9.099, de 26-9-1995.
+-- trata da suspensão condicional do processo para crimes com pena mínima igual ou inferior a um ano.
+- Vide Súmula 165 do STJ.
+-- estabelece que o crime de falso testemunho é de natureza formal, consumando-se no momento da afirmação falsa.
+-----
+# Coação no curso do processo
+- Código Penal
+# Dispositivos Legais
+- Art. 343. Dar, oferecer, ou prometer dinheiro ou qualquer outra vantagem a testemunha, perito, contador, tradutor ou intérprete, para fazer afirmação falsa, negar ou calar a verdade em depoimento, perícia, cálculos, tradução ou interpretação: Pena – reclusão, de 3 (três) a 4 (quatro) anos, e multa.
+- Caput com redação determinada pela Lei n. 10.268, de 28-8-2001.
+- Parágrafo único. As penas aumentam-se de um sexto a um terço, se o crime é cometido com o fim de obter prova destinada a produzir efeito em processo penal ou em processo civil em que for parte entidade da administração pública direta ou indireta.
+- Parágrafo único com redação determinada pela Lei n. 10.268, de 28-8-2001.
+# Remissões Normativas
+- Vide arts. 222 a 225 e 275 a 281 do CPP.
+-- regulamentam a produção da prova testemunhal e pericial no processo penal.
+-----
+
+
+
+
+
+
+
