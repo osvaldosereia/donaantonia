@@ -124,7 +124,7 @@ ul{margin:0;padding:0;list-style:none}
 .btn-ios[data-variant="primary"]{border-color:transparent;background:var(--primary);color:#fff}
 
 /* Texto e links */
-.link-arrow{position:relative;display:inline;font-weight:500;white-space:normal}
+.link-arrow{position:relative;display:inline;font-weight:400;white-space:normal}
 .arrow-icon{
   display:inline-block;padding:0 6px;margin-left:6px;border-radius:6px;
   background:#EEF2F7;color:var(--primary);font-size:.85em;line-height:1.2;
