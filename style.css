@@ -118,7 +118,7 @@ ul{margin:0;padding:0;list-style:none}
 .btn-ios{
   appearance:none;border:1px solid var(--line);background:var(--surface);
   color:var(--primary);border-radius:999px;padding:8px 12px;cursor:pointer;
-  font-weight:600;font-size:13px
+  font-weight:500;font-size:13px
 }
 .btn-ios.is-small{padding:6px 10px;font-size:12px}
 .btn-ios[data-variant="primary"]{border-color:transparent;background:var(--primary);color:#fff}
