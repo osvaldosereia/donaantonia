@@ -101,8 +101,8 @@ ul{margin:0;padding:0;list-style:none}
   scroll-margin-top:calc(var(--topbar-h) + 16px);
 }
 .ubox{padding:14px 16px}
-.h1{font-size:22px;line-height:1.25;margin:14px 0 0 0;color:var(--primary)}
-.h2{font-size:18px;margin:0 0 6px 0}
+.h1{font-size:20px;line-height:1.15;margin:14px 0 0 0;color:var(--primary)}
+.h2{font-size:16px;margin:0 0 6px 0}
 
 /* Seções – linha + respiro ENTRE seções */
 .ubox-section{padding-top:10px}
