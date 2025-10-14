@@ -665,32 +665,58 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
 
   function openIADropdown(anchorBtn, title, fullText){
   closeIADrop();
-  const actions = [
-  { key: 'resumo',          label: 'Resumo' },
-  { key: 'detalhada',       label: 'Explicação Detalhada' },
-  { key: 'revisao',         label: 'Revisão Rápida' },
-  { key: 'dissertativas',   label: 'Questões Dissertativas' },
-  { key: 'objetivas',       label: 'Questões Objetivas' },
-  { key: 'quiz',            label: 'Quiz Interativo' },
-  { key: 'videos',          label: 'Vídeoaulas' },
-  { key: 'artigos',         label: 'Artigos Jurídicos' },
-  { key: 'leis',            label: 'Leis Relacionadas' },
-  { key: 'ffp',             label: 'Fatos, Fundamentos e Pedidos' },
-  { key: 'cabimento',       label: 'Cabimento Prático' },
-  { key: 'jurisprudencia',  label: 'Jurisprudência e Súmulas' },
-  { key: 'controv',         label: 'Controvérsias Doutrinárias' },
-  { key: 'doutrina',        label: 'Doutrina Relevante' },
-  { key: 'comparativo',     label: 'Comparativo de Institutos' },
-  { key: 'linhaTemporal',   label: 'Linha do Tempo Legal' },
-  { key: 'pratica',         label: 'Prática Jurídica' },
-  { key: 'casos',           label: 'Casos Práticos' },
-  { key: 'interdisciplinar',label: 'Aplicação Interdisciplinar' },
-  { key: 'atualizacao',     label: 'Atualização Legislativa' }
+  const IA_GROUPS = [
+  {
+    label: '📘 Estudo',
+    items: [
+      { key: 'resumo',        label: 'Resumo' },
+      { key: 'detalhada',     label: 'Explicação Detalhada' },
+      { key: 'doutrina',      label: 'Doutrina Relevante' },
+      { key: 'comparativo',   label: 'Comparativo de Institutos' },
+      { key: 'controv',       label: 'Controvérsias Doutrinárias' },
+      { key: 'interdisciplinar', label: 'Aplicação Interdisciplinar' },
+    ]
+  },
+  {
+    label: '🧠 Revisão',
+    items: [
+      { key: 'revisao',       label: 'Revisão Rápida' },
+      { key: 'dissertativas', label: 'Questões Dissertativas' },
+      { key: 'objetivas',     label: 'Questões Objetivas' },
+      { key: 'quiz',          label: 'Quiz Interativo' },
+      { key: 'videos',        label: 'Vídeoaulas' },
+      { key: 'artigos',       label: 'Artigos Jurídicos' },
+    ]
+  },
+  {
+    label: '⚖️ Prática',
+    items: [
+      { key: 'ffp',           label: 'Fatos, Fundamentos e Pedidos' },
+      { key: 'cabimento',     label: 'Cabimento Prático' },
+      { key: 'pratica',       label: 'Prática Jurídica' },
+      { key: 'casos',         label: 'Casos Práticos' },
+    ]
+  },
+  {
+    label: '🔍 Pesquisa',
+    items: [
+      { key: 'leis',          label: 'Leis Relacionadas' },
+      { key: 'jurisprudencia',label: 'Jurisprudência e Súmulas' },
+      { key: 'linhaTemporal', label: 'Linha do Tempo Legal' },
+      { key: 'atualizacao',   label: 'Atualização Legislativa' },
+    ]
+  }
 ];
 
   __iaDrop = document.createElement('div');
   __iaDrop.className='ia-pop';
-  __iaDrop.innerHTML = actions.map(a=>`<button class="ia-item" data-k="${a.key}">${a.label}</button>`).join('');
+ __iaDrop.innerHTML = IA_GROUPS.map(g => `
+  <div class="ia-group">
+    <div class="ia-group-title">${g.label}</div>
+    ${g.items.map(a => `<button class="ia-item" data-k="${a.key}">${a.label}</button>`).join('')}
+  </div>
+`).join('');
+
   document.body.appendChild(__iaDrop);
 
   const r = anchorBtn.getBoundingClientRect();
