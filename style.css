@@ -415,3 +415,17 @@ button.mini{
 .route-home .container input[type="search"]{
   display:block; width:min(680px,92vw); margin:0 auto;
 }
+
+.ia-group-title {
+  font-size:12px;
+  font-weight:700;
+  color:var(--muted);
+  margin:6px 8px 4px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.ia-group + .ia-group {
+  border-top:1px solid var(--line);
+  margin-top:4px;
+  padding-top:4px;
+}
