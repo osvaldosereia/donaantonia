@@ -467,3 +467,38 @@ button.mini{
   font-size: 11px;
   opacity: 0.8;
 }
+/* ===== Somente o botão .arrow-icon deve ser clicável ===== */
+
+/* Remove clique do texto dentro dos links */
+.link-arrow {
+  pointer-events: none;     /* desativa cliques no container de texto */
+  text-decoration: none;
+  color: var(--ink);
+}
+
+/* Reativa clique apenas no botão do link */
+.link-arrow .arrow-icon {
+  pointer-events: auto;     /* reabilita o clique */
+  cursor: pointer;
+}
+
+/* Aparência neutra do texto */
+.link-arrow span, 
+.link-arrow b, 
+.link-arrow i {
+  color: var(--ink);
+}
+
+/* Mantém destaque visual no botão */
+.arrow-icon {
+  display: inline-block;
+  padding: 0 6px;
+  margin-left: 6px;
+  border-radius: 6px;
+  background: #EEF2F7;
+  color: var(--primary);
+  font-size: .85em;
+  line-height: 1.2;
+  vertical-align: baseline;
+  border: none;
+}
