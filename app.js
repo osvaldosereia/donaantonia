@@ -209,7 +209,7 @@ function genVariantsFromQuery(q){
 
  const IA_PROMPTS = {
   resumo:        (t, full) => `Faça um RESUMO em tópicos com fundamentos e aplicações práticas.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-  detalhada:     (t, full) => `Atue como um professor de Direito brasileiro, analise e pesquise sobre o tema proposto, crie uma apostila didática e exemplificativa para estudantes de direito. A sua resposta deve ensinar, atualizar e preparar o estudante para provas de concuros e prova da oab. .\n\nTEMA:\n${full}`,
+  detalhada:     (t, full) => `Atue como um professor de Direito brasileiro, analise e pesquise sobre o tema proposto, crie uma apostila didática e exemplificativa para estudantes de direito. A sua resposta deve ensinar, atualizar e preparar o estudante para provas de concuros e prova da oab. Inicie com um indice que aborde do conceito básico até a prática jurídica. .\n\nTEMA:\n${full}`,
   dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
   objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
   videos:        (t)       => `Liste 3–5 vídeoaulas no site:youtube.com sobre o tema: ${t}`,
