@@ -1,45 +1,32 @@
-# Citação e Resposta do Acusado
+# Resposta à Acusação
 - Código de Processo Penal
 # Dispositivos Legais
 - Art. 406. O juiz, ao receber a denúncia ou a queixa, ordenará a citação do acusado para responder a acusação, por escrito, no prazo de 10 (dez) dias.
-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
 - § 1.º O prazo previsto no caput deste artigo será contado a partir do efetivo cumprimento do mandado ou do comparecimento, em juízo, do acusado ou de defensor constituído, no caso de citação inválida ou por edital.
-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
 - § 2.º A acusação deverá arrolar testemunhas, até o máximo de 8 (oito), na denúncia ou na queixa.
-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
 - § 3.º Na resposta, o acusado poderá arguir preliminares e alegar tudo que interesse a sua defesa, oferecer documentos e justificações, especificar as provas pretendidas e arrolar testemunhas, até o máximo de 8 (oito), qualificando-as e requerendo sua intimação, quando necessário.
-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
 # Remissões Normativas
 - Vide art. 800, II, do CPP.
--- trata do prazo para apresentação de razões e contrarrazões em recursos.
+-- estabelece os prazos para os juízes proferirem decisões interlocutórias simples.
 - Vide Súmula 710 do STF.
--- define que no processo penal, contam-se os prazos da data da intimação, e não da juntada aos autos do mandado ou da carta precatória ou de ordem.
+-- determina que no processo penal, os prazos contam-se da data da intimação, e não da juntada aos autos do mandado.
 -----
-# Processamento das Exceções
+# Processamento de Exceções
 - Código de Processo Penal
 # Dispositivos Legais
 - Art. 407. As exceções serão processadas em apartado, nos termos dos arts. 95 a 112 deste Código.
-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
 # Remissões Normativas
 - Vide art. 111 do CP.
--- estabelece que a extinção da punibilidade de crime que é pressuposto, elemento constitutivo ou circunstância agravante de outro não se estende a este.
+-- dispõe sobre o termo inicial da prescrição antes de transitar em julgado a sentença final.
 -----
-  # Ausência de Resposta
+# Ausência de Resposta
 - Código de Processo Penal
 # Dispositivos Legais
 - Art. 408. Não apresentada a resposta no prazo legal, o juiz nomeará defensor para oferecê-la em até 10 (dez) dias, concedendo-lhe vista dos autos.
-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
 -----
-# Manifestação sobre a Defesa
-- Código de Processo Penal
-# Dispositivos Legais
-- Art. 409. Apresentada a defesa, o juiz ouvirá o Ministério Público ou o querelante sobre preliminares e documentos, em 5 (cinco) dias.
-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
------
-# Inquirição de Testemunhas e Diligências
-- Código de Processo Penal
-# Dispositivos Legais
-- Art. 410. O juiz determinará a inquirição das testemunhas e a realização das diligências requeridas pelas partes, no prazo máximo de 10 (dez) dias.
-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
------
-  
