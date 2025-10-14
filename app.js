@@ -222,7 +222,7 @@ function genVariantsFromQuery(q){
   perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
   revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
   pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
-  julgados:      (t, full) => `Entenda o tema apresentado e encontre decisões reais de tribunais superiores relacionadas ao tema ou dispositivo abaixo. Inicie sua busca pelo site jurisprudencia.jt.jus.br/jurisprudencia-nacional/home e priorize decisões colegiadas recentes (últimos 15 anos), com repercussão geral ou súmulas vinculantes. Tema: ${t} Texto-base / dispositivo: ${full}`.trim(),
+  julgados:      (t, full) => `Entenda o tema apresentado e encontre decisões reais de tribunais superiores relacionadas ao tema ou dispositivo abaixo. Inicie sua busca pelo site jusbrasil.com.br e priorize decisões colegiadas recentes (últimos 5 anos), com repercussão geral ou súmulas vinculantes. Tema: ${t} Texto-base / dispositivo: ${full}`.trim(),
 
 };   
 
