@@ -207,24 +207,48 @@ function genVariantsFromQuery(q){
   /* ===== IA helpers ===== */
   function googleIA(prompt){ return `https://www.google.com/search?udm=50&q=${encodeURIComponent(prompt)}`; }
 
- const IA_PROMPTS = {
-  resumo:        (t, full) => `Faça um RESUMO em tópicos com fundamentos e aplicações práticas.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-  detalhada:     (t, full) => `Atue como um professor de Direito brasileiro, analise e pesquise sobre o tema proposto, crie uma apostila didática e exemplificativa para estudantes de direito. A sua resposta deve ensinar, atualizar e preparar o estudante para provas de concuros e prova da oab. Inicie com um indice que aborde do conceito básico até a prática jurídica. .\n\nTEMA:\n${full}`,
-  dissertativas: (t, full) => `Crie 5 QUESTÕES DISSERTATIVAS com gabarito comentado e base legal.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-  objetivas:     (t, full) => `Crie 10 QUESTÕES OBJETIVAS (A–E) com gabarito e breve justificativa.\n\nTEMA: ${t}\n\nCONTEÚDO:\n${full}`,
-  videos:        (t)       => `Liste 3–5 vídeoaulas no site:youtube.com sobre o tema: ${t}`,
-  artigos:       (t)       => `Liste 3–5 artigos sobre o tema ${t} (podem ser PDF). site:.jusbrasil.com.br OR site:.migalhas.com.br OR site:.edu.br OR site:usp.br OR site:ufrj.br OR site:ufmg.br OR site:ufrgs.br OR site:unb.br (principais faculdades de Direito do Brasil: USP, UFRJ, UFMG, UFRGS e UnB)`,
-  atualizacao:   (t, full) => `Verifique em fontes oficiais (Planalto, LexML, Diários Oficiais) se o texto a seguir sofreu alteração nos últimos 2 anos (apenas texto legal, sem comentários ou jurisprudência). Tema: ${t}\n\nTEXTO PARA COMPARAR:\n${full}`,
-  leis:          (t, full) => `Pesquise leis relacionadas ao tema e detalhes os artigos e pontos relacionados. Tema: ${t}; Texto-base: ${full}`,
-  ffp:          (t, full) => `Atue como um advogado experiente, analise o tema e me traga 3 exemplos reais e comuns na prática jurídica de Fato, Fumamentos e Pedids para o tema a seguir. Tema: ${t}; Texto-base: ${full}`,
-  cabimento:     (t, full) => `Você é advogado; Comente a função, efeitos e cabimento desse artigo na prática jurídica. Tema: ${t}; Texto-base: ${full}`,
-  remissoes:     (t, full) => `Liste, súmulas (incl. vinculantes), enunciados, teses, temas repetitivos e informativos relacionados ao tema. Tema: ${t}\n\nTEXTO:\n${full}`,
-  perguntas:     (t, full) => `Quais perguntas um aluno de Direito deve saber responder sobre o tema? Liste e responda de forma objetiva, com base legal. Tema: ${t}\n\nTEXTO:\n${full}`,
-  revisao:       (t, full) => `Revisão rápida e objetiva: liste apenas assertivas essenciais para prova sobre o tema. Tema: ${t}\n\nTEXTO:\n${full}`,
-  pratica:       (t, full) => `Você é advogado; gere orientação prática concisa em Markdown: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (links oficiais .jus.br/.gov.br ou Jusbrasil); se faltar dado, "insuficiente". Tema: ${t}; Texto-base: ${full}`,
-  julgados:      (t, full) => `Entenda o tema apresentado e encontre decisões reais de tribunais superiores relacionadas ao tema ou dispositivo abaixo. Inicie sua busca pelo site jusbrasil.com.br e priorize decisões colegiadas recentes (últimos 5 anos), com repercussão geral ou súmulas vinculantes. Tema: ${t} Texto-base / dispositivo: ${full}`.trim(),
+const IA_PROMPTS = {
+  resumo:        (t, full) => `Resuma em tópicos claros e objetivos, destacando fundamentos legais e aplicações práticas.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
 
-};   
+  detalhada:     (t, full) => `Atue como professor de Direito brasileiro. Elabore uma explicação didática e completa em formato de apostila, com índice do conceito à prática jurídica, voltada para OAB e concursos.\n\nTEMA:\n${full}`,
+
+  dissertativas: (t, full) => `Crie 5 questões dissertativas com gabarito comentado, base legal e explicação sucinta.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  objetivas:     (t, full) => `Crie 10 questões objetivas (A–E) com gabarito e justificativa breve, evitando repetição de ideias.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  quiz:          (t, full) => `Monte um quiz com 10 perguntas rápidas sobre o tema (misture objetivas e dissertativas curtas) e apresente o gabarito ao final.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  videos:        (t)       => `Liste 3–5 vídeoaulas no YouTube sobre ${t}, priorizando conteúdo didático e jurídico.`,
+
+  artigos:       (t)       => `Liste 3–5 artigos jurídicos ou acadêmicos sobre ${t}. Prefira fontes confiáveis: jusbrasil.com.br, migalhas.com.br, e universidades (USP, UFRJ, UFMG, UFRGS, UnB).`,
+
+  atualizacao:   (t, full) => `Verifique em fontes oficiais (Planalto, LexML, Diários Oficiais) se o texto abaixo sofreu alterações legais nos últimos 2 anos.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  leis:          (t, full) => `Pesquise leis e dispositivos correlatos ao tema, destacando artigos mais diretamente relacionados ao texto-base.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  ffp:           (t, full) => `Atue como advogado. Apresente 3 exemplos práticos de Fatos, Fundamentos e Pedidos comuns na prática jurídica sobre o tema.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  cabimento:     (t, full) => `Explique a função, efeitos e hipóteses de cabimento do artigo ou instituto a seguir na prática jurídica.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  jurisprudencia:(t, full) => `Resuma a jurisprudência dominante e as súmulas relacionadas ao tema, priorizando entendimentos recentes de tribunais superiores (últimos 5 anos).\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  controv:       (t, full) => `Analise as principais controvérsias doutrinárias e jurisprudenciais sobre o tema, expondo as correntes divergentes e o entendimento predominante.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  doutrina:      (t, full) => `Liste e resuma as posições de 3 a 5 doutrinadores relevantes sobre o tema, indicando a obra e a corrente teórica que representam.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  comparativo:   (t, full) => `Compare institutos ou princípios relacionados ao tema, apontando semelhanças, diferenças e exemplos práticos de aplicação.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  linhaTemporal: (t, full) => `Apresente uma linha do tempo da evolução legislativa e jurisprudencial do tema, com marcos históricos e alterações relevantes.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  pratica:       (t, full) => `Atue como advogado. Gere orientação prática em Markdown com: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (.jus.br, .gov.br ou Jusbrasil). Se faltar dado, diga "insuficiente".\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  casos:         (t, full) => `Crie 3 casos práticos sobre o tema, cada um com enunciado, pergunta e solução fundamentada em lei e jurisprudência.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  interdisciplinar: (t, full) => `Mostre como o tema se relaciona com outros ramos do Direito (Constitucional, Penal, Administrativo, Civil) e áreas externas (sociologia, economia, tecnologia).\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+
+  revisao:       (t, full) => `Revisão rápida: liste apenas as assertivas e pontos-chave essenciais para prova sobre o tema.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+};
+   
 
   /* ===== Parser de chunk TXT ===== */
   function parseTemaFromChunk(chunk){
@@ -642,22 +666,27 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
   function openIADropdown(anchorBtn, title, fullText){
   closeIADrop();
   const actions = [
-    {key:'resumo',        label:'Resumo'},
-    {key:'detalhada',     label:'Detalhado'},
-    {key:'revisao',       label:'Revisão'},
-    {key:'perguntas',     label:'Perguntas Essenciais'},     
-    {key:'dissertativas', label:'Questões Dissertativas'},
-    {key:'objetivas',     label:'Questões Objetivas'},
-    {key:'videos',        label:'Vídeos'},
-    {key:'artigos',       label:'Artigos'},
-    {key:'julgados',      label:'Julgados'},
-    {key:'leis',          label:'leis'},
-    {key:'ffp',          label:'ffp'},
-    {key:'pratica',       label:'Prática Jurídica'},
-    {key:'cabimento',     label:'Cabimento'},
-    {key:'remissoes',     label:'Jurisprudência correlata'},
-    {key:'atualizacao',   label:'Consultar Atualização'}
-  ];
+  { key: 'resumo',          label: 'Resumo' },
+  { key: 'detalhada',       label: 'Explicação Detalhada' },
+  { key: 'revisao',         label: 'Revisão Rápida' },
+  { key: 'dissertativas',   label: 'Questões Dissertativas' },
+  { key: 'objetivas',       label: 'Questões Objetivas' },
+  { key: 'quiz',            label: 'Quiz Interativo' },
+  { key: 'videos',          label: 'Vídeoaulas' },
+  { key: 'artigos',         label: 'Artigos Jurídicos' },
+  { key: 'leis',            label: 'Leis Relacionadas' },
+  { key: 'ffp',             label: 'Fatos, Fundamentos e Pedidos' },
+  { key: 'cabimento',       label: 'Cabimento Prático' },
+  { key: 'jurisprudencia',  label: 'Jurisprudência e Súmulas' },
+  { key: 'controv',         label: 'Controvérsias Doutrinárias' },
+  { key: 'doutrina',        label: 'Doutrina Relevante' },
+  { key: 'comparativo',     label: 'Comparativo de Institutos' },
+  { key: 'linhaTemporal',   label: 'Linha do Tempo Legal' },
+  { key: 'pratica',         label: 'Prática Jurídica' },
+  { key: 'casos',           label: 'Casos Práticos' },
+  { key: 'interdisciplinar',label: 'Aplicação Interdisciplinar' },
+  { key: 'atualizacao',     label: 'Atualização Legislativa' }
+];
 
   __iaDrop = document.createElement('div');
   __iaDrop.className='ia-pop';
