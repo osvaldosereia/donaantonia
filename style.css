@@ -429,3 +429,25 @@ button.mini{
   margin-top:4px;
   padding-top:4px;
 }
+/* ===== Afinar textos dos cards ===== */
+.card, .card .ubox, .card .ubox-section {
+  font-weight: 400;       /* corpo mais leve */
+  color: var(--ink);
+}
+
+.card .h1, .card .h2 {
+  font-weight: 500;       /* títulos ainda visíveis, mas menos pesados */
+}
+
+.card .ubox, .card .ubox-section {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* remissões, notas, glossário ou comentários menores */
+.card .muted,
+.card .ref-list,
+.card .card-cat {
+  font-weight: 300;
+  opacity: .9;
+}
