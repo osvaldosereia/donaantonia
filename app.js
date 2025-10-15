@@ -658,80 +658,118 @@ function leaveHomeMode(){ document.body.classList.remove('is-home','route-home')
 }
 
 
-  /* ===== IA — dropdown (chips verticais) ===== */
-  let __iaDrop=null;
-  function closeIADrop(){ if(__iaDrop){ __iaDrop.remove(); __iaDrop=null; document.removeEventListener('click', onDocCloseIADrop, true); } }
-  function onDocCloseIADrop(e){ if(__iaDrop && !__iaDrop.contains(e.target)) closeIADrop(); }
-
-  function openIADropdown(anchorBtn, title, fullText){
-  closeIADrop();
-  const IA_GROUPS = [
-  {
-    label: '📘 Estudo',
-    items: [
-      { key: 'resumo',        label: 'Resumo' },
-      { key: 'detalhada',     label: 'Explicação Detalhada' },
-      { key: 'doutrina',      label: 'Doutrina Relevante' },
-      { key: 'comparativo',   label: 'Comparativo de Institutos' },
-      { key: 'controv',       label: 'Controvérsias Doutrinárias' },
-      { key: 'interdisciplinar', label: 'Aplicação Interdisciplinar' },
-    ]
-  },
-  {
-    label: '🧠 Revisão',
-    items: [
-      { key: 'revisao',       label: 'Revisão Rápida' },
-      { key: 'dissertativas', label: 'Questões Dissertativas' },
-      { key: 'objetivas',     label: 'Questões Objetivas' },
-      { key: 'quiz',          label: 'Quiz Interativo' },
-      { key: 'videos',        label: 'Vídeoaulas' },
-      { key: 'artigos',       label: 'Artigos Jurídicos' },
-    ]
-  },
-  {
-    label: '⚖️ Prática',
-    items: [
-      { key: 'ffp',           label: 'Fatos, Fundamentos e Pedidos' },
-      { key: 'cabimento',     label: 'Cabimento Prático' },
-      { key: 'pratica',       label: 'Prática Jurídica' },
-      { key: 'casos',         label: 'Casos Práticos' },
-    ]
-  },
-  {
-    label: '🔍 Pesquisa',
-    items: [
-      { key: 'leis',          label: 'Leis Relacionadas' },
-      { key: 'jurisprudencia',label: 'Jurisprudência e Súmulas' },
-      { key: 'linhaTemporal', label: 'Linha do Tempo Legal' },
-      { key: 'atualizacao',   label: 'Atualização Legislativa' },
-    ]
+ /* ===== IA — dropdown (chips verticais) ===== */
+let __iaDrop = null;
+function closeIADrop() {
+  if (__iaDrop) {
+    __iaDrop.remove();
+    __iaDrop = null;
+    document.removeEventListener('click', onDocCloseIADrop, true);
   }
-];
+}
+function onDocCloseIADrop(e) {
+  if (__iaDrop && !__iaDrop.contains(e.target)) closeIADrop();
+}
+
+function openIADropdown(anchorBtn, title, fullText) {
+  closeIADrop();
+
+  const IA_GROUPS = {
+    estudo: {
+      label: '📘 Estudo',
+      items: [
+        { key: 'resumo', label: 'Resumo' },
+        { key: 'detalhada', label: 'Explicação Detalhada' },
+        { key: 'doutrina', label: 'Doutrina Relevante' },
+        { key: 'comparativo', label: 'Comparativo de Institutos' },
+        { key: 'controv', label: 'Controvérsias Doutrinárias' },
+        { key: 'interdisciplinar', label: 'Aplicação Interdisciplinar' },
+      ]
+    },
+    revisao: {
+      label: '🧠 Revisão',
+      items: [
+        { key: 'revisao', label: 'Revisão Rápida' },
+        { key: 'dissertativas', label: 'Questões Dissertativas' },
+        { key: 'objetivas', label: 'Questões Objetivas' },
+        { key: 'quiz', label: 'Quiz Interativo' },
+        { key: 'videos', label: 'Vídeoaulas' },
+        { key: 'artigos', label: 'Artigos Jurídicos' },
+      ]
+    },
+    pratica: {
+      label: '⚖️ Prática',
+      items: [
+        { key: 'ffp', label: 'Fatos, Fundamentos e Pedidos' },
+        { key: 'cabimento', label: 'Cabimento Prático' },
+        { key: 'pratica', label: 'Prática Jurídica' },
+        { key: 'casos', label: 'Casos Práticos' },
+      ]
+    },
+    pesquisa: {
+      label: '🔍 Pesquisa',
+      items: [
+        { key: 'leis', label: 'Leis Relacionadas' },
+        { key: 'jurisprudencia', label: 'Jurisprudência e Súmulas' },
+        { key: 'linhaTemporal', label: 'Linha do Tempo Legal' },
+        { key: 'atualizacao', label: 'Atualização Legislativa' },
+      ]
+    }
+  };
 
   __iaDrop = document.createElement('div');
-  __iaDrop.className='ia-pop';
- __iaDrop.innerHTML = IA_GROUPS.map(g => `
-  <div class="ia-group">
-    <div class="ia-group-title">${g.label}</div>
-    ${g.items.map(a => `<button class="ia-item" data-k="${a.key}">${a.label}</button>`).join('')}
-  </div>
-`).join('');
-
+  __iaDrop.className = 'ia-pop';
   document.body.appendChild(__iaDrop);
+
+  // ===== Renderização =====
+  function renderCategories() {
+    __iaDrop.innerHTML = Object.entries(IA_GROUPS)
+      .map(([k, g]) => `<button class="ia-item ia-cat" data-cat="${k}">${g.label}</button>`)
+      .join('');
+  }
+
+  function renderSubmenu(cat) {
+    const g = IA_GROUPS[cat];
+    __iaDrop.innerHTML = `
+      <button class="ia-item ia-back" data-back="1">◀ Voltar</button>
+      ${g.items.map(a => `<button class="ia-item" data-k="${a.key}">${a.label}</button>`).join('')}
+    `;
+  }
+
+  renderCategories();
 
   const r = anchorBtn.getBoundingClientRect();
   __iaDrop.style.left = (r.left + window.scrollX) + 'px';
   __iaDrop.style.top  = (r.bottom + window.scrollY + 6) + 'px';
 
-  __iaDrop.addEventListener('click', (e)=>{
-    const k = e.target.dataset.k; if(!k) return;
-    const p = (k==='videos'||k==='artigos') ? IA_PROMPTS[k](title) : IA_PROMPTS[k](title, fullText);
-    window.open(googleIA(p), '_blank', 'noopener');
-    closeIADrop();
+  // ===== Eventos =====
+  __iaDrop.addEventListener('click', (e) => {
+    const cat = e.target.dataset.cat;
+    const back = e.target.dataset.back;
+    const k = e.target.dataset.k;
+
+    if (cat) {
+      renderSubmenu(cat);
+      return;
+    }
+
+    if (back) {
+      renderCategories();
+      return;
+    }
+
+    if (k) {
+      const p = (k === 'videos' || k === 'artigos')
+        ? IA_PROMPTS[k](title)
+        : IA_PROMPTS[k](title, fullText);
+      window.open(googleIA(p), '_blank', 'noopener');
+      closeIADrop();
+    }
   });
 
-  setTimeout(()=>document.addEventListener('click', onDocCloseIADrop, true),0);
+  setTimeout(() => document.addEventListener('click', onDocCloseIADrop, true), 0);
 }
+
 
 
   /* ===== ROLAGEM INFINITA ===== */
