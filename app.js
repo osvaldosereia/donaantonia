@@ -1292,121 +1292,162 @@ CACHED_FILES.set(path, parsed.map(t=>({
 
   // ---- View: Execução ----
   function renderRun() {
-    const el = $(CONTENT_SEL);
-    if (!el) return;
+  const el = $(CONTENT_SEL);
+  if (!el) return;
 
-    // limpar timer anterior
-    if (QUIZ._timer) { clearInterval(QUIZ._timer); QUIZ._timer = null; }
+  // limpar timer anterior
+  if (QUIZ._timer) { clearInterval(QUIZ._timer); QUIZ._timer = null; }
 
-    const q = currentQuestion();
-    if (!q) {
-      render(el, `
-        <section class="card ubox" tabindex="-1" data-focus>
-          <header class="card-head"><h2 class="h2">Quiz</h2></header>
-          <p class="muted">Nenhuma questão disponível.</p>
-          <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
-        </section>
-      `);
-      return;
-    }
-
-    const total  = QUIZ.session.order.length;
-    const n      = QUIZ.session.i + 1;
-    const chosen = QUIZ.session.answers[q.id];
-    const isLast = QUIZ.session.i === total - 1;
-    const isSimu = QUIZ.session.mode === 'simulado';
-
-    // no simulado não mostramos correto/errado agora
-    const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
-
-    // timer por questão se q.tempo e simulado
-    let timerHtml = '';
-    if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
-      timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
-    }
-
+  const q = currentQuestion();
+  if (!q) {
     render(el, `
-      <section class="card ubox quiz-card" tabindex="-1" data-focus>
-        <header class="card-head">
-          <div class="row jc between">
-            <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
-            <span class="muted">${n}/${total}</span>
-          </div>
-          <div class="row gap">
-            <p class="muted">${htmlEscape(q.fonte || '')}</p>
-            ${timerHtml}
-          </div>
-        </header>
-
-        <div class="vspace">
-          <div class="enunciado">${htmlEscape(q.enunciado)}</div>
-
-          <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
-            ${q.alternativas.map(a => {
-              const isSel = chosen === a.id;
-              const cls = ['chip', isSel?'is-selected':''].join(' ');
-              const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
-              return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
-            }).join('')}
-          </div>
-
-          ${feedback ? `
-            <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
-              ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
-            </div>` : ''}
-
-          <div class="row gap mt12">
-            <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
-            <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
-            <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
-            <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
-          </div>
-        </div>
+      <section class="card ubox" tabindex="-1" data-focus>
+        <header class="card-head"><h2 class="h2">Quiz</h2></header>
+        <p class="muted">Nenhuma questão disponível.</p>
+        <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
       </section>
     `);
+    return;
+  }
 
-    // Handlers
-    $$('.radiogroup .chip', el).forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const altId = btn.getAttribute('data-alt');
-        setAnswer(q.id, altId);
-        if (!isSimu) {
-          renderRun(); // mostra feedback
-        } else {
-          // só marcar seleção
-          $$('.radiogroup .chip', el).forEach(b => b.classList.remove('is-selected'));
-          btn.classList.add('is-selected');
-        }
-      });
-    });
-    $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
-    $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
-    $('[data-finish]', el)?.addEventListener('click', ()=>{
-      QUIZ.session.finishedAt = Date.now();
-      saveLS();
-      renderSummary();
-    });
+  const total  = QUIZ.session.order.length;
+  const n      = QUIZ.session.i + 1;
+  const chosen = QUIZ.session.answers[q.id];
+  const isLast = QUIZ.session.i === total - 1;
+  const isSimu = QUIZ.session.mode === 'simulado';
 
-    // Timer
-    if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
-      const node = $('#q-timer', el);
-      let remain = q.tempo;
-      QUIZ._timer = setInterval(()=>{
-        remain -= 1;
-        if (node) node.textContent = `${remain}s`;
-        if (remain <= 0) {
-          clearInterval(QUIZ._timer); QUIZ._timer = null;
-          if (!nextQuestion()) {
-            QUIZ.session.finishedAt = Date.now();
-            saveLS();
-            renderSummary();
-          } else {
-            renderRun();
-          }
-        }
-      }, 1000);
+  // no simulado não mostramos correto/errado
+  const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
+
+  // timer por questão se simulado
+  let timerHtml = '';
+  if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
+    timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
+  }
+
+  render(el, `
+    <section class="card ubox quiz-card" tabindex="-1" data-focus>
+      <header class="card-head">
+        <div class="row jc between">
+          <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
+          <span class="muted">${n}/${total}</span>
+        </div>
+        <div class="row gap">
+          <p class="muted">${htmlEscape(q.fonte || '')}</p>
+          ${timerHtml}
+        </div>
+      </header>
+
+      <div class="vspace">
+        <div class="enunciado">${htmlEscape(q.enunciado)}</div>
+
+        <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
+          ${q.alternativas.map(a => {
+            const isSel = chosen === a.id;
+            const cls = ['chip', isSel?'is-selected':''].join(' ');
+            const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
+            return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
+          }).join('')}
+        </div>
+
+        ${feedback ? `
+          <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
+            ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
+          </div>` : ''}
+
+        <div class="row gap mt12">
+          <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
+          <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
+          <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
+          <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
+        </div>
+      </div>
+    </section>
+  `);
+
+  // ===== Navegação por teclado (hotkeys) =====
+  const scope = el.querySelector('.quiz-card');
+  const chips = Array.from(scope.querySelectorAll('.radiogroup .chip'));
+  chips.forEach((b,i)=> b.dataset.pos = String(i));
+
+  function focusPos(pos){
+    const btn = chips[pos];
+    if (btn) { btn.focus(); scope.dataset.pos = String(pos); }
+  }
+  function nextPos(delta){
+    const cur = +(scope.dataset.pos || 0);
+    let n = cur + delta;
+    if (n < 0) n = 0;
+    if (n > chips.length - 1) n = chips.length - 1;
+    focusPos(n);
+  }
+  function chooseFocused(){
+    const cur = +(scope.dataset.pos || 0);
+    const btn = chips[cur];
+    if (!btn) return;
+    const altId = btn.getAttribute('data-alt');
+    setAnswer(q.id, altId);
+    if (!isSimu) {
+      renderRun();
+    } else {
+      chips.forEach(b => b.classList.remove('is-selected'));
+      btn.classList.add('is-selected');
     }
   }
+  scope.addEventListener('keydown', (e)=>{
+    switch(e.key){
+      case 'ArrowDown': e.preventDefault(); nextPos(+1); break;
+      case 'ArrowUp':   e.preventDefault(); nextPos(-1); break;
+      case 'ArrowRight':e.preventDefault(); el.querySelector('[data-next]')?.click(); break;
+      case 'ArrowLeft': e.preventDefault(); el.querySelector('[data-prev]')?.click(); break;
+      case 'Enter':     e.preventDefault(); chooseFocused(); break;
+      case 'f':         e.preventDefault(); el.querySelector('[data-finish]')?.click(); break;
+    }
+  });
+  if (!scope.dataset.pos) focusPos(0);
+
+  // Handlers de clique
+  $$('.radiogroup .chip', el).forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const altId = btn.getAttribute('data-alt');
+      setAnswer(q.id, altId);
+      if (!isSimu) {
+        renderRun();
+      } else {
+        $$('.radiogroup .chip', el).forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+      }
+    });
+  });
+  $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
+  $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
+  $('[data-finish]', el)?.addEventListener('click', ()=>{
+    QUIZ.session.finishedAt = Date.now();
+    saveLS();
+    renderSummary();
+  });
+
+  // Timer por questão no simulado
+  if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
+    const node = $('#q-timer', el);
+    let remain = q.tempo;
+    QUIZ._timer = setInterval(()=>{
+      remain -= 1;
+      if (node) node.textContent = `${remain}s`;
+      if (remain <= 0) {
+        clearInterval(QUIZ._timer); QUIZ._timer = null;
+        if (!nextQuestion()) {
+          QUIZ.session.finishedAt = Date.now();
+          saveLS();
+          renderSummary();
+        } else {
+          renderRun();
+        }
+      }
+    }, 1000);
+  }
+}
+
 
   // ---- View: Gabarito / Resumo ----
   function renderSummary(){
@@ -1483,46 +1524,53 @@ CACHED_FILES.set(path, parsed.map(t=>({
 
   // ---- Roteamento ----
   function parseHash() {
-    const h = location.hash || '';
-    const m = h.match(/^#\/quiz(?:\/([^?]+))?(?:\?(.*))?$/i);
-    if (!m) return null;
-    const slug = m[1] ? decodeURIComponent(m[1]) : null;
-    const qstr = m[2] || '';
-    const params = Object.fromEntries(new URLSearchParams(qstr));
-    const mode = (params.mode === 'simulado') ? 'simulado' : 'estudo';
-    const tag  = params.tag || null;
-    return { slug, mode, tag };
-  }
+  const h = location.hash || '';
+  const m = h.match(/^#\/quiz(?:\/([^?]+))?(?:\?(.*))?$/i);
+  if (!m) return null;
+  const slug = m[1] ? decodeURIComponent(m[1]) : null;
+  const params = Object.fromEntries(new URLSearchParams(m[2] || ''));
+  const mode = (params.mode === 'simulado') ? 'simulado' : 'estudo';
+  const tag  = params.tag || null;
+  const q    = Number.isFinite(+params.q) ? Math.max(0, (+params.q|0)) : null; // índice 0-based
+  return { slug, mode, tag, q };
+}
 
-  async function handleRoute() {
-    const r = parseHash();
-    if (!r) return false;
 
-    if (!r.slug) {
-      await viewList();
-      return true;
-    }
+ async function handleRoute() {
+  const r = parseHash();
+  if (!r) return false;
 
-    if (!QUIZ.list.length) await loadBank();
-
-    const expectedId = `tema:${r.slug}`;
-    const needNew =
-      !QUIZ.session ||
-      (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
-      (QUIZ.session.mode !== r.mode);
-
-    if (needNew) {
-      QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode);
-      saveLS();
-    }
-
-    if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) {
-      renderSummary();
-    } else {
-      renderRun();
-    }
+  if (!r.slug) {
+    await viewList();
     return true;
   }
+
+  if (!QUIZ.list.length) await loadBank();
+
+  const expectedId = `tema:${r.slug}`;
+  const needNew =
+    !QUIZ.session ||
+    (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
+    (QUIZ.session.mode !== r.mode);
+
+  if (needNew) {
+    QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode);
+    saveLS();
+  }
+
+  if (r.q != null && QUIZ.session?.order?.length) {
+    QUIZ.session.i = Math.min(r.q, QUIZ.session.order.length - 1);
+    saveLS();
+  }
+
+  if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) {
+    renderSummary();
+  } else {
+    renderRun();
+  }
+  return true;
+}
+
 
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
