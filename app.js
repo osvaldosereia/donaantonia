@@ -1062,11 +1062,13 @@ async function renderByRoute(){
   window.addEventListener('hashchange', renderByRoute);
 
   // Init
-  (async function init(){
-    closeDrawer();
-    await renderByRoute();
-    bindAutocomplete();
-  })();
+(async function init(){
+  closeDrawer();
+  await loadTemas();        // <— carregue os temas sempre
+  await renderByRoute();    // depois roteia (inclusive quiz)
+  bindAutocomplete();
+})();
+
 
 /* =========================================
    QUIZ v2 — simples: lista (cat/tema) + execução + resumo de erros
