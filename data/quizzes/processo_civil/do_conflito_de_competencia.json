@@ -1,30 +1,195 @@
 [
   {
-    "id": "vinculo-empregaticio-01",
-    "tema": "Direito do Trabalho",
-    "enunciado": "Caracteriza vínculo empregatício a reunião de:",
+    "id": "cpc-competencia-q1",
+    "tema": "Conflito de Competência",
+    "enunciado": "A Construtora X S.A. ajuizou ação de cobrança contra o Município Y, perante a 1ª Vara da Fazenda Pública. O Município, em sua contestação, arguiu a incompetência relativa do juízo, tese que foi rejeitada pelo magistrado. Inconformado com a tramitação do processo e convicto da incompetência do juízo da 1ª Vara, o Município decide suscitar conflito de competência perante o Tribunal de Justiça. Com base no Código de Processo Civil, a atitude do Município é:",
     "alternativas": [
-      {"id":"a","texto":"Subordinação, habitualidade, onerosidade e pessoalidade.","correta":true,"comentario":"Requisitos clássicos do art. 3º da CLT."},
-      {"id":"b","texto":"Eventualidade e autonomia.","correta":false,"comentario":"Eventualidade e autonomia afastam o vínculo."},
-      {"id":"c","texto":"Trabalho autônomo com subcontratação livre.","correta":false,"comentario":"Autonomia afasta subordinação."}
+      {
+        "id": "a",
+        "texto": "Cabível, pois o conflito de competência pode ser suscitado por qualquer das partes a qualquer tempo, visando garantir o princípio do juiz natural.",
+        "correta": false,
+        "comentario": "Incorreto. A possibilidade de suscitar o conflito não é irrestrita e a arguição prévia de incompetência relativa gera um impedimento específico."
+      },
+      {
+        "id": "b",
+        "texto": "Incabível, pois a parte que já arguiu incompetência relativa no processo está impedida de suscitar o conflito de competência.",
+        "correta": true,
+        "comentario": "Correto. Conforme o Art. 952 do CPC, a parte que, no processo, arguiu incompetência relativa não pode suscitar conflito."
+      },
+      {
+        "id": "c",
+        "texto": "Cabível, desde que o Ministério Público, como fiscal da ordem jurídica, emita parecer favorável à suscitação do conflito.",
+        "correta": false,
+        "comentario": "Incorreto. A atuação do Ministério Público no conflito tem regras próprias e não serve como condição para a parte que já está legalmente impedida."
+      },
+      {
+        "id": "d",
+        "texto": "Incabível, pois o conflito de competência só pode ser suscitado pelo juiz, de ofício, ou pelo Ministério Público na qualidade de parte.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 951 do CPC estabelece que o conflito pode ser suscitado por qualquer das partes, pelo Ministério Público ou pelo juiz."
+      },
+      {
+        "id": "e",
+        "texto": "Cabível, pois a rejeição da exceção de incompetência pelo juízo de primeiro grau não impede que a questão seja levada ao tribunal via conflito.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a questão de competência possa ser revista, o conflito não é a via adequada para a parte que já exerceu sua faculdade de arguir a incompetência relativa."
+      }
     ],
-    "tags": ["trabalho","contrato"],
-    "dificuldade": "fácil",
-    "tempo": 60,
-    "fonte": "Art. 3º, CLT"
+    "fonte": "Art. 952, CPC",
+    "tags": ["processual civil", "conflito de competência", "legitimidade"]
   },
   {
-    "id": "jornada-intervalo-01",
-    "tema": "Direito do Trabalho",
-    "enunciado": "No regime de 8 horas diárias, o intervalo intrajornada mínimo é:",
+    "id": "cpc-competencia-q2",
+    "tema": "Conflito de Competência",
+    "enunciado": "Em um conflito positivo de competência suscitado entre dois juízos cíveis, o relator designado no Tribunal de Justiça, ao analisar os autos, verifica que a matéria já foi objeto de tese firmada em Incidente de Resolução de Demandas Repetitivas (IRDR) pelo próprio tribunal. Nesse cenário, qual o procedimento a ser adotado pelo relator?",
     "alternativas": [
-      {"id":"a","texto":"10 minutos.","correta":false,"comentario":"Aplicável a pausas específicas, não ao intrajornada padrão."},
-      {"id":"b","texto":"1 hora.","correta":true,"comentario":"Art. 71, caput, da CLT."},
-      {"id":"c","texto":"2 horas obrigatórias.","correta":false,"comentario":"Até 2 horas, mas 1 hora é o mínimo."}
+      {
+        "id": "a",
+        "texto": "Determinar a oitiva dos juízes em conflito e, após, a do Ministério Público para, só então, levar o caso a julgamento pelo colegiado.",
+        "correta": false,
+        "comentario": "Incorreto. Este é o procedimento padrão, mas existe uma exceção que se aplica ao caso, tornando-o mais célere."
+      },
+      {
+        "id": "b",
+        "texto": "Julgar o conflito de plano, monocraticamente, declarando o juízo competente, com fundamento na tese já firmada em julgamento de casos repetitivos.",
+        "correta": true,
+        "comentario": "Correto. O Art. 955, parágrafo único, II, do CPC, autoriza o relator a julgar de plano o conflito quando sua decisão se fundar em tese firmada em julgamento de casos repetitivos."
+      },
+      {
+        "id": "c",
+        "texto": "Sobrestar o processo e designar um dos juízes para resolver as medidas urgentes, aguardando o trânsito em julgado da decisão do IRDR.",
+        "correta": false,
+        "comentario": "Incorreto. O sobrestamento é uma faculdade, mas a existência de tese firmada em IRDR autoriza uma medida mais definitiva e imediata pelo relator."
+      },
+      {
+        "id": "d",
+        "texto": "Ouvir apenas o Ministério Público, no prazo de 5 dias, e em seguida submeter a decisão ao colegiado, por se tratar de matéria de ordem pública.",
+        "correta": false,
+        "comentario": "Incorreto. A oitiva do MP é parte do rito comum, mas o poder de julgamento monocrático do relator, neste caso, prevalece e simplifica o procedimento."
+      },
+      {
+        "id": "e",
+        "texto": "Suscitar um novo incidente de assunção de competência para ratificar a tese do IRDR antes de decidir o conflito.",
+        "correta": false,
+        "comentario": "Incorreto. A tese firmada em IRDR já possui força vinculante no âmbito do tribunal, não sendo necessária a instauração de novo incidente para sua aplicação."
+      }
     ],
-    "tags": ["trabalho","jornada"],
-    "dificuldade": "médio",
-    "tempo": 45,
-    "fonte": "Art. 71, CLT"
+    "fonte": "Art. 955, Parágrafo Único, II, CPC",
+    "tags": ["processual civil", "conflito de competência", "poderes do relator", "precedentes"]
+  },
+  {
+    "id": "cpc-competencia-q3",
+    "tema": "Conflito de Competência",
+    "enunciado": "Ao decidir um conflito de competência, o Tribunal não apenas define qual juízo deverá processar e julgar a causa, mas também deve se pronunciar sobre outro ponto crucial para a validade do processo. A que ponto o Art. 957 do CPC se refere?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A condenação da parte que suscitou o conflito em custas processuais, caso seja considerado improcedente.",
+        "correta": false,
+        "comentario": "Incorreto. A decisão sobre o conflito é um incidente processual e não trata, em regra, de ônus sucumbenciais, mas sim da organização judiciária."
+      },
+      {
+        "id": "b",
+        "texto": "A validade dos atos processuais praticados pelo juízo declarado incompetente.",
+        "correta": true,
+        "comentario": "Correto. O Art. 957, caput, do CPC, estabelece expressamente que o tribunal, ao decidir o conflito, pronunciar-se-á também sobre a validade dos atos do juízo incompetente."
+      },
+      {
+        "id": "c",
+        "texto": "A necessidade de intervenção do Ministério Público como parte no processo principal.",
+        "correta": false,
+        "comentario": "Incorreto. A atuação do MP é definida pela natureza da causa principal (Art. 178), não sendo uma consequência automática da decisão do conflito."
+      },
+      {
+        "id": "d",
+        "texto": "A remessa dos autos ao Superior Tribunal de Justiça caso haja divergência entre tribunais distintos.",
+        "correta": false,
+        "comentario": "Incorreto. O STJ é competente para conflitos entre tribunais, mas o Art. 957 trata do conteúdo da decisão do tribunal que julga o conflito em sua esfera de competência."
+      },
+      {
+        "id": "e",
+        "texto": "A fixação de um prazo para que o juízo competente conclua a instrução do feito.",
+        "correta": false,
+        "comentario": "Incorreto. O tribunal declara a competência, mas não interfere na condução do processo pelo juiz natural, que seguirá os prazos e ritos legais."
+      }
+    ],
+    "fonte": "Art. 957, CPC",
+    "tags": ["processual civil", "conflito de competência", "decisão", "atos processuais"]
+  },
+  {
+    "id": "cpc-competencia-q4",
+    "tema": "Conflito de Competência",
+    "enunciado": "Sobre a participação do Ministério Público no incidente de conflito de competência, é correto afirmar que:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Sempre atuará como parte, independentemente de quem tenha suscitado o conflito, dada a natureza de ordem pública da matéria.",
+        "correta": false,
+        "comentario": "Incorreto. O MP só terá qualidade de parte nos conflitos que ele próprio suscitar."
+      },
+      {
+        "id": "b",
+        "texto": "Será obrigatoriamente ouvido em todos os conflitos de competência, no prazo de 5 dias, antes do julgamento.",
+        "correta": false,
+        "comentario": "Incorreto. A oitiva obrigatória como fiscal da ordem jurídica se restringe aos casos previstos no Art. 178 do CPC."
+      },
+      {
+        "id": "c",
+        "texto": "Terá qualidade de parte apenas nos conflitos que ele mesmo suscitar, e será ouvido como fiscal da ordem jurídica nos processos em que sua intervenção é obrigatória por lei.",
+        "correta": true,
+        "comentario": "Correto. Esta alternativa sintetiza perfeitamente o disposto no Art. 951, parágrafo único, do CPC, que diferencia a atuação do MP como parte e como fiscal."
+      },
+      {
+        "id": "d",
+        "texto": "Sua manifestação pode ser dispensada pelo relator se as informações dos juízes em conflito forem suficientes para a resolução da controvérsia.",
+        "correta": false,
+        "comentario": "Incorreto. Nos casos em que sua oitiva é exigida, ela é obrigatória, conforme o Art. 956, que determina a oitiva mesmo que as informações não tenham sido prestadas."
+      },
+      {
+        "id": "e",
+        "texto": "Somente poderá suscitar o conflito de competência em matéria criminal, sendo-lhe vedada a suscitação em matéria cível.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 951, caput, confere legitimidade ao Ministério Público para suscitar o conflito de forma ampla, sem restrição à matéria cível."
+      }
+    ],
+    "fonte": "Art. 951, Parágrafo Único, e Art. 956, CPC",
+    "tags": ["processual civil", "conflito de competência", "ministério público"]
+  },
+  {
+    "id": "cpc-competencia-q5",
+    "tema": "Conflito de Competência",
+    "enunciado": "Um conflito de competência é instaurado entre um Desembargador de uma Câmara Cível e um Juiz de uma Vara de Família convocado para atuar no mesmo Tribunal de Justiça. A quem compete regular o processo e o julgamento deste conflito específico?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Ao Superior Tribunal de Justiça, pois envolve membro de Tribunal.",
+        "correta": false,
+        "comentario": "Incorreto. O STJ julga conflitos entre tribunais distintos ou entre juiz federal e estadual, por exemplo, mas não conflitos internos de um mesmo tribunal."
+      },
+      {
+        "id": "b",
+        "texto": "Ao Conselho Nacional de Justiça, por se tratar de matéria disciplinar e de organização judiciária.",
+        "correta": false,
+        "comentario": "Incorreto. O CNJ tem atribuições de controle administrativo e disciplinar, mas não a competência jurisdicional para julgar conflitos de competência."
+      },
+      {
+        "id": "c",
+        "texto": "Ao próprio tribunal, cujo regimento interno disporá sobre o procedimento, por se tratar de um conflito envolvendo seus próprios membros.",
+        "correta": true,
+        "comentario": "Correto. O Art. 958 do CPC delega expressamente ao regimento interno do tribunal a regulamentação do processo e julgamento de conflitos que envolvam órgãos fracionários ou juízes em exercício no próprio tribunal."
+      },
+      {
+        "id": "d",
+        "texto": "Ao Supremo Tribunal Federal, em razão da prerrogativa de foro do Desembargador.",
+        "correta": false,
+        "comentario": "Incorreto. A competência do STF para julgar conflitos é restrita às hipóteses constitucionais, que não abrangem conflitos internos de outros tribunais."
+      },
+      {
+        "id": "e",
+        "texto": "Ao Código de Processo Civil exclusivamente, que detalha todo o procedimento sem margem para a regulação por normas secundárias.",
+        "correta": false,
+        "comentario": "Incorreto. O próprio CPC, no Art. 958, faz uma norma de exceção, remetendo a regulação específica da matéria ao regimento interno do tribunal."
+      }
+    ]
   }
 ]
