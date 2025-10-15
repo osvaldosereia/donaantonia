@@ -1417,6 +1417,8 @@ async function renderByRoute(){
     return true;
   }
 
-  window.addEventListener('hashchange', handleRoute);
+window.addEventListener('hashchange', handleRoute);
 window.addEventListener('load', handleRoute);
-})();
+})(); // fecha IIFE #2
+})(); // fecha IIFE #1
+
