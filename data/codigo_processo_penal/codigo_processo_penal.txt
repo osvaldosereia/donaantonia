@@ -30,3 +30,410 @@
 - Art. 408. Não apresentada a resposta no prazo legal, o juiz nomeará defensor para oferecê-la em até 10 (dez) dias, concedendo-lhe vista dos autos.
 -- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
 -----
+# Audiência de Instrução
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 411. Na audiência de instrução, proceder-se-á à tomada de declarações do ofendido, se possível, à inquirição das testemunhas arroladas pela acusação e pela defesa, nesta ordem, bem como aos esclarecimentos dos peritos, às acareações e ao reconhecimento de pessoas e coisas, interrogando-se, em seguida, o acusado e procedendo-se o debate.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Os esclarecimentos dos peritos dependerão de prévio requerimento e de deferimento pelo juiz.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º As provas serão produzidas em uma só audiência, podendo o juiz indeferir as consideradas irrelevantes, impertinentes ou protelatórias.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 3.º Encerrada a instrução probatória, observar-se-á, se for o caso, o disposto no art. 384 deste Código.
+-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 4.º As alegações serão orais, concedendo-se a palavra, respectivamente, à acusação e à defesa, pelo prazo de 20 (vinte) minutos, prorrogáveis por mais 10 (dez).
+-- § 4.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 5.º Havendo mais de 1 (um) acusado, o tempo previsto para a acusação e a defesa de cada um deles será individual.
+-- § 5.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 6.º Ao assistente do Ministério Público, após a manifestação deste, serão concedidos 10 (dez) minutos, prorrogando-se por igual período o tempo de manifestação da defesa.
+-- § 6.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 7.º Nenhum ato será adiado, salvo quando imprescindível à prova faltante, determinando o juiz a condução coercitiva de quem deva comparecer.
+-- § 7.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 8.º A testemunha que comparecer será inquirida, independentemente da suspensão da audiência, observada em qualquer caso a ordem estabelecida no caput deste artigo.
+-- § 8.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 9.º Encerrados os debates, o juiz proferirá a sua decisão, ou o fará em 10 (dez) dias, ordenando que os autos para isso lhe sejam conclusos.
+-- § 9.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 536 do CPP.
+-- trata da inquirição da testemunha que comparece à audiência, mesmo que haja suspensão.
+-----
+# Conclusão do Procedimento
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 412. O procedimento será concluído no prazo máximo de 90 (noventa) dias.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 5.º, LXXVIII, da CF.
+-- assegura a todos, no âmbito judicial e administrativo, a razoável duração do processo e os meios que garantam a celeridade de sua tramitação.
+-----
+# Pronúncia
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 413. O juiz, fundamentadamente, pronunciará o acusado, se convencido da materialidade do fato e da existência de indícios suficientes de autoria ou de participação.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º A fundamentação da pronúncia limitar-se-á à indicação da materialidade do fato e da existência de indícios suficientes de autoria ou de participação, devendo o juiz declarar o dispositivo legal em que julgar incurso o acusado e especificar as circunstâncias qualificadoras e as causas de aumento de pena.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º Se o crime for afiançável, o juiz arbitrará o valor da fiança para a concessão ou manutenção da liberdade provisória.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 3.º O juiz decidirá, motivadamente, no caso de manutenção, revogação ou substituição da prisão ou medida restritiva de liberdade anteriormente decretada e, tratando-se de acusado solto, sobre a necessidade da decretação da prisão ou imposição de quaisquer das medidas previstas no Título IX do Livro I deste Código.
+-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 5.º, LVII, da CF.
+-- estabelece o princípio da presunção de inocência, segundo o qual ninguém será considerado culpado até o trânsito em julgado de sentença penal condenatória.
+- Vide arts. 564, III, f, e 581, IV, do CPP.
+-- tratam, respectivamente, da nulidade por falta dos elementos essenciais da sentença de pronúncia e do cabimento de Recurso em Sentido Estrito contra a decisão de pronúncia.
+- Vide art. 117, II, do CP.
+-- prevê que a decisão de pronúncia interrompe o curso do prazo prescricional.
+- Vide Súmula 191 do STJ.
+-- dispõe que a pronúncia é causa de interrupção da prescrição, mesmo que o Tribunal do Júri venha a desclassificar o crime.
+- Vide art. 418 do CPP.
+-- trata do procedimento a ser adotado pelo juiz caso se convença da existência de crime diverso dos dolosos contra a vida (desclassificação).
+- Vide art. 7.º do Decreto-lei n. 3.931, de 11-12-1941.
+-- dispõe sobre a organização da mobilização nacional.
+- Vide arts. 321 a 350 do CPP.
+-- regulam a aplicação da fiança no processo penal.
+- Vide Súmula 21 do STJ.
+-- estabelece que, pronunciado o réu, fica superada a alegação de constrangimento ilegal por excesso de prazo na instrução.
+-----
+# Impronúncia
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 414. Não se convencendo da materialidade do fato ou da existência de indícios suficientes de autoria ou de participação, o juiz, fundamentadamente, impronunciará o acusado.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- Parágrafo único. Enquanto não ocorrer a extinção da punibilidade, poderá ser formulada nova denúncia ou queixa se houver prova nova.
+-- Parágrafo único com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide Súmula 524 do STF.
+-- determina que, arquivado o inquérito policial por despacho do juiz, a ação penal não pode ser iniciada sem novas provas.
+- Vide art. 107 do CP.
+-- elenca as causas de extinção da punibilidade.
+-----
+# Absolvição Sumária
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 415. O juiz, fundamentadamente, absolverá desde logo o acusado, quando:
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- I – provada a inexistência do fato;
+-- Inciso I com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- II – provado não ser ele autor ou partícipe do fato;
+-- Inciso II com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- III – o fato não constituir infração penal;
+-- Inciso III com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- IV – demonstrada causa de isenção de pena ou de exclusão do crime.
+-- Inciso IV com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- Parágrafo único. Não se aplica o disposto no inciso IV do caput deste artigo ao caso de inimputabilidade prevista no caput do art. 26 do Decreto-lei n. 2.848, de 7 de dezembro de 1940 – Código Penal, salvo quando esta for a única tese defensiva.
+-- Parágrafo único com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Recurso da Impronúncia ou Absolvição Sumária
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 416. Contra a sentença de impronúncia ou de absolvição sumária caberá apelação.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Indícios de Coautoria ou Participação
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 417. Se houver indícios de autoria ou de participação de outras pessoas não incluídas na acusação, o juiz, ao pronunciar ou impronunciar o acusado, determinará o retorno dos autos ao Ministério Público, por 15 (quinze) dias, aplicável, no que couber, o art. 80 deste Código.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 28 do CPP.
+-- trata do procedimento a ser adotado caso o membro do Ministério Público, em vez de aditar a denúncia, solicite o arquivamento dos autos.
+-----
+# Emendatio Libelli na Pronúncia
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 418. O juiz poderá dar ao fato definição jurídica diversa da constante da acusação, embora o acusado fique sujeito a pena mais grave.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 383 do CPP.
+-- estabelece a regra geral da emendatio libelli, permitindo ao juiz atribuir definição jurídica diversa ao fato descrito na denúncia, ainda que implique pena mais grave.
+-----
+# Desclassificação
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 419. Quando o juiz se convencer, em discordância com a acusação, da existência de crime diverso dos referidos no § 1.º do art. 74 deste Código e não for competente para o julgamento, remeterá os autos ao juiz que o seja.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- Parágrafo único. Remetidos os autos do processo a outro juiz, à disposição deste ficará o acusado preso.
+-- Parágrafo único com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 5.º, LV, da CF.
+-- assegura aos litigantes em processo judicial ou administrativo o contraditório e a ampla defesa.
+- Vide arts. 81, parágrafo único, e 581, II, do CPP.
+-- tratam, respectivamente, da manutenção dos atos instrutórios em caso de incompetência reconhecida posteriormente e do cabimento de Recurso em Sentido Estrito contra a decisão que julga a exceção de incompetência.
+- Vide Súmula 603 do STF.
+-- define que a competência para o julgamento do crime de latrocínio é do juiz singular e não do Tribunal do Júri.
+-----
+# Intimação da Pronúncia
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 420. A intimação da decisão de pronúncia será feita:
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- I – pessoalmente ao acusado, ao defensor nomeado e ao Ministério Público;
+-- Inciso I com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- II – ao defensor constituído, ao querelante e ao assistente do Ministério Público, na forma do disposto no § 1.º do art. 370 deste Código.
+-- Inciso II com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- Parágrafo único. Será intimado por edital o acusado solto que não for encontrado.
+-- Parágrafo único com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 370, § 4.º, do CPP.
+-- estabelece que a intimação do defensor nomeado e do acusado devem ser feitas obrigatoriamente.
+- Vide art. 370, § 1.º, do CPP.
+-- determina que a intimação do defensor constituído, do advogado do querelante e do assistente se fará por publicação no órgão incumbido da publicidade dos atos judiciais.
+-----
+# Encaminhamento dos Autos ao Tribunal do Júri
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 421. Preclusa a decisão de pronúncia, os autos serão encaminhados ao juiz presidente do Tribunal do Júri.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Ainda que preclusa a decisão de pronúncia, havendo circunstância superveniente que altere a classificação do crime, o juiz ordenará a remessa dos autos ao Ministério Público.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º Em seguida, os autos serão conclusos ao juiz para decisão.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Preparação do Processo para Julgamento em Plenário
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 422. Ao receber os autos, o presidente do Tribunal do Júri determinará a intimação do órgão do Ministério Público ou do querelante, no caso de queixa, e do defensor, para, no prazo de 5 (cinco) dias, apresentarem rol de testemunhas que irão depor em plenário, até o máximo de 5 (cinco), oportunidade em que poderão juntar documentos e requerer diligência.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide arts. 406, §§ 2.º e 3.º, e 461 do CPP.
+-- tratam, respectivamente, da apresentação de rol de testemunhas na resposta à acusação e das providências em caso de não comparecimento da testemunha.
+-----
+# Saneamento e Relatório do Processo
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 423. Deliberando sobre os requerimentos de provas a serem produzidas ou exibidas no plenário do júri, e adotadas as providências devidas, o juiz presidente:
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- I – ordenará as diligências necessárias para sanar qualquer nulidade ou esclarecer fato que interesse ao julgamento da causa;
+-- Inciso I com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- II – fará relatório sucinto do processo, determinando sua inclusão em pauta da reunião do Tribunal do Júri.
+-- Inciso II com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 430 do CPPM.
+-- trata do relatório do processo no âmbito da Justiça Militar.
+-----
+# Remessa dos Autos Preparados ao Presidente do Júri
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 424. Quando a lei local de organização judiciária não atribuir ao presidente do Tribunal do Júri o preparo para julgamento, o juiz competente remeter-lhe-á os autos do processo preparado até 5 (cinco) dias antes do sorteio a que se refere o art. 433 deste Código.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- Parágrafo único. Deverão ser remetidos, também, os processos preparados até o encerramento da reunião, para a realização de julgamento.
+-- Parágrafo único com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Alistamento dos Jurados
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 425. Anualmente, serão alistados pelo presidente do Tribunal do Júri de 800 (oitocentos) a 1.500 (um mil e quinhentos) jurados nas comarcas de mais de 1.000.000 (um milhão) de habitantes, de 300 (trezentos) a 700 (setecentos) nas comarcas de mais de 100.000 (cem mil) habitantes e de 80 (oitenta) a 400 (quatrocentos) nas comarcas de menor população.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Nas comarcas onde for necessário, poderá ser aumentado o número de jurados e, ainda, organizada lista de suplentes, depositadas as cédulas em urna especial, com as cautelas mencionadas na parte final do § 3.º do art. 426 deste Código.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º O juiz presidente requisitará às autoridades locais, associações de classe e de bairro, entidades associativas e culturais, instituições de ensino em geral, universidades, sindicatos, repartições públicas e outros núcleos comunitários a indicação de pessoas que reúnam as condições para exercer a função de jurado.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Publicação e Organização da Lista Geral de Jurados
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 426. A lista geral dos jurados, com indicação das respectivas profissões, será publicada pela imprensa até o dia 10 de outubro de cada ano e divulgada em editais afixados à porta do Tribunal do Júri.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º A lista poderá ser alterada, de ofício ou mediante reclamação de qualquer do povo ao juiz presidente até o dia 10 de novembro, data de sua publicação definitiva.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º Juntamente com a lista, serão transcritos os arts. 436 a 446 deste Código.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 3.º Os nomes e endereços dos alistados, em cartões iguais, após serem verificados na presença do Ministério Público, de advogado indicado pela Seção local da Ordem dos Advogados do Brasil e de defensor indicado pelas Defensorias Públicas competentes, permanecerão guardados em urna fechada a chave, sob a responsabilidade do juiz presidente.
+-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 4.º O jurado que tiver integrado o Conselho de Sentença nos 12 (doze) meses que antecederem à publicação da lista geral fica dela excluído.
+-- § 4.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 5.º Anualmente, a lista geral de jurados será, obrigatoriamente, completada.
+-- § 5.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide arts. 436 a 446 do CPP.
+-- dispõem sobre a função do jurado, tratando dos requisitos, isenções, recusas e dispensa para o serviço.
+-----
+# Desaforamento por Interesse da Ordem Pública
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 427. Se o interesse da ordem pública o reclamar ou houver dúvida sobre a imparcialidade do júri ou a segurança pessoal do acusado, o Tribunal, a requerimento do Ministério Público, do assistente, do querelante ou do acusado ou mediante representação do juiz competente, poderá determinar o desaforamento do julgamento para outra comarca da mesma região, onde não existam aqueles motivos, preferindo-se as mais próximas.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º O pedido de desaforamento será distribuído imediatamente e terá preferência de julgamento na Câmara ou Turma competente.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º Sendo relevantes os motivos alegados, o relator poderá determinar, fundamentadamente, a suspensão do julgamento pelo júri.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 3.º Será ouvido o juiz presidente, quando a medida não tiver sido por ele solicitada.
+-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 4.º Na pendência de recurso contra a decisão de pronúncia ou quando efetivado o julgamento, não se admitirá o pedido de desaforamento, salvo, nesta última hipótese, quanto a fato ocorrido durante ou após a realização de julgamento anulado.
+-- § 4.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 109 do CPPM.
+-- trata do desaforamento no processo penal militar.
+- Vide Súmula 712 do STF.
+-- anula a decisão de desaforamento proferida sem a prévia audiência da defesa.
+- Vide art. 581, IV, do CPP.
+-- prevê o cabimento de Recurso em Sentido Estrito contra a decisão de pronúncia.
+-----
+# Desaforamento por Excesso de Serviço
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 428. O desaforamento também poderá ser determinado, em razão do comprovado excesso de serviço, ouvidos o juiz presidente e a parte contrária, se o julgamento não puder ser realizado no prazo de 6 (seis) meses, contado do trânsito em julgado da decisão de pronúncia.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Para a contagem do prazo referido neste artigo, não se computará o tempo de adiamentos, diligências ou incidentes de interesse da defesa.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º Não havendo excesso de serviço ou existência de processos aguardando julgamento em quantidade que ultrapasse a possibilidade de apreciação pelo Tribunal do Júri, nas reuniões periódicas previstas para o exercício, o acusado poderá requerer ao Tribunal que determine a imediata realização do julgamento.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide Súmula 712 do STF.
+-- anula a decisão de desaforamento proferida sem a prévia audiência da defesa.
+- Vide Súmula 64 do STJ.
+-- dispõe que não constitui constrangimento ilegal o excesso de prazo na instrução provocado pela defesa.
+- Vide Súmula 21 do STJ.
+-- estabelece que, pronunciado o réu, fica superada a alegação de constrangimento ilegal da prisão por excesso de prazo na instrução.
+-----
+# Ordem dos Julgamentos
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 429. Salvo motivo relevante que autorize alteração na ordem dos julgamentos, terão preferência:
+- I – os acusados presos;
+- II – dentre os acusados presos, aqueles que estiverem há mais tempo na prisão;
+- III – em igualdade de condições, os precedentemente pronunciados.
+-- Caput e incisos com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Antes do dia designado para o primeiro julgamento da reunião periódica, será afixada na porta do edifício do Tribunal do Júri a lista dos processos a serem julgados, obedecida a ordem prevista no caput deste artigo.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º O juiz presidente reservará datas na mesma reunião periódica para a inclusão de processo que tiver o julgamento adiado.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Habilitação do Assistente
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 430. O assistente somente será admitido se tiver requerido sua habilitação até 5 (cinco) dias antes da data da sessão na qual pretenda atuar.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide arts. 268 e 269 do CPP.
+-- definem quem pode intervir como assistente do Ministério Público e em que momento processual.
+-----
+# Intimações para a Sessão de Julgamento
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 431. Estando o processo em ordem, o juiz presidente mandará intimar as partes, o ofendido, se for possível, as testemunhas e os peritos, quando houver requerimento, para a sessão de instrução e julgamento, observando, no que couber, o disposto no art. 420 deste Código.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 420 deste Código.
+-- dispõe sobre a forma de intimação da decisão de pronúncia.
+- Vide art. 370 do CPP.
+-- estabelece as regras gerais sobre as intimações no processo penal.
+-----
+# Intimação para o Sorteio dos Jurados
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 432. Em seguida à organização da pauta, o juiz presidente determinará a intimação do Ministério Público, da Ordem dos Advogados do Brasil e da Defensoria Pública para acompanharem, em dia e hora designados, o sorteio dos jurados que atuarão na reunião periódica.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Sorteio dos Jurados
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 433. O sorteio, presidido pelo juiz, far-se-á a portas abertas, cabendo-lhe retirar as cédulas até completar o número de 25 (vinte e cinco) jurados, para a reunião periódica ou extraordinária.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º O sorteio será realizado entre o 15.º (décimo quinto) e o 10.º (décimo) dia útil antecedente à instalação da reunião.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º A audiência de sorteio não será adiada pelo não comparecimento das partes.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 3.º O jurado não sorteado poderá ter o seu nome novamente incluído para as reuniões futuras.
+-- § 3.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 564, III, j, do CPP.
+-- prevê a nulidade do processo por falta do sorteio dos jurados do conselho de sentença ou sua realização por juiz incompetente.
+-----
+# Convocação dos Jurados Sorteados
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 434. Os jurados sorteados serão convocados pelo correio ou por qualquer outro meio hábil para comparecer no dia e hora designados para a reunião, sob as penas da lei.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- Parágrafo único. No mesmo expediente de convocação serão transcritos os arts. 436 a 446 deste Código.
+-- Parágrafo único com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide arts. 436 a 446 deste Código.
+-- dispõem sobre a função do jurado, tratando dos requisitos, isenções, recusas e dispensa para o serviço.
+-----
+# Publicidade da Pauta de Julgamentos
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 435. Serão afixados na porta do edifício do Tribunal do Júri a relação dos jurados convocados, os nomes do acusado e dos procuradores das partes, além do dia, hora e local das sessões de instrução e julgamento.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Obrigatoriedade e Requisitos do Serviço do Júri
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 436. O serviço do júri é obrigatório. O alistamento compreenderá os cidadãos maiores de 18 (dezoito) anos de notória idoneidade.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Nenhum cidadão poderá ser excluído dos trabalhos do júri ou deixar de ser alistado em razão de cor ou etnia, raça, credo, sexo, profissão, classe social ou econômica, origem ou grau de instrução.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º A recusa injustificada ao serviço do júri acarretará multa no valor de 1 (um) a 10 (dez) salários mínimos, a critério do juiz, de acordo com a condição econômica do jurado.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Isenção do Serviço do Júri
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 437. Estão isentos do serviço do júri:
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- I – o Presidente da República e os Ministros de Estado;
+-- Inciso I com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- II – os Governadores e seus respectivos Secretários;
+-- Inciso II com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- III – os membros do Congresso Nacional, das Assembleias Legislativas e das Câmaras Distrital e Municipais;
+-- Inciso III com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- IV – os Prefeitos Municipais;
+-- Inciso IV com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- V – os Magistrados e membros do Ministério Público e da Defensoria Pública;
+-- Inciso V com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- VI – os servidores do Poder Judiciário, do Ministério Público e da Defensoria Pública;
+-- Inciso VI com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- VII – as autoridades e os servidores da polícia e da segurança pública;
+-- Inciso VII com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- VIII – os militares em serviço ativo;
+-- Inciso VIII com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- IX – os cidadãos maiores de 70 (setenta) anos que requeiram sua dispensa;
+-- Inciso IX com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- X – aqueles que o requererem, demonstrando justo impedimento.
+-- Inciso X com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Recusa por Convicção (Escusa de Consciência)
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 438. A recusa ao serviço do júri fundada em convicção religiosa, filosófica ou política importará no dever de prestar serviço alternativo, sob pena de suspensão dos direitos políticos, enquanto não prestar o serviço imposto.
+-- Caput com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 1.º Entende-se por serviço alternativo o exercício de atividades de caráter administrativo, assistencial, filantrópico ou mesmo produtivo, no Poder Judiciário, na Defensoria Pública, no Ministério Público ou em entidade conveniada para esses fins.
+-- § 1.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- § 2.º O juiz fixará o serviço alternativo atendendo aos princípios da proporcionalidade e da razoabilidade.
+-- § 2.º com redação determinada pela Lei n. 11.689, de 9-6-2008.
+# Remissões Normativas
+- Vide art. 15, IV, da CF.
+-- prevê a suspensão dos direitos políticos para aquele que se recusa a cumprir obrigação a todos imposta ou a prestar serviço alternativo.
+-----
+# Função de Jurado como Serviço Público Relevante
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 439. O exercício efetivo da função de jurado constituirá serviço público relevante e estabelecerá presunção de idoneidade moral.
+-- Artigo com redação determinada pela Lei n. 12.403, de 4-5-2011.
+-----
+# Direitos do Jurado
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 440. Constitui também direito do jurado, na condição do art. 439 deste Código, preferência, em igualdade de condições, nas licitações públicas e no provimento, mediante concurso, de cargo ou função pública, bem como nos casos de promoção funcional ou remoção voluntária.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Garantia Salarial do Jurado
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 441. Nenhum desconto será feito nos vencimentos ou salário do jurado sorteado que comparecer à sessão do júri.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Multa por Não Comparecimento
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 442. Ao jurado que, sem causa legítima, deixar de comparecer no dia marcado para a sessão ou retirar-se antes de ser dispensado pelo presidente será aplicada multa de 1 (um) a 10 (dez) salários mínimos, a critério do juiz, de acordo com a sua condição econômica.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
+# Escusa por Motivo Relevante
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 443. Somente será aceita escusa fundada em motivo relevante devidamente comprovado e apresentada, ressalvadas as hipóteses de força maior, até o momento da chamada dos jurados.
+-- Artigo com redação determinada pela Lei n. 11.689, de 9-6-2008.
+-----
