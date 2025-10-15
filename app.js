@@ -66,7 +66,7 @@
     if(hay===qn) s+=100;
     if(hay.includes(qn)) s+=60;
     for(const t of qn.split(/\s+/).filter(Boolean)){
-      const rx=new RegExp(`(?<![a-z0-9])${pluralRegexToken(t)}(?![a-z0-9])`,'g');
+const rx=new RegExp(`(^|[^a-z0-9])${pluralRegexToken(t)}(?![a-z0-9])`,'g');
       if(rx.test(hay)) s+=10;
     }
     return s;
@@ -98,8 +98,10 @@ function normBasic(s){
 }
 function normNumbers(s){
   // 9.2.7 / 9-27 / 927. → 927 ; mantém sufixo A/B
-  return s.replace(/(?<=\b\d{1,3})[.\-](?=\d{1,3}\b)/g,'')
-          .replace(/(?<=\d)\.(?=\D|\b)/g,'');
+ return s
+  .replace(/(\b\d{1,3})[.\-](?=\d{1,3}\b)/g,'$1')  // 9.2.7 → 92.7 → 927 após repetição
+  .replace(/(\d)\.(?=\D|\b)/g,'$1');               // 927. → 927
+
 }
 function normOrdinals(s){
   return s.replace(/\b(\d+)\s*[º°o]\b/g,'$1')
@@ -150,8 +152,9 @@ function normNumToken(tok){
   // ex.: "1.990" → "1990", "927-A" → "927a", "§ 2º" → "par2"
   let s = normJur(tok);
   s = s.replace(/\bparagrafo\s+(\d+|unico)\b/g,'par$1');
-  s = s.replace(/(?<=\b\d{1,3})[.\-](?=\d{1,3}\b)/g,''); // remove pontos/hífens internos em números
-  s = s.replace(/[\-]/g,''); // 927-a → 927a
+s = s.replace(/(\b\d{1,3})[.\-](?=\d{1,3}\b)/g,'$1'); // sem lookbehind
+s = s.replace(/-/g,'');
+
   return s;
 }
 function genVariantsFromQuery(q){
