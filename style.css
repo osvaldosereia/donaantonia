@@ -484,3 +484,15 @@ section.card .ubox strong + .row.jc.between { display:none !important; }
 .quiz-card .opt-badge{
   font-weight:600 !important;   /* selo A/B/C mais firme */
 }
+/* carregar Inter com peso 300 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* aplicar só nas opções */
+.quiz-card .radiogroup .chip,
+.quiz-card .radiogroup .chip .opt-text{
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* manter o selo A/B/C mais firme */
+.quiz-card .opt-badge{ font-weight: 600 !important; }
