@@ -1068,7 +1068,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
     files: [],           // ['trabalho.json', ...]
     bank: new Map(),     // Map<questaoId, questao>
     list: [],            // questões
-    session: null,       // { quizId, order[], i, answers, startedAt, finishedAt?, mode, seed }
+    session: null,       // { quizId, order[], i, answers, marks, startedAt, finishedAt?, mode, seed }
     _timer: null
   };
   const LS_KEY = 'meujus:quiz:v1';
@@ -1235,13 +1235,13 @@ CACHED_FILES.set(path, parsed.map(t=>({
     if (!pick.length) return null;
     const seed  = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
     const order = shuffle(pick.map(q => q.id), seed);
-    return { quizId:`tema:${slug}`, order, i:0, answers:{}, startedAt:Date.now(), mode, seed };
+    return { quizId:`tema:${slug}`, order, i:0, answers:{}, marks:{}, startedAt:Date.now(), mode, seed };
   }
   function buildSessionFromIds(ids, label='revisao-erros', seed = Date.now()){
     const valid = ids.filter(id => QUIZ.bank.has(id));
     if (!valid.length) return null;
     const order = shuffle(valid, seed);
-    return { quizId:`review:${label}`, order, i:0, answers:{}, startedAt:Date.now(), mode:'estudo', seed };
+    return { quizId:`review:${label}`, order, i:0, answers:{}, marks:{}, startedAt:Date.now(), mode:'estudo', seed };
   }
   function currentQuestion(){ if (!QUIZ.session) return null; const qid = QUIZ.session.order[QUIZ.session.i]; return QUIZ.bank.get(qid) || null; }
   function setAnswer(qid, altId){ if (!QUIZ.session) return; QUIZ.session.answers[qid] = altId; saveLS(); }
@@ -1260,6 +1260,30 @@ CACHED_FILES.set(path, parsed.map(t=>({
       for (const t of tags){ if(!porTag.has(t)) porTag.set(t,{ok:0,tot:0}); const agg=porTag.get(t); agg.tot+=1; if(ok) agg.ok+=1; }
     }
     return { total:ids.length, acertos, erros, porTag };
+  }
+
+  // Marcações e navegação direta
+  function isMarked(idx){
+    if (!QUIZ.session) return false;
+    const qid = QUIZ.session.order[idx];
+    return !!QUIZ.session.marks[qid];
+  }
+  function toggleMarkCurrent(){
+    if (!QUIZ.session) return;
+    const qid = QUIZ.session.order[QUIZ.session.i];
+    QUIZ.session.marks[qid] = !QUIZ.session.marks[qid];
+    saveLS();
+  }
+  function jumpTo(idx){
+    if (!QUIZ.session) return;
+    const max = QUIZ.session.order.length - 1;
+    const n = Math.max(0, Math.min(idx, max));
+    if (QUIZ.session.i !== n){
+      QUIZ.session.i = n;
+      saveLS();
+      syncHashWithIndex?.();
+      renderRun();
+    }
   }
 
   // Execução
@@ -1324,9 +1348,22 @@ CACHED_FILES.set(path, parsed.map(t=>({
           <div class="row gap mt12">
             <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
             <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
+            <button class="btn" data-mark>${isMarked(QUIZ.session.i)?'Desmarcar':''} Marcar</button>
             <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
             <button class="btn ghost" data-restart>Reiniciar</button>
             <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
+          </div>
+
+          <div class="ubox mt12">
+            <strong>Mapa</strong>
+            <div class="row gap wrap mt8" id="qmap" aria-label="Mapa de questões">
+              ${QUIZ.session.order.map((qid, idx)=>{
+                const answered = QUIZ.session.answers[qid] ? 'is-answered' : '';
+                const current  = (idx===QUIZ.session.i) ? 'is-current' : '';
+                const marked   = isMarked(idx) ? 'is-marked' : '';
+                return `<button class="chip ${answered} ${current} ${marked}" data-goto="${idx}" aria-label="Questão ${idx+1}">${idx+1}</button>`;
+              }).join('')}
+            </div>
           </div>
         </div>
       </section>
@@ -1350,6 +1387,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
         case 'ArrowRight':e.preventDefault(); el.querySelector('[data-next]')?.click(); break;
         case 'ArrowLeft': e.preventDefault(); el.querySelector('[data-prev]')?.click(); break;
         case 'Enter':     e.preventDefault(); chooseFocused(); break;
+        case 'm':         e.preventDefault(); toggleMarkCurrent(); renderRun(); break;
         case 'f':         e.preventDefault(); el.querySelector('[data-finish]')?.click(); break;
       }
     });
@@ -1368,6 +1406,16 @@ CACHED_FILES.set(path, parsed.map(t=>({
     });
     $('[data-prev]', el)?.addEventListener('click', ()=>{
       if (prevQuestion()) { syncHashWithIndex(); renderRun(); }
+    });
+    $('[data-mark]', el)?.addEventListener('click', ()=>{
+      toggleMarkCurrent();
+      renderRun();
+    });
+    $('#qmap', el)?.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-goto]');
+      if (!btn) return;
+      const idx = +btn.getAttribute('data-goto');
+      if (Number.isFinite(idx)) jumpTo(idx);
     });
     $('[data-restart]', el)?.addEventListener('click', ()=>{
       const r = parseHash();
@@ -1490,5 +1538,6 @@ CACHED_FILES.set(path, parsed.map(t=>({
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
 })();
+
 
 })();
