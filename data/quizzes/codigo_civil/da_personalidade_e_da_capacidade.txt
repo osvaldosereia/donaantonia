@@ -1,0 +1,742 @@
+[
+  {
+    "id": "personalidade-q1",
+    "tema": "Personalidade e Capacidade Civil",
+    "enunciado": "Ricardo e Lúcia, casados, aguardam o nascimento de seu filho, já no oitavo mês de gestação. O avô paterno, em testamento, deixa para o neto ainda não nascido um valioso imóvel. Contudo, a criança nasce, respira por alguns instantes, mas vem a falecer logo em seguida, fato atestado por laudo médico. Considerando a teoria natalista, adotada expressamente pelo Código Civil, e a interpretação jurisprudencial dominante, assinale a alternativa correta sobre o destino do imóvel.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O nascituro não adquiriu o direito de propriedade, pois a personalidade civil só se consolida com a vida extrauterina viável, não bastando a respiração momentânea.",
+        "correta": false,
+        "comentario": "Incorreto. A lei não exige viabilidade ou tempo mínimo de vida, apenas o nascimento com vida, que se comprova pela respiração, conforme o art. 2º do CC."
+      },
+      {
+        "id": "b",
+        "texto": "O imóvel será transmitido aos pais, Ricardo e Lúcia, pois o neonato, ao nascer com vida, adquiriu personalidade jurídica e, consequentemente, o direito de propriedade sobre o bem, transmitindo-o por sucessão com seu falecimento.",
+        "correta": true,
+        "comentario": "Correto. O art. 2º do CC estabelece que a personalidade civil começa com o nascimento com vida. Ao respirar, o neonato adquiriu personalidade, herdou o imóvel e, com sua morte, o bem passa aos seus herdeiros (os pais)."
+      },
+      {
+        "id": "c",
+        "texto": "A disposição testamentária é considerada nula, pois o nascituro tem mera expectativa de direito, não podendo ser sujeito de direitos patrimoniais antes do nascimento.",
+        "correta": false,
+        "comentario": "Incorreto. O art. 2º do CC, em sua parte final, põe a salvo os direitos do nascituro desde a concepção, o que inclui a capacidade para receber doações e heranças (art. 1.798 do CC), sob condição suspensiva."
+      },
+      {
+        "id": "d",
+        "texto": "O imóvel retorna ao monte-mor do avô para ser partilhado entre os demais herdeiros, uma vez que a condição para a eficácia da cláusula testamentária (nascimento com vida) não foi plenamente satisfeita.",
+        "correta": false,
+        "comentario": "Incorreto. A condição foi satisfeita. O nascimento com vida, mesmo que por breves instantes, foi suficiente para que o recém-nascido adquirisse a propriedade do bem legado."
+      },
+      {
+        "id": "e",
+        "texto": "Os pais, Ricardo e Lúcia, receberão o imóvel na condição de curadores do nascituro, devendo administrá-lo até que a situação jurídica se resolva, mas não o adquirem por sucessão.",
+        "correta": false,
+        "comentario": "Incorreto. Com a morte do recém-nascido, que já havia adquirido a propriedade, opera-se a transmissão sucessória (droit de saisine), e os pais herdam o bem em nome próprio, não como curadores."
+      }
+    ]
+  },
+  {
+    "id": "incapacidade-q2",
+    "tema": "Incapacidade Civil e o Estatuto da Pessoa com Deficiência",
+    "enunciado": "Após a vigência da Lei n. 13.146/2015 (Estatuto da Pessoa com Deficiência), que alterou significativamente os artigos 3º e 4º do Código Civil, a sistemática da incapacidade civil foi redefinida. A respeito do tema, é correto afirmar que:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A interdição passou a ser medida excepcional que afeta apenas os atos de natureza patrimonial e negocial, tornando o interditado absolutamente incapaz para tais atos.",
+        "correta": false,
+        "comentario": "Incorreto. A interdição implica incapacidade relativa, e não absoluta. A regra atual é que a pessoa com deficiência tem plena capacidade civil."
+      },
+      {
+        "id": "b",
+        "texto": "Os indivíduos que, por causa transitória ou permanente, não puderem exprimir sua vontade foram transferidos do rol de absolutamente incapazes para o de relativamente incapazes.",
+        "correta": true,
+        "comentario": "Correto. Esta foi uma das principais alterações da Lei n. 13.146/2015, extinguindo a figura da incapacidade absoluta para maiores de idade e enquadrando tais pessoas no art. 4º, III, do CC."
+      },
+      {
+        "id": "c",
+        "texto": "A prodigalidade, quando declarada judicialmente, gera incapacidade absoluta, pois o pródigo não possui discernimento para a prática de atos que envolvam a disposição de seu patrimônio.",
+        "correta": false,
+        "comentario": "Incorreto. O pródigo é classificado como relativamente incapaz, conforme o art. 4º, IV, do CC, e sua curatela se restringe a atos de natureza patrimonial."
+      },
+      {
+        "id": "d",
+        "texto": "A única hipótese de incapacidade absoluta remanescente no Código Civil é a dos menores de 18 (dezoito) anos, mantendo-se a sistemática anterior à alteração legislativa.",
+        "correta": false,
+        "comentario": "Incorreto. A incapacidade absoluta, conforme o novo art. 3º do CC, restringe-se aos menores de 16 (dezesseis) anos. Os maiores de 16 e menores de 18 são relativamente incapazes."
+      },
+      {
+        "id": "e",
+        "texto": "Os ébrios habituais e os viciados em tóxicos são considerados absolutamente incapazes, devendo ser representados por curador para todos os atos da vida civil.",
+        "correta": false,
+        "comentario": "Incorreto. Tais indivíduos são considerados relativamente incapazes, nos termos do art. 4º, II, do CC, devendo ser assistidos, e não representados."
+      }
+    ]
+  },
+  {
+    "id": "emancipacao-q3",
+    "tema": "Emancipação e seus Efeitos",
+    "enunciado": "Júlia, com 17 anos de idade, casou-se com Pedro, de 20 anos, adquirindo, por força do art. 5º, parágrafo único, II, do Código Civil, a plena capacidade civil. Um ano depois, o casamento foi anulado por vício de vontade. Acerca da situação jurídica de Júlia após a anulação do casamento, assinale a alternativa correta.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Júlia retorna ao estado de relativamente incapaz, pois a anulação do casamento opera efeitos ex tunc, desconstituindo todos os atos dele decorrentes, inclusive a emancipação.",
+        "correta": false,
+        "comentario": "Incorreto. Esta é uma posição doutrinária minoritária. A jurisprudência e a doutrina majoritária entendem que a emancipação é irrevogável."
+      },
+      {
+        "id": "b",
+        "texto": "A emancipação de Júlia é mantida, salvo se comprovada má-fé de sua parte ao contrair o matrimônio, visando exclusivamente a antecipação da capacidade plena.",
+        "correta": false,
+        "comentario": "Incorreto. A análise da boa ou má-fé do menor é irrelevante para a manutenção da emancipação, que é um efeito legal e automático do casamento válido, ainda que posteriormente anulado."
+      },
+      {
+        "id": "c",
+        "texto": "Júlia permanece emancipada, pois a causa da emancipação (casamento) foi válida e eficaz no momento de sua ocorrência, sendo a emancipação um ato jurídico irrevogável, que visa proteger terceiros de boa-fé e a segurança jurídica.",
+        "correta": true,
+        "comentario": "Correto. Conforme entendimento doutrinário e jurisprudencial pacífico, a emancipação decorrente do casamento subsiste mesmo que este seja posteriormente anulado ou dissolvido, por ser um ato irrevogável."
+      },
+      {
+        "id": "d",
+        "texto": "A capacidade de Júlia ficará restrita, necessitando de assistência para atos de disposição patrimonial, mas podendo praticar livremente os atos existenciais.",
+        "correta": false,
+        "comentario": "Incorreto. Não existe no ordenamento jurídico a figura de uma 'semi-emancipação' ou de um retorno parcial à incapacidade neste caso. Ou ela é plenamente capaz ou é relativamente incapaz."
+      },
+      {
+        "id": "e",
+        "texto": "A sentença de anulação do casamento deve, obrigatoriamente, dispor sobre o retorno ou não de Júlia à condição de incapaz, aplicando-se o princípio do livre convencimento motivado do juiz.",
+        "correta": false,
+        "comentario": "Incorreto. A manutenção da emancipação não é uma faculdade judicial, mas uma consequência jurídica consolidada pela doutrina e jurisprudência, não cabendo ao juiz decidir sobre seu retorno."
+      }
+    ]
+  },
+  {
+    "id": "morte-presumida-q4",
+    "tema": "Morte Presumida",
+    "enunciado": "Um avião de pequeno porte desaparece ao sobrevoar a Floresta Amazônica. Após meses de buscas, nenhum destroço ou sobrevivente é encontrado. As autoridades aeronáuticas concluem, em relatório, que é 'extremamente provável' o falecimento de todos os ocupantes, incluindo o empresário João. A família de João, necessitando regularizar a situação patrimonial, pretende obter a declaração de sua morte. Qual o procedimento correto a ser adotado?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Deverá ser iniciado o processo de declaração de ausência, com nomeação de curador, e somente após o decurso do prazo para sucessão definitiva a morte será presumida.",
+        "correta": false,
+        "comentario": "Incorreto. O caso se enquadra na hipótese de morte presumida sem decretação de ausência, prevista no art. 7º do CC, que possui um procedimento mais célere."
+      },
+      {
+        "id": "b",
+        "texto": "Pode ser requerida diretamente a declaração de morte presumida, sem a prévia decretação de ausência, desde que esgotadas as buscas e averiguações.",
+        "correta": true,
+        "comentario": "Correto. A situação se amolda perfeitamente ao art. 7º, I, do CC, que autoriza a declaração de morte presumida, sem decretação de ausência, se for extremamente provável a morte de quem estava em perigo de vida."
+      },
+      {
+        "id": "c",
+        "texto": "A morte só poderá ser declarada após dois anos do término das buscas, por analogia ao prazo previsto para desaparecidos em campanha militar.",
+        "correta": false,
+        "comentario": "Incorreto. O prazo de dois anos do art. 7º, II, é específico para a hipótese de guerra e não se aplica ao caso de perigo de vida."
+      },
+      {
+        "id": "d",
+        "texto": "A família deve aguardar o prazo de 10 anos após o desaparecimento para requerer a abertura da sucessão definitiva, conforme as regras da ausência.",
+        "correta": false,
+        "comentario": "Incorreto. Este é o prazo para a sucessão definitiva no procedimento de ausência (art. 37 do CC), inaplicável aqui, pois há uma via mais específica e direta."
+      },
+      {
+        "id": "e",
+        "texto": "O registro do óbito pode ser feito diretamente no Cartório de Registro Civil, com base no relatório da autoridade aeronáutica, dispensando-se o processo judicial.",
+        "correta": false,
+        "comentario": "Incorreto. A declaração de morte presumida, mesmo nos casos do art. 7º, exige uma sentença judicial, conforme seu parágrafo único, não podendo ser feita administrativamente."
+      }
+    ]
+  },
+  {
+    "id": "comoriencia-q5",
+    "tema": "Comoriência",
+    "enunciado": "Mário e seu único filho, Fábio, falecem em um acidente automobilístico. A perícia técnica não consegue determinar qual dos dois morreu primeiro. Mário deixou um testamento beneficiando exclusivamente sua sobrinha, Ana. Fábio, por sua vez, não tinha descendentes, mas deixou sua esposa, Beatriz, como única herdeira. Considerando a regra da comoriência (art. 8º do CC), a herança de Mário será destinada:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Integralmente a Beatriz, pois, na dúvida, presume-se que o mais jovem (Fábio) faleceu depois, herdando os bens do pai e transmitindo-os à sua esposa.",
+        "correta": false,
+        "comentario": "Incorreto. O Código Civil não adota presunções baseadas em idade ou sexo (presunções de premoriência), mas sim a presunção de morte simultânea (comoriência)."
+      },
+      {
+        "id": "b",
+        "texto": "Integralmente a Ana, pois, com a morte simultânea, Fábio (herdeiro necessário) não chegou a herdar de Mário, tornando-se válida a disposição testamentária sobre a totalidade do patrimônio.",
+        "correta": true,
+        "comentario": "Correto. Se Mário e Fábio morreram simultaneamente, não houve transmissão de herança entre eles. Como Fábio não sobreviveu ao pai para herdar a legítima, a disposição testamentária de Mário em favor de Ana se torna plenamente eficaz sobre todo o seu patrimônio."
+      },
+      {
+        "id": "c",
+        "texto": "Metade para Ana (parte disponível) e metade para Beatriz (representando a legítima de Fábio).",
+        "correta": false,
+        "comentario": "Incorreto. Como não houve transmissão sucessória entre pai e filho, Fábio não adquiriu o direito à legítima para que pudesse ser transmitido à sua herdeira, Beatriz."
+      },
+      {
+        "id": "d",
+        "texto": "Aos herdeiros colaterais de Mário, pois a comoriência entre testador e herdeiro necessário anula o testamento.",
+        "correta": false,
+        "comentario": "Incorreto. A comoriência não anula o testamento. Apenas impede a transmissão da herança entre os comorientes, o que, no caso, beneficia o herdeiro testamentário."
+      },
+      {
+        "id": "e",
+        "texto": "A herança de Mário será declarada vacante, pois não há como estabelecer a linha sucessória.",
+        "correta": false,
+        "comentario": "Incorreto. A sucessão se resolve pela aplicação da regra da comoriência. Existe uma herdeira testamentária (Ana) apta a receber a herança."
+      }
+    ]
+  },
+  {
+    "id": "registro-publico-q6",
+    "tema": "Registro e Averbação",
+    "enunciado": "De acordo com os artigos 9º e 10 do Código Civil, determinados atos da vida civil devem ser levados a registro público ou averbados à margem dos assentos existentes para que produzam plenos efeitos perante terceiros. Assinale a alternativa que indica um ato sujeito à averbação, e não a registro.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A sentença que declara a interdição por incapacidade relativa de um indivíduo pródigo.",
+        "correta": false,
+        "comentario": "Incorreto. A interdição é um ato que se inscreve no Registro de Pessoas Naturais, conforme o art. 9º, III, do CC, constituindo um novo estado para a pessoa."
+      },
+      {
+        "id": "b",
+        "texto": "A outorga de emancipação voluntária concedida pelos pais a um filho de 16 anos completos, por instrumento público.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação também é ato de registro, conforme dispõe o art. 9º, II, do CC."
+      },
+      {
+        "id": "c",
+        "texto": "A sentença que decreta o divórcio de um casal, dissolvendo o vínculo matrimonial.",
+        "correta": true,
+        "comentario": "Correto. Conforme o art. 10, I, do CC, as sentenças de divórcio são averbadas à margem do registro de casamento. A averbação modifica um registro preexistente."
+      },
+      {
+        "id": "d",
+        "texto": "O nascimento de uma criança, com a respectiva Declaração de Nascido Vivo (DNV).",
+        "correta": false,
+        "comentario": "Incorreto. O nascimento é o ato inaugural da pessoa natural e, por excelência, é objeto de registro, nos termos do art. 9º, I, do CC."
+      },
+      {
+        "id": "e",
+        "texto": "A sentença que declara a morte presumida de um desaparecido em campanha militar.",
+        "correta": false,
+        "comentario": "Incorreto. A sentença declaratória de morte presumida é objeto de registro, conforme o art. 9º, IV, do CC."
+      }
+    ]
+  },
+  {
+    "id": "incapacidade-relativa-q7",
+    "tema": "Incapacidade Relativa",
+    "enunciado": "Carlos, com 25 anos, em decorrência de um acidente vascular cerebral (AVC), perdeu a capacidade de exprimir sua vontade de forma permanente. Sua esposa, buscando proteger o patrimônio comum, ajuizou ação de interdição. De acordo com o Código Civil, após a alteração promovida pelo Estatuto da Pessoa com Deficiência, qual a correta classificação da incapacidade de Carlos e o regime jurídico aplicável?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Carlos será considerado absolutamente incapaz, devendo ser representado por sua curadora em todos os atos da vida civil.",
+        "correta": false,
+        "comentario": "Incorreto. Após a Lei 13.146/2015, a incapacidade decorrente de enfermidade ou deficiência mental que impede a expressão da vontade é relativa, não mais absoluta."
+      },
+      {
+        "id": "b",
+        "texto": "Trata-se de incapacidade relativa, e Carlos será submetido à curatela, devendo ser assistido por sua curadora nos atos de natureza patrimonial e negocial definidos pelo juiz.",
+        "correta": true,
+        "comentario": "Correto. O art. 4º, III, do CC classifica como relativamente incapaz aquele que, por causa permanente, não pode exprimir sua vontade. A curatela será a medida de apoio, e o curador o assistirá nos limites fixados na sentença."
+      },
+      {
+        "id": "c",
+        "texto": "A situação de Carlos não se enquadra nas hipóteses de incapacidade, devendo ser aplicado o instituto da tomada de decisão apoiada, mantendo-se sua plena capacidade.",
+        "correta": false,
+        "comentario": "Incorreto. A tomada de decisão apoiada é para a pessoa com deficiência que mantém sua capacidade, mas deseja apoio. No caso de impossibilidade de exprimir a vontade, a medida cabível é a curatela."
+      },
+      {
+        "id": "d",
+        "texto": "Carlos será considerado plenamente capaz para os atos existenciais, como casar-se e votar, mas absolutamente incapaz para os atos patrimoniais.",
+        "correta": false,
+        "comentario": "Incorreto. A dicotomia não é entre capacidade plena para atos existenciais e incapacidade absoluta para os patrimoniais. A incapacidade é relativa e a curatela abrangerá os atos definidos pelo juiz."
+      },
+      {
+        "id": "e",
+        "texto": "A interdição de Carlos será total e definitiva, e a sentença o privará de todos os direitos civis, transferindo-os à curadora.",
+        "correta": false,
+        "comentario": "Incorreto. A interdição não priva a pessoa de seus direitos, mas sim estabelece um mecanismo de proteção para o exercício deles. A incapacidade é sempre uma medida protetiva e restrita."
+      }
+    ]
+  },
+  {
+    "id": "emancipacao-economia-propria-q8",
+    "tema": "Emancipação por Economia Própria",
+    "enunciado": "Lucas, com 16 anos completos, é um talentoso desenvolvedor de aplicativos e, por meio de um contrato de prestação de serviços como autônomo, aufere renda mensal suficiente para seu sustento, morando sozinho com a autorização dos pais. Considerando a hipótese de emancipação legal prevista no art. 5º, parágrafo único, V, do Código Civil, assinale a afirmativa correta.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Lucas não será considerado emancipado, pois a lei exige a existência de relação de emprego formal, com registro em carteira (CTPS), não bastando a atividade como autônomo.",
+        "correta": false,
+        "comentario": "Incorreto. O inciso V menciona 'estabelecimento civil ou comercial, ou pela existência de relação de emprego'. A doutrina majoritária interpreta a expressão 'estabelecimento civil' de forma ampla, abrangendo atividades autônomas que garantam economia própria."
+      },
+      {
+        "id": "b",
+        "texto": "A emancipação, nesse caso, depende de sentença judicial, que reconhecerá a economia própria de Lucas, não sendo um efeito automático da situação fática.",
+        "correta": false,
+        "comentario": "Incorreto. Trata-se de uma hipótese de emancipação legal, que opera de pleno direito (ope legis) uma vez preenchidos os requisitos, independentemente de provimento judicial ou ato dos pais."
+      },
+      {
+        "id": "c",
+        "texto": "Considera-se Lucas emancipado, pois o estabelecimento de uma atividade civil que lhe garanta economia própria, aos 16 anos completos, é causa de emancipação legal e automática.",
+        "correta": true,
+        "comentario": "Correto. A situação descrita preenche os requisitos do art. 5º, parágrafo único, V, do CC: menor com dezesseis anos completos, existência de estabelecimento civil (sua atividade autônoma) e economia própria em função dele."
+      },
+      {
+        "id": "d",
+        "texto": "Para que a emancipação se concretize, é necessária a outorga dos pais mediante instrumento público, sendo a economia própria apenas um requisito para que os pais possam concedê-la.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação por economia própria é uma modalidade distinta e independente da emancipação voluntária (outorgada pelos pais), prevista no inciso I do mesmo artigo."
+      },
+      {
+        "id": "e",
+        "texto": "A economia própria só emancipa o menor se ele tiver também colado grau em curso de ensino técnico ou profissionalizante, não bastando a mera renda.",
+        "correta": false,
+        "comentario": "Incorreto. A colação de grau em curso de ensino superior é uma hipótese autônoma de emancipação (inciso IV) e não se confunde nem é requisito para a emancipação por economia própria (inciso V)."
+      }
+    ]
+  },
+  {
+    "id": "capacidade-indigena-q9",
+    "tema": "Capacidade Civil dos Indígenas",
+    "enunciado": "A respeito da capacidade civil dos indígenas, o Código Civil, em seu art. 4º, parágrafo único, estabelece que será 'regulada por legislação especial'. Considerando a interação do Código Civil com o Estatuto do Índio (Lei n. 6.001/1973) e a Constituição Federal de 1988, é correto afirmar que:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Os indígenas são considerados absolutamente incapazes e tutelados pela FUNAI até que demonstrem sua plena integração à comunhão nacional, momento em que adquirem capacidade plena.",
+        "correta": false,
+        "comentario": "Incorreto. O regime de tutela e a presunção de incapacidade do Estatuto do Índio são considerados incompatíveis com a Constituição de 1988, que reconhece a organização social, costumes, línguas, crenças e tradições dos indígenas."
+      },
+      {
+        "id": "b",
+        "texto": "A capacidade dos indígenas é plena, sendo-lhes garantido o exercício de seus direitos civis diretamente, não havendo mais que se falar em regime de tutela ou incapacidade, em razão da dignidade da pessoa humana e do reconhecimento de sua autonomia pela Constituição.",
+        "correta": true,
+        "comentario": "Correto. O entendimento atual do STF e da doutrina majoritária é que a Constituição de 1988 superou o regime de incapacidade previsto no Estatuto do Índio, consagrando a plena capacidade dos indígenas, que exercem seus direitos com o auxílio da FUNAI em certas matérias, quando necessário."
+      },
+      {
+        "id": "c",
+        "texto": "Os indígenas são relativamente incapazes, necessitando da assistência da FUNAI para todos os atos da vida civil, sob pena de anulabilidade.",
+        "correta": false,
+        "comentario": "Incorreto. A classificação como 'relativamente incapazes' genérica, prevista no Estatuto do Índio, não foi recepcionada pela CF/88. A assistência da FUNAI hoje tem caráter de apoio e não de condição de validade do ato."
+      },
+      {
+        "id": "d",
+        "texto": "A capacidade dos indígenas varia conforme seu grau de integração: os isolados são absolutamente incapazes, os em vias de integração são relativamente incapazes e os integrados são plenamente capazes.",
+        "correta": false,
+        "comentario": "Incorreto. Essa graduação, prevista no Estatuto do Índio, é criticada e considerada superada pela ordem constitucional de 1988, que não condiciona a cidadania e a capacidade à integração."
+      },
+      {
+        "id": "e",
+        "texto": "A legislação especial a que se refere o Código Civil ainda não foi editada, prevalecendo a regra geral de que os indígenas são plenamente capazes, exceto os menores de 18 anos.",
+        "correta": false,
+        "comentario": "Incorreto. A legislação especial existe (Lei 6.001/73), mas sua interpretação deve ser feita à luz da Constituição Federal, o que leva à conclusão da plena capacidade, e não por aplicação da regra geral do CC."
+      }
+    ]
+  },
+  {
+    "id": "nascituro-direitos-q10",
+    "tema": "Direitos do Nascituro",
+    "enunciado": "O art. 2º do Código Civil dispõe que 'a lei põe a salvo, desde a concepção, os direitos do nascituro'. Sobre a natureza e a extensão desses direitos, a doutrina e a jurisprudência majoritárias sustentam que:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O nascituro possui apenas direitos da personalidade, como o direito à vida e à integridade física, mas não direitos patrimoniais, que são mera expectativa.",
+        "correta": false,
+        "comentario": "Incorreto. Embora os direitos da personalidade sejam os mais evidentes, o ordenamento jurídico também reconhece ao nascituro direitos patrimoniais, como a capacidade de receber doação (art. 542, CC) e herança (art. 1.798, CC), ainda que sob condição suspensiva."
+      },
+      {
+        "id": "b",
+        "texto": "O nascituro possui personalidade jurídica plena desde a concepção, sendo titular de todos os direitos da pessoa natural, de forma incondicional.",
+        "correta": false,
+        "comentario": "Incorreto. Esta é a teoria concepcionista pura, que não é a majoritariamente adotada para todos os fins. A aquisição de direitos patrimoniais, por exemplo, é condicionada ao nascimento com vida."
+      },
+      {
+        "id": "c",
+        "texto": "O nascituro é titular de direitos da personalidade e pode ser beneficiário de direitos patrimoniais, cuja eficácia, contudo, fica submetida à condição suspensiva do nascimento com vida.",
+        "correta": true,
+        "comentario": "Correto. Esta é a posição que melhor compatibiliza as teorias natalista e concepcionista, conhecida como teoria da personalidade condicional. Reconhece direitos desde a concepção, mas a aquisição de direitos patrimoniais depende do nascimento com vida."
+      },
+      {
+        "id": "d",
+        "texto": "Os direitos do nascituro se resumem ao direito a alimentos gravídicos, não havendo que se falar em reparação por dano moral em caso de ofensa à honra de seus genitores.",
+        "correta": false,
+        "comentario": "Incorreto. O STJ possui entendimento consolidado de que o nascituro tem direito à reparação por dano moral (Súmula 387, em caso de morte do pai, por exemplo), reconhecendo sua dignidade e proteção jurídica."
+      },
+      {
+        "id": "e",
+        "texto": "Os direitos do nascituro são exercidos por um curador nomeado pelo juiz, e não pelos pais, até que ocorra o nascimento com vida.",
+        "correta": false,
+        "comentario": "Incorreto. A representação do nascituro cabe aos pais (poder familiar). A nomeação de curador (curatela ao ventre) é medida excepcional, prevista no art. 1.779 do CC, para hipóteses específicas, como a falta dos pais."
+      }
+    ]
+  },
+  {
+    "id": "incapacidade-absoluta-q11",
+    "tema": "Incapacidade Absoluta",
+    "enunciado": "Pedro, com 15 anos de idade, celebrou um contrato de compra e venda de um console de videogame de alto valor, utilizando recursos de sua própria mesada, sem a participação de seus pais. O vendedor, ciente da idade de Pedro, efetuou a venda. Posteriormente, os pais de Pedro, ao descobrirem o negócio, buscaram desfazê-lo. Qual a consequência jurídica do ato praticado por Pedro?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O negócio jurídico é anulável, pois foi praticado por pessoa relativamente incapaz, podendo ser confirmado pelos pais.",
+        "correta": false,
+        "comentario": "Incorreto. Pedro, com 15 anos, é absolutamente incapaz, nos termos do art. 3º do CC, e não relativamente incapaz."
+      },
+      {
+        "id": "b",
+        "texto": "O negócio jurídico é nulo de pleno direito, pois foi celebrado por pessoa absolutamente incapaz, não sendo suscetível de confirmação.",
+        "correta": true,
+        "comentario": "Correto. Conforme o art. 166, I, do CC, é nulo o negócio jurídico quando celebrado por pessoa absolutamente incapaz. A nulidade absoluta não pode ser sanada pelas partes."
+      },
+      {
+        "id": "c",
+        "texto": "O negócio é válido, pois, apesar da idade, Pedro dispunha de recursos próprios (mesada), o que configura uma forma de emancipação fática para atos de pequeno valor.",
+        "correta": false,
+        "comentario": "Incorreto. Não existe a figura da 'emancipação fática' para atos de alto valor. A validade de certos atos praticados por incapazes é excepcional e não se aplica a este caso."
+      },
+      {
+        "id": "d",
+        "texto": "O negócio é inexistente, pois falta um elemento essencial, que é a manifestação de vontade válida, não produzindo qualquer efeito no mundo jurídico.",
+        "correta": false,
+        "comentario": "Incorreto. A doutrina majoritária classifica o ato como nulo, e não inexistente. Embora o agente seja incapaz, o ato existiu no plano fático, e a sanção legal prevista é a nulidade."
+      },
+      {
+        "id": "e",
+        "texto": "O negócio é válido, mas o vendedor pode requerer sua anulação, pois foi induzido em erro sobre a capacidade do comprador.",
+        "correta": false,
+        "comentario": "Incorreto. A incapacidade de uma das partes não pode ser invocada pela outra em seu benefício, conforme o art. 105 do CC. Além disso, a consequência é a nulidade, que pode ser arguida pelo Ministério Público ou pelos representantes do incapaz."
+      }
+    ]
+  },
+  {
+    "id": "fim-personalidade-q12",
+    "tema": "Término da Personalidade Natural",
+    "enunciado": "A respeito do término da existência da pessoa natural, conforme disciplinado pelo Código Civil, assinale a alternativa que apresenta uma correlação correta entre o fato jurídico e sua consequência.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A morte encefálica, declarada por médico, é o marco para o término da personalidade jurídica, sendo o registro de óbito um ato meramente declaratório com efeitos ex tunc.",
+        "correta": true,
+        "comentario": "Correto. A morte, como fato jurídico, ocorre com a cessação da atividade cerebral (critério da Lei de Transplante de Órgãos, recepcionado pelo CC). O registro do óbito (art. 9º, I) formaliza e dá publicidade ao evento, mas a personalidade se extingue com a morte real."
+      },
+      {
+        "id": "b",
+        "texto": "Na ausência, a personalidade jurídica termina com a sentença que determina a abertura da sucessão provisória.",
+        "correta": false,
+        "comentario": "Incorreto. A personalidade não se extingue na sucessão provisória. O art. 6º do CC estabelece que a morte é presumida, quanto aos ausentes, nos casos em que a lei autoriza a abertura da sucessão definitiva."
+      },
+      {
+        "id": "c",
+        "texto": "A declaração de morte presumida sem decretação de ausência (art. 7º) tem seus efeitos patrimoniais condicionados ao retorno do presumido morto nos 5 anos seguintes.",
+        "correta": false,
+        "comentario": "Incorreto. A regra de retorno e reivindicação de bens em 10 anos (art. 39 do CC) é aplicável ao procedimento de ausência. Na morte presumida do art. 7º, a sucessão é definitiva desde logo."
+      },
+      {
+        "id": "d",
+        "texto": "No caso de comoriência, a personalidade dos envolvidos se extingue no momento em que a autoridade judicial profere a sentença declaratória da morte simultânea.",
+        "correta": false,
+        "comentario": "Incorreto. A comoriência é uma presunção legal sobre a simultaneidade das mortes, que ocorreram em um momento fático anterior. A sentença apenas declara essa presunção para fins sucessórios; a personalidade se extinguiu no momento do evento."
+      },
+      {
+        "id": "e",
+        "texto": "A personalidade civil termina com o registro do óbito no Cartório de Registro Civil de Pessoas Naturais, que possui natureza constitutiva.",
+        "correta": false,
+        "comentario": "Incorreto. O registro do óbito tem natureza declaratória, e não constitutiva. Ele declara um fato preexistente (a morte) para fins de publicidade, segurança jurídica e prova."
+      }
+    ]
+  },
+  {
+    "id": "emancipacao-casamento-q13",
+    "tema": "Emancipação por Casamento",
+    "enunciado": "André, com 16 anos, e Beatriz, com 17, pretendem se casar e, com isso, obter a emancipação. Considerando as regras do Código Civil sobre capacidade para o casamento e as formas de emancipação, assinale a alternativa correta.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Ambos podem se casar sem a autorização dos pais, pois a idade núbil coincide com a idade para a emancipação voluntária.",
+        "correta": false,
+        "comentario": "Incorreto. A idade núbil é 16 anos, mas, para se casar antes dos 18, é necessária a autorização de ambos os pais ou de seus representantes legais (art. 1.517 do CC)."
+      },
+      {
+        "id": "b",
+        "texto": "Apenas Beatriz poderá se emancipar pelo casamento, pois André, com 16 anos, ainda não atingiu a idade mínima de 17 anos exigida para a emancipação militar, que se aplica por analogia.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação por casamento não tem idade mínima além da idade núbil (16 anos). A regra do serviço militar (art. 73 da Lei 4.375/64) é específica e não se aplica analogicamente."
+      },
+      {
+        "id": "c",
+        "texto": "Para que o casamento emancipe André e Beatriz, é imprescindível que, além da autorização dos pais, haja homologação judicial do ato.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação pelo casamento (art. 5º, parágrafo único, II) é uma consequência legal automática do ato e não requer homologação judicial. Apenas o processo de habilitação para o casamento exige a manifestação do MP."
+      },
+      {
+        "id": "d",
+        "texto": "Caso os pais de André neguem a autorização de forma injusta, ele poderá requerer o suprimento judicial do consentimento para se casar e, consequentemente, se emancipar.",
+        "correta": true,
+        "comentario": "Correto. O art. 1.519 do CC permite o suprimento judicial do consentimento quando a recusa dos pais for injusta, viabilizando o casamento e, como efeito secundário, a emancipação."
+      },
+      {
+        "id": "e",
+        "texto": "O casamento entre menores de 18 anos só é permitido em caso de gravidez, sendo esta a única hipótese que autoriza a supressão da incapacidade.",
+        "correta": false,
+        "comentario": "Incorreto. A Lei nº 13.811/2019 revogou as hipóteses que permitiam o casamento de menores de 16 anos para evitar imposição ou cumprimento de pena criminal ou em caso de gravidez. Para os maiores de 16, a autorização dos pais é suficiente."
+      }
+    ]
+  },
+  {
+    "id": "incapacidade-prodigo-q14",
+    "tema": "Incapacidade do Pródigo",
+    "enunciado": "Fernando foi judicialmente declarado pródigo e submetido à curatela, sendo sua esposa nomeada curadora. A sentença limitou a curatela aos atos de disposição e oneração de bens. Posteriormente, Fernando, sem a assistência de sua esposa, decide reconhecer um filho havido fora do casamento. O ato de reconhecimento de paternidade praticado por Fernando é:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Nulo, pois o pródigo é relativamente incapaz e não pode praticar nenhum ato da vida civil sem a assistência do curador.",
+        "correta": false,
+        "comentario": "Incorreto. A curatela do pródigo tem um alcance específico. A incapacidade não é geral, mas restrita a certos atos."
+      },
+      {
+        "id": "b",
+        "texto": "Anulável, podendo ser desconstituído a requerimento da curadora, pois o reconhecimento de paternidade gera efeitos patrimoniais.",
+        "correta": false,
+        "comentario": "Incorreto. Embora o reconhecimento de paternidade gere efeitos patrimoniais (obrigação alimentar, direitos sucessórios), a jurisprudência e doutrina entendem que a natureza personalíssima do ato prevalece."
+      },
+      {
+        "id": "c",
+        "texto": "Válido, pois o reconhecimento de filiação é um ato de natureza existencial e personalíssima, não se enquadrando nos atos de disposição patrimonial para os quais a curatela foi instituída.",
+        "correta": true,
+        "comentario": "Correto. A curatela do pródigo, nos termos do art. 1.782 do CC, o priva apenas de, sem curador, emprestar, transigir, dar quitação, alienar, hipotecar, demandar ou ser demandado sobre atos patrimoniais. Atos de natureza puramente pessoal, como o reconhecimento de filho, são válidos."
+      },
+      {
+        "id": "d",
+        "texto": "Ineficaz até que seja confirmado pela curadora, momento em que passará a produzir efeitos tanto pessoais quanto patrimoniais.",
+        "correta": false,
+        "comentario": "Incorreto. O ato é válido e eficaz desde o momento em que foi praticado. Não se trata de um ato sujeito a condição de confirmação."
+      },
+      {
+        "id": "e",
+        "texto": "Dependente de autorização judicial prévia, pois envolve potencial dilapidação do patrimônio futuro do pródigo em favor do filho reconhecido.",
+        "correta": false,
+        "comentario": "Incorreto. Não há exigência de autorização judicial para este ato personalíssimo. A proteção patrimonial se dará em outros momentos, como na fixação de alimentos, mas não invalida o reconhecimento em si."
+      }
+    ]
+  },
+  {
+    "id": "atos-registro-averbacao-q15",
+    "tema": "Distinção entre Registro e Averbação",
+    "enunciado": "A Lei de Registros Públicos e o Código Civil distinguem os atos que devem ser levados a registro (inscrição principal e autônoma) daqueles que são objeto de averbação (anotação acessória que modifica um registro existente). Com base nessa distinção, assinale a alternativa que contém, respectivamente, um ato de registro e um ato de averbação.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A sentença de interdição e o óbito.",
+        "correta": false,
+        "comentario": "Incorreto. Ambos são atos de registro, conforme o art. 9º, III e I, do CC, respectivamente."
+      },
+      {
+        "id": "b",
+        "texto": "O nascimento e a emancipação voluntária.",
+        "correta": false,
+        "comentario": "Incorreto. Ambos são atos de registro, conforme o art. 9º, I e II, do CC, respectivamente."
+      },
+      {
+        "id": "c",
+        "texto": "A sentença declaratória de ausência e a sentença que decreta o divórcio.",
+        "correta": true,
+        "comentario": "Correto. A sentença de ausência é levada a registro (art. 9º, IV, do CC), enquanto a sentença de divórcio é averbada à margem do registro de casamento (art. 10, I, do CC)."
+      },
+      {
+        "id": "d",
+        "texto": "O reconhecimento de filiação e o restabelecimento da sociedade conjugal.",
+        "correta": false,
+        "comentario": "Incorreto. Ambos são atos de averbação, conforme o art. 10, II e I, do CC."
+      },
+      {
+        "id": "e",
+        "texto": "O casamento e a sentença de anulação de casamento.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a ordem pareça correta (casamento é registro, anulação é averbação), a alternativa 'c' é mais precisa e tecnicamente superior ao apresentar dois atos judiciais com naturezas distintas de inscrição."
+      }
+    ]
+  },
+  {
+    "id": "morte-presumida-guerra-q16",
+    "tema": "Morte Presumida - Desaparecido em Guerra",
+    "enunciado": "Tenente Silva, militar brasileiro, participou de uma missão de paz da ONU que se transformou em um conflito armado em 2020. Ele foi dado como desaparecido em campanha em junho de 2020. A guerra terminou oficialmente em dezembro de 2022. Seus herdeiros desejam a declaração de morte presumida para fins sucessórios. A partir de quando eles poderão requerer a declaração?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Imediatamente após o término da guerra, em dezembro de 2022, desde que esgotadas as buscas.",
+        "correta": false,
+        "comentario": "Incorreto. A lei estabelece um prazo específico a ser aguardado após o término da guerra."
+      },
+      {
+        "id": "b",
+        "texto": "A partir de junho de 2022, dois anos após o seu desaparecimento.",
+        "correta": false,
+        "comentario": "Incorreto. O marco temporal para a contagem do prazo de dois anos é o término da guerra, e não a data do desaparecimento."
+      },
+      {
+        "id": "c",
+        "texto": "A partir de dezembro de 2024, ou seja, dois anos após o término da guerra.",
+        "correta": true,
+        "comentario": "Correto. O art. 7º, II, do CC, é claro ao estipular que a declaração pode ser requerida se o desaparecido em campanha não for encontrado 'até dois anos após o término da guerra'."
+      },
+      {
+        "id": "d",
+        "texto": "Apenas após dez anos do término da guerra, quando se autoriza a abertura da sucessão definitiva do ausente.",
+        "correta": false,
+        "comentario": "Incorreto. Este caso não segue as regras da ausência, mas sim a regra específica e mais célere da morte presumida sem decretação de ausência."
+      },
+      {
+        "id": "e",
+        "texto": "A qualquer momento, desde a notícia do desaparecimento, mediante justificação judicial e prova do perigo de vida.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a situação envolva perigo de vida (inciso I), há uma regra específica para desaparecidos em guerra (inciso II), que deve ser aplicada por ser mais adequada ao caso."
+      }
+    ]
+  },
+  {
+    "id": "capacidade-ato-nulo-q17",
+    "tema": "Validade do Negócio Jurídico e Capacidade",
+    "enunciado": "Marta, diagnosticada com uma condição que, de forma permanente, a impede de exprimir sua vontade, mas sem ter sido submetida a processo de interdição, vende um imóvel de sua propriedade a um terceiro de boa-fé. Anos depois, seu filho, ao tomar conhecimento do fato, busca invalidar o negócio. Qual o fundamento jurídico e a consequência para o ato praticado por Marta?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O negócio é nulo, pois a incapacidade preexistia ao ato, enquadrando-se na hipótese do art. 4º, III, c/c art. 166, I, do CC, sendo a nulidade arguível a qualquer tempo.",
+        "correta": true,
+        "comentario": "Correto. Embora Marta não estivesse formalmente interditada, sua incapacidade relativa, por não poder exprimir a vontade (art. 4º, III), já existia. A venda realizada por agente incapaz sem assistência é nula (art. 166, I). A boa-fé do terceiro não valida o negócio nulo."
+      },
+      {
+        "id": "b",
+        "texto": "O negócio é válido, pois, como Marta não estava interditada, presumia-se sua plena capacidade civil, protegendo-se o terceiro adquirente de boa-fé.",
+        "correta": false,
+        "comentario": "Incorreto. A sentença de interdição tem natureza declaratória da incapacidade, que já existe no plano dos fatos. A ausência da sentença não torna o ato válido se a incapacidade for provada."
+      },
+      {
+        "id": "c",
+        "texto": "O negócio é anulável, pois a incapacidade era relativa e não absoluta, dependendo de ação anulatória a ser proposta no prazo decadencial de quatro anos.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a incapacidade seja relativa, a consequência do ato praticado sem a devida assistência, neste caso, é a nulidade, conforme expressa previsão do art. 166, I. O regime da anulabilidade (art. 171) aplica-se a outras hipóteses."
+      },
+      {
+        "id": "d",
+        "texto": "O negócio é inexistente, por ausência de manifestação de vontade, não produzindo qualquer efeito jurídico desde sua origem.",
+        "correta": false,
+        "comentario": "Incorreto. A doutrina majoritária brasileira adota a teoria da nulidade para os atos praticados por incapazes, e não a da inexistência. O ato existe, mas é invalidado pela norma."
+      },
+      {
+        "id": "e",
+        "texto": "O negócio é válido, mas o filho pode pleitear uma indenização por perdas e danos contra o comprador, se provar que este se aproveitou da vulnerabilidade de Marta.",
+        "correta": false,
+        "comentario": "Incorreto. A sanção primária para o ato é a invalidade (nulidade), que restaura o status quo ante. A indenização seria uma medida secundária ou alternativa, mas o foco da questão é a validade do negócio."
+      }
+    ]
+  },
+  {
+    "id": "emancipacao-emprego-publico-q18",
+    "tema": "Emancipação por Exercício de Emprego Público",
+    "enunciado": "Joana, com 17 anos, foi aprovada em um concurso público para um cargo de provimento efetivo em uma autarquia federal. A lei do cargo exige idade mínima de 18 anos para a posse. Contudo, Joana obtém uma liminar em mandado de segurança que lhe garante o direito à nomeação e posse antes de completar a maioridade. A respeito da capacidade civil de Joana, assinale a afirmativa correta.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Joana não se torna emancipada, pois sua posse no cargo público foi precária, decorrente de decisão judicial liminar, e não do preenchimento regular do requisito etário.",
+        "correta": false,
+        "comentario": "Incorreto. A origem da posse (se por via administrativa regular ou judicial) não desnatura o fato jurídico: o exercício de emprego público efetivo."
+      },
+      {
+        "id": "b",
+        "texto": "Joana torna-se emancipada a partir da data de sua posse no emprego público efetivo, independentemente de sua idade no momento, por força do art. 5º, parágrafo único, III, do Código Civil.",
+        "correta": true,
+        "comentario": "Correto. A lei é clara: o exercício de emprego público efetivo é causa de emancipação legal. Uma vez empossada, Joana adquire a plena capacidade civil, sendo este um efeito automático previsto em lei."
+      },
+      {
+        "id": "c",
+        "texto": "A emancipação só ocorreria se o cargo fosse de livre nomeação e exoneração (cargo em comissão), pois estes demonstram maior confiança do poder público.",
+        "correta": false,
+        "comentario": "Incorreto. A lei exige expressamente 'emprego público efetivo', que é aquele preenchido mediante concurso público e que confere estabilidade, denotando maturidade."
+      },
+      {
+        "id": "d",
+        "texto": "Joana só será considerada emancipada após o trânsito em julgado da decisão no mandado de segurança, pois antes disso sua situação é instável.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação decorre do fato (exercício do emprego), não do esgotamento da via judicial. A posse, mesmo que garantida por liminar, já constitui o exercício do emprego."
+      },
+      {
+        "id": "e",
+        "texto": "A emancipação de Joana depende de um ato complementar de registro em cartório, a ser solicitado por ela após a posse, para que tenha validade perante terceiros.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação legal (por casamento, emprego público, etc.) independe de registro, ao contrário da emancipação voluntária (outorgada pelos pais) ou da judicial (pelo tutor)."
+      }
+    ]
+  },
+  {
+    "id": "personalidade-teorias-q19",
+    "tema": "Teorias da Personalidade Jurídica",
+    "enunciado": "A discussão acerca do início da personalidade jurídica da pessoa natural envolve diferentes correntes doutrinárias, com reflexos práticos no direito sucessório, de família e obrigacional. A teoria adotada pelo Código Civil de 2002 em seu art. 2º, que condiciona o início da personalidade ao nascimento com vida, mas resguarda os direitos do nascituro, é a:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Teoria Concepcionista, pela qual a personalidade se inicia com a concepção, sendo o nascituro considerado pessoa para todos os efeitos legais.",
+        "correta": false,
+        "comentario": "Incorreto. Embora o CC proteja o nascituro, ele não adota a teoria concepcionista em sua forma pura, pois o art. 2º é expresso ao vincular o início da personalidade ao 'nascimento com vida'."
+      },
+      {
+        "id": "b",
+        "texto": "Teoria da Personalidade Condicional, segundo a qual o nascituro possui direitos sob condição suspensiva, adquirindo a personalidade se nascer com vida.",
+        "correta": false,
+        "comentario": "Incorreto. Embora esta teoria descreva bem os efeitos práticos, a doutrina majoritária afirma que o Código Civil adotou expressamente a Teoria Natalista em seu texto."
+      },
+      {
+        "id": "c",
+        "texto": "Teoria Natalista, que sustenta que a personalidade jurídica só se inicia com o nascimento com vida, considerando o nascituro como uma mera expectativa de pessoa.",
+        "correta": true,
+        "comentario": "Correto. A literalidade do art. 2º ('A personalidade civil da pessoa começa do nascimento com vida') indica a adoção da Teoria Natalista. A parte final ('mas a lei põe a salvo, desde a concepção, os direitos do nascituro') é vista como uma exceção legal para proteger essa expectativa qualificada de direitos."
+      },
+      {
+        "id": "d",
+        "texto": "Teoria Eclética ou Mista, que confere personalidade ao nascituro apenas para os direitos extrapatrimoniais, tratando os direitos patrimoniais como mera expectativa.",
+        "correta": false,
+        "comentario": "Incorreto. Essa não é a teoria expressa no Código, e a lei confere ao nascituro a possibilidade de adquirir direitos patrimoniais (doação, herança), ainda que sob condição."
+      },
+      {
+        "id": "e",
+        "texto": "Teoria da Aparência de Personalidade, que atribui uma personalidade fictícia ao nascituro para fins específicos, que se resolve com o nascimento ou não.",
+        "correta": false,
+        "comentario": "Incorreto. Esta terminologia não corresponde a uma das teorias clássicas sobre o início da personalidade civil."
+      }
+    ]
+  },
+  {
+    "id": "emancipacao-revogacao-q20",
+    "tema": "Irrevogabilidade da Emancipação",
+    "enunciado": "Cláudio e Mônica, por instrumento público, emanciparam voluntariamente seu filho, Roberto, de 16 anos. Seis meses depois, arrependidos da decisão ao verem que o filho passou a contrair dívidas e a negligenciar os estudos, Cláudio e Mônica procuram um advogado para saber se podem 'cancelar' ou revogar a emancipação concedida. Qual a orientação jurídica correta para o caso?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A emancipação pode ser revogada por meio de outro instrumento público, desde que haja justa causa, como a imaturidade superveniente do filho.",
+        "correta": false,
+        "comentario": "Incorreto. A emancipação é um ato jurídico que, uma vez concedido e registrado, torna-se irrevogável."
+      },
+      {
+        "id": "b",
+        "texto": "A revogação é possível mediante ação judicial, na qual os pais devem provar que a manutenção da capacidade plena trará prejuízos ao filho e a terceiros.",
+        "correta": false,
+        "comentario": "Incorreto. Não há previsão legal para uma ação de revogação de emancipação. O ato é definitivo."
+      },
+      {
+        "id": "c",
+        "texto": "A emancipação voluntária é um ato irrevogável e produz efeitos imediatos e permanentes, visando à segurança das relações jurídicas. Portanto, não pode ser desconstituída pela vontade dos pais.",
+        "correta": true,
+        "comentario": "Correto. O princípio da segurança jurídica impede que a capacidade civil, uma vez adquirida, possa ser retirada. A emancipação, seja voluntária, judicial ou legal, é definitiva e irrevogável, não podendo os pais ou o juiz voltar atrás na decisão."
+      },
+      {
+        "id": "d",
+        "texto": "A emancipação pode ser anulada se os pais demonstrarem que seu consentimento foi viciado por erro quanto à maturidade do filho.",
+        "correta": false,
+        "comentario": "Incorreto. A discussão sobre vícios de consentimento dos pais na concessão da emancipação é extremamente restrita e, na prática, não aceita pela jurisprudência para anular o ato, em prol da estabilidade social."
+      },
+      {
+        "id": "e",
+        "texto": "O filho, Roberto, pode renunciar à emancipação e retornar voluntariamente à condição de relativamente incapaz, mediante declaração em juízo.",
+        "correta": false,
+        "comentario": "Incorreto. A capacidade civil, uma vez adquirida, é irrenunciável. O emancipado não pode dispor de seu estado de pessoa capaz."
+      }
+    ]
+  }
+]
