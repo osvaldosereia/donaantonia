@@ -1,0 +1,30 @@
+[
+  {
+    "id": "vinculo-empregaticio-01",
+    "tema": "Direito do Trabalho",
+    "enunciado": "Caracteriza vínculo empregatício a reunião de:",
+    "alternativas": [
+      {"id":"a","texto":"Subordinação, habitualidade, onerosidade e pessoalidade.","correta":true,"comentario":"Requisitos clássicos do art. 3º da CLT."},
+      {"id":"b","texto":"Eventualidade e autonomia.","correta":false,"comentario":"Eventualidade e autonomia afastam o vínculo."},
+      {"id":"c","texto":"Trabalho autônomo com subcontratação livre.","correta":false,"comentario":"Autonomia afasta subordinação."}
+    ],
+    "tags": ["trabalho","contrato"],
+    "dificuldade": "fácil",
+    "tempo": 60,
+    "fonte": "Art. 3º, CLT"
+  },
+  {
+    "id": "jornada-intervalo-01",
+    "tema": "Direito do Trabalho",
+    "enunciado": "No regime de 8 horas diárias, o intervalo intrajornada mínimo é:",
+    "alternativas": [
+      {"id":"a","texto":"10 minutos.","correta":false,"comentario":"Aplicável a pausas específicas, não ao intrajornada padrão."},
+      {"id":"b","texto":"1 hora.","correta":true,"comentario":"Art. 71, caput, da CLT."},
+      {"id":"c","texto":"2 horas obrigatórias.","correta":false,"comentario":"Até 2 horas, mas 1 hora é o mínimo."}
+    ],
+    "tags": ["trabalho","jornada"],
+    "dificuldade": "médio",
+    "tempo": 45,
+    "fonte": "Art. 71, CLT"
+  }
+]
