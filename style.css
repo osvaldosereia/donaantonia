@@ -512,3 +512,9 @@ button.mini{
   font-weight: 600;
   text-align: left;
 }
+.ia-pop {
+  transition: opacity .2s ease;
+}
+.ia-pop.hide {
+  opacity: 0;
+}
