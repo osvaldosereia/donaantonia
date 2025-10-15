@@ -1137,5 +1137,350 @@ CACHED_FILES.set(path, parsed.map(t=>({
   window.__quizRoute = { handleRoute };
 })();
 
+/* =========================================================
+   QUIZ – loader, lista dinâmica e execução com feedback
+   ========================================================= */
+(() => {
+  // Helpers locais
+  const $  = (q, el = document) => (el || document).querySelector(q);
+  const $$ = (q, el = document) => Array.from((el || document).querySelectorAll(q));
+  const CONTENT_SEL = '#content';
+
+  // ---- Estado ----
+  const QUIZ = {
+    indexLoaded: false,
+    files: [],           // ['trabalho.json', ...]
+    bank: new Map(),     // Map<quizId, {id,tema,enunciado,alternativas[],tags[],...}>
+    list: [],            // array plano de quizzes (id único por questão)
+    session: null        // { quizId, order[], i, answers:{[id]:altId}, startedAt, mode }
+  };
+
+  const LS_KEY = 'meujus:quiz:v1';
+
+  // ---- Persistência ----
+  function saveLS() {
+    try {
+      const data = {
+        session: QUIZ.session
+      };
+      localStorage.setItem(LS_KEY, JSON.stringify(data));
+    } catch {}
+  }
+  function loadLS() {
+    try {
+      const data = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+      if (data?.session) QUIZ.session = data.session;
+    } catch {}
+  }
+  loadLS();
+
+  // ---- Loader ----
+  async function fetchJSON(path){
+    try {
+      const res = await fetch(path, { cache:'no-cache' });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch { return null; }
+  }
+
+  async function loadIndex() {
+    if (QUIZ.indexLoaded) return;
+    // Tente um índice; se não existir, use fallback mínimo
+    const idx = await fetchJSON('data/quizzes/index.json');
+    if (Array.isArray(idx) && idx.length) {
+      QUIZ.files = idx; // exemplo: ["trabalho.json","civil.json"]
+    } else {
+      QUIZ.files = ['trabalho.json']; // fallback para testes
+    }
+    QUIZ.indexLoaded = true;
+  }
+
+  async function loadBank() {
+    await loadIndex();
+    const loaded = [];
+    for (const file of QUIZ.files) {
+      const arr = await fetchJSON(`data/quizzes/${file}`);
+      if (!Array.isArray(arr)) continue;
+      for (const q of arr) {
+        if (!q?.id) continue;
+        const id = q.id;
+        QUIZ.bank.set(id, q);
+        loaded.push(q);
+      }
+    }
+    QUIZ.list = loaded;
+  }
+
+  // ---- Util ----
+  function shuffle(arr, seed = Date.now()) {
+    // Fisher-Yates com seed simples
+    let a = arr.slice();
+    let s = xmur3(String(seed))();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rand(s) * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+      s = xmur3(String(s))();
+    }
+    return a;
+  }
+  function xmur3(str) { // gerador simples
+    let h = 1779033703 ^ str.length;
+    for (let i=0; i<str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function() {
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      return (h ^= h >>> 16) >>> 0;
+    };
+  }
+  function rand(seed) {
+    // transforma seed-> [0,1)
+    return (seed % 1_000_000) / 1_000_000;
+  }
+
+  function htmlEscape(s=''){ return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+  function render(el, html){
+    if (!el) return;
+    el.innerHTML = html;
+    try { window.__closeDrawer?.(); } catch {}
+    el.querySelector('[data-focus]')?.focus?.();
+  }
+
+  // ---- Views ----
+  async function viewList() {
+    const el = $(CONTENT_SEL);
+    if (!el) return;
+    if (!QUIZ.list.length) await loadBank();
+
+    const byTema = new Map();
+    for (const q of QUIZ.list) {
+      const k = q.tema || 'Outros';
+      if (!byTema.has(k)) byTema.set(k, []);
+      byTema.get(k).push(q);
+    }
+
+    let html = `
+      <section class="card ubox quiz-card" tabindex="-1" data-focus>
+        <header class="card-head">
+          <h2 class="h2">Quiz • Lista</h2>
+          <p class="muted">Selecione um conjunto de questões por tema.</p>
+        </header>
+        <div class="vspace">
+    `;
+
+    for (const [tema, arr] of byTema.entries()) {
+      // monta um "quiz virtual" por tema: usar primeiro id como slug
+      const slug = tema.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+      const count = arr.length;
+      html += `
+        <div class="ubox">
+          <div class="row jc between">
+            <strong>${htmlEscape(tema)}</strong>
+            <span class="muted">${count} questão(ões)</span>
+          </div>
+          <div class="row gap mt8">
+            <a class="btn" href="#/quiz/${encodeURIComponent(slug)}">Começar</a>
+          </div>
+        </div>
+      `;
+    }
+
+    if (!byTema.size) {
+      html += `<p class="muted">Nenhum quiz encontrado. Adicione arquivos em <code>data/quizzes/</code>.</p>`;
+    }
+
+    html += `</div></section>`;
+    render(el, html);
+  }
+
+  function buildSessionFromTemaSlug(slug) {
+    // Seleciona questões cujo tema "normalizado" bate com slug
+    const pick = QUIZ.list.filter(q => {
+      const temaSlug = (q.tema || 'Outros').toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+      return temaSlug === slug;
+    });
+    if (!pick.length) return null;
+
+    // ordem embaralhada determinística por data de hoje
+    const seed = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
+    const order = shuffle(pick.map(q => q.id), seed);
+
+    return {
+      quizId: `tema:${slug}`,
+      order,
+      i: 0,
+      answers: {},
+      startedAt: Date.now(),
+      mode: 'estudo', // padrão
+      seed
+    };
+  }
+
+  function currentQuestion() {
+    if (!QUIZ.session) return null;
+    const qid = QUIZ.session.order[QUIZ.session.i];
+    return QUIZ.bank.get(qid) || null;
+  }
+
+  function setAnswer(qid, altId) {
+    if (!QUIZ.session) return;
+    QUIZ.session.answers[qid] = altId;
+    saveLS();
+  }
+
+  function nextQuestion() {
+    if (!QUIZ.session) return false;
+    if (QUIZ.session.i < QUIZ.session.order.length - 1) {
+      QUIZ.session.i++;
+      saveLS();
+      return true;
+    }
+    return false;
+  }
+
+  function prevQuestion() {
+    if (!QUIZ.session) return false;
+    if (QUIZ.session.i > 0) {
+      QUIZ.session.i--;
+      saveLS();
+      return true;
+    }
+    return false;
+  }
+
+  function computeFeedback(q, chosenId) {
+    const alt = q.alternativas.find(a => a.id === chosenId);
+    const ok  = !!alt?.correta;
+    const comment = alt?.comentario || '';
+    return { ok, comment };
+  }
+
+  function renderRun() {
+    const el = $(CONTENT_SEL);
+    if (!el) return;
+    const q = currentQuestion();
+    if (!q) {
+      render(el, `
+        <section class="card ubox" tabindex="-1" data-focus>
+          <header class="card-head">
+            <h2 class="h2">Quiz</h2>
+          </header>
+          <p class="muted">Nenhuma questão disponível.</p>
+          <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
+        </section>
+      `);
+      return;
+    }
+
+    const total = QUIZ.session.order.length;
+    const n     = QUIZ.session.i + 1;
+    const chosen = QUIZ.session.answers[q.id];
+
+    const feedback = chosen ? computeFeedback(q, chosen) : null;
+
+    render(el, `
+      <section class="card ubox quiz-card" tabindex="-1" data-focus">
+        <header class="card-head">
+          <div class="row jc between">
+            <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
+            <span class="muted">${n}/${total}</span>
+          </div>
+          <p class="muted">${htmlEscape(q.fonte || '')}</p>
+        </header>
+
+        <div class="vspace">
+          <div class="enunciado">${htmlEscape(q.enunciado)}</div>
+
+          <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
+            ${q.alternativas.map(a => {
+              const isSel = chosen === a.id;
+              const isOk  = chosen && a.correta;
+              const isBad = chosen && isSel && !a.correta;
+              const cls = [
+                'chip',
+                isSel ? 'is-selected' : '',
+                isOk  ? 'is-correct'  : '',
+                isBad ? 'is-wrong'    : ''
+              ].filter(Boolean).join(' ');
+              const disabled = chosen ? 'disabled' : '';
+              const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
+              return `<button class="${cls}" ${aria} ${disabled} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
+            }).join('')}
+          </div>
+
+          ${feedback ? `
+            <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
+              ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
+            </div>` : ''}
+
+          <div class="row gap mt12">
+            <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
+            <button class="btn" data-next>${QUIZ.session.i===total-1?'disabled':''}>Próxima</button>
+            <a class="btn ghost" href="#/quiz">Sair</a>
+          </div>
+        </div>
+      </section>
+    `);
+
+    // Handlers
+    $$('.radiogroup .chip', el).forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        if (QUIZ.session.answers[q.id]) return; // já respondida
+        const altId = btn.getAttribute('data-alt');
+        setAnswer(q.id, altId);
+        // re-render para colorir feedback
+        renderRun();
+      });
+    });
+    $('[data-next]', el)?.addEventListener('click', ()=>{
+      if (nextQuestion()) renderRun();
+    });
+    $('[data-prev]', el)?.addEventListener('click', ()=>{
+      if (prevQuestion()) renderRun();
+    });
+  }
+
+  // ---- Roteamento ----
+  function parseHash() {
+    const h = location.hash || '';
+    // #/quiz            -> lista
+    // #/quiz/:slugTema  -> execução
+    const m = h.match(/^#\/quiz(?:\/([^?]+))?/i);
+    if (!m) return null;
+    return { slug: m[1] ? decodeURIComponent(m[1]) : null };
+  }
+
+  async function handleRoute() {
+    const r = parseHash();
+    if (!r) return false;
+
+    if (!r.slug) {
+      await viewList();
+      return true;
+    }
+
+    // Garantir banco carregado e montar sessão
+    if (!QUIZ.list.length) await loadBank();
+
+    // Tentar retomar sessão existente do mesmo tema
+    const expectedId = `tema:${r.slug}`;
+    if (!QUIZ.session || QUIZ.session.quizId !== expectedId) {
+      QUIZ.session = buildSessionFromTemaSlug(r.slug);
+      saveLS();
+    }
+
+    renderRun();
+    return true;
+  }
+
+  window.addEventListener('hashchange', handleRoute);
+  window.addEventListener('load', handleRoute);
+
+})();
 
 })();
