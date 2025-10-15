@@ -1087,9 +1087,9 @@ CACHED_FILES.set(path, parsed.map(t=>({
   async function fetchJSON(path){
     try{
       const res = await fetch(path, {cache:'no-cache'});
-      if (!res.ok) return null;
+      if (!res.ok) { toast(`Falha ao carregar ${path}`, 'warn'); return null; }
       return await res.json();
-    }catch{ return null; }
+    }catch{ toast(`Erro de rede em ${path}`, 'warn'); return null; }
   }
   async function loadIndex(){
     if (QUIZ.indexLoaded) return;
@@ -1100,9 +1100,10 @@ CACHED_FILES.set(path, parsed.map(t=>({
   async function loadBank(){
     await loadIndex();
     const loaded = [];
+    const bad = [];
     for (const file of QUIZ.files){
       const arr = await fetchJSON(`data/quizzes/${file}`);
-      if (!Array.isArray(arr)) continue;
+      if (!Array.isArray(arr) || !arr.length){ bad.push(file); continue; }
       for (const q of arr){
         if (!q?.id) continue;
         QUIZ.bank.set(q.id, q);
@@ -1110,6 +1111,8 @@ CACHED_FILES.set(path, parsed.map(t=>({
       }
     }
     QUIZ.list = loaded;
+    if (bad.length) toast(`Arquivos sem questões: ${bad.join(', ')}`, 'warn');
+    if (!loaded.length) toast('Nenhum quiz disponível.', 'warn');
   }
 
   // Util
@@ -1127,6 +1130,30 @@ CACHED_FILES.set(path, parsed.map(t=>({
     return function(){ h=Math.imul(h ^ (h>>>16),2246822507); h=Math.imul(h ^ (h>>>13),3266489909); return (h^=h>>>16)>>>0; };
   }
   function rand(seed){ return (seed % 1_000_000) / 1_000_000; }
+
+  // Toasts e hash-sync
+  function toast(msg, type='info', ms=3200){
+    const wrap = document.getElementById('toasts'); if(!wrap) return;
+    const el = document.createElement('div');
+    el.className = `toast ${type}`; el.role = 'status'; el.textContent = msg;
+    wrap.appendChild(el);
+    setTimeout(()=>{ el.classList.add('show'); }, 30);
+    setTimeout(()=>{ el.classList.remove('show'); el.remove(); }, ms);
+  }
+  function buildHash(slug, params){
+    const usp = new URLSearchParams(params);
+    const qs = String(usp);
+    return `#/quiz${slug?`/${encodeURIComponent(slug)}`:''}${qs?`?${qs}`:''}`;
+  }
+  function syncHashWithIndex(){
+    const r = parseHash(); if (!r?.slug || !QUIZ.session) return;
+    const params = { mode: QUIZ.session.mode || 'estudo', q: String(QUIZ.session.i) };
+    if (r.tag) params.tag = r.tag;
+    const target = buildHash(r.slug, params);
+    if (location.hash !== target) location.replace(target);
+  }
+
+  // Tag utils e filtro
   function allTags(list){ const s=new Set(); for(const q of list) (q.tags||[]).forEach(t=>s.add(t)); return Array.from(s).sort((a,b)=>a.localeCompare(b)); }
   function keep(arr, pred){ const out=[]; for(const x of arr) if(pred(x)) out.push(x); return out; }
 
@@ -1298,6 +1325,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
             <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
             <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
             <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
+            <button class="btn ghost" data-restart>Reiniciar</button>
             <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
           </div>
         </div>
@@ -1335,8 +1363,23 @@ CACHED_FILES.set(path, parsed.map(t=>({
         if (!isSimu){ renderRun(); } else { $$('.radiogroup .chip', el).forEach(b=>b.classList.remove('is-selected')); btn.classList.add('is-selected'); }
       });
     });
-    $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
-    $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
+    $('[data-next]', el)?.addEventListener('click', ()=>{
+      if (nextQuestion()) { syncHashWithIndex(); renderRun(); }
+    });
+    $('[data-prev]', el)?.addEventListener('click', ()=>{
+      if (prevQuestion()) { syncHashWithIndex(); renderRun(); }
+    });
+    $('[data-restart]', el)?.addEventListener('click', ()=>{
+      const r = parseHash();
+      if (r?.slug){
+        QUIZ.session = buildSessionFromTemaSlug(r.slug, QUIZ.session.mode || 'estudo');
+        QUIZ.session.finishedAt = undefined;
+        saveLS();
+        syncHashWithIndex();
+        renderRun();
+        toast('Sessão reiniciada.', 'info');
+      }
+    });
     $('[data-finish]', el)?.addEventListener('click', ()=>{ QUIZ.session.finishedAt = Date.now(); saveLS(); renderSummary(); });
 
     // Timer simulado
@@ -1347,10 +1390,13 @@ CACHED_FILES.set(path, parsed.map(t=>({
         if (remain <= 0){
           clearInterval(QUIZ._timer); QUIZ._timer=null;
           if (!nextQuestion()){ QUIZ.session.finishedAt=Date.now(); saveLS(); renderSummary(); }
-          else renderRun();
+          else { syncHashWithIndex(); renderRun(); }
         }
       }, 1000);
     }
+
+    // Sincroniza ?q= na primeira renderização desta questão
+    syncHashWithIndex();
   }
 
   // Gabarito / Resumo
@@ -1444,4 +1490,5 @@ CACHED_FILES.set(path, parsed.map(t=>({
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
 })();
+
 })();
