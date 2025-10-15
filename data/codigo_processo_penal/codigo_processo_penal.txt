@@ -1769,3 +1769,232 @@ Assim o prometo.
 - Vide art. 506 do CPPM.
 -- regula a renovação dos atos nulos e a teoria dos frutos da árvore envenenada no processo penal militar.
 -----
+# Voluntariedade e Recurso de Ofício
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 574. Os recursos serão voluntários, excetuando-se os seguintes casos, em que deverão ser interpostos, de ofício, pelo juiz:
+- I – da sentença que conceder habeas corpus;
+- II – da que absolver desde logo o réu com fundamento na existência de circunstância que exclua o crime ou isente o réu de pena, nos termos do art. 411.
+-- O art. 411 foi alterado pela Lei n. 11.689, de 9-6-2008, e não dispõe mais sobre a matéria. Sobre absolvição sumária, vide arts. 415 e 416 do CPP.
+# Remissões Normativas
+- Vide Súmula 160 do STF.
+-- veda a decisão contra o réu com base em recurso exclusivo da defesa (reformatio in pejus).
+- Vide arts. 564, III, n, e 576 do CPP.
+-- tratam, respectivamente, da nulidade pela falta de recurso de ofício e da impossibilidade de o Ministério Público desistir de recurso.
+- Vide art. 746 do CPP, sobre recursos.
+-- estabelece o recurso de ofício da decisão que concede a reabilitação criminal.
+- Vide art. 7.º da Lei n. 1.521, de 26-12-1951, sobre crimes contra a economia popular.
+-- prevê o recurso de ofício da sentença absolutória em crimes contra a economia popular.
+- Vide arts. 581, X, e 647 a 667 do CPP.
+-- tratam do cabimento do Recurso em Sentido Estrito contra decisão que concede habeas corpus e do procedimento geral do writ.
+-----
+# Erro ou Omissão no Processamento do Recurso
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 575. Não serão prejudicados os recursos que, por erro, falta ou omissão dos funcionários, não tiverem seguimento ou não forem apresentados dentro do prazo.
+# Remissões Normativas
+- Vide Súmulas 320, 428 e 705 do STF.
+-- tratam de questões relativas ao processamento de recursos, como a admissibilidade de recurso não processado na instância inferior e a intimação das partes para o julgamento.
+-----
+# Desistência de Recurso pelo Ministério Público
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 576. O Ministério Público não poderá desistir de recurso que haja interposto.
+# Remissões Normativas
+- Vide arts. 17 e 42 do CPP.
+-- consagram o princípio da indisponibilidade da ação penal pública, que se estende à fase recursal.
+- Vide art. 512 do CPPM.
+-- contém regra equivalente no processo penal militar.
+-----
+# Legitimidade para Recorrer
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 577. O recurso poderá ser interposto pelo Ministério Público, ou pelo querelante, ou pelo réu, seu procurador ou seu defensor.
+- Parágrafo único. Não se admitirá, entretanto, recurso da parte que não tiver interesse na reforma ou modificação da decisão.
+# Remissões Normativas
+- Vide art. 511 do CPPM.
+-- define os legitimados para interpor recurso no processo penal militar.
+- Vide Súmulas 210 e 448 do STF.
+-- tratam, respectivamente, da legitimidade recursal do assistente de acusação e do Ministério Público no pedido de reabilitação.
+-----
+# Forma de Interposição do Recurso
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 578. O recurso será interposto por petição ou por termo nos autos, assinado pelo recorrente ou por seu representante.
+- § 1.º Não sabendo ou não podendo o réu assinar o nome, o termo será assinado por alguém, a seu rogo, na presença de duas testemunhas.
+- § 2.º A petição de interposição de recurso, com o despacho do juiz, será, até o dia seguinte ao último do prazo, entregue ao escrivão, que certificará no termo da juntada a data da entrega.
+- § 3.º Interposto por termo o recurso, o escrivão, sob pena de suspensão por 10 (dez) a 30 (trinta) dias, fará conclusos os autos ao juiz, até o dia seguinte ao último do prazo.
+# Remissões Normativas
+- Vide arts. 587 e 600, § 4.º, do CPP.
+-- tratam do processamento do recurso em sentido estrito e da possibilidade de o acusado, sem defensor, apresentar suas razões na instância superior.
+- Vide art. 513 do CPPM.
+-- regula a forma de interposição do recurso no processo penal militar.
+- Vide art. 83, § 1.º, da Lei n. 9.099, de 26-9-1995.
+-- dispõe sobre a interposição de recurso nos Juizados Especiais.
+- Vide Súmulas 160 e 428 do STF.
+-- tratam, respectivamente, da proibição da 'reformatio in pejus' e da desnecessidade de intimação pessoal do MP da pauta de julgamento.
+-----
+# Princípio da Fungibilidade Recursal
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 579. Salvo a hipótese de má-fé, a parte não será prejudicada pela interposição de um recurso por outro.
+- Parágrafo único. Se o juiz, desde logo, reconhecer a impropriedade do recurso interposto pela parte, mandará processá-lo de acordo com o rito do recurso cabível.
+# Remissões Normativas
+- Vide art. 514 do CPPM.
+-- consagra o princípio da fungibilidade no processo penal militar.
+-----
+# Efeito Extensivo dos Recursos
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 580. No caso de concurso de agentes (Código Penal, art. 25), a decisão do recurso interposto por um dos réus, se fundado em motivos que não sejam de caráter exclusivamente pessoal, aproveitará aos outros.
+-- Referência a dispositivo original do CP. Vide art. 29 da nova Parte Geral do mesmo Código.
+# Remissões Normativas
+- Vide art. 515 do CPPM.
+-- trata do efeito extensivo do recurso no concurso de agentes no processo penal militar.
+-----
+# Recurso em Sentido Estrito (RESE)
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 581. Caberá recurso, no sentido estrito, da decisão, despacho ou sentença:
+- I – que não receber a denúncia ou a queixa;
+- II – que concluir pela incompetência do juízo;
+- III – que julgar procedentes as exceções, salvo a de suspeição;
+- IV – que pronunciar o réu;
+-- Inciso IV com redação determinada pela Lei n. 11.689, de 9-6-2008.
+- V – que conceder, negar, arbitrar, cassar ou julgar inidônea a fiança, indeferir requerimento de prisão preventiva ou revogá-la, conceder liberdade provisória ou relaxar a prisão em flagrante;
+-- Inciso V com redação determinada pela Lei n. 7.780, de 22-6-1989.
+- VI – (Revogado pela Lei n. 11.689, de 9-6-2008.)
+- VII – que julgar quebrada a fiança ou perdido o seu valor;
+- VIII – que decretar a prescrição ou julgar, por outro modo, extinta a punibilidade;
+- IX – que indeferir o pedido de reconhecimento da prescrição ou de outra causa extintiva da punibilidade;
+- X – que conceder ou negar a ordem de habeas corpus;
+- XI – que conceder, negar ou revogar a suspensão condicional da pena;
+- XII – que conceder, negar ou revogar livramento condicional;
+- XIII – que anular o processo da instrução criminal, no todo ou em parte;
+- XIV – que incluir jurado na lista geral ou desta o excluir;
+- XV – que denegar a apelação ou a julgar deserta;
+- XVI – que ordenar a suspensão do processo, em virtude de questão prejudicial;
+- XVII – que decidir sobre a unificação de penas;
+- XVIII – que decidir o incidente de falsidade;
+- XIX – que decretar medida de segurança, depois de transitar a sentença em julgado;
+- XX – que impuser medida de segurança por transgressão de outra;
+-- Vide nota ao inciso XIX deste artigo.
+- XXI – que mantiver ou substituir a medida de segurança, nos casos do art. 774;
+-- Vide nota ao inciso XIX deste artigo.
+- XXII – que revogar a medida de segurança;
+-- Vide nota ao inciso XIX deste artigo.
+- XXIII – que deixar de revogar a medida de segurança, nos casos em que a lei admita a revogação;
+-- Vide nota ao inciso XIX deste artigo.
+- XXIV – que converter a multa em detenção ou em prisão simples;
+- XXV – que recusar homologação à proposta de acordo de não persecução penal, previsto no art. 28-A desta Lei.
+-- Inciso XXV acrescentado pela Lei n. 13.964, de 24-12-2019.
+# Remissões Normativas
+- Vide art. 593, § 4.º, do CPP.
+-- estabelece que das sentenças definitivas de condenação ou absolvição caberá apelação, e não recurso em sentido estrito.
+- Vide Súmulas 33 do STJ e 604 do STJ.
+-- tratam, respectivamente, da competência processual e da ausência de efeito suspensivo em reexame necessário.
+- Vide art. 516 do CPPM.
+-- elenca as hipóteses de cabimento do recurso em sentido estrito na Justiça Militar.
+- Vide arts. 395, 564, I, 95 e s., 413, 310 a 316, 322 a 350, 341 a 347, 647 a 667, 426, § 1.º, 593 e s., 92, 93, 145 e s. do CPP.
+-- detalham os institutos e decisões que dão origem às hipóteses de cabimento do RESE, como rejeição da denúncia, incompetência, exceções, pronúncia, prisões, fiança, habeas corpus, desaforamento, apelação, questões prejudiciais e incidente de falsidade.
+- Vide art. 82, § 1.º, da Lei n. 9.099, de 26-9-1995.
+-- prevê o cabimento de apelação, e não de RESE, da decisão de rejeição da denúncia ou queixa nos Juizados Especiais.
+- Vide Súmulas 423 e 707 do STF.
+-- tratam, respectivamente, da ausência de recurso de ofício em habeas corpus e da nulidade por falta de intimação para contra-arrazoar recurso.
+- Vide arts. 107 e s. do CP; 77 e s. do CP; e 51 do CP.
+-- tipificam as causas de extinção da punibilidade, a suspensão condicional da pena e a conversão da pena de multa.
+- Vide arts. 66, 111, 131 a 146, 171 a 179 e 197 da LEP.
+-- dispõem, na Lei de Execução Penal, sobre a competência do juiz da execução para decidir sobre suspensão condicional da pena, livramento condicional, unificação de penas e execução de medidas de segurança.
+-----
+# Competência para Julgamento do RESE
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 582. Os recursos serão sempre para o Tribunal de Apelação, salvo nos casos dos ns. V, X e XIV.
+-- Sobre Tribunais de Apelação, vide Nota dos Organizadores.
+- Parágrafo único. O recurso, no caso do n. XIV, será para o presidente do Tribunal de Apelação.
+-----
+# Forma de Processamento (Subida nos Próprios Autos)
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 583. Subirão nos próprios autos os recursos:
+- I – quando interpostos de ofício;
+- II – nos casos do art. 581, I, III, IV, VI, VIII e X;
+- III – quando o recurso não prejudicar o andamento do processo.
+- Parágrafo único. O recurso da pronúncia subirá em traslado, quando, havendo dois ou mais réus, qualquer deles se conformar com a decisão ou todos não tiverem sido ainda intimados da pronúncia.
+# Remissões Normativas
+- Vide art. 517 do CPPM.
+-- regula a forma de processamento dos recursos no processo penal militar.
+-----
+# Efeito Suspensivo do RESE
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 584. Os recursos terão efeito suspensivo nos casos de perda da fiança, de concessão de livramento condicional e dos ns. XV, XVII e XXIV do art. 581.
+- § 1.º Ao recurso interposto de sentença de impronúncia ou no caso do n. VIII do art. 581, aplicar-se-á o disposto nos arts. 596 e 598.
+- § 2.º O recurso da pronúncia suspenderá tão somente o julgamento.
+- § 3.º O recurso do despacho que julgar quebrada a fiança suspenderá unicamente o efeito de perda da metade do seu valor.
+# Remissões Normativas
+- Vide Súmula 604 do STJ.
+-- afirma que o reexame necessário não possui efeito suspensivo.
+- Vide arts. 131 e s. da LEP e art. 83 do CP.
+-- dispõem sobre o livramento condicional.
+- Vide Súmula 210 do STF.
+-- legitima o assistente de acusação a recorrer quando o Ministério Público não o faz.
+-----
+# Recurso da Pronúncia e Prisão
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 585. O réu não poderá recorrer da pronúncia senão depois de preso, salvo se prestar fiança, nos casos em que a lei a admitir.
+# Remissões Normativas
+- Vide art. 413, § 3.º, do CPP.
+-- este dispositivo, com redação mais recente, estabelece que o juiz decidirá, fundamentadamente, sobre a manutenção ou decretação da prisão, permitindo o recurso em liberdade, regra que prevalece sobre o art. 585.
+-----
+# Prazo para Interposição do RESE
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 586. O recurso voluntário poderá ser interposto no prazo de 5 (cinco) dias.
+- Parágrafo único. No caso do art. 581, XIV, o prazo será de 20 (vinte) dias, contado da data da publicação definitiva da lista de jurados.
+# Remissões Normativas
+- Vide art. 518 do CPPM.
+-- trata do prazo para interposição do recurso em sentido estrito no processo penal militar.
+- Vide Súmulas 319 e 700 do STF.
+-- dispõem, respectivamente, sobre o prazo do agravo de instrumento e sobre a interposição da apelação dentro do prazo legal, ainda que as razões sejam apresentadas extemporaneamente.
+-----
+# Formação do Instrumento de Recurso
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 587. Quando o recurso houver de subir por instrumento, a parte indicará, no respectivo termo, ou em requerimento avulso, as peças dos autos de que pretenda traslado.
+- Parágrafo único. O traslado será extraído, conferido e concertado no prazo de 5 (cinco) dias, e dele constarão sempre a decisão recorrida, a certidão de sua intimação, se por outra forma não for possível verificar-se a oportunidade do recurso, e o termo de interposição.
+-----
+# Prazo para Razões e Contrarrazões
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 588. Dentro de 2 (dois) dias, contados da interposição do recurso, ou do dia em que o escrivão, extraído o traslado, o fizer com vista ao recorrente, este oferecerá as razões e, em seguida, será aberta vista ao recorrido por igual prazo.
+- Parágrafo único. Se o recorrido for o réu, será intimado do prazo na pessoa do defensor.
+# Remissões Normativas
+- Vide Súmula 707 do STF.
+-- considera nulo o julgamento de recurso criminal sem a intimação da defesa para oferecer contrarrazões.
+- Vide art. 519 do CPPM.
+-- regula a apresentação das razões e contrarrazões no processo penal militar.
+-----
+# Juízo de Retratação
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 589. Com a resposta do recorrido ou sem ela, será o recurso concluso ao juiz, que, dentro de 2 (dois) dias, reformará ou sustentará o seu despacho, mandando instruir o recurso com os traslados que lhe parecerem necessários.
+- Parágrafo único. Se o juiz reformar o despacho recorrido, a parte contrária, por simples petição, poderá recorrer da nova decisão, se couber recurso, não sendo mais lícito ao juiz modificá-la. Neste caso, independentemente de novos arrazoados, subirá o recurso nos próprios autos ou em traslado.
+# Remissões Normativas
+- Vide art. 520 do CPPM.
+-- trata do juízo de retratação no recurso em sentido estrito no âmbito da Justiça Militar.
+-----
+# Prorrogação de Prazo para Traslado
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 590. Quando for impossível ao escrivão extrair o traslado no prazo da lei, poderá o juiz prorrogá-lo até o dobro.
+# Remissões Normativas
+- Vide art. 521 do CPPM.
+-- contém regra equivalente no processo penal militar.
+-----
+# Apresentação do Recurso ao Tribunal
+- Código de Processo Penal
+# Dispositivos Legais
+- Art. 591. Os recursos serão apresentados ao juiz ou tribunal ad quem, dentro de 5 (cinco) dias da publicação da resposta do juiz a quo, ou entregues ao Correio dentro do mesmo prazo.
+-----
