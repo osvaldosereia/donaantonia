@@ -208,45 +208,71 @@ function genVariantsFromQuery(q){
   function googleIA(prompt){ return `https://www.google.com/search?udm=50&q=${encodeURIComponent(prompt)}`; }
 
 const IA_PROMPTS = {
-  resumo:        (t, full) => `Resuma em tópicos claros e objetivos, destacando fundamentos legais e aplicações práticas.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  resumo: (t, full) => `Assuma a persona de Professor de Direito e faça resumo 80/20 em tópicos com base legal, exemplo prático e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  detalhada:     (t, full) => `Atue como professor de Direito brasileiro. Elabore uma explicação didática e completa em formato de apostila, com índice do conceito à prática jurídica, voltada para OAB e concursos.\n\nTEMA:\n${full}`,
+  detalhada: (t, full) => `Assuma a persona de Professor de Direito e produza apostila didática do básico ao avançado com índice→conceitos→exemplos→exercícios→leituras, citando fontes oficiais e doutrina; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  dissertativas: (t, full) => `Crie 5 questões dissertativas com gabarito comentado, base legal e explicação sucinta.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  mapaMental: (t, full) => `Assuma a persona de Professor de Direito e gere mapa mental com nós, conexões e links para fontes oficiais/doutrina; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  objetivas:     (t, full) => `Crie 10 questões objetivas (A–E) com gabarito e justificativa breve, evitando repetição de ideias.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  linhaTemporal: (t, full) => `Assuma a persona de Pesquisador Jurídico e monte linha do tempo com marcos legislativos/jurisprudenciais, datas e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  quiz:          (t, full) => `Monte um quiz com 10 perguntas rápidas sobre o tema (misture objetivas e dissertativas curtas) e apresente o gabarito ao final.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  comparativo: (t, full) => `Assuma a persona de Professor de Direito e compare institutos correlatos, destacando semelhanças/diferenças/usos e citando súmulas com links; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  videos:        (t)       => `Liste 3–5 vídeoaulas no YouTube sobre ${t}, priorizando conteúdo didático e jurídico.`,
+  doutrina: (t, full) => `Assuma a persona de Pesquisador Jurídico e liste 3–5 posições doutrinárias com obra, trecho-chave e links; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  artigos:       (t)       => `Liste 3–5 artigos jurídicos ou acadêmicos sobre ${t}. Prefira fontes confiáveis: jusbrasil.com.br, migalhas.com.br, e universidades (USP, UFRJ, UFMG, UFRGS, UnB).`,
+  controv: (t, full) => `Assuma a persona de Professor de Direito e explique correntes A/B, entendimento predominante e impactos práticos, citando e linkando fontes; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  atualizacao:   (t, full) => `Verifique em fontes oficiais (Planalto, LexML, Diários Oficiais) se o texto abaixo sofreu alterações legais nos últimos 2 anos.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  perguntas: (t, full) => `Assuma a persona de Orientador de Estudos e crie roteiro progressivo de perguntas/respostas com artigos aplicáveis e links; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  leis:          (t, full) => `Pesquise leis e dispositivos correlatos ao tema, destacando artigos mais diretamente relacionados ao texto-base.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  dissertativas: (t, full) => `Assuma a persona de Orientador de Estudos e elabore 5 questões dissertativas com gabarito comentado, base legal e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  ffp:           (t, full) => `Atue como advogado. Apresente 3 exemplos práticos de Fatos, Fundamentos e Pedidos comuns na prática jurídica sobre o tema.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  objetivas: (t, full) => `Assuma a persona de Orientador de Estudos e crie 10 questões objetivas (A–E) com gabarito, justificativa breve e referência legal/jurisprudencial linkada; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  cabimento:     (t, full) => `Explique a função, efeitos e hipóteses de cabimento do artigo ou instituto a seguir na prática jurídica.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  quiz: (t, full) => `Assuma a persona de Orientador de Estudos e gere 10 perguntas mistas (objetivas e curtas) com gabarito e links para base legal; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  jurisprudencia:(t, full) => `Resuma a jurisprudência dominante e as súmulas relacionadas ao tema, priorizando entendimentos recentes de tribunais superiores (últimos 5 anos).\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  flashcards: (t, full) => `Assuma a persona de Orientador de Estudos e produza flashcards termo→definição→artigo/base com link oficial; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  controv:       (t, full) => `Analise as principais controvérsias doutrinárias e jurisprudenciais sobre o tema, expondo as correntes divergentes e o entendimento predominante.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  revisao: (t, full) => `Assuma a persona de Coach Acadêmico/Forense e liste assertivas essenciais e checklist com artigos e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  doutrina:      (t, full) => `Liste e resuma as posições de 3 a 5 doutrinadores relevantes sobre o tema, indicando a obra e a corrente teórica que representam.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  errosComuns: (t, full) => `Assuma a persona de Professor de Direito e aponte confusões frequentes, corrija e cite fonte oficial com link; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  comparativo:   (t, full) => `Compare institutos ou princípios relacionados ao tema, apontando semelhanças, diferenças e exemplos práticos de aplicação.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  glossario: (t, full) => `Assuma a persona de Professor de Direito e crie glossário de termos técnicos com definições objetivas e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  linhaTemporal: (t, full) => `Apresente uma linha do tempo da evolução legislativa e jurisprudencial do tema, com marcos históricos e alterações relevantes.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  jurisprudenciaQuiz: (t, full) => `Assuma a persona de Coach de Jurisprudência e formule 5 questões sobre entendimentos atuais com respostas e links de julgados oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  pratica:       (t, full) => `Atue como advogado. Gere orientação prática em Markdown com: peça adequada, estratégia, modelo resumido, checklist, fundamentos e 3–5 precedentes (.jus.br, .gov.br ou Jusbrasil). Se faltar dado, diga "insuficiente".\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  ffp: (t, full) => `Assuma a persona de Advogado Experiente e apresente 3 exemplos de Fatos, Fundamentos e Pedidos comuns, com base legal e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  casos:         (t, full) => `Crie 3 casos práticos sobre o tema, cada um com enunciado, pergunta e solução fundamentada em lei e jurisprudência.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  cabimento: (t, full) => `Assuma a persona de Advogado Experiente e indique a peça processual cabível, fundamento, requisitos e links oficiais (sem redigir a peça); Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  interdisciplinar: (t, full) => `Mostre como o tema se relaciona com outros ramos do Direito (Constitucional, Penal, Administrativo, Civil) e áreas externas (sociologia, economia, tecnologia).\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  fundamentacao: (t, full) => `Assuma a persona de Advogado Experiente e extraia 3–5 fundamentos curtos para petição com artigos e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
 
-  revisao:       (t, full) => `Revisão rápida: liste apenas as assertivas e pontos-chave essenciais para prova sobre o tema.\n\nTEMA: ${t}\n\nTEXTO:\n${full}`,
+  docsPorPedido: (t, full) => `Assuma a persona de Advogado Experiente e liste documentos/provas típicas por pedido, finalidade e base legal com link; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  precedentes: (t, full) => `Assuma a persona de Pesquisador de Jurisprudência e traga 3–5 precedentes colegiados recentes (5–10 anos) com ementa-resumo e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  medidasUrgentes: (t, full) => `Assuma a persona de Advogado Experiente e indique medidas urgentes cabíveis, requisitos, perigo/urgência e prova mínima com links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  prescricaoCompetenciaRito: (t, full) => `Assuma a persona de Advogado Processualista e verifique prescrição/decadência e competência/rito aplicáveis com artigos e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  roteiroAudiencia: (t, full) => `Assuma a persona de Advogado Experiente e monte roteiro de audiência com pontos a provar, perguntas-chave, objeções e base legal linkada; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  cronograma: (t, full) => `Assuma a persona de Advogado Processualista e esboce fases e prazos prováveis com gatilhos e referências legais/jurisprudenciais linkadas; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  matrizPedidos: (t, full) => `Assuma a persona de Advogado Experiente e estruture pedido→fundamento→prova→observações com artigos e link oficial; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  remissoes: (t, full) => `Assuma a persona de Pesquisador Jurídico e liste súmulas, enunciados, temas repetitivos e informativos relacionados com links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  rotaPesquisa: (t, full) => `Assuma a persona de Pesquisador Jurídico e monte consultas prontas para LexML/Planalto/Diários/jurisprudência .jus.br com sintaxes e links; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  divergenciaTribunais: (t, full) => `Assuma a persona de Pesquisador de Jurisprudência e mapeie divergências relevantes entre tribunais com trechos-chave e links dos julgados; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  atualizacao: (t, full) => `Assuma a persona de Pesquisador Legislativo e verifique alterações recentes (últimos 2 anos) em Planalto/LexML/Diários, resuma mudanças e linke as fontes; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  leis: (t, full) => `Assuma a persona de Pesquisador Legislativo e pesquise leis/decretos/normas correlatas, destacando artigos relevantes e links oficiais; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  videos: (t, full) => `Assuma a persona de Orientador de Estudos e sugira 3–5 vídeoaulas no YouTube com foco didático e jurídico, incluindo canais/filtros e links; Tema: ${t}.\n\nTEMA:\n${full}`,
+
+  artigos: (t, full) => `Assuma a persona de Pesquisador Jurídico e indique 3–5 artigos jurídicos/acadêmicos com preferência a fontes confiáveis (JusBrasil, Migalhas, universidades) e links; Tema: ${t}.\n\nTEMA:\n${full}`
 };
    
 
@@ -674,48 +700,61 @@ function onDocCloseIADrop(e) {
 function openIADropdown(anchorBtn, title, fullText) {
   closeIADrop();
 
-  const IA_GROUPS = {
-    estudo: {
-      label: '📘 Estudo',
-      items: [
-        { key: 'resumo', label: 'Resumo' },
-        { key: 'detalhada', label: 'Explicação Detalhada' },
-        { key: 'doutrina', label: 'Doutrina Relevante' },
-        { key: 'comparativo', label: 'Comparativo de Institutos' },
-        { key: 'controv', label: 'Controvérsias Doutrinárias' },
-        { key: 'interdisciplinar', label: 'Aplicação Interdisciplinar' },
-      ]
-    },
-    revisao: {
-      label: '🧠 Revisão',
-      items: [
-        { key: 'revisao', label: 'Revisão Rápida' },
-        { key: 'dissertativas', label: 'Questões Dissertativas' },
-        { key: 'objetivas', label: 'Questões Objetivas' },
-        { key: 'quiz', label: 'Quiz Interativo' },
-        { key: 'videos', label: 'Vídeoaulas' },
-        { key: 'artigos', label: 'Artigos Jurídicos' },
-      ]
-    },
-    pratica: {
-      label: '⚖️ Prática',
-      items: [
-        { key: 'ffp', label: 'Fatos, Fundamentos e Pedidos' },
-        { key: 'cabimento', label: 'Cabimento Prático' },
-        { key: 'pratica', label: 'Prática Jurídica' },
-        { key: 'casos', label: 'Casos Práticos' },
-      ]
-    },
-    pesquisa: {
-      label: '🔍 Pesquisa',
-      items: [
-        { key: 'leis', label: 'Leis Relacionadas' },
-        { key: 'jurisprudencia', label: 'Jurisprudência e Súmulas' },
-        { key: 'linhaTemporal', label: 'Linha do Tempo Legal' },
-        { key: 'atualizacao', label: 'Atualização Legislativa' },
-      ]
-    }
-  };
+const IA_GROUPS = {
+  estudo: {
+    label: '📘 Estudo',
+    items: [
+      { key: 'resumo',        label: 'Resumo 80/20' },
+      { key: 'detalhada',     label: 'Explicação Detalhada' },
+      { key: 'mapaMental',    label: 'Mapa Mental' },
+      { key: 'comparativo',   label: 'Comparativo de Institutos' },
+      { key: 'doutrina',      label: 'Doutrina Relevante' },
+      { key: 'controv',       label: 'Controvérsias Doutrinárias' },
+      { key: 'perguntas',     label: 'Perguntas Socráticas' },
+      { key: 'glossario',     label: 'Glossário do Tema' },
+      { key: 'flashcards',    label: 'Flashcards' }
+    ]
+  },
+  revisao: {
+    label: '🧠 Revisão',
+    items: [
+      { key: 'revisao',           label: 'Revisão Rápida' },
+      { key: 'errosComuns',       label: 'Erros Comuns' },
+      { key: 'dissertativas',     label: 'Questões Dissertativas' },
+      { key: 'objetivas',         label: 'Questões Objetivas' },
+      { key: 'quiz',              label: 'Quiz Misto' },
+      { key: 'jurisprudenciaQuiz',label: 'Jurisprudência-Quiz' },
+      { key: 'videos',            label: 'Vídeoaulas' },
+      { key: 'artigos',           label: 'Artigos Jurídicos' }
+    ]
+  },
+  pratica: {
+    label: '⚖️ Prática',
+    items: [
+      { key: 'ffp',                     label: 'Fatos, Fundamentos e Pedidos' },
+      { key: 'cabimento',               label: 'Peça Cabível (sem redigir)' },
+      { key: 'fundamentacao',           label: 'Fundamentação Enxuta' },
+      { key: 'docsPorPedido',           label: 'Documentos por Pedido' },
+      { key: 'medidasUrgentes',         label: 'Medidas Urgentes' },
+      { key: 'prescricaoCompetenciaRito',label: 'Prescrição/Competência/Rito' },
+      { key: 'roteiroAudiencia',        label: 'Roteiro de Audiência' },
+      { key: 'cronograma',              label: 'Cronograma Processual' },
+      { key: 'matrizPedidos',           label: 'Matriz de Pedidos' },
+      { key: 'precedentes',             label: 'Precedentes Prioritários' }
+    ]
+  },
+  pesquisa: {
+    label: '🔍 Pesquisa',
+    items: [
+      { key: 'leis',            label: 'Leis Relacionadas' },
+      { key: 'remissoes',       label: 'Súmulas e Enunciados' },
+      { key: 'linhaTemporal',   label: 'Linha do Tempo Legal' },
+      { key: 'atualizacao',     label: 'Atualização Legislativa' },
+      { key: 'rotaPesquisa',    label: 'Rota de Pesquisa Rápida' },
+      { key: 'divergenciaTribunais', label: 'Divergência entre Tribunais' }
+    ]
+  }
+};
 
   __iaDrop = document.createElement('div');
   __iaDrop.className = 'ia-pop';
