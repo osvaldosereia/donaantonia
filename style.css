@@ -343,3 +343,106 @@ button.mini{
 .chip.is-current{outline:2px solid currentColor}
 .chip.is-answered{opacity:.95}
 .chip.is-marked{border:2px dashed var(--accent)}
+
+/* ===========================================
+   QUIZ — simplificação visual e mobile-first
+   =========================================== */
+
+/* 1) Remover controles que não serão usados */
+.quiz-card [aria-label="Modo"],
+.quiz-card [aria-label="Filtro por tag"],
+.quiz-card #q-timer,
+.quiz-card .btn.warn,
+.quiz-card [data-finish],
+.quiz-card [data-restart],
+#qmap,
+.quiz-card .mapa,
+.quiz-card .map { display:none !important; }
+
+/* 2) Cabeçalho e enunciado mais profissionais */
+.quiz-card .card-head{padding-bottom:6px;border-bottom:1px solid var(--line);}
+.quiz-card .h2{font-size:18px;font-weight:600;color:var(--primary);}
+.quiz-card .enunciado{
+  margin-top:10px;
+  padding:10px 12px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:500;
+}
+
+/* 3) Alternativas discretas (estilo “lista selecionável”) */
+.quiz-card .radiogroup{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-top:12px;
+}
+.quiz-card .radiogroup .chip{
+  /* vira “opção” compacta */
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:10px;
+  color:var(--ink);
+  font-weight:500;
+  font-size:14px;
+}
+.quiz-card .radiogroup .chip:hover{background:var(--surface);}
+.quiz-card .radiogroup .chip:is(:focus-visible){outline:2px solid var(--accent);outline-offset:1px;}
+.quiz-card .radiogroup .chip.is-selected{
+  border-color:#16a34a66;
+  box-shadow:0 0 0 2px #16a34a1a inset;
+  background:#f0fdf4;
+}
+
+/* 4) Feedback simples */
+.quiz-card .feedback{
+  margin-top:8px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:14px;
+  font-weight:600;
+}
+.quiz-card .feedback.ok{border-color:#16a34a33;color:#166534;background:#f0fdf4;}
+.quiz-card .feedback.err{border-color:#ef444433;color:#991b1b;background:#fef2f2;}
+
+/* 5) Barra de ações enxuta (somente Anterior / Próxima / Sair) */
+.quiz-card .row.gap{flex-wrap:wrap;gap:8px;}
+.quiz-card .btn{
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:13px;
+  font-weight:600;
+}
+.quiz-card .btn.ghost{color:var(--muted);}
+@media (max-width:720px){
+  .quiz-card .row.gap .btn{flex:1 1 calc(50% - 8px);}
+}
+
+/* 6) Página de lista do quiz: mais limpa */
+#content .quiz-card .ubox > .row[aria-label="Modo"],
+#content .quiz-card .ubox > .row[aria-label="Filtro por tag"]{ display:none !important; }
+
+#content .quiz-card .search{background:#fff;border-color:var(--line);}
+
+/* 7) Garantias de mobile para inputs e botões do quiz */
+@media (max-width:480px){
+  .quiz-card .enunciado{font-size:15.5px;padding:10px;}
+  .quiz-card .radiogroup .chip{padding:10px;font-size:14px;}
+}
+
+/* 8) Resumo: esconder métricas detalhadas, manter só lista de erros */
+section.card .ubox strong:has(+ .vspace-sm), /* “Desempenho por tag” */
+section.card .ubox strong:has(+ .row.jc.between) { display:none !important; }
+section.card .ubox strong + .vspace-sm,
+section.card .ubox strong + .row.jc.between { display:none !important; }
