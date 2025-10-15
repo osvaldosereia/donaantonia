@@ -1053,8 +1053,8 @@ CACHED_FILES.set(path, parsed.map(t=>({
     bindAutocomplete();
   })();
 
-  /* =========================================================
-   QUIZ – loader, lista, execução, gabarito e revisão de erros
+ /* =========================================================
+   QUIZ – loader, lista, execução, gabarito, revisão e simulado
    ========================================================= */
 (() => {
   // Helpers locais
@@ -1066,19 +1066,17 @@ CACHED_FILES.set(path, parsed.map(t=>({
   const QUIZ = {
     indexLoaded: false,
     files: [],           // ['trabalho.json', ...]
-    bank: new Map(),     // Map<quizId, {...}}
-    list: [],            // array plano de questões
-    session: null        // { quizId, order[], i, answers:{[id]:altId}, startedAt, finishedAt?, mode, seed }
+    bank: new Map(),     // Map<questaoId, questao>
+    list: [],            // array de questões
+    session: null,       // { quizId, order[], i, answers:{[id]:altId}, startedAt, finishedAt?, mode, seed }
+    _timer: null
   };
 
   const LS_KEY = 'meujus:quiz:v1';
 
   // ---- Persistência ----
   function saveLS() {
-    try {
-      const data = { session: QUIZ.session };
-      localStorage.setItem(LS_KEY, JSON.stringify(data));
-    } catch {}
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ session: QUIZ.session })); } catch {}
   }
   function loadLS() {
     try {
@@ -1120,6 +1118,21 @@ CACHED_FILES.set(path, parsed.map(t=>({
   }
 
   // ---- Util ----
+  function htmlEscape(s=''){ return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+  function render(el, html){
+    if (!el) return;
+    el.innerHTML = html;
+    try { window.__closeDrawer?.(); } catch {}
+    el.querySelector('[data-focus]')?.focus?.();
+  }
+
+  function slugify(s=''){
+    return s.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+  }
+
   function shuffle(arr, seed = Date.now()) {
     let a = arr.slice();
     let s = xmur3(String(seed))();
@@ -1144,82 +1157,67 @@ CACHED_FILES.set(path, parsed.map(t=>({
   }
   function rand(seed) { return (seed % 1_000_000) / 1_000_000; }
 
-  function htmlEscape(s=''){ return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
-
-  function render(el, html){
-    if (!el) return;
-    el.innerHTML = html;
-    try { window.__closeDrawer?.(); } catch {}
-    el.querySelector('[data-focus]')?.focus?.();
-  }
-
   // ---- Views: Lista ----
   async function viewList() {
-  const el = $(CONTENT_SEL);
-  if (!el) return;
-  if (!QUIZ.list.length) await loadBank();
+    const el = $(CONTENT_SEL);
+    if (!el) return;
+    if (!QUIZ.list.length) await loadBank();
 
-  const r = parseHash() || { mode:'estudo' };
-  const byTema = new Map();
-  for (const q of QUIZ.list) {
-    const k = q.tema || 'Outros';
-    if (!byTema.has(k)) byTema.set(k, []);
-    byTema.get(k).push(q);
-  }
+    const r = parseHash() || { mode:'estudo' };
+    const byTema = new Map();
+    for (const q of QUIZ.list) {
+      const k = q.tema || 'Outros';
+      if (!byTema.has(k)) byTema.set(k, []);
+      byTema.get(k).push(q);
+    }
 
-  let html = `
-    <section class="card ubox quiz-card" tabindex="-1" data-focus>
-     <header class="card-head">
-  <h2 class="h2">Gabarito • Resultado</h2>
-  <p class="muted">
-    ${acertos}/${total} acertos • ${pct}% • Modo: ${htmlEscape(QUIZ.session?.mode || 'estudo')}
-  </p>
-</header>
+    let html = `
+      <section class="card ubox quiz-card" tabindex="-1" data-focus>
+        <header class="card-head">
+          <h2 class="h2">Quiz • Lista</h2>
+          <p class="muted">Selecione um conjunto de questões por tema.</p>
+        </header>
 
-
-      <div class="row gap mt8" role="radiogroup" aria-label="Modo">
-        <a class="chip ${r.mode==='estudo'?'is-selected':''}" href="#/quiz?mode=estudo" role="radio" aria-checked="${r.mode==='estudo'}">Modo estudo</a>
-        <a class="chip ${r.mode==='simulado'?'is-selected':''}" href="#/quiz?mode=simulado" role="radio" aria-checked="${r.mode==='simulado'}">Modo simulado</a>
-      </div>
-
-      <div class="vspace mt12">
-  `;
-
-  for (const [tema, arr] of byTema.entries()) {
-    const slug = slugify(tema);
-    const count = arr.length;
-    html += `
-      <div class="ubox">
-        <div class="row jc between">
-          <strong>${htmlEscape(tema)}</strong>
-          <span class="muted">${count} questão(ões)</span>
+        <div class="row gap mt8" role="radiogroup" aria-label="Modo">
+          <a class="chip ${r.mode==='estudo'?'is-selected':''}" href="#/quiz?mode=estudo" role="radio" aria-checked="${r.mode==='estudo'}">Modo estudo</a>
+          <a class="chip ${r.mode==='simulado'?'is-selected':''}" href="#/quiz?mode=simulado" role="radio" aria-checked="${r.mode==='simulado'}">Modo simulado</a>
         </div>
-        <div class="row gap mt8">
-          <a class="btn" href="#/quiz/${encodeURIComponent(slug)}?mode=${r.mode}">Começar</a>
-        </div>
-      </div>
+
+        <div class="vspace mt12">
     `;
-  }
 
-  if (!byTema.size) {
-    html += `<p class="muted">Nenhum quiz encontrado. Adicione arquivos em <code>data/quizzes/</code>.</p>`;
-  }
+    for (const [tema, arr] of byTema.entries()) {
+      const slug = slugify(tema);
+      const count = arr.length;
+      html += `
+        <div class="ubox">
+          <div class="row jc between">
+            <strong>${htmlEscape(tema)}</strong>
+            <span class="muted">${count} questão(ões)</span>
+          </div>
+          <div class="row gap mt8">
+            <a class="btn" href="#/quiz/${encodeURIComponent(slug)}?mode=${r.mode}">Começar</a>
+          </div>
+        </div>
+      `;
+    }
 
-  html += `</div></section>`;
-  render(el, html);
-}
+    if (!byTema.size) {
+      html += `<p class="muted">Nenhum quiz encontrado. Adicione arquivos em <code>data/quizzes/</code>.</p>`;
+    }
+
+    html += `</div></section>`;
+    render(el, html);
+  }
 
   // ---- Sessão ----
   function buildSessionFromTemaSlug(slug, mode='estudo') {
-  const pick = QUIZ.list.filter(q => slugify(q.tema || 'Outros') === slug);
-  if (!pick.length) return null;
-  const seed = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
-  const order = shuffle(pick.map(q => q.id), seed);
-  return { quizId:`tema:${slug}`, order, i:0, answers:{}, startedAt:Date.now(), mode, seed };
-}
-
+    const pick = QUIZ.list.filter(q => slugify(q.tema || 'Outros') === slug);
+    if (!pick.length) return null;
+    const seed = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
+    const order = shuffle(pick.map(q => q.id), seed);
+    return { quizId:`tema:${slug}`, order, i:0, answers:{}, startedAt:Date.now(), mode, seed };
+  }
 
   function buildSessionFromIds(ids, label='revisao-erros', seed = Date.now()){
     const valid = ids.filter(id => QUIZ.bank.has(id));
@@ -1292,134 +1290,93 @@ CACHED_FILES.set(path, parsed.map(t=>({
     return { total: ids.length, acertos, erros, porTag };
   }
 
-  // ---- Views: Execução ----
+  // ---- View: Execução ----
   function renderRun() {
-  const el = $(CONTENT_SEL);
-  if (!el) return;
+    const el = $(CONTENT_SEL);
+    if (!el) return;
 
-  // limpar timer anterior
-  if (QUIZ._timer) { clearInterval(QUIZ._timer); QUIZ._timer = null; }
+    // limpar timer anterior
+    if (QUIZ._timer) { clearInterval(QUIZ._timer); QUIZ._timer = null; }
 
-  const q = currentQuestion();
-  if (!q) {
+    const q = currentQuestion();
+    if (!q) {
+      render(el, `
+        <section class="card ubox" tabindex="-1" data-focus>
+          <header class="card-head"><h2 class="h2">Quiz</h2></header>
+          <p class="muted">Nenhuma questão disponível.</p>
+          <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
+        </section>
+      `);
+      return;
+    }
+
+    const total  = QUIZ.session.order.length;
+    const n      = QUIZ.session.i + 1;
+    const chosen = QUIZ.session.answers[q.id];
+    const isLast = QUIZ.session.i === total - 1;
+    const isSimu = QUIZ.session.mode === 'simulado';
+
+    // no simulado não mostramos correto/errado agora
+    const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
+
+    // timer por questão se q.tempo e simulado
+    let timerHtml = '';
+    if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
+      timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
+    }
+
     render(el, `
-      <section class="card ubox" tabindex="-1" data-focus>
-        <header class="card-head"><h2 class="h2">Quiz</h2></header>
-        <p class="muted">Nenhuma questão disponível.</p>
-        <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
+      <section class="card ubox quiz-card" tabindex="-1" data-focus>
+        <header class="card-head">
+          <div class="row jc between">
+            <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
+            <span class="muted">${n}/${total}</span>
+          </div>
+          <div class="row gap">
+            <p class="muted">${htmlEscape(q.fonte || '')}</p>
+            ${timerHtml}
+          </div>
+        </header>
+
+        <div class="vspace">
+          <div class="enunciado">${htmlEscape(q.enunciado)}</div>
+
+          <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
+            ${q.alternativas.map(a => {
+              const isSel = chosen === a.id;
+              const cls = ['chip', isSel?'is-selected':''].join(' ');
+              const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
+              return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
+            }).join('')}
+          </div>
+
+          ${feedback ? `
+            <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
+              ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
+            </div>` : ''}
+
+          <div class="row gap mt12">
+            <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
+            <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
+            <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
+            <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
+          </div>
+        </div>
       </section>
     `);
-    return;
-  }
-
-  const total = QUIZ.session.order.length;
-  const n     = QUIZ.session.i + 1;
-  const chosen = QUIZ.session.answers[q.id];
-  const isLast = QUIZ.session.i === total - 1;
-  const isSimu = QUIZ.session.mode === 'simulado';
-
-  // no simulado não mostramos correto/errado agora
-  const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
-
-  // timer por questão se q.tempo e simulado
-  let timerHtml = '';
-  if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
-    timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
-  }
-
-  render(el, `
-    <section class="card ubox quiz-card" tabindex="-1" data-focus>
-      <header class="card-head">
-        <div class="row jc between">
-          <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
-          <span class="muted">${n}/${total}</span>
-        </div>
-        <div class="row gap">
-          <p class="muted">${htmlEscape(q.fonte || '')}</p>
-          ${timerHtml}
-        </div>
-      </header>
-
-      <div class="vspace">
-        <div class="enunciado">${htmlEscape(q.enunciado)}</div>
-
-        <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
-          ${q.alternativas.map(a => {
-            const isSel = chosen === a.id;
-            // em simulado, nunca pintamos correto/errado agora
-            const cls = ['chip', isSel?'is-selected':''].join(' ');
-            const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
-            return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
-          }).join('')}
-        </div>
-
-        ${feedback ? `
-          <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
-            ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
-          </div>` : ''}
-
-        <div class="row gap mt12">
-          <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
-          <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
-          <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
-          <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
-        </div>
-      </div>
-    </section>
-  `);
-
-  // Handlers
-  $$('.radiogroup .chip', el).forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const altId = btn.getAttribute('data-alt');
-      setAnswer(q.id, altId);
-      // em estudo, re-render para feedback; em simulado apenas marca seleção
-      if (!isSimu) renderRun();
-      else {
-        // marcar visualmente a seleção sem feedback
-        $$('.radiogroup .chip', el).forEach(b => b.classList.remove('is-selected'));
-        btn.classList.add('is-selected');
-      }
-    });
-  });
-  $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
-  $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
-  $('[data-finish]', el)?.addEventListener('click', ()=>{
-    QUIZ.session.finishedAt = Date.now();
-    saveLS();
-    renderSummary();
-  });
-
-  // Timer
-  if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
-    const node = $('#q-timer', el);
-    let remain = q.tempo;
-    QUIZ._timer = setInterval(()=>{
-      remain -= 1;
-      if (node) node.textContent = `${remain}s`;
-      if (remain <= 0) {
-        clearInterval(QUIZ._timer); QUIZ._timer = null;
-        // sem resposta → segue adiante
-        if (!nextQuestion()) {
-          QUIZ.session.finishedAt = Date.now();
-          saveLS();
-          renderSummary();
-        } else {
-          renderRun();
-        }
-      }
-    }, 1000);
-  }
-}
-
 
     // Handlers
     $$('.radiogroup .chip', el).forEach(btn=>{
       btn.addEventListener('click', ()=>{
-        if (QUIZ.session.answers[q.id]) return;
         const altId = btn.getAttribute('data-alt');
         setAnswer(q.id, altId);
-        renderRun();
+        if (!isSimu) {
+          renderRun(); // mostra feedback
+        } else {
+          // só marcar seleção
+          $$('.radiogroup .chip', el).forEach(b => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+        }
       });
     });
     $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
@@ -1429,6 +1386,26 @@ CACHED_FILES.set(path, parsed.map(t=>({
       saveLS();
       renderSummary();
     });
+
+    // Timer
+    if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
+      const node = $('#q-timer', el);
+      let remain = q.tempo;
+      QUIZ._timer = setInterval(()=>{
+        remain -= 1;
+        if (node) node.textContent = `${remain}s`;
+        if (remain <= 0) {
+          clearInterval(QUIZ._timer); QUIZ._timer = null;
+          if (!nextQuestion()) {
+            QUIZ.session.finishedAt = Date.now();
+            saveLS();
+            renderSummary();
+          } else {
+            renderRun();
+          }
+        }
+      }, 1000);
+    }
   }
 
   // ---- View: Gabarito / Resumo ----
@@ -1454,7 +1431,9 @@ CACHED_FILES.set(path, parsed.map(t=>({
       <section class="card ubox" tabindex="-1" data-focus>
         <header class="card-head">
           <h2 class="h2">Gabarito • Resultado</h2>
-          <p class="muted">${acertos}/${total} acertos • ${pct}%</p>
+          <p class="muted">
+            ${acertos}/${total} acertos • ${pct}% • Modo: ${htmlEscape(QUIZ.session?.mode || 'estudo')}
+          </p>
         </header>
 
         <div class="vspace">
@@ -1488,16 +1467,15 @@ CACHED_FILES.set(path, parsed.map(t=>({
     });
 
     $('[data-restart]', el)?.addEventListener('click', ()=>{
-      // Recria sessão mantendo o mesmo tema/slug se possível
       const id = QUIZ.session.quizId || '';
       const m = id.match(/^tema:(.+)$/);
       if (m) {
-        QUIZ.session = buildSessionFromTemaSlug(m[1]);
+        QUIZ.session = buildSessionFromTemaSlug(m[1], QUIZ.session.mode || 'estudo');
       } else {
-        // fallback: refaz com as mesmas questões atuais
         const ids = QUIZ.session.order.slice();
         QUIZ.session = buildSessionFromIds(ids, 'refazer', Date.now());
       }
+      QUIZ.session.finishedAt = undefined;
       saveLS();
       renderRun();
     });
@@ -1505,51 +1483,40 @@ CACHED_FILES.set(path, parsed.map(t=>({
 
   // ---- Roteamento ----
   function parseHash() {
-  const h = location.hash || '';
-  const m = h.match(/^#\/quiz(?:\/([^?]+))?(?:\?(.*))?$/i);
-  if (!m) return null;
-  const slug = m[1] ? decodeURIComponent(m[1]) : null;
-  const qstr = m[2] || '';
-  const params = Object.fromEntries(new URLSearchParams(qstr));
-  const mode = (params.mode === 'simulado') ? 'simulado' : 'estudo';
-  const tag  = params.tag || null;
-  return { slug, mode, tag };
-}
-
-
- async function handleRoute() {
-  const r = parseHash();
-  if (!r) return false;
-
-  if (!r.slug) {
-    await viewList();
-    return true;
+    const h = location.hash || '';
+    const m = h.match(/^#\/quiz(?:\/([^?]+))?(?:\?(.*))?$/i);
+    if (!m) return null;
+    const slug = m[1] ? decodeURIComponent(m[1]) : null;
+    const qstr = m[2] || '';
+    const params = Object.fromEntries(new URLSearchParams(qstr));
+    const mode = (params.mode === 'simulado') ? 'simulado' : 'estudo';
+    const tag  = params.tag || null;
+    return { slug, mode, tag };
   }
 
-  if (!QUIZ.list.length) await loadBank();
+  async function handleRoute() {
+    const r = parseHash();
+    if (!r) return false;
 
-  const expectedId = `tema:${r.slug}`;
-  const needNew =
-    !QUIZ.session ||
-    (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
-    (QUIZ.session.mode !== r.mode);
+    if (!r.slug) {
+      await viewList();
+      return true;
+    }
 
-  if (needNew) {
-    QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode);
-    saveLS();
-  }
+    if (!QUIZ.list.length) await loadBank();
 
-  if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) {
-    renderSummary();
-  } else {
-    renderRun();
-  }
-  return true;
-}
+    const expectedId = `tema:${r.slug}`;
+    const needNew =
+      !QUIZ.session ||
+      (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
+      (QUIZ.session.mode !== r.mode);
 
+    if (needNew) {
+      QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode);
+      saveLS();
+    }
 
-    // Se já finalizado, mostrar resumo
-    if (QUIZ.session?.finishedAt) {
+    if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) {
       renderSummary();
     } else {
       renderRun();
