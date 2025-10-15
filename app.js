@@ -1475,3 +1475,4 @@ CACHED_FILES.set(path, parsed.map(t=>({
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
 })();
+})();
