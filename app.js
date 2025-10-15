@@ -1247,16 +1247,18 @@ async function renderByRoute(){
     const chosen = QUIZ.session.answers[q.id];
 
     // Feedback imediato
-    const altView = q.alternativas.map(a => {
-      const isSel = chosen === a.id;
-      const isOk  = a.correta === true;
-      const cls = [
-        'chip',
-        isSel ? 'is-selected' : '',
-        chosen ? (isOk ? 'ok' : '') : ''
-      ].join(' ').trim();
-      return `<button class="${cls}" role="radio" aria-checked="${isSel?'true':'false'}" data-alt="${a.id}">${html(a.texto)}</button>`;
-    }).join('');
+   const altView = q.alternativas.map(a => {
+  const isSel = chosen === a.id;
+  const isOk  = a.correta === true;
+  const cls = ['chip', isSel ? 'is-selected' : '', chosen ? (isOk ? 'ok' : 'err') : ''].join(' ').trim();
+  const badge = String(a.id).toUpperCase();
+  return `
+    <button class="${cls}" role="radio" aria-checked="${isSel?'true':'false'}" data-alt="${a.id}">
+      <span class="opt-badge">${badge}</span>
+      <span class="opt-text">${html(a.texto)}</span>
+    </button>`;
+}).join('');
+
 
     const feedback = chosen
       ? (() => {
