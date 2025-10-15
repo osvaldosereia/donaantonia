@@ -518,3 +518,16 @@ button.mini{
 .ia-pop.hide {
   opacity: 0;
 }
+{
+  "id": "slug-unico",
+  "tema": "Direito do Trabalho",
+  "enunciado": "Texto do enunciado.",
+  "alternativas": [
+    {"id":"a","texto":"Opção A","correta":false,"comentario":"Por quê não."},
+    {"id":"b","texto":"Opção B","correta":true,"comentario":"Fundamento sucinto."}
+  ],
+  "tags": ["trabalho","contrato"],
+  "dificuldade": "fácil",
+  "tempo": 60,
+  "fonte": "Art. 3º, CLT"
+}
