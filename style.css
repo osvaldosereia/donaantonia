@@ -502,3 +502,13 @@ button.mini{
   vertical-align: baseline;
   border: none;
 }
+.ia-item.ia-cat {
+  font-weight: 700;
+  color: var(--primary);
+  text-align: left;
+}
+.ia-item.ia-back {
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+}
