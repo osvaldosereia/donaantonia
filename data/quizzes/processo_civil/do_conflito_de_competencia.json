@@ -74,7 +74,7 @@
         "comentario": "Incorreto. A tese firmada em IRDR já possui força vinculante no âmbito do tribunal, não sendo necessária a instauração de novo incidente para sua aplicação."
       }
     ],
-    "fonte": "Art. 955, Parágrafo Único, II, CPC",
+    "fonte": "Art. 955, parágrafo único, II, CPC",
     "tags": ["processual civil", "conflito de competência", "poderes do relator", "precedentes"]
   },
   {
@@ -137,22 +137,22 @@
         "id": "c",
         "texto": "Terá qualidade de parte apenas nos conflitos que ele mesmo suscitar, e será ouvido como fiscal da ordem jurídica nos processos em que sua intervenção é obrigatória por lei.",
         "correta": true,
-        "comentario": "Correto. Esta alternativa sintetiza perfeitamente o disposto no Art. 951, parágrafo único, do CPC, que diferencia a atuação do MP como parte e como fiscal."
+        "comentario": "Correto. Esta alternativa sintetiza o Art. 951, parágrafo único, do CPC."
       },
       {
         "id": "d",
         "texto": "Sua manifestação pode ser dispensada pelo relator se as informações dos juízes em conflito forem suficientes para a resolução da controvérsia.",
         "correta": false,
-        "comentario": "Incorreto. Nos casos em que sua oitiva é exigida, ela é obrigatória, conforme o Art. 956, que determina a oitiva mesmo que as informações não tenham sido prestadas."
+        "comentario": "Incorreto. Nos casos em que sua oitiva é exigida, ela é obrigatória, conforme o Art. 956."
       },
       {
         "id": "e",
         "texto": "Somente poderá suscitar o conflito de competência em matéria criminal, sendo-lhe vedada a suscitação em matéria cível.",
         "correta": false,
-        "comentario": "Incorreto. O Art. 951, caput, confere legitimidade ao Ministério Público para suscitar o conflito de forma ampla, sem restrição à matéria cível."
+        "comentario": "Incorreto. O Art. 951, caput, confere legitimidade ampla ao MP."
       }
     ],
-    "fonte": "Art. 951, Parágrafo Único, e Art. 956, CPC",
+    "fonte": "Art. 951, parágrafo único, e Art. 956, CPC",
     "tags": ["processual civil", "conflito de competência", "ministério público"]
   },
   {
@@ -164,32 +164,34 @@
         "id": "a",
         "texto": "Ao Superior Tribunal de Justiça, pois envolve membro de Tribunal.",
         "correta": false,
-        "comentario": "Incorreto. O STJ julga conflitos entre tribunais distintos ou entre juiz federal e estadual, por exemplo, mas não conflitos internos de um mesmo tribunal."
+        "comentario": "Incorreto. O STJ julga conflitos entre tribunais distintos ou entre juiz federal e estadual, mas não conflitos internos do mesmo tribunal."
       },
       {
         "id": "b",
         "texto": "Ao Conselho Nacional de Justiça, por se tratar de matéria disciplinar e de organização judiciária.",
         "correta": false,
-        "comentario": "Incorreto. O CNJ tem atribuições de controle administrativo e disciplinar, mas não a competência jurisdicional para julgar conflitos de competência."
+        "comentario": "Incorreto. O CNJ não julga conflitos de competência."
       },
       {
         "id": "c",
         "texto": "Ao próprio tribunal, cujo regimento interno disporá sobre o procedimento, por se tratar de um conflito envolvendo seus próprios membros.",
         "correta": true,
-        "comentario": "Correto. O Art. 958 do CPC delega expressamente ao regimento interno do tribunal a regulamentação do processo e julgamento de conflitos que envolvam órgãos fracionários ou juízes em exercício no próprio tribunal."
+        "comentario": "Correto. Art. 958 do CPC remete ao regimento interno do tribunal."
       },
       {
         "id": "d",
         "texto": "Ao Supremo Tribunal Federal, em razão da prerrogativa de foro do Desembargador.",
         "correta": false,
-        "comentario": "Incorreto. A competência do STF para julgar conflitos é restrita às hipóteses constitucionais, que não abrangem conflitos internos de outros tribunais."
+        "comentario": "Incorreto. Não se trata de hipótese constitucional do STF."
       },
       {
         "id": "e",
-        "texto": "Ao Código de Processo Civil exclusivamente, que detalha todo o procedimento sem margem para a regulação por normas secundárias.",
+        "texto": "Ao Código de Processo Civil exclusivamente, sem margem para regulação por normas secundárias.",
         "correta": false,
-        "comentario": "Incorreto. O próprio CPC, no Art. 958, faz uma norma de exceção, remetendo a regulação específica da matéria ao regimento interno do tribunal."
+        "comentario": "Incorreto. O próprio CPC remete ao regimento interno (Art. 958)."
       }
-    ]
+    ],
+    "fonte": "Art. 958, CPC",
+    "tags": ["processual civil", "conflito de competência", "regimento interno"]
   }
 ]
