@@ -80,6 +80,8 @@
     if(/^#\/?$/.test(h) || /^#\/home\b/.test(h)) return { kind:'home' };
     return { kind:'home' };
   }
+   const isQuizRoute = () => (location.hash || '').toLowerCase().startsWith('#/quiz');
+
 
 /* ===== Normalização jurídica ===== */
 const DIP_ABR = new Map(Object.entries({
@@ -1008,27 +1010,37 @@ CACHED_FILES.set(path, parsed.map(t=>({
   }
 
   /* ===== ROTEAMENTO / BOOT ===== */
-  async function renderByRoute(){
-    const page = currentPage();
-    if(!TEMAS.length) await loadTemas();
-    if(page.kind === 'tema'){
-      await loadTemaInfinite(page.slug);
-    } else if(page.kind === 'sobre'){
-      $('#content').innerHTML =
-        `<div class="card ubox">
-           <h2 class="ubox-title">Sobre o projeto</h2>
-           <p class="ubox-intro">
-             TXT por tema: <code># Título</code> → <code>- Linha meta (ex.: Código Civil)</code> →
-             <code># Dispositivos Legais</code> → <code># Remissões Normativas</code> → <code>-----</code>.
-             Linhas com <code>- </code> são linkadas; <code>-- </code> são comentários.
-             A “linha meta” é mostrada no cabeçalho do card.
-           </p>
-         </div>`;
-      leaveHomeMode(); restoreSearchToTopbar();
-    } else {
-      renderHome();
-    }
+async function renderByRoute(){
+  // curto-circuito para o QUIZ: deixa o módulo do quiz renderizar #/quiz
+  if ((location.hash || '').toLowerCase().startsWith('#/quiz')) {
+    leaveHomeMode();
+    restoreSearchToTopbar();
+    return;
   }
+
+  const page = currentPage();
+  if(!TEMAS.length) await loadTemas();
+
+  if(page.kind === 'tema'){
+    await loadTemaInfinite(page.slug);
+  } else if(page.kind === 'sobre'){
+    $('#content').innerHTML =
+      `<div class="card ubox">
+         <h2 class="ubox-title">Sobre o projeto</h2>
+         <p class="ubox-intro">
+           TXT por tema: <code># Título</code> → <code>- Linha meta (ex.: Código Civil)</code> →
+           <code># Dispositivos Legais</code> → <code># Remissões Normativas</code> → <code>-----</code>.
+           Linhas com <code>- </code> são linkadas; <code>-- </code> são comentários.
+           A “linha meta” é mostrada no cabeçalho do card.
+         </p>
+       </div>`;
+    leaveHomeMode(); 
+    restoreSearchToTopbar();
+  } else {
+    renderHome();
+  }
+}
+
 
   // Atualizar menu quando “Salvos” mudar (mesma aba)
   window.addEventListener('meujus:saved-changed', () => {
