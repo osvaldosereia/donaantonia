@@ -478,7 +478,7 @@ section.card .ubox strong + .row.jc.between { display:none !important; }
 /* ===== Override final para opções do quiz ===== */
 .quiz-card .radiogroup .chip,
 .quiz-card .radiogroup .chip .opt-text{
-  font-weight:300 !important;   /* 300 = light; use 400 se faltar peso */
+  font-weight:400 !important;   /* 300 = light; use 400 se faltar peso */
 }
 
 .quiz-card .opt-badge{
