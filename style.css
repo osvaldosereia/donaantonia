@@ -446,3 +446,31 @@ section.card .ubox strong:has(+ .vspace-sm), /* “Desempenho por tag” */
 section.card .ubox strong:has(+ .row.jc.between) { display:none !important; }
 section.card .ubox strong + .vspace-sm,
 section.card .ubox strong + .row.jc.between { display:none !important; }
+
+/* Quiz – leitura melhor */
+.quiz-card .card-head .h2{font-size:1.15rem;margin-bottom:.25rem}
+.quiz-card .enunciado{
+  text-align:left;font-size:1.06rem;line-height:1.55;
+  font-weight:600;margin:8px 0 14px;color:#0f172a;
+}
+
+/* opções alinhadas à esquerda, blocos largos */
+.quiz-card .radiogroup{display:grid;gap:10px}
+.quiz-card .chip{
+  display:flex;align-items:flex-start;gap:10px;
+  text-align:left;white-space:normal;
+  padding:12px 14px;border:1px solid #e5e7eb;border-radius:12px;
+  background:#fff;font-size:.98rem;line-height:1.45;
+}
+.quiz-card .chip:hover{border-color:#cbd5e1}
+.quiz-card .chip.is-selected{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+.quiz-card .chip.ok{background:#f0fdf4;border-color:#22c55e}
+.quiz-card .chip.err.is-selected{background:#fef2f2;border-color:#ef4444}
+
+/* rótulo A/B/C das alternativas */
+.quiz-card .opt-badge{
+  flex:0 0 auto;display:inline-grid;place-items:center;
+  width:28px;height:28px;border-radius:999px;border:1px solid #cbd5e1;
+  font-weight:700;font-size:.85rem;background:#f8fafc;color:#334155;
+}
+.quiz-card .opt-text{display:block}
