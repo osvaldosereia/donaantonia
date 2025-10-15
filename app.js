@@ -1418,6 +1418,5 @@ async function renderByRoute(){
   }
 
   window.addEventListener('hashchange', handleRoute);
-  window.addEventListener('load', handleRoute);
+window.addEventListener('load', handleRoute);
 })();
-   })();
