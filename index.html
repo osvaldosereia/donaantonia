@@ -27,6 +27,9 @@
         <ul id="suggestions" class="suggestions" role="listbox" aria-label="Sugestões" hidden></ul>
       </div>
 
+      <!-- Link Quiz na topbar -->
+      <a href="#/quiz" class="link-nav" aria-label="Abrir página de Quiz">Quiz</a>
+
       <button id="btnMenu" class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer-panel">
         <span></span><span></span><span></span>
       </button>
@@ -42,6 +45,11 @@
         <button class="drawer-close" id="btnCloseMenu" aria-label="Fechar menu">Fechar</button>
       </div>
       <div class="drawer-content">
+        <h3 class="h2">Funções</h3>
+        <ul class="list menu">
+          <li><a href="#/quiz" aria-label="Abrir página de Quiz">Quiz</a></li>
+        </ul>
+
         <h3 class="h2">Categorias</h3>
         <ul class="list menu" id="menuList">
           <!-- Seeds para indexação dinâmica (app.js lê e monta TEMAS) -->
@@ -51,7 +59,7 @@
                data-group="Código Civil"
                data-path="data/codigo_civil/codigo_civil.txt">Código Civil</a>
           </li>
-           <li>
+          <li>
             <a class="title"
                data-auto="1"
                data-group="Código de Processo Civil"
@@ -75,7 +83,7 @@
                data-group="Código Processo Penal"
                data-path="data/codigo_processo_penal/codigo_processo_penal.txt">Código Processo Penal</a>
           </li>
-         </ul>
+        </ul>
       </div>
     </nav>
   </div>
