@@ -1053,92 +1053,8 @@ CACHED_FILES.set(path, parsed.map(t=>({
     bindAutocomplete();
   })();
 
-   /* =========================
-   QUIZ: roteamento + views
-   ========================= */
-(() => {
-  // Fallback aos helpers existentes
-  const $  = window.$  || ((q, el = document) => el.querySelector(q));
-  const $$ = window.$$ || ((q, el = document) => Array.from(el.querySelectorAll(q)));
-
-  const CONTENT_SEL = '#content';
-
-  function parseHash() {
-    const h = location.hash || '';
-    // #/quiz           -> lista
-    // #/quiz/:id       -> execução (placeholder)
-    const m = h.match(/^#\/quiz(?:\/([^?]+))?/i);
-    if (!m) return null;
-    return { id: m[1] ? decodeURIComponent(m[1]) : null };
-  }
-
-  function render(el, html) {
-    if (!el) return;
-    el.innerHTML = html;
-    // fecha o drawer se estiver aberto
-    try { window.__closeDrawer?.(); } catch {}
-    // foco acessível no header do card
-    el.querySelector('[data-focus]')?.focus?.();
-  }
-
-  function viewList() {
-    const el = $(CONTENT_SEL);
-    if (!el) return;
-    render(el, `
-      <section class="card ubox" tabindex="-1" data-focus>
-        <header class="card-head">
-          <h2 class="h2">Quiz • Lista</h2>
-          <p class="muted">Selecione um quiz por tema. (placeholder)</p>
-        </header>
-        <div class="vspace">
-          <div class="list-plain">
-            <a class="link-row" href="#/quiz/exemplo-1">Exemplo 1 — Direito do Trabalho</a>
-            <a class="link-row" href="#/quiz/exemplo-2">Exemplo 2 — Direito Civil</a>
-          </div>
-        </div>
-      </section>
-    `);
-  }
-
-  function viewRun(id) {
-    const el = $(CONTENT_SEL);
-    if (!el) return;
-    render(el, `
-      <section class="card ubox" tabindex="-1" data-focus>
-        <header class="card-head">
-          <h2 class="h2">Quiz: ${id}</h2>
-          <p class="muted">Tela de execução do quiz. (placeholder)</p>
-        </header>
-
-        <div class="vspace">
-          <p>Em breve: enunciado, alternativas em chips, feedback e navegação.</p>
-          <div class="row gap">
-            <a class="btn" href="#/quiz">Voltar à lista</a>
-            <button class="btn" type="button" disabled>Próxima</button>
-            <button class="btn outline" type="button" disabled>Revelar gabarito</button>
-          </div>
-        </div>
-      </section>
-    `);
-  }
-
-  function handleRoute() {
-    const r = parseHash();
-    if (!r) return false;       // não é rota de quiz → deixa o app atual cuidar
-    if (!r.id) viewList(); else viewRun(r.id);
-    return true;
-  }
-
-  // Escuta sem interferir nas rotas existentes
-  window.addEventListener('hashchange', handleRoute);
-  window.addEventListener('load', handleRoute);
-
-  // Exponível para testes manuais, se quiser forçar
-  window.__quizRoute = { handleRoute };
-})();
-
-/* =========================================================
-   QUIZ – loader, lista dinâmica e execução com feedback
+  /* =========================================================
+   QUIZ – loader, lista, execução, gabarito e revisão de erros
    ========================================================= */
 (() => {
   // Helpers locais
@@ -1150,9 +1066,9 @@ CACHED_FILES.set(path, parsed.map(t=>({
   const QUIZ = {
     indexLoaded: false,
     files: [],           // ['trabalho.json', ...]
-    bank: new Map(),     // Map<quizId, {id,tema,enunciado,alternativas[],tags[],...}>
-    list: [],            // array plano de quizzes (id único por questão)
-    session: null        // { quizId, order[], i, answers:{[id]:altId}, startedAt, mode }
+    bank: new Map(),     // Map<quizId, {...}}
+    list: [],            // array plano de questões
+    session: null        // { quizId, order[], i, answers:{[id]:altId}, startedAt, finishedAt?, mode, seed }
   };
 
   const LS_KEY = 'meujus:quiz:v1';
@@ -1160,9 +1076,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
   // ---- Persistência ----
   function saveLS() {
     try {
-      const data = {
-        session: QUIZ.session
-      };
+      const data = { session: QUIZ.session };
       localStorage.setItem(LS_KEY, JSON.stringify(data));
     } catch {}
   }
@@ -1185,13 +1099,8 @@ CACHED_FILES.set(path, parsed.map(t=>({
 
   async function loadIndex() {
     if (QUIZ.indexLoaded) return;
-    // Tente um índice; se não existir, use fallback mínimo
     const idx = await fetchJSON('data/quizzes/index.json');
-    if (Array.isArray(idx) && idx.length) {
-      QUIZ.files = idx; // exemplo: ["trabalho.json","civil.json"]
-    } else {
-      QUIZ.files = ['trabalho.json']; // fallback para testes
-    }
+    QUIZ.files = Array.isArray(idx) && idx.length ? idx : ['trabalho.json']; // fallback
     QUIZ.indexLoaded = true;
   }
 
@@ -1203,8 +1112,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
       if (!Array.isArray(arr)) continue;
       for (const q of arr) {
         if (!q?.id) continue;
-        const id = q.id;
-        QUIZ.bank.set(id, q);
+        QUIZ.bank.set(q.id, q);
         loaded.push(q);
       }
     }
@@ -1213,7 +1121,6 @@ CACHED_FILES.set(path, parsed.map(t=>({
 
   // ---- Util ----
   function shuffle(arr, seed = Date.now()) {
-    // Fisher-Yates com seed simples
     let a = arr.slice();
     let s = xmur3(String(seed))();
     for (let i = a.length - 1; i > 0; i--) {
@@ -1223,7 +1130,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
     }
     return a;
   }
-  function xmur3(str) { // gerador simples
+  function xmur3(str) {
     let h = 1779033703 ^ str.length;
     for (let i=0; i<str.length; i++) {
       h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
@@ -1235,10 +1142,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
       return (h ^= h >>> 16) >>> 0;
     };
   }
-  function rand(seed) {
-    // transforma seed-> [0,1)
-    return (seed % 1_000_000) / 1_000_000;
-  }
+  function rand(seed) { return (seed % 1_000_000) / 1_000_000; }
 
   function htmlEscape(s=''){ return String(s)
     .replace(/&/g,'&amp;').replace(/</g,'&lt;')
@@ -1251,7 +1155,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
     el.querySelector('[data-focus]')?.focus?.();
   }
 
-  // ---- Views ----
+  // ---- Views: Lista ----
   async function viewList() {
     const el = $(CONTENT_SEL);
     if (!el) return;
@@ -1274,8 +1178,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
     `;
 
     for (const [tema, arr] of byTema.entries()) {
-      // monta um "quiz virtual" por tema: usar primeiro id como slug
-      const slug = tema.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+      const slug = slugify(tema);
       const count = arr.length;
       html += `
         <div class="ubox">
@@ -1298,27 +1201,24 @@ CACHED_FILES.set(path, parsed.map(t=>({
     render(el, html);
   }
 
-  function buildSessionFromTemaSlug(slug) {
-    // Seleciona questões cujo tema "normalizado" bate com slug
-    const pick = QUIZ.list.filter(q => {
-      const temaSlug = (q.tema || 'Outros').toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
-      return temaSlug === slug;
-    });
-    if (!pick.length) return null;
+  function slugify(s=''){
+    return s.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
+  }
 
-    // ordem embaralhada determinística por data de hoje
+  // ---- Sessão ----
+  function buildSessionFromTemaSlug(slug) {
+    const pick = QUIZ.list.filter(q => slugify(q.tema || 'Outros') === slug);
+    if (!pick.length) return null;
     const seed = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
     const order = shuffle(pick.map(q => q.id), seed);
+    return { quizId:`tema:${slug}`, order, i:0, answers:{}, startedAt:Date.now(), mode:'estudo', seed };
+  }
 
-    return {
-      quizId: `tema:${slug}`,
-      order,
-      i: 0,
-      answers: {},
-      startedAt: Date.now(),
-      mode: 'estudo', // padrão
-      seed
-    };
+  function buildSessionFromIds(ids, label='revisao-erros', seed = Date.now()){
+    const valid = ids.filter(id => QUIZ.bank.has(id));
+    if (!valid.length) return null;
+    const order = shuffle(valid, seed);
+    return { quizId:`review:${label}`, order, i:0, answers:{}, startedAt:Date.now(), mode:'estudo', seed };
   }
 
   function currentQuestion() {
@@ -1360,16 +1260,41 @@ CACHED_FILES.set(path, parsed.map(t=>({
     return { ok, comment };
   }
 
+  function scoreSession(){
+    if (!QUIZ.session) return { total:0, acertos:0, erros:[], porTag:new Map() };
+    const ids = QUIZ.session.order;
+    let acertos = 0;
+    const erros = [];
+    const porTag = new Map(); // tag -> {ok, tot}
+
+    for (const qid of ids) {
+      const q = QUIZ.bank.get(qid);
+      if (!q) continue;
+      const chosen = QUIZ.session.answers[qid];
+      const ok = !!q.alternativas.find(a => a.id === chosen && a.correta);
+      if (ok) acertos++; else erros.push(qid);
+
+      const tags = Array.isArray(q.tags) ? q.tags : ['(sem-tag)'];
+      for (const t of tags) {
+        if (!porTag.has(t)) porTag.set(t, { ok:0, tot:0 });
+        const agg = porTag.get(t);
+        agg.tot += 1;
+        if (ok) agg.ok += 1;
+      }
+    }
+    return { total: ids.length, acertos, erros, porTag };
+  }
+
+  // ---- Views: Execução ----
   function renderRun() {
     const el = $(CONTENT_SEL);
     if (!el) return;
+
     const q = currentQuestion();
     if (!q) {
       render(el, `
         <section class="card ubox" tabindex="-1" data-focus>
-          <header class="card-head">
-            <h2 class="h2">Quiz</h2>
-          </header>
+          <header class="card-head"><h2 class="h2">Quiz</h2></header>
           <p class="muted">Nenhuma questão disponível.</p>
           <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
         </section>
@@ -1380,11 +1305,11 @@ CACHED_FILES.set(path, parsed.map(t=>({
     const total = QUIZ.session.order.length;
     const n     = QUIZ.session.i + 1;
     const chosen = QUIZ.session.answers[q.id];
-
     const feedback = chosen ? computeFeedback(q, chosen) : null;
+    const isLast = QUIZ.session.i === total - 1;
 
     render(el, `
-      <section class="card ubox quiz-card" tabindex="-1" data-focus">
+      <section class="card ubox quiz-card" tabindex="-1" data-focus>
         <header class="card-head">
           <div class="row jc between">
             <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
@@ -1401,12 +1326,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
               const isSel = chosen === a.id;
               const isOk  = chosen && a.correta;
               const isBad = chosen && isSel && !a.correta;
-              const cls = [
-                'chip',
-                isSel ? 'is-selected' : '',
-                isOk  ? 'is-correct'  : '',
-                isBad ? 'is-wrong'    : ''
-              ].filter(Boolean).join(' ');
+              const cls = ['chip', isSel?'is-selected':'', isOk?'is-correct':'', isBad?'is-wrong':''].filter(Boolean).join(' ');
               const disabled = chosen ? 'disabled' : '';
               const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
               return `<button class="${cls}" ${aria} ${disabled} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
@@ -1420,7 +1340,8 @@ CACHED_FILES.set(path, parsed.map(t=>({
 
           <div class="row gap mt12">
             <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
-            <button class="btn" data-next>${QUIZ.session.i===total-1?'disabled':''}>Próxima</button>
+            <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
+            <button class="btn warn" data-finish ${isLast ? '' : 'disabled'}>Finalizar</button>
             <a class="btn ghost" href="#/quiz">Sair</a>
           </div>
         </div>
@@ -1430,26 +1351,96 @@ CACHED_FILES.set(path, parsed.map(t=>({
     // Handlers
     $$('.radiogroup .chip', el).forEach(btn=>{
       btn.addEventListener('click', ()=>{
-        if (QUIZ.session.answers[q.id]) return; // já respondida
+        if (QUIZ.session.answers[q.id]) return;
         const altId = btn.getAttribute('data-alt');
         setAnswer(q.id, altId);
-        // re-render para colorir feedback
         renderRun();
       });
     });
-    $('[data-next]', el)?.addEventListener('click', ()=>{
-      if (nextQuestion()) renderRun();
+    $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
+    $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
+    $('[data-finish]', el)?.addEventListener('click', ()=>{
+      QUIZ.session.finishedAt = Date.now();
+      saveLS();
+      renderSummary();
     });
-    $('[data-prev]', el)?.addEventListener('click', ()=>{
-      if (prevQuestion()) renderRun();
+  }
+
+  // ---- View: Gabarito / Resumo ----
+  function renderSummary(){
+    const el = $(CONTENT_SEL);
+    if (!el || !QUIZ.session) return;
+
+    const { total, acertos, erros, porTag } = scoreSession();
+    const pct = total ? Math.round((acertos/total)*100) : 0;
+
+    let lines = '';
+    porTag.forEach((v, tag)=>{
+      const p = v.tot ? Math.round((v.ok/v.tot)*100) : 0;
+      lines += `<div class="row jc between"><span>${htmlEscape(tag)}</span><span class="muted">${v.ok}/${v.tot} (${p}%)</span></div>`;
+    });
+
+    const wrongList = erros.map(id=>{
+      const q = QUIZ.bank.get(id);
+      return q ? `<li><strong>${htmlEscape(q.tema || '')}</strong> — ${htmlEscape(q.enunciado)}</li>` : '';
+    }).join('');
+
+    render(el, `
+      <section class="card ubox" tabindex="-1" data-focus>
+        <header class="card-head">
+          <h2 class="h2">Gabarito • Resultado</h2>
+          <p class="muted">${acertos}/${total} acertos • ${pct}%</p>
+        </header>
+
+        <div class="vspace">
+          <div class="ubox">
+            <strong>Desempenho por tag</strong>
+            <div class="mt8 vspace-sm">
+              ${lines || '<span class="muted">Sem tags.</span>'}
+            </div>
+          </div>
+
+          <div class="ubox">
+            <strong>Erros (${erros.length})</strong>
+            ${erros.length ? `<ul class="list-plain mt8">${wrongList}</ul>` : '<p class="muted mt8">Nenhum erro.</p>'}
+          </div>
+
+          <div class="row gap mt12">
+            <a class="btn" href="#/quiz">Voltar à lista</a>
+            <button class="btn" data-review ${erros.length ? '' : 'disabled'}>Revisar erros</button>
+            <button class="btn outline" data-restart>Refazer</button>
+          </div>
+        </div>
+      </section>
+    `);
+
+    $('[data-review]', el)?.addEventListener('click', ()=>{
+      const sess = buildSessionFromIds(erros, 'erros', QUIZ.session.seed || Date.now());
+      if (!sess) return;
+      QUIZ.session = sess;
+      saveLS();
+      renderRun();
+    });
+
+    $('[data-restart]', el)?.addEventListener('click', ()=>{
+      // Recria sessão mantendo o mesmo tema/slug se possível
+      const id = QUIZ.session.quizId || '';
+      const m = id.match(/^tema:(.+)$/);
+      if (m) {
+        QUIZ.session = buildSessionFromTemaSlug(m[1]);
+      } else {
+        // fallback: refaz com as mesmas questões atuais
+        const ids = QUIZ.session.order.slice();
+        QUIZ.session = buildSessionFromIds(ids, 'refazer', Date.now());
+      }
+      saveLS();
+      renderRun();
     });
   }
 
   // ---- Roteamento ----
   function parseHash() {
     const h = location.hash || '';
-    // #/quiz            -> lista
-    // #/quiz/:slugTema  -> execução
     const m = h.match(/^#\/quiz(?:\/([^?]+))?/i);
     if (!m) return null;
     return { slug: m[1] ? decodeURIComponent(m[1]) : null };
@@ -1464,23 +1455,23 @@ CACHED_FILES.set(path, parsed.map(t=>({
       return true;
     }
 
-    // Garantir banco carregado e montar sessão
     if (!QUIZ.list.length) await loadBank();
 
-    // Tentar retomar sessão existente do mesmo tema
     const expectedId = `tema:${r.slug}`;
-    if (!QUIZ.session || QUIZ.session.quizId !== expectedId) {
+    if (!QUIZ.session || (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:'))) {
       QUIZ.session = buildSessionFromTemaSlug(r.slug);
       saveLS();
     }
 
-    renderRun();
+    // Se já finalizado, mostrar resumo
+    if (QUIZ.session?.finishedAt) {
+      renderSummary();
+    } else {
+      renderRun();
+    }
     return true;
   }
 
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
-
-})();
-
 })();
