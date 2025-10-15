@@ -1198,13 +1198,23 @@ async function renderByRoute(){
     QUIZ.session = { key:k, order, i:0, answers:{}, startedAt: Date.now() };
     saveLS();
   }
+
+  // curQ auto-corretivo
   const curQ = () => {
     if (!QUIZ.session) return null;
     const k = QUIZ.session.key;
     const list = QUIZ.bank.get(k) || [];
-    const id = QUIZ.session.order[QUIZ.session.i];
-    return list.find(q => q.id === id) || null;
+    const id = (QUIZ.session.order||[])[QUIZ.session.i|0];
+    let q = list.find(x => x.id === id) || null;
+    if (!q && list.length) {
+      const [cat, tema] = k.split('/');
+      startSession(cat, tema);
+      const id0 = QUIZ.session.order[0];
+      q = list.find(x => x.id === id0) || null;
+    }
+    return q;
   };
+
   const next = () => {
     if (!QUIZ.session) return false;
     if (QUIZ.session.i < QUIZ.session.order.length - 1){ QUIZ.session.i++; saveLS(); return true; }
@@ -1240,7 +1250,6 @@ async function renderByRoute(){
     const altView = q.alternativas.map(a => {
       const isSel = chosen === a.id;
       const isOk  = a.correta === true;
-      // Quando já escolheu, sinalizar correto/errado
       const cls = [
         'chip',
         isSel ? 'is-selected' : '',
@@ -1299,11 +1308,11 @@ async function renderByRoute(){
         const altId = btn.getAttribute('data-alt');
         QUIZ.session.answers[q.id] = altId;
         saveLS();
-        renderRun(); // re-render para feedback
+        renderRun();
       });
     });
     $('[data-next]', el)?.addEventListener('click', ()=>{
-      if (!next()){ // acabou
+      if (!next()){
         QUIZ.session.finishedAt = Date.now(); saveLS(); renderSummary();
       } else { renderRun(); }
     });
@@ -1389,11 +1398,18 @@ async function renderByRoute(){
       return true;
     }
 
-    // Nova sessão se mudou de tema
+    // Reiniciar sessão se mudou de tema ou se a sessão estiver inválida
     const k = keyOf(r.cat, r.tema);
-    if (!QUIZ.session || QUIZ.session.key !== k){
-      startSession(r.cat, r.tema);
-    }
+    const arr = QUIZ.bank.get(k) || [];
+    const needReset =
+      !QUIZ.session ||
+      QUIZ.session.key !== k ||
+      !Array.isArray(QUIZ.session.order) ||
+      QUIZ.session.order.length === 0 ||
+      !arr.some(q => q.id === (QUIZ.session.order||[])[QUIZ.session.i|0]);
+
+    if (needReset) startSession(r.cat, r.tema);
+
     if (QUIZ.session?.finishedAt) renderSummary();
     else renderRun();
     return true;
@@ -1402,7 +1418,4 @@ async function renderByRoute(){
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
 })();
-
-
-
-})();
+   })();
