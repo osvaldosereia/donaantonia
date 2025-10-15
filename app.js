@@ -1053,62 +1053,57 @@ CACHED_FILES.set(path, parsed.map(t=>({
     bindAutocomplete();
   })();
 
- /* =========================================================
+/* =========================================================
    QUIZ – loader, lista, execução, gabarito, revisão e simulado
    ========================================================= */
 (() => {
-  // Helpers locais
+  // Helpers
   const $  = (q, el = document) => (el || document).querySelector(q);
   const $$ = (q, el = document) => Array.from((el || document).querySelectorAll(q));
   const CONTENT_SEL = '#content';
 
-  // ---- Estado ----
+  // Estado
   const QUIZ = {
     indexLoaded: false,
     files: [],           // ['trabalho.json', ...]
     bank: new Map(),     // Map<questaoId, questao>
-    list: [],            // array de questões
-    session: null,       // { quizId, order[], i, answers:{[id]:altId}, startedAt, finishedAt?, mode, seed }
+    list: [],            // questões
+    session: null,       // { quizId, order[], i, answers, startedAt, finishedAt?, mode, seed }
     _timer: null
   };
-
   const LS_KEY = 'meujus:quiz:v1';
 
-  // ---- Persistência ----
-  function saveLS() {
-    try { localStorage.setItem(LS_KEY, JSON.stringify({ session: QUIZ.session })); } catch {}
-  }
-  function loadLS() {
-    try {
+  // Persistência
+  function saveLS(){ try{ localStorage.setItem(LS_KEY, JSON.stringify({session:QUIZ.session})); }catch{} }
+  function loadLS(){
+    try{
       const data = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
       if (data?.session) QUIZ.session = data.session;
-    } catch {}
+    }catch{}
   }
   loadLS();
 
-  // ---- Loader ----
+  // Loader
   async function fetchJSON(path){
-    try {
-      const res = await fetch(path, { cache:'no-cache' });
+    try{
+      const res = await fetch(path, {cache:'no-cache'});
       if (!res.ok) return null;
       return await res.json();
-    } catch { return null; }
+    }catch{ return null; }
   }
-
-  async function loadIndex() {
+  async function loadIndex(){
     if (QUIZ.indexLoaded) return;
     const idx = await fetchJSON('data/quizzes/index.json');
-    QUIZ.files = Array.isArray(idx) && idx.length ? idx : ['trabalho.json']; // fallback
+    QUIZ.files = Array.isArray(idx) && idx.length ? idx : ['trabalho.json'];
     QUIZ.indexLoaded = true;
   }
-
-  async function loadBank() {
+  async function loadBank(){
     await loadIndex();
     const loaded = [];
-    for (const file of QUIZ.files) {
+    for (const file of QUIZ.files){
       const arr = await fetchJSON(`data/quizzes/${file}`);
       if (!Array.isArray(arr)) continue;
-      for (const q of arr) {
+      for (const q of arr){
         if (!q?.id) continue;
         QUIZ.bank.set(q.id, q);
         loaded.push(q);
@@ -1117,59 +1112,42 @@ CACHED_FILES.set(path, parsed.map(t=>({
     QUIZ.list = loaded;
   }
 
-  // ---- Util ----
-  function htmlEscape(s=''){ return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+  // Util
+  function htmlEscape(s=''){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
-
-  function render(el, html){
-    if (!el) return;
-    el.innerHTML = html;
-    try { window.__closeDrawer?.(); } catch {}
-    el.querySelector('[data-focus]')?.focus?.();
-  }
-
-  function slugify(s=''){
-    return s.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
-  }
-
-  function shuffle(arr, seed = Date.now()) {
-    let a = arr.slice();
-    let s = xmur3(String(seed))();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(rand(s) * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-      s = xmur3(String(s))();
-    }
+  function render(el, html){ if(!el) return; el.innerHTML = html; try{window.__closeDrawer?.();}catch{}; el.querySelector('[data-focus]')?.focus?.(); }
+  function slugify(s=''){ return s.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,''); }
+  function shuffle(arr, seed = Date.now()){
+    let a = arr.slice(); let s = xmur3(String(seed))();
+    for (let i=a.length-1;i>0;i--){ const j = Math.floor(rand(s)*(i+1)); [a[i],a[j]]=[a[j],a[i]]; s = xmur3(String(s))(); }
     return a;
   }
-  function xmur3(str) {
-    let h = 1779033703 ^ str.length;
-    for (let i=0; i<str.length; i++) {
-      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
-      h = (h << 13) | (h >>> 19);
-    }
-    return function() {
-      h = Math.imul(h ^ (h >>> 16), 2246822507);
-      h = Math.imul(h ^ (h >>> 13), 3266489909);
-      return (h ^= h >>> 16) >>> 0;
-    };
+  function xmur3(str){ let h=1779033703 ^ str.length;
+    for(let i=0;i<str.length;i++){ h=Math.imul(h ^ str.charCodeAt(i),3432918353); h=(h<<13)|(h>>>19); }
+    return function(){ h=Math.imul(h ^ (h>>>16),2246822507); h=Math.imul(h ^ (h>>>13),3266489909); return (h^=h>>>16)>>>0; };
   }
-  function rand(seed) { return (seed % 1_000_000) / 1_000_000; }
+  function rand(seed){ return (seed % 1_000_000) / 1_000_000; }
+  function allTags(list){ const s=new Set(); for(const q of list) (q.tags||[]).forEach(t=>s.add(t)); return Array.from(s).sort((a,b)=>a.localeCompare(b)); }
+  function keep(arr, pred){ const out=[]; for(const x of arr) if(pred(x)) out.push(x); return out; }
 
-  // ---- Views: Lista ----
-  async function viewList() {
-    const el = $(CONTENT_SEL);
-    if (!el) return;
+  // Lista (com modo, tag e busca)
+  async function viewList(){
+    const el = $(CONTENT_SEL); if (!el) return;
     if (!QUIZ.list.length) await loadBank();
 
-    const r = parseHash() || { mode:'estudo' };
+    const r = parseHash() || { mode:'estudo', tag:null };
+    const qInputId = 'quiz-search';
+
+    const base = r.tag ? keep(QUIZ.list, q => (q.tags||[]).includes(r.tag)) : QUIZ.list.slice();
     const byTema = new Map();
-    for (const q of QUIZ.list) {
-      const k = q.tema || 'Outros';
-      if (!byTema.has(k)) byTema.set(k, []);
-      byTema.get(k).push(q);
-    }
+    for (const q of base){ const k=q.tema||'Outros'; if(!byTema.has(k)) byTema.set(k,[]); byTema.get(k).push(q); }
+
+    const tags = allTags(QUIZ.list);
+    const tagChips = ['<a class="chip '+(r.tag? '' : 'is-selected')+'" href="#/quiz?mode='+r.mode+'">Todas</a>']
+      .concat(tags.map(t=>{
+        const sel = r.tag===t ? ' is-selected' : '';
+        return `<a class="chip${sel}" href="#/quiz?mode=${r.mode}&tag=${encodeURIComponent(t)}">${htmlEscape(t)}</a>`;
+      })).join('');
 
     let html = `
       <section class="card ubox quiz-card" tabindex="-1" data-focus>
@@ -1179,310 +1157,224 @@ CACHED_FILES.set(path, parsed.map(t=>({
         </header>
 
         <div class="row gap mt8" role="radiogroup" aria-label="Modo">
-          <a class="chip ${r.mode==='estudo'?'is-selected':''}" href="#/quiz?mode=estudo" role="radio" aria-checked="${r.mode==='estudo'}">Modo estudo</a>
-          <a class="chip ${r.mode==='simulado'?'is-selected':''}" href="#/quiz?mode=simulado" role="radio" aria-checked="${r.mode==='simulado'}">Modo simulado</a>
+          <a class="chip ${r.mode==='estudo'?'is-selected':''}" href="#/quiz?mode=estudo${r.tag?`&tag=${encodeURIComponent(r.tag)}`:''}" role="radio" aria-checked="${r.mode==='estudo'}">Modo estudo</a>
+          <a class="chip ${r.mode==='simulado'?'is-selected':''}" href="#/quiz?mode=simulado${r.tag?`&tag=${encodeURIComponent(r.tag)}`:''}" role="radio" aria-checked="${r.mode==='simulado'}">Modo simulado</a>
         </div>
 
-        <div class="vspace mt12">
+        <div class="row gap mt12" aria-label="Filtro por tag">${tagChips}</div>
+
+        <div class="mt12">
+          <input id="${qInputId}" class="search" type="search" placeholder="Buscar tema..." autocomplete="off" />
+        </div>
+
+        <div class="vspace mt12" id="quiz-list">
     `;
 
-    for (const [tema, arr] of byTema.entries()) {
-      const slug = slugify(tema);
-      const count = arr.length;
-      html += `
-        <div class="ubox">
-          <div class="row jc between">
-            <strong>${htmlEscape(tema)}</strong>
-            <span class="muted">${count} questão(ões)</span>
+    const renderList = (filterText='')=>{
+      const tgt = el.querySelector('#quiz-list');
+      let out = '';
+      const needle = filterText.trim().toLowerCase();
+      for (const [tema, arr] of byTema.entries()){
+        if (needle && !tema.toLowerCase().includes(needle)) continue;
+        const slug = slugify(tema);
+        const count = arr.length;
+        out += `
+          <div class="ubox">
+            <div class="row jc between">
+              <strong>${htmlEscape(tema)}</strong>
+              <span class="muted">${count} questão(ões)</span>
+            </div>
+            <div class="row gap mt8">
+              <a class="btn" href="#/quiz/${encodeURIComponent(slug)}?mode=${r.mode}${r.tag?`&tag=${encodeURIComponent(r.tag)}`:''}">Começar</a>
+            </div>
           </div>
-          <div class="row gap mt8">
-            <a class="btn" href="#/quiz/${encodeURIComponent(slug)}?mode=${r.mode}">Começar</a>
-          </div>
-        </div>
-      `;
-    }
-
-    if (!byTema.size) {
-      html += `<p class="muted">Nenhum quiz encontrado. Adicione arquivos em <code>data/quizzes/</code>.</p>`;
-    }
+        `;
+      }
+      if (!out) out = `<p class="muted">Nada encontrado${needle?` para “${htmlEscape(filterText)}”`:''}.</p>`;
+      tgt.innerHTML = out;
+    };
 
     html += `</div></section>`;
     render(el, html);
+
+    const input = el.querySelector('#'+qInputId);
+    input?.addEventListener('input', ()=>renderList(input.value));
+    renderList('');
   }
 
-  // ---- Sessão ----
-  function buildSessionFromTemaSlug(slug, mode='estudo') {
+  // Sessão
+  function buildSessionFromTemaSlug(slug, mode='estudo'){
     const pick = QUIZ.list.filter(q => slugify(q.tema || 'Outros') === slug);
     if (!pick.length) return null;
-    const seed = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
+    const seed  = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
     const order = shuffle(pick.map(q => q.id), seed);
     return { quizId:`tema:${slug}`, order, i:0, answers:{}, startedAt:Date.now(), mode, seed };
   }
-
   function buildSessionFromIds(ids, label='revisao-erros', seed = Date.now()){
     const valid = ids.filter(id => QUIZ.bank.has(id));
     if (!valid.length) return null;
     const order = shuffle(valid, seed);
     return { quizId:`review:${label}`, order, i:0, answers:{}, startedAt:Date.now(), mode:'estudo', seed };
   }
-
-  function currentQuestion() {
-    if (!QUIZ.session) return null;
-    const qid = QUIZ.session.order[QUIZ.session.i];
-    return QUIZ.bank.get(qid) || null;
-  }
-
-  function setAnswer(qid, altId) {
-    if (!QUIZ.session) return;
-    QUIZ.session.answers[qid] = altId;
-    saveLS();
-  }
-
-  function nextQuestion() {
-    if (!QUIZ.session) return false;
-    if (QUIZ.session.i < QUIZ.session.order.length - 1) {
-      QUIZ.session.i++;
-      saveLS();
-      return true;
-    }
-    return false;
-  }
-
-  function prevQuestion() {
-    if (!QUIZ.session) return false;
-    if (QUIZ.session.i > 0) {
-      QUIZ.session.i--;
-      saveLS();
-      return true;
-    }
-    return false;
-  }
-
-  function computeFeedback(q, chosenId) {
-    const alt = q.alternativas.find(a => a.id === chosenId);
-    const ok  = !!alt?.correta;
-    const comment = alt?.comentario || '';
-    return { ok, comment };
-  }
-
+  function currentQuestion(){ if (!QUIZ.session) return null; const qid = QUIZ.session.order[QUIZ.session.i]; return QUIZ.bank.get(qid) || null; }
+  function setAnswer(qid, altId){ if (!QUIZ.session) return; QUIZ.session.answers[qid] = altId; saveLS(); }
+  function nextQuestion(){ if (!QUIZ.session) return false; if (QUIZ.session.i < QUIZ.session.order.length-1){ QUIZ.session.i++; saveLS(); return true; } return false; }
+  function prevQuestion(){ if (!QUIZ.session) return false; if (QUIZ.session.i > 0){ QUIZ.session.i--; saveLS(); return true; } return false; }
+  function computeFeedback(q, chosenId){ const alt=q.alternativas.find(a=>a.id===chosenId); return { ok:!!alt?.correta, comment: alt?.comentario||'' }; }
   function scoreSession(){
     if (!QUIZ.session) return { total:0, acertos:0, erros:[], porTag:new Map() };
-    const ids = QUIZ.session.order;
-    let acertos = 0;
-    const erros = [];
-    const porTag = new Map(); // tag -> {ok, tot}
-
-    for (const qid of ids) {
-      const q = QUIZ.bank.get(qid);
-      if (!q) continue;
+    const ids = QUIZ.session.order; let acertos=0; const erros=[]; const porTag=new Map();
+    for (const qid of ids){
+      const q = QUIZ.bank.get(qid); if(!q) continue;
       const chosen = QUIZ.session.answers[qid];
-      const ok = !!q.alternativas.find(a => a.id === chosen && a.correta);
+      const ok = !!q.alternativas.find(a=>a.id===chosen && a.correta);
       if (ok) acertos++; else erros.push(qid);
-
-      const tags = Array.isArray(q.tags) ? q.tags : ['(sem-tag)'];
-      for (const t of tags) {
-        if (!porTag.has(t)) porTag.set(t, { ok:0, tot:0 });
-        const agg = porTag.get(t);
-        agg.tot += 1;
-        if (ok) agg.ok += 1;
-      }
+      const tags = Array.isArray(q.tags)?q.tags:['(sem-tag)'];
+      for (const t of tags){ if(!porTag.has(t)) porTag.set(t,{ok:0,tot:0}); const agg=porTag.get(t); agg.tot+=1; if(ok) agg.ok+=1; }
     }
-    return { total: ids.length, acertos, erros, porTag };
+    return { total:ids.length, acertos, erros, porTag };
   }
 
-  // ---- View: Execução ----
-  function renderRun() {
-  const el = $(CONTENT_SEL);
-  if (!el) return;
+  // Execução
+  function renderRun(){
+    const el = $(CONTENT_SEL); if (!el) return;
+    if (QUIZ._timer){ clearInterval(QUIZ._timer); QUIZ._timer=null; }
 
-  // limpar timer anterior
-  if (QUIZ._timer) { clearInterval(QUIZ._timer); QUIZ._timer = null; }
+    const q = currentQuestion();
+    if (!q){
+      render(el, `
+        <section class="card ubox" tabindex="-1" data-focus>
+          <header class="card-head"><h2 class="h2">Quiz</h2></header>
+          <p class="muted">Nenhuma questão disponível.</p>
+          <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
+        </section>
+      `);
+      return;
+    }
 
-  const q = currentQuestion();
-  if (!q) {
+    const total  = QUIZ.session.order.length;
+    const n      = QUIZ.session.i + 1;
+    const chosen = QUIZ.session.answers[q.id];
+    const isLast = QUIZ.session.i === total - 1;
+    const isSimu = QUIZ.session.mode === 'simulado';
+    const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
+
+    let timerHtml = '';
+    if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0){
+      timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
+    }
+
     render(el, `
-      <section class="card ubox" tabindex="-1" data-focus>
-        <header class="card-head"><h2 class="h2">Quiz</h2></header>
-        <p class="muted">Nenhuma questão disponível.</p>
-        <div class="mt12"><a class="btn" href="#/quiz">Voltar à lista</a></div>
+      <section class="card ubox quiz-card" tabindex="-1" data-focus>
+        <header class="card-head">
+          <div class="row jc between">
+            <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
+            <span class="muted">${n}/${total}</span>
+          </div>
+          <div class="row gap">
+            <p class="muted">${htmlEscape(q.fonte || '')}</p>
+            ${timerHtml}
+          </div>
+        </header>
+
+        <div class="vspace">
+          <div class="enunciado">${htmlEscape(q.enunciado)}</div>
+
+          <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
+            ${q.alternativas.map(a=>{
+              const isSel = chosen === a.id;
+              const cls = ['chip', isSel?'is-selected':''].join(' ');
+              const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
+              return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
+            }).join('')}
+          </div>
+
+          ${feedback ? `
+            <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
+              ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
+            </div>` : ''}
+
+          <div class="row gap mt12">
+            <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
+            <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
+            <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
+            <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
+          </div>
+        </div>
       </section>
     `);
-    return;
-  }
 
-  const total  = QUIZ.session.order.length;
-  const n      = QUIZ.session.i + 1;
-  const chosen = QUIZ.session.answers[q.id];
-  const isLast = QUIZ.session.i === total - 1;
-  const isSimu = QUIZ.session.mode === 'simulado';
-
-  // no simulado não mostramos correto/errado
-  const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
-
-  // timer por questão se simulado
-  let timerHtml = '';
-  if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
-    timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
-  }
-
-  render(el, `
-    <section class="card ubox quiz-card" tabindex="-1" data-focus>
-      <header class="card-head">
-        <div class="row jc between">
-          <h2 class="h2">Quiz • ${htmlEscape(q.tema || 'Tema')}</h2>
-          <span class="muted">${n}/${total}</span>
-        </div>
-        <div class="row gap">
-          <p class="muted">${htmlEscape(q.fonte || '')}</p>
-          ${timerHtml}
-        </div>
-      </header>
-
-      <div class="vspace">
-        <div class="enunciado">${htmlEscape(q.enunciado)}</div>
-
-        <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
-          ${q.alternativas.map(a => {
-            const isSel = chosen === a.id;
-            const cls = ['chip', isSel?'is-selected':''].join(' ');
-            const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
-            return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
-          }).join('')}
-        </div>
-
-        ${feedback ? `
-          <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
-            ${feedback.ok ? 'Correta.' : 'Incorreta.'} ${htmlEscape(feedback.comment)}
-          </div>` : ''}
-
-        <div class="row gap mt12">
-          <button class="btn outline" data-prev ${QUIZ.session.i===0?'disabled':''}>Anterior</button>
-          <button class="btn" data-next ${isLast?'disabled':''}>Próxima</button>
-          <button class="btn warn" data-finish ${isSimu ? '' : (isLast ? '' : 'disabled')}>Finalizar</button>
-          <a class="btn ghost" href="#/quiz?mode=${isSimu?'simulado':'estudo'}">Sair</a>
-        </div>
-      </div>
-    </section>
-  `);
-
-  // ===== Navegação por teclado (hotkeys) =====
-  const scope = el.querySelector('.quiz-card');
-  const chips = Array.from(scope.querySelectorAll('.radiogroup .chip'));
-  chips.forEach((b,i)=> b.dataset.pos = String(i));
-
-  function focusPos(pos){
-    const btn = chips[pos];
-    if (btn) { btn.focus(); scope.dataset.pos = String(pos); }
-  }
-  function nextPos(delta){
-    const cur = +(scope.dataset.pos || 0);
-    let n = cur + delta;
-    if (n < 0) n = 0;
-    if (n > chips.length - 1) n = chips.length - 1;
-    focusPos(n);
-  }
-  function chooseFocused(){
-    const cur = +(scope.dataset.pos || 0);
-    const btn = chips[cur];
-    if (!btn) return;
-    const altId = btn.getAttribute('data-alt');
-    setAnswer(q.id, altId);
-    if (!isSimu) {
-      renderRun();
-    } else {
-      chips.forEach(b => b.classList.remove('is-selected'));
-      btn.classList.add('is-selected');
+    // Hotkeys
+    const scope = el.querySelector('.quiz-card');
+    const chips = Array.from(scope.querySelectorAll('.radiogroup .chip'));
+    chips.forEach((b,i)=> b.dataset.pos = String(i));
+    function focusPos(pos){ const btn = chips[pos]; if(btn){ btn.focus(); scope.dataset.pos=String(pos);} }
+    function nextPos(delta){ const cur=+(scope.dataset.pos||0); let n=cur+delta; if(n<0)n=0; if(n>chips.length-1)n=chips.length-1; focusPos(n); }
+    function chooseFocused(){
+      const cur=+(scope.dataset.pos||0); const btn=chips[cur]; if(!btn) return;
+      const altId=btn.getAttribute('data-alt'); setAnswer(q.id, altId);
+      if (!isSimu){ renderRun(); } else { chips.forEach(b=>b.classList.remove('is-selected')); btn.classList.add('is-selected'); }
     }
-  }
-  scope.addEventListener('keydown', (e)=>{
-    switch(e.key){
-      case 'ArrowDown': e.preventDefault(); nextPos(+1); break;
-      case 'ArrowUp':   e.preventDefault(); nextPos(-1); break;
-      case 'ArrowRight':e.preventDefault(); el.querySelector('[data-next]')?.click(); break;
-      case 'ArrowLeft': e.preventDefault(); el.querySelector('[data-prev]')?.click(); break;
-      case 'Enter':     e.preventDefault(); chooseFocused(); break;
-      case 'f':         e.preventDefault(); el.querySelector('[data-finish]')?.click(); break;
-    }
-  });
-  if (!scope.dataset.pos) focusPos(0);
-
-  // Handlers de clique
-  $$('.radiogroup .chip', el).forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const altId = btn.getAttribute('data-alt');
-      setAnswer(q.id, altId);
-      if (!isSimu) {
-        renderRun();
-      } else {
-        $$('.radiogroup .chip', el).forEach(b => b.classList.remove('is-selected'));
-        btn.classList.add('is-selected');
+    scope.addEventListener('keydown',(e)=>{
+      switch(e.key){
+        case 'ArrowDown': e.preventDefault(); nextPos(+1); break;
+        case 'ArrowUp':   e.preventDefault(); nextPos(-1); break;
+        case 'ArrowRight':e.preventDefault(); el.querySelector('[data-next]')?.click(); break;
+        case 'ArrowLeft': e.preventDefault(); el.querySelector('[data-prev]')?.click(); break;
+        case 'Enter':     e.preventDefault(); chooseFocused(); break;
+        case 'f':         e.preventDefault(); el.querySelector('[data-finish]')?.click(); break;
       }
     });
-  });
-  $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
-  $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
-  $('[data-finish]', el)?.addEventListener('click', ()=>{
-    QUIZ.session.finishedAt = Date.now();
-    saveLS();
-    renderSummary();
-  });
+    if (!scope.dataset.pos) focusPos(0);
 
-  // Timer por questão no simulado
-  if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0) {
-    const node = $('#q-timer', el);
-    let remain = q.tempo;
-    QUIZ._timer = setInterval(()=>{
-      remain -= 1;
-      if (node) node.textContent = `${remain}s`;
-      if (remain <= 0) {
-        clearInterval(QUIZ._timer); QUIZ._timer = null;
-        if (!nextQuestion()) {
-          QUIZ.session.finishedAt = Date.now();
-          saveLS();
-          renderSummary();
-        } else {
-          renderRun();
+    // Clicks
+    $$('.radiogroup .chip', el).forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const altId = btn.getAttribute('data-alt');
+        setAnswer(q.id, altId);
+        if (!isSimu){ renderRun(); } else { $$('.radiogroup .chip', el).forEach(b=>b.classList.remove('is-selected')); btn.classList.add('is-selected'); }
+      });
+    });
+    $('[data-next]', el)?.addEventListener('click', ()=>{ if (nextQuestion()) renderRun(); });
+    $('[data-prev]', el)?.addEventListener('click', ()=>{ if (prevQuestion()) renderRun(); });
+    $('[data-finish]', el)?.addEventListener('click', ()=>{ QUIZ.session.finishedAt = Date.now(); saveLS(); renderSummary(); });
+
+    // Timer simulado
+    if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0){
+      const node = $('#q-timer', el); let remain = q.tempo;
+      QUIZ._timer = setInterval(()=>{
+        remain -= 1; if (node) node.textContent = `${remain}s`;
+        if (remain <= 0){
+          clearInterval(QUIZ._timer); QUIZ._timer=null;
+          if (!nextQuestion()){ QUIZ.session.finishedAt=Date.now(); saveLS(); renderSummary(); }
+          else renderRun();
         }
-      }
-    }, 1000);
+      }, 1000);
+    }
   }
-}
 
-
-  // ---- View: Gabarito / Resumo ----
+  // Gabarito / Resumo
   function renderSummary(){
-    const el = $(CONTENT_SEL);
-    if (!el || !QUIZ.session) return;
-
+    const el = $(CONTENT_SEL); if (!el || !QUIZ.session) return;
     const { total, acertos, erros, porTag } = scoreSession();
     const pct = total ? Math.round((acertos/total)*100) : 0;
 
-    let lines = '';
-    porTag.forEach((v, tag)=>{
-      const p = v.tot ? Math.round((v.ok/v.tot)*100) : 0;
+    let lines=''; porTag.forEach((v, tag)=>{ const p=v.tot?Math.round((v.ok/v.tot)*100):0;
       lines += `<div class="row jc between"><span>${htmlEscape(tag)}</span><span class="muted">${v.ok}/${v.tot} (${p}%)</span></div>`;
     });
-
-    const wrongList = erros.map(id=>{
-      const q = QUIZ.bank.get(id);
-      return q ? `<li><strong>${htmlEscape(q.tema || '')}</strong> — ${htmlEscape(q.enunciado)}</li>` : '';
-    }).join('');
+    const wrongList = erros.map(id=>{ const q=QUIZ.bank.get(id); return q ? `<li><strong>${htmlEscape(q.tema||'')}</strong> — ${htmlEscape(q.enunciado)}</li>` : ''; }).join('');
 
     render(el, `
       <section class="card ubox" tabindex="-1" data-focus>
         <header class="card-head">
           <h2 class="h2">Gabarito • Resultado</h2>
-          <p class="muted">
-            ${acertos}/${total} acertos • ${pct}% • Modo: ${htmlEscape(QUIZ.session?.mode || 'estudo')}
-          </p>
+          <p class="muted">${acertos}/${total} acertos • ${pct}% • Modo: ${htmlEscape(QUIZ.session?.mode || 'estudo')}</p>
         </header>
 
         <div class="vspace">
           <div class="ubox">
             <strong>Desempenho por tag</strong>
-            <div class="mt8 vspace-sm">
-              ${lines || '<span class="muted">Sem tags.</span>'}
-            </div>
+            <div class="mt8 vspace-sm">${lines || '<span class="muted">Sem tags.</span>'}</div>
           </div>
 
           <div class="ubox">
@@ -1502,75 +1394,52 @@ CACHED_FILES.set(path, parsed.map(t=>({
     $('[data-review]', el)?.addEventListener('click', ()=>{
       const sess = buildSessionFromIds(erros, 'erros', QUIZ.session.seed || Date.now());
       if (!sess) return;
-      QUIZ.session = sess;
-      saveLS();
-      renderRun();
+      QUIZ.session = sess; saveLS(); renderRun();
     });
-
     $('[data-restart]', el)?.addEventListener('click', ()=>{
-      const id = QUIZ.session.quizId || '';
-      const m = id.match(/^tema:(.+)$/);
-      if (m) {
-        QUIZ.session = buildSessionFromTemaSlug(m[1], QUIZ.session.mode || 'estudo');
-      } else {
-        const ids = QUIZ.session.order.slice();
-        QUIZ.session = buildSessionFromIds(ids, 'refazer', Date.now());
-      }
-      QUIZ.session.finishedAt = undefined;
-      saveLS();
-      renderRun();
+      const id = QUIZ.session.quizId || ''; const m = id.match(/^tema:(.+)$/);
+      if (m) QUIZ.session = buildSessionFromTemaSlug(m[1], QUIZ.session.mode || 'estudo');
+      else { const ids = QUIZ.session.order.slice(); QUIZ.session = buildSessionFromIds(ids, 'refazer', Date.now()); }
+      QUIZ.session.finishedAt = undefined; saveLS(); renderRun();
     });
   }
 
-  // ---- Roteamento ----
-  function parseHash() {
-  const h = location.hash || '';
-  const m = h.match(/^#\/quiz(?:\/([^?]+))?(?:\?(.*))?$/i);
-  if (!m) return null;
-  const slug = m[1] ? decodeURIComponent(m[1]) : null;
-  const params = Object.fromEntries(new URLSearchParams(m[2] || ''));
-  const mode = (params.mode === 'simulado') ? 'simulado' : 'estudo';
-  const tag  = params.tag || null;
-  const q    = Number.isFinite(+params.q) ? Math.max(0, (+params.q|0)) : null; // índice 0-based
-  return { slug, mode, tag, q };
-}
+  // Roteamento
+  function parseHash(){
+    const h = location.hash || '';
+    const m = h.match(/^#\/quiz(?:\/([^?]+))?(?:\?(.*))?$/i);
+    if (!m) return null;
+    const slug = m[1] ? decodeURIComponent(m[1]) : null;
+    const params = Object.fromEntries(new URLSearchParams(m[2] || ''));
+    const mode = (params.mode === 'simulado') ? 'simulado' : 'estudo';
+    const tag  = params.tag || null;
+    const q    = Number.isFinite(+params.q) ? Math.max(0, (+params.q|0)) : null; // índice 0-based
+    return { slug, mode, tag, q };
+  }
 
+  async function handleRoute(){
+    const r = parseHash(); if (!r) return false;
 
- async function handleRoute() {
-  const r = parseHash();
-  if (!r) return false;
+    if (!r.slug){ await viewList(); return true; }
+    if (!QUIZ.list.length) await loadBank();
 
-  if (!r.slug) {
-    await viewList();
+    const expectedId = `tema:${r.slug}`;
+    const needNew =
+      !QUIZ.session ||
+      (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
+      (QUIZ.session.mode !== r.mode);
+
+    if (needNew){ QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode); saveLS(); }
+
+    if (r.q != null && QUIZ.session?.order?.length){
+      QUIZ.session.i = Math.min(r.q, QUIZ.session.order.length - 1);
+      saveLS();
+    }
+
+    if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) renderSummary();
+    else renderRun();
     return true;
   }
-
-  if (!QUIZ.list.length) await loadBank();
-
-  const expectedId = `tema:${r.slug}`;
-  const needNew =
-    !QUIZ.session ||
-    (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
-    (QUIZ.session.mode !== r.mode);
-
-  if (needNew) {
-    QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode);
-    saveLS();
-  }
-
-  if (r.q != null && QUIZ.session?.order?.length) {
-    QUIZ.session.i = Math.min(r.q, QUIZ.session.order.length - 1);
-    saveLS();
-  }
-
-  if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) {
-    renderSummary();
-  } else {
-    renderRun();
-  }
-  return true;
-}
-
 
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', handleRoute);
