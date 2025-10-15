@@ -1053,4 +1053,89 @@ CACHED_FILES.set(path, parsed.map(t=>({
     bindAutocomplete();
   })();
 
+   /* =========================
+   QUIZ: roteamento + views
+   ========================= */
+(() => {
+  // Fallback aos helpers existentes
+  const $  = window.$  || ((q, el = document) => el.querySelector(q));
+  const $$ = window.$$ || ((q, el = document) => Array.from(el.querySelectorAll(q)));
+
+  const CONTENT_SEL = '#content';
+
+  function parseHash() {
+    const h = location.hash || '';
+    // #/quiz           -> lista
+    // #/quiz/:id       -> execução (placeholder)
+    const m = h.match(/^#\/quiz(?:\/([^?]+))?/i);
+    if (!m) return null;
+    return { id: m[1] ? decodeURIComponent(m[1]) : null };
+  }
+
+  function render(el, html) {
+    if (!el) return;
+    el.innerHTML = html;
+    // fecha o drawer se estiver aberto
+    try { window.__closeDrawer?.(); } catch {}
+    // foco acessível no header do card
+    el.querySelector('[data-focus]')?.focus?.();
+  }
+
+  function viewList() {
+    const el = $(CONTENT_SEL);
+    if (!el) return;
+    render(el, `
+      <section class="card ubox" tabindex="-1" data-focus>
+        <header class="card-head">
+          <h2 class="h2">Quiz • Lista</h2>
+          <p class="muted">Selecione um quiz por tema. (placeholder)</p>
+        </header>
+        <div class="vspace">
+          <div class="list-plain">
+            <a class="link-row" href="#/quiz/exemplo-1">Exemplo 1 — Direito do Trabalho</a>
+            <a class="link-row" href="#/quiz/exemplo-2">Exemplo 2 — Direito Civil</a>
+          </div>
+        </div>
+      </section>
+    `);
+  }
+
+  function viewRun(id) {
+    const el = $(CONTENT_SEL);
+    if (!el) return;
+    render(el, `
+      <section class="card ubox" tabindex="-1" data-focus>
+        <header class="card-head">
+          <h2 class="h2">Quiz: ${id}</h2>
+          <p class="muted">Tela de execução do quiz. (placeholder)</p>
+        </header>
+
+        <div class="vspace">
+          <p>Em breve: enunciado, alternativas em chips, feedback e navegação.</p>
+          <div class="row gap">
+            <a class="btn" href="#/quiz">Voltar à lista</a>
+            <button class="btn" type="button" disabled>Próxima</button>
+            <button class="btn outline" type="button" disabled>Revelar gabarito</button>
+          </div>
+        </div>
+      </section>
+    `);
+  }
+
+  function handleRoute() {
+    const r = parseHash();
+    if (!r) return false;       // não é rota de quiz → deixa o app atual cuidar
+    if (!r.id) viewList(); else viewRun(r.id);
+    return true;
+  }
+
+  // Escuta sem interferir nas rotas existentes
+  window.addEventListener('hashchange', handleRoute);
+  window.addEventListener('load', handleRoute);
+
+  // Exponível para testes manuais, se quiser forçar
+  window.__quizRoute = { handleRoute };
+})();
+
+
 })();
