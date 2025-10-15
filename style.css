@@ -474,3 +474,12 @@ section.card .ubox strong + .row.jc.between { display:none !important; }
   font-weight:400;font-size:.85rem;background:#f8fafc;color:#334155;
 }
 .quiz-card .opt-text{display:block}
+/* ===== Override final para opções do quiz ===== */
+.quiz-card .radiogroup .chip,
+.quiz-card .radiogroup .chip .opt-text{
+  font-weight:300 !important;   /* 300 = light; use 400 se faltar peso */
+}
+
+.quiz-card .opt-badge{
+  font-weight:600 !important;   /* selo A/B/C mais firme */
+}
