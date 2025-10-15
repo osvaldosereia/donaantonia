@@ -1,0 +1,742 @@
+[
+  {
+    "id": "normas-fundamentais-q1",
+    "tema": "Normas Fundamentais do Processo Civil e Constitucionalização",
+    "enunciado": "Considerando a diretriz do Art. 1º do CPC, que estabelece que o processo civil será ordenado, disciplinado e interpretado conforme os valores e as normas fundamentais da Constituição da República, assinale a afirmativa que melhor reflete a profundidade da teoria neoprocessualista e o fenômeno da constitucionalização do processo.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A aplicação do Art. 1º se restringe a uma mera cláusula de abertura, sem eficácia normativa direta, servindo apenas como um guia interpretativo genérico para o magistrado.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 1º possui eficácia normativa direta e vinculante, irradiando seus efeitos sobre todas as demais normas processuais e exigindo uma releitura do sistema à luz da Constituição."
+      },
+      {
+        "id": "b",
+        "texto": "A constitucionalização do processo implica a aplicação direta de normas constitucionais em detrimento de regras processuais específicas, gerando a inconstitucionalidade superveniente de grande parte do Código.",
+        "correta": false,
+        "comentario": "Incorreto. A interpretação deve ser de conformidade, não de revogação. As normas do CPC são interpretadas à luz da CF, mas não são automaticamente invalidadas, buscando-se a harmonização."
+      },
+      {
+        "id": "c",
+        "texto": "O dispositivo consagra a subordinação do ordenamento processual à Constituição, exigindo que a interpretação de qualquer norma do CPC seja realizada de modo a concretizar os direitos e garantias fundamentais, como o devido processo legal, o contraditório e a dignidade da pessoa humana.",
+        "correta": true,
+        "comentario": "Correto. Esta alternativa descreve com precisão o impacto do Art. 1º: a Constituição passa a ser o filtro hermenêutico obrigatório para a aplicação de todo o Código de Processo Civil, conferindo-lhe um novo fundamento de validade."
+      },
+      {
+        "id": "d",
+        "texto": "A interpretação conforme a Constituição, prevista no Art. 1º, é uma faculdade do juiz, que pode optar por uma exegese puramente legalista a depender do caso concreto, privilegiando a literalidade da norma infraconstitucional.",
+        "correta": false,
+        "comentario": "Incorreto. Trata-se de um dever do magistrado, não uma faculdade. A aplicação do direito processual dissociada dos valores constitucionais é inadmissível no atual sistema."
+      },
+      {
+        "id": "e",
+        "texto": "A menção aos valores e normas fundamentais da Constituição no Art. 1º refere-se exclusivamente aos direitos processuais explícitos no Art. 5º da CF, excluindo princípios implícitos ou aqueles previstos em outras partes do texto constitucional.",
+        "correta": false,
+        "comentario": "Incorreto. A interpretação abrange todo o plexo de valores e normas constitucionais, incluindo princípios implícitos (como a razoabilidade e a proporcionalidade) e outros direitos fundamentais."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q2",
+    "tema": "Princípio do Impulso Oficial e Inércia da Jurisdição",
+    "enunciado": "Tendo em vista o disposto no Art. 2º do CPC ('O processo começa por iniciativa da parte e se desenvolve por impulso oficial, salvo as exceções previstas em lei'), analise a seguinte situação hipotética: em uma ação de conhecimento, após a fase postulatória e o saneamento, o juiz, verificando a complexidade da matéria de fato, determina de ofício a produção de prova pericial, mesmo sem requerimento expresso das partes. A conduta do magistrado é:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Ilegal, pois viola o princípio dispositivo, segundo o qual cabe exclusivamente às partes o requerimento de produção de provas para a comprovação de suas alegações.",
+        "correta": false,
+        "comentario": "Incorreto. O princípio dispositivo rege o início do processo e a delimitação da lide, mas os poderes instrutórios do juiz (Art. 370 do CPC) são uma manifestação do impulso oficial para a busca da verdade real."
+      },
+      {
+        "id": "b",
+        "texto": "Legal, pois a iniciativa probatória de ofício pelo juiz é uma clara manifestação do impulso oficial, que visa a assegurar uma decisão de mérito justa e efetiva, em consonância com o princípio da cooperação.",
+        "correta": true,
+        "comentario": "Correto. Uma vez iniciado o processo pela parte, o seu desenvolvimento, incluindo a atividade instrutória, é governado pelo impulso oficial. O juiz tem o poder-dever de determinar as provas necessárias ao julgamento do mérito."
+      },
+      {
+        "id": "c",
+        "texto": "Parcialmente ilegal, pois a prova pericial só poderia ser determinada de ofício se houvesse prévio consentimento de ambas as partes, sob pena de violação à paridade de armas.",
+        "correta": false,
+        "comentario": "Incorreto. A determinação de ofício não está condicionada ao consentimento das partes. A paridade de armas é assegurada pela garantia do contraditório sobre a prova a ser produzida, não pela vedação à sua determinação."
+      },
+      {
+        "id": "d",
+        "texto": "Legal, mas apenas em procedimentos de jurisdição voluntária, nos quais o interesse público é predominante. Em processos de jurisdição contenciosa, a iniciativa probatória é exclusiva das partes.",
+        "correta": false,
+        "comentario": "Incorreto. Os poderes instrutórios do juiz são aplicáveis tanto na jurisdição contenciosa quanto na voluntária, sendo uma ferramenta essencial para o correto deslinde da causa."
+      },
+      {
+        "id": "e",
+        "texto": "Ilegal, a menos que se trate de direito indisponível, única hipótese em que o impulso oficial se sobrepõe à iniciativa probatória das partes.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a iniciativa de ofício seja mais comum em causas envolvendo direitos indisponíveis, ela não se restringe a elas. O Art. 370 do CPC não faz tal distinção, visando ao esclarecimento dos fatos."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q3",
+    "tema": "Acesso à Justiça e Soluções Consensuais",
+    "enunciado": "O Art. 3º do CPC, ao mesmo tempo em que consagra o princípio da inafastabilidade da jurisdição, estimula a solução consensual de conflitos e permite a arbitragem. Sobre a compatibilidade e a interação desses institutos, é correto afirmar que:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A cláusula compromissória em um contrato, ao prever a arbitragem, exclui a apreciação do Poder Judiciário de forma absoluta, inclusive no que tange à validade da própria cláusula ou à execução da sentença arbitral.",
+        "correta": false,
+        "comentario": "Incorreto. A validade da cláusula compromissória pode ser apreciada pelo Judiciário (princípio da kompetenz-kompetenz mitigado) e a execução da sentença arbitral, caso não cumprida, depende do Poder Judiciário."
+      },
+      {
+        "id": "b",
+        "texto": "O estímulo à conciliação e mediação, previsto nos §§ 2º e 3º, representa uma mitigação ao princípio da inafastabilidade, uma vez que condiciona o acesso ao Judiciário à prévia tentativa de autocomposição.",
+        "correta": false,
+        "comentario": "Incorreto. O estímulo não é uma condição de acesso, mas uma diretriz a ser observada. A regra geral é a designação de audiência de conciliação/mediação (Art. 334), mas isso não impede o acesso à justiça, apenas o formata."
+      },
+      {
+        "id": "c",
+        "texto": "A arbitragem e a mediação são consideradas formas de jurisdição equivalentes à estatal, de modo que a decisão de um árbitro ou o acordo de mediação têm a mesma força de uma sentença judicial transitada em julgado, independentemente de homologação.",
+        "correta": false,
+        "comentario": "Incorreto. A sentença arbitral tem força de título executivo judicial (Art. 515, VII, CPC), mas não se confunde com a jurisdição estatal. O acordo de mediação extrajudicial, para ter força de título executivo judicial, precisa de homologação."
+      },
+      {
+        "id": "d",
+        "texto": "A existência de meios adequados de solução de conflitos, como a arbitragem, não viola o Art. 3º, caput, pois o direito de acesso à justiça não se confunde com o monopólio da jurisdição estatal, sendo a escolha da via arbitral uma manifestação da autonomia privada.",
+        "correta": true,
+        "comentario": "Correto. O STF já pacificou o entendimento de que a arbitragem é constitucional. O acesso à justiça é o acesso a uma ordem jurídica justa, que pode ser tanto a estatal quanto a arbitral, quando validamente pactuada por partes capazes sobre direitos patrimoniais disponíveis."
+      },
+      {
+        "id": "e",
+        "texto": "O estímulo à solução consensual é um dever exclusivo dos juízes, não se aplicando a advogados e membros do Ministério Público, que devem atuar sempre na defesa intransigente dos interesses de seus representados.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 3º, § 3º, é expresso ao incluir juízes, advogados, defensores públicos e membros do Ministério Público no dever de estimular a autocomposição, o que se alinha ao moderno papel desses atores."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q4",
+    "tema": "Duração Razoável e Solução Integral do Mérito",
+    "enunciado": "O Art. 4º do CPC positiva o direito das partes de obter em prazo razoável a solução integral do mérito, incluída a atividade satisfativa. Qual das seguintes interpretações melhor se coaduna com a amplitude desse dispositivo?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O princípio se esgota na prolação da sentença de mérito, não abrangendo a fase de cumprimento de sentença, que possui regramento próprio e não está vinculada à ideia de prazo razoável.",
+        "correta": false,
+        "comentario": "Incorreto. O artigo é explícito ao incluir a 'atividade satisfativa', o que torna a fase de cumprimento de sentença parte essencial da tutela jurisdicional a ser prestada em tempo razoável."
+      },
+      {
+        "id": "b",
+        "texto": "A 'solução integral do mérito' impõe ao juiz o dever de evitar, sempre que possível, sentenças terminativas (sem resolução do mérito), devendo priorizar o saneamento de vícios processuais para permitir o julgamento da lide.",
+        "correta": true,
+        "comentario": "Correto. Este é o cerne do princípio da primazia do julgamento de mérito. O juiz deve atuar como um agente saneador do processo, em cooperação com as partes, para superar os óbices processuais e entregar a tutela substancial."
+      },
+      {
+        "id": "c",
+        "texto": "A razoabilidade do prazo é um conceito subjetivo, aferido exclusivamente pelo volume de processos da unidade judiciária, não gerando qualquer consequência processual em caso de demora excessiva.",
+        "correta": false,
+        "comentario": "Incorreto. Embora o volume de trabalho seja um fator, a demora injustificada pode gerar responsabilidade do Estado e até mesmo a aplicação de técnicas processuais para acelerar o feito, como a tutela de evidência."
+      },
+      {
+        "id": "d",
+        "texto": "A solução integral do mérito significa que o juiz deve decidir sobre todos os pedidos formulados, mas o exaurimento da atividade satisfativa depende exclusivamente da diligência do credor na fase executiva.",
+        "correta": false,
+        "comentario": "Incorreto. O princípio também impõe ao Judiciário um dever de efetividade na fase satisfativa, utilizando os meios coercitivos disponíveis para garantir o cumprimento da decisão, não sendo um ônus exclusivo do credor."
+      },
+      {
+        "id": "e",
+        "texto": "A busca pela solução de mérito autoriza o juiz a relevar nulidades absolutas, desde que isso acelere o andamento processual e não haja prejuízo evidente à parte que a alega.",
+        "correta": false,
+        "comentario": "Incorreto. A primazia do julgamento de mérito não é um cheque em branco para ignorar nulidades absolutas, que viciam o processo de forma insanável e violam o devido processo legal."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q5",
+    "tema": "Boa-Fé Processual",
+    "enunciado": "O Art. 5º do CPC estabelece que 'aquele que de qualquer forma participa do processo deve comportar-se de acordo com a boa-fé'. Sobre a aplicação deste princípio, assinale a alternativa correta.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A boa-fé processual é um conceito subjetivo, exigindo a comprovação do dolo ou da intenção maliciosa da parte para que sua conduta seja considerada violadora do princípio.",
+        "correta": false,
+        "comentario": "Incorreto. A boa-fé exigida pelo CPC é a objetiva, que impõe um padrão de conduta leal e honesto, independentemente da análise do elemento subjetivo (culpa ou dolo) da parte."
+      },
+      {
+        "id": "b",
+        "texto": "A vedação ao comportamento contraditório (*venire contra factum proprium*) é uma das manifestações da boa-fé objetiva, impedindo que a parte adote uma conduta processual em contradição com um comportamento anterior.",
+        "correta": true,
+        "comentario": "Correto. A teoria dos atos próprios, que veda o comportamento contraditório, é uma aplicação direta do princípio da boa-fé objetiva no campo processual, visando proteger a confiança e a lealdade entre os sujeitos do processo."
+      },
+      {
+        "id": "c",
+        "texto": "A aplicação de multa por litigância de má-fé é a única sanção prevista para a violação do dever de boa-fé processual.",
+        "correta": false,
+        "comentario": "Incorreto. Além da multa (Art. 81), a violação da boa-fé pode gerar outras consequências, como a responsabilidade por perdas e danos, o indeferimento de alegações (supressio/surrectio) e até mesmo a caracterização de ato atentatório à dignidade da justiça."
+      },
+      {
+        "id": "d",
+        "texto": "O dever de boa-fé se aplica apenas às partes e seus procuradores, não alcançando o juiz, que, por sua imparcialidade, está isento de tal vinculação.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 5º fala em 'aquele que de qualquer forma participa do processo', o que inclui todos os sujeitos processuais: partes, juiz, membros do MP, auxiliares da justiça, peritos, etc."
+      },
+      {
+        "id": "e",
+        "texto": "A alegação de um fato sabidamente inverídico pela parte em sua petição inicial, por si só, não configura violação à boa-fé, pois está amparada pelo direito de ação e pela ampla defesa.",
+        "correta": false,
+        "comentario": "Incorreto. Alterar a verdade dos fatos é uma das hipóteses clássicas de litigância de má-fé (Art. 80, II), sendo uma violação frontal ao dever de boa-fé e lealdade processual."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q6",
+    "tema": "Princípio da Cooperação",
+    "enunciado": "O princípio da cooperação, previsto no Art. 6º do CPC, impõe a todos os sujeitos do processo o dever de colaborar para uma decisão de mérito justa, efetiva e em tempo razoável. Qual das seguintes situações exemplifica um dever de cooperação do juiz para com as partes?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Aconselhar uma das partes sobre a melhor tese jurídica a ser adotada em sua defesa, a fim de equilibrar o debate processual.",
+        "correta": false,
+        "comentario": "Incorreto. Isso violaria a imparcialidade do juiz. A cooperação não se confunde com parcialidade ou substituição do papel do advogado."
+      },
+      {
+        "id": "b",
+        "texto": "Ignorar um vício processual sanável na petição inicial para acelerar o andamento do feito, focando apenas no mérito da causa.",
+        "correta": false,
+        "comentario": "Incorreto. A cooperação exige o oposto: o juiz deve indicar o vício e conceder prazo para a parte saná-lo, em homenagem ao princípio da primazia do julgamento de mérito (dever de prevenção)."
+      },
+      {
+        "id": "c",
+        "texto": "Proferir uma 'decisão surpresa', aplicando um fundamento jurídico não debatido pelas partes, mas que entende ser o mais justo para o caso, otimizando o tempo do processo.",
+        "correta": false,
+        "comentario": "Incorreto. Isso viola frontalmente o Art. 10 do CPC (vedação à decisão surpresa), que é uma das mais importantes manifestações do dever de cooperação (dever de diálogo ou consulta)."
+      },
+      {
+        "id": "d",
+        "texto": "Intimar a parte para que esclareça pontos obscuros ou contraditórios de sua petição ou para que supra uma insuficiência em sua argumentação, antes de proferir uma decisão desfavorável com base nessas falhas.",
+        "correta": true,
+        "comentario": "Correto. Este é o chamado dever de esclarecimento, um dos corolários da cooperação. O juiz deve dialogar com as partes para obter os subsídios necessários a uma decisão bem informada, em vez de simplesmente puni-las por uma postulação imperfeita."
+      },
+      {
+        "id": "e",
+        "texto": "Determinar a inversão do ônus da prova em favor do autor, sem qualquer requerimento e fora das hipóteses legais, por considerá-lo hipossuficiente economicamente.",
+        "correta": false,
+        "comentario": "Incorreto. A cooperação não autoriza o juiz a agir contra legem. A inversão do ônus da prova deve seguir os requisitos legais (verossimilhança e hipossuficiência técnica, no caso do CDC, por exemplo) e ser objeto de decisão fundamentada que oportunize o contraditório."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q7",
+    "tema": "Paridade de Tratamento e Contraditório",
+    "enunciado": "Nos termos do Art. 7º do CPC, o juiz deve zelar pelo efetivo contraditório, assegurando paridade de tratamento às partes. Em um processo complexo, o juiz defere o pedido do autor para a produção de prova pericial e, em seguida, indefere o pedido do réu para a produção de prova oral (depoimento de testemunhas), sob o fundamento de que a prova pericial já seria suficiente para elucidar os fatos. Tal decisão:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Viola a paridade de tratamento, pois o deferimento de uma prova para uma parte impõe o deferimento de todas as provas requeridas pela outra, independentemente de sua pertinência.",
+        "correta": false,
+        "comentario": "Incorreto. A paridade de tratamento não significa um tratamento idêntico, mas sim a garantia de iguais oportunidades. O juiz pode e deve indeferir provas inúteis ou protelatórias."
+      },
+      {
+        "id": "b",
+        "texto": "Não viola a paridade de tratamento, desde que a decisão que indeferiu a prova oral seja devidamente fundamentada na sua impertinência ou inutilidade para o deslinde da causa, conforme o livre convencimento motivado do juiz.",
+        "correta": true,
+        "comentario": "Correto. A paridade de armas significa dar às partes as mesmas oportunidades de influir no convencimento do juiz. O indeferimento de uma prova requerida, se fundamentado na sua desnecessidade (Art. 370, parágrafo único), não configura quebra de paridade, pois o juiz é o destinatário da prova."
+      },
+      {
+        "id": "c",
+        "texto": "Viola o contraditório, mas não a paridade de tratamento, pois o réu não teve a chance de produzir a prova que entendia necessária para sua defesa.",
+        "correta": false,
+        "comentario": "Incorreto. O cerceamento de defesa (violação ao contraditório) ocorreria se a prova fosse pertinente e o indeferimento, arbitrário. Se a decisão for fundamentada na inutilidade da prova, não há violação, pois o direito à prova não é absoluto."
+      },
+      {
+        "id": "d",
+        "texto": "Viola a paridade de tratamento apenas se o custo da prova pericial deferida ao autor for substancialmente maior que o custo da prova oral indeferida ao réu.",
+        "correta": false,
+        "comentario": "Incorreto. A análise da paridade de tratamento no campo probatório está ligada à pertinência e à oportunidade, e não primariamente a uma equivalência de custos entre as provas."
+      },
+      {
+        "id": "e",
+        "texto": "É nula de pleno direito, pois o Art. 7º veda qualquer tipo de tratamento processual diferenciado, exigindo que todos os requerimentos de uma parte sejam espelhados por deferimentos equivalentes à outra.",
+        "correta": false,
+        "comentario": "Incorreto. Esta interpretação levaria ao absurdo. A paridade é isonomia substancial, tratando os desiguais na medida de suas desigualdades e garantindo oportunidades equivalentes, o que não impede o indeferimento fundamentado de requerimentos."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q8",
+    "tema": "Aplicação do Ordenamento Jurídico pelo Juiz",
+    "enunciado": "O Art. 8º do CPC estabelece que, ao aplicar o ordenamento, o juiz deve atender aos fins sociais, às exigências do bem comum, resguardar a dignidade humana e observar a proporcionalidade, razoabilidade, legalidade, publicidade e eficiência. Essa norma:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Autoriza o juiz a decidir por equidade, afastando a aplicação da lei quando a considerar injusta no caso concreto, criando uma solução jurídica nova.",
+        "correta": false,
+        "comentario": "Incorreto. O julgamento por equidade só é permitido nos casos previstos em lei (Art. 140, parágrafo único, do CPC). O Art. 8º é uma cláusula de interpretação e aplicação da lei, não de sua derrogação."
+      },
+      {
+        "id": "b",
+        "texto": "Consagra um modelo de ativismo judicial mitigado, no qual o juiz, sem se afastar da legalidade, deve interpretar a norma de forma a maximizar sua eficiência social e promover os valores constitucionais, superando uma visão meramente positivista.",
+        "correta": true,
+        "comentario": "Correto. O artigo reflete uma superação do positivismo estrito, exigindo do juiz uma postura mais ativa na concretização dos valores do ordenamento. Ele não cria o direito, mas o aplica de forma contextualizada e finalística, dentro dos limites da legalidade."
+      },
+      {
+        "id": "c",
+        "texto": "Tem caráter meramente programático, não vinculando a atividade jurisdicional, que deve se ater estritamente ao princípio da legalidade, conforme o Art. 5º, II, da CF.",
+        "correta": false,
+        "comentario": "Incorreto. Trata-se de uma norma cogente, que estabelece critérios hermenêuticos obrigatórios para a atividade judicial. A legalidade mencionada no próprio artigo deve ser compreendida em conjunto com os demais princípios."
+      },
+      {
+        "id": "d",
+        "texto": "Limita-se a reproduzir o conteúdo do Art. 5º da LINDB, não trazendo qualquer inovação ou comando específico para o âmbito do processo civil.",
+        "correta": false,
+        "comentario": "Incorreto. Embora haja diálogo com a LINDB, o Art. 8º do CPC especifica e reforça esses deveres no contexto do processo, conectando-os diretamente à dignidade da pessoa humana e a princípios como publicidade e eficiência, com uma roupagem processual."
+      },
+      {
+        "id": "e",
+        "texto": "Impõe ao juiz um dever de eficiência que se sobrepõe a todos os outros, permitindo a supressão de atos processuais e a relativização de garantias para alcançar um resultado mais rápido.",
+        "correta": false,
+        "comentario": "Incorreto. A eficiência é um dos vetores, mas deve ser harmonizada com os demais, como a legalidade, o contraditório e a dignidade humana. A celeridade não pode ser obtida a qualquer custo, atropelando garantias fundamentais."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q9",
+    "tema": "Contraditório Prévio e suas Exceções",
+    "enunciado": "O Art. 9º do CPC veda a prolação de decisão contra uma das partes sem que ela seja previamente ouvida. Seu parágrafo único, contudo, excepciona tal regra. Com base na sistemática do contraditório no CPC/2015, assinale a alternativa INCORRETA.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "A concessão de tutela provisória de urgência cautelar em caráter antecedente, inaudita altera parte, é uma exceção válida à regra do contraditório prévio, que será postergado (ou diferido) para um momento posterior.",
+        "correta": false,
+        "comentario": "Correto (a alternativa está certa, o enunciado pede a INCORRETA). A tutela provisória de urgência (Art. 9º, p. único, I) é a exceção clássica, na qual o contraditório é postecipado para não frustrar a eficácia da medida."
+      },
+      {
+        "id": "b",
+        "texto": "Na tutela de evidência, a decisão liminar pode ser concedida sem a oitiva prévia do réu nas hipóteses em que as alegações de fato puderem ser comprovadas apenas documentalmente e houver tese firmada em julgamento de casos repetitivos ou em súmula vinculante.",
+        "correta": false,
+        "comentario": "Correto (a alternativa está certa, o enunciado pede a INCORRETA). Esta é exatamente a hipótese do Art. 311, II, que é ressalvada pelo Art. 9º, p. único, II. A prova documental robusta e o precedente vinculante justificam a postergação do contraditório."
+      },
+      {
+        "id": "c",
+        "texto": "A decisão que julga liminarmente improcedente o pedido, com base no Art. 332 do CPC, por contrariar enunciado de súmula do STF ou do STJ, é uma exceção ao contraditório prévio, não prevista expressamente no Art. 9º, mas decorrente do sistema.",
+        "correta": true,
+        "comentario": "Incorreto. A improcedência liminar do pedido (Art. 332) não é uma exceção ao contraditório prévio. Ela é proferida antes da citação do réu, mas a decisão é contra o autor, que já se manifestou (na petição inicial). O réu, que seria beneficiado, ainda não integra a lide. Portanto, não é uma decisão 'contra uma das partes sem que ela seja previamente ouvida'."
+      },
+      {
+        "id": "d",
+        "texto": "A expedição de mandado de pagamento em ação monitória (Art. 701) constitui uma das exceções legais ao contraditório prévio, sendo o réu citado para pagar ou opor embargos monitórios posteriormente.",
+        "correta": false,
+        "comentario": "Correto (a alternativa está certa, o enunciado pede a INCORRETA). Esta é a exceção expressa do Art. 9º, p. único, III. O contraditório se instaura plenamente com a apresentação dos embargos pelo réu."
+      },
+      {
+        "id": "e",
+        "texto": "A regra do contraditório prévio se aplica também aos tribunais, de modo que o relator não pode proferir decisão monocrática de mérito em recurso sem antes intimar o recorrido para apresentar contrarrazões.",
+        "correta": false,
+        "comentario": "Correto (a alternativa está certa, o enunciado pede a INCORRETA). A necessidade de intimação para contrarrazões é a manifestação do contraditório prévio em grau recursal. Decidir sem essa oportunidade viola o Art. 9º e o Art. 10."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q10",
+    "tema": "Vedação à Decisão Surpresa (Art. 10)",
+    "enunciado": "O Art. 10 do CPC proíbe o juiz de decidir com base em fundamento a respeito do qual não se tenha dado às partes oportunidade de se manifestar, ainda que se trate de matéria sobre a qual deva decidir de ofício. A partir dessa premissa, analise a situação em que um juiz, ao sentenciar o feito, reconhece de ofício a prescrição, matéria não arguida pelo réu em sua contestação e não debatida no curso do processo. A sentença é:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Válida, pois a prescrição é matéria de ordem pública e pode ser reconhecida a qualquer tempo e grau de jurisdição, sendo uma exceção implícita à regra do Art. 10.",
+        "correta": false,
+        "comentario": "Incorreto. O próprio Art. 10 ressalta que a regra se aplica 'ainda que se trate de matéria sobre a qual deva decidir de ofício'. A natureza de ordem pública da matéria não afasta o dever de prévia oitiva das partes."
+      },
+      {
+        "id": "b",
+        "texto": "Nula, por violar o princípio da não surpresa, que exige que o juiz, antes de decidir com base no fundamento novo (prescrição), intime as partes para que se manifestem sobre a questão, garantindo o contraditório sobre o ponto.",
+        "correta": true,
+        "comentario": "Correto. Trata-se da aplicação literal do Art. 10. O fato de a prescrição ser cognoscível de ofício não autoriza a 'decisão surpresa'. O juiz deve primeiro submeter o fundamento ao debate das partes."
+      },
+      {
+        "id": "c",
+        "texto": "Anulável, dependendo da demonstração de prejuízo concreto pelo autor, que deverá provar que, se tivesse tido a oportunidade de se manifestar, teria um argumento capaz de afastar a prescrição.",
+        "correta": false,
+        "comentario": "Incorreto. A violação ao Art. 10 gera nulidade, em regra, absoluta, por ofensa direta a uma garantia fundamental (contraditório). O prejuízo, nesse caso, é presumido (*in re ipsa*)."
+      },
+      {
+        "id": "d",
+        "texto": "Válida, pois o contraditório já foi exercido de forma ampla durante a instrução, sendo a sentença o momento em que o juiz revela seu convencimento, aplicando o direito que entender cabível (*iura novit curia*).",
+        "correta": false,
+        "comentario": "Incorreto. O princípio do *iura novit curia* (o juiz conhece o direito) foi relativizado pelo Art. 10. O juiz pode aplicar um fundamento jurídico diverso, mas não sem antes permitir que as partes debatam sobre ele."
+      },
+      {
+        "id": "e",
+        "texto": "Nula, a menos que o juiz, no próprio texto da sentença, justifique a urgência em reconhecer a prescrição, o que afastaria a aplicação do Art. 10 por analogia às tutelas de urgência.",
+        "correta": false,
+        "comentario": "Incorreto. Não há previsão legal para essa analogia. As exceções ao contraditório prévio estão no Art. 9º, e o reconhecimento da prescrição em sentença não se enquadra em nenhuma delas."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q11",
+    "tema": "Publicidade dos Atos e Fundamentação das Decisões",
+    "enunciado": "Conforme o Art. 11 do CPC, todos os julgamentos serão públicos e fundamentadas todas as decisões, sob pena de nulidade. Em um caso envolvendo direito de família, o juiz decreta o segredo de justiça e, na sentença, utiliza-se de fundamentação 'per relationem', adotando integralmente os argumentos do parecer do Ministério Público como suas razões de decidir, sem tecer qualquer consideração própria. Essa decisão é:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Nula, pois o segredo de justiça viola a regra da publicidade, que é absoluta e não admite exceções, mesmo em casos de direito de família.",
+        "correta": false,
+        "comentario": "Incorreto. A publicidade não é absoluta. O parágrafo único do Art. 11 e o Art. 189 do CPC preveem expressamente a possibilidade de segredo de justiça para preservar o direito à intimidade."
+      },
+      {
+        "id": "b",
+        "texto": "Válida, pois a fundamentação 'per relationem' é amplamente aceita pela jurisprudência do STF e do STJ, e o parecer do Ministério Público, por ser peça técnica, supre a necessidade de fundamentação própria do magistrado.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a fundamentação 'per relationem' seja admitida, ela não pode consistir em uma mera remissão genérica. A jurisprudência exige que o julgador ao menos transcreva os trechos que adota ou demonstre que analisou e concordou com eles. A ausência de qualquer consideração própria pode ser vista como ausência de fundamentação."
+      },
+      {
+        "id": "c",
+        "texto": "Potencialmente nula por vício de fundamentação, pois, embora a técnica 'per relationem' seja admitida, seu uso acrítico e sem qualquer acréscimo ou análise pelo julgador pode configurar ausência de fundamentação efetiva, violando o Art. 93, IX, da CF, e o Art. 489, § 1º, do CPC.",
+        "correta": true,
+        "comentario": "Correto. Esta é a posição mais técnica. A validade da fundamentação 'per relationem' é controversa e depende do caso concreto. O uso que se limita a um 'adoto como razões de decidir' sem qualquer outra elaboração é altamente questionável e frequentemente invalidado pelos tribunais superiores por não atender à exigência de fundamentação analítica."
+      },
+      {
+        "id": "d",
+        "texto": "Válida, pois em casos de segredo de justiça, a exigência de fundamentação é mitigada, bastando ao juiz indicar o dispositivo legal em que se baseou para decidir.",
+        "correta": false,
+        "comentario": "Incorreto. O segredo de justiça restringe a publicidade externa do ato, mas não afeta em nada a exigência de fundamentação, que é uma garantia para as partes (publicidade interna)."
+      },
+      {
+        "id": "e",
+        "texto": "Nula, pois o parecer do Ministério Público não pode, em hipótese alguma, servir de base para a fundamentação da sentença, por ser peça opinativa de um fiscal da lei e não do julgador.",
+        "correta": false,
+        "comentario": "Incorreto. Não há vedação a que o juiz adote os fundamentos do MP, desde que o faça de forma a demonstrar que aquela é a sua convicção. O problema não é a fonte, mas a forma como a adoção é feita."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q12",
+    "tema": "Ordem Cronológica de Julgamento",
+    "enunciado": "O Art. 12 do CPC estabelece a regra da ordem cronológica de conclusão para proferir sentença ou acórdão. Sobre as exceções a essa regra, assinale a afirmativa correta.",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O julgamento de embargos de declaração e de agravo interno deve obedecer à ordem cronológica de conclusão, pois são recursos que demandam análise detalhada e não se enquadram em hipóteses de urgência.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 12, § 2º, incisos V e VI, excepciona expressamente o julgamento de embargos de declaração e de agravo interno da regra da ordem cronológica."
+      },
+      {
+        "id": "b",
+        "texto": "A prolação de sentença homologatória de acordo está sujeita à ordem cronológica, pois, apesar de mais simples, ainda representa um ato de conclusão do processo.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 12, § 2º, inciso I, exclui expressamente da regra as sentenças homologatórias de acordo."
+      },
+      {
+        "id": "c",
+        "texto": "Um processo que teve sua sentença anulada pelo tribunal e retornou à primeira instância para nova decisão ocupará o primeiro lugar na lista de julgamento, salvo se a anulação tiver sido para a realização de nova perícia.",
+        "correta": true,
+        "comentario": "Correto. Conforme o Art. 12, § 6º, I, o processo com sentença anulada tem preferência, exceto quando houver necessidade de realização de diligência ou complementação da instrução, como uma nova perícia."
+      },
+      {
+        "id": "d",
+        "texto": "As preferências legais, como as de idosos ou pessoas com doenças graves, criam uma lista de prioridade própria, mas dentro dessa lista, a ordem cronológica de conclusão não precisa ser observada.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 12, § 3º, estabelece o contrário: 'Após elaboração de lista própria, respeitar-se-á a ordem cronológica das conclusões entre as preferências legais'."
+      },
+      {
+        "id": "e",
+        "texto": "Qualquer requerimento formulado pela parte após a inclusão do processo na lista de aptos a julgamento retira o processo da lista e o coloca no final da fila, para garantir a isonomia.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 12, § 4º, afirma que o requerimento não altera a ordem, exceto se implicar reabertura da instrução. E o § 5º complementa que, decidido o requerimento, o processo retorna à mesma posição na lista."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q13",
+    "tema": "Interpretação Sistêmica dos Princípios Fundamentais",
+    "enunciado": "Ao analisar um pedido de tutela de urgência para fornecimento de medicamento, o juiz se depara com um laudo médico particular que atesta a necessidade do tratamento e a ausência de resposta do réu (Estado) à solicitação administrativa. Considerando os Arts. 1º a 12 do CPC, qual postura do magistrado melhor concretiza o conjunto de normas fundamentais?",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Indeferir o pedido liminar e determinar a citação do réu para, em nome da paridade de armas (Art. 7º), aguardar a contestação antes de qualquer decisão, privilegiando o contraditório prévio.",
+        "correta": false,
+        "comentario": "Incorreto. Essa postura ignora a urgência da situação e a possibilidade de contraditório diferido (Art. 9º, p. único, I), bem como o direito à solução integral e efetiva (Art. 4º) em casos de risco de perecimento do direito."
+      },
+      {
+        "id": "b",
+        "texto": "Conceder a tutela de urgência *inaudita altera parte*, fundamentando sua decisão no perigo da demora e na probabilidade do direito, postergando o contraditório e, assim, harmonizando a exceção do Art. 9º com o direito à tutela efetiva (Art. 4º) e a dignidade da pessoa humana (Art. 8º).",
+        "correta": true,
+        "comentario": "Correto. Esta conduta equilibra os princípios em jogo: concede a tutela para evitar dano irreparável (efetividade, Art. 4º; dignidade, Art. 8º), utilizando-se da exceção expressa ao contraditório prévio (Art. 9º), que será exercido posteriormente, garantindo a proteção ao direito fundamental à saúde."
+      },
+      {
+        "id": "c",
+        "texto": "Extinguir o processo sem resolução de mérito por falta de interesse de agir, com base no Art. 2º (inércia da jurisdição), pois a parte deveria ter esgotado todas as vias administrativas antes de judicializar a questão.",
+        "correta": false,
+        "comentario": "Incorreto. O princípio da inafastabilidade da jurisdição (Art. 3º) e a jurisprudência consolidada do STF afastam a exigência de exaurimento da via administrativa como condição para o acesso ao Judiciário (salvo exceções constitucionais)."
+      },
+      {
+        "id": "d",
+        "texto": "Converter o julgamento em diligência de ofício para que um perito judicial avalie o paciente, em nome do princípio da cooperação (Art. 6º), suspendendo a análise do pedido liminar até a vinda do laudo oficial.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a cooperação seja importante, a conversão em diligência, suspendendo a análise da liminar, pode ser incompatível com a urgência da medida, violando o direito à tutela efetiva em prazo razoável (Art. 4º)."
+      },
+      {
+        "id": "e",
+        "texto": "Determinar a inclusão do processo na lista de ordem cronológica de julgamento (Art. 12), por entender que não há fundamento legal para dar prioridade a este caso em detrimento de outros igualmente importantes.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 12, § 2º, IX, excepciona da ordem cronológica as causas que exijam urgência, reconhecida por decisão fundamentada, o que é claramente o caso de um pedido de medicamento essencial à vida."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q14",
+    "tema": "Deveres dos Sujeitos Processuais (Arts. 5º e 6º)",
+    "enunciado": "Em audiência de instrução, o advogado de uma das partes, percebendo que a testemunha arrolada pela parte contrária está em evidente dificuldade para se lembrar de um detalhe crucial, faz uma pergunta sugestiva que contém a própria resposta esperada. O juiz indefere a pergunta. A atuação do advogado e a decisão do juiz, respectivamente, relacionam-se com:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "O exercício regular do direito de defesa e uma violação do princípio da cooperação pelo juiz, que deveria auxiliar na produção da prova.",
+        "correta": false,
+        "comentario": "Incorreto. Fazer pergunta sugestiva a testemunha da outra parte é uma conduta que pode violar a lealdade processual. A decisão do juiz, ao indeferi-la, está em conformidade com seu dever de presidir a audiência e garantir a lisura da prova."
+      },
+      {
+        "id": "b",
+        "texto": "Uma violação ao dever de boa-fé (Art. 5º) e ao dever de cooperação (Art. 6º) pelo advogado, e o exercício do poder de polícia do juiz, que coopera para a obtenção de uma decisão justa ao impedir a contaminação da prova.",
+        "correta": true,
+        "comentario": "Correto. A conduta do advogado viola o dever de se comportar com lealdade (boa-fé objetiva) e não coopera para uma apuração fidedigna dos fatos. O juiz, ao indeferir a pergunta (Art. 459, CPC), exerce seu poder de direção do processo e coopera para a higidez da instrução."
+      },
+      {
+        "id": "c",
+        "texto": "Uma estratégia processual legítima e uma decisão arbitrária do juiz que cerceia o direito de perguntar, violando o contraditório.",
+        "correta": false,
+        "comentario": "Incorreto. O direito de inquirir testemunhas não é ilimitado. Perguntas indutivas, que não guardam relação com a causa ou que importem repetição de outra já respondida podem ser indeferidas (Art. 459, CPC), sem que isso configure cerceamento de defesa."
+      },
+      {
+        "id": "d",
+        "texto": "Um ato de cooperação do advogado para com a testemunha e uma falha do juiz em aplicar o princípio da oralidade, que pressupõe liberdade na formulação de perguntas.",
+        "correta": false,
+        "comentario": "Incorreto. A conduta do advogado não é cooperação, mas sim indução. O princípio da oralidade não autoriza a formulação de perguntas que viciem o depoimento."
+      },
+      {
+        "id": "e",
+        "texto": "A aplicação do princípio da paridade de armas (Art. 7º), pois o advogado busca equilibrar a produção de prova, e uma decisão que privilegia o impulso oficial (Art. 2º) em detrimento da iniciativa das partes.",
+        "correta": false,
+        "comentario": "Incorreto. A paridade de armas não justifica a utilização de meios ilegítimos para a produção de prova. A decisão do juiz não se refere ao impulso oficial, mas ao seu dever de zelar pela regularidade do processo."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q15",
+    "tema": "Decisão Surpresa e Fatos Supervenientes (Art. 10)",
+    "enunciado": "Após a apresentação da contestação em uma ação de cobrança, mas antes da sentença, a empresa ré entra em processo de recuperação judicial, fato que, se considerado, poderia impactar a forma de satisfação do crédito. Nenhuma das partes informa tal fato nos autos. O juiz, ao tomar conhecimento do fato por meio de consulta pública, extingue o processo sem resolução de mérito por perda superveniente do interesse de agir, sem antes ouvir as partes. A decisão é:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Correta, pois o fato superveniente que influi no julgamento do mérito deve ser considerado pelo juiz de ofício (Art. 493, CPC), e a recuperação judicial é fato notório que dispensa contraditório.",
+        "correta": false,
+        "comentario": "Incorreto. Mesmo fatos supervenientes cognoscíveis de ofício devem ser submetidos ao contraditório antes de fundamentarem uma decisão, conforme o Art. 10. A notoriedade do fato não afasta a necessidade do debate sobre suas consequências jurídicas no processo."
+      },
+      {
+        "id": "b",
+        "texto": "Incorreta, pois a recuperação judicial não acarreta a perda do interesse de agir na ação de cobrança, mas apenas a suspensão da execução ou a habilitação do crédito no juízo universal.",
+        "correta": false,
+        "comentario": "Incorreto. Embora a consequência jurídica aplicada pelo juiz (extinção) possa ser equivocada (o correto seria a suspensão ou o prosseguimento para a formação do título), o vício principal apontado pela questão é de natureza processual (a violação do contraditório), e não de mérito."
+      },
+      {
+        "id": "c",
+        "texto": "Nula, pois, mesmo se tratando de fato superveniente e matéria de ordem pública, o juiz violou o Art. 10 do CPC ao decidir com base em um fundamento (a recuperação judicial e suas consequências) sobre o qual não deu às partes a oportunidade de se manifestarem previamente.",
+        "correta": true,
+        "comentario": "Correto. Este é um exemplo claro de aplicação do Art. 10. O juiz introduziu um fundamento novo (o fato da recuperação judicial e sua interpretação jurídica) e decidiu com base nele sem permitir o debate. As partes poderiam, por exemplo, discutir se o crédito está ou não sujeito à recuperação, o que foi impedido pela decisão surpresa."
+      },
+      {
+        "id": "d",
+        "texto": "Válida, porque o dever de informar o fato superveniente era das partes (dever de cooperação do Art. 6º), e a omissão delas autoriza o juiz a decidir de plano para evitar a continuidade de um processo inútil.",
+        "correta": false,
+        "comentario": "Incorreto. A eventual falha das partes em seu dever de cooperação não exime o juiz do seu próprio dever de garantir o contraditório (dever de diálogo). A sanção para a omissão da parte não é a perda do direito ao contraditório."
+      },
+      {
+        "id": "e",
+        "texto": "Anulável, mas somente se a parte autora interpuser embargos de declaração para sanar a omissão do contraditório, configurando o chamado contraditório postecipado.",
+        "correta": false,
+        "comentario": "Incorreto. O contraditório deve ser prévio. A possibilidade de embargos de declaração não sana o vício original da decisão surpresa, que nasce nula."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q16",
+    "tema": "Ordem Cronológica e Gestão Processual (Art. 12)",
+    "enunciado": "O juiz de uma vara cível com grande acervo de processos decide, por meio de portaria, estabelecer um 'mutirão de sentenças' para processos de um mesmo tema (e.g., ações revisionais de contratos bancários), julgando-os em bloco, independentemente de sua posição na lista de conclusão. Essa prática:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "É ilegal, pois viola a regra da ordem cronológica de julgamento do Art. 12 do CPC, que é absoluta e não pode ser flexibilizada por atos normativos da corregedoria ou do próprio juiz.",
+        "correta": false,
+        "comentario": "Incorreto. A regra da ordem cronológica não é absoluta, possuindo diversas exceções legais, e a prática descrita pode se enquadrar em uma delas."
+      },
+      {
+        "id": "b",
+        "texto": "É legal e encontra amparo no Art. 12, § 2º, II, do CPC, que expressamente exclui da regra cronológica o julgamento de processos em bloco para aplicação de tese jurídica firmada em julgamento de casos repetitivos.",
+        "correta": true,
+        "comentario": "Correto. A situação descrita se amolda perfeitamente à exceção do inciso II do § 2º do Art. 12. O julgamento em bloco para aplicar a mesma tese jurídica (comum em ações revisionais) é uma medida de gestão processual e eficiência que o próprio Código autoriza."
+      },
+      {
+        "id": "c",
+        "texto": "É legal, desde que autorizada previamente pelo Conselho Nacional de Justiça (CNJ), pois se enquadra na exceção relativa às metas do CNJ (Art. 12, § 2º, VII).",
+        "correta": false,
+        "comentario": "Incorreto. Embora possa estar alinhada a metas do CNJ, a prática tem uma autorização legal específica e autônoma no inciso II, não dependendo de chancela prévia do Conselho para cada caso."
+      },
+      {
+        "id": "d",
+        "texto": "É ilegal, pois, ainda que para aplicar a mesma tese, o juiz só poderia julgar em bloco se os processos tivessem sido reunidos por conexão ou continência, o que não é o caso.",
+        "correta": false,
+        "comentario": "Incorreto. A exceção do Art. 12, § 2º, II, não exige que os processos estejam formalmente reunidos por conexão. Ela se refere à aplicação de uma mesma tese jurídica, o que permite o julgamento em lote de processos com idêntica questão de direito."
+      },
+      {
+        "id": "e",
+        "texto": "É válida apenas para sentenças de improcedência liminar do pedido, única hipótese de julgamento em bloco permitida pelo Art. 12.",
+        "correta": false,
+        "comentario": "Incorreto. A improcedência liminar é uma das exceções (inciso I), mas o julgamento em bloco para aplicação de tese repetitiva é outra, distinta e autônoma (inciso II)."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q17",
+    "tema": "Contraditório e Tutela de Evidência (Art. 9º, p. único, II)",
+    "enunciado": "Um autor ajuíza ação com pedido de tutela de evidência liminar, com base no Art. 311, III, do CPC (pedido reipersecutório fundado em prova documental adequada do contrato de depósito). O juiz, com base no Art. 9º, parágrafo único, II, que só menciona os incisos II e III do Art. 311, entende que não pode conceder a medida sem ouvir a parte contrária. O raciocínio do juiz está:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Correto, pois a ausência de menção ao inciso IV do Art. 311 no Art. 9º, parágrafo único, II, indica que, naquela hipótese, o contraditório prévio é obrigatório.",
+        "correta": false,
+        "comentario": "Incorreto. A questão trata do inciso III do Art. 311, que é expressamente mencionado no Art. 9º, parágrafo único, II, como hipótese de dispensa do contraditório prévio."
+      },
+      {
+        "id": "b",
+        "texto": "Incorreto, pois a referência do Art. 9º, parágrafo único, II, aos incisos II e III do Art. 311 é taxativa, autorizando a concessão da tutela de evidência liminarmente nessas hipóteses, sem a oitiva prévia do réu.",
+        "correta": true,
+        "comentario": "Correto. O juiz cometeu um equívoco na interpretação. A hipótese do Art. 311, III (contrato de depósito), está expressamente listada no Art. 9º, parágrafo único, II, como uma das exceções à regra do contraditório prévio, permitindo a decisão liminar."
+      },
+      {
+        "id": "c",
+        "texto": "Correto, pois a constitucionalidade do Art. 9º, parágrafo único, II, é duvidosa, devendo o juiz sempre optar pela interpretação que maximize a garantia do contraditório.",
+        "correta": false,
+        "comentario": "Incorreto. A constitucionalidade do dispositivo, inclusive no que tange à remissão ao inciso II do Art. 311, já foi afirmada pelo STF na ADI 5.492. O juiz deve aplicar a norma vigente."
+      },
+      {
+        "id": "d",
+        "texto": "Incorreto, pois todas as hipóteses de tutela de evidência do Art. 311, por sua natureza, dispensam o contraditório prévio, tornando a lista do Art. 9º meramente exemplificativa.",
+        "correta": false,
+        "comentario": "Incorreto. A lista do Art. 9º, parágrafo único, II, é taxativa. As hipóteses dos incisos I e IV do Art. 311 exigem o contraditório prévio, pois não foram excepcionadas."
+      },
+      {
+        "id": "e",
+        "texto": "Parcialmente correto, pois, embora a lei autorize, a boa prática judicial, em nome do princípio da cooperação (Art. 6º), recomenda a oitiva prévia do réu em todos os casos.",
+        "correta": false,
+        "comentario": "Incorreto. A opção legislativa foi clara ao excepcionar o contraditório prévio nessas hipóteses. O juiz não pode, sob o pretexto da cooperação, negar a aplicação da exceção legal, frustrando a finalidade da tutela de evidência liminar."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q18",
+    "tema": "Boa-Fé, Cooperação e Vedação à Decisão Surpresa",
+    "enunciado": "Em sede de apelação, o tribunal, ao analisar as razões recursais e as contrarrazões, percebe a existência de uma questão de ordem pública (e.g., incompetência absoluta) não suscitada pelas partes nem decidida em primeira instância. A conduta processual que melhor atende à trinca de princípios da boa-fé (Art. 5º), cooperação (Art. 6º) e vedação à decisão surpresa (Art. 10) é:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Julgar imediatamente o recurso, reconhecendo de ofício a incompetência e anulando a sentença, pois matérias de ordem pública devem ser conhecidas a qualquer tempo e independem de provocação.",
+        "correta": false,
+        "comentario": "Incorreto. Esta conduta, embora baseada na natureza da matéria, ignora completamente a vedação à decisão surpresa (Art. 10), que exige a prévia manifestação das partes."
+      },
+      {
+        "id": "b",
+        "texto": "Intimar as partes para que, em prazo comum, se manifestem especificamente sobre a possível incompetência absoluta, e somente após o escoamento do prazo, com ou sem manifestações, prosseguir no julgamento.",
+        "correta": true,
+        "comentario": "Correto. Esta é a conduta que materializa a cooperação e o diálogo (Art. 6º), evita a decisão surpresa (Art. 10) e promove um comportamento leal e transparente por parte do órgão julgador (Art. 5º), permitindo que as partes influam na decisão."
+      },
+      {
+        "id": "c",
+        "texto": "Converter o julgamento em diligência, retornando os autos à primeira instância para que o juiz a quo se manifeste sobre a questão, pois a supressão de instância é vedada.",
+        "correta": false,
+        "comentario": "Incorreto. O tribunal pode conhecer de ofício matérias de ordem pública (efeito translativo dos recursos), não havendo supressão de instância. O retorno seria uma medida ineficiente e desnecessária, bastando a oitiva das partes no próprio tribunal."
+      },
+      {
+        "id": "d",
+        "texto": "Não conhecer da matéria, pois, em grau de recurso, o tribunal está adstrito ao que foi decidido (tantum devolutum quantum appellatum), e a questão não foi objeto da sentença.",
+        "correta": false,
+        "comentario": "Incorreto. O efeito devolutivo em sua profundidade e o efeito translativo permitem ao tribunal analisar matérias de ordem pública não suscitadas ou decididas, desde que observado o contraditório."
+      },
+      {
+        "id": "e",
+        "texto": "Intimar apenas o apelante, por ser o interessado na reforma da decisão, para que se manifeste sobre a incompetência, otimizando o andamento processual.",
+        "correta": false,
+        "comentario": "Incorreto. A manifestação deve ser oportunizada a todas as partes (apelante e apelado), em respeito à paridade de tratamento (Art. 7º) e ao contraditório."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q19",
+    "tema": "Dignidade Humana e Eficiência no Processo (Art. 8º)",
+    "enunciado": "Em uma execução de alimentos, após diversas tentativas frustradas de penhora de bens do devedor, o exequente requer ao juiz a apreensão de seu passaporte e de sua Carteira Nacional de Habilitação (CNH) como medida coercitiva atípica (Art. 139, IV, CPC). Ao decidir, o juiz deve ponderar, com base no Art. 8º do CPC:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "Primariamente a eficiência da execução, deferindo a medida sem maiores formalidades, pois o crédito alimentar se sobrepõe a qualquer outro direito.",
+        "correta": false,
+        "comentario": "Incorreto. A eficiência deve ser ponderada com outros princípios. A aplicação de medidas atípicas não é automática e exige uma análise cuidadosa, não podendo violar direitos fundamentais de forma desproporcional."
+      },
+      {
+        "id": "b",
+        "texto": "Exclusivamente a dignidade da pessoa humana do devedor, indeferindo a medida por considerá-la uma restrição à liberdade de locomoção, direito fundamental absoluto.",
+        "correta": false,
+        "comentario": "Incorreto. A dignidade humana também ampara o credor dos alimentos (muitas vezes, uma criança ou adolescente). Além disso, o direito de locomoção não é absoluto e pode ser ponderado com outros valores constitucionais."
+      },
+      {
+        "id": "c",
+        "texto": "A legalidade estrita, indeferindo a medida por não haver previsão legal expressa para a apreensão de passaporte ou CNH como meio coercitivo na execução.",
+        "correta": false,
+        "comentario": "Incorreto. O Art. 139, IV, do CPC, prevê uma cláusula geral de medidas executivas atípicas, que autoriza o juiz a determinar medidas não previstas em lei, desde que adequadas e proporcionais."
+      },
+      {
+        "id": "d",
+        "texto": "A proporcionalidade e a razoabilidade, avaliando se a medida é adequada para coagir o devedor ao pagamento, se é necessária (diante do esgotamento de outros meios) e se é proporcional em sentido estrito, balanceando o sacrifício ao direito do devedor com a satisfação do crédito alimentar, que também visa proteger a dignidade humana do credor.",
+        "correta": true,
+        "comentario": "Correto. Esta é a análise exigida pelo Art. 8º e pela jurisprudência do STJ sobre o tema. O juiz deve aplicar o teste da proporcionalidade, ponderando todos os valores em conflito (eficiência, dignidade do devedor, dignidade do credor, legalidade, razoabilidade) para decidir sobre a aplicação da medida atípica."
+      },
+      {
+        "id": "e",
+        "texto": "A publicidade, determinando a intimação do devedor para se manifestar sobre o pedido, mas decidindo, ao final, com base em seu livre convencimento, sem necessidade de aplicar critérios de proporcionalidade.",
+        "correta": false,
+        "comentario": "Incorreto. O contraditório é necessário, mas a decisão final não é de livre convencimento imotivado. Ela deve ser fundamentada justamente nos critérios de proporcionalidade e razoabilidade exigidos pelo Art. 8º."
+      }
+    ]
+  },
+  {
+    "id": "normas-fundamentais-q20",
+    "tema": "Flexibilização da Ordem Cronológica e Requerimentos das Partes",
+    "enunciado": "Um processo está incluído na lista pública de aptos para julgamento. O réu, então, peticiona juntando um documento novo, sobre o qual o autor é intimado a se manifestar. Após a manifestação do autor, o juiz decide sobre a admissibilidade do documento e mantém o processo concluso. De acordo com o Art. 12, §§ 4º e 5º, do CPC, a posição do processo na lista de julgamento:",
+    "alternativas": [
+      {
+        "id": "a",
+        "texto": "É alterada, devendo o processo ir para o final da fila, pois o novo peticionamento quebrou a ordem cronológica.",
+        "correta": false,
+        "comentario": "Incorreto. O § 4º é claro ao dizer que o requerimento, por si só, não altera a ordem cronológica para a decisão."
+      },
+      {
+        "id": "b",
+        "texto": "Não se altera, pois o requerimento não implicou a reabertura da instrução processual nem a conversão do julgamento em diligência, retornando o processo à sua posição original na lista após a decisão do juiz sobre o documento.",
+        "correta": true,
+        "comentario": "Correto. A situação se enquadra perfeitamente na regra dos §§ 4º e 5º do Art. 12. O incidente (juntada de documento e manifestação) foi resolvido, e como não houve reabertura da instrução, o processo retoma sua posição original na fila cronológica."
+      },
+      {
+        "id": "c",
+        "texto": "É suspensa indefinidamente até que todos os processos que estavam atrás dele na lista sejam julgados, para só então ele receber uma nova posição.",
+        "correta": false,
+        "comentario": "Incorreto. A lei prevê o retorno à mesma posição, não uma suspensão ou realocação para o final da fila."
+      },
+      {
+        "id": "d",
+        "texto": "Passa a ter preferência absoluta sobre os demais, indo para o primeiro lugar da lista, pois a resolução do incidente demonstra que o processo está pronto para um julgamento imediato.",
+        "correta": false,
+        "comentario": "Incorreto. A lei não prevê essa hipótese de preferência. As hipóteses de 'primeiro lugar na lista' estão no § 6º e não incluem a situação descrita."
+      },
+      {
+        "id": "e",
+        "texto": "Dependerá de decisão discricionária do juiz, que poderá, com base no princípio da eficiência, manter a posição ou realocá-lo na fila conforme a complexidade do documento apresentado.",
+        "correta": false,
+        "comentario": "Incorreto. A matéria é regrada pelos §§ 4º e 5º do Art. 12, não havendo margem para a discricionariedade do juiz nesse ponto. A regra é o retorno à posição original."
+      }
+    ]
+  }
+]
