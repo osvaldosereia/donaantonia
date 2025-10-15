@@ -1068,7 +1068,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
     files: [],           // ['trabalho.json', ...]
     bank: new Map(),     // Map<questaoId, questao>
     list: [],            // questões
-    session: null,       // { quizId, order[], i, answers, marks, startedAt, finishedAt?, mode, seed }
+    session: null,       // { quizId, order[], i, answers, marks, startedAt, finishedAt?, mode, seed, altOrder:{[qid]:string[]}, times:{[qid]:ms}, _enterTs }
     _timer: null
   };
   const LS_KEY = 'meujus:quiz:v1';
@@ -1157,7 +1157,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
   function allTags(list){ const s=new Set(); for(const q of list) (q.tags||[]).forEach(t=>s.add(t)); return Array.from(s).sort((a,b)=>a.localeCompare(b)); }
   function keep(arr, pred){ const out=[]; for(const x of arr) if(pred(x)) out.push(x); return out; }
 
-  // Lista (com modo, tag e busca)
+  // Lista (com modo, tag e busca em tema+conteúdo)
   async function viewList(){
     const el = $(CONTENT_SEL); if (!el) return;
     if (!QUIZ.list.length) await loadBank();
@@ -1165,9 +1165,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
     const r = parseHash() || { mode:'estudo', tag:null };
     const qInputId = 'quiz-search';
 
-    const base = r.tag ? keep(QUIZ.list, q => (q.tags||[]).includes(r.tag)) : QUIZ.list.slice();
-    const byTema = new Map();
-    for (const q of base){ const k=q.tema||'Outros'; if(!byTema.has(k)) byTema.set(k,[]); byTema.get(k).push(q); }
+    let base = r.tag ? keep(QUIZ.list, q => (q.tags||[]).includes(r.tag)) : QUIZ.list.slice();
 
     const tags = allTags(QUIZ.list);
     const tagChips = ['<a class="chip '+(r.tag? '' : 'is-selected')+'" href="#/quiz?mode='+r.mode+'">Todas</a>']
@@ -1191,7 +1189,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
         <div class="row gap mt12" aria-label="Filtro por tag">${tagChips}</div>
 
         <div class="mt12">
-          <input id="${qInputId}" class="search" type="search" placeholder="Buscar tema..." autocomplete="off" />
+          <input id="${qInputId}" class="search" type="search" placeholder="Buscar tema, enunciado ou alternativa..." autocomplete="off" />
         </div>
 
         <div class="vspace mt12" id="quiz-list">
@@ -1201,8 +1199,20 @@ CACHED_FILES.set(path, parsed.map(t=>({
       const tgt = el.querySelector('#quiz-list');
       let out = '';
       const needle = filterText.trim().toLowerCase();
+
+      // filtra por conteúdo
+      const filtered = needle ? base.filter(q=>{
+        const tema = (q.tema||'').toLowerCase();
+        const enun = (q.enunciado||'').toLowerCase();
+        const alts = (q.alternativas||[]).some(a => (a?.texto||'').toLowerCase().includes(needle));
+        return tema.includes(needle) || enun.includes(needle) || alts;
+      }) : base;
+
+      // agrupa por tema
+      const byTema = new Map();
+      for (const q of filtered){ const k=q.tema||'Outros'; if(!byTema.has(k)) byTema.set(k,[]); byTema.get(k).push(q); }
+
       for (const [tema, arr] of byTema.entries()){
-        if (needle && !tema.toLowerCase().includes(needle)) continue;
         const slug = slugify(tema);
         const count = arr.length;
         out += `
@@ -1225,7 +1235,11 @@ CACHED_FILES.set(path, parsed.map(t=>({
     render(el, html);
 
     const input = el.querySelector('#'+qInputId);
-    input?.addEventListener('input', ()=>renderList(input.value));
+    let t=null;
+    input?.addEventListener('input', ()=>{
+      clearTimeout(t);
+      t=setTimeout(()=>renderList(input.value), 200); // debounce
+    });
     renderList('');
   }
 
@@ -1235,31 +1249,52 @@ CACHED_FILES.set(path, parsed.map(t=>({
     if (!pick.length) return null;
     const seed  = Number(new Date().toISOString().slice(0,10).replace(/-/g,'')); // AAAAMMDD
     const order = shuffle(pick.map(q => q.id), seed);
-    return { quizId:`tema:${slug}`, order, i:0, answers:{}, marks:{}, startedAt:Date.now(), mode, seed };
+    return { quizId:`tema:${slug}`, order, i:0, answers:{}, marks:{}, startedAt:Date.now(), mode, seed, altOrder:{}, times:{}, _enterTs: Date.now() };
   }
   function buildSessionFromIds(ids, label='revisao-erros', seed = Date.now()){
     const valid = ids.filter(id => QUIZ.bank.has(id));
     if (!valid.length) return null;
     const order = shuffle(valid, seed);
-    return { quizId:`review:${label}`, order, i:0, answers:{}, marks:{}, startedAt:Date.now(), mode:'estudo', seed };
+    return { quizId:`review:${label}`, order, i:0, answers:{}, marks:{}, startedAt:Date.now(), mode:'estudo', seed, altOrder:{}, times:{}, _enterTs: Date.now() };
   }
   function currentQuestion(){ if (!QUIZ.session) return null; const qid = QUIZ.session.order[QUIZ.session.i]; return QUIZ.bank.get(qid) || null; }
   function setAnswer(qid, altId){ if (!QUIZ.session) return; QUIZ.session.answers[qid] = altId; saveLS(); }
-  function nextQuestion(){ if (!QUIZ.session) return false; if (QUIZ.session.i < QUIZ.session.order.length-1){ QUIZ.session.i++; saveLS(); return true; } return false; }
-  function prevQuestion(){ if (!QUIZ.session) return false; if (QUIZ.session.i > 0){ QUIZ.session.i--; saveLS(); return true; } return false; }
+  function nextQuestion(){ if (!QUIZ.session) return false; trackTime(); if (QUIZ.session.i < QUIZ.session.order.length-1){ QUIZ.session.i++; QUIZ.session._enterTs = Date.now(); saveLS(); return true; } return false; }
+  function prevQuestion(){ if (!QUIZ.session) return false; trackTime(); if (QUIZ.session.i > 0){ QUIZ.session.i--; QUIZ.session._enterTs = Date.now(); saveLS(); return true; } return false; }
   function computeFeedback(q, chosenId){ const alt=q.alternativas.find(a=>a.id===chosenId); return { ok:!!alt?.correta, comment: alt?.comentario||'' }; }
+
+  // tempo por questão
+  function trackTime(){
+    if (!QUIZ.session) return;
+    const qid = QUIZ.session.order[QUIZ.session.i];
+    const enter = QUIZ.session._enterTs || Date.now();
+    const spent = Math.max(0, Date.now() - enter);
+    QUIZ.session.times[qid] = (QUIZ.session.times[qid]||0) + spent;
+    QUIZ.session._enterTs = Date.now();
+    saveLS();
+  }
+
   function scoreSession(){
-    if (!QUIZ.session) return { total:0, acertos:0, erros:[], porTag:new Map() };
-    const ids = QUIZ.session.order; let acertos=0; const erros=[]; const porTag=new Map();
+    if (!QUIZ.session) return { total:0, acertos:0, erros:[], porTag:new Map(), porTema:new Map(), tempoMedio:0 };
+    const ids = QUIZ.session.order; let acertos=0; const erros=[]; const porTag=new Map(); const porTema=new Map();
+    let tempoTot=0, tempoN=0;
     for (const qid of ids){
       const q = QUIZ.bank.get(qid); if(!q) continue;
       const chosen = QUIZ.session.answers[qid];
       const ok = !!q.alternativas.find(a=>a.id===chosen && a.correta);
       if (ok) acertos++; else erros.push(qid);
+
+      const tema = q.tema || '(sem-tema)';
+      if (!porTema.has(tema)) porTema.set(tema, { ok:0, tot:0, t:0 });
+      const aggT = porTema.get(tema); aggT.tot += 1; if (ok) aggT.ok += 1; aggT.t += (QUIZ.session.times[qid]||0);
+
       const tags = Array.isArray(q.tags)?q.tags:['(sem-tag)'];
-      for (const t of tags){ if(!porTag.has(t)) porTag.set(t,{ok:0,tot:0}); const agg=porTag.get(t); agg.tot+=1; if(ok) agg.ok+=1; }
+      for (const t of tags){ if(!porTag.has(t)) porTag.set(t,{ok:0,tot:0,t:0}); const agg=porTag.get(t); agg.tot+=1; if(ok) agg.ok+=1; agg.t += (QUIZ.session.times[qid]||0); }
+
+      if (Number.isFinite(QUIZ.session.times[qid])){ tempoTot += QUIZ.session.times[qid]; tempoN += 1; }
     }
-    return { total:ids.length, acertos, erros, porTag };
+    const tempoMedio = tempoN ? Math.round(tempoTot/tempoN) : 0;
+    return { total:ids.length, acertos, erros, porTag, porTema, tempoMedio };
   }
 
   // Marcações e navegação direta
@@ -1279,11 +1314,29 @@ CACHED_FILES.set(path, parsed.map(t=>({
     const max = QUIZ.session.order.length - 1;
     const n = Math.max(0, Math.min(idx, max));
     if (QUIZ.session.i !== n){
+      trackTime();
       QUIZ.session.i = n;
+      QUIZ.session._enterTs = Date.now();
       saveLS();
       syncHashWithIndex?.();
       renderRun();
     }
+  }
+
+  // Embaralhar alternativas por questão e preservar
+  function getAltOrder(q){
+    if (!QUIZ.session) return q.alternativas.map(a=>a.id);
+    const qid = q.id;
+    let ord = QUIZ.session.altOrder?.[qid];
+    if (!ord){
+      const ids = q.alternativas.map(a=>a.id);
+      const seed = xmur3(String(QUIZ.session.seed ^ qid.length ^ qid.charCodeAt(0)))();
+      ord = shuffle(ids, seed);
+      QUIZ.session.altOrder ||= {};
+      QUIZ.session.altOrder[qid] = ord;
+      saveLS();
+    }
+    return ord;
   }
 
   // Execução
@@ -1310,6 +1363,10 @@ CACHED_FILES.set(path, parsed.map(t=>({
     const isSimu = QUIZ.session.mode === 'simulado';
     const feedback = (!isSimu && chosen) ? computeFeedback(q, chosen) : null;
 
+    // ordenar alternativas fixamente por sessão
+    const ord = getAltOrder(q);
+    const altById = new Map(q.alternativas.map(a=>[a.id, a]));
+
     let timerHtml = '';
     if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0){
       timerHtml = `<span class="muted" id="q-timer" aria-live="polite">${q.tempo}s</span>`;
@@ -1332,13 +1389,16 @@ CACHED_FILES.set(path, parsed.map(t=>({
           <div class="enunciado">${htmlEscape(q.enunciado)}</div>
 
           <div class="radiogroup mt12" role="radiogroup" aria-label="Alternativas">
-            ${q.alternativas.map(a=>{
-              const isSel = chosen === a.id;
+            ${ord.map(id=>{
+              const a = altById.get(id);
+              const isSel = chosen === id;
               const cls = ['chip', isSel?'is-selected':''].join(' ');
               const aria = `role="radio" aria-checked="${isSel ? 'true' : 'false'}"`;
               return `<button class="${cls}" ${aria} data-alt="${a.id}">${htmlEscape(a.texto)}</button>`;
             }).join('')}
           </div>
+
+          <div class="sr-only" aria-live="polite" id="sr-live"></div>
 
           ${feedback ? `
             <div class="feedback ${feedback.ok ? 'ok' : 'err'}">
@@ -1369,6 +1429,8 @@ CACHED_FILES.set(path, parsed.map(t=>({
       </section>
     `);
 
+    const live = $('#sr-live', el);
+
     // Hotkeys
     const scope = el.querySelector('.quiz-card');
     const chips = Array.from(scope.querySelectorAll('.radiogroup .chip'));
@@ -1378,9 +1440,22 @@ CACHED_FILES.set(path, parsed.map(t=>({
     function chooseFocused(){
       const cur=+(scope.dataset.pos||0); const btn=chips[cur]; if(!btn) return;
       const altId=btn.getAttribute('data-alt'); setAnswer(q.id, altId);
-      if (!isSimu){ renderRun(); } else { chips.forEach(b=>b.classList.remove('is-selected')); btn.classList.add('is-selected'); }
+      if (!isSimu){
+        const fb = computeFeedback(q, altId);
+        live.textContent = fb.ok ? 'Resposta correta' : 'Resposta incorreta';
+        renderRun();
+      } else {
+        chips.forEach(b=>b.classList.remove('is-selected')); btn.classList.add('is-selected');
+        live.textContent = 'Resposta selecionada';
+      }
     }
     scope.addEventListener('keydown',(e)=>{
+      // atalhos 1–9
+      if (/^[1-9]$/.test(e.key)){
+        const idx = Math.min(parseInt(e.key,10)-1, chips.length-1);
+        const btn = chips[idx]; if (btn){ e.preventDefault(); btn.click(); }
+        return;
+      }
       switch(e.key){
         case 'ArrowDown': e.preventDefault(); nextPos(+1); break;
         case 'ArrowUp':   e.preventDefault(); nextPos(-1); break;
@@ -1398,7 +1473,15 @@ CACHED_FILES.set(path, parsed.map(t=>({
       btn.addEventListener('click', ()=>{
         const altId = btn.getAttribute('data-alt');
         setAnswer(q.id, altId);
-        if (!isSimu){ renderRun(); } else { $$('.radiogroup .chip', el).forEach(b=>b.classList.remove('is-selected')); btn.classList.add('is-selected'); }
+        if (!isSimu){
+          const fb = computeFeedback(q, altId);
+          live.textContent = fb.ok ? 'Resposta correta' : 'Resposta incorreta';
+          renderRun();
+        } else {
+          $$('.radiogroup .chip', el).forEach(b=>b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          live.textContent = 'Resposta selecionada';
+        }
       });
     });
     $('[data-next]', el)?.addEventListener('click', ()=>{
@@ -1408,8 +1491,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
       if (prevQuestion()) { syncHashWithIndex(); renderRun(); }
     });
     $('[data-mark]', el)?.addEventListener('click', ()=>{
-      toggleMarkCurrent();
-      renderRun();
+      toggleMarkCurrent(); renderRun();
     });
     $('#qmap', el)?.addEventListener('click', (e)=>{
       const btn = e.target.closest('[data-goto]');
@@ -1428,7 +1510,12 @@ CACHED_FILES.set(path, parsed.map(t=>({
         toast('Sessão reiniciada.', 'info');
       }
     });
-    $('[data-finish]', el)?.addEventListener('click', ()=>{ QUIZ.session.finishedAt = Date.now(); saveLS(); renderSummary(); });
+    $('[data-finish]', el)?.addEventListener('click', ()=>{
+      trackTime();
+      QUIZ.session.finishedAt = Date.now();
+      saveLS();
+      renderSummary();
+    });
 
     // Timer simulado
     if (isSimu && Number.isFinite(q.tempo) && q.tempo > 0){
@@ -1437,7 +1524,7 @@ CACHED_FILES.set(path, parsed.map(t=>({
         remain -= 1; if (node) node.textContent = `${remain}s`;
         if (remain <= 0){
           clearInterval(QUIZ._timer); QUIZ._timer=null;
-          if (!nextQuestion()){ QUIZ.session.finishedAt=Date.now(); saveLS(); renderSummary(); }
+          if (!nextQuestion()){ trackTime(); QUIZ.session.finishedAt=Date.now(); saveLS(); renderSummary(); }
           else { syncHashWithIndex(); renderRun(); }
         }
       }, 1000);
@@ -1447,28 +1534,72 @@ CACHED_FILES.set(path, parsed.map(t=>({
     syncHashWithIndex();
   }
 
+  // Exportação CSV
+  function exportCSV(){
+    if (!QUIZ.session) return;
+    const headers = ['qid','tema','tags','enunciado','alternativa_escolhida','correta','tempo_ms'];
+    const rows = [headers.join(',')];
+    for (const qid of QUIZ.session.order){
+      const q = QUIZ.bank.get(qid); if (!q) continue;
+      const chosen = QUIZ.session.answers[qid] || '';
+      const ok = !!q.alternativas.find(a=>a.id===chosen && a.correta);
+      const tempo = QUIZ.session.times[qid] || 0;
+      const line = [
+        csv(qid),
+        csv(q.tema||''),
+        csv((q.tags||[]).join('|')),
+        csv(q.enunciado||''),
+        csv(chosen),
+        csv(ok?'1':'0'),
+        String(tempo)
+      ].join(',');
+      rows.push(line);
+    }
+    const blob = new Blob([rows.join('\n')], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'resultado_quiz.csv';
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url), 1000);
+
+    function csv(v){ return `"${String(v).replace(/"/g,'""')}"`; }
+  }
+
   // Gabarito / Resumo
   function renderSummary(){
     const el = $(CONTENT_SEL); if (!el || !QUIZ.session) return;
-    const { total, acertos, erros, porTag } = scoreSession();
+    const { total, acertos, erros, porTag, porTema, tempoMedio } = scoreSession();
     const pct = total ? Math.round((acertos/total)*100) : 0;
 
-    let lines=''; porTag.forEach((v, tag)=>{ const p=v.tot?Math.round((v.ok/v.tot)*100):0;
-      lines += `<div class="row jc between"><span>${htmlEscape(tag)}</span><span class="muted">${v.ok}/${v.tot} (${p}%)</span></div>`;
+    let linesTag=''; porTag.forEach((v, tag)=>{ const p=v.tot?Math.round((v.ok/v.tot)*100):0;
+      const tm = v.tot ? Math.round(v.t / v.tot) : 0;
+      linesTag += `<div class="row jc between"><span>${htmlEscape(tag)}</span><span class="muted">${v.ok}/${v.tot} (${p}%) • ${tm} ms/questão</span></div>`;
     });
-    const wrongList = erros.map(id=>{ const q=QUIZ.bank.get(id); return q ? `<li><strong>${htmlEscape(q.tema||'')}</strong> — ${htmlEscape(q.enunciado)}</li>` : ''; }).join('');
+
+    let linesTema=''; porTema.forEach((v, tema)=>{ const p=v.tot?Math.round((v.ok/v.tot)*100):0;
+      const tm = v.tot ? Math.round(v.t / v.tot) : 0;
+      linesTema += `<div class="row jc between"><span>${htmlEscape(tema)}</span><span class="muted">${v.ok}/${v.tot} (${p}%) • ${tm} ms/questão</span></div>`;
+    });
+
+    const wrongList = erros.map((id, idx)=>{
+      const q=QUIZ.bank.get(id);
+      return q ? `<li><strong>${htmlEscape(q.tema||'')}</strong> — ${htmlEscape(q.enunciado)} <a href="#/quiz/${slugify(q.tema||'Outros')}?mode=${QUIZ.session.mode||'estudo'}&q=${idx}">abrir</a></li>` : '';
+    }).join('');
 
     render(el, `
       <section class="card ubox" tabindex="-1" data-focus>
         <header class="card-head">
           <h2 class="h2">Gabarito • Resultado</h2>
-          <p class="muted">${acertos}/${total} acertos • ${pct}% • Modo: ${htmlEscape(QUIZ.session?.mode || 'estudo')}</p>
+          <p class="muted">${acertos}/${total} acertos • ${pct}% • Tempo médio: ${tempoMedio} ms</p>
         </header>
 
         <div class="vspace">
           <div class="ubox">
-            <strong>Desempenho por tag</strong>
-            <div class="mt8 vspace-sm">${lines || '<span class="muted">Sem tags.</span>'}</div>
+            <strong>Por tema</strong>
+            <div class="mt8 vspace-sm">${linesTema || '<span class="muted">Sem temas.</span>'}</div>
+          </div>
+
+          <div class="ubox">
+            <strong>Por tag</strong>
+            <div class="mt8 vspace-sm">${linesTag || '<span class="muted">Sem tags.</span>'}</div>
           </div>
 
           <div class="ubox">
@@ -1480,10 +1611,15 @@ CACHED_FILES.set(path, parsed.map(t=>({
             <a class="btn" href="#/quiz">Voltar à lista</a>
             <button class="btn" data-review ${erros.length ? '' : 'disabled'}>Revisar erros</button>
             <button class="btn outline" data-restart>Refazer</button>
+            <button class="btn" data-export>Exportar CSV</button>
+            <button class="btn ghost" data-print>Imprimir</button>
           </div>
         </div>
       </section>
     `);
+
+    $('[data-export]', el)?.addEventListener('click', exportCSV);
+    $('[data-print]', el)?.addEventListener('click', ()=>{ window.print(); });
 
     $('[data-review]', el)?.addEventListener('click', ()=>{
       const sess = buildSessionFromIds(erros, 'erros', QUIZ.session.seed || Date.now());
@@ -1523,11 +1659,19 @@ CACHED_FILES.set(path, parsed.map(t=>({
       (QUIZ.session.quizId !== expectedId && !QUIZ.session.quizId?.startsWith('review:')) ||
       (QUIZ.session.mode !== r.mode);
 
-    if (needNew){ QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode); saveLS(); }
+    if (needNew){
+      QUIZ.session = buildSessionFromTemaSlug(r.slug, r.mode);
+      saveLS();
+    }
 
     if (r.q != null && QUIZ.session?.order?.length){
-      QUIZ.session.i = Math.min(r.q, QUIZ.session.order.length - 1);
-      saveLS();
+      const n = Math.min(r.q, QUIZ.session.order.length - 1);
+      if (QUIZ.session.i !== n){
+        trackTime();
+        QUIZ.session.i = n;
+        QUIZ.session._enterTs = Date.now();
+        saveLS();
+      }
     }
 
     if (QUIZ.session?.finishedAt && QUIZ.session.quizId === expectedId) renderSummary();
